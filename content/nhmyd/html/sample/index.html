@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>샘플 레이아웃 목록</title>
+<style>
+  body { font-family: "Malgun Gothic", Arial, sans-serif; margin:0; background:#f5f7f6; color:#222; }
+  header { background:#2e7d32; color:#fff; padding:18px 24px; }
+  header h1 { margin:0 0 4px; font-size:18px; }
+  header p { margin:0; font-size:12px; opacity:.9; }
+  main { padding:20px 24px 50px; }
+  h2 { font-size:15px; color:#2e7d32; border-bottom:2px solid #2e7d32; padding-bottom:6px; }
+  ul { list-style:none; padding:0; margin:0 0 30px; display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:10px; }
+  li { background:#fff; border:1px solid #e0e0e0; border-radius:8px; padding:12px 14px; }
+  li a { color:#1565c0; text-decoration:none; font-size:13.5px; }
+  li a:hover { text-decoration:underline; }
+  li p { margin:6px 0 0; font-size:12px; color:#666; }
+  .note { font-size:12px; color:#888; margin-bottom:20px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>화면 샘플 레이아웃 (35화면 개발용)</h1>
+  <p>바닥화면 6종 + 팝업화면 5종 · 로컬 QA 시 popup 샘플은 claude/of-mock.local.js 필요</p>
+</header>
+<main>
+  <p class="note">[SAMPLE] 표시된 텍스트/수치는 전부 더미입니다. header/container/버튼(btnWrap page + btn em)/popWrap·popCont/defTit/ac/fsNN·mtNN 유틸리티는 기존 소스(FMCD1100, FMFC1000/1100P/1200P, mydata_recom.html)에서 실제 확인된 클래스입니다. 단, 리스트 세부 항목(commuList 등)의 시각 스타일은 화면 확정 후 퍼블 담당과 함께 다듬어야 합니다.</p>
+  <h2>바닥화면(Full Page) 6종</h2>
+  <ul><li><a href="full_01_dashboard.html" target="_blank"><strong>01. 대시보드/요약형</strong></a><p>총액 요약 + 인사이트 카드 + 리스트</p></li>
+<li><a href="full_02_tablist.html" target="_blank"><strong>02. 탭 목록형</strong></a><p>탭 전환 + 탭별 리스트</p></li>
+<li><a href="full_03_form_select.html" target="_blank"><strong>03. 폼 선택형</strong></a><p>옵션 리스트 선택 후 다음 단계</p></li>
+<li><a href="full_04_intro.html" target="_blank"><strong>04. 온보딩/인트로형</strong></a><p>타이틀 카피 + CTA 버튼</p></li>
+<li><a href="full_05_result.html" target="_blank"><strong>05. 결과 안내형</strong></a><p>성공/실패 아이콘 + 메시지</p></li>
+<li><a href="full_06_report.html" target="_blank"><strong>06. 리포트/차트형</strong></a><p>그래프 영역 + 상세 리스트</p></li></ul>
+  <h2>팝업화면(Bottom Sheet / Layer) 5종</h2>
+  <ul><li><a href="popup_01_confirm.html" target="_blank"><strong>01. 바텀시트 확인형</strong></a><p>메시지 + 단일 CTA</p></li>
+<li><a href="popup_02_select.html" target="_blank"><strong>02. 바텀시트 선택형</strong></a><p>옵션 리스트 선택</p></li>
+<li><a href="popup_03_consent.html" target="_blank"><strong>03. 바텀시트 동의형</strong></a><p>동의/거부 버튼 2개</p></li>
+<li><a href="popup_04_complete.html" target="_blank"><strong>04. 바텀시트 완료형</strong></a><p>체크 아이콘 + 완료 메시지</p></li>
+<li><a href="popup_05_coachmark.html" target="_blank"><strong>05. 풀레이어 코치마크형</strong></a><p>화면 전체 덮는 안내 오버레이</p></li></ul>
+  <h2>레거시 실제 화면 (nhmyd 폴더)</h2>
+  <ul><li><a href="../mydata_recom.html" target="_blank"><strong>mydata_recom.html</strong></a><p>QR 이벤트/프로모션 안내 화면 (실서비스 소스)</p></li></ul>
+  <p class="note">※ content/nhmyd/html/co/FMCO1510_1.html은 개인(신용)정보 수집·이용 동의서(동의서 본문) 조각이라 약관류로 분류해 제외했습니다. content/nhmyd/terms/ 하위 파일들도 동일한 이유로 제외했습니다.</p>
+</main>
+</body>
+</html>

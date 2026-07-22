@@ -1,0 +1,491 @@
+@charset "utf-8";
+/* [SEPTEM] UI Dev Team : 올원 스타일 재정의 : 20241120 */
+/* 변수 정의 */
+.nhd_allone {
+	/* 여백 */
+	--container-space:16px;
+	--container-space-1:calc(var(--container-space) * -1);
+
+	/* 백그라운드 컬러 */
+	/* [MD2502_023] 서비스 점검페이지 일원화 */
+	--background:#f2f4f8;
+
+	/* 포인트 컬러 */
+	--point1:#19973c; /* [MD2501_002] */
+
+	/* 비활성화 */
+	--color-disabled:#bfbfbf;
+	--color-disabled2:#909090;
+	--border-disabled:#ebebeb;
+	--bg-disabled:#e6e6e6;
+
+	/* 박스라인 */
+	--border-color:#d3d3d3;
+
+	/* 필터 */
+	--filter:invert(44%) sepia(98%) saturate(384%) hue-rotate(93deg) brightness(78%) contrast(84%);
+
+	/* 아이콘 */
+	--path-back:63.54% 8.33%, 69.79% 8.33%, 69.79% 12.50%, 32.29% 47.92%, 32.29% 52.08%, 69.79% 87.50%, 69.79% 91.67%, 63.54% 91.67%, 21.88% 52.08%, 21.88% 47.92%, 63.54% 8.33%;
+	--path-check:22.92% 43.75%, 29.17% 43.75%, 43.75% 58.33%, 45.83% 58.33%, 70.83% 31.25%, 77.08% 31.25%, 77.08% 37.50%, 47.92% 68.75%, 41.67% 68.75%, 22.92% 50.00%, 22.92% 43.75%;
+	--path-close:12.50% 18.75%, 12.50% 14.58%, 16.67% 14.58%, 50.00% 47.92%, 83.33% 14.58%, 87.50% 14.58%, 87.50% 18.75%, 54.17% 52.08%, 87.50% 85.42%, 87.50% 89.58%, 83.33% 89.58%, 50.00% 56.25%, 16.67% 89.58%, 12.50% 89.58%, 12.50% 85.42%, 45.83% 52.08%, 12.50% 18.75%;
+	--path-plus:43.59% 17.95%, 58.97% 17.95%, 58.97% 43.59%, 84.62% 43.59%, 84.62% 56.41%, 58.97% 56.41%, 58.97% 82.05%, 43.59% 82.05%, 43.59% 56.41%, 17.95% 56.41%, 17.95% 43.59%, 43.59% 43.59%, 43.59% 17.95%;
+	--path-top:48.61% 33.33%, 51.39% 33.33%, 66.67% 47.22%, 63.89% 50.00%, 51.39% 38.89%, 51.39% 66.67%, 48.61% 66.67%, 48.61% 38.89%, 36.11% 50.00%, 33.33% 47.22%, 48.61% 33.33% ;
+	--path-arr:6.67% 8.33%, 93.33% 8.33%, 53.33% 91.67%, 46.67% 91.67%, 6.67% 8.33%;
+}
+
+/* ************************************
+ * [LAYOUT] 바닥페이지
+ * ************************************/
+/* BODY 색상 변경 */
+body.nhd_allone {background-color:var(--background);height:auto;} 
+
+/* 색상 */
+.nhd_allone .nhasset .green {color:var(--point1) !important;border-color:var(--point1) !important;}
+.nhd_allone .nhasset .pointColor {color:var(--point1) !important;}
+
+/* HEADER */
+.nhd_allone .nhasset .header .btnNav {display:none}
+.nhd_allone .nhasset .header .btnBack {left:-2px;width:50px;height:50px}
+.nhd_allone .nhasset .header .btnBack:before {position:absolute;top:50%;left:50%;margin:-12px;width:24px;height:24px;background:#111;-webkit-clip-path:polygon(var(--path-back));clip-path:polygon(var(--path-back))}
+/* [MD2502_024] 공통 헤더영역 변경 */
+.nhd_allone .nhasset .header .btnAlram {position:absolute;top:0;right:45px;width:35px;}
+.nhd_allone .nhasset .header .btnAlram:before {content:'';position:absolute;left:50%;top:50%;margin:-10px;width:20px;height:20px;background: url('../images/common/ico_allone_alram.png') no-repeat center;background-size:20px 20px;}
+.nhd_allone .nhasset .header .btnGoHome {right:9px;width:35px;}
+.nhd_allone .nhasset .header .btnGoHome:before {position:absolute;top:50%;left:50%;margin:-12px;width:24px;height:24px;background:url('../images/common/icon_allone_home.png')no-repeat center;background-size:24px auto;}
+/* [MD2502_024] 공통 헤더영역 변경 알람 추가 홈버튼 삭제 */
+.nhd_allone.nhassetMain .nhasset .header .btnAlram {right:9px;}
+.nhd_allone.nhassetMain .nhasset .header .btnGoHome {display:none;}
+/* [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 올원 */
+/* 공통 헤더영역 */
+.nhd_allone .nhasset .header .btnBack {left:11px;}
+.nhd_allone .nhasset .header .btnBack::before{position:absolute;top:50%;left:50%;margin:-12px;width:24px;height:24px;background:url('../images/makebetter/icon/ico_previous_24.svg') no-repeat center;-webkit-clip-path:unset;clip-path:unset}
+.nhd_allone .nhasset .header .btnAlram{right:54px;width:36px}
+.nhd_allone .nhasset .header .btnAlram::before{content:'';position:absolute;left:50%;top:50%;margin:-12px;width:24px;height:24px;background:url('../images/makebetter/icon/ico_alram_24.svg') no-repeat center;background-size:24px auto}
+.nhd_allone .nhasset .header .btnAlram.active::before{background-image:url('../images/makebetter/icon/ico_alram_active_24.svg')}
+.nhd_allone .nhasset .header .btnGoHome,
+.nhd_allone .nhasset .header .btnAll,
+.nhd_allone .nhasset .header .btnPlus,
+.nhd_allone .nhasset .header .btnCloseMenu{position:absolute;top:0;right:18px;width:36px}
+.nhd_allone .nhasset .header .btnGoHome::before,
+.nhd_allone .nhasset .header .btnAll::before,
+.nhd_allone .nhasset .header .btnPlus::before,
+.nhd_allone .nhasset .header .btnCloseMenu::before{position:absolute;top:50%;left:50%;margin:-12px;width:24px;height:24px;background:url('../images/makebetter/icon/ico_home_24.svg') no-repeat center;background-size:24px auto}
+.nhd_allone .nhasset .header .btnAll::before{content:'';display:block;background-image:url('../images/makebetter/icon/ico_allmenu_24.svg')}
+.nhd_allone .nhasset .header .btnPlus::before{content:'';display:block;background-image:url('../images/makebetter/icon/ico_calrendar_plus_24.svg')}
+.nhd_allone .nhasset .header .btnCloseMenu::before{content:'';display:block;background-image:url('../images/makebetter/icon/ico_close16_24.svg')}
+.nhd_allone .nhasset .header .btnAcAdmin,
+.nhd_allone .nhasset .header .btnCancle,
+.nhd_allone .nhasset .header .btnHidden{display:inline-flex;position:absolute;top:0;align-items:center;color:var(--color2);background:none;width:auto;right:24px}
+.nhd_allone .nhasset .header .btnCancle::after{content:'취소'}
+.nhd_allone .nhasset .header .btnHidden::after{content:'숨기기'}
+.nhd_allone .nhasset .header .btnCancle .blind,
+.nhd_allone .nhasset .header .btnHidden .blind{display:none}
+/* 통합메인 가입 후*/
+.nhd_allone .nhasset .header.newMain h1{padding:0 164px 0 24px;text-align:left}/* 128px */
+.nhd_allone .nhasset .header.newMain .btnGoHome{right:54px}
+.nhd_allone .nhasset .header.newMain .btnAlram{right:90px}
+.nhd_allone .nhasset .header.newMain .btnCalendar{position:absolute;top:0;right:126px;width:36px}
+.nhd_allone .nhasset .header.newMain .btnCalendar::before{content:'';position:absolute;left:50%;top:50%;margin:-12px;width:24px;height:24px;background:url('../images/makebetter/icon/ico_calendar_24.svg') no-repeat center;background-size:24px auto}
+.nhd_allone .nhasset .header.newMain h1{padding:0 128px 0 24px;text-align:left}
+.nhd_allone .nhasset .header.newMain h1 img{vertical-align:middle}
+.nhd_allone .nhasset .header.newMain .btnGoHome{display:none}
+.nhd_allone .nhasset .header.newMain .btnAlram{right:54px}
+.nhd_allone .nhasset .header.newMain .btnCalendar{right:90px}
+
+/* GNB */
+.nhd_allone .nhasset .gnb a.active {color:var(--point1);}
+.nhd_allone .nhasset .gnb a.active:after {background-color:var(--point1)}
+.nhd_allone .nhasset .gnb .menuStar a.active .menuStarInner {filter:var(--filter);}
+
+/* CONTAINER */
+.nhd_allone .nhasset .container {padding-bottom:115px}
+
+/* TOP BTN */
+.nhd_allone .nhasset .goTopBtn, 
+.nhd_allone .nhasset .goTopBtn2 {right:26px;bottom:68px;width:36px;height:36px;border-radius:50%;background:var(--point1);box-shadow:2px 0 10px 0 rgba(0,0,0,0.1);}
+.nhd_allone .nhasset .goTopBtn:before, 
+.nhd_allone .nhasset .goTopBtn2:before {content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background-color:#fff;-webkit-clip-path:polygon(var(--path-top));clip-path:polygon(var(--path-top));}
+.nhd_allone .nhasset .goTopBtn2 {bottom:100px;}
+.nhd_allone .nhasset .goTopBtn.gray {right:21px;bottom:120px;background-color:#d0d0d0}
+
+/* FOOTER */
+.nhd_allone .nhasset .mainAssetConnBtn {bottom:96px;background-color:var(--point1);}
+
+/* 통합 메인 스크롤 */
+[data-scroll].nhd_allone .btnGoHome {display:none;}
+[data-scroll].nhd_allone .nhasset .alloneFooterNew,
+[data-scroll].nhd_allone .nhasset .mainAssetConnBtn {transition:bottom 0.5s;}
+[data-scroll="on"].nhd_allone .nhasset .alloneFooterNew {bottom:-100px;}
+[data-scroll="on"].nhd_allone .nhasset .mainAssetConnBtn {bottom:60px;}
+
+/* ************************************
+ * [LAYOUT] 팝업
+ * ************************************/
+/* 레이아웃 */
+.nhd_allone .nhasset .popBtnWrap .popBtn {position:relative;height:94px;border:solid #fff;border-width:2px 8px 22px;border-spacing:8px;border-collapse:separate;background:#fff;}
+.nhd_allone .nhasset .popBtnWrap .popBtn > a {padding:0 10px;height:54px;border-radius:12px;font-weight:700;white-space:nowrap;line-height:52px;}
+.nhd_allone .nhasset .popBtnWrap .popBtn > a:only-child {width:100%;}
+.nhd_allone .nhasset .popBtnWrap .popBtn > a.confirmBtn {background:var(--point1);border-color:var(--point1);color:#fff;}
+.nhd_allone .nhasset .popInner .popCont.grayPop {background-color:var(--background) !important;}
+
+/* 레이어팝업 : 센터형 */
+.nhd_allone .nhasset.popWrap.centerLayer .popInner {background:#fff;}
+.nhd_allone .nhasset.popWrap.centerLayer .popInner h1 {height:60px;line-height:60px;padding:0 24px;}
+.nhd_allone .nhasset.popWrap.centerLayer .popInner .popCont {overflow:auto;padding:0 24px 24px;}
+.nhd_allone .nhasset.popWrap.centerLayer .popInner .popCont .confirmMsg {padding-left:0;padding-bottom:0;padding-right:0;} /* [MD2408_062] */
+.nhd_allone .nhasset.popWrap.centerLayer .popInner .popCont .confirmMsg.type03 {padding-top:24px;} /* [MD2408_062] */
+.nhd_allone .nhasset.popWrap.centerLayer .popBtnWrap .popBtn {height:68px;border-width:0 18px 14px;border-spacing:6px;}
+.nhd_allone .nhasset.popWrap.centerLayer .popBtnWrap .popBtn > a {width:50%;height:42px;border-radius:9px;background:#fff;border:1px solid var(--border-color);color:var(--color1);line-height:40px;font-size:16px !important;}
+.nhd_allone .nhasset.popWrap.centerLayer .popBtnWrap .popBtn > a.confirmBtn {color:var(--point1);border-color:var(--point1);background-color:#fff;}
+.nhd_allone .nhasset.popWrap.centerLayer .popInnerNotice .popBtnWrap .popBtn {height:100%;border:0;}
+
+/* 레이어팝업 : 슬라이드형 */
+.nhd_allone .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a {font-size:18px !important;}
+.nhd_allone .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a:not(.confirmBtn):not(.btnPressDefault) {background:#fff;border:1px solid var(--border-color);color:var(--color1);}
+.nhd_allone .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a.confirmBtn.disabled {background-color:var(--bg-disabled);border-color:var(--bg-disabled);color:var(--color-disabled2);}
+.nhd_allone .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a:first-child:not(:last-child) {width:calc(100%/3);}
+
+/* 레이어팝업 : 풀팝업 */
+.nhd_allone .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a {font-size:18px !important;}
+.nhd_allone .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a:not(.confirmBtn):not(.btnPressDefault) {border:1px solid var(--border-color);background:#fff;color:var(--color1);font-size:18px !important;}
+.nhd_allone .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a.btnPressDefault {background-color:#666;border-color:#666;color:#fff;}
+.nhd_allone .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a:first-child:not(:last-child) {width:calc(100%/3);}
+.nhd_allone .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a.disabled {background-color:#fff;border-color:var(--border-disabled);color:var(--color-disabled);}
+.nhd_allone .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a.confirmBtn.disabled {background-color:var(--bg-disabled);color:var(--color-disabled2);}
+.nhd_allone .nhasset.popWrap.fullLayerPop .popCont.grayPop,
+.nhd_allone .nhasset.popWrap.fullLayerPop .popCont.fullH {background-color:var(--background) !important;}
+.nhd_allone .nhasset.popWrap.fullLayerPop.grayPop .popBtnWrap .popBtn,
+.nhd_allone .nhasset.popWrap.fullLayerPop .grayPop ~ .popBtnWrap .popBtn,
+.nhd_allone .nhasset.popWrap.fullLayerPop .popCont.fullH ~ .popBtnWrap .popBtn {background:var(--background);border-color:var(--background);}
+.nhd_allone .nhasset.popWrap.fullLayerPop .popcoachArea .popBtnWrap .popBtn {background:none;border:none;}
+
+/* 컨텐츠 : 선택형 */
+.nhd_allone .nhasset .popCont .selectList {padding:0 var(--container-space);}
+.nhd_allone .nhasset .popCont .selectList li.active a, 
+.nhd_allone .nhasset .popCont .selectList li.active span,
+.nhd_allone .nhasset .popCont .selectList li.active > button {color:var(--point1) !important;}
+.nhd_allone .nhasset .popCont .selectList li.active a,
+.nhd_allone .nhasset .popCont .selectList li.active > button,
+.nhd_allone .nhasset.popWrap .popInner .popCont .selectList li.active label {position:relative;background:none;}
+.nhd_allone .nhasset .popCont .selectList li.active a:after,
+.nhd_allone .nhasset .popCont .selectList li.active > button:after,
+.nhd_allone .nhasset.popWrap .popInner .popCont .selectList li.active label:after {content:'';display:block;position:absolute;top:50%;right:-6px;margin-top:-12px;width:24px;height:24px;-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));background:var(--point1);}
+.nhd_allone .nhasset .popCont .selectList.isBorder li.active a:after {right:12px;}
+.nhd_allone .nhasset .popCont .accList.selectList.isBorder {padding:0 var(--container-space);}
+
+/* ************************************
+ * [CONTENT] 텍스트
+ * ************************************/
+.nhd_allone .nhasset .point,
+.nhd_allone .nhasset .txtGreen,
+.nhd_allone .nhasset .formListBox.overseaType .pointColor {color:var(--point1) !important;}
+.nhd_allone .nhasset .tag.green,
+.nhd_allone .nhasset .tag.GreenBgwh,
+.nhd_allone .nhasset .tag.Green,
+.nhd_allone .nhasset .tag.bgSky {color:var(--point1) !important;border-color:var(--point1)  !important;}
+.nhd_allone .nhasset .totalCnt strong {color:var(--point1);}
+.nhd_allone .nhasset .value.up .dataValue, 
+.nhd_allone .nhasset .value.up .won {color:var(--point1);}
+.nhd_allone .nhasset .wrapTag span.type01, 
+.nhd_allone .nhasset .wrapTag em.type01 {border-color:var(--point1);color:var(--point1)}
+.nhd_allone .nhasset .assetLoadingWrap .assetLoadingValue {color:var(--point1)}
+
+/* ************************************
+ * [CONTENT] 버튼
+ * ************************************/
+/* 액션버튼 */
+.nhd_allone .nhasset [class*="btnPress"] {height:54px;line-height:54px;}
+.nhd_allone .nhasset .btnPressPoint,
+.nhd_allone .nhasset .btnBodyGreen {background-color:var(--point1);}
+.nhd_allone .nhasset .btnPressDefault {background-color:#fff;border:1px solid var(--border-color);color:var(--color1);}
+.nhd_allone .nhasset .btnPressPoint.disabled {background-color:var(--bg-disabled);color:var(--color-disabled2);}
+.nhd_allone .nhasset .btnPressDefault.disabled {background-color:#fff;border-color:var(--border-disabled);color:var(--color-disabled);}
+
+/* 컨텐츠버튼 */
+.nhd_allone .nhasset .btnBodyLine.greenBg {background-color:var(--point1);border-color:var(--point1);}
+.nhd_allone .nhasset .contBtn02,
+.nhd_allone .nhasset .retireBtnWrap .btnBodyLine.active {border-color:var(--point1);color:var(--point1);}
+.nhd_allone .nhasset .linkType3 {color:var(--point1);}
+.nhd_allone .nhasset .linkType4,
+.nhd_allone .nhasset a.link.arrGreen:not(.disabled),
+.nhd_allone .nhasset .greenLink {color:var(--point1);filter:var(--filter);}
+.nhd_allone .nhasset .areaBodyBtnFlex.likeAllone .btnBodyGreen {background-color:var(--point1);border-radius:10px;}
+
+/* 기타버튼 */
+.nhd_allone .nhasset .registBtn a,
+.nhd_allone .nhasset .likeBtn01,
+.nhd_allone .nhasset .btnDownload,
+.nhd_allone .nhasset .roundBtnWrap a.active,
+.nhd_allone .nhasset .roundBtnWrap a:active {background-color:var(--point1);}
+.nhd_allone .nhasset .roundBtnWrap a.active:after,
+.nhd_allone .nhasset .roundBtnWrap a:active:after {border-color:var(--point1);}
+
+/* 하단고정영역 */
+.nhd_allone .nhasset .areaBtnDefault {border:solid  var(--background);table-layout:auto;border-width:0 8px 22px;border-spacing:8px;border-collapse:separate;background:var(--background);}
+.nhd_allone .nhasset .areaBtnDefault [class^="btn"] {padding:0 20px;border-radius:12px;font-size:18px;font-weight:700;}
+.nhd_allone .nhasset .areaBtnDefault:not(.half) [class^="btn"]:first-child:not(:last-child) {width:calc(100%/3);}
+.nhd_allone .nhasset.bgWhite .areaBtnDefault,
+.nhd_allone .nhasset .mesArea2.img4 ~ .areaBtnDefault {background:#fff;border-color:#fff;}
+
+/* 탭버튼 */
+.nhd_allone .nhasset .tabWrap.type01 ul li a.on,
+.nhd_allone .nhasset .tabWrap.type02 li.active {border-color:var(--point1);color:var(--point1);}
+.nhd_allone .nhasset .tabWrap.type05 a.active {background-color:var(--point1);}
+.nhd_allone .nhasset .tabWrap.type06 .scAreaWrap ul > li > a.active,
+.nhd_allone .nhasset .tabWrap.type07 ul > li > a.active,
+.nhd_allone .nhasset .tabWrap.type08 > ul > li a.active,
+.nhd_allone .nhasset .tabWrap.type09 > ul > li a.active {background-color:var(--point1);border-color:var(--point1);}
+.nhd_allone .nhasset .productSwiperMenu .swiper-slide.swiper-slide-thumb-active {border-color:var(--point1);color:var(--point1);}
+.nhd_allone .nhasset .totalSort .swiper-pagination-bullet-active {background-color:var(--point1);}
+.nhd_allone .nhasset .btnSortWrap .btn.selected {background-color:var(--point1);border-color:var(--point1);}
+
+/* 가로스크롤버튼 */
+.nhd_allone .nhasset .scAreaWrap {padding:10px var(--container-space);margin:10px var(--container-space-1) 0;}
+.nhd_allone .nhasset .scAreaWrap ul > li:last-child {margin-right:0;padding-right:var(--container-space);}
+.nhd_allone .nhasset .scrollBtnArea > ul > li.selected > a,
+.nhd_allone .nhasset .anchorListdWrap .anchorSubject > li.selected a {border-color:var(--point1);background-color:var(--point1);}
+
+/* ************************************
+ * [CONTENT] 폼
+ * ************************************/
+/* 입력박스 */
+.nhd_allone .nhasset input:focus:not(.error),
+.nhd_allone .nhasset .formWrap .inputList.on:not(.error),
+.nhd_allone .nhasset .formWrapBox .inputList.on:not(.error),
+.nhd_allone .nhasset .pickList.psHopeRdo .inptType .inputList.on:not(.error) {border-color:var(--point1);} /* [MD2409_071] */
+.nhd_allone .nhasset .formWrap textarea:focus {box-shadow:0 0 1pt 1.5pt var(--point1);}
+.nhd_allone .nhasset .inputText1.error:focus, 
+.nhd_allone .nhasset .error .inputText1:focus {border-color:var(--line5)}
+
+/* 체크박스 */
+.nhd_allone .nhasset input[type='checkbox']:checked {filter:var(--filter)}
+.nhd_allone .nhasset input[type='checkbox'].chekTypeOther {position:relative;width:24px;height:24px;border-radius:8px;border:1px solid var(--border-color);background:#fff;}
+.nhd_allone .nhasset input[type='checkbox'].chekTypeOther:before {content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background:var(--border-color);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+.nhd_allone .nhasset input[type='checkbox'].chekTypeOther:checked {background-color:var(--point1);border-color:var(--point1);filter:none;}
+.nhd_allone .nhasset input[type='checkbox'].chekTypeOther:checked:before {background-color:#fff;}
+/* [MD2502_023] 서비스 점검페이지 일원화 */
+.nhd_allone .nhasset input[type='checkbox'].chekTypeOther:disabled {opacity:1;background-color:var(--background);}
+.nhd_allone .nhasset input[type='checkbox'].chekTypeOther:disabled + label {color:var(--color-disabled)}
+.nhd_allone .nhasset input[type='checkbox'].chekTypeOther:checked:disabled {background-color:#e6e6e6;border-color:#e6e6e6;}
+.nhd_allone .nhasset input[type='checkbox'].chekTypeOther:checked:disabled + label {color:var(--color1);}
+.nhd_allone .nhasset input[type='checkbox'] + label {margin-left:4px;}
+.nhd_allone .nhasset input[type='radio'].desgChk:checked {filter:var(--filter);}
+.nhd_allone .nhasset .wrapCheck input[type='checkbox'].chekTypeOther:checked {background-color:var(--point1) !important;background-image:none !important;}
+
+/* 라디오버튼 */
+.nhd_allone .nhasset input[type='radio'] {width:24px;height:24px;}
+/* 라디오버튼 disabled 수정 S */
+.nhd_allone .nhasset input[type='radio']:after {content:'';position:absolute;left:50%;top:50%;margin:-5px;width:10px;height:10px;border-radius:100%;}
+.nhd_allone .nhasset input[type='radio']:checked {border-color:var(--point1);}
+.nhd_allone .nhasset input[type='radio']:checked:disabled {border-color:var(--border-color);}
+/*.nhd_allone .nhasset input[type='radio']:not(:disabled):checked:after {background-color:var(--point1);}
+.nhd_allone .nhasset input[type='radio']:checked:disabled {border-color:#e1e1e1;} */
+/* 라디오버튼 disabled 수정 E */
+.nhd_allone .nhasset input[type='radio'] + label {margin-left:4px;}
+
+/* 박스형 */
+.nhd_allone .nhasset div.chkBox input[type='checkbox']:checked + label {border-color:var(--point1);color:var(--point1);filter:var(--filter);}
+.nhd_allone .nhasset .boxRadio input[type="radio"], 
+.nhd_allone .nhasset .boxRadio input[type="checkbox"] {width:100% !important;height:100% !important;}
+.nhd_allone .nhasset .boxCheck input[type="checkbox"] + label {margin-left:0;} /*  */
+.nhd_allone .nhasset .boxRadio input:checked + label {border-color:var(--point1);color:var(--point1)}
+.nhd_allone .nhasset .boxRadio input:checked + label:before {filter:var(--filter);}
+.nhd_allone .nhasset .boxCheck input:checked + label {margin-left:0;color:var(--point1);border-color:var(--point1);}
+.nhd_allone .nhasset .boxCheck input:checked + label:before {margin:-3px 0 0 -4px;width:24px;height:24px;background:var(--point1);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));vertical-align:middle;}
+.nhd_allone .nhasset .roundChk input + label {margin-left:0;}
+.nhd_allone .nhasset .roundChk input:checked + label {background-color:var(--point1) ;}
+.nhd_allone .nhasset .roundChk input:checked + label:after {border-color:var(--point1);}
+.nhd_allone .nhasset .menuRadio .menuRadioInn input[type='radio'] + label {padding:3px 13px 3px 3px;border:2px solid #fff;}
+.nhd_allone .nhasset .menuRadio .menuRadioInn input[type='radio']:checked + label {color:var(--point1);border-color:var(--point1);}
+.nhd_allone .nhasset .menuRadio .menuRadioInn input[type='radio']:checked + label:before {border-radius:50%;background:#f2f4f8}
+.nhd_allone .nhasset .menuRadio .menuRadioInn input[type='radio']:checked + label:after {top:7px;left:6px;width:28px;height:30px;border:none;background:var(--point1);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+.nhd_allone .nhasset div.chkRadio input[type='radio']:checked + label {filter:var(--filter);}
+.nhd_allone .nhasset .addrSelectWrap li.active {color:var(--point1);}
+.nhd_allone .nhasset .addrSelectWrap li.active,
+.nhd_allone .nhasset .addrSelectWrap li.active a {border-color:var(--point1)}
+.nhd_allone .nhasset .addrSelectWrap li.active a:before {filter:var(--filter);}
+.nhd_allone .nhasset .cateSubList.chkType .roundChk input[type="checkbox"]:checked + label {background-color:var(--point1);}
+.nhd_allone .nhasset .cateSubList.chkType .roundChk input[type="checkbox"]:checked + label:after {border-color:var(--point1);}
+
+/* 토글 */
+.nhd_allone .nhasset [class*="tgBtn"] input[type="checkbox"] + label {margin-left:12px;}
+.nhd_allone .nhasset .tgBtn input[type="checkbox"] + label {margin-left:0;}
+.nhd_allone .nhasset .tgBtn2 input[type='checkbox'] + label {margin-left:7px;}
+.nhd_allone .nhasset .tgBtnType2 input[type="checkbox"]:checked + label,
+.nhd_allone .nhasset .tgBtn input[type="checkbox"]:checked,
+.nhd_allone .nhasset .tgBtn2 input[type='checkbox']:checked + label,
+.nhd_allone .nhasset .tgBtn3 input[type='checkbox']:checked + label {background-color:var(--point1);}
+.nhd_allone .nhasset .tgBtn input[type='checkbox']:checked + label {color:var(--point1);}
+.nhd_allone .nhasset .tgBtnType2.t1 input[type="checkbox"]:checked + label {background:none;}
+.nhd_allone .nhasset .tgBtn3 input[type="checkbox"]:checked {filter:none;}
+.nhd_allone .nhasset .tgBtn3 input[type='checkbox'] + label {margin-left:0;}
+
+/* 카테고리 */
+.nhd_allone .nhasset .selectCerti > li input[type="radio"]:checked + label:after, 
+.nhd_allone .nhasset .selectCerti > li input[type="checkbox"]:checked + label:after,
+.nhd_allone .nhasset .categoryWrap input:checked + label,
+.nhd_allone .nhasset .selectCerti .e li input[type="radio"]:checked + label:after {border-color:var(--point1);}
+.nhd_allone .nhasset .categoryWrap input + label {margin-left:0;}
+
+/* 동의 */
+/*.nhd_allone .nhasset .formWrap.selectAll .total .formHolder {align-items:center;}*/
+.nhd_allone .nhasset .formWrap.selectAll .cont input[type="checkbox"].chekTypeOther {position:static;border:0;border-radius:0;}
+.nhd_allone .nhasset .formWrap.selectAll .cont input[type="checkbox"].chekTypeOther:before {display:none;}
+.nhd_allone .nhasset .formWrap.selectAll .cont input[type="checkbox"].chekTypeOther:checked {filter:var(--filter);}
+
+/* 슬라이더 */
+.nhd_allone .nhasset .rangeWrap.type02 .ui-slider-range {background:var(--point1);}
+.nhd_allone .nhasset .rangeWrap.type02 .ui-slider-handle {border-color:var(--point1);}
+.nhd_allone .nhasset .rangeWrap.type02 .ui-slider-handle .rangeSum {color:var(--point1);}
+
+/* 폼영역 */
+.nhd_allone .nhasset .formWrap .infoBox.bdNone .aptTag, 
+.nhd_allone .nhasset .infoboxWrap .infoBox .aptTag {border-color:var(--point1);color:var(--point1);}
+
+/* 선택형 : 체크박스 / 라디오버튼 */
+.nhd_allone .nhasset .pickList input[type="checkbox"] + label,
+.nhd_allone .nhasset .pickList li input[type="radio"] + label {margin-left:0;}
+.nhd_allone .nhasset .pickList input[type="checkbox"]:checked + label,
+.nhd_allone .nhasset .pickList li input[type="radio"]:checked + label {border-color:var(--point1);}
+.nhd_allone .nhasset .pickList input[type="checkbox"]:checked + label:after,
+.nhd_allone .nhasset .pickList li input[type="radio"]:checked + label:after {filter:var(--filter);}
+.nhd_allone .nhasset .formWrap.msaeType .pickList input[type="checkbox"]:checked + label, 
+.nhd_allone .nhasset .formWrap.msaeType .pickList input[type="radio"]:checked + label,
+.nhd_allone .nhasset .pickList input[type="checkbox"]:checked + label .withdrawList .accNum {color:var(--point1)}
+
+/* 선택형 : 셀렉트박스 유형 */
+.nhd_allone .nhasset .cs.filterSelect button {border-color:var(--point1);}
+
+/* ************************************
+ * [CONTENT] 목록
+ * ************************************/
+/* 선택형 */
+.nhd_allone .nhasset .accList.selectList.isBorder li.active {border-color:var(--point1);}
+.nhd_allone .nhasset .listPsion > li button.active:before {border-color:var(--point1);}
+.nhd_allone .nhasset .listPsion > li button.active:after {filter:var(--filter);}
+.nhd_allone .nhasset .listPsion > li button.active .title {color:var(--point1);}
+.nhd_allone .nhasset .listCerti > li button.active {border-color:var(--point1);}
+.nhd_allone .nhasset .bankInfoList .bankInfoListBox.active:after {border-color:var(--point1);filter:var(--filter);}
+.nhd_allone .nhasset .searchResultWrap .searchResultList > li.active > a {filter:var(--filter);}
+
+/* 카드상품 */
+.nhd_allone .nhasset .swCardComp .cardBenefitFlag {color:var(--point1);}
+
+/* 거래내역 */
+.nhd_allone .nhasset .inoutListWrap .inColor {color:var(--point1) !important;}
+.nhd_allone .nhasset .infoData2 label > input[type='checkbox'].chekTypeOther {opacity:0;position:absolute;}
+.nhd_allone .nhasset .infoData2 label > input[type='checkbox'].chekTypeOther:before {display:none;}
+.nhd_allone .nhasset .infoData2 label .tit:before {left:var(--space16);width:24px;height:24px;border-radius:8px;border:1px solid var(--border-color);background:#fff;}
+.nhd_allone .nhasset .infoData2 label .tit:after {content:'';display:block;position:absolute;top:50%;left:var(--space16);width:24px;height:24px;background:var(--border-color);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));transform:translateY(-50%);}
+.nhd_allone .nhasset .infoData2 label > input:checked + .tit:before {background:var(--point1);border-color:var(--point1)}
+.nhd_allone .nhasset .infoData2 label > input:checked + .tit:after {background-color:#fff;}
+.nhd_allone .nhasset .infoData2[data-toggle="wrap"] .summary label .tit {margin-left:-4px;padding-left:32px;min-height:24px;align-items:center;}
+.nhd_allone .nhasset .infoData2[data-toggle="wrap"] .summary label .tit:before,
+.nhd_allone .nhasset .infoData2[data-toggle="wrap"] .summary label .tit:after {left:0;}
+
+/* ************************************
+ * [CONTENT] 정보
+ * ************************************/
+/* 총금액 */
+.nhd_allone .nhasset .totalBox.greenBg .totalVal,
+.nhd_allone .nhasset .totalPopWrap .totalAmnt  {color:var(--point1);}
+
+/* 요약정보 */
+.nhd_allone .nhasset .flagSchelule.unerColor-g, 
+.nhd_allone .nhasset .planType.unerColor-g {border-color:var(--point1);color:var(--point1);}
+.nhd_allone .nhasset .accTopInfo .accName .titHiglight:before {background-color:var(--point1)}
+.nhd_allone .nhasset .infoSummary2 {position:relative;z-index:1;}
+.nhd_allone .nhasset .infoSummary2 .tit[data-value]:before {right:-6px;}
+
+/* 서비스 안내 */
+.nhd_allone .nhasset .msAssetCont .bigNumList .num {color:var(--point1);}
+
+/* 진행상황 */
+.nhd_allone .nhasset .stepWrap ol > li.active > span {background:var(--point1);border-color:var(--point1);}
+
+/* ************************************
+ * [CONTENT] 게시판
+ * ************************************/
+/* 목록형 */
+.nhd_allone .nhasset .bbsList1 > dl > dt:before {filter:var(--filter);}
+
+/* ************************************
+ * [CONTENT] 슬라이드
+ * ************************************/
+.nhd_allone .nhasset .swiper-pagination .swiper-pagination-bullet-active,
+.nhd_allone .nhasset .swiper-control.swiperControlNew .swiper-pagination .swiper-pagination-bullet-active {background-color:var(--point1)}
+
+/* ************************************
+ * [PAGE] 페이지별 색상 변경
+ * ************************************/
+/* 나만의 메뉴 설정 */
+.nhd_allone .nhasset .sortableWrap .sortableBtnsWrap .sortableBtns button.active {background-color:var(--point1);}
+.nhd_allone .nhasset .sortableWrap .sortableBtnsWrap .sortableBtns button.drag.active:after,
+.nhd_allone .nhasset .sortableWrap .sortableBtnsWrap .sortableBtns button.button.active:after,
+.nhd_allone .nhasset .sortable > li:nth-child(1), 
+.nhd_allone .nhasset .sortable > li:nth-child(2), 
+.nhd_allone .nhasset .sortable > li:nth-child(3), 
+.nhd_allone .nhasset .sortable > li:nth-child(4) {border-color:var(--point1);}
+
+/* 자산 */
+.nhd_allone .nhasset .asTitWrap .chkWrap {margin-top:-24px;width:24px;}
+.nhd_allone .nhasset .asTitWrap .chkWrap input[type='checkbox'] {position:absolute;}
+.nhd_allone .nhasset .asTitWrap .chkWrap input[type='checkbox']:not(:checked) {background-color:#fff;}
+.nhd_allone .nhasset .purposeList .sortable li {border-color:#fff;}
+
+/* 금융자산분석 */
+.nhd_allone .nhasset .investTop .investLeft {color:var(--point1);}
+.nhd_allone .nhasset .investCont .investItem .investLeft {color:var(--point1);}
+.nhd_allone .nhasset .top3Wrap .titFlags {background-color:var(--point1)}
+.nhd_allone .nhasset .top3Wrap .titFlags:after {border-top-color:var(--point1);}
+.nhd_allone .nhasset .psIngWrap .psMe.active, .nhasset .psIngWrap .psFuture.active {border-color:var(--point1);color:var(--point1);}
+.nhd_allone .nhasset .retireTotal .cont {color:var(--point1);}
+.nhd_allone .nhasset .retireBtnWrap .btnBodyLine.active {border-color:var(--point1);color:var(--point1);}
+.nhd_allone .nhasset .psTbtnWrap .toggleBtn span {color:var(--point1);}
+.nhd_allone .nhasset .IrpBoxArea .value {color:var(--point1);}
+.nhd_allone .nhasset .tabDistance li.active,
+.nhd_allone .nhasset .branchReset .postBtn.active {background-color:var(--point1);}
+.nhd_allone .nhasset .branchReset .postReset span {filter:var(--filter);}
+.nhd_allone .nhasset .yatexMore a .num {color:var(--point1)}
+.nhd_allone .nhasset .listTitWrap2 .dataValue {color:var(--point1)}
+.nhd_allone .nhasset .subsPlaneList .titBox .info dd {color:var(--point1)}
+.nhd_allone .nhasset .areaTabWrap .tabContWrap.type06 .selChkBox li input:checked + label {color:var(--point1)}
+.nhd_allone .nhasset .areaTabWrap .tabContWrap.type06 .selChkBox li input:checked + label:after {filter:var(--filter);}
+.nhd_allone .nhasset .infoCont2 .scAreaWrap {padding:0;margin:0;}
+.nhd_allone .nhasset .reptGuideArea h3 {color:var(--point1);}
+.nhd_allone .nhasset .PsSWiperBtn {background-color:var(--background)}
+
+/* 생활편의 */
+.nhd_allone .nhasset .carSpendDetail .carSpendCataSum dd {color:var(--point1);}
+.nhd_allone .nhasset .lf .roundChk input:checked + label {background-color:var(--point1) !important;}
+.nhd_allone .nhasset .famWrap > ul li a span.selected:after {border-color:var(--point1)}
+
+/* 설정/관리 */
+.nhd_allone .nhasset .wrap_bank_check ul li input[type=checkbox]:checked + label {border-color:var(--point1);}
+.nhd_allone .nhasset .checkBtnType input[type='checkbox'] + label {margin-left:0;}
+.nhd_allone .nhasset .checkBtnType input[type='checkbox']:checked + label {border-color:var(--point1);color:var(--point1);}
+.nhd_allone .nhasset .ps.tabWrap li.active, .nhasset .ps.tabWrap li.r_active {background-color:var(--point1);}
+.nhd_allone .nhasset .billListWrap .billLisMenu > ul > li.selected > a {border-color:var(--point1);background-color:var(--point1) !important;}
+.nhd_allone .nhasset .billListWrap .billLisMenu > ul > li > a.btnBillMenu.active {border-color:var(--point1);background-color:var(--point1);}
+.nhd_allone .nhasset .billLisMenu.psAtSt {background-color:var(--background);}
+
+/* 고객등록 */
+.nhd_allone .nhasset .cerNumBox .btnCerti {background-color:var(--point1);}
+
+/* 상단고정 */
+.nhd_allone .nhasset .bgWhite.likeSticky {background-color:#fff;}
+
+/* [MD2411_092] [자산연결 동의 절차 간소화] */
+.nhd_allone .nhasset input[type='radio'].chekTypeOther {position:relative;width:24px;height:24px;border-radius:8px;border:1px solid var(--border-color);background:#fff;}
+.nhd_allone .nhasset input[type='radio'].chekTypeOther:before {content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background:var(--border-color);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+.nhd_allone .nhasset input[type='radio'].chekTypeOther:after{background:none;}
+.nhd_allone .nhasset input[type='radio'].chekTypeOther:checked {background-color:var(--point1);border-color:var(--point1);filter:none;}
+.nhd_allone .nhasset input[type='radio'].chekTypeOther:checked:before {background-color:#fff;}
+.nhd_allone .nhasset input[type='radio'].chekTypeOther:checked:after{background:none;}
+.nhd_allone .nhasset input[type='radio'].chekTypeOther:disabled {opacity:1;background-color:var(--background);}
+
+/* [MD2507_086] 동의서 내 하단 여백 수정 */
+.nhd_allone .nhasset.popWrap.fullLayerPop .popInner .popCont .termsWrap .term_box_wrap iframe {display:block;height:calc(100% - 0px);}
+.nhd_allone .nhasset.popWrap.fullLayerPop .popInner .popCont .termsWrap .term_box_wrap {height:calc(100vh - var(--allone_btnHeight));}
+.nhasset > .term_cont {padding-bottom:20px;}

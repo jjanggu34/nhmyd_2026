@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NDS 컴포넌트 가이드 (프로젝트 로컬)</title>
+<link rel="stylesheet" type="text/css" href="vendor/main.scoped.css?v=3">
+<style>
+  body { font-family: "Malgun Gothic", Arial, sans-serif; margin:0; background:#f5f7f6; color:#222; }
+  header { background:#19973c; color:#fff; padding:18px 24px; }
+  header h1 { margin:0 0 4px; font-size:18px; }
+  header p { margin:0; font-size:12px; opacity:.9; }
+  main { padding:20px 24px 60px; max-width:900px; margin:0 auto; }
+  section { background:#fff; border:1px solid #e0e0e0; border-radius:10px; padding:20px; margin-bottom:20px; }
+  section h2 { font-size:15px; color:#19973c; border-bottom:2px solid #19973c; padding-bottom:6px; margin-top:0; }
+  section h3 { font-size:13px; color:#555; margin:18px 0 8px; }
+  .demo { border:1px dashed #d3d3d3; border-radius:8px; padding:16px; margin-bottom:10px; background:#fafafa; }
+  .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  pre { background:#1e1e1e; color:#d4d4d4; padding:12px; border-radius:6px; font-size:12px; overflow-x:auto; margin:0 0 10px; }
+  .note { font-size:12px; color:#888; }
+  .toplinks { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+  .toplinks a { display:inline-block; background:#19973c; color:#fff; text-decoration:none; padding:8px 14px; border-radius:6px; font-size:13px; }
+  .toplinks a.secondary { background:#fff; color:#19973c; border:1px solid #19973c; }
+  .scopebox { display:inline-block; }
+</style>
+</head>
+<body>
+<header>
+  <h1>NDS 컴포넌트 가이드 (프로젝트 로컬 · 부분 추출본)</h1>
+  <p>원본: https://septem-nds.netlify.app/ · 모든 예시는 vendor/main.scoped.css(.nds-scope) 기준이며 레거시 소스와 분리되어 있습니다.</p>
+</header>
+<main>
+
+  <div class="toplinks">
+    <a href="template_full.html" target="_blank">신규/개선 화면 시작 템플릿 (Full Page)</a>
+    <a href="template_popup.html" target="_blank">신규/개선 팝업 시작 템플릿 (Bottom Sheet)</a>
+    <a class="secondary" href="https://septem-nds.netlify.app/" target="_blank">전체 카탈로그 (라이브 원본 사이트)</a>
+    <a href="samples/index.html" target="_blank">샘플 화면 4종 (전체 컴포넌트 조합)</a>
+  </div>
+
+  <section>
+    <h2>이 페이지 사용법</h2>
+    <p class="note">
+      아래 컴포넌트들은 <code>vendor/main.scoped.css</code>에 이미 스코프 처리(<code>.nds-scope</code>)되어 실제로 검증된 것만 실었습니다.
+      각 항목의 코드 블록을 그대로 복사해서 <code>class="nds-scope"</code>가 걸린 영역(예: 신규 화면의 container) 안에 붙여넣으면 됩니다.
+      레거시 소스에 영향이 없는지는 이미 확인되었습니다. 현재 Button/Badge/Card/Accordion/Attached File/Bullet/Calendar/Check/Chip/Divider/
+      Empty/Indicator/Infobox/Input/Label/List/Radio/Select/Switch/Textarea/Toast/Tooltip 22종이 포함되어 있습니다.
+      여기 없는 것(Controls/Filter/Navigation/Popup/Process/Search/Statusbar/Table/Terms/Page title/Unit 등, 주로 페이지 골격/내비게이션류)은
+      아직 로컬로 추출하지 않았으니, 위 "전체 카탈로그" 링크에서 확인한 뒤 같은 방식(그레핑 → 충돌 확인 → .nds-scope 접두어)으로
+      vendor/main.scoped.css에 추가해서 쓰면 됩니다.
+    </p>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Button</h2>
+
+    <h3>크기 (lg/md/rg/sm/xs)</h3>
+    <div class="demo row">
+      <button type="button" class="btn btn--primary btn--lg">Large</button>
+      <button type="button" class="btn btn--primary btn--md">Medium</button>
+      <button type="button" class="btn btn--primary btn--rg">Regular</button>
+      <button type="button" class="btn btn--primary btn--sm">Small</button>
+      <button type="button" class="btn btn--primary btn--xs">XS</button>
+    </div>
+<pre><code>&lt;button type="button" class="btn btn--primary btn--lg"&gt;Large&lt;/button&gt;
+&lt;button type="button" class="btn btn--primary btn--sm"&gt;Small&lt;/button&gt;</code></pre>
+
+    <h3>색상 variant (primary/secondary/tertiary/text/link)</h3>
+    <div class="demo row">
+      <button type="button" class="btn btn--primary btn--md">Primary</button>
+      <button type="button" class="btn btn--secondary btn--md">Secondary</button>
+      <button type="button" class="btn btn--tertiary btn--md">Tertiary</button>
+      <button type="button" class="btn btn--text">Text</button>
+      <button type="button" class="btn btn--link">Link</button>
+    </div>
+<pre><code>&lt;button type="button" class="btn btn--secondary btn--md"&gt;Secondary&lt;/button&gt;</code></pre>
+
+    <h3>전체 너비 / 아이콘 버튼 / 플로팅 / 플러스마이너스</h3>
+    <div class="demo">
+      <button type="button" class="btn btn--primary btn--full btn--lg" style="margin-bottom:10px;">전체 너비 버튼</button>
+      <div class="row">
+        <button type="button" class="btn-icon"><img src="vendor/icons/plus-24.svg" width="18" height="18" alt="plus" style="vertical-align:middle;"></button>
+        <button type="button" class="btn-plusminus"><img src="vendor/icons/minus-24.svg" width="18" height="18" alt="minus" style="vertical-align:middle;"></button>
+        <div class="btn-floating"><button type="button" class="btn-floating__circle">TOP</button></div>
+      </div>
+    </div>
+<pre><code>&lt;button type="button" class="btn btn--primary btn--full btn--lg"&gt;전체 너비 버튼&lt;/button&gt;
+&lt;button type="button" class="btn-icon"&gt;&lt;img src="vendor/icons/plus-24.svg" width="18" height="18" alt="plus"&gt;&lt;/button&gt;
+&lt;button type="button" class="btn-plusminus"&gt;&lt;img src="vendor/icons/minus-24.svg" width="18" height="18" alt="minus"&gt;&lt;/button&gt;
+&lt;div class="btn-floating"&gt;&lt;button type="button" class="btn-floating__circle"&gt;TOP&lt;/button&gt;&lt;/div&gt;</code></pre>
+
+    <h3>버튼 그룹 (btn-cta)</h3>
+    <div class="demo">
+      <div class="btn-cta btn-cta--double">
+        <div class="btn-cta__item"><button type="button" class="btn btn--secondary btn--full btn--lg">취소</button></div>
+        <div class="btn-cta__item"><button type="button" class="btn btn--primary btn--full btn--lg">확인</button></div>
+      </div>
+    </div>
+<pre><code>&lt;div class="btn-cta btn-cta--double"&gt;
+  &lt;div class="btn-cta__item"&gt;&lt;button class="btn btn--secondary btn--full btn--lg"&gt;취소&lt;/button&gt;&lt;/div&gt;
+  &lt;div class="btn-cta__item"&gt;&lt;button class="btn btn--primary btn--full btn--lg"&gt;확인&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Badge</h2>
+    <div class="demo row">
+      <span class="badge"><button type="button" class="btn-icon"><img src="vendor/icons/alarm-notice-24.svg" width="20" height="20" alt="알림" style="vertical-align:middle;"></button><span class="badge__dot"></span></span>
+      <span class="badge"><button type="button" class="btn btn--secondary btn--sm">알림함</button><span class="badge__count">3</span></span>
+    </div>
+<pre><code>&lt;span class="badge"&gt;&lt;button class="btn-icon"&gt;&lt;img src="vendor/icons/alarm-notice-24.svg" width="20" height="20" alt="알림"&gt;&lt;/button&gt;&lt;span class="badge__dot"&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class="badge"&gt;&lt;button class="btn btn--secondary btn--sm"&gt;알림함&lt;/button&gt;&lt;span class="badge__count"&gt;3&lt;/span&gt;&lt;/span&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Card</h2>
+    <div class="demo">
+      <div class="card">
+        <div class="card__label-row"><span class="card__eyebrow">[SAMPLE] 자산 요약</span></div>
+        <h4 class="card__title card__title--semibold">이번 달 지출이 12% 늘었어요</h4>
+        <p class="card__subtitle">지난달보다 320,000원 더 썼어요</p>
+        <div class="card__divider"></div>
+        <div class="card__account">
+          <div class="card__account__body">
+            <div class="card__account__row">
+              <div class="card__account__name-block">
+                <span class="card__account__category">[SAMPLE] 카드</span>
+                <span class="card__account__name">NH올원카드</span>
+              </div>
+            </div>
+            <span class="card__account__sub">최근 이용 320,000원</span>
+          </div>
+        </div>
+        <div class="card__button-row">
+          <button type="button" class="btn btn--secondary btn--sm">자세히</button>
+          <button type="button" class="btn btn--primary btn--sm">전체 내역</button>
+        </div>
+      </div>
+    </div>
+<pre><code>&lt;div class="card"&gt;
+  &lt;div class="card__label-row"&gt;&lt;span class="card__eyebrow"&gt;[SAMPLE] 자산 요약&lt;/span&gt;&lt;/div&gt;
+  &lt;h4 class="card__title card__title--semibold"&gt;이번 달 지출이 12% 늘었어요&lt;/h4&gt;
+  &lt;p class="card__subtitle"&gt;지난달보다 320,000원 더 썼어요&lt;/p&gt;
+  &lt;div class="card__divider"&gt;&lt;/div&gt;
+  &lt;div class="card__account"&gt;...&lt;/div&gt;
+  &lt;div class="card__button-row"&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Accordion</h2>
+    <p class="note">화면별 4종(notice/line/box/gray) — 아래 화살표를 눌러 열림/닫힘 확인 가능(이 페이지 전용 데모 스크립트).</p>
+
+    <h3>Box 타입</h3>
+    <div class="demo">
+      <div class="accordion-box">
+        <div class="accordion-box__item">
+          <button type="button" class="accordion-box__trigger" aria-expanded="false" data-acc-toggle>
+            <div class="accordion-box__title-col">
+              <div class="accordion-box__title-row"><span class="accordion-box__title">[SAMPLE] 자산연결 안내</span></div>
+              <span class="accordion-box__sub">부가 설명 텍스트</span>
+            </div>
+            <span class="accordion-box__arrow"><img src="vendor/icons/arrow-down1-24.svg" width="16" height="16" alt="펼치기" style="vertical-align:middle;"></span>
+          </button>
+          <div class="accordion-box__body" hidden>본문 내용이 여기 들어갑니다.</div>
+        </div>
+      </div>
+    </div>
+<pre><code>&lt;div class="accordion-box"&gt;
+  &lt;div class="accordion-box__item"&gt;
+    &lt;button class="accordion-box__trigger" aria-expanded="false"&gt;
+      &lt;div class="accordion-box__title-col"&gt;
+        &lt;div class="accordion-box__title-row"&gt;&lt;span class="accordion-box__title"&gt;제목&lt;/span&gt;&lt;/div&gt;
+        &lt;span class="accordion-box__sub"&gt;부가 설명&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;span class="accordion-box__arrow"&gt;&lt;img src="vendor/icons/arrow-down1-24.svg" width="16" height="16" alt="펼치기"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="accordion-box__body"&gt;본문&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+    <h3>Line / Gray 타입</h3>
+    <div class="demo">
+      <div class="accordion-line">
+        <div class="accordion-line__item">
+          <button type="button" class="accordion-line__trigger" aria-expanded="false" data-acc-toggle>
+            <span class="accordion-line__title">[SAMPLE] 자주 묻는 질문</span>
+            <span class="accordion-line__arrow"><img src="vendor/icons/arrow-down1-24.svg" width="16" height="16" alt="펼치기" style="vertical-align:middle;"></span>
+          </button>
+          <div class="accordion-line__body" hidden>답변 내용이 여기 들어갑니다.</div>
+        </div>
+      </div>
+    </div>
+<pre><code>&lt;div class="accordion-line"&gt;
+  &lt;div class="accordion-line__item"&gt;
+    &lt;button class="accordion-line__trigger" aria-expanded="false"&gt;
+      &lt;span class="accordion-line__title"&gt;질문&lt;/span&gt;
+      &lt;span class="accordion-line__arrow"&gt;&lt;img src="vendor/icons/arrow-down1-24.svg" width="16" height="16" alt="펼치기"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="accordion-line__body"&gt;답변&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Attached File (첨부)</h2>
+    <h3>썸네일형</h3>
+    <div class="demo row">
+      <div class="attached-thumb__item"><span class="attached-thumb__icon">📄</span><span class="attached-thumb__count">1</span></div>
+      <div class="attached-thumb__item attached-thumb__item--filled"><img class="attached-thumb__img" src="https://picsum.photos/96/96?grayscale" alt=""></div>
+    </div>
+<pre><code>&lt;div class="attached-thumb__item"&gt;&lt;span class="attached-thumb__icon"&gt;📄&lt;/span&gt;&lt;span class="attached-thumb__count"&gt;1&lt;/span&gt;&lt;/div&gt;</code></pre>
+
+    <h3>리스트형</h3>
+    <div class="demo">
+      <div class="attached-list">
+        <div class="attached-list__item">
+          <span class="attached-list__name">[SAMPLE] 증빙서류.pdf</span>
+          <button type="button" class="attached-list__remove"><img src="vendor/icons/close2-24.svg" width="14" height="14" alt="닫기" style="vertical-align:middle;"></button>
+        </div>
+        <div class="attached-list__divider"></div>
+      </div>
+    </div>
+<pre><code>&lt;div class="attached-list__item"&gt;
+  &lt;span class="attached-list__name"&gt;파일명.pdf&lt;/span&gt;
+  &lt;button class="attached-list__remove"&gt;&lt;img src="vendor/icons/close2-24.svg" width="14" height="14" alt="닫기"&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Bullet</h2>
+    <div class="demo">
+      <ul class="bullet bullet--body">
+        <li class="bullet__item">[SAMPLE] 첫 번째 안내 문구입니다.</li>
+        <li class="bullet__item">[SAMPLE] 두 번째 안내 문구입니다.</li>
+      </ul>
+    </div>
+<pre><code>&lt;ul class="bullet bullet--body"&gt;
+  &lt;li class="bullet__item"&gt;안내 문구&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Calendar</h2>
+    <h3>단일 날짜 (calendar-day)</h3>
+    <div class="demo">
+      <div class="calendar-day">
+        <span class="calendar-day__label">조회 시작일</span>
+        <div class="calendar-day__field"><span class="calendar-day__text is-filled">2026.07.22</span><span class="calendar-day__icon"><img src="vendor/icons/calendar-24.svg" width="20" height="20" alt="달력" style="vertical-align:middle;"></span></div>
+      </div>
+    </div>
+    <h3>기간 (calendar-period)</h3>
+    <div class="demo">
+      <div class="calendar-period">
+        <span class="calendar-period__label">조회 기간</span>
+        <div class="calendar-period__field">
+          <span class="calendar-period__text is-filled">2026.07.01</span>
+          <span class="calendar-period__sep">~</span>
+          <span class="calendar-period__text is-filled">2026.07.22</span>
+        </div>
+      </div>
+    </div>
+<pre><code>&lt;div class="calendar-day"&gt;
+  &lt;span class="calendar-day__label"&gt;라벨&lt;/span&gt;
+  &lt;div class="calendar-day__field"&gt;&lt;span class="calendar-day__text is-filled"&gt;2026.07.22&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Check (Checkbox)</h2>
+    <h3>박스형 / 기본형</h3>
+    <div class="demo row">
+      <label class="check-box"><input type="checkbox" class="check-box__input" checked><span class="check-box__label">박스형</span></label>
+      <label class="check-basic"><input type="checkbox" class="check-basic__input" checked><span class="check-basic__icon"></span><span class="check-basic__label">기본형 체크</span></label>
+    </div>
+<pre><code>&lt;label class="check-box"&gt;&lt;input type="checkbox" class="check-box__input"&gt;&lt;span class="check-box__label"&gt;박스형&lt;/span&gt;&lt;/label&gt;
+&lt;label class="check-basic"&gt;&lt;input type="checkbox" class="check-basic__input"&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;span class="check-basic__label"&gt;기본형 체크&lt;/span&gt;&lt;/label&gt;</code></pre>
+
+    <h3>설문형 (check-survey)</h3>
+    <div class="demo">
+      <label class="check-survey">
+        <div class="check-survey__box">
+          <span class="check-survey__icon"><img src="vendor/icons/check-24.svg" width="20" height="20" alt="체크" style="vertical-align:middle;"></span>
+          <span class="check-survey__text">[SAMPLE] 자산연결에 동의합니다</span>
+        </div>
+      </label>
+    </div>
+<pre><code>&lt;div class="check-survey__box"&gt;
+  &lt;span class="check-survey__icon"&gt;&lt;img src="vendor/icons/check-24.svg" width="20" height="20" alt="체크"&gt;&lt;/span&gt;
+  &lt;span class="check-survey__text"&gt;동의 문구&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Chip</h2>
+    <div class="demo row">
+      <span class="chip-basic"><span class="chip-basic__text">[SAMPLE] 선택필터</span><button type="button" class="chip-basic__close"><img src="vendor/icons/close2-24.svg" width="14" height="14" alt="닫기" style="vertical-align:middle;"></button></span>
+      <span class="chip-single">전체</span>
+      <span class="chip-single chip-single--active">이번 달</span>
+    </div>
+<pre><code>&lt;span class="chip-basic"&gt;&lt;span class="chip-basic__text"&gt;필터명&lt;/span&gt;&lt;button class="chip-basic__close"&gt;&lt;img src="vendor/icons/close2-24.svg" width="14" height="14" alt="닫기"&gt;&lt;/button&gt;&lt;/span&gt;
+&lt;span class="chip-single chip-single--active"&gt;이번 달&lt;/span&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Divider</h2>
+    <div class="demo">
+      <p style="margin:0 0 10px;">위 콘텐츠</p>
+      <hr class="divider divider--list1">
+      <p style="margin:10px 0 0;">아래 콘텐츠</p>
+    </div>
+<pre><code>&lt;hr class="divider divider--list1"&gt;   <!-- 리스트 구분선 -->
+&lt;hr class="divider divider--content"&gt; <!-- 콘텐츠 블록 구분(8px 두께) --></code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Empty (빈 상태)</h2>
+    <div class="demo">
+      <div class="empty empty--result">
+        <span class="empty__icon">📭</span>
+        <p class="empty__text">[SAMPLE] 조회된 내역이 없습니다</p>
+      </div>
+    </div>
+<pre><code>&lt;div class="empty empty--result"&gt;
+  &lt;span class="empty__icon"&gt;📭&lt;/span&gt;
+  &lt;p class="empty__text"&gt;조회된 내역이 없습니다&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Indicator</h2>
+    <div class="demo row">
+      <span class="indicator-number">3 / 5</span>
+    </div>
+<pre><code>&lt;span class="indicator-number"&gt;3 / 5&lt;/span&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Infobox</h2>
+    <div class="demo">
+      <div class="infobox">
+        <p class="infobox__title">[SAMPLE] 안내</p>
+        <p class="infobox__body">마이데이터 서비스 이용 시 참고할 안내 문구가 여기 들어갑니다.</p>
+      </div>
+    </div>
+<pre><code>&lt;div class="infobox"&gt;
+  &lt;p class="infobox__title"&gt;안내&lt;/p&gt;
+  &lt;p class="infobox__body"&gt;본문&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Input</h2>
+    <div class="demo">
+      <div class="input-box">
+        <span class="input-box__label">닉네임</span>
+        <div class="input-box__field">
+          <input class="input-box__input" value="NH올원카드">
+          <button type="button" class="input-box__clear"><img src="vendor/icons/close2-24.svg" width="14" height="14" alt="닫기" style="vertical-align:middle;"></button>
+        </div>
+      </div>
+    </div>
+<pre><code>&lt;div class="input-box"&gt;
+  &lt;span class="input-box__label"&gt;라벨&lt;/span&gt;
+  &lt;div class="input-box__field"&gt;
+    &lt;input class="input-box__input"&gt;
+    &lt;button class="input-box__clear"&gt;&lt;img src="vendor/icons/close2-24.svg" width="14" height="14" alt="닫기"&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Label</h2>
+    <div class="demo row">
+      <span class="label label--sm label--fill label--green">신규</span>
+      <span class="label label--sm label--line label--gray">유지</span>
+      <span class="label-icon"><span class="label-icon__text">AI 추천</span></span>
+    </div>
+<pre><code>&lt;span class="label label--sm label--fill label--green"&gt;신규&lt;/span&gt;
+&lt;span class="label-icon"&gt;&lt;span class="label-icon__text"&gt;AI 추천&lt;/span&gt;&lt;/span&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>List (key-value)</h2>
+    <div class="demo">
+      <div class="list-kv">
+        <span class="list-kv__title">최근 이용</span>
+        <span class="list-kv__data">320,000원</span>
+      </div>
+    </div>
+<pre><code>&lt;div class="list-kv"&gt;
+  &lt;span class="list-kv__title"&gt;라벨&lt;/span&gt;
+  &lt;span class="list-kv__data"&gt;값&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Radio</h2>
+    <div class="demo row">
+      <label class="radio-box-center"><input type="radio" name="g1" class="radio-box-center__input" checked><span class="radio-box-center__label">전체</span></label>
+      <label class="radio-box-center"><input type="radio" name="g1" class="radio-box-center__input"><span class="radio-box-center__label">이번 달</span></label>
+    </div>
+<pre><code>&lt;label class="radio-box-center"&gt;&lt;input type="radio" name="g1" class="radio-box-center__input"&gt;&lt;span class="radio-box-center__label"&gt;전체&lt;/span&gt;&lt;/label&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Select</h2>
+    <div class="demo">
+      <div class="select-field">
+        <span class="select-field__label">계좌 선택</span>
+        <div class="select-field__box">
+          <div class="select-field__content"><span class="select-field__text">NH올원계좌 선택</span></div>
+          <span class="select-field__chevron"><img src="vendor/icons/arrow-down1-24.svg" width="16" height="16" alt="펼치기" style="vertical-align:middle;"></span>
+        </div>
+      </div>
+    </div>
+<pre><code>&lt;div class="select-field"&gt;
+  &lt;span class="select-field__label"&gt;라벨&lt;/span&gt;
+  &lt;div class="select-field__box"&gt;
+    &lt;div class="select-field__content"&gt;&lt;span class="select-field__text"&gt;선택하세요&lt;/span&gt;&lt;/div&gt;
+    &lt;span class="select-field__chevron"&gt;&lt;img src="vendor/icons/arrow-down1-24.svg" width="16" height="16" alt="펼치기"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Switch</h2>
+    <div class="demo row">
+      <label class="switch"><input type="checkbox" class="switch__input" checked><span class="switch__track"></span></label>
+      <label class="switch-font"><input type="checkbox" class="switch-font__input"><span class="switch-font__track"><span class="switch-font__thumb"></span><span class="switch-font__text">가</span></span></label>
+    </div>
+<pre><code>&lt;label class="switch"&gt;&lt;input type="checkbox" class="switch__input"&gt;&lt;span class="switch__track"&gt;&lt;/span&gt;&lt;/label&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Textarea</h2>
+    <div class="demo">
+      <div class="textarea">
+        <span class="textarea__label">문의 내용</span>
+        <div class="textarea__wrap"><textarea class="textarea__field" placeholder="내용을 입력하세요"></textarea></div>
+        <div class="textarea__footer"><span class="textarea__msg"></span><span class="textarea__count"><span class="textarea__count-current">0</span>/500</span></div>
+      </div>
+    </div>
+<pre><code>&lt;div class="textarea"&gt;
+  &lt;div class="textarea__wrap"&gt;&lt;textarea class="textarea__field"&gt;&lt;/textarea&gt;&lt;/div&gt;
+  &lt;div class="textarea__footer"&gt;&lt;span class="textarea__count"&gt;0/500&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Toast</h2>
+    <div class="demo">
+      <div class="toast" style="position:static; max-width:320px;">
+        <span class="toast__text">[SAMPLE] 저장되었습니다</span>
+      </div>
+    </div>
+<pre><code>&lt;div class="toast-wrap"&gt;&lt;div class="toast"&gt;&lt;span class="toast__text"&gt;저장되었습니다&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;</code></pre>
+  </section>
+
+  <section class="nds-scope">
+    <h2>Tooltip</h2>
+    <div class="demo">
+      <div class="tooltip-card">
+        <div class="tooltip-card__header"><span class="tooltip-card__title">[SAMPLE] 안내</span><button type="button" class="tooltip-card__close"><img src="vendor/icons/close2-24.svg" width="14" height="14" alt="닫기" style="vertical-align:middle;"></button></div>
+        <p class="tooltip-card__body">해당 항목에 대한 부가 설명입니다.</p>
+      </div>
+    </div>
+<pre><code>&lt;div class="tooltip-card"&gt;
+  &lt;div class="tooltip-card__header"&gt;&lt;span class="tooltip-card__title"&gt;제목&lt;/span&gt;&lt;button class="tooltip-card__close"&gt;&lt;img src="vendor/icons/close2-24.svg" width="14" height="14" alt="닫기"&gt;&lt;/button&gt;&lt;/div&gt;
+  &lt;p class="tooltip-card__body"&gt;설명&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <section>
+    <h2>Bottomsheet (팝업)</h2>
+    <p class="note">바텀시트는 정적 예시로는 동작을 보여주기 어려워 실제 동작 템플릿으로 대신합니다.
+       팝업에서는 <code>h1</code>/<code>.popCont</code>/<code>.popBtnWrap .popBtn</code> 기능 훅을 반드시 유지해야
+       기존 slidePopConfirm() 높이 계산 로직이 정상 동작합니다 (실제 발생했던 충돌이며 template_popup.html에 반영되어 있습니다).</p>
+    <div class="toplinks"><a href="template_popup.html" target="_blank">template_popup.html 열어서 확인</a></div>
+  </section>
+
+</main>
+<script>
+document.querySelectorAll('[data-acc-toggle]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    var body = btn.parentElement.querySelector('[class$="__body"]');
+    if (body) body.hidden = open;
+  });
+});
+</script>
+</body>
+</html>

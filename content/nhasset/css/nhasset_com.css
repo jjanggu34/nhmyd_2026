@@ -1,0 +1,979 @@
+@charset "utf-8";
+/* [SEPTEM] UI Dev Team :nhasset_com */
+html,body{width:100%;height:100%}
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video,:before,:after,a{word-break:break-word;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;-ms-box-sizing:border-box} /* 여백을 포함한 사이즈 설정*/ 
+h1,h2,h3,h4,h5,h6,input,select,textarea,button,option{font-size:14px}
+input,select,textarea,button{-webkit-appearance:none;appearance:none} 
+input[type="text"]::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none} 
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active{box-shadow:0 0 0 30px white inset} /* 웹킷 자동입력 인풋 백그라운드 삭제 */
+
+@font-face{
+	font-family:'NotoKR';
+	font-style:normal;
+	font-weight:900;
+	src:	url('../../ms_com/fonts/NotoSansKR-Bold.woff2') format('woff2'),
+			url('../../ms_com/fonts/NotoSansKR-Bold.woff') format('woff');
+}
+
+@font-face{
+	font-family:'NotoNum';
+	font-style:normal;
+	font-weight:700;
+	src:	url('../../ms_com/fonts/NotoSans-Bold.woff2') format('woff2'),
+			url('../../ms_com/fonts/NotoSans-Bold.woff') format('woff');
+	/*unicode-range:U+002B-D,U+0030-0039;*/ /* "-,+","0-9" */
+}
+.ffNum{font-family:'NotoNum' !important}
+.lf0{left:0 !important}
+.pd5{padding:0 5px !important}
+.pl30{padding-left:30px !important}
+.mt-18{margin-top:-18px !important}
+.fwB{font-weight:900 !important}
+.pt5{padding-top:5px !important}
+.pd20{padding:0 20px !important}
+.pb10{padding-bottom:10px !important}
+.mt60{margin-top:60px !important}
+.posR{position:relative !important}
+.keepAll{word-break:keep-all !important;word-wrap:break-word}
+.flexWrap{flex-wrap:wrap !important}
+.f11{font-size:11px !important}
+
+img{max-width:100%}
+
+/* *:focus{outline: 1px dashed orange !important} */
+/******************************
+ * 자산관리 공통
+ ******************************/
+html.h100p .container{min-height:100vh}
+.nhasset .container.fullH,.nhasset .popCont.fullH{background-color:#f4f6f9 !important}
+
+/* .popWrap, .dim{position:absolute} */
+/* .dim{position:fixed;width:auto;height:100%;top:auto;left:0;right:0;bottom:0;} */
+.dim{height:100vh}
+.fixControl .wrapper[aria-hidden=true] .header{position:absolute !important}
+
+/* header */
+.nhasset .header .btnGoHome{right:46px}
+.nhasset .header .btnNav{right:12px}
+.nhasset .pfmLogo em{position:relative;top:-5px}
+/* allone header */
+.nhasset .header.allone .btnGoHome{right:13px}
+.nhasset .header.allone .btnNav{display:none}
+
+/* footer 마이데이터와 공통 */
+.footer{position:fixed;bottom:0;width:100%;z-index:1100;left:0;background-color:#fff;}
+.footerNav, .footerNav li, .footerNav li a{box-sizing:border-box}
+.footerNav {display:flex;position:relative;width:100%;height:50px;background:#fff;border-top:1px solid #dedede;z-index:10;}
+.footerNav li {position:relative;height:100%;padding-top:5px;font-size:11px;color:#111;text-align:center;flex:1;}
+.footerNav li a, .footerNav li a:active, .footerNav li a:link, .footerNav li a:visited {display:inline-block;position:relative;height:42px;padding-top:27px;color:#111}
+.footerNav li a:before{display:block;content:'';position:absolute;width:24px;height:24px;top:0;left:50%;margin-left:-12px;background-size:24px 24px;background-repeat:no-repeat;background-image:url('../../ms/images/common/icon_footer.png');background-size: 144px;}
+.footerNav li a>i{display:block;position:absolute;width:24px;height:24px;top:0;left:50%;margin-left:-12px}
+.footerNav li a.item01:before{background-position:0px 0px}
+.footerNav li a.item02:before{background-position:-24px 0px}
+.footerNav li a.item03:before{background-position:-48px 0px}
+.footerNav li a.item04:before{background-position:-72px 0px}
+.footerNav li a.item05:before{background-position:-96px 0px}
+.footerNav li a.item06:before{background-position:-120px 0px}
+.footerNav li.active a.item01:before,.footerNav li a.item01.on:before{background-position:0px -24px}
+.footerNav li.active a.item02:before,.footerNav li a.item02.on:before{background-position:-24px -24px}
+.footerNav li.active a.item03:before,.footerNav li a.item03.on:before{background-position:-48px -24px}
+.footerNav li.active a.item04:before,.footerNav li a.item04.on:before{background-position:-72px -24px}
+.footerNav li.active a.item05:before,.footerNav li a.item05.on:before{background-position:-96px -24px}
+.footerNav li.active a.item06:before,.footerNav li a.item06.on:before{background-position:-120px -24px}
+.footerLink {position: absolute;right:10px;bottom:70px;background-color:#fff;box-shadow:0 0 8px 1px rgba(0, 0, 0, 0.1);border-radius:9px;padding:10px 15px;display:none;}
+.footerLink li + li{margin-top: 3px}
+.footerLink.active{display: block}
+.footerLink a{font-size:14px;color:#111;display:block;line-height:24px}
+.footerLink a:before{content:'';width:3px;height:3px;background-color:#111;border-radius: 100%;display:inline-block;vertical-align: middle;margin-right:6px;margin-top:-3px;}
+.footerLink ul li:before{content:'';width:3px;height:3px;background-color:#111;border-radius: 100%;display:inline-block;vertical-align: middle;margin-right:6px;display:none}
+
+/* 레이아웃 - 본문 */
+.nhasset .btnEtc{position:absolute;top:0;right:0;line-height:50px;padding:0 20px 0 0;font-size:13px;text-align:right}
+.nhasset .container{padding:51px 20px 95px} /* [2021-08-30] 한은정 : bottom 75 -> 95 변경 에러텍스트 바닥에 붙는 문제 fix */
+.nhasset .container.gray{min-height:100vh}
+.fixControl .nhasset .areaBtnDefault{display:table;width:calc(100% + 40px) !important} /*iOS fixed 버그 */
+
+/* footer */
+.nhasset .footer{position:fixed;bottom:0;width:100%;z-index:1100;left:0}
+.nhasset .footMenu{display:block;position:relative;width:100%;height:51px;background:#fff;border-top:1px solid #f1f1f1;z-index:10}
+.nhasset .footMenu li{position:relative;padding-top:0;width:20%;height:100%;font-size:11px;text-align:center;float:left}
+.nhasset .footMenu li a, .footMenu li a:active, .footMenu li a:link, .footMenu li a:visited{display:block;height:100%;padding:32px 0 0;position:relative;font-family:"NotoKR" !important;line-height:initial !important;color:#111 !important;text-decoration:none !important;letter-spacing:-0.5px}
+.nhasset .footMenu li:before{display:block;content:'';width:20px;height:20px;margin:0 auto;background:url(../images/spr_footer_2.png) no-repeat;background-size:137.5px 50px;position:absolute;top:8px;left:50%}
+.nhasset .footMenu li.active:before{background-position-y:-30px !important}
+.nhasset .footMenu li:nth-child(1):before{margin-left:-10px;background-position:0 0}
+.nhasset .footMenu li:nth-child(2):before{margin-left:-9px;background-position:-60px 0}
+.nhasset .footMenu li:nth-child(3):before{margin-left:-10px;background-position:-30px 0}
+.nhasset .footMenu li:nth-child(4):before{width:18px;margin-left:-9px;background-position:-90px 0}
+.nhasset .footMenu li:nth-child(5):before{width:17px;height:20px;margin-left:-8px;background-position:-115px 0}
+
+/* allone footer */
+.nhasset .footMenu.allone li:before{background:url(../images/spr_footer_allone.png) no-repeat;background-size:137.5px 50px}
+.nhasset .footMenu.allone li.active:before{background-position-y:-30px !important}
+.nhasset .footMenu.allone li:nth-child(1):before{margin-left:-10px;background-position:0 0}
+.nhasset .footMenu.allone li:nth-child(2):before{margin-left:-10px;background-position:-30px 0}
+.nhasset .footMenu.allone li:nth-child(3):before{margin-left:-9px;background-position:-60px 0}
+.nhasset .footMenu.allone li:nth-child(4):before{width:17px;margin-left:-8px;background-position:-88px 0}
+.nhasset .footMenu.allone li:nth-child(5):before{width:18.5px;height:20px;margin-left:-9px;background-position:-119px 0}
+
+/* 포인트 컬러 재정의 */
+.nhasset .pointColor{color:#19a647 !important}
+.nhasset .pointColor02,.nhasset .error{color:#f44743 !important}
+.nhasset .pointColor03{color:#7e858e !important}
+.nhasset .pointColor04{color:#3d9bff !important}
+.nhasset .pointColor05{color:#3961ff !important}
+.nhasset .pointColor06{color:#888 !important}
+.nhasset .pointColor07{color:#ff8c00 !important}
+.nhasset .pointColor08{color:#7a51e3 !important}
+.nhasset .green{color:#19a647 !important;border:1px solid #19a647 !important}
+.nhasset .tag.gray{color:#7e858e !important;border:1px solid #7e858e !important}
+.nhasset .tag.red{color:#f44743 !important;border:1px solid #f44743 !important}
+.nhasset .tag.orange{color:#ff8c00 !important;border:1px solid #ff8c00 !important}
+.nhasset .tag.skyblue{color:#3d9bff !important;border:1px solid #3d9bff !important}
+.nhasset .tag.purple{color:#7a51e3 !important;border:1px solid #7a51e3 !important}
+.nhasset .tag.blue{color:#3962ff !important;border:1px solid #3962ff !important}
+.nhasset .green{color:#19a647 !important;border:1px solid #19a647 !important}
+.nhasset .areaBodyBtnFull .btnBodyLine.disabled{background-color:#f8f8f8 !important;border:1px solid #dedede !important;color:#666 !important;cursor:no-drop}
+.nhasset .inputList.error .unit,.nhasset .inputList.error .stand{color:#111 !important}
+
+/* 예약클래스 */
+.blind{top:auto !important}
+.fcDark{color:#111 !important}
+
+/* 프로세스버튼 disabled 여역 삭제 */
+[class^="btn"].disabled:after{position:absolute}
+
+/* in out 색상 - 상단영역, 계좌상세정보(상단)에서 사용할 경우 */
+.nhasset .accTopInfo .inColor, .nhasset .accInfoDetail .inColor{color:#f44743 !important}
+.nhasset .accTopInfo .outColor, .nhasset .accInfoDetail .outColor{display:inline-block;color:#3d9bff !important}
+/* in out 색상 - 하단 상세리스트 사용할 경우 */
+.nhasset .inoutListWrap .inColor{color:#19a647 !important}
+.nhasset .inoutListWrap .outColor{color:#111 !important}
+
+/* .nhasset .errorTxt{padding-left:20px;background:url('../../ms_com/images/common/ico_exclamation.png') no-repeat 0 1px;background-size:16px 16px;color:#7e858e;font-size:12px} */
+.nhasset .errorTxt{position:absolute;bottom:-22px;color:#f44743;font-size:12px}
+
+/* 구분라인 */
+.nhasset .divLine{display:block;height:8px;margin:25px -20px;border:0;background-color:#f0f2f4}
+.nhasset .divLine.thin{display:block;height:1px;margin:30px -20px;border:0;background-color:#eeeeee}
+
+/* form 요소 */
+.nhasset .formWrap > ul > li{position:relative}
+.nhasset .formWrap{margin-top:30px}
+.nhasset .formTit{margin:60px 0 2px;font-size:15px;overflow:visible} /* [2021-08-04] 윤지현:overflow 추가 */
+.nhasset .formTit:after{display:block;content:'';clear:both}
+.nhasset .formTit[class*="ico"]:before{margin:-3px 10px 0 0}
+.nhasset .formTit .tooltipWrap .tooltipCont{left:0}
+.nhasset .formTit .subTxt{font-weight:normal}
+.nhasset input[type='text'], .nhasset input[type='tel'], .nhasset input[type='password']{width:100%;height:40px;padding-right:48px;border:0;border-radius:0;background-color:#fff;color:#111;font-size:14px;letter-spacing:0.5px;box-sizing:border-box;word-break:keep-all}
+.nhasset input[type='text'].on, .nhasset input[type='tel'].on, .nhasset input[type='password'].on, .nhasset input[type='tel'].on{padding-top:2px;border-bottom:2px solid #4286F7}
+.nhasset .formWrap .inputList{border-bottom:2px solid #eee}
+.nhasset .formWrap .inputList.on{border-bottom:2px solid #19A647}
+.nhasset .formWrap + .guideList{margin-top:30px}
+.nhasset .formWrap .inputList .posA.contBtn01{position:absolute;bottom:8px;right:0}
+.nhasset .formWrap textarea{height:150px;margin-top:7px;border-color:#e1e1e1;resize:none}
+.nhasset .formWrap .inputList.on.error{border-color:#f44743}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder{color:#aaa}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder{color:#aaa}
+input::-moz-placeholder, textarea::-moz-placeholder{color:#aaa}
+
+
+/* .nhasset input[type='text'], .nhasset input[type='tel'], .nhasset input[type='password']{height:40px;padding-right:48px} */
+.nhasset input[type='tel']{text-align:right}
+.nhasset input[type="tel"].pr{padding-right:48px !important}
+.nhasset .selectValue{line-height:38px}
+.nhasset .btnInput01{height:40px;line-height:40px}
+.nhasset .inputList input[type='text']:read-only, .nhasset .inputList input[type='tel']:read-only, .nhasset .inputList input[type='password']:read-only{color:#888}
+.nhasset .unitMan input[type='text'], .nhasset .unitMan input[type='tel'], .nhasset .unitMan input[type='password']{padding-right:60px}
+.nhasset .unitMan2 input[type='text'], .nhasset .unitMan2 input[type='tel'], .nhasset .unitMan2 input[type='password']{padding-right:75px}
+.nhasset .standUse input[type='text'], .nhasset .standUse input[type='tel']{padding-left:32px}
+
+.nhasset .selectDivision_5_5 input[type='text'],.nhasset .selectDivision_5_5 input[type='tel'],.nhasset .selectDivision_5_5 input[type='password']{padding-right:48px !important;} /* 부동산등록 계약기간 부분 */
+
+/* input[text] box형 compornent */
+.nhasset .formWrapBox input[type="text"],.nhasset .formWrapBox input[type="tel"],.nhasset .formWrapBox input[type="password"]{height:40px;border:1px solid #e1e1e1;border-radius:2px}
+.nhasset .formWrapBox input[type="text"]:focus,.nhasset .formWrapBox input[type="tel"]:focus,.nhasset .formWrapBox input[type="password"]:focus{border-color:#19a647}
+.nhasset .formWrapBox input[type="text"].error:focus,.nhasset .formWrapBox input[type="tel"].error:focus,.nhasset .formWrapBox input[type="password"].error:focus{border-color:#f44743;color:#f44743}
+.nhasset .formWrapBox .formTit{flex:none;width:80px;margin:0}
+.nhasset .formWrapBox .inputList{flex:1}
+.nhasset .formWrapBox .btnReset{width:25px;background-position:0 48%}
+.nhasset .formWrapBox .inputList .unit{right:30px}
+.nhasset .formWrapBox input[type='text'], .nhasset .formWrapBox input[type='tel'], .nhasset .formWrapBox input[type='password']{padding-right:43px}
+.nhasset .formWrapBox .unitMan input[type='text'], .nhasset .formWrapBox .unitMan input[type='tel'], .nhasset .formWrapBox .unitMan input[type='password']{padding-right:56px}
+
+.nhasset input[type='checkbox']{display:inline-block;width:22px;height:22px;border:0;background:url('../images/spr_checkbox.png') no-repeat 0 0;background-size:66px 22px;vertical-align:middle}
+.nhasset input[type='checkbox'] + label{margin-left:12px;vertical-align:middle}
+.nhasset input[type='checkbox']:checked{background-position:-22px 0}
+.nhasset input[type='checkbox']:disabled{background-position:-44px 0}
+.nhasset input[type='checkbox'].subChk{width:12.5px;height:9px;background:url('../images/spr_check.png') no-repeat 0 0;background-size:24px 9px}
+.nhasset input[type='checkbox'].subChk:checked{background-position:-12.5px 0}
+.nhasset .inputList .stand{position:absolute;left:0;top:0;height:40px;line-height:40px;padding:0;font-size:14px}
+.nhasset .inputList .unit{right:30px;top:0;height:40px;line-height:40px;padding:0;font-size:14px}
+
+.nhasset input[type='radio']{display:inline-block;width:22px;height:22px;border:0;background:url('../images/spr_radio.png') no-repeat 0 0;background-size:44px 22px;vertical-align:middle}
+.nhasset input[type='radio'] + label{margin-left:6px;vertical-align:middle}
+.nhasset input[type='radio']:checked{background-position:-22px 0}
+/* check 디자인 */
+.nhasset input[type='radio'].desgChk{display:inline-block;width:22px;height:22px;border:0;background:url('../images/spr_checkbox.png') no-repeat 0 0;background-size:66px 22px;vertical-align:middle}
+.nhasset input[type='radio'].desgChk:checked{background-position:-22px 0}
+.nhasset input[type='radio'].desgChk:disabled{background-position:-44px 0}
+
+.nhasset .tgBtn{display:inline-block;position:relative;height:23px}
+.nhasset .tgBtn input[type="checkbox"]{position:absolute;top:2px;left:2px;width:19px;height:19px;background-color:#888;background-image:none;border-radius:100%}
+.nhasset .tgBtn input[type='checkbox'] + label{display:inline-flex;align-items:center;margin-left:0;vertical-align:top;padding:2px 11px 2px 29px;width:auto;height:23px;border-radius:12px;background-color:#eee;font-size:11px;font-weight:400;color:#888}
+.nhasset .tgBtn input[type="checkbox"]:checked{left:auto;right:2px;background-color:#19a647}
+.nhasset .tgBtn input[type='checkbox']:checked + label{padding-left:11px;padding-right:29px;background-color:#e3f4e9;color:#19a647}
+
+.chkLabel{display:flex;justify-content:space-between;align-items:center;width:100%}
+.chkWrap input[type='checkbox']{margin-left:10px}
+
+.nhasset .stList a{height:42px;padding-left:0;padding-right:30px;line-height:42px;border:0;border-bottom:2px solid #eee}
+.nhasset .selectValue{font-size:14px;line-height:40px}
+.nhasset .selectBtn{top:0;right:0;width:30px;height:40px;background:url(../images/arr_down02.png) right center no-repeat;background-size:10px 10px}
+.nhasset .selectValue.placeholder{color:#aaa}/* select placeholder */
+
+.nhasset .selectDivision_5_5 li:first-child{padding-left:0;padding-right:15px}
+.nhasset .selectDivision_5_5 li{padding-left:15px}
+/* .nhasset .formTit{display:flex;justify-content:space-between} */
+.nhasset .formTit .contBtn01{float:right}
+.nhasset .formTit .textCnt{color:#aaa;font-size:12px;float:right}
+.nhasset .addInput{clear:both;float:none;width:100%}  /* selectDivision 안에서 사용 시 한줄로 나와야하는 경우 */
+
+.nhasset .cal .inputList .btnCalendar{top:10px;bottom:10px;right:0;width:30px;height:30px;background:url(../images/ico_cal.png) no-repeat 100% 0;background-size:18px 18px} 
+.nhasset .calendarForm .symbol{position:relative;padding:0 12px;color:transparent}
+.nhasset .calendarForm .symbol:before{position:absolute;top:50%;left:50%;content:'';width:5px;height:1px;margin-left:-2.5px;background-color:#111}
+.nhasset .calendarForm input[type="tel"]{text-align:left}
+
+.nhasset .infoTxt{padding-left:0;color:#7e858e;font-size:12px} /* [2021-08-04] 윤지현:한줄 info일경우 폰트사이즈 수정 13 > 12 */
+.nhasset .infoTxt:before{background:none}
+.nhasset .infoTxt2{padding-left:0;color:#111;font-size:12px}
+.nhasset .infoTxt2:before{background:none}
+.nhasset .infoTxt.isBul{position:relative;margin-top:7px;padding-left:20px;font-size:12px;color:#666}
+.nhasset .infoTxt.isBul:before{position:absolute;top:2px;left:0;content:'';width:14px;height:14px;background:url('../../ms_com/images/common/ico_exclamation.png') no-repeat;background-size:cover;vertical-align:middle}
+.nhasset .infoTxt3 li{position:relative;padding-left:8px;font-size:13px;font-weight:normal;color:#888888}
+.nhasset .infoTxt3 li:before{content:'';position:absolute;width:3px;height:3px;top:8px;left:2px;background:url('../images/ico_dot.png') center /3px 3px no-repeat}
+.nhasset .infoTxt3 li+li{margin-top:8px}
+.nhasset .infoTxt3 a{color:#369bff;font-weight:bold;text-decoration:underline !important}
+.nhasset .inputList.inquiry input[type="text"]{padding-right:55px}
+.nhasset .inputList.inquiry .btnReset{right:31px}
+.nhasset .inputList.inquiry .btnSrch{position:absolute;top:50%;right:0;margin-top:-8.5px}
+
+.nhasset .infoTxtWrap{padding:15px;background-color:#f8f8f8;border:1px solid #e1e1e1;border-radius:2px}
+.nhasset .infoTxtWrap p{word-break:keep-all;word-wrap:break-word}
+.nhasset .infoTxtWrap dt{font-size:14px;color:#7e858e}
+.nhasset .infoTxtWrap .value{font-weight:bold}
+.nhasset .infoTxtWrap .link{display:inline-block;margin-top:10px;color:#7e858e}
+.nhasset .infoTxtWrap .link:after{content:'';margin-left:5px;display:inline-block;width:6px;height:10px;background:url('../images/arr_right01.png') center /100% no-repeat}
+
+.nhasset .errorBtn{padding-left:20px;color:#f44743;font-weight:normal;text-decoration:underline !important; text-underline-position:under;background:url('../images/ico_tooltipErr.png') left top 4px/16px 16px no-repeat}
+.nhasset .boxGuideBlue{padding:17px 20px 30px;background-color:#eef4fe;border-radius:2px}
+.nhasset .boxGuideBlue .imgWrap{padding-bottom:10px;margin-bottom:15px;border-bottom:1px solid #d1e1f2}
+.nhasset .boxGuideBlue .imgWrap.money{padding-top:105px;background:url('../images/visual_money.png') center top /128px 103px no-repeat}
+.nhasset .boxGuideBlue .imgWrap p{font-size:16px;font-weight:bold}
+.nhasset .numList li{position:relative;margin-top:10px;padding-left:22px;font-size:13px}
+.nhasset .numList li:first-child{margin-top:0}
+.nhasset .numList .num{position:absolute;top:2px;left:0;width:18px;height:18px;border-radius:100%;text-align:center;font-size:13px;line-height:18px}
+.nhasset .boxGuideBlue .numList .num{background-color:#369bff;color:#fff}
+
+.nhasset .noDataBox{position:relative;padding:15px 20px 17px;color:#7e858e;background-color:#f8f8f8;border-radius:10px;letter-spacing:-0.5px}
+.nhasset .noDataBox .arrGreen{display:inline-block;margin-top:7px;font-size:13px}
+.nhasset .accInfoDetail + .noDataBox{margin-top:15px}
+.nhasset .filterWrap + .noDataBox{margin-top:15px}
+.nhasset .noDataBox .tooltipWrap{position:absolute;top:10px;right:10px}
+.nhasset .noDataBox .tooltipWrap .tooltipCont{left:auto;right:-10px;top:-10px}
+
+/* 테이블 */
+[class^="wrapTbl"] table{border-top:1px solid #999999}
+[class^="wrapTbl"] table thead th{font-weight:bold}
+[class^="wrapTbl"] table .bgColor{background-color:#fafafa}
+
+/* 박스 */
+.grayBox{overflow:hidden;margin:12px 0 30px;padding:11px 15px 13px;background-color:#f8f8f8;border-radius:2px}
+.grayBox .infoTxtMsg{margin:0;color:#111}
+.grayBox .infoTxtMsg:before{margin-right:5px}
+.grayBox .contBtn01{padding:2px 10px 5px;color:#7e858e}
+.grayBox .posA{position:absolute;top:50%;right:15px;margin-top:-15px}
+.titWrap + .grayBox{border-radius:10px}
+.grayBoxLine{overflow:hidden;margin:12px 0 30px;padding:11px 15px 13px;border:2px solid #d1d1d1;border-radius:2px}
+
+/* 완료 메시지 */
+.nhasset .confirmMsg.type01{background-image:url('../images/bg_confirm01.png')}  /* 긍정형 */
+.nhasset .confirmMsg.type02{background-image:url('../images/bg_confirm02.png')}  /* 부정형 */
+.nhasset .confirmMsg.type03{padding-top:0px} /* 텍스트형 */
+.nhasset .confirmMsg.type03 p{font-size:14px}
+.nhasset .confirmMsg.type03 .notiTxt{font-size:16px;font-weight:bold}  /* 텍스트형:선조회성 문구 */
+.nhasset .confirmMsg.type04{background-image:url('../images/bg_confirm04.png')}  /* 정보 */
+.nhasset .confirmMsg[class*="PFM_"]{padding-top:0}
+.nhasset .confirmMsg[class*="PFM_"]:before{width:40px;height:40px;margin:0 0 7px}
+.nhasset .confirmMsg.smP{padding-top:55px;background-position-y:20px !important}
+
+/* 탭 */
+.nhasset .tabWrap.type01{position:relative;margin:0 -20px;border-bottom:1px solid #e1e1e1;background-color:#fff}
+.nhasset .tabWrap.type01 ul{display:table;width:100%;table-layout:fixed;position:relative}
+.nhasset .tabWrap.type01 ul li{display:table-cell;vertical-align:middle;text-align:center;letter-spacing:-1.7px}
+.nhasset .tabWrap.type01 ul li a{overflow:hidden;display:block;height:50px;padding:0 5px 12px;color:#7e858e;font-size:17px;line-height:48px;letter-spacing:-1px;font-weight:bold}
+.nhasset .tabWrap.type01 .bar{display:none;content:'';position:absolute;bottom:0;left:26px;height:3px;width:50px;background-color:#19a647}
+.nhasset .tabWrap.type01 ul li a.on{border-bottom:3px solid #19a647;color:#19a647;font-weight:bold}
+.nhasset .tabWrap.type01.line2 ul li a{height:70px;line-height:1.3;padding:13px 0 10px}
+
+.nhasset .tabWrap.type02{display:inline-block;margin-top:15px;width:100%;border-radius:2px}
+.nhasset .tabWrap.type02 li{position:relative;float:left;width:25%;height:46px;line-height:44px;border:1px solid #ddd;text-align:center;margin-left:-1px;margin-top:-1px}
+.nhasset .tabWrap.type02 li.active{border-color:#19a647;background-color:#e3f4e9;color:#19a647;font-weight:bold;z-index:1} /* [2021-10-15] 윤지현:접근성 bold추가 */
+.nhasset .tabWrap.type02 li a{display:inline-block;width:100%;height:100%}
+.nhasset .tabWrap.type02:after{content:'';display:block;clear:both}
+
+/* 풀사이즈 그린 버튼 */
+.fullInbodyBtn{display:block;height:44px;line-height:44px;color:#fff;background-color:#19a647;border-radius:22px;text-align:center}
+.fullInbodyBtn.link:after{content:'';padding-left:12px;background-image:url('../images/arr_right05.png');background-repeat:no-repeat;background-position:90% center;background-size:6px 11px}
+
+/* 요소간 간격 */
+.nhasset .inputList + .roundChkWrap{margin-top:10px}
+.nhasset .defSubTit2 + .subTxt{margin-top:8px;font-size:13px}
+.subTxt + .subTxt{margin-top:3px}
+.nhasset .stepArea + .divLine{margin-top:0}
+.nhasset .contBtn01 + .contBtn01{margin-left:3px}
+.nhasset .agreementWrap + .agreementWrap{margin-top:38px}
+.nhasset .formTit + .boxRadio{margin-top:12px}
+.nhasset .infoBox .tit + .divingTxt{font-size:14px;margin-top:8px}
+.nhasset .guideList p + p{margin-top:10px}
+.nhasset  .tabWrap + .totalBalance{margin-top:40px}
+.nhasset .accTopInfo + .divLine{margin-bottom:15px}
+.nhasset .divLine + .detailTitWrap{margin-top:0}
+.nhasset .inoutListWrap + .listMoreBtn{margin-top:10px}
+.nhasset .planManageWrap + .spendGraph{margin-top:27px}
+.nhasset .formTit + .spendGraph{margin-top:15px}
+.nhasset .fullTabWrap + .defSubTit{margin-top:35px}
+.nhasset .textTabWrap + .defTit{margin-top:25px}
+.nhasset .topRanking + .rankListWrap{margin-top:5px}
+.nhasset .boxListWrap.assetStats + .listDash{margin-top:-10px}
+.nhasset .infoBox .divingTxt + .detailList,.nhasset .infoBox .tit + .detailList{margin-top:17px}
+.nhasset .midLogoWrap + .guideLink{margin-top:0}
+
+/* 타이틀 */
+.nhasset .defTit{margin-top:35px;font-size:19px;color:#111;font-weight:normal;line-height:24px}
+.nhasset .defSubTit{font-size:15px;color:#000}
+.nhasset .defSubTit2{font-size:16px}
+.nhasset .defSubTit3{font-size:14px;font-weight:bold}
+.nhasset .defSubTit2.chk{padding-left:18px;color:#19a647;background:url('../images/ico_check_on.png') top 50% left 0px /12px 8px no-repeat;font-weight:600}
+.nhasset .topTitWrap{position:relative;line-height:1.6;margin-top:15px} /* 최상단에 사용하는 요소에 여백을 줘야하는 경우 */
+.nhasset .topTitWrap .contBtn01.greenBg{position:absolute;top:6px;right:0}
+.nhasset .topTitWrap .updateBtn{top:1px}
+.nhasset .titWrap{margin-top:30px}
+.nhasset .defTit .tooltipWrap .tooltipCont{left:0}
+
+/* 리스트 header */
+.nhasset .listHeader{border-bottom:1px solid #e1e1e1}
+.nhasset .listHeader .lgDivTxt{height:40px;line-height:40px;margin:10px -20px 13px;padding:0 20px;font-size:15px;font-weight:900;background-color:#f0f2f4}
+.nhasset .listHeader .smDivTxt{margin-bottom:8px;font-size:13px;color:#888}
+
+/* 텍스트 */
+.nhasset .subTxt{font-size:14px;color:#7e858e}  /* defTit 아래에 나오는 부가 타이틀 메시지 */
+.nhasset .subTxt2{font-size:12px;color:#7e858e}  /* 12px 작은 서브 메시지 */
+.nhasset .subTxt3{font-size:13px;color:#7e858e}
+.nhasset .subTxt4{margin-top:-13px;margin-bottom:15px;font-size:11px;color:#888} /* [2021-11-30] 추가. 금리다른 안내문구 */
+.nhasset .txtSmGray2{font-size:13px;color:#888}
+.nhasset .underline{text-decoration:underline !important;text-underline-position:under}
+
+/* 폰트사이즈 */
+.fs12{font-size:12px !important}
+.fs13{font-size:13px !important}
+.fs14{font-size:14px !important}
+.fs15{font-size:15px !important}
+
+.nhasset .infoTxtMsg{margin:30px 0 40px;color:#7e858e;text-align:center;letter-spacing:-0.5px}
+.nhasset .infoTxtMsg strong{color:#111;font-weight:normal}
+.nhasset .infoTxtMsg:before{display:inline-block;content:'';width:15px;height:15px;margin-right:5px;background:url(../images/ico_msg.png) no-repeat 0 0;background-size:15px 15px;vertical-align:-3px}
+.nhasset .infoTxtMsg.noImg{margin:20px 0 0;font-size:12px;color:#888}
+.nhasset .infoTxtMsg.noImg:before{display:none}
+.nhasset a.infoTxtMsg{color:#111}
+
+/* step */
+.nhasset .stepArea{margin:0 -20px;padding:13px 20px 14px;background-color:#f8f8f8;border-bottom:0}
+.nhasset .stepArea .stepTit{font-size:14px}
+.nhasset .stepArea .stepInfo .stepList li{padding-left:7px}
+.nhasset .stepArea .stepInfo .stepList li > span{width:22px;height:22px;background-color:#dddddd;border:0;color:#888888;font-size:14px}
+.nhasset .stepArea .stepInfo .stepList li.active > span{background-color:#19a647;color:#fff}
+
+/* 버튼 */
+.nhasset .areaBtnDefault{bottom:0}
+.nhasset .areaBtnDefault [class^="btn"]{font-weight:normal}
+.nhasset .areaBtnDefault .btnPressDefault{background-color:#7e858e}
+.nhasset .areaBtnDefault [class^="btn"].disabled{background-color:#999;color:#fff}
+.nhasset .areaBtnDefault [class^="btn"].half{width:50% !important}
+.nhasset .btnBodyLine{height:44px;border-color:#e1e1e1;line-height:42px}
+.nhasset .btnBodyLine.greenBg{background-color:#19a647;border-color:#19a647;color:#fff}
+.nhasset [class*="contBtn"]{display:inline-block;font-weight:normal;vertical-align:middle}
+.nhasset .contBtn01{padding:1px 6px 2px;min-width:50px;text-align:center;border:1px solid #e1e1e1;border-radius:16px;background-color:#fff;color:#333;font-size:13px;vertical-align:middle}  /* 컨텐츠 내 작은 버튼 1 */
+.nhasset .contBtn01.green{border-color:#19a647;color:#19a647}  /* 컨텐츠 내 작은 버튼 1 green컬러 */
+.nhasset .contBtn01.red{border-color:#f44743;color:#f44743}  /* 컨텐츠 내 작은 버튼 1 red컬러 */
+.nhasset .contBtn01.greenBg{background-color:#19a647;border-color:#19a647;color:#fff}
+.nhasset .contBtn02{padding:3px 11px 4px;border:1px solid #19a647;border-radius:20px;color:#19a647;font-size:13px;background-color:#fff}  /* 큰버튼 */ /* 기존 작은 버튼 삭제로 큰버튼으로 변경 */
+.nhasset .listMoreBtn{border-color:#e1e1e1;background-color:#fff} /* 더보기 */ /* [2021-07-15] 윤지현:공통더보기 버튼 bg추가 */
+.nhasset .toolTipBtn{display:inline-block;width:16px;height:16px;margin:-2px 0 0 0;background:url('../images/ico_tooltip.png') no-repeat 0 0;background-size:cover;vertical-align:middle}  /* 툴팁 */
+.nhasset .toolTipBtn.icoWhite{background-image:url('../images/ico_tooltip2.png')}
+.nhasset .toolTipBtn.error{background-image:url('../images/ico_tooltipErr.png')}
+.nhasset .btnSrch{width:17px;height:17px;background:url('../images/btn_srch.png') no-repeat;background-size:17px 17px}
+.nhasset .editBtn{position:relative;display:inline-block;height:24px;padding:0 6px;border-radius:12px;border:1px solid #e1e1e1;font-size:13px;color:#7e858e;vertical-align:top}
+.nhasset .editBtn:after{display:inline-block;content:'';margin-left:3px;width:11px;height:11px;background:url('../images/btnEdit2.png') no-repeat 50% 50%;background-size:11px 11px}  /* 편집하기 */
+.nhasset .updateBtn{display:inline-block;position:absolute;top:-10px;right:0;height:24px;padding:0 8px;border:1px solid #e1e1e1;border-radius:12px;background-color:#fff;background-repeat:no-repeat;color:#7e858e;font-size:13px;font-weight:normal;line-height:22px}
+.nhasset .updateBtn:before{display:inline-block;content:'';margin:-2px 5px 0 0;background:no-repeat 0 50%;background-size:cover;vertical-align:middle}
+.nhasset .updateBtn.type01:before, .nhasset .updateBtn.type02:before{width:14px;height:14px;background-image:url('../images/ico_load01.png');transform:rotateZ(0deg)}
+.nhasset .updateBtn.type01.on:before, .updateBtn.type02.on:before{animation:rotate 0.8s 0s infinite linear;transform-origin:center center}
+.nhasset .updateBtn.type02{border-color:#19a647;color:#19A647}
+.nhasset .updateBtn.type02:before{background-image:url('../images/ico_load02.png')}
+.nhasset .rdBtn{line-height:26px;padding:0 10px;font-size:13px;color:#19a647;border:1px solid #19a647;border-radius:13px}
+.nhasset .btmArrLink{position:fixed;bottom:40px;right:20px;padding-right:10px;font-size:13px;color:#19a647;background:url(../images/arr_right06.png) no-repeat 100% 57%;;background-size:6px 11px}
+
+/* 토글 버튼*/
+.nhasset .tgBtn2{position:relative;display:inline-block;vertical-align:middle}
+.nhasset .tgBtn2 input[type='checkbox']{position:absolute;top:0;right:0;opacity:0;overflow:auto}
+.nhasset .tgBtn2 input[type='checkbox'] + label{position:relative;display:block;width:36px;height:16px;margin-left:7px;background-color:#999999;border-radius:8px;font-size:1px;transition:all .2s ease;color:transparent}
+.nhasset .tgBtn2 input[type='checkbox'] + label:after{position:absolute;top:50%;left:0;display:block;content:'';width:22px;height:22px;margin-top:-11px;background-color:#fff;border-radius:50%;box-shadow:0 0 8px rgba(0, 0, 0, 0.24);transition:all .2s ease}
+.nhasset .tgBtn2 input[type='checkbox']:checked + label{background-color:#19a647}
+.nhasset .tgBtn2 input[type='checkbox']:checked + label:after{left:15px}
+.nhasset .tgTxt{display:inline-block;margin-top:-2px;font-size:13px;vertical-align:middle}
+.nhasset .tgBtnWrap{margin-top:17px;text-align:right}
+
+/* 프로세스버튼 50%의 경우 */
+.nhasset .areaBtnDefault.half [class^="btnPre"]:first-child{width:50%}
+
+@keyframes rotate{
+	100%{transform:rotate(1080deg)}
+}
+/* .nhasset .updateBtn.type03{border-color:#3d9bff;background-image:url('../images/ico_load02.png');color:#3d9bff;background-size:13px 9px}
+.nhasset .updateBtn.type04{padding-left:15px;border-color:#f44743;background-image:url('../images/ico_load03.png');background-position:10px center;color:#f44743;background-size:1.5px 11px} */
+.nhasset .updateBtn2{display:inline-block;position:absolute;top:50%;right:20px;margin-top:-12px;width:24px;height:24px;background:url('../images/btn_update.png') 0 0 /100% no-repeat}
+.nhasset .updateBtn2.on{animation:rotate 2s infinite linear;transform-origin:center center}
+
+.nhasset .assetSet{display:inline-block;width:25px;height:25px;margin-top:-3px;background:url('../images/ico_set.png') no-repeat 50% 50%;background-size:14.5px 14.5px;vertical-align:middle}
+
+.nhasset .areaBodyBtnFull{margin-top:30px}
+.nhasset .areaBodyBtnFull .btnBodyLine.point{height:44px;line-height:42px;color:#19a647;border-color:#19a647}
+.nhasset .areaBodyBtnFull .btnBodyLine.point.disabled{color:#666;border-color:#dedede;background-color:#f8f8f8}
+.nhasset .areaBodyBtnFull .inner{margin:0 -3px}
+.nhasset .areaBodyBtnFull li{padding:0 3px}
+.nhasset .areaBodyBtnFull li a{height:44px;line-height:42px;padding:0 3px;border-color:#e1e1e1}
+.nhasset .areaBodyBtnFull li a.green{font-weight:bold}
+.nhasset .areaBodyBtnFull.fixed{position:fixed;bottom:0;left:20px;right:20px;height:80px;margin-top:30px;background-color:#fff}
+
+.nhasset .areaBodyBtnFlex{display:flex;margin:0 -3px}
+.nhasset .areaBodyBtnFlex a{margin:0 3px;}
+
+/* 툴팁 */
+.nhasset .tooltipWrap{display:inline-block}
+.nhasset .tooltipWrap .tooltipCont{display:none;position:absolute;left:20px;width:300px;margin-top:6px;padding:12px 15px 13px;border:1px solid #111;border-radius:2px;background-color:#fff;z-index:11;text-align:left;line-height:19px} /* [2021-10-08] 윤지현:z-index 수정 3->11 */
+.nhasset .tooltipWrap .tooltipCont p{padding-right:20px;color:#111;font-size:13px;font-weight:normal;word-break:keep-all;word-wrap:break-word}
+.nhasset .tooltipWrap .tooltipCont .close{position:absolute;top:0;right:0;width:44px;height:44px;background:url('../images/btn_close.png') no-repeat center;background-size:11px 11px}
+
+/* 팝업 재정의 */
+.nhasset.popWrap .btnBack{position:absolute;top:0;left:10px;width:37.5px}
+.nhasset.popWrap .btnBack:before{display:block;content:'';background-image:url('../../ms_com/images/common/sp_com_new.png');background-size:auto 250px;position:absolute}
+.nhasset.popWrap .btnBack:before{width:17.5px;height:17.5px;top:17.5px;left:10px;background-position:-230px -112px}
+.nhasset.popWrap .popInner h1{height:80px;line-height:80px;font-weight:normal}
+.nhasset.popWrap .popInner h1 img{max-width:initial;height:15px}
+.nhasset.popWrap.fullLayerPop .popInner h1{height:50px;line-height:50px}
+.nhasset.popWrap .popClose, .nhasset .popBtnWrap .popClose{top:21px}
+.nhasset.popWrap .calPop .popClose, .nhasset .calPop .popBtnWrap .popClose{top:5px}
+.nhasset .popCont .selectList li{display:flex;align-items:center;width:100%;font-size:16px;border-top:0}
+.nhasset .popCont .selectList li a{width:100%}
+.nhasset .popCont .selectList li a,.nhasset.popWrap .popInner .popCont .selectList li label{padding:22px 25px 22px 0;font-size:16px}
+.nhasset .popCont .selectList li.active{background-color:#fdfbfb}
+.nhasset .popCont .selectList li.active a,.nhasset.popWrap .popInner .popCont .selectList li.active label{font-weight:normal;background:url('../images/ico_select_active.png') no-repeat 100% 50%;background-size:22px 17px;color:#111;font-weight:normal}
+.nhasset .popCont .linkList li{margin:0 20px;font-size:16px;border-bottom:1px solid #f3f3f3}
+.nhasset .popCont .linkList li a,.nhasset.popWrap .popInner .popCont .linkList li label{display:block;padding:22px 25px 22px 0;font-size:16px}
+.nhasset .popCont .linkList li a,.nhasset.popWrap .popInner .popCont .linkList li label{background:url('../images/arr_right03.png') no-repeat 100% 50%;background-size:7px 11px;color:#111;font-weight:normal}
+.nhasset .popCont .linkList li.active{background-color:#fdfbfb}
+.nhasset .popCont .transfer{padding:0 20px}
+.nhasset .popCont .transfer .formWrap{margin-top:0}
+.nhasset .btnReset{background-image:url('../images/btn_input_close.png');background-position:100% 48%;background-size:20px}
+.nhasset .btnReset{top:0;width:36px;height:40px;z-index:10}
+.nhasset.popWrap.fullLayerPop .popInner .popCont{padding:0 20px 40px}
+.nhasset.popWrap.slidePopConfirm .popInner .popCont{padding-bottom:40px}
+.nhasset.popWrap .popInner .popCont.grayPop{background-color:#f0f2f4}
+.popBtnWrap .popBtn > a.confirmBtn.disabled{background-color:#999;color:#fff}
+.nhasset .popBtnWrap .popBtn > a{background-color:#989ba0}
+.nhasset .popBtnWrap .popBtn > a.disabled{background-color:#777}
+.nhasset .popBtnWrap .popBtn > a.confirmBtn{background-color:#19A647}
+.nhasset .popBtnWrap .popBtn > a.confirmBtn.disabled{background-color:#777}
+
+/* 박스형 라디오박스 */
+.nhasset .boxRadio{display:table;width:100%;table-layout:fixed}
+.nhasset .boxRadio .boxRadioInn{display:table-cell;position:relative}
+.nhasset .boxRadio .boxRadioInn span{display:block;margin-left:-1px}
+.nhasset .boxRadio .boxRadioInn:first-child span{margin-left:0}
+.nhasset .boxRadio input[type="radio"], .nhasset .boxRadio input[type="checkbox"]{position:absolute;top:0;left:0;clip:rect(0,0,0,0);width:100%;height:100%}
+.nhasset .boxRadio input[type="radio"] + label, .nhasset .boxRadio input[type="checkbox"] + label{position:relative;top:0;left:0;width:100%;max-width:100%;min-height:45px;padding:10px 0;border:1px solid #e1e1e1;font-size:14px;color:#111;text-align:center}
+.nhasset .boxRadio .boxRadioInn:first-child input[type="radio"] + label, .nhasset .boxRadio .boxRadioInn:first-child input[type="checkbox"] + label{border-radius:2px 0 0 2px}
+.nhasset .boxRadio .boxRadioInn:last-child input[type="radio"] + label, .nhasset .boxRadio .boxRadioInn:last-child input[type="checkbox"] + label{border-radius:0 2px 2px 0}
+.nhasset .boxRadio input[type="radio"]:first-child+label, .nhasset .boxRadio input[type="checkbox"]:first-child+label{margin-left:0}
+.nhasset .boxRadio input[type="radio"] + label:before, .nhasset .boxRadio input[type="checkbox"] + label:before{content:' ';display:none;width:20px;height:9px}
+.nhasset .boxRadio + .boxRadio{margin-top:-1px}
+.nhasset .boxRadio.rowType{display:block}
+.nhasset .boxRadio.rowType .boxRadioInn{display:block}
+.nhasset .boxRadio.rowType .boxRadioInn span{display:block;margin:-1px 0 0 0}
+.nhasset .boxRadio.rowType .boxRadioInn:first-child span{margin:0}
+.nhasset .boxRadio.rowType .boxRadioInn:first-child input[type="radio"] + label{border-radius:2px 2px 0 0}
+.nhasset .boxRadio.rowType .boxRadioInn:last-child input[type="radio"] + label{border-radius:0 0 2px 2px}
+.nhasset .boxRadio input:checked + label{border:1px solid #19a647;color:#19a647;z-index:1}
+.nhasset .boxRadio input:checked + label:before{content:' ';display:inline-block;width:17px;height:9px;background:url('../images/ico_check_on.png') no-repeat;background-size:13px auto}
+
+.nhasset .boxRadio.chkType{display:block;width:auto;margin-left:1px;margin-top:20px}
+.nhasset .boxRadio.chkType label{border-radius:0 !important}
+.nhasset .boxRadio.chkType:after{content:'';clear:both;display:block}
+.nhasset .boxRadio.chkType .boxRadioInn{display:block;float:left;width:33.33%;width:calc(100% / 3);margin-top:-1px}
+.nhasset .boxRadio.chkType .boxRadioInn:first-child span{margin-left:-1px}
+.nhasset .boxRadio.chkType input:checked + label:before{display:none}
+
+/* 라운드형 라디오박스 */
+.nhasset .roundChkWrap{margin:0 -3px}
+.nhasset .roundChkWrap.chkpd9 label{padding:0 9px}
+.nhasset .roundChkWrap ul{display:table;width:100%;table-layout:fixed}
+.nhasset .roundChkWrap li{display:table-cell;padding:0 3px}
+/* 3개씩 여러줄 있는 라운드형 박스일 경우 */
+.nhasset .roundChkWrap .length3{margin-top:-10px}
+.nhasset .roundChkWrap .length3 li{float:left;width:33.333%;width:calc(100% / 3);margin-top:10px}
+.nhasset .roundChk{position:relative;width:100%;display:block}
+.nhasset .roundChk input[type="radio"],.nhasset .roundChk input[type="checkbox"]{position:absolute;top:0;clip:rect(0,0,0,0);width:100%;height:100%}
+.nhasset .roundChk input[type="radio"] + label,.nhasset .roundChk input[type="checkbox"] + label{position:relative;display:block;width:100%;max-width:100%;height:36px;margin-left:0;line-height:36px;font-size:13px;color:#7e858e;text-align:center;background-color:#fff;border-radius:20px}
+.nhasset .roundChk input[type="radio"] + label:after,.nhasset .roundChk input[type="checkbox"] + label:after{position:absolute;top:0;left:0;width:100%;height:100%;content:'';border:1px solid #e1e1e1;border-radius:18px}
+.nhasset .roundChk input[disabled="disabled"] + label{color:#aaa;background:#f8f8f8;border-radius:18px}
+.nhasset .roundChk input:checked + label{color:#19a647}
+.nhasset .roundChk input:checked + label:after{border-color:#19a647;border-width:2px}
+/* roundChk 자동너비면서 overflow 되는 flex 타입 */
+.nhasset .roundChkWrap.flexType ul{display:flex}
+.nhasset .roundChkWrap.flexType ul li{flex:0 0 auto;width:auto}
+.nhasset .roundChkWrap.flexType ul li label{width:auto;padding:0 10px}
+.nhasset .roundChkWrap.flexType.flexWrap ul{flex-wrap:wrap}
+.nhasset .roundChkWrap.flexType.flexWrap ul li{margin-bottom:5px}
+/* roundChk 자동너비면서 display:table 타입 */
+.nhasset .roundChkWrap.autoType ul{table-layout:auto}
+
+/* 상단 리프레시 영역 */
+.nhasset .fullRefreshWrap{position:relative;margin:0 -20px;padding:6px 20px 9px;background-color:#f8f8f8}
+.nhasset .fullRefreshWrap a{display:inline-block}
+.nhasset .fullRefreshWrap p{font-size:13px;color:#7e858e}
+.nhasset .fullRefreshWrap .updateBtn{top:50%;right:20px;margin-top:-12px} 
+.nhasset .fullRefreshWrap .updateIcoErr{display:inline-block;margin-left:2px;width:16px;height:16px;background:url('../images/ico_tooltipErr.png') 0 0 /100%;vertical-align:-3px;display:none !important} /* 오픈 후 display none 삭제 */
+
+/* 증감 화살표 */
+.nhasset [class*="arrow"]:before{display:inline-block;content:'';width:0;height:0;vertical-align:middle;margin-top:-2px}
+.nhasset .arrowDown{color:#3d9bff}
+.nhasset .arrowDown:before{border-top:6px solid #3d9bff;border-left:5px solid transparent;border-right:5px solid transparent}
+.nhasset .arrowUp{color:#f44743}
+.nhasset .arrowUp:before{border-bottom:6px solid #f44743;border-left:5px solid transparent;border-right:5px solid transparent}
+.nhasset .arrowUp + .amount{color:#f44743}
+.nhasset .arrowDown + .amount{color:#3d9bff}
+.nhasset .arrowNone{color:#7e858e}
+.nhasset .arrowUp, .nhasset .arrowDown, .nhasset .arrowNone{position:relative}
+.nhasset .arrowUp .blind, .nhasset .arrowDown .blind, .nhasset .arrowNone .blind{clip:auto;left:0;width:100% !important;height:100% !important;background:#ddd}
+.nhasset .tooltipWrap + .arrowUp, .nhasset .tooltipWrap + .arrowDown{margin-left:8px}
+
+.nhasset .infoTxtMsg2{position:relative;margin-top:20px;padding-left:26px;text-align:left;color:#111}
+.nhasset .infoTxtMsg2:before{content:'';position:absolute;top:4px;left:0;width:15px;height:15px;background:url("../images/ico_msg2.png") top left/15px 15px no-repeat}
+.nhasset .infoTxtMsg2 em{color:#19A647}
+
+.nhasset .formArray .chkRadio label{display:inline;margin:0 15px 0 2px}
+@media screen and (max-width:320px){
+	.nhasset .formArray .chkRadio label{margin:0 5px 0 0}
+}
+
+.nhasset .sampleImg{margin:0 -20px}
+.nhasset .sampleImg.pop{margin:0 -17px;padding:0 20px}
+.nhasset .sampleImg img{display:block;width:100%}
+.nhasset .sampleImg2{margin:0 -20px;text-align:center}
+.nhasset .sampleImg2 img{width:320px}
+.nhasset .sampleTxt{margin-top:55px;text-align:center}
+.nhasset .sampleTxt:first-child{margin-top:35px}
+.nhasset .sampleTxt dt{font-size:17px;line-height:23px;font-weight:bold}
+.nhasset .sampleTxt dd{margin-top:3px;font-size:13px;color:#7e858e;font-weight:bold}
+
+/* 박스 */
+.nhasset .grayBgLine{padding:10px;background:#f8f8f8;border:1px solid #e1e1e1;border-radius:2px}
+.nhasset .grayLine{border:1px solid #e1e1e1}
+
+.txtLink{display:block;padding-right:14px;font-size:13px;background:url(../images/arr_right03.png) no-repeat 100% 50%;background-size:6px 10.5px}
+
+/* 그래프 타이틀 - 폰트 13 */
+.nhasset .graphTit{display:block;overflow:hidden;margin:20px 0 7px}
+.nhasset .graphTit .tit{float:left;font-size:13px}
+.nhasset .graphTit .value{float:right;padding-right:11px;color:#111;font-size:13px;font-weight:bold;background:url(../images/arr_right03.png) no-repeat 100% 50%;background-size:6px 10.5px}
+.nhasset .graphTit + .graphWrap{margin-top:0}
+.nhasset .graphTit .tit.ellip{max-width:50%}
+.nhasset .graphTit.up .tit,.nhasset .graphTit.down .tit{font-weight:bold}
+.nhasset .graphTit.up .tit{color:#f44743}
+.nhasset .graphTit.down .tit{color:#3961ff}
+/* 그래프 아래 텍스트 */
+.nhasset .graphBtm{display:flex;margin-top:7px;justify-content: space-between}
+.nhasset .graphBtm .tit, .nhasset .graphBtm .value{color:#7e858e;font-size:12px} 
+
+.nhasset .itemSelect{font-size:13px;color:#888;text-align:right}
+.nhasset .itemSelect a{padding-right:15px;background:url('../images/btnEdit.png') no-repeat 100% 50%;background-size:11px 11px}
+.nhasset a.link.arrGreen{padding-right:10px;color:#19a647;background:url(../images/arr_right06.png) no-repeat 100% 57%;;background-size:6px 11px}
+.nhasset a.link.disabled{color:#aaa;background:url(../images/arr_right04.png) no-repeat 100% 57%;;background-size:6px 11px;cursor: no-drop}
+.nhasset .itemSelect button.selec{font-size:13px;padding-right:15px;background:url('../images/arr_down01.png') no-repeat 100% 50%; background-size:10px 5.5px}
+.nhasset .itemSelect.flex{display:flex;justify-content:space-between}
+.nhasset .itemSelect .rdBtn{padding:0 10px;background:none}
+.nhasset .linkArrWrap a.link.arrGreen{background:none}
+.nhasset .linkArrWrap a.link.arrGreen:before{display:inline-block;content:'';width:1px;height:13px;margin-right:10px;background:#e1e1e1;vertical-align:middle}
+.nhasset .linkArrWrap a.link.arrGreen:first-child:before{display:none}
+
+/* GNB 메뉴 */
+.nhasset.hasGnb .container{padding-top:102px}
+.nhasset .gnb{z-index:1100;position:fixed;top:51px;left:0;right:0;border-bottom:1px solid #e1e1e1;background-color:#fff}
+.nhasset .gnb ul{display:flex;justify-content:space-around;padding:0 10px}
+.nhasset .gnb li{text-align:center}
+.nhasset .gnb a{position:relative;display:block;height:50px;line-height:50px;font-size:16px;color:#888;font-weight:bold}
+.nhasset .gnb a.active{color:#19a647}
+.nhasset .gnb a.active:after{position:absolute;bottom:-1px;left:-8px;right:-8px;content:'';height:3px;background-color:#19a647}
+@media screen and (max-width:320px){
+	.nhasset .gnb a{font-size:14px}
+}
+
+.nhasset .grayBgLine .detailList{padding:5px 10px}
+.nhasset .grayBgLine .detailList li{margin-top:13px;color:#7e858e}
+.nhasset .grayBgLine .detailList li:first-child{margin-top:0}
+
+/* 좌측 아이콘 있는 정보성 리스트 */
+.nhasset .explanList li{position:relative;padding:20px 0 18px 65px;border-top:1px solid #e1e1e1}
+.nhasset .explanList li:first-child{border-top:0}
+.nhasset .explanList .explanTit{display:block;font-size:15px}
+.nhasset .explanList .explanCon{font-size:13px;color:#7e858e}
+
+/* chklList 왼쪽 체크박스 */
+.nhasset .chkList{margin-top:15px}
+.nhasset .chkList li{display:flex;align-items:center;min-height:62px;border-top:1px solid #e1e1e1;font-size:15px}
+.nhasset .chkList .chkWrap{flex-shrink:0}
+.nhasset .chkList .chkWrap input[type='checkbox'], .nhasset .chkList .chkWrap input[type='radio']{margin-left:0;margin-right:8px}
+.nhasset .chkList .dataValue, .chkList .won{font-weight:900}
+.nhasset .changeWrap{flex-shrink:0;margin-left:10px;height:28px}
+.nhasset .changeWrap .btnUp, .changeWrap .btnDown{display:inline-block;width:28px;height:28px;background:url('../images/btn_up.png') 0 center /27px auto no-repeat #fff;border:1px solid #e1e1e1;border-radius:2px}
+.nhasset .changeWrap .btnDown{transform:rotate(180deg)}
+.nhasset .changeWrap .btnUp:disabled, .changeWrap .btnDown:disabled{opacity:.4}
+.nhasset .changeWrap.long .btnUp, .changeWrap.long .btnDown{height:48px}
+.nhasset .purposeList.unDown .changeWrap.long{height:98px;margin-top:-49px}
+
+.nhasset .chkList.thin li{margin-top:0}
+.nhasset .chkList.thin li:first-child{border-top:0}
+.nhasset .chkList.thin .dataValue, .chkList.thin .won{font-weight:600}
+.nhasset .chkList.thin .tit{flex-shrink:0;margin-right:30px}
+
+.nhasset .chkListTop{display:flex;justify-content:space-between;color:#7e858e;font-size:13px}
+.nhasset .chkListTop + .chkList{margin:10px -20px 0}
+.nhasset .chkListTop + .chkList li{padding:0 20px}
+
+.isError .chkWrap{position:relative;top:2px}
+.isError .chkInputWrap{display: table;padding-top: 10px;width:calc(100% - 30px)}
+.isError .chkInputWrap label{display:table-cell;width:auto;min-width:90px}
+
+.nhasset .unDownList{margin:0 -20px}
+.nhasset .unDownList li{display:flex;padding:0 20px;align-items:center;justify-content:space-between;min-height:54px;border-top:1px solid #e1e1e1;font-size:15px}
+.nhasset .unDownList li:first-child{border-top:0}
+.nhasset .unDownList .tit{font-size:15px;font-weight:600}
+
+.nhasset .btmGrayWrap{margin:0 -20px -45px;padding:26px 20px 60px;background-color:#f8f8f8}
+.nhasset .btmGrayWrap .assetTotalRecom{margin-top:10px;padding:10px 15px;border-top:none;border-radius:10px;background-color:#fff}
+
+/* 베너 */
+.nhasset.popWrap.fullLayerPop .popInner.fixbanner .popCont{padding-bottom:150px;overflow-y:hidden}
+.nhasset .remainWrap{margin:0 -20px;padding:0 20px;height:100%;overflow-y:auto}
+.nhasset .fixBannerWarp{position:absolute;left:0;bottom:0;right:0;height:130px;padding:0 20px;background-color:#fff}
+.nhasset .inBannerWarp{margin-top:15px}
+.nhasset .inBanner{display:flex;align-items:center;width:100%;min-height:90px;padding:0 20px;border-radius:10px;background-position:right bottom;background-repeat:no-repeat}
+.nhasset .inBanner .bnArrow,
+.nhasset .inBanner .bnSub{display:block;font-size:13px;font-weight:normal;color:#7e858e}
+.nhasset .inBanner .bnTit{display:block;font-size:15px;line-height:19px;font-weight:600;color:#111}
+.nhasset .inBanner .bnArrow, .inBanner .bnSub+.bnTit, .inBanner .bnTit+.bnSub{padding-top:3px}
+.nhasset .inBanner .bnArrow:after{content:'';display:inline-block;width:6px;height:10px;margin-left:4px;background:url('../images/arr_right01.png') no-repeat right center/100%}
+.nhasset .inBanner .lawTxt{display:block;margin-top:7px;font-size:10px;color:#888}
+.nhasset .inBanner.typeG{background-color:#e7f7f1}
+.nhasset .inBanner.typeG2{background-color:#e7fac6}
+.nhasset .inBanner.typeG3{background-color:#d8faf1}
+.nhasset .inBanner.typeB{background-color:#e7edff}
+.nhasset .inBanner.typeY{background-color:#f6f5ee}
+.nhasset .inBanner.typeY2{background-color:#fff7db}
+.nhasset .inBanner.typeS{background-color:#e9f4fd}
+.nhasset .inBanner.typeS2{background-color:#dcf4ff}
+.nhasset .inBanner.typeO{background-color:#fff5eb}
+.nhasset .inBanner.typeP{background-color:#eef1ff}
+.nhasset .inBanner.typeP2{background-color:#f4efff}
+.nhasset .inBanner.typeP3{background-color:#feeeec}
+.nhasset .inBanner.typeB .pointColor{color:#4367c7 !important}
+.nhasset .inBanner.typeS .pointColor{color:#4367c7 !important}
+.nhasset .inBanner.typeY .pointColor{color:#b67400 !important}
+.nhasset .inBanner.bg01{background-image:url('../images/banner_bg01.png');background-size:45px 45px}
+.nhasset .inBanner.bg02{background-image:url('../images/banner_bg02.png');background-size:100px 57px}
+.nhasset .inBanner.bg03{background-image:url('../images/banner_bg03.png');background-size:103px 68px}
+.nhasset .inBanner.bg04{background-image:url('../images/banner_bg04.png');background-size:94px 69px}
+.nhasset .inBanner.bg05{background-image:url('../images/banner_bg05.png');background-size:110px 71px}
+.nhasset .inBanner.bg06{background-image:url('../images/banner_bg06.png');background-size:52px 52px}
+.nhasset .inBanner.bg07{background-image:url('../images/banner_bg07.png');background-size:103px 62px}
+.nhasset .inBanner.bg08{background-image:url('../images/banner_bg08.png');background-size:105px 70px}
+.nhasset .inBanner.bg09{background-image:url('../images/banner_bg09.png');background-size:113px 59px}
+.nhasset .inBanner.bg10{background-image:url('../images/banner_bg10.png');background-size:85px 73px}
+.nhasset .inBanner.bg11{background-image:url('../images/banner_bg11.png');background-size:85px 70px}
+.nhasset .inBanner.bg12{background-image:url('../images/banner_bg12.png');background-size:99px 70px}
+.nhasset .inBanner.bg13{background-image:url('../images/banner_bg13.png');background-size:99px 57px}
+.nhasset .inBanner.bg14{background-image:url('../images/banner_bg14.png');background-size:103px 76px}
+.nhasset .inBanner.bg15{background-image:url('../images/banner_bg15.png');background-size:101px 78px}
+@media screen and (max-width:320px){
+	.nhasset .inBanner{padding:0 15px}
+	.nhasset .inBanner .bnTit{font-size:14px}
+}
+
+/* 등록 플로팅 버튼 */
+.nhasset .registBtn{position:fixed;bottom:74px;right:20px;z-index:100;transform:translate3d(0,0,0)}
+.nhasset .registBtn a{display:block;width:101px;height:36px;border-radius:18px;background-color:#19a647;box-shadow:0px 0px 7.56px 1.44px rgba(103, 103, 103, 0.16);color:#fff;font-size:14px;text-align:center;line-height:34px}
+.nhasset .registBtn a:before{content:'';display:inline-block;width:14px;height:14px;margin-top:-2px;margin-right:5px;background:url('../images/btn_plus.png') no-repeat 0 0;background-size:cover;vertical-align:middle}
+/* .nhasset .registBtn.hide{opacity:0} */
+
+.nhasset .linkType2{display:block;text-align:center;color:#7e858e;text-decoration:underline !important;text-underline-position:under}
+
+.nhasset .tag{display:inline-block;height:20px;line-height:18px;padding:0 4px;font-size:12px;font-weight:normal;color:#7e858e;border:1px solid #e1e1e1;border-radius:2px;text-align:center}
+.nhasset .tag[class*="bg"]{height:20px;/*min-width:36px;*/line-height:19px;border:0}
+.nhasset .tag.bgGray{background-color:#f1f1f1;color:#888}
+.nhasset .tag.bgGray2{background-color:#aaa;color:#fff}
+.nhasset .tag.bgGreen{background-color:#19a647;color:#fff}
+.nhasset .tag.bgOrange{background-color:#ff6805;color:#fff}
+.nhasset .tag.bgSky{background-color:#75adc8;color:#fff}
+.nhasset .tag.bgPurple{background-color:#7a51e3;color:#fff}
+.nhasset .tag.bgBlue{background-color:#3d9bff;color:#fff}
+.nhasset .tag+.tag{margin-left:4px}
+/* .nhasset .wrapTag{margin-top:10px;padding-bottom:3px;font-size:12px} */
+.nhasset .tag+.tag, .nhasset .tag+.txt{margin-left:2px;vertical-align:middle}
+.nhasset .wrapTag{margin-top:5px;padding-bottom:3px;font-size:12px}
+.nhasset .etcInfo+.wrapTag{margin-top:19px}
+.nhasset .wrapTag span[class*=type]{margin-right:4px;padding:0px 3px;border-radius:2px;background-color:#fff;border:1px solid #19a647}
+.nhasset .wrapTag span.type01{color:#19a647;border-color:#19a647}
+.nhasset .wrapTag span.type02{color:#7a51e3;border-color:#7a51e3}
+.nhasset .wrapTag span.type03{color:#3d9bff;border-color:#3d9bff}
+.nhasset .wrapTag span.type04{color:#00adbc;border-color:#00adbc}
+.nhasset .wrapTag span.type05{color:#7e858e;border-color:#7e858e}
+.nhasset .wrapTag .txt{font-size:13px;font-weight:normal;color:#7e858e}
+
+/* info box */
+.nhasset .infoBox{margin:0 -20px;padding:25px 18px;background:#f8f8f8}
+.nhasset .infoBox .tit{font-size:19px;font-weight:bold}
+.nhasset .infoBox .detailList > li{margin-top:12px}
+.nhasset .infoBox .detailList .tit,.nhasset .infoBox .detailList .value{font-size:14px;font-weight:normal}
+.nhasset .infoBox .detailList .value{font-weight:bold}
+.nhasset .infoBox .detailList > li .value .dataValue{font-weight:600} /* FMCD1103P 21-10-26 한은정 결함수정 */
+.nhasset .infoBox.longVal .detailList .tit{display:inline-block;width:64px;min-width:initial}
+.nhasset .infoBox2{margin-top:10px;padding:18px 18px;background:#f8f8f8}
+.nhasset .infoBox2.fontSmall{font-size:12px;color:#888}
+.nhasset .infoBox3{margin:0 -20px;padding:25px 0;background:#f0f2f4;text-align:center}
+.nhasset .infoBox3 .bigTit{font-size:19px;}
+
+
+/* diving text */
+.nhasset .divingTxt{display:block;margin-top:3px;font-size:13px}
+.nhasset .divingTxt span{position:relative;display:inline-block;padding-left:16px;letter-spacing:-0.5px}
+.nhasset .divingTxt span:before{position:absolute;top:50%;left:8px;content:'';width:1px;height:12px;margin-top:-5px;background:#e1e1e1}
+.nhasset .divingTxt span:first-child{padding:0}
+.nhasset .divingTxt span:first-child:before{display:none}
+.nhasset .divingTxt.fcGray{color:#7e858e}
+
+/* list style */
+.nhasset .listDash li, .nhasset p.listDash{margin-top:5px;font-size:12px;color:#888;font-weight:normal}
+.nhasset .listDash li:first-child,  .nhasset p.listDash:first-child{margin-top:0}
+.nhasset p.listDash{position:relative;padding-left:10px;margin-top:10px;color:#7e858e}
+.nhasset .listDash li{position:relative}
+.nhasset p.listDash:before,
+.nhasset .listDash li:before{content:'';position:absolute;width:3px;height:3px;top:8px;left:4px;background:url('../images/ico_dot.png') center /3px 3px no-repeat}
+.nhasset .listDash li:only-child{padding-left:0}
+.nhasset .listDash li:only-child:before{content:none}
+
+/* 완료 메시지 */
+.nhasset .topConfirmArea{margin-top:10px}
+.nhasset .confirmMsg[class*="PFM_"]{margin-top:40px}
+.nhasset .topConfirmArea.confirmMsg p{font-size:16px}
+.nhasset .topConfirmArea.confirmMsg p.subTxt{margin-top:12px;color:#7e858e;font-size:14px}
+.nhasset .topConfirmArea.confirmMsg p.subTxt2{margin-top:30px;padding-top:30px;color:#7e858e;font-size:13px;border-top:1px solid #f3f3f3}
+.nhasset .confirmMsg.type01{background-image:url('../images/bg_confirm01.png')}  /* 긍정형 */
+.nhasset .confirmMsg.type02{background-image:url('../images/bg_confirm02.png')}  /* 부정형 */
+.nhasset .confirmMsg.type03{padding-top:0px} /* 텍스트형 */
+.nhasset .confirmMsg.type03 p{font-size:14px}
+.nhasset .confirmMsg.type03 .notiTxt{font-size:16px;font-weight:bold}  /* 텍스트형:선조회성 문구 */
+.nhasset .confirmMsg.type04{background-image:url('../images/bg_confirm04.png')}  /* 정보 */
+.nhasset .confirmMsg[class*="PFM_"]{padding-top:0}
+.nhasset .confirmMsg[class*="PFM_"]:before{width:40px;height:40px;margin:0 0 7px}
+.nhasset .confirmMsg.smP{padding-top:55px;background-position-y:20px !important}
+
+/* 범례 */
+.nhasset .legendList{margin-top:24px;margin-bottom:10px}
+.nhasset .legendList li{display:flex;justify-content:space-between;width:100%;margin-top:12px}
+.nhasset .legendList li .legendTit:before{display:inline-block;content:'';width:10px;height:10px;margin:-2px 5px 0 0;border-radius:50%;vertical-align:middle}
+.nhasset .legendList li .legendTit.type01:before{background-color:#4286f7} /* 실물자산, 외식, 식재료, 레저/스포츠 */
+.nhasset .legendList li .legendTit.type02:before{background-color:#ff7800} /* 부채, 술/유흥, 도서*/
+.nhasset .legendList li .legendTit.type03:before{background-color:#79deec} /* 금융자산, 주거/통신, 생활마트기타 */
+.nhasset .legendList li .legendTit.type04:before{background-color:#7a51e3} /* 보험, 생활/마트, 세탁, 공연/전시 */
+.nhasset .legendList li .legendTit.type05:before{background-color:#7e858e} /* 연금, 이 외, 사무통신 */
+.nhasset .legendList li .legendTit.type06:before{background-color:#89b2f5} /* 뷰티/미용 */
+.nhasset .legendList li .legendTit.type07:before{background-color:#ffdb00} /* 쇼핑, 생활용품, 게임 */
+.nhasset .legendList li .legendTit.type08:before{background-color:#ff7800} /* 편의점 */
+.nhasset .legendList li .legendTit.type09:before{background-color:#00c4ab} /* 카페/간식, 대형마트, 영화 */
+.nhasset .legendList li .legendTit.type10:before{background-color:#19a647} /* 온라인쇼핑, 가구가전, 음악 */
+.nhasset .legendList li .legendTit.type11:before{background-color:#f56060} /* 의료/건강, 택배우편 */
+.nhasset .legendList li .legendTit.type12:before{background-color:#b470ef} /* 교육/자녀, 수리 */
+.nhasset .legendList li .legendTit.type15:before{background-color:#7fd65d} /* 자동차/주유 */
+.nhasset .legendList li .legendTit.type16:before{background-color:#00b1d1} /* 교통 */
+.nhasset .legendList li .legendTit.type17:before{background-color:#3961ff} /* 문화/여가 */
+.nhasset .legendList li .legendTit.type18:before{background-color:#ff699e} /* 여행/숙박 */
+.nhasset .legendList li .legendTit.type19:before{background-color:#767ddd} /* 금융 */
+.nhasset .legendList li .legendTit.type20:before{background-color:#c82a62} /* 경조사선물 */
+.nhasset .legendList li .legendTit.type21:before{background-color:#a06200} /* 반려동물 */
+
+.nhasset .legendList li .legendTit.type13:before{background-color:#2c4eb7} /* 미동의 */
+.nhasset .legendList li .legendTit.type14:before{background-color:#aaaaaa} /* 기타 */
+
+.nhasset .legendList li .legendAmnt{font-weight:700}
+.nhasset .legendList li .legendOne{display:inline-block;margin-left:5px;width:19px;height:12px;background:url("../images/ico_crown.png") 0 0 /cover}
+
+/* .nhasset .legendList2{padding:0 16px}
+.nhasset .legendList2{margin-top:24px;margin-bottom:10px}
+.nhasset .legendList2 li{width:100%;margin-top:12px}
+.nhasset .legendList2 .legendTit{display:inline-block;width:calc(100% - 140px);color:#111;font-weight:normal;white-space:nowrap;text-overflow:ellipsis;vertical-align:top;overflow:hidden}
+.nhasset .legendList2 .legendAmnt{font-weight:700}
+.nhasset .legendList2 .legendOne{display:inline-block;margin-left:5px;width:19px;height:12px;background:url("../images/ico_crown.png") 0 0 /cover}
+.nhasset .legendList2 .legendCount{display:inline-block;width:50px;font-size:13px;color:#666;font-weight:bold;text-align:center}
+.nhasset .legendList2 .legendAmnt{display:inline-block;width:80px;flex-shrink:0} */
+
+/* 범례 box */
+.nhasset .legendBox{padding:15px 15px 15px 30px;border:1px solid #e1e1e1;background-color:#f8f8f8;border-radius:2px}
+.nhasset .legendBox .div3{display:flex;flex-wrap:wrap;margin-top:0}
+.nhasset .legendBox .div3 li{width:33.333%;width:calc(100% / 3);font-size:11px}
+
+
+/* 내역없을 경우 중앙 비주얼 페이지 */
+.nhasset .visualCenterWrap{display:flex;justify-content:center;align-items:center;width:100%;height:100%}
+.nhasset .visualCenterWrap.type01 .visualCenterCon{width:100%;padding-top:165px;background:url('../images/img_empty.png') center 0 /320px auto no-repeat;text-align:center} /* AS1160P */
+.nhasset .visualCenterCon p{font-size:15px;line-height:25px;text-align:center}
+.nhasset .visualCenterCon .fullInbodyBtn{display:inline-block;width:250px;margin-top:14px}
+
+.nhasset .icoNew{display:inline-block;flex-shrink:0;margin-left:5px;width:16px;height:16px;background:url(../images/ico_new.png) 0 0 /cover no-repeat;vertical-align:middle}
+
+/* 공통 정의 (타이틀 + 금액) */
+.nhasset .totalBalance{position:relative;margin-top:20px}
+.nhasset .totalBalance dt{color:#111;font-size:16px;line-height:1}
+.nhasset .totalBalance dt,.nhasset .totalBalance .dt{margin-bottom:8px;color:#111;font-size:16px;line-height:1}
+.nhasset .totalBalance dt a, .nhasset .totalBalance .linkIco,.nhasset .totalBalance .dt a{display:inline-block;padding-right:16px;background:url('../images/arr_right03.png') no-repeat 100% 60%;background-size:7px 11px}
+.nhasset .totalBalance dt .smTxt,.nhasset .totalBalance .dt .smTxt{font-size:12px}
+.nhasset .totalBalance dd{position:relative;font-size:24px;font-weight:bold} /* [2021-11-12] 윤지현:공통수정. 단위 굵게 */
+.nhasset .totalBalance dd .remitWrap{padding-left:10px;float: right}
+.nhasset .totalBalance .bigTxt{letter-spacing:0;font-size:21px}
+.nhasset .totalBalance .bigTxt em{font-weight:900}
+.nhasset .totalBalance .bigTxt.success:before{position:absolute;top:-5px;right:0;content:'';width:110px;height:75px;background:url(../images/ico_success.gif) no-repeat 100% 0;background-size:110px 75px} /* 성공 */
+.nhasset .totalBalance .bigTxt.fail:before{position:absolute;top:-5px;right:0;content:'';width:110px;height:75px;background:url(../images/ico_fail.gif) no-repeat 100% 0;background-size:110px 75px} /* 실패 */
+.nhasset .totalBalance .bigTxt.success .resultTxt{color:#19A647}
+.nhasset .totalBalance .bigTxt.fail .resultTxt{color:#f44743}
+.nhasset .totalBalance .barTxt{position:relative;padding-left:20px;font-size:20px;color:#7e858e;font-weight:normal}
+.nhasset .totalBalance .barTxt:before{position:absolute;top:50%;left:10px;width:1px;height:22px;margin-top:-11px;content:'';background-color:#e1e1e1} 
+.nhasset .totalBalance dd strong, .nhasset .totalBalance .bigTxt strong{font-family:'NotoNum';font-size:28px;line-height:28px;font-weight:900}
+.nhasset .totalBalance dd.subTxt, .nhasset .totalBalance .subTxt{margin:13px 0 20px;font-size:15px;color:#111;font-weight:normal;letter-spacing:-0.5px}
+.nhasset .totalBalance dd.subTxt strong,.nhasset .totalBalance .bigTxt.subTxt strong{font-size:15px;font-weight:bold}
+.nhasset .totalBalance dd.subTxt .contBtn01,.nhasset .totalBalance .bigTxt.subTxt .contBtn01{float:right;margin-top:-3px}
+.nhasset .totalBalance dd .smTxt{font-size:16px;font-weight:normal;vertical-align:-5px}
+.nhasset .totalBalance .targetAmnt{color:#7e858e;font-size:16px}
+.nhasset .totalBalance .targetAmnt strong{font-size:17px;font-weight:normal}
+.nhasset .totalBalance dd strong[class*='pointColor'],.nhasset .totalBalance .bigTxt strong[class*='pointColor']{font-family:inherit}
+.nhasset .totalBalance dt .tooltipCont,.nhasset .totalBalance .dt .tooltipCont{left:0}
+.nhasset .totalBalance .defTxt{font-size:19px;line-height:24px}
+.nhasset .totalBalance .defTxt strong{font-weight:900}
+.nhasset .totalBalance .defTxt .txtDot2{position:relative;font-weight:900;color:#19a647}
+.nhasset .totalBalance .defTxt .txtDot2:before,
+.nhasset .totalBalance .defTxt .txtDot2:after{content:'';position:absolute;top:-1px;width:4px;height:4px;background-color:#19a647;border-radius:100%}
+.nhasset .totalBalance .defTxt .txtDot2:before{left:7px}
+.nhasset .totalBalance .defTxt .txtDot2:after{right:7px}
+.nhasset .totalBalance .subTxt .link{font-size:19px;font-weight:900;color:#19a647}
+.nhasset .totalBalance .wrapTag .tag{vertical-align:middle;margin-top:2px}
+/* 텍스트 일부에 링크 있는 경우 */
+.nhasset .totalBalance a.link{padding-right:14px;font-weight:900;background:url(../images/btn_tabRight_on.png) no-repeat 100% 50%;background-size:6px 10.5px}
+/* 총소비와 같이 금액 큰폰트의 경우 */
+.nhasset .totalBalance.bigSize dd,.nhasset .totalBalance.bigSize .bigTxt{font-size:24px;font-weight:900}
+.nhasset .totalBalance.bigSize dd strong,.nhasset .totalBalance.bigSize .bigTxt strong{font-size:28px}
+/* 우측 카테고리 아이콘 노출 경우 */
+.nhasset .totalBalance .icoCate{position:absolute;top:0;right:0}
+/* 텍스트 일부에 수정버튼 있는 경우 */
+.nhasset .totalBalance a.modify{padding-right: 15px;background: url(../images/btnEdit.png) no-repeat 100% 50%;background-size: 11px 11px;}
+
+.nhasset .totalBalance dd strong[class*='pointColor']{font-family:inherit}
+.nhasset .totalBalance dd .txt{font-size:14px;font-weight:normal}
+.nhasset .totalBalance dd .tag + .txt{margin-left:5px}
+.nhasset .totalBalance dt .tooltipCont{left:0}
+.nhasset .totalBalance dt strong{font-weight:900}
+
+.totalBalanceS{padding-top:10px}
+.totalBalanceS .dt{font-size:16px;font-weight:60;line-height:1}
+.totalBalanceS .dd .dataValue{font-size:25px;font-weight:900}
+.totalBalanceS .dd .won{font-size:23px;font-weight:900}
+
+/* 필터/날짜 선택 */
+.nhasset .filterWrap{position:relative;min-height:39px;margin:0 -20px 0;padding:8px 20px;background-color:#f0f2f4;text-align:right}
+.nhasset .filterWrap .sortValue{font-size:13px}
+.nhasset .filterWrap .sortValue:before{content:'';display:inline-block;width:1px;height:10px;margin:-2px 8px 0 4px;background-color:#e1e1e1;vertical-align:middle}
+.nhasset .filterWrap .sortValue:first-child:before{display:none}
+.nhasset .sortBtn{width:20px;height:20px;margin-left:5px;background:url('../images/ico_filter.png') no-repeat 50% 50%;background-size:13px 12px;vertical-align:middle}
+.nhasset .filterWrap .tgBtn{position:absolute;top:50%;right:20px;margin-top:-8px}
+.nhasset .filterWrap .cateTxt{position:absolute;top:10px;left:20px;height:30px;line-height:30px;font-size:14px;text-align:center}
+.nhasset .filterWrap .cateTxt + .sortValue:Before{display:none}
+.nhasset .accInfoDetail > .detailList{margin-bottom:22px} /* 선불페이상세 상세정보 없을경우 간격 */
+.nhasset .accInfoDetail + .filterWrap{margin-top:0;padding:8px 20px;border-bottom:1px solid #e1e1e1;}
+
+/* 달력 슬라이드팝업 */
+.nhasset .calPopTit{background:#fff}
+.nhasset .calPopTit ul{background:#f8f8f8;margin:0 20px;border-radius:5px}
+.nhasset .calPopTit ul li{float:left;width:33.33%;width:calc(100% / 3);text-align:center;color:#666666;font-size:14px;padding:8px 0}
+.nhasset .calPopTit ul:after{content:"";display:block;clear:both}
+
+.nhasset.popWrap.slideCalWrap .popCont{padding-bottom:0}
+.nhasset.popWrap.slideCalWrap .yearSet.dayPicSet{padding:0 20px}
+.nhasset.popWrap.slideCalWrap .yearsetLft,.nhasset.popWrap.slideCalWrap .yearsetRht,.nhasset.popWrap.slideCalWrap .yearsetDay{padding:10px}
+.nhasset.popWrap.slideCalWrap .yearSet li{border:1px solid #fff;border-radius:3px}
+.nhasset.popWrap.slideCalWrap .yearSet li.on{border-color:#19a647}
+.nhasset.popWrap.slideCalWrap .yearSet li a{color:#111;border-radius:3px}
+.nhasset.popWrap.slideCalWrap .yearSet li.on a{font-weight:bold;color:#19a647;background-color:#e3f4e9}
+.nhasset.popWrap.slideCalWrap .yearSet li .bgNone{display:block;color:#999;cursor:default;text-align:center;font-size:14px;line-height:40px}
+.nhasset.popWrap.slideCalWrap .yearSet .yearsetLft,.nhasset.popWrap.slideCalWrap .yearSet .yearsetRht{border-right:0}
+.nhasset.popWrap.slideCalWrap .timePicSet.yearSet [class^="yearset"] span:after{display:none}
+
+.nhasset .selWrap{position:relative;display:inline-block;margin-top:20px;padding:4px 8px;font-size:13px;background-color:#fff;border:1px solid #e1e1e1;border-radius:2px}
+.nhasset .selWrap button:after{content:'';display:inline-block;margin-left:4px;width:8px;height:20px;background:url(../images/arr_down03.png) right 50% /8px 5px no-repeat;vertical-align:text-top}
+/* .nhasset .selWrap.active{border-radius:2px 2px 0 0;}
+.nhasset .selWrap.active button:after{transform:rotate(180deg)}
+.nhasset .selOption{display:none;position:absolute;top:28px;left:-1px;right:-1px;background-color:#fff;border:1px solid #e1e1e1;border-radius:0 0 2px 2px;z-index:2}
+.nhasset .selOption li>a{display:block;padding:5px 10px 5px 16px} */
+
+/* 그래프 말풍선 */
+.graphWrap{position:relative}
+.grahpBubble{position:absolute;display:inline-block;min-height:27px;padding:5px 8px;border-radius:3px;z-index:10}
+.grahpBubble.type01{background:#333}
+.grahpBubble.type02{background:#fff;border:1px solid #e1e1e1}
+.grahpBubble.type03{background:#fff9d7}
+.grahpBubble p{font-size:12px;color:#fff;line-height:1.2;text-align:center}
+.grahpBubble.type02 p{color:#111}
+.grahpBubble.type03 p{color:#666}
+.grahpBubble:after{position:absolute;bottom:-5px;left:50%;width:10px;height:5px;content:'';margin-left:-5px;background-image:url(../images/tip_bubble.png);background-repeat:no-repeat;background-size:30px 5px}
+.grahpBubble.noTip:after{background:none}
+.grahpBubble.type01:after{background-position:0 0;}
+.grahpBubble.type02:after{background-position:-10px 0;}
+.grahpBubble.type03:after{background-position:-20px 0;}
+
+/* 로딩화면(임시) */
+.nhasset .loadingAreaWrap{padding:100px 0 0;text-align:center;}
+.nhasset .loadingbar{margin-top:15px;}
+.nhasset .loadingbar img{height:12px;}
+.nhasset .loadingAreaWrap .loadSlide{position:relative;margin:15px auto 0;padding-bottom:40px;}
+.nhasset .loadingAreaWrap .loadSlide .swiper-pagination{display:none;}
+.nhasset .loadingAreaWrap .loadSlide figure img{width:240px;}
+.nhasset .loadingAreaWrap .loadSlide figcaption{margin-top:10px;color:#555;font-size:17px;line-height:1.4;}
+.nhasset .loadingAreaWrap .loadSlide figcaption strong{color:#111;font-size:15px;margin-bottom:10px;}
+.nhasset .planType{font-size:13px;color:#666;border-radius:3px;padding:0 4px;line-height:21px;display:inline-block;position: relative;z-index: 0}
+.nhasset .planType:after{content:'';position:absolute;bottom:0;left:0;height:10px;width:100%;z-index:-1;background-color:#f5e6ff}
+/* 연금진단 데이터로딩 */
+.nhasset .loadingAreaWrap.type02{padding-top:0;display:flex;height:100%;justify-content:center;align-items:center}
+.nhasset .loadingAreaWrap.type02 figure.type02 img{width:218px;height:142px}
+.nhasset .loadingAreaWrap.type02 figure.type02 figcaption{margin-top:25px;font-size:15px}
+.nhasset .loadingAreaWrap.type02 figure.type02 strong{font-size:17px}
+.nhasset .loadingAreaWrap.type02 .fullInbodyBtn{display:block;margin:20px -15px 0}
+
+/* 설정-버전 텍스트 */
+.version{position:fixed;bottom:60px;right:10px;font-size:11px;color:#ddd}

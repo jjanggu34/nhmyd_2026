@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자산관리 - 정기지출</title>
+<script src="../../../ms_com/js/jquery-1.9.1.min.js"></script>
+<script src="../../../ms_com/js/swiper.min.js"></script>
+<script src="../../../ms_com/js/common_ui.js"></script>
+<script src="../../js/nhasset-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="../../../ms_com/css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="../../../ms_com/css/nh_base.css">
+<link rel="stylesheet" type="text/css" href="../../../ms_com/css/nh_layout.css">
+<link rel="stylesheet" type="text/css" href="../../../ms_com/css/nh_comm.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_logos.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_com.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_cont.css">
+<script>
+	$(document).ready(function() {
+		fullLayerPop();
+	});
+</script>
+</head>
+<body>
+	<div class="wrapper nhasset hasGnb">
+		<!-- header -->
+		<div class="header">
+			<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+			<h1><a href="javascript:;" role="text">코치마크</a></h1>
+			<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+			<a href="javascript:;" class="btnNav"><span class="blind">전체메뉴</span></a>
+		</div>
+		<!-- //header -->
+	
+		<!-- container -->
+		<div class="container">
+
+		</div>
+		<!-- //container -->
+
+		<!-- 팝업시작 -->
+		<div class="nhasset popWrap fullLayerPop popCoachWrap">
+			<div class="popInner popcoachArea">
+				<!-- <h1>홈택스 회원가입 안내</h1> -->
+				<div class="popCont">
+					<div class="blind">
+						<dl>
+							<dt>나도 깜빡했던 정기 지출 이제 알아서 정리해 드릴께요!</dt>
+							<dd>점점 늘어나는 구독 서비스 한눈에 확인!</dd>
+							<dd>잊고있던 생활 정기지출 알아서 챙겨주는 똑똑한 서비스!</dd>
+							<dd>숨기고 싶은 내역이 있으면 상세에서 숨기기도 가능해요~</dd>
+						</dl>
+
+					</div>
+				</div>
+				
+				<div class="popBtnWrap">
+					<div class="popBtn">
+						<div class="coachBtnArea">
+							<span class="wrapCheck">
+								<input type="checkBox" id="check0001">
+								<label for="check0001">다시 보지 않기</label><!-- 2022-06-22 띄어쓰기 수정 -->
+							</span>
+							<button type="button" class="btnCoach" onclick="popClose(this);return false;">닫기</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="popBtnWrap">
+					<div class="popBtn">
+						<a href="javascript:;" class="" role="button">이전</a>
+						<a href="javascript:;" class="confirmBtn" role="button">확인</a>
+					</div>
+					<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../../ms_com/images/common/btn_popClose.png" alt="닫기"></a>
+				</div> -->
+			</div>
+		</div>
+		<!-- // 팝업 끝 -->
+	</div>
+
+
+<!-- 2022-06-24 "popCoachWrap" 클래스 추가 및 "<div class="div"></div>" 삭제 공통부분이라서 안될때 스크립트로 처리 -->
+<!-- <script type="text/javascript">
+	$('.popcoachArea').each(function(){
+		$this = $(this);
+		$target = $this.closest('.popWrap')
+		$target.addClass('popCoachWrap');
+		$target.find('.dim').hide()
+	});
+</script> -->
+</body>
+</html>

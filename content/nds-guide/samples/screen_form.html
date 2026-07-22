@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="no-index,follow">
+<title>[SAMPLE] 자산 조회 설정 (NDS 폼 컴포넌트)</title>
+<script src="../../nhmyd/js/jquery-1.9.1.min.js"></script>
+<script src="../../nhmyd/js/jquery-ui.min.js"></script>
+<script src="../../nhmyd/js/jquery.ui.touch-punch.min.js"></script>
+<script src="../../nhmyd/js/common_ui.js"></script>
+<script src="../../nhmyd/js/swiper.min.js"></script>
+<script src="../../nhmyd/js/nhasset-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="../../nhmyd/css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="../../nhmyd/css/nh_base.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nh_layout.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nh_comm.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_logos.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_com.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_cont.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_myd.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_myd_mb.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/ms_style.css">
+<link rel="stylesheet" type="text/css" href="../vendor/main.scoped.css?v=3">
+</head>
+<body>
+<div class="wrapper nhasset hasGnb">
+  <div class="header">
+    <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+    <h1><a href="javascript:;" role="text">[SAMPLE] 조회 설정</a></h1>
+    <a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+  </div>
+
+  <div class="container nds-scope" style="padding:16px;">
+
+    <!-- Select -->
+    <div class="select-field" style="margin-bottom:20px;">
+      <span class="select-field__label">조회 계좌</span>
+      <div class="select-field__box">
+        <div class="select-field__content"><span class="select-field__text">NH올원계좌 선택</span></div>
+        <span class="select-field__chevron"><img src="../vendor/icons/arrow-down1-24.svg" width="16" height="16" alt="펼치기" style="vertical-align:middle;"></span>
+      </div>
+    </div>
+
+    <hr class="divider divider--list1" style="margin:20px 0;">
+
+    <!-- Calendar period -->
+    <div class="calendar-period" style="margin-bottom:20px;">
+      <span class="calendar-period__label">조회 기간</span>
+      <div class="calendar-period__field">
+        <span class="calendar-period__text is-filled">2026.07.01</span>
+        <span class="calendar-period__sep">~</span>
+        <span class="calendar-period__text is-filled">2026.07.22</span>
+      </div>
+    </div>
+
+    <!-- Chip filter -->
+    <div class="row" style="display:flex; gap:8px; margin-bottom:20px;">
+      <span class="chip-single chip-single--active">전체</span>
+      <span class="chip-single">수입</span>
+      <span class="chip-single">지출</span>
+    </div>
+
+    <hr class="divider divider--list1" style="margin:20px 0;">
+
+    <!-- Radio -->
+    <div style="margin-bottom:20px;">
+      <p class="list-kv__title" style="margin-bottom:8px;">정렬 방식</p>
+      <div style="display:flex; gap:8px;">
+        <label class="radio-box-center"><input type="radio" name="sort" class="radio-box-center__input" checked><span class="radio-box-center__label">최신순</span></label>
+        <label class="radio-box-center"><input type="radio" name="sort" class="radio-box-center__input"><span class="radio-box-center__label">금액순</span></label>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="input-box" style="margin-bottom:20px;">
+      <span class="input-box__label">메모 (선택)</span>
+      <div class="input-box__field">
+        <input class="input-box__input" placeholder="메모를 입력하세요">
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="textarea" style="margin-bottom:20px;">
+      <span class="textarea__label">상세 설명</span>
+      <div class="textarea__wrap"><textarea class="textarea__field" placeholder="상세 내용을 입력하세요"></textarea></div>
+      <div class="textarea__footer"><span class="textarea__msg"></span><span class="textarea__count"><span class="textarea__count-current">0</span>/500</span></div>
+    </div>
+
+    <hr class="divider divider--list1" style="margin:20px 0;">
+
+    <!-- Check + Switch -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+      <span class="check-basic__label" style="font-size:15px;">알림 자동 저장</span>
+      <label class="switch"><input type="checkbox" class="switch__input" checked><span class="switch__track"></span></label>
+    </div>
+    <label class="check-basic" style="margin-bottom:20px;">
+      <input type="checkbox" class="check-basic__input" checked>
+      <span class="check-basic__icon"></span>
+      <span class="check-basic__label">[SAMPLE] 조회 결과 알림 수신에 동의합니다</span>
+    </label>
+
+    <div class="btn-cta btn-cta--basic">
+      <button type="button" class="btn btn--primary btn--full btn--lg">조회하기</button>
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="../../ms/pub/pub-assets/js/footer.js"></script>
+</div>
+</body>
+</html>

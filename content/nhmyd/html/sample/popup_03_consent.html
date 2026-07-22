@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta name="robots" content="no-index,follow">
+<title>[샘플] 바텀시트 동의형 샘플</title>
+<script src="../../../../claude/of-mock.local.js"></script>
+<script src="../../js/jquery-1.9.1.min.js"></script>
+<script src="../../js/jquery-ui.min.js"></script>
+<script src="../../js/jquery.ui.touch-punch.min.js"></script>
+<script src="../../js/common_ui.js"></script>
+<script src="../../js/swiper.min.js"></script>
+<script src="../../js/nhasset-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="../../css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="../../css/nh_base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nh_layout.css">
+<link rel="stylesheet" type="text/css" href="../../css/nh_comm.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_logos.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_com.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_cont.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_myd.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_myd_mb.css">
+<link rel="stylesheet" type="text/css" href="../../css/ms_style.css">
+<script>
+	$(document).ready(function(){
+		slidePopConfirm();
+	})
+</script>
+</head>
+<body>
+<!-- [CLASS 안내] 이 샘플의 클래스명은 전부 기존 소스(FMCD1100.html, FMFC1000/1100P/1200P.html, mydata_recom.html)에서 실제로 쓰이고 있는 것만 사용했습니다. header/container/btnWrap page/btn em/popWrap/popCont/defTit/ac/fsNN/mtNN 등은 검증된 클래스이며, 화면별 개별 컴포넌트(리스트 아이템 세부구조 등)는 화면 확정 후 디자인/퍼블 담당과 함께 다듬어야 합니다. -->
+<!-- [SAMPLE] 동의/거부 버튼 2개가 있는 팝업. 알림 수신동의 등에 적합. -->
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1><a href="javascript:;" role="text">바텀시트 동의형 샘플</a></h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+	</div>
+	<!-- //header -->
+	<div class="container"></div>
+
+	<!-- [SAMPLE] 팝업 본체 -->
+	<div class="nhasset popWrap slidePopConfirm ">
+		<div class="dim"></div>
+		<div class="popInner">
+			<h1 class="defTit ac mt0">[SAMPLE] 동의가 필요합니다</h1>
+			<div class="popCont ac">
+				<p class="fs14 mt10">[SAMPLE] 동의 관련 안내 문구가 들어가는 영역입니다.</p>
+			</div>
+			<div class="popBtnWrap mt20 dfs">
+				<div class="btnWrap page "><button type="button" class="btn em"><a href="javascript:;">거부</a></button></div><div class="btnWrap page "><button type="button" class="btn em"><a href="javascript:;">동의</a></button></div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

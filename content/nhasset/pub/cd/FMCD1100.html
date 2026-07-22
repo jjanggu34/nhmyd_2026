@@ -1,0 +1,454 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자산관리 - 소비내역</title>
+<script src="../../../ms_com/js/jquery-1.9.1.min.js"></script>
+<script src="../../../ms_com/js/swiper.min.js"></script>
+<script src="../../../ms_com/js/common_ui.js"></script>
+<script src="../../js/nhasset-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="../../../ms_com/css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="../../../ms_com/css/nh_base.css">
+<link rel="stylesheet" type="text/css" href="../../../ms_com/css/nh_layout.css">
+<link rel="stylesheet" type="text/css" href="../../../ms_com/css/nh_comm.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_logos.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_com.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_cont.css">
+</head>
+<body>
+	<div class="wrapper nhasset hasGnb">
+		<!-- header -->
+		<div class="header">
+			<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+			<h1><a href="javascript:;" role="text">총 소비</a></h1>
+			<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+			<a href="javascript:;" class="btnNav"><span class="blind">전체메뉴</span></a>
+		</div>
+		<!-- //header -->
+	
+		<!-- container -->
+		<div class="container">
+			<!-- 메뉴 -->
+			<div class="gnb">
+				<ul>
+					<li><a href="javascript:;">자산</a></li>
+					<li><a href="javascript:;" class="active" title="선택됨">소비내역</a></li>
+					<li><a href="javascript:;">소비패턴</a></li>
+					<li><a href="javascript:;">카드</a></li>
+					<li><a href="javascript:;">목표</a></li>
+					<li><a href="javascript:;">MY</a></li>
+				</ul>
+			</div>
+			<!-- //메뉴 -->
+
+			<!-- 업데이트 -->
+			<div class="fullRefreshWrap">
+				<a href="javscript:;" title="업데이트 에러, 업데이트 안내 팝업열기">
+					<p>
+						업데이트 2020.08.31 15:30:56
+						<!-- <span class="updateIcoErr"><span class="blind">에러아이콘</span></span> -->
+					</p>
+				</a>
+				<button type="button" class="updateBtn2" title="데이터 업데이트"></button> <!-- 불러오는중 .on 추가-->
+			</div>
+			<!-- //업데이트 -->
+
+			<div class="filterArea">
+				<div class="filterTab">
+					<button type="button" class="active" role="button">총소비</button>
+					<button type="button" role="button">월예산</button>
+				</div>
+				<div class="filterSelect"><button type="button" title="월 선택 팝업열기">11월(11월5일~12월4일)</button></div>
+			</div>
+
+			<div class="totalBalance bigSize"> <!--  총소비의 경우 bigSize 클래스 추가 -->
+				<p class="dt">MM월 총 소비<span class="smTxt">(11.5~11.10)</span></p>
+				<div class="bigTxt type02"><!-- type01:맑음, type02:흐림, type03:소나기 -->
+					<strong>100,000,000</strong>원
+					<span class="status">
+						<a href="javascript:;" class="icoWeather" role="button" title="월예산으로 이동"></a> <!-- [2021-10-18] 윤지현:title 수정 -->
+						<span>소나기</span>
+						<div class="tooltipWrap">
+							<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금융날씨 안내툴팁</span></button>
+							<div class="tooltipCont">
+								<p>맑음 : 권장 소비 이내</p>
+								<p>흐림 : 권장 소비 초과 ~ 월 예산 이내</p>
+								<p>소나기 : 월 예산 초과</p>
+								<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+							</div>
+						</div>
+					</span>
+				</div>
+			</div>
+
+			<div class="grayBgLine spendSet">
+				<p class="tit">나의 한달</p>
+				<a href="javascript:;" class="date" title="나의 한 달 설정하기" aria-haspopup="true">11월5일~12월4일</a>
+			</div>
+
+			<div class="ar mt10"><a href="javascript:;" class="greenLink">현금영수증 업데이트를 확인해주세요.</a></div> <!--  [2021-12-14] 개선. 윤지현:마크업추가 -->
+
+			<hr class="divLine">
+
+			<div class="spendChart">
+				<div class="txt">지난 달 동일기간 대비,<br><strong class="pointColor02">400,000원 많이</strong> 소비.<br><span>건전한 소비습관을 계속 유지해봐요.</span></div> <!--[2021-10-14] 윤지현:문구수정 -->
+				<div class="graphWrap" style="height:220px;" tabindex="0" role="img" aria-label="지난달 5일 1,000원 이번달 0원, 지난달 10일 1,000,000원 이번달 1,500,000원......">
+					<p style="text-align:center;padding-top:50px;">그래프 영역</p>
+					<!-- 말풍선 -->
+					<div class="grahpBubble type02" style="top:0;left:0;"> <!-- [2021-08-11] 윤지현:그래프 말풍선:top,left 값입력. type01:블랙, type02:라인, type03:노랑 -->
+						<p>34회 400,000원</p>
+						<p>최대권장보다<br>(-)6만원</p>
+					</div>
+					<!-- //말풍선 -->
+				</div>
+			</div>
+
+			<hr class="divLine">
+
+			<!-- [2021-08-06] 한은정 : 전체 추가, 라디오로 변경-->
+			<div class="formArray">
+				<span class="chkRadio">
+					<input type="radio" id="sample03" name="radio01" class="desgChk" checked="checked">
+					<label for="sample03">전체</label>
+				</span>
+				<span class="chkRadio">
+					<input type="radio" id="sample01" name="radio01" class="desgChk" >
+					<label for="sample01">카드</label>
+				</span>
+				<span class="chkRadio">
+					<input type="radio" id="sample02" name="radio01" class="desgChk" >
+					<label for="sample02">현금</label>
+				</span>
+			</div>
+
+			<div class="listNone">
+				<p>소비 내역이 없습니다.</p>
+			</div>
+
+			<div class="listDaySort mt20">
+				<ul>
+					<!-- [2021-09-08] 윤지현:미동의거래 case 추가 -->
+					<li>
+						<div class="daySum">
+							<p class="day">10월 9일</p> <!-- [2021-10-15] 윤지현:월 추가 -->
+							<span class="value"><strong class="dataValue">194,389</strong><em class="won">원</em></span>
+						</div>
+						<ul class="timeList">
+							<li>
+								<!-- 취소겨래의 경우 cancel 클래스 추가 -->
+								<a href="javascript:;" class="link" role="button"> <!-- [2021-10-18] 윤지현:접근성 role=button 추가 -->
+									<div class="imgWrap icoCate">
+										<span class="img"><img src="../../images/category/icoCate_01.png" alt="외식"></span>
+									</div>
+									<span class="time">20:00</span>
+									<p class="tit noAgree">가맹점명 제공에 동의하지 않은 거래</p>
+									<span class="value"><strong class="dataValue">14,000,000</strong><em class="won">원</em></span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- //[2021-09-08] 윤지현:미동의거래 case 추가 -->
+					<li>
+						<div class="daySum">
+							<p class="day">10월 10일</p> <!-- [2021-10-15] 윤지현:월 추가 -->
+							<span class="value"><strong class="dataValue">194,389</strong><em class="won">원</em></span>
+						</div>
+						<ul class="timeList">
+							<li>
+								<a href="javascript:;" class="link">
+									<div class="imgWrap icoCate">
+										<span class="img"><img src="../../images/category/icoCate_01.png" alt="외식"></span>
+									</div>
+									<span class="time">20:00</span>
+									<p class="tit">한솥도시락</p>
+									<span class="value"><strong class="dataValue">14,000,000</strong><em class="won">원</em></span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" class="link">
+									<div class="imgWrap icoCate">
+										<span class="img"><img src="../../images/category/icoCate_05.png" alt="온라인쇼핑"></span>
+									</div>
+									<span class="time">20:00</span>
+									<p class="tit">알리익스프레스 알리익스프레스알리익스프레스 알리익스프레스</p>
+									<span class="value"><em class="won">USD</em> <strong class="dataValue">80,000.113</strong></span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="daySum">
+							<p class="day">10월 9일</p> <!-- [2021-10-15] 윤지현:월 추가 -->
+							<span class="value"><strong class="dataValue">194,389</strong><em class="won">원</em></span>
+						</div>
+						<ul class="timeList">
+							<li class="cancel"> <!-- 취소겨래의 경우 cancel 클래스 추가 -->
+								<a href="javascript:;" class="link">
+									<div class="imgWrap icoCate">
+										<span class="img"><img src="../../images/category/icoCate_01.png" alt="외식"></span>
+									</div>
+									<span class="time">20:00</span>
+									<p class="tit">한솥도시락</p>
+									<span class="value"><strong class="dataValue">14,000,000</strong><em class="won">원</em></span>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" class="link">
+									<div class="imgWrap icoCate">
+										<span class="img"><img src="../../images/category/icoCate_05.png" alt="온라인쇼핑"></span>
+									</div>
+									<span class="time">20:00</span>
+									<p class="tit">알리익스프레스 알리익스프레스알리익스프레스 알리익스프레스</p>
+									<span class="value"><em class="won">USD</em> <strong class="dataValue">80,000.113</strong></span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="daySum">
+							<p class="day">10월 8일</p> <!-- [2021-10-15] 윤지현:월 추가 -->
+							<span class="value"><strong class="dataValue">194,389</strong><em class="won">원</em></span>
+						</div>
+						<ul class="timeList">
+							<li class="cancel"> <!-- 취소겨래의 경우 cancel 클래스 추가 -->
+								<a href="javascript:;" class="link">
+									<div class="imgWrap icoCate">
+										<span class="img"><img src="../../images/category/icoCate_01.png" alt="외식"></span>
+									</div>
+									<span class="time">20:00</span>
+									<p class="tit">한솥도시락</p>
+									<span class="value"><strong class="dataValue">14,000,000</strong><em class="won">원</em></span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="listMoreBtn">
+				<a href="javascript:;" title="항목 더보기">더보기</a>
+			</div>
+
+			<!-- [2021-09-16] 한은정 : 추가 -->
+			<div class="noDataBox mt10">
+				<div>
+					<p>가맹점명 제공에 동의하지 않은 기관 10개 있어요.</p>
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">가맹점미동의 안내툴팁</span></button> <!-- [2021-09-13] 윤지현:텍스트수정 -->
+						<div class="tooltipCont">
+							<p>인증토큰 만료, 전송 중단, 카드 해지 등의 경우에는 적용되지 않습니다.</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</div>
+				<a href="javascript:;" class="link arrGreen">지금 동의하고 더 자세한 소비 분석 받기</a>
+			</div>
+			<!-- //[2021-09-16] 한은정 : 추가 -->
+
+			<hr class="divLine">
+			<!-- 2022-05-13 정기 구독 추가 -->
+			<div class="outgoingsEmpty">
+				<a href="javascript:;" class="summary" role="button">
+					<p class="title">잊고 있던 구독서비스와<br>생활지출을 한눈에 확인해보세요.</p><!-- 2022-05-19 문구수정 -->
+				</a>
+			</div>
+			<!-- //2022-05-13 정기 구독 추가 -->
+
+			<!-- <div class="commuListWrap">
+				<p class="expTit"><em>통신 요금</em> 청구내역</p>
+				<ul class="commuList">
+					<li>
+						<a href="javascript:;" class="link">
+							<div class="commuListL">
+								<span class="commuTit">SKT</span>
+								<span class="commuVal">010-8777-****</span>
+							</div>
+							<div class="commuListR">
+								<span class="commuVal">
+									<strong class="dataValue">10,000,000</strong><em class="won">원</em>
+								</span>
+								<span class="commuVal2">2021년 11월 납부</span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" class="link">
+							<div class="commuListL">
+								<span class="commuTit">SKB TB</span>
+								<span class="commuVal">***********</span>
+							</div>
+							<div class="commuListR">
+								<span class="commuVal">
+									<strong class="dataValue">10,000,000</strong><em class="won">원</em>
+								</span>
+								<span class="commuVal2">2021년 11월 납부</span>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div> -->
+
+			<hr class="divLine">
+
+			<!-- 2022-05-13 정기 지출 추가 -->
+			<a href="javascript:;" role="button" class="wrapOutgoingsHeader withParent pt0">
+				<strong class="title">매달 나가는 나의 정기지출은?</strong>
+				<div class="value">총 <strong class="pointColor">865,000</strong>원</div>
+			</a>
+			<ul class="outgoingsList">
+				<li>
+					<a href="javscript:;" role="button" class="outgoingsInner">
+						<div class="logoArea">
+							<span class="imgWrap F1AAAU0000"><em class="blind">에스케이텔레콤</em></span>
+						</div>
+						<div class="outgoingsCont">
+							<strong class="title">SKT 통신요금</strong>
+							<div class="detail">
+								<span class="summary">15일 예상 | 농협은행</span>
+								<strong class="value">100,000,000원</strong>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="javscript:;" role="button" class="outgoingsInner">
+						<div class="logoArea">
+							<span class="imgWrap E1AAAX0000"><em class="blind">티머니</em></span>
+						</div>
+						<div class="outgoingsCont">
+							<strong class="title">T머니_지하철</strong>
+							<div class="detail">
+								<span class="summary">15일 예상 | 농협은행</span>
+								<strong class="value">76,000원</strong>
+							</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+			<!-- //2022-05-13 정기 지출 추가 -->
+
+			<hr class="divLine">
+
+			<div class="InsListWrap">
+				<p class="expTit type06"><em>리스</em> 1건 보유 중이에요.</p>
+				<ul class="InsList">
+					<li>
+						<a href="javascript:;" class="link">
+							<p class="InsTit">상품명(Volkswagen Financial)</p>
+						</a>
+						<div class="InsCont">
+							<div class="InsContC1">
+								<span class="InsConTit">할부</span>
+								<span class="InsConVal">
+									<strong class="dataValue">60</strong><em class="won">개월</em>
+								</span>
+							</div>
+							<div class="InsContC2">
+								<span class="InsConTit">상환일</span>
+								<span class="InsConVal">
+									<strong class="dataValue">20</strong><em class="won">일</em>
+								</span>
+							</div>
+							<div class="InsContC3">
+								<span class="InsConTit">마지막 상환금액</span>
+								<span class="InsConVal">
+									<strong class="dataValue">450,000</strong><em class="won">원</em>
+								</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;" class="link">
+							<p class="InsTit">Oooo상품명(하나캐피탈 하나캐피탈 하나캐피탈)</p>
+						</a>
+						<div class="InsCont">
+							<div class="InsContC1">
+								<span class="InsConTit">할부</span>
+								<span class="InsConVal">
+									<strong class="dataValue">60</strong><em class="won">개월</em>
+								</span>
+							</div>
+							<div class="InsContC2">
+								<span class="InsConTit">상환일</span>
+								<span class="InsConVal">
+									<strong class="dataValue">20</strong><em class="won">일</em>
+								</span>
+							</div>
+							<div class="InsContC3">
+								<span class="InsConTit">마지막 상환금액</span>
+								<span class="InsConVal">
+									<strong class="dataValue">10,450,000</strong><em class="won">원</em>
+								</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+
+			<hr class="divLine">
+
+			<!-- [2021-11-16] 한은정 : 디자인 변경 -->
+			<!-- case) 등록된 카드가 없을 경우 -->
+			<div class="iconBox01">
+				<a href="javascript:;">
+					<h2 class="defSubTit2">소비내역을 알고 싶나요?<br>지금 카드를 등록해보세요.</h2> <!-- [2021-08-25] 윤지현:문구수정 -->
+					<span class="greenLink">카드 연결</span>
+				</a>
+			</div>
+			<!-- // 등록된 카드가 없을 경우 -->
+			
+			<!-- case) 홈택스 현금영수증 연동 안된 경우 -->
+			<div class="iconBox03">
+				<a href="javascript:;">
+					<h2 class="defSubTit2">더 꼼꼼한 소비를 위해<br>현금영수증도 모아볼까요?</h2><!-- [2021-08-25] 윤지현:문구수정 -->
+					<span class="greenLink">현금 영수증 연결</span>
+				</a>
+			</div>
+			<!-- // 홈택스 현금영수증 연동 안된 경우 -->
+			
+			<!-- 항상노출 -->
+			<div class="iconBox02">
+				<a href="javascript:;">
+					<h2 class="defSubTit2">계좌이체나 지갑에서 현금으로<br>소비하셨나요? 회비, 통신비 같은 고정<br>지출은 반복 등록도 가능해요.</h2><!-- [2021-08-25] 윤지현:문구수정 -->
+					<span class="greenLink">현금소비 등록</span>
+				</a>
+			</div>
+			<!-- // 항상노출 -->
+			<!-- 카테고리 미분류 안내 -->
+			<div class="iconBox04">
+				<a href="javascript:;">
+					<h2 class="defSubTit2">카테고리가 분류되지 않은 소비가<br>n건 있습니다.</h2><!-- [2021-08-25] 윤지현:문구수정 -->
+					<span class="greenLink">직접 분류</span>
+				</a>
+			</div>
+			<!-- //카테고리 미분류 안내 -->
+
+			<!-- [2021-08-25] 윤지현:추가 -->
+			<div class="registBtn" style="display: block;">
+				<a href="javascript:;">카드연결</a>
+			</div>
+			<!-- //[2021-08-25] 윤지현:추가 -->
+		</div>
+		<!-- //container -->
+
+		<!-- footer --> <!-- 공통 마이데이터 푸터-->
+		<script type="text/javascript" src="../../../ms/pub/pub-assets/js/footer.js"></script>
+		<!-- //footer -->
+
+	</div>
+
+</body>
+</html>

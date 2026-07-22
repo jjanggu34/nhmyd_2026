@@ -1,0 +1,287 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자산관리 - 정기지출</title>
+<script src="../../../ms_com/js/jquery-1.9.1.min.js"></script>
+<script src="../../../ms_com/js/swiper.min.js"></script>
+<script src="../../../ms_com/js/common_ui.js"></script>
+<script src="../../js/nhasset-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="../../../ms_com/css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="../../../ms_com/css/nh_base.css">
+<link rel="stylesheet" type="text/css" href="../../../ms_com/css/nh_layout.css">
+<link rel="stylesheet" type="text/css" href="../../../ms_com/css/nh_comm.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_logos.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_com.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_cont.css">
+</head>
+<body>
+	<div class="wrapper nhasset">
+		<!-- header -->
+		<div class="header">
+			<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+			<h1><a href="javascript:;" role="text">정기지출관리</a></h1>
+			<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+			<a href="javascript:;" class="btnNav"><span class="blind">전체메뉴</span></a>
+		</div>
+		<!-- //header -->
+	
+		<!-- container -->
+		<div class="container">
+			<!-- 업데이트 -->
+			<div class="fullRefreshWrap">
+				<a href="javscript:;" title="업데이트 에러, 업데이트 안내 팝업열기">
+					<p>
+						업데이트 2020.08.31 15:30:56
+						<!-- <span class="updateIcoErr"><span class="blind">에러아이콘</span></span> -->
+					</p>
+				</a>
+				<button type="button" class="updateBtn2" title="데이터 업데이트"></button> <!-- 불러오는중 .on 추가-->
+			</div>
+			<!-- //업데이트 -->
+
+			<div class="wrapOutgoingsHeader">
+				<strong class="title">매달 나가는 나의 정기지출은?</strong><!-- 2022-05-19 문구 수정 -->
+				<div  class="value">총 <strong class="pointColor">0</strong>원</div>
+			</div>
+			<hr class="divLine">
+
+			<div class="outgoingsEmpty">
+				<div class="summary">
+					<p class="title">잊고 있던 구독서비스와<br>생활지출을 한눈에 확인해보세요.</p><!-- 2022-05-19 문구 수정 -->
+				</div>
+				<div class="areaBodyBtnFull mt20">
+					<a href="javascript:;" class="btnBodyLine" role="button">+ 정기지출 불러오기</a>
+				</div>
+			</div>
+
+			<div class="moreOutgoingsWrap toggleWrap">
+				<button type="button" class="moreOpenBtn toggleBtn"><span>내가 숨긴내역</span></button>
+				<div class="moreOutgoings toggleCont" style="display:none">
+					<h3 class="defSubTit">숨긴내역 3건</h3>
+					<ul class="outgoingsList">
+						<li>
+							<a href="javscript:;" role="button" class="outgoingsInner">
+								<div class="logoArea">
+									<span class="imgWrap F1AAAU0000"><em class="blind">에스케이텔레콤</em></span>
+								</div>
+								<div class="outgoingsCont">
+									<strong class="title">SKT 통신요금</strong>
+									<div class="detail">
+										<span class="summary">15일 예상 | 농협은행</span>
+										<strong class="value">100,000,000원</strong>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javscript:;" role="button" class="outgoingsInner">
+								<div class="logoArea">
+									<span class="imgWrap E1AAAX0000"><em class="blind">티머니</em></span>
+								</div>
+								<div class="outgoingsCont">
+									<strong class="title">T머니_지하철</strong>
+									<div class="detail">
+										<span class="summary">15일 예상 | 농협은행</span>
+										<strong class="value">76,000원</strong>
+									</div>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javscript:;" role="button" class="outgoingsInner">
+								<div class="logoArea">
+									<span class="imgWrap F1AAAU0000"><em class="blind">에스케이텔레콤</em></span>
+								</div>
+								<div class="outgoingsCont">
+									<strong class="title">SKT 통신요금</strong>
+									<div class="detail">
+										<span class="summary">15일 예상 | 농협은행</span>
+										<strong class="value">100,000,000원</strong>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div><!-- //.moreOutgoingsWrap -->
+
+			<div class="bsetOutgoingsWrap">
+				<div class="filterArea mb0">
+					<div class="filterSelect"><button type="button" title="연령, 성별 선택 팝업 열기">30대 여성</button> 에게</div>
+				</div>
+				<h2 class="defSubTit2 mt5"><strong>가장 인기 있는 구독 서비스는?</strong></h2>
+				<ol class="bestList">
+					<li>
+						<span class="ranking">1위</span>
+						<div class="imgWrap subscribe">
+							<!-- 2022-06-17 이미지 경로 수정 -->
+							<span class="img"><img src="../../images/fc/ico_fc1_melon.png" alt="멜론"></span>
+							<!-- //2022-06-17 이미지 경로 수정 -->
+						</div>
+						<div class="title">멜론 뮤직</div>
+					</li>
+					<li>
+						<span class="ranking">2위</span>
+						<div class="imgWrap subscribe">
+							<!-- 2022-06-17 이미지 경로 수정 -->
+							<span class="img"><img src="../../images/fc/ico_fc1_youtube.png" alt="유튜브 프리미엄"></span><!-- 05-19 이미지명 수정 -->
+							<!-- //2022-06-17 이미지 경로 수정 -->
+						</div>
+						<div class="title">유튜브 프리미엄</div>
+					</li>
+					<li>
+						<span class="ranking">3위</span>
+						<div class="imgWrap subscribe">
+							<!-- 2022-06-17 이미지 경로 수정 -->
+							<span class="img"><img src="../../images/fc/ico_fc1_googleplaystore.png" alt="구글 플레이스토어"></span><!-- 05-19 이미지명 수정 -->
+							<!-- //2022-06-17 이미지 경로 수정 -->
+						</div>
+						<div class="title">구글 플레이스토어</div>
+					</li>
+				</ol>
+			</div><!-- //.bsetOutgoingsWrap -->
+
+			<!-- 카드 배너 수정 -->
+			<p class="bannerOutgoingsPara">구독서비스 잘 이용하는 당신을 위한 추천카드</p>
+			<div class="bannerWarpPrd bannerOutgoings">
+				<!-- 관리자 영역 // -->
+				<div class="swiper-container bannerSwiperPrd">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide bannerOutgoing">
+							<a href="javascript:;">
+								<div class="cardInfoWrap">
+									<div class="cardImg type01"><img src="../../images/img_card_outgoing_01.png" alt="별다줄 카드"></div>
+									<div class="cardInfo">
+										<div class="title">기본할인, 더블할인에 생활할인까지!<br>구독서비스 5% 청구 할인</div>
+										<div class="cardTag"><span>#별다줄 카드</span><span>#별별 혜택을 다주는</span></div>
+									</div>
+								</div>
+								<!-- 2022-06-16 텍스트 수정 -->
+								<p class="cardSubTxt">준법감시인 심의필 2022-2835(2022.06.15~2023.12.31)</p>
+								<!-- //2022-06-16 텍스트 수정 -->
+							</a>
+						</div>
+						<div class="swiper-slide bannerOutgoing">
+							<a href="javascript:;">
+								<div class="cardInfoWrap">
+									<div class="cardImg type02"><img src="../../images/img_card_outgoing_02.png" alt="NH1961카드"></div>
+									<div class="cardInfo">
+										<div class="title">조건 없는 기본 적립에<br>유튜브, 넷플릭스, 티빙 추가 적립!</div>
+										<div class="cardTag"><span>#NH1961카드</span><span>#무제한 적립</span></div>
+									</div>
+								</div>
+								<!-- 2022-06-16 텍스트 수정 -->
+								<p class="cardSubTxt">준법감시인 심의필 2022-2835(2022.06.15~2023.12.31)</p>
+								<!-- //2022-06-16 텍스트 수정 -->
+							</a>
+						</div>
+						<div class="swiper-slide bannerOutgoing">
+							<a href="javascript:;">
+								<div class="cardInfoWrap">
+									<div class="cardImg type02"><img src="../../images/img_card_outgoing_03.png" alt="올바른FLEX카드"></div>
+									<div class="cardInfo">
+										<div class="title">유튜브, 넷플릭스, 멜론 20% 할인과<br>모든 일상에서 FLEX 청구할인!</div>
+										<!-- 2022-06-16 수정 -->
+										<div class="cardTag"><span>#올바른FLEX카드</span><span>#혜택을 FLEX</span></div>
+										<!-- //2022-06-16 수정 -->
+									</div>
+								</div>
+								<!-- 2022-06-16 텍스트 수정 -->
+								<p class="cardSubTxt">준법감시인 심의필 2022-2835(2022.06.15~2023.12.31)</p>
+								<!-- //2022-06-16 텍스트 수정 -->
+							</a>
+						</div>
+						<div class="swiper-slide bannerOutgoing">
+							<a href="javascript:;">
+								<div class="cardInfoWrap">
+									<div class="cardImg type02"><img src="../../images/img_card_outgoing_04.png" alt="올바른 NEW HAVE카드"></div>
+									<div class="cardInfo">
+										<div class="title">전 가맹점 0.7% 무제한 적립에<br>통신요금, 구독서비스 등 추가 적립!</div>
+										<div class="cardTag"><span>#올바른 NEW HAVE카드</span><span>#스마트한 혜택</span></div>
+									</div>
+								</div>
+								<!-- 2022-06-16 텍스트 수정 -->
+								<p class="cardSubTxt">준법감시인 심의필 2022-2835(2022.06.15~2023.12.31)</p>
+								<!-- //2022-06-16 텍스트 수정 -->
+							</a>
+						</div>
+					</div>
+					<div class="swiper-control">
+						<div class="swiper-pagination"></div>
+						<div class="swiper-autoBtn playing">
+							<a href="javascript:;" class="stopBtn" title="자동재생중 두번 터치시 멈춤"></a>
+							<a href="javascript:;" class="playBtn" title="자동재생 멈춤 두번 터치시 자동재생시작"></a>
+						</div>
+					</div>
+					<div class="swiper-button-prev blind"></div>
+					<div class="swiper-button-next blind"></div>
+				</div>
+				<script>
+					$(function () {
+						var swiper = new Swiper('.bannerOutgoings .swiper-container', {
+							slidesPerView: 1,
+							spaceBetween: 10,
+							loop: true,
+							observer:true,
+							observeParents : true,
+							autoplay: {
+								delay: 2500,
+								disableOnInteraction: true,
+								pauseOnMouseEnter: true,
+							},
+
+							pagination: {
+								el: '.swiper-pagination',
+								type: 'bullets',
+								clickable: true,
+							},
+							on: {
+								transitionEnd: function () {
+									$('.swiper-slide').attr('aria-hidden', 'true')
+									$('.swiper-slide-active').attr('aria-hidden', 'false')
+								}
+							}
+						});
+						$('.bannerSwiperPrd').find('.stopBtn').on('click', function () {
+							$('.swiper-autoBtn').removeClass('playing');
+							swiper.autoplay.stop();
+							console.log('자동재생 멈춤');
+						})
+						$('.bannerSwiperPrd').find('.playBtn').on('click', function () {
+							$('.swiper-autoBtn').addClass('playing');
+
+							swiper.autoplay.start();
+							console.log('자동재생 시작');
+						})
+					})
+				</script>
+				<!-- //관리자 영역  -->
+			</div>
+			<!-- //카드 배너 수정 -->
+
+		</div>
+		<!-- //container -->
+
+		<!-- footer --> <!-- 공통 마이데이터 푸터-->
+		<script type="text/javascript" src="../../../ms/pub/pub-assets/js/footer.js"></script>
+		<!-- //footer -->
+
+	</div>
+
+</body>
+</html>

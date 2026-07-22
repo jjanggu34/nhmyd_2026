@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="robots" content="no-index,follow">
+<title>[SAMPLE] 자산 현황 대시보드 (NDS 전체 컴포넌트)</title>
+<script src="../../nhmyd/js/jquery-1.9.1.min.js"></script>
+<script src="../../nhmyd/js/jquery-ui.min.js"></script>
+<script src="../../nhmyd/js/jquery.ui.touch-punch.min.js"></script>
+<script src="../../nhmyd/js/common_ui.js"></script>
+<script src="../../nhmyd/js/swiper.min.js"></script>
+<script src="../../nhmyd/js/nhasset-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="../../nhmyd/css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="../../nhmyd/css/nh_base.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nh_layout.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nh_comm.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_logos.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_com.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_cont.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_myd.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_myd_mb.css">
+<link rel="stylesheet" type="text/css" href="../../nhmyd/css/ms_style.css">
+<link rel="stylesheet" type="text/css" href="../vendor/main.scoped.css?v=3">
+<style>.toast-wrap{display:none;} .toast-wrap.show{display:flex;}</style>
+</head>
+<body>
+<div class="wrapper nhasset hasGnb">
+  <div class="header">
+    <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+    <h1><a href="javascript:;" role="text">[SAMPLE] 자산 현황</a></h1>
+    <a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+  </div>
+
+  <div class="container nds-scope" style="padding:16px;">
+
+    <!-- Card + Badge + Label + Indicator -->
+    <div class="card">
+      <div class="card__label-row">
+        <span class="card__eyebrow">[SAMPLE] 자산 요약</span>
+        <span class="label label--sm label--fill label--green">신규</span>
+      </div>
+      <h2 class="card__title card__title--semibold">이번 달 지출이 12% 늘었어요</h2>
+      <p class="card__subtitle">지난달보다 320,000원 더 썼어요</p>
+      <div class="card__divider"></div>
+      <div class="card__button-row">
+        <span class="badge"><button type="button" class="btn-icon"><img src="../vendor/icons/alarm-notice-24.svg" width="20" height="20" alt="알림" style="vertical-align:middle;"></button><span class="badge__count">3</span></span>
+        <span class="indicator-number">3 / 5</span>
+        <button type="button" class="btn btn--primary btn--sm">전체 내역</button>
+      </div>
+    </div>
+
+    <hr class="divider divider--content" style="margin:20px 0;">
+
+    <!-- List key-value -->
+    <div class="list-card">
+      <h3 class="list-card__title">계좌 상세</h3>
+      <div class="list-card__rows">
+        <div class="list-kv"><span class="list-kv__title">최근 이용</span><span class="list-kv__data">320,000원</span></div>
+        <div class="list-kv"><span class="list-kv__title">이번 달 합계</span><span class="list-kv__data">1,240,000원</span></div>
+      </div>
+    </div>
+
+    <!-- Bullet -->
+    <ul class="bullet bullet--body" style="margin:20px 0; padding:0; list-style:none;">
+      <li class="bullet__item">[SAMPLE] 최근 3개월 평균 대비 12% 증가했습니다.</li>
+      <li class="bullet__item">[SAMPLE] 카테고리별 상세는 하단에서 확인하세요.</li>
+    </ul>
+
+    <!-- Accordion -->
+    <div class="accordion-box">
+      <div class="accordion-box__item">
+        <button type="button" class="accordion-box__trigger" aria-expanded="false" data-acc-toggle>
+          <div class="accordion-box__title-col">
+            <div class="accordion-box__title-row"><span class="accordion-box__title">카테고리별 상세</span></div>
+            <span class="accordion-box__sub">쇼핑/식비/교통 등</span>
+          </div>
+          <span class="accordion-box__arrow"><img src="../vendor/icons/arrow-down1-24.svg" width="16" height="16" alt="펼치기" style="vertical-align:middle;"></span>
+        </button>
+        <div class="accordion-box__body" hidden>
+          <div class="list-kv"><span class="list-kv__title">쇼핑</span><span class="list-kv__data">180,000원</span></div>
+          <div class="list-kv"><span class="list-kv__title">식비</span><span class="list-kv__data">95,000원</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty state toggle demo -->
+    <div class="empty empty--result" id="emptyDemo" style="margin-top:20px; display:none;">
+      <span class="empty__icon">📭</span>
+      <p class="empty__text">조회된 내역이 없습니다</p>
+    </div>
+
+    <div class="btn-cta btn-cta--basic">
+      <button type="button" class="btn btn--secondary btn--full btn--lg" id="btnToggleEmpty">빈 상태 미리보기</button>
+      <button type="button" class="btn btn--primary btn--full btn--lg" id="btnToast">저장 (토스트 확인)</button>
+    </div>
+
+  </div>
+
+  <div class="toast-wrap" id="toastWrap">
+    <div class="toast"><span class="toast__text">저장되었습니다</span></div>
+  </div>
+
+  <script type="text/javascript" src="../../ms/pub/pub-assets/js/footer.js"></script>
+</div>
+<script>
+document.querySelectorAll('[data-acc-toggle]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    var body = btn.parentElement.querySelector('[class$="__body"]');
+    if (body) body.hidden = open;
+  });
+});
+document.getElementById('btnToggleEmpty').addEventListener('click', function(){
+  var e = document.getElementById('emptyDemo');
+  e.style.display = e.style.display === 'none' ? 'flex' : 'none';
+});
+document.getElementById('btnToast').addEventListener('click', function(){
+  var t = document.getElementById('toastWrap');
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 2000);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자산관리 - 정기지출</title>
+<script src="../../../ms_com/js/jquery-1.9.1.min.js"></script>
+<script src="../../../ms_com/js/swiper.min.js"></script>
+<script src="../../../ms_com/js/common_ui.js"></script>
+<script src="../../js/nhasset-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="../../../ms_com/css/swiper.min.css">
+<!--<link type="text/css" rel="stylesheet" href="../../../css/chatbot.css">-->
+<link type="text/css" rel="stylesheet" href="../../../ms_com/css/nh_base.css">
+<link rel="stylesheet" type="text/css" href="../../../ms_com/css/nh_layout.css">
+<link rel="stylesheet" type="text/css" href="../../../ms_com/css/nh_comm.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_logos.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_com.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_cont.css">
+<script>
+	$(document).ready(function(){
+		slidePopConfirm();
+	})  
+</script>
+</head>
+<body>
+	<div class="wrapper nhasset">
+		<!-- header -->
+		<div class="header">
+			<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+			<h1><a href="javascript:;" role="text">정기지출 관리</a></h1>
+			<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+			<a href="javascript:;" class="btnNav"><span class="blind">전체메뉴</span></a>
+		</div>
+		<!-- //header -->
+	
+		<!-- container -->
+		<div class="container">
+			
+			
+
+		</div>
+		<!-- //container -->
+		
+		<!-- 세부 카테고리 팝업 -->
+		<div class="nhasset popWrap slidePopConfirm">
+			<div class="dim"></div>
+			<div class="popInner">
+				<h1></h1>
+				<div class="popCont">
+					<p class="defTit ac mt0"><strong>앗, 추가 정보가 필요해요! </strong></p>
+					<p class="subTxt ac">이미 연결된 자산에서<br>정기지출을 관리 해드릴게요.</p>
+					<div class="cardEmptyAni outgoingEmpty">
+						<div class="aniArea">
+							<img src="../../images/img_outgoing_empty01.png" alt="" class="obj01">
+							<img src="../../images/img_outgoing_empty02.png" alt="" class="obj02">
+							<img src="../../images/img_outgoing_empty03.png" alt="" class="obj03">
+							<img src="../../images/img_outgoing_empty04.png" alt="" class="obj04">
+							<img src="../../images/img_outgoing_empty05.png" alt="" class="obj05">
+						</div>
+					</div>
+
+					<!-- 2022-06-24 추가 시작 -->
+					<div class="formArray mt20 pd17" >
+						<span class="chkRadio">
+							<input type="checkbox" id="sample001">
+							<label for="sample001">오늘 다시 보지 않기</label>
+						</span>
+					</div>
+					<!-- 2022-06-24 추가 시작 -->
+				</div>				
+
+				<div class="popBtnWrap">
+					<div class="popBtn">
+						<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">정지지출 불러오기</a>
+					</div>
+					<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../../ms_com/images/common/btn_popClose.png" alt="닫기"></a>
+				</div>
+			</div>
+		</div>
+		<!-- // 세부 카테고리 팝업 -->
+	</div>
+	<script>
+		function cardEmptyAni(){
+			$('.cardEmptyAni').removeClass('active');
+			setTimeout(function () {
+				$('.cardEmptyAni').addClass('active')
+			}, 100)
+		}
+		
+		$(document).ready(function(){
+			// 2022-06-24 수정 시작
+			setTimeout(function () {
+				$('.cardEmptyAni').addClass('active')
+			}, 100)
+			// 2022-06-24 수정 끝
+			setInterval(function () {
+				cardEmptyAni();
+			}, 5500)
+		})		
+	</script>
+</body>
+</html>

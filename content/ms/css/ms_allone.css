@@ -1,0 +1,253 @@
+@charset "utf-8";
+/* allone style 정의  */
+
+/* basic */
+.nhd_allone .dfs em{color:#08862a}
+i {display:inline-block;font-family: 'allonebank' !important; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; line-height: 1; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;}
+.nhd_allone .pointColor{color:#08862a !important;}
+
+
+/* Layout */
+.nhd_allone .header .btnBack{padding:11px 10px 5px 0px}
+.nhd_allone .header .btnBack:before{background:none;font-family:'allonebank';text-indent:0;line-height:1;display:block;content:'\f104';font-size:30px;position:relative;width:100%;height:100%;padding:0;left:0;top:0;color:#111;}
+.nhd_allone .header .btnGoHome{right:17px;width:24px;}
+.nhd_allone .header .btnGoHome:before{width:24px;height:24px;background:url('../images/common/icon_allone_home.png')no-repeat center;background-size:24px auto;top:13px;left:0;}
+.nhd_allone .header .btnNav{display: none}
+/*.nhd_allone .footer{display: none}*/
+
+/* form */
+.nhd_allone .dfs .formHolder.check label.check:before{font-family: 'allonebank';content: '\e981';font-size:24px;color: #d0d0d0;background: none}
+.nhd_allone .dfs .cont .formHolder.check label.check:before{font-family: 'allonebank';content: '\e981';font-size:24px;color: #d0d0d0;background:none;}
+.nhd_allone .dfs .formHolder.check.active input[type='checkbox']+label:before{content: '\e982';color: #08862a;background:none;}
+.nhd_allone .dfs .formHolder.check input[type='checkbox']:disabled+label:before{background:none;}
+.nhd_allone .dfs .formHolder .inptWrap{border-bottom-width: 1px;}
+.nhd_allone .dfs .formHolder .inptWrap.on{border-bottom-width: 1px;border-color: #08862a}
+.nhd_allone .dfs .formHolder .selectBank, .nhd_allone .dfs .formHolder .select, 
+.nhd_allone .dfs .fieldGroup .tit{height:46px;border-bottom-width: 1px;}
+.nhd_allone .dfs .fieldGroup .btn:after{height: 1px;}
+.nhd_allone .dfs .inptWrap.on + .btn:after{background-color: #08862a}
+.nhd_allone .dfs .formHolder.radio label.radio:before{font-family: 'allonebank';content: '\e9a6';font-size:24px;color: #c9c9c9;background:none;}
+.nhd_allone .dfs .formHolder.radio.active input[type='radio']+label:before{color: #08862a;background:none;}
+.nhd_allone .dfs .radioListWrap .formHolder.radio.active input[type='radio']+label:before{content: '\e92b'}
+.nhd_allone .dfs .formHolder.radio input[type='radio']:disabled+label:before{background:none;}
+.nhd_allone .dfs .radioBtnWrap .btnHolder + .btnHolder{margin-left: -1px}
+.nhd_allone .dfs .radioBtnWrap .btnHolder.radio .radio{margin-left: 0}
+.nhd_allone .dfs .radioBtnWrap .btnHolder.radio.active input[type='radio']+label{color: #111 !important}
+.nhd_allone .dfs .radioBtnWrap .btnHolder.radio label.radio:before{border-radius: 0}
+.nhd_allone .dfs .radioBtnWrap .btnHolder.radio.active input[type='radio']+label:before{border: solid 1px #111;z-index: 100}
+.nhd_allone .dfs .radioBtnWrap .btnHolder:first-child .btnHolder label:before {border-radius: 3px 0 0 3px}
+.nhd_allone .dfs .radioBtnWrap .btnHolder.radio:first-child input[type='radio']+label:before{border-radius: 3px 0 0 3px}
+.nhd_allone .dfs .radioBtnWrap .btnHolder.radio:last-child input[type='radio']+label:before{border-radius: 0 3px 3px 0}
+.nhd_allone .dfs .fieldGroup .btnTxt:after{height: 1px;}
+.nhd_allone .dfs .inptWrap.on + .btnTxt:after, .nhd_allone .dfs .inptWrap.on + .btnTxt + .btnTxt:after{background-color: #08862a;}
+.nhd_allone .dfs .fieldGroup .time {border-bottom-width: 1px}
+.nhd_allone .dfs .inptWrap.on + .time{border-color:#08862a;}
+.nhd_allone .dfs .inptWrap.on + .unit{border-bottom:1px solid #08862a;line-height:29px}
+
+.nhd_allone .dfs .radioListWrap .formHolder.radio.active input[type='radio']:checked+label:before, 
+.nhd_allone .dfs .radioListWrap .formHolder.radio.active input[type='radio']+label:before{font-size: 40px;opacity: 1}
+.nhd_allone .dfs .radioListWrap .formHolder.radio label.radio:before{opacity: 0}
+.nhd_allone .dfs .fieldGroup .divider{border-bottom:solid 1px #eee;}
+.nhd_allone .boxChk input:checked + label{background:#08862a;border-color:#08862a;}
+
+.nhd_allone .dfs .popCont .selectMail a{font-size:22px;padding-left:20px !important;}
+.nhd_allone .dfs .popCont .selectMail a .ico{display: none}
+
+/* 텍스트 없는 스위치 */
+.nhd_allone .dfs .switchNoneTxt.active input[type='checkbox']+label.switch:before,
+.nhd_allone .dfs .switchNoneTxt input[type='checkbox']:checked+label.switch:before{background-color:#08862a;}
+
+/* 약관동의 */
+.nhd_allone .dfs .formWrap.selectAll{border: solid 1px #e0e0e2;padding:15px}
+.nhd_allone .dfs .formWrap.selectAll hr.tee{display:none}
+.nhd_allone .dfs .formWrap.selectAll .total{margin: 0 -15px;padding: 0 15px;border-color: #e0e0e2}
+.nhd_allone .dfs .formWrap.selectAll .total .btnShowHide.jsToggle{display: none;}
+.nhd_allone .dfs .formWrap.selectAll .cont{display: block !important;}
+.nhd_allone .dfs .formWrap.selectAll .cont .formHolder.check input[type='checkbox']+label:before{background: none;content: '\e92b'}
+.nhd_allone .dfs .formWrap.selectAll .cont .formHolder.check.active input[type='checkbox']+label:before{background: none;content: '\e92b'}
+.nhd_allone .dfs .formWrap.selectAll + .selectAll{margin-top:15px;}
+/*.nhd_allone .dfs .formWrap.selectAll .formHolder:only-child{margin-bottom:12px;}*/
+.nhd_allone .dfs .formWrap.selectAll .cont .agreeSubcont span.formHolder input[type="checkbox"] + label.check:before{content:'\e981';color:#d0d0d0;}
+.nhd_allone .dfs .formWrap.selectAll .cont .agreeSubcont span.formHolder input[type="checkbox"]:checked + label.check:before{content:'\e982';background:none;color:#08862a;}
+
+/* 탭 */
+.nhd_allone .jsTabs.type01>.tabs li.selected a, .nhd_allone .jsTabs.type01>.scrollWrap>.tabs li.selected a{display: block;border-bottom-width: 2px}
+.nhd_allone .jsTabs.type04 .tabs > li.selected a{background-color: #08862a;border-color: #08862a}
+.nhd_allone .jsTabs.type04 .tabs > li > a .count{color:#08862a;}
+.nhd_allone .jsTabs.type04 .tabs > li.selected a .count{color: #fff}
+.nhd_allone .wrap_bank_check ul li input[type=checkbox]:checked + label{border-color: #08862a}
+.nhd_allone .jsTabs.gsMainTab{border-color:  #08862a}
+.nhd_allone .jsTabs.gsMainTab .tabs{background-color: #08862a}
+.nhd_allone .jsTabs.gsMainTab .tabs li{background-color: #08862a}
+.nhd_allone .jsTabs.gsMainTab .tabs .selected{background-color: #fff}
+.nhd_allone .jsTabs.gsMainTab .tabs li:only-child{background-color: #08862a}
+
+
+/* Step */
+.nhd_allone .stepArea{flex-direction: column-reverse;padding:1px 0 0 0}
+.nhd_allone .stepArea .stepTit{font-size: 1.375rem;font-weight: bold;padding:10px 20px;font-family: NS-b}
+.nhd_allone .stepArea .stepInfo{background-color: yellow;padding:0;border:0;height:3px;overflow:hidden;margin: 0 -3px}
+.nhd_allone .stepArea .stepInfo > ul{background-color: skyblue;display: flex;width:100%;}
+.nhd_allone .stepArea .stepInfo > ul li{float:none;flex:1 1 auto;background-color:black;}
+.nhd_allone .stepArea .stepInfo > ul li.active ~ li{background-color:#fff;}
+.nhd_allone .stepArea .stepInfo > ul li span{background-color: transparent !important;color: transparent !important;border:0 !important;}
+
+/* accorion */
+.nhd_allone .dfs .jsAcc .header{font-size: 1rem}
+.nhd_allone .dfs .jsAcc.type01 .header:after, 
+.nhd_allone .dfs .info_area_title.jsToggle:after{font-family: 'allonebank';content: '\e985';font-size:24px;-webkit-transform:none;transform:none;background:none;margin-top:-12px;width:20px;height:24px;line-height: 1em}
+.nhd_allone .dfs .jsAcc.type01 .header.active:after,
+.nhd_allone .dfs .info_area_title.jsToggle.on:after{content: '\e977'}
+
+/* button */
+.nhd_allone .dfs .btnWrap.inr .btn{border-radius: 5px}
+.nhd_allone .dfs .btnWrap.page .btn{border-radius: 5px}
+.nhd_allone .dfs .btnWrap.foot{padding:0 20px;}
+.nhd_allone .dfs .btnWrap.foot .btn, .nhd_allone .dfs .popBtnWrap .popBtn .btn, .nhd_allone .popBtnWrap .popBtn > a{border-radius: 5px;border: solid 1px #e0e0e4;background-color: #fff;color: #646873}
+.nhd_allone .dfs .btnWrap.foot .btn + .btn{margin-left: 8px}
+.nhd_allone .dfs .btn.em{background-color: #08862a !important;}
+.nhd_allone .dfs .btn:disabled,.nhd_allone .dfs .btn.em:disabled, .nhd_allone .dfs .btn:disabled:hover, .nhd_allone .dfs .btn:disabled:active{background-color: #e0e0e0;border-color: #e0e0e0;color: #989da9}
+.nhd_allone .dfs .btn[disabled]{background-color: #e0e0e0 !important;}
+.nhd_allone .dfs .btnWrap.foot, .nhd_allone .dfs .popBtnWrap .popBtn,.nhd_allone .popBtnWrap .popBtn{padding:20px; height:95px;background-color: #fff}
+.nhd_allone .dfs .popWrap .popCont .popBtn{padding:0; height:50px;}
+.nhd_allone .dfs .centerLayer .btnWrap.foot, .nhd_allone .dfs .centerLayer .popBtnWrap .popBtn{padding-bottom:20px;background-color: #fff}
+.nhd_allone .dfs .btnWrap.foot .btn, .nhd_allone  .dfs .popBtnWrap .popBtn .btn, .nhd_allone .popBtnWrap .popBtn > a{color: #646873;background-color: #fff;border:solid 1px #e0e0e4; border-radius: 5px;}
+.nhd_allone .dfs .popBtnWrap .popBtn .btn, .nhd_allone .popBtnWrap .popBtn > a{font-size:0.95em;}
+.nhd_allone .dfs .btnWrap.foot .btn.em, .nhd_allone .dfs .popBtnWrap .popBtn .btn.em, .nhd_allone .popBtnWrap .popBtn > a.em,
+.nhd_allone .dfs .btnWrap.calculBtnBox .calculBtn {background-color: #08862a !important;border:solid 1px #08862a;}
+.nhd_allone .dfs .btnWrap.foot .btn.em:disabled{background-color: #e0e0e0 !important;border-color:#e0e0e0;}
+.nhd_allone .dfs .btnWrap.foot .btn + .btn,
+.nhd_allone .dfs .popBtnWrap .popBtn .btn + .btn{margin-left: 8px}
+.nhd_allone .dfs .btn.g{border-color:#08862a !important;color:#08862a !important;}
+.nhd_allone .btnInput01{border-color:#08862a !important;background-color: #08862a !important}
+.nhd_allone .btnSortWrap .btn.selected{background-color:#08862a;}
+.nhd_allone .dfs .btnWrap.calculBtnBox{padding:20px 0;margin:0;background:#fff;}
+.nhd_allone .dfs .btnWrap.calculBtnBox .btn{margin:0;width:auto !important;height:55px;font-size:15px;color:#fff;background:#fff;}
+.nhd_allone .dfs .btnWrap.calculBtnBox .prevBtn, .nhd_allone .dfs .btnWrap.calculBtnBox .nextBtn{color:#111;border:0;}
+.nhd_allone .dfs .btnWrap.calculBtnBox .btn + .btn{margin-left:0;}
+.dfs .nhd_allone .popBtnWrap .popBtn > a.confirmBtn, .dfs .nhd_allone .popBtnWrap .popBtn > a.cancelBtn{background-color:#08862a;border-color:#08862a;color:#fff;}
+
+/* 공지 팝업 */
+.nhd_allone .btnWrap.inr .btn{border-radius: 5px}
+.nhd_allone .btnWrap.page .btn{border-radius: 5px}
+.nhd_allone .btnWrap.foot{padding:0 20px;}
+.nhd_allone .btnWrap.foot .btn, .nhd_allone  .popBtnWrap .popBtn .btn, .nhd_allone .popBtnWrap .popBtn > a{border-radius: 5px;border: solid 1px #e0e0e4;background-color: #fff;color: #646873}
+.nhd_allone .btnWrap.foot .btn + .btn{margin-left: 8px}
+.nhd_allone .btn.em{background-color: #08862a !important;}
+.nhd_allone .btn:disabled, .nhd_allone  .btn:disabled:hover, .nhd_allone  .btn:disabled:active{background-color: #e0e0e0;border-color: #e0e0e0;color: #989da9}
+.nhd_allone .btn[disabled]{background-color: #e0e0e0 !important;}
+.nhd_allone .btnWrap.foot, .nhd_allone .popBtnWrap .popBtn,.nhd_allone .popBtnWrap .popBtn{padding:20px; height:95px;background-color: #fff}
+.nhd_allone .popWrap .popCont .popBtn{padding:0; height:50px;}
+.nhd_allone .centerLayer .btnWrap.foot, .nhd_allone  .centerLayer .popBtnWrap .popBtn{padding-bottom:20px;background-color: #fff}
+.nhd_allone .btnWrap.foot .btn, .nhd_allone .popBtnWrap .popBtn .btn, .nhd_allone .popBtnWrap .popBtn > a{color: #646873;background-color: #fff;border:solid 1px #e0e0e4; border-radius: 5px;}
+.nhd_allone .popBtnWrap .popBtn .btn, .nhd_allone .popBtnWrap .popBtn > a{font-size:0.95em;}
+.nhd_allone .btnWrap.foot .btn.em, .nhd_allone  .popBtnWrap .popBtn .btn.em, .nhd_allone .popBtnWrap .popBtn > a.em,
+.nhd_allone .btnWrap.calculBtnBox .calculBtn {background-color: #08862a !important;border:solid 1px #08862a;}
+.nhd_allone .btnWrap.foot .btn + .btn,
+.nhd_allone .popBtnWrap .popBtn .btn + .btn{margin-left: 8px}
+.nhd_allone .popBtnWrap .popBtn > a + a{margin-left: 8px}
+.nhd_allone .btn.g{border-color:#08862a !important;color:#08862a !important;}
+.nhd_allone .btn.g:disabled{border-color:#e0e0e0 !important;background-color:#e0e0e0 !important;color:#989da9 !important;}
+.nhd_allone .btnInput01{border-color:#08862a !important;background-color: #08862a !important}
+.nhd_allone .btnSortWrap .btn.selected{background-color:#08862a;}
+.nhd_allone .btnWrap.calculBtnBox{padding:20px 0;margin:0;background:#fff;}
+.nhd_allone .btnWrap.calculBtnBox .btn{margin:0;width:auto !important;height:55px;font-size:15px;color:#fff;background:#fff;}
+.nhd_allone .btnWrap.calculBtnBox .prevBtn, .nhd_allone .btnWrap.calculBtnBox .nextBtn{color:#111;border:0;}
+.nhd_allone .btnWrap.calculBtnBox .btn + .btn{margin-left:0;}
+.dfs .nhd_allone .popBtnWrap .popBtn > a.confirmBtn, .dfs .nhd_allone .popBtnWrap .popBtn > a.cancelBtn{background-color:#08862a;border-color:#08862a;color:#fff;}
+.nhd_allone .popWrap.centerLayer .popInner .popCont .pop_portal_cont{margin:-17px -17px 0px -17px ;}
+.nhd_allone .popWrap.centerLayer .popInner.dfs .popCont .pop_portal_cont{margin:-17px -20px 0px -20px ;}
+/* //공지 팝업 */
+
+
+.nhd_allone .planCoach .popBtnWrap .popBtn{background:transparent;}
+
+html.keypad .nhd_allone .dfs .btnWrap.foot{position: relative;}
+html.keypad .nhd_allone .dfs .content {padding-bottom:0;}
+
+/* 인증서 */
+.nhd_allone .signSelectWrap .signSelect input[type=radio]:checked + label{border-color:#08862a ;background-color: #fff;color:#08862a;}
+
+
+/* popup */
+.nhd_allone .popWrap .popInner,
+.nhd_allone .popWrap.slidePopOption .popInner .popHeader,
+.nhd_allone .popWrap.slidePopConfirm .popInner .popHeader{border-radius: 0}
+.nhd_allone .popWrap .popInner .popCont,
+.nhd_allone .popWrap.slidePopConfirm .popInner .popCont{padding-bottom:0;}
+.nhd_allone .popWrap.slidePopConfirm .popInner.dfs .popCont, .nhd_allone .popWrap.centerLayer .popInner.dfs .popCont{padding-top:0;background:#fff;}
+.nhd_allone .popWrap.slidePopConfirm .btnInptReset{display:none !important}
+/* message */
+.nhd_allone .dfs .msgWrap.confirm .ico{width:56px;height: 56px;background:none;}
+.nhd_allone .dfs .msgWrap.confirm .ico:before{background:none;font-family: 'allonebank2';content: '\f928';font-size: 3.5rem; width:56px;height: 56px;left: 0;top: 0;color: #08862a;line-height: 65px;margin-left:0;}
+
+.nhd_allone .pop_portal_cont{min-height:258px;}
+.nhd_allone [id^="admin_event_noti_popup"] .popInner{min-height:353px;}
+.nhd_allone [id^="admin_event_noti_popup"] .popCont{min-height:258px;}
+@media all and (max-width:360px){
+  .nhd_allone [id^="admin_event_noti_popup"] .popInner{min-height:342px;}
+  .nhd_allone .pop_portal_cont{min-height:249px;}
+  .nhd_allone [id^="admin_event_noti_popup"] .popCont{min-height:249px;}
+}
+@media all and (max-width:320px){
+  .nhd_allone [id^="admin_event_noti_popup"] .popInner{min-height:312px;}
+  .nhd_allone .pop_portal_cont{min-height:217px;}
+  .nhd_allone [id^="admin_event_noti_popup"] .popCont{min-height:217px;}
+}
+
+/* 12-07 센터 팝업내 버튼 색상변경 */
+.nhd_allone .popWrap.centerLayer .popCont .btnWrap.page .btn{color:#08862a;border-color:#08862a}
+
+/* 텍스트 강조 라인 */
+[class^="text-highlight-"] {position:relative;z-index:0;}
+.nhd_allone [class^="text-highlight-"]::after {content:''; z-index:-1; position:absolute; bottom:0; left:0; width:100%; display:inline-block; height:0.75rem;}
+.text-highlight-y::after {background-color:#fff89c;} /*1st*/
+.text-highlight-yg::after {background-color:#dffda2;} /*2nd*/
+.text-highlight-lg::after {background-color:#b6fba9;} /*3rd*/
+.text-highlight-eg::after {background-color:#b4f6d1;} /*4th*/
+.text-highlight-bg::after {background-color:#b4f6ec;} /*5th*/
+.text-highlight-lb::after {background-color:#b5e9fc;} /*6th*/
+.text-highlight-eb::after {background-color:#b6d6fc;} /*7th*/
+
+/* 약관동의 임시 코딩 */
+.nhd_allone .stepArea .stepTit{display:none;}
+.nhd_allone .stepArea{border:0;}
+
+/* 연말정산 */
+.nhd_allone .boxTypeRound2{border-color:#08862a;}
+.nhd_allone .boxTypeRound2 .price, 
+.nhd_allone .formHolder.slider-widget .slider-balance input,
+.nhd_allone .boxTypeRound2 .titWrap .price, .nhd_allone .personAllow .itemWrap .select{color:#08862a;}
+
+/* 내차정보 */
+.nhd_allone .mc_label.selected{background:#08862a;border-color:#08862a;}
+.nhd_allone .linkList2 .icon em{color:#fff;}
+.nhd_allone .dfs .btn.btnRes{background-color:#f7fcf9 !important;}
+
+
+/* 정부지원 */
+.nhd_allone .comService .comServiceRow a.selected > span {color:#08862a;}
+.nhd_allone .comService .comServiceRow a.selected[class^=centerIco-]:before{border-color:#08862a;background-color:#08862a}
+/*.nhd_allone .benefitMore .btn.small2.selected {border-color:#08862a;background-color:#08862a}*/
+/*.nhd_allone .benefitMore .btn.small2.selected {color:#fff;}*/
+
+.nhd_allone .comService.g24 .comServiceRow a.selected[class^=centerIco-]:before,
+.nhd_allone .benefitMore.g24 .btn.small2.selected{border-color:#19b9bf;background-color:#19b9bf;}
+.nhd_allone .comService.g24 .comServiceRow a.selected > span{color:#19b9bf;}
+
+
+/* 2021-11-03 강무호 정부지원 인풋 박스 수정 */
+.nhd_allone .dfs .inptWrap.on + .unit{line-height:45px}
+.nhd_allone .dfs .fieldGroup .unit{border-bottom:1px solid #eee;}
+.nhd_allone .dfs .wrapFixBtn .btnWrap.page{margin-bottom:40px !important;}
+
+/* 올원 칼라적용 */
+.nhd_allone .registBtn a{background-color:#08862a}
+.nhd_allone .mainTileArea .mainTileNum{color:#08862a;}
+.nhd_allone .mainTileArea .mainTileLink .txtLink.cArr{color:#08862a;}
+.nhd_allone .SignSelect input[type='radio']:checked + label{color:#08862a;border-color:#08862a}
+.nhd_allone .SignSelect input[type='radio']:checked + label:after{background-color:#08862a}
+.nhd_allone .btn_connnecting{color:#08862a;border-color:#08862a}
+
+/* 2022-06-17 (가입전메인 심의필) */
+.nhd_allone .joinBeforeList{margin-bottom:95px;}

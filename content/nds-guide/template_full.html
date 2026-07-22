@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<title>[TEMPLATE] 신규/개선 화면 시작 템플릿 (Full Page)</title>
+
+<!-- ================================================================
+     [손대지 않는 영역] 레거시 공통 스크립트/스타일 — FMCD1100.html 등
+     실제 화면에서 그대로 검증된 include 세트입니다. 신규/개선 화면
+     작업 시 이 <head> 블록은 삭제하거나 순서를 바꾸지 마세요.
+     ================================================================ -->
+<script src="../nhmyd/js/jquery-1.9.1.min.js"></script>
+<script src="../nhmyd/js/jquery-ui.min.js"></script>
+<script src="../nhmyd/js/jquery.ui.touch-punch.min.js"></script>
+<script src="../nhmyd/js/common_ui.js"></script>
+<script src="../nhmyd/js/swiper.min.js"></script>
+<script src="../nhmyd/js/nhasset-ui.js"></script>
+<link type="text/css" rel="stylesheet" href="../nhmyd/css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="../nhmyd/css/nh_base.css">
+<link rel="stylesheet" type="text/css" href="../nhmyd/css/nh_layout.css">
+<link rel="stylesheet" type="text/css" href="../nhmyd/css/nh_comm.css">
+<link rel="stylesheet" type="text/css" href="../nhmyd/css/nhasset_logos.css">
+<link rel="stylesheet" type="text/css" href="../nhmyd/css/nhasset_com.css">
+<link rel="stylesheet" type="text/css" href="../nhmyd/css/nhasset_cont.css">
+<link rel="stylesheet" type="text/css" href="../nhmyd/css/nhasset_myd.css">
+<link rel="stylesheet" type="text/css" href="../nhmyd/css/nhasset_myd_mb.css">
+<link rel="stylesheet" type="text/css" href="../nhmyd/css/ms_style.css">
+
+<!-- ================================================================
+     [신규 작업 영역] NDS 컴포넌트 CSS — vendor/main.scoped.css 한 장만
+     추가합니다. 모든 규칙이 .nds-scope 안에서만 적용되므로 위 레거시
+     스타일과 절대 충돌하지 않습니다.
+     ================================================================ -->
+<link rel="stylesheet" type="text/css" href="vendor/main.scoped.css?v=2">
+</head>
+<body>
+<!-- [안내] wrapper / header / footer.js 는 레거시 뼈대이므로 그대로 둡니다.
+     실제 작업은 아래 "container nds-scope" 안쪽만 채우면 됩니다. -->
+<div class="wrapper nhasset hasGnb">
+
+	<!-- header : 손대지 않는 영역 (뒤로가기/타이틀/홈) -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1><a href="javascript:;" role="text">[TEMPLATE] 화면 타이틀</a></h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- container : 여기서부터 퍼블 작업 영역. class="nds-scope"만 유지하면 그 안쪽은
+	     자유롭게 NDS 컴포넌트 마크업으로 교체해도 됩니다. -->
+	<div class="container nds-scope">
+
+		<div class="card">
+			<div class="card__label-row">
+				<span class="card__eyebrow">[SAMPLE] 자산 요약</span>
+			</div>
+			<h2 class="card__title card__title--semibold">이번 달 지출이 12% 늘었어요</h2>
+			<p class="card__subtitle">지난달보다 320,000원 더 썼어요</p>
+			<div class="card__divider"></div>
+			<div class="card__account">
+				<div class="card__account__body">
+					<div class="card__account__row">
+						<div class="card__account__name-block">
+							<span class="card__account__category">[SAMPLE] 카드</span>
+							<span class="card__account__name">NH올원카드</span>
+						</div>
+					</div>
+					<span class="card__account__sub">최근 이용 320,000원</span>
+				</div>
+			</div>
+			<div class="card__button-row">
+				<button type="button" class="btn btn--secondary btn--sm">
+					<span class="badge"><span class="badge__count">3</span></span>
+					자세히 보기
+				</button>
+				<button type="button" class="btn btn--primary btn--sm">전체 내역</button>
+			</div>
+		</div>
+
+		<div class="card card--gray card--gap-24">
+			<h2 class="card__title">[SAMPLE] 컨테이너 안쪽은 이렇게 NDS로</h2>
+			<p class="card__guide-text">이 영역(class="container nds-scope") 안쪽만 화면별로 자유롭게 구성하세요. wrapper/header/footer, 팝업 열림 로직 등은 레거시 그대로 사용합니다.</p>
+			<button type="button" class="btn btn--primary btn--full btn--lg">확인</button>
+		</div>
+
+	</div>
+	<!-- //container -->
+
+	<!-- footer : 손대지 않는 영역 (공통 마이데이터 푸터, FMCD1100.html 등 실제 화면과 동일한 include) -->
+	<!-- [참고] 이 프로젝트의 부분 소스 번들에는 pub-assets 폴더가 포함되어 있지 않아 로컬에서는 404가 납니다.
+	     운영 소스에는 실제 파일이 존재하므로 형식만 그대로 유지했습니다. -->
+	<script type="text/javascript" src="../ms/pub/pub-assets/js/footer.js"></script>
+	<!-- //footer -->
+
+</div>
+</body>
+</html>

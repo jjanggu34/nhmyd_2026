@@ -1,0 +1,390 @@
+
+/******************************
+ * 메인
+ ******************************/
+.nhasset .container.main {padding-bottom:51px;}
+.main .posR .defTit {font-size:18px;}
+.main .mainCont01 .totalBalance dt {color:#111;font-size:18px;font-weight:bold;}
+.main .mainCont01 .totalBalance dt a {padding-right:12px;background-image:url('../images/arr_right03.png');background-size:7px 11px;background-position:100% 55%}
+.main .mainCont01 .totalBalance dd {position:relative;margin-top:6px;font-size:24px;}
+.main .mainCont01 .totalBalance dd.type01 {color:#19a647;}
+.main .mainCont01 .totalBalance dd.type02 {color:#ffa800;}
+.main .mainCont01 .totalBalance dd.type03 {color:#ff7212;}
+.main .mainCont01 .totalBalance dd.type04 {color:#7a51e3;}
+.main .mainCont01 .totalBalance dd strong {font-size:28px;}
+.main .mainCont01 .totalBalance dd .status {position:absolute;bottom:0;right:0px;width:60px;height:62px;font-size:12px;font-weight:normal;color:#111;text-align:center}
+.main .mainCont01 .totalBalance dd .status .icoWeather{display:block;width:40px;height:40px;margin:0 auto 5px;content:'';background-repeat:no-repeat;background-size:cover}
+.main .mainCont01 .totalBalance dd .status .tooltipWrap .tooltipCont {left:auto;right:0px;}
+.main .mainCont01 .totalBalance dd.type01 .status .icoWeather{background-image:url(../images/ico_weather_main01.png)}
+.main .mainCont01 .totalBalance dd.type02 .status .icoWeather{background-image:url(../images/ico_weather_main02.png)}
+.main .mainCont01 .totalBalance dd.type03 .status .icoWeather{background-image:url(../images/ico_weather_main03.png)}
+.main .mainCont01 .totalBalance dd.type04 .status .icoWeather{background-image:url(../images/ico_weather_main04.png)}
+
+.main .mainCont01 .thisMonth {margin-top:10px;}
+.main .mainCont01 .thisMonth .txt {color:#7e858e}
+.main .mainCont01 .thisMonth a.txt {padding-right:13px;background:url('../images/arr_right04.png') no-repeat 100% 65%;background-size:6px 10.5px;}
+.main .mainCont01 .thisMonth a{padding-right: 15px;background: url(../images/btnEdit.png) no-repeat 100% 50%;background-size: 11px 11px;} /* [2021-06-24] 윤지현 : 연필아이콘 추가 */
+.main .mainCont01 .thisMonth .dataValue {margin-left:6px;}
+
+
+.main .mainCont02 {margin-bottom:30px;}
+.main .mainCont02 .topTitWrap .directLink {position:absolute;top:2px;right:0; padding-right:10px;background:url('../images/arr_right04.png') no-repeat 100% 60%;background-size:6px 10.5px;color:#7e858e;font-size:13px;}
+.main .mainCont02 .schedulList li:before, .main .mainCont02 .schedulList li:after {display:none;}
+.main .mainCont02 .schedulList li {display:table;width:100%;padding-left:0;}
+.main .mainCont02 .schedulList li .date, .main .mainCont02 .schedulList li .txt {display:table-cell;vertical-align:top;}
+.main .mainCont02 .schedulList li .date {width:36px;margin-right:12px;color:#111;font-size:13px;}
+.main .mainCont02 .schedulList li .txt {color:#111;}
+.main .mainCont02 .schedulList .defaultMsg {color:#111;}
+
+.main .mainCont03 {margin:0 -20px;padding:10px 20px 0px;background-color:#fff;}
+.main .mainCont03 .totalBalance {position:relative;margin-top:0;}
+.main .mainCont03 .totalBalance dt {margin-bottom:5px;font-size:16px;}
+.main .mainCont03 .totalBalance dd .contBtn01 {position:absolute;top:-3px;right:0;}
+.main .mainCont03 .mainTotalAsset {margin-top:30px;background-color:#f6f6f6;}
+.main .mainCont03 .mainTotalAsset .detailList {padding:12px 20px 20px;border-bottom:1px solid #e1e1e1;}
+.main .mainCont03 .mainTotalAsset .detailList .tit {min-width:auto;width:84px;color:#111;font-size:15px;}
+.main .mainCont03 .mainTotalAsset .detailList .value {font-size:16px;font-weight:900}
+.main .mainCont03 .mainTotalAsset .detailList .value .dataValue {vertical-align:inherit}
+.main .mainCont03 .mainTotalAsset .detailList a {display:table;width:100%}
+.main .mainCont03 .mainTotalAsset .detailList a.active .tit,.main .mainCont03 .mainTotalAsset .detailList a.active .value {color:#19a647}
+.main .mainCont03 .detailList [class*="Asset"] {position:relative;display:inline-block;width:16px;height:16px;margin:-2px 0 0 3px;background:no-repeat 0 0;background-size:cover;vertical-align:middle;}
+.main .mainCont03 .detailList .plusAsset {background-image:url('../images/ico_plusAsset.png');}
+.main .mainCont03 .detailList .plusAsset .blind{display:none}
+.main .mainCont03 .detailList .minusAsset {background-image:url('../images/ico_minusAsset.png');}
+.main .mainCont03 .mainTotalAsset .rate {padding-top:12px}
+.main .graphWrap{padding:0 5px 0 12px}
+.main .mainCont03 .defSubTit{padding:0 20px;margin-bottom:0}
+.main .mainCont03 .assetFind {margin-top:20px;padding:12px 20px 25px;background-color:#fff;border:1px solid #e1e1e1;border-radius:2px;text-align:center;}
+.main .mainCont03 .assetFind p {color:#7e858e;}
+.main .mainCont03 .assetFind .areaBodyBtnFull {margin-top:20px;}
+.main .mainCont03 .areaBodyBtnFull.mainCont03Btn {margin-top:20px;border-radius:32px}
+.main .mainCont03 .areaBodyBtnFull.mainCont03Btn .btnBodyLine.green {background-color:#19a647;color:#fff !important;}
+
+.nhasset .mainBannerWrap [class^="mainBanner"] {position:relative;padding:25px 0 27px;border-top:1px solid #f3f3f3}
+.nhasset .mainBannerWrap [class^="mainBanner"]:first-child {border-top:0;}
+.nhasset .mainBannerWrap .mainBanner01 .contBtn01 {position:absolute;top:50%;right:0;margin-top:-15px;}
+.nhasset .mainBannerWrap .mainBanner02 {background:#fff url('../images/bg_mainBanner02.png') no-repeat 100% 50%;background-size:64.5px 45px;}
+.nhasset .mainBannerWrap .mainBanner02 a {display:block;}
+
+/* 나의 노후 예상연금 수령액 팝업 */
+.nhasset .pensionNoCk {margin:0 -20px;padding:14px 20px 15px 80px;background:#f8f8f8 url('../images/bg_pensionNoChk.png') no-repeat 28px 100%;background-size:35.5px 40px;}
+.nhasset .pensionNoCk + .ac {margin-top:10%;}
+.nhasset .pensionImg {position:absolute;top:220px;bottom:0;left:20px;right:20px;text-align:center;}
+.nhasset .pensionImg img {max-width:100%;}
+#FMMA1200P .popCont{overflow:hidden}
+
+/****************************************************************************************************************************************
+ * 2차 범위
+****************************************************************************************************************************************/ 
+/* 메인 추가 */
+/*목표현황 */
+.mainCont04 .directLink{display: inline-block;padding-right: 12px;color:#7e858e;background: url(../images/arr_right01.png) no-repeat 100% 60%;background-size: 5.5px 10.5px;}
+.challengeWrap .icoChallenge{position:relative;display:block;width:55px;height:55px;margin:0 auto;border:1px solid #f3f3f3;border-radius:50%/* background:url(../images/bg_challenge_none.png) no-repeat;background-size:55px 55px */}
+.challengeWrap .icoChallenge img{display:inline-block;width:37px;height:37px;margin-top:8px}
+.challengeWrap .icoChallenge.noImg{border:1px dashed #e1e1e1}
+.challengeWrap .icoChallenge.noImg img{/* width:28px;height:auto;margin-top:11px */}
+.challengeWrap .challStatus{position:relative;margin-top:10px;overflow:hidden}
+.challengeWrap .challStatus span{color:#7e858e}
+.challengeWrap .challStatus a{display:none}
+.challengeWrap .challStatus ul{float:right}
+.challengeWrap .challStatus ul li{float:left;margin-right:14px}
+.challengeWrap .challengeList{display:block;width:100%;margin-top:25px;overflow:hidden}
+.challengeWrap .challengeList li{float:left;width:33.333%;width:calc(100% / 3);padding:0 5px;text-align:center;}
+.challengeWrap .challengeList li a{display:block}
+.challengeWrap .challengeList li a p{margin-top:5px;font-size:13px;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.challengeWrap.noSet .challengeList li a p{color:#7e858e}
+.challengeWrap.noSet .challStatus span{color:#111}
+.challengeWrap.noSet .challStatus a{position:absolute;top:0;right:0;display:block}
+.challengeWrap.noSet .challStatus ul{display:none}
+
+/* 요즘뜨는상품 */
+.mainBanner03{min-height:70px;margin-top:-10px;padding-bottom:30px;background: url(../images/bg_recom.png) no-repeat 100% 0px;background-size:90.5px 70px;}
+.mainBanner03 p{padding-top:10px;}
+.mainBanner03 a{display:block}
+.mainBanner03 .subTxt{display:inline-block;margin-top:10px}
+
+/* NH+ */
+.mainBanner04{min-height:70px;margin-bottom:30px;background: url(../images/bg_nhplus.png) no-repeat 95% 50%; background-size:79px 63.5px;}
+.mainBanner04 .defSubTit2 {padding-top:10px;}
+.mainBanner04 a{display:block}
+.mainBanner04 .subTxt{display:inline-block;}
+.mainBanner04 em{color:#111}
+
+/******************************
+ * MY금융카드 메인 공통
+ ******************************/
+.nhasset .mainBoxArea {padding:25px 20px 26px;border-radius:5px;}
+.nhasset .mainBoxWrap {margin:30px -20px -24px;padding:30px 20px;background-color:#f4f6f9;}
+.nhasset .mainBoxWrap .mainBoxArea {margin-top:20px;border:1px solid #f3f3f3;}
+.nhasset .mainBoxWrap .mainBoxArea:first-child {margin-top:0;}
+.nhasset .mainBoxWrap .mainBoxArea .totalBalance {margin-top:0;}
+.nhasset .mainBoxArea .totalBalance dt {font-size:16px;}
+.nhasset .mainBoxArea .totalBalance dd strong {font-weight:bold;}
+.nhasset .mainBoxArea > a {display:block}
+
+/******************************
+ * MY금융카드 메인 - 소비 tab
+ ******************************/
+/* 금융캘린더 */
+.nhasset .mainBoxArea.cont01-1 {margin-top:30px;padding-bottom:0;border:2px solid #3d9bff;background:url('../images/ico_calendar.png') no-repeat 95% 5%;background-position:top 20px right 20px;background-size:40px 40px;}
+.nhasset .mainBoxArea.cont01-1 .schedulList li {display:table;width:100%;padding-left:0;}
+.nhasset .mainBoxArea.cont01-1 .schedulList li:before, .nhasset .mainBoxArea.cont01-1 .schedulList li:after {display:none;}
+.nhasset .mainBoxArea.cont01-1 .schedulList li .date, .nhasset .mainBoxArea.cont01-1 .schedulList li .txt {display:table-cell;padding-top:2px;color:#111;vertical-align:top;}
+.nhasset .mainBoxArea.cont01-1 .schedulList li .date {width:36px;margin-right:12px;font-size:13px;}
+.nhasset .mainBoxArea.cont01-1 .schedulList li .planNameCate {padding-top:2px;}
+.nhasset .mainBoxArea.cont01-1 a.btn {display:block;height:50px;margin:25px -20px 0;border-top:1px solid #e1e1e1;color:#7e858e;text-align:center;line-height:48px;}
+/* 일정없을 경우*/
+.nhasset .mainBoxArea.cont01-1.noData {border-color:#f5f5f5;background:none;}
+.nhasset .mainBoxArea.cont01-1.noData .listNone {margin:15px 0 37px;}
+
+/* 현재 설정한 예산 보기 */
+.nhasset .mainBoxArea.cont01-2 {padding-top:0;padding-bottom:0;background-color:#fff;border:2px solid rgba(123, 118, 253, 1)}
+.nhasset .mainBoxArea.cont01-2 .monthPlan {position:relative;margin:0 -21px;padding:25px 21px 26px;background:rgb(96,137,244);background-image:linear-gradient(to right, rgb(96,137,244) 0%, rgb(124,118,254) 100%);color:#fff;}
+.nhasset .mainBoxArea.cont01-2 .monthPlan .defSubTit2 {font-weight:normal;}
+.nhasset .mainBoxArea.cont01-2 .monthPlan .tit {margin-top:5px;font-size:20px;line-height:1.3;}
+.nhasset .mainBoxArea.cont01-2 .monthPlan .result {min-height:22px;margin-top:16px;padding-left:30px;background:url('../images/ico_price.png') no-repeat 0 50%;background-size:22px 22px; color:#000000;font-size:15px;}
+.nhasset .mainBoxArea.cont01-2 .monthPlan .status {position:absolute;top:30px;right:20px;width:60px;padding-top:41px;padding-left:5px;background:no-repeat 50% 0;background-size:40px 40px;font-size:12px;text-align:center;}
+.nhasset .mainBoxArea.cont01-2 .monthPlan .status.type01 {background-image:url('../images/ico_weather01.png');}  /* 맑음 */
+.nhasset .mainBoxArea.cont01-2 .monthPlan .status.type02 {background-image:url('../images/ico_weather02.png');}  /* 흐림 */
+.nhasset .mainBoxArea.cont01-2 .monthPlan .status.type03 {background-image:url('../images/ico_weather03.png');}  /* 소나기 */
+.nhasset .mainBoxArea.cont01-2 .monthPlanGraph {background-color:#fff;}
+.nhasset .mainBoxArea.cont01-2 a {display:block;}
+.nhasset .mainBoxArea.cont01-2 a.btnArea {height:50px;margin:25px -20px 0;border-top:1px solid #f3f3f3;color:#7e858e;text-align:center;line-height:48px;}
+.nhasset .mainBoxArea.cont01-2 .tooltipWrap .tooltipCont {right:-22px;left:auto;}
+
+/* 설정 예산 없을 경우 */
+.nhasset .mainBoxArea.cont01-2.noData {background:rgb(96,137,244);background-image:linear-gradient(to right, rgb(96,137,244) 0%, rgb(124,118,254) 100%);}
+.nhasset .mainBoxArea.cont01-2.noData .monthPlan {background:none;}
+.nhasset .mainBoxArea.cont01-2.noData .result {padding-left:0;background:none;}
+.nhasset .mainBoxArea.cont01-2.noData a {margin-top:0;border-color:#fff;color:#fff;border-radius:0 0 5px 5px}
+
+/* 예정된 카드 결제금액 */
+.nhasset .mainBoxArea.cont01-3 {padding:25px 16px 26px;border:2px solid #3d9bff;background:#fff url('../images/visual_intro02_02-2.png') no-repeat 93% 30px;background-position:right 20px top 20px; background-size:40px 40px;}
+.nhasset .mainBoxArea.cont01-3 .totalBalance dt {font-size:14px;}
+
+.nhasset .mainBoxArea.cont01-3.noData > a {display:block;height:50px;margin:25px -16px -26px;border-top:1px solid #f3f3f3;color:#7e858e;text-align:center;line-height:48px;}
+.nhasset .mainBoxArea.cont01-3.noData .noCard {padding-top:90px;background:url('../images/bg_cardAdd.png') no-repeat 50% 5px;background-size:143px 67.5px;text-align:center;}
+.nhasset .mainBoxArea.cont01-3.noData.noBg {background:#fff;}
+
+/* 주간소비 */
+.nhasset .mainBoxArea.cont01-4 {position:relative;background:rgb(249,69,100);background-image:linear-gradient(to right, rgb(249,69,100) 0%, rgb(252,111,64) 65%, rgb(255,153,28) 99%);color:#fff;}
+.nhasset .mainBoxArea.cont01-4:after {position:absolute;bottom:-27px;left:10px;content:'';width:16px;height:47px;background:url('../images/ico_bookmark.png') no-repeat 50% 0;background-size:cover;}
+.nhasset .mainBoxArea.cont01-4 .totalBalance dt {color:#fff;}
+.nhasset .mainBoxArea.cont01-4 .upDownBox {position:relative;margin-top:28px;padding:16px 10px 17px;background-color:#fff;border-radius:2px;z-index:1}
+.nhasset .mainBoxArea.cont01-4 .upDownBox:before {position:absolute;top:-52px;right:0;content:'';width:58px;height:51.5px;background:url('../images/img_weekBox.png') no-repeat 0 0;background-size:cover;z-index:-1}
+.nhasset .mainBoxArea.cont01-4 .upDownBox p {color:#111111;text-align:center;}
+.nhasset .mainBoxArea.cont01-4 .upDownBox [class*="arrow"] {margin-right:5px;}
+.nhasset .cont01-4Sub {margin:10px 0 0 35px}
+.nhasset .cont01-4Sub p {font-size:12px;}
+
+/* 월소비 */
+.nhasset .mainBoxArea.cont01-5 {background:rgb(137,94,255);background-image:linear-gradient( to right, rgb(137,94,255) 0%, rgb(158,106,255) 60%, rgb(179,117,255) 100%);color:#fff;}  
+.nhasset .mainBoxArea.cont01-5 .totalBalance dt {background:url('../images/arr_right05.png') no-repeat 100% 50%;background-size:6px 10.5px;color:#fff;}
+.nhasset .mainBoxArea.cont01-5 .upDownMsg {margin-top:13px;color:#000;}
+/*
+.nhasset .mainBoxArea.cont01-5 .upDownMsg {display:inline-block;margin-top:13px;padding-right:25px;background:no-repeat 100% 50%;background-size:20px 20px;color:#000}
+.nhasset .mainBoxArea.cont01-5 .upDownMsg.type01 {background-image:url('../images/bubble_01happy.png')}  감소
+.nhasset .mainBoxArea.cont01-5 .upDownMsg.type02 {background-image:url('../images/bubble_04sad.png');}  증가
+*/
+
+.nhasset .mainBoxArea.cont01-5 .boxList, .nhasset .mainBoxArea.cont01-6 .boxList {margin-top:25px;}
+.nhasset .mainBoxArea.cont01-5 .boxList li, .nhasset .mainBoxArea.cont01-6 .boxList li {height:50px;margin-top:10px;border-radius:2px;background-color:#fff;line-height:48px;text-align:center;color:#111;letter-spacing:-0.5px;}
+.nhasset .mainBoxArea.cont01-5 .boxList li:first-child, .nhasset .mainBoxArea.cont01-6 .boxList li:first-child {margin-top:0;}
+.nhasset .mainBoxArea.cont01-5 .boxList li {height:60px;padding-top:11px;font-size:15px;letter-spacing:-1px;line-height:1.3;} /* 윤지현:금융카드 이달소비 부분 자간줄임 */
+
+/* 월간 소비방법 */
+.nhasset .mainBoxArea.cont01-6 {background-image:linear-gradient(to right, rgb(0,159,188) 0%, rgb(0,157,162) 56%, rgb(0,155,135) 100%)}
+.nhasset .mainBoxArea.cont01-6 .totalBalance dt {background:url('../images/arr_right05.png') no-repeat 100% 60%;background-size:6px 10.5px;color:#fff;}
+.nhasset .mainBoxArea.cont01-6 .boxList li {display:table;width:100%;padding:0 20px;}
+.nhasset .mainBoxArea.cont01-6 .boxList li .tit, .nhasset .mainBoxArea.cont01-6 .boxList li .value {display:table-cell;vertical-align:middle;}
+.nhasset .mainBoxArea.cont01-6 .boxList li .tit {padding-left:20px;background:no-repeat 0 50%;color:#7e858e;font-size:14px;text-align:left;}
+.nhasset .mainBoxArea.cont01-6 .boxList li:first-child .tit {background-image:url('../images/ico_spendCard.png');background-size:12px 10px;}
+.nhasset .mainBoxArea.cont01-6 .boxList li:last-child .tit {background-image:url('../images/ico_spendMoney.png');background-size:12px 11.5px;}
+.nhasset .mainBoxArea.cont01-6 .boxList li .value {text-align:right;}
+.nhasset .mainBoxArea.cont01-6 .boxList li .value .dataValue {font-size:16px;vertical-align:top;}
+.nhasset .mainBoxArea.cont01-6 .boxList li .value .won {font-size:15px;vertical-align:top;}
+
+/******************************
+ * MY금융카드 메인 - 자산 tab
+ ******************************/
+.nhasset .mainBoxArea .whiteBox {margin-top:25px;padding:16px 20px 17px;background-color:#fff;border-radius:2px;color:#111;}
+.nhasset .mainBoxArea .whiteBox + .whiteBox {margin-top:10px;}
+
+/* 총자산 */
+.nhasset .mainBoxArea.cont02-1 {overflow:hidden;margin-top:30px;padding-bottom:0;border:2px solid #19a647;background:url('../images/ico_totalAsset.png') no-repeat 95% 10%;background-size:40px 40px;background-position:right 20px top 20px;}
+.nhasset .mainBoxArea.cont02-1 dl {margin-top:0;}
+.nhasset .mainBoxArea.cont02-1 dl dt {color:#111;font-weight:bold;}
+.nhasset .mainBoxArea.cont02-1 dl dt.linkIco {background-image:url('../images/arr_right03.png');}
+.nhasset .mainBoxArea.cont02-1 ul {margin:20px -20px 0;padding:0 20px;border-radius:0 0 5px 5px;background-color:#fafafa;}
+.nhasset .mainBoxArea.cont02-1 li {display:table;width:100%;padding:15px 0 16px;border-top:1px solid #f3f3f3;}
+.nhasset .mainBoxArea.cont02-1 li:first-child {border-top:0;}
+.nhasset .mainBoxArea.cont02-1 li .tit, .nhasset .mainBoxArea.cont02-1 li .value {display:table-cell;vertical-align:middle;}
+.nhasset .mainBoxArea.cont02-1 li .tit {width:85px;background:no-repeat 0 50%;}
+.nhasset .mainBoxArea.cont02-1 li .value {text-align:right;}
+/*
+.nhasset .mainBoxArea.cont02-1 li:nth-child(1) .tit {background-image:url('../images/ico_mainTotal01.png');background-size:12.5px 12px;}
+.nhasset .mainBoxArea.cont02-1 li:nth-child(2) .tit {background-image:url('../images/ico_mainTotal02.png');background-size:12.5px 11.5px;}
+.nhasset .mainBoxArea.cont02-1 li:nth-child(3) .tit {background-image:url('../images/ico_mainTotal03.png');background-size:12px 12px;}
+*/
+.nhasset .mainBoxArea.cont02-1 .tit [class*="Asset"] {position:relative;display:inline-block;width:16px;height:16px;margin:-2px 0 0 3px;background:no-repeat 0 0;background-size:cover;vertical-align:middle;}
+.nhasset .mainBoxArea.cont02-1 .tit .plusAsset {background-image:url('../images/ico_plusAsset.png');}
+.nhasset .mainBoxArea.cont02-1 .tit .plusAsset .blind{display:none}
+.nhasset .mainBoxArea.cont02-1 .tit .minusAsset {background-image:url('../images/ico_minusAsset.png');}
+/* 데이터 없을 경우 */
+.nhasset .mainBoxArea.cont02-1.noData {border-color:#19a647;;}
+.nhasset .mainBoxArea.cont02-1.noData > p {margin-top:20px;color:#7e858e;font-size:15px;}
+.nhasset .mainBoxArea.cont02-1.noData > a {display:block;height:50px;margin:28px -20px 0;border-top:1px solid #f3f3f3;color:#fff;background:#19a647;text-align:center;line-height:48px;}
+
+/* 입출금통장잔액 */
+.nhasset .mainBoxArea.cont02-2 {background:rgb(137,94,255);background-image:linear-gradient(to right, rgb(137,94,255) 0%, rgb(158,106,255) 60%, rgb(179,117,255) 100%);color:#fff;}
+.nhasset .mainBoxArea.cont02-2 dl {background:url('../images/ico_etcAsset12.png') no-repeat right top;background-size:40px 40px;}
+.nhasset .mainBoxArea.cont02-2 dl dt {background-image:url('../images/arr_right05.png');color:#fff;}
+.nhasset .mainBoxArea.cont02-2 .whiteBox p {text-align:center}
+.nhasset .mainBoxArea.cont02-2 .whiteBox [class*="PFM_BNK"] {position:relative;padding-left:46px;letter-spacing:-0.5px;text-align:left}
+.nhasset .mainBoxArea.cont02-2 .whiteBox [class*="PFM_BNK"]:before {position:absolute;top:50%;left:0;margin-top:-16px;}
+
+/* 나의 금융투자와 실물투자 */
+.nhasset .mainBoxArea.cont02-3 {background-image:linear-gradient( to right, rgb(0,140,207) 1%, rgb(0,146,181) 69%, rgb(0,152,154) 100%)}
+.nhasset .mainBoxArea.cont02-3 .defSubTit2 {display:inline-block;padding-right:33px;background:url('../images/arr_right05.png') no-repeat 100% 60%;background-position:right 20px top 60%; background-size:6px 10.5px;color:#fff;}
+.nhasset .mainBoxArea.cont02-3 .whiteBox {padding-left:65px;background:#fff no-repeat 20px 50%;background-size:33px 33px;}
+.nhasset .mainBoxArea.cont02-3 .whiteBox [class*="arrow"]:before {margin-top:2px;}
+.nhasset .mainBoxArea.cont02-3 .invest01 {background-image:url('../images/ico_invest01.png')}
+.nhasset .mainBoxArea.cont02-3 .invest02 {background-image:url('../images/ico_invest02.png')}
+/* 나의 금융투자와 실물투자 데이터 없을 경우 */
+.nhasset .mainBoxArea.cont02-3.noData {padding-bottom:0;}
+.nhasset .mainBoxArea.cont02-3.noData > p {margin-top:23px;color:#000;font-size:15px;}
+.nhasset .mainBoxArea.cont02-3.noData .whiteBox {padding:17px 85px 18px 18px;background:#fff url('../images/img_fundRecomm.png') no-repeat 95% 50%;background-size:60.5px 49px;}
+.nhasset .mainBoxArea.cont02-3.noData .whiteBox p {color:#7e858e;}
+.nhasset .mainBoxArea.cont02-3.noData > a {height:50px;margin:30px -20px 0;border-top:1px solid rgba(255, 255, 255, 0.3);color:#fff;text-align:center;line-height:48px;}
+.nhasset .mainBoxArea.cont02-3.noData .defSubTit2 {background-image:unset} /* [2021-02-20] 금융투자와 실물투자 없는 경우 화살표 삭제 */
+
+/* 만기상품안내 */
+.nhasset .mainBoxArea.cont02-4 {background:#fff url('../images/img_expDay.png') no-repeat 90% 50%;background-size:86.5px 68.5px;border:2px solid #19a647;}
+.nhasset .mainBoxArea.cont02-4 dl dt {font-size:14px;}
+.nhasset .mainBoxArea.cont02-4 dl dd .won {font-size:23px;}
+.nhasset .mainBoxArea.cont02-4 dl dd .dataValue {font-size:25px;}
+
+/* 목표 */
+.nhasset .mainBoxArea.cont02-5 {position:relative;background:rgb(75,158,56);background-image:linear-gradient(to right, rgb(75,158,56) 0%, rgb(107,155,28) 64%, rgb(139,152,0) 100%)}
+.nhasset .mainBoxArea.cont02-5 .goal {position:absolute;top:20px;right:20px;border:0;width:40px;height:40px;} 
+.nhasset .mainBoxArea.cont02-5 .goal img {width:100%;height:100%;}
+.nhasset .mainBoxArea.cont02-5 dl dt {background-image:url('../images/arr_right05.png');color:#fff;}
+.nhasset .mainBoxArea.cont02-5 .whiteBox p {font-size:14px;text-align:center;}
+.nhasset .mainBoxArea.cont02-5 .whiteBox p strong {font-size:14px;}
+/* 목표 데이터 없을 경우 */
+.nhasset .mainBoxArea.cont02-5.noData {padding-bottom:0;}
+.nhasset .mainBoxArea.cont02-5.noData .defSubTit2 {color:#fff;}
+.nhasset .mainBoxArea.cont02-5.noData > a {height:50px;margin:25px -20px 0;border-top:1px solid rgba(255, 255, 255, 0.3);color:#fff;text-align:center;line-height:48px;}
+
+/* 하나로가족고객 */
+.nhasset .mainBoxWrap .mainBannerWrap .mainBanner02 {margin-top:20px;padding:25px 20px 27px;border:2px solid #19a647;border-radius:5px;background-position:95% 50%}
+
+/* 통합연금예상수령액 */
+.nhasset .mainBoxArea.cont02-6 {background:rgb(76,89,220);background-image:linear-gradient(to right, rgb(76,89,220) 1%, rgb(44,115,221) 64%, rgb(11,141,221) 100%);color:#fff;}
+.nhasset .mainBoxArea.cont02-6 .defSubTit2 {letter-spacing:-0.5px;}
+.nhasset .mainBoxArea.cont02-6 .defSubTit2 strong {color:#ffea00;}
+.nhasset .mainBoxArea.cont02-6 .whiteBox dl {text-align:center;}
+.nhasset .mainBoxArea.cont02-6 .whiteBox dl dt {color:#7e858e;}
+.nhasset .mainBoxArea.cont02-6 .whiteBox dl dd {font-size:18px;}
+.nhasset .mainBoxArea.cont02-6 a.btnArea {height:50px;margin:25px -20px -26px;border-top:1px solid rgba(255, 255, 255, 0.3);color:#fff;text-align:center;line-height:48px;}
+/* 통합연금예상수령액 없을 경우 */
+.nhasset .mainBoxArea.cont02-6.noData .defSubTit2 {display:inline-block;padding-right:25px;background:url('../images/emo_noConnect.png') no-repeat 100% 50%;background-size:20px 21px;}
+
+/* 월 계좌,부채 */
+.nhasset .mainBoxArea.cont02-7 {background:rgb(249,92,129);background-image:linear-gradient(to right, rgb(249,92,129) 0%, rgb(249,142,116) 59%, rgb(249,191,102) 100%);}
+.nhasset .mainBoxArea.cont02-7 dl {color:#fff;}
+.nhasset .mainBoxArea.cont02-7 dl dt {background-image:url('../images/arr_right05.png');color:#fff;}
+.nhasset .mainBoxArea.cont02-7 dl dd ul {margin-top:10px;}
+.nhasset .mainBoxArea.cont02-7 dl dd ul li {display:table;width:100%;padding:12px 0 14px;border-top:1px solid rgba(0,0,0,0.1);}
+.nhasset .mainBoxArea.cont02-7 dl dd ul li:first-child {border-top:0;}
+.nhasset .mainBoxArea.cont02-7 dl dd ul li .tit, .nhasset .mainBoxArea.cont02-7 dl dd ul li .value {display:table-cell;vertical-align:middle;}
+.nhasset .mainBoxArea.cont02-7 dl dd ul li .tit {font-weight:normal;font-size:15px;letter-spacing:-0.5px;}
+.nhasset .mainBoxArea.cont02-7 dl dd ul li .value {text-align:right;letter-spacing:-0.5px;}
+.nhasset .mainBoxArea.cont02-7 dl dd ul li .value .dataValue {font-size:20px;vertical-align:top;}
+.nhasset .mainBoxArea.cont02-7 dl dd ul li .value .won {margin-top:1px;font-size:18px;vertical-align:top;}
+.nhasset .mainBoxArea.cont02-7 .whiteBox {margin-top:10px;text-align:center;}
+
+/* 월 입출금 */
+.nhasset .mainBoxArea.cont02-8 {padding-bottom:10px;background-color:#fff;border:2px solid #19a647;}
+.nhasset .mainBoxArea.cont02-8 ul {margin-top:15px;}
+.nhasset .mainBoxArea.cont02-8 ul li {display:table;width:100%;padding:14px 0 20px 20px;border-top:1px solid #e1e1e1;background:no-repeat 0 45%;background-size:16px 16px;}
+.nhasset .mainBoxArea.cont02-8 ul li:first-child {border-top:0;background-image:url('../images/ico_monthPlus.png');}
+.nhasset .mainBoxArea.cont02-8 ul li:last-child {background-image:url('../images/ico_monthMinus.png')}
+.nhasset .mainBoxArea.cont02-8 ul li .tit, .nhasset .mainBoxArea.cont02-8 ul li .value {display:table-cell;vertical-align:middle;}
+.nhasset .mainBoxArea.cont02-8 ul li .value {text-align:right;}
+
+/*********************************************
+	2021 자산관리 2단계
+*********************************************/
+/* MY보고소 소비 */
+.nhasset .mainBoxWrap.bgNone{margin-top:0;background:none}
+.nhasset .mainBoxWrap .won{font-weight:900}
+.nhasset .mainBoxWrap .totalBalance dd .whiteBox p{font-weight:normal}
+.nhasset .mainBoxArea .whiteBox{margin-top:15px}
+.nhasset .mainBoxArea.cont02-5 .whiteBox{margin-top:25px}
+
+.nhasset .mainBoxArea .dataValue{font-family: 'NotoNum'}
+.nhasset .mainBoxArea.cont01-2 a.btnArea{border-color:#e1e1e1;}
+.nhasset .mainBoxArea.cont01-2 .tit strong{font-family:'NotoNum'}
+.nhasset .mainBoxArea.cont01-2.noData{border-bottom:none}
+.nhasset .mainBoxArea.cont01-2.noData .wrapBtns{overflow:hidden;margin:0 -22px;border-top:1px solid #94aaf9}
+.nhasset .mainBoxArea.cont01-2.noData .wrapBtns a{float:left;width:50%;margin:0;border-top:none;text-align:center}
+.nhasset .mainBoxArea.cont01-2.noData .wrapBtns a:first-child{border-right:1px solid #94aaf9;border-radius:0 0 0 2px}
+.nhasset .mainBoxArea .totalBalance dd{font-size:23px;}
+.nhasset .mainBoxArea .totalBalance dd strong{font-size:25px;font-family:'NotoNum'}
+.nhasset .mainBoxArea.cont01-3.noData > a{margin-top:15px;border-color:#e1e1e1}
+.nhasset .mainBoxArea.cont01-4 .upDownBox {margin-top:15px}
+.nhasset .mainBoxArea.cont01-4 .upDownBox:before{display:none}
+.nhasset .mainBoxArea.cont01-5 .upDownMsg{font-size:15px}
+.nhasset .mainBoxArea.cont01-5 .boxList, .nhasset .mainBoxArea.cont01-6 .boxList{margin-top: 15px}
+.nhasset .mainBoxArea.cont02-1 li .value{font-size:15px;font-weight:900}
+.nhasset .mainBoxArea.cont02-1 li .value .dataValue{font-size:16px}
+.nhasset .mainBoxArea.cont02-1.noData > p{margin-top:10px}
+.nhasset .mainBoxArea.cont02-1.noData > a {margin-top: 15px;}
+.nhasset .mainBoxArea.cont02-3.noData > p{margin-top:10px}
+.nhasset .mainBoxArea.cont02-3.noData > a,.nhasset .mainBoxArea.cont02-5.noData > a,.nhasset .mainBoxArea.cont02-6 a.btnArea{margin-top:20px}
+.nhasset .mainBoxArea.cont02-3 .invest01 .dataValue,.nhasset .mainBoxArea.cont02-3 .invest02 .dataValue{font-size:16px}
+.nhasset .mainBoxArea.cont02-3 .invest01 .won,.nhasset .mainBoxArea.cont02-3 .invest02 .won{font-size:15px}
+.nhasset .mainBoxArea.cont02-4 dl dd .dataValue,.nhasset .mainBoxArea.cont02-4 dl dd .won{color:#19a647}
+.nhasset .mainBoxArea.cont02-6 .defSubTit2 strong{font-family:'NotoNum'}
+.nhasset .mainBoxArea.cont02-8 ul{margin-top:6px;}
+.nhasset .mainBoxArea.cont02-8 .value strong{display:inline-block;font-family:'NotoNum';font-size:16px;vertical-align:middle}
+.nhasset .mainBoxArea.cont02-8 .value strong .won{font-size:15px;vertical-align:middle}
+.nhasset .mainBoxArea.cont02-8{padding-bottom:5px}
+.nhasset .mainBoxArea.cont02-8 ul li{padding-bottom:15px;background-position-y:50%}
+.nhasset .mainBoxArea.cont02-8 ul li .tit{font-size:16px;font-weight:bold}
+/* 2021 1차 */
+.nhasset .container.main{padding-bottom:85px}
+.nhasset .main .defTit{line-height:27px}
+.nhasset .main .defTit a{position:relative;font-weight:bold;color:#19a647}
+.nhasset .main .defTit a:after{content:'';position:absolute;left:0;right:0;bottom:0px;height:2px;background-color:#19a647}
+.nhasset .main .mainCont03 .totalBalance dt{margin-bottom:0}
+.nhasset .main .mainCont03 .totalBalance dt a{color:#666;font-size:16px}
+.nhasset .main .mainCont03 .mainTotalAsset{margin-top:16px}
+.nhasset .main .mainCont01 .totalBalance dd{margin-top:0}
+.nhasset .main .mainCont01 .thisMonth{margin-top:5px}
+.nhasset .main .mainBanner04{margin-bottom:0}
+.nhasset .main .mainCont03 .mainTotalAsset .detailList .value .dataValue{font-family:"NotoNum";vertical-align:bottom;margin-right:-3px}
+.nhasset .main .grayBox{padding:18px 15px 20px;margin-bottom:20px}
+.nhasset .main .grayBox .infoTxtMsg{font-size:13px}
+.nhasset .main .mainCont03 .areaBodyBtnFull.mainCont03Btn{margin-top:20px}
+.nhasset .main .vipConsulting{border-top:0;margin-top:0;padding-top:0}
+.nhasset .main .vipConsulting .tag{font-weight:normal;min-width:27px}
+.nhasset .main .contBtn01{padding:3px 8px 4px;font-weight:normal}
+.nhasset .main .vipConsulting .contBtn01{bottom:10px}
+.nhasset .main .vipConsulting{background-position:right 8px top 0px}
+.nhasset .main .defSubTit2 + .subTxt{font-size:14px}
+.mainBanner03{padding-bottom:26px}
+.mainBanner04{min-height:64px}
+.colorWrap{margin:0 -5px;}
+.colorWrap:after{content:'';display:block;clear:both}
+.colorWrap{margin-top:5px}
+.colorWrap li{width:50%;padding:5px;float:left}
+.colorWrap li a{display:block;width:100%;height:140px;padding-top:65px;text-align:center;border-radius:2px;border-radius:10px}
+.colorWrap li .con{margin-top:3px;color:#7e858e;font-size:12px;line-height:18px;}
+.colorWrap li.plan a{background:url('../images/ico_mydata01.png') top 20px center /40px 40px no-repeat #f2f5ff}
+.colorWrap li.car a{background:url('../images/ico_mydata02.png') top 20px center /40px 40px no-repeat #fffbe8}
+.colorWrap li.cons a{background:url('../images/ico_mydata03.png') top 20px center /40px 40px no-repeat #e7fffb}
+.colorWrap li.gove a{background:url('../images/ico_mydata04.png') top 20px center /40px 40px no-repeat #eff7ff}
+.nhasset .main .defSubTit2 a.link{display:inline-block;padding-right:12px;background:url('../images/arr_right03.png') no-repeat 100% 60%;background-size:6px 10px;}
+.nhasset .main a.directLink{background:url('../images/arr_right01.png') no-repeat 100% 60%;background-size:6px 10px}

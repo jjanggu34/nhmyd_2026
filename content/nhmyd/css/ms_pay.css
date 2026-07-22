@@ -1,0 +1,846 @@
+@charset "utf-8";
+/* [SEPTEM] UI Dev Team : NH-Pay 스타일 재정의 : 20241206 */
+/* 변수 정의 */
+.nhd_pay {
+	/* 여백 */
+	--container-space:16px;
+	--container-space-1:calc(var(--container-space) * -1);
+
+	/* 높이 */
+	--header-height:64px;
+
+	/* 포인트 컬러 */
+	--point1:#2674e0;
+	--point-check:#3182f7;
+	--color1:#000;
+	--color3:#444;
+
+	/* 비활성화 */
+	--color-disabled:#bfbfbf;
+	--color-disabled2:#888;
+	--border-disabled:#eee;
+	--border-disabled2:#ddd;
+	--bg-disabled:#f6f6f6;
+
+	/* 버튼색상 */
+	--btn-bg:#f1f3f9;
+	--btn-color:#556b8e;
+
+	/* 박스라인 */
+	--border-color:#ddd;
+	--border-color2:#888;
+	--border-color3:#ccc;
+	--tab-bg:#323e5d;
+	--tab-line:#ddd;
+
+	/* 박스BG */
+	--box-bg:#f0f3fb;
+	--box-bg2:#ebf3ff;
+
+	/* 텍스트 */
+	--txt-border-color:#d6e1f1;
+
+	/* 필터 */
+	--filter:invert(42%) sepia(98%) saturate(384%) hue-rotate(175deg) brightness(78%) contrast(84%);
+
+	/* 아이콘 */
+	--path-color:#323e5d;
+	--path-home:46.88% 15.63%, 53.13% 15.63%, 84.38% 46.88%, 84.38% 53.13%, 78.13% 53.13%, 78.13% 78.13%, 75.00% 81.25%, 25.00% 81.25%, 21.88% 78.13%, 21.88% 53.13%, 15.63% 53.13%, 15.63% 46.88%, 46.88% 15.63%, 50.00% 21.88%, 28.13% 43.75%, 28.13% 71.88%, 31.25% 75.00%, 68.75% 75.00%, 71.88% 71.88%, 71.88% 43.75%, 50.00% 21.88%, 46.88% 15.63%;
+	--path-back:53.13% 21.88%, 59.38% 21.88%, 59.38% 25.00%, 34.38% 50.00%, 59.38% 75.00%, 59.38% 78.13%, 53.13% 78.13%, 25.00% 50.00%, 53.13% 21.88%;
+	--path-check:22.92% 43.75%, 29.17% 43.75%, 43.75% 58.33%, 45.83% 58.33%, 70.83% 31.25%, 77.08% 31.25%, 77.08% 37.50%, 47.92% 68.75%, 41.67% 68.75%, 22.92% 50.00%, 22.92% 43.75%;
+	--path-close:17.86% 17.86%, 23.21% 17.86%, 50.00% 44.64%, 76.79% 17.86%, 82.14% 17.86%, 82.14% 23.21%, 55.36% 50.00%, 82.14% 76.79%, 82.14% 82.14%, 76.79% 82.14%, 50.00% 55.36%, 23.21% 82.14%, 17.86% 82.14%, 17.86% 76.79%, 44.64% 50.00%, 17.86% 23.21%, 17.86% 17.86%;
+	--path-plus:43.59% 17.95%, 58.97% 17.95%, 58.97% 43.59%, 84.62% 43.59%, 84.62% 56.41%, 58.97% 56.41%, 58.97% 82.05%, 43.59% 82.05%, 43.59% 56.41%, 17.95% 56.41%, 17.95% 43.59%, 43.59% 43.59%, 43.59% 17.95%;
+	--path-plus2:41.18% 17.65%, 47.06% 11.76%, 52.94% 11.76%, 58.82% 17.65%, 58.82% 41.18%, 82.35% 41.18%, 88.24% 47.06%, 88.24% 52.94%, 82.35% 58.82%, 58.82% 58.82%, 58.82% 82.35%, 52.94% 88.24%, 47.06% 88.24%, 41.18% 82.35%, 41.18% 58.82%, 17.65% 58.82%, 11.76% 52.94%, 11.76% 47.06%, 17.65% 41.18%, 41.18% 41.18%, 41.18% 17.65%;
+	--path-top:48.61% 33.33%, 51.39% 33.33%, 66.67% 47.22%, 63.89% 50.00%, 51.39% 38.89%, 51.39% 66.67%, 48.61% 66.67%, 48.61% 38.89%, 36.11% 50.00%, 33.33% 47.22%, 48.61% 33.33% ;
+	--path-arr:6.67% 8.33%, 93.33% 8.33%, 53.33% 91.67%, 46.67% 91.67%, 6.67% 8.33%;
+	--path-star:47.22% 5.56%, 30.56% 33.33%, 8.33% 36.11%, 5.56% 38.89%, 5.56% 44.44%, 22.22% 61.11%, 22.22% 72.22%, 19.44% 91.67%, 22.22% 94.44%, 27.78% 94.44%, 44.44% 83.33%, 55.56% 83.33%, 72.22% 94.44%, 77.78% 94.44%, 80.56% 91.67%, 80.56% 80.56%, 77.78% 72.22%, 77.78% 61.11%, 94.44% 44.44%, 94.44% 38.89%, 91.67% 36.11%, 69.44% 33.33%, 52.78% 5.56%, 47.22% 5.56%;
+	--path-logout:28.00% 27.00%, 58.00% 27.00%, 59.00% 28.00%, 59.00% 38.00%, 57.50% 39.00%, 56.00% 28.00%, 56.00% 30.00%, 30.00% 30.00%, 30.00% 70.00%, 56.00% 70.00%, 56.00% 63.00%, 57.50% 62.00%, 59.00% 63.00%, 59.00% 72.00%, 58.00% 73.00%, 28.00% 73.00%, 27.00% 72.00%, 27.00% 28.00%, 28.00% 27.00%, 67.00% 41.00%, 75.00% 49.00%, 53.00% 49.00%, 52.00% 50.50%, 53.00% 52.00%, 75.00% 52.00%, 67.00% 60.00%, 67.00% 63.00%, 80.00% 52.00%, 80.00% 49.00%, 70.00% 39.00%, 67.00% 39.00%, 67.00% 41.00%, 28.00% 27.00%;
+	--path-save:23.75% 47.50%, 26.25% 47.50%, 42.50% 62.50%, 45.00% 62.50%, 72.50% 31.25%, 76.25% 31.25%, 76.25% 35.00%, 45.00% 68.75%, 42.50% 68.75%, 22.50% 51.25%, 22.50% 48.75%, 23.75% 47.50%;
+}
+
+/* ************************************
+ * [LAYOUT] 바닥페이지
+ * ************************************/
+/* 색상 */
+.nhd_pay .nhasset .green {color:var(--point1) !important;border-color:var(--point1) !important;}
+.nhd_pay .nhasset .pointColor {color:var(--point1) !important;}
+
+/* HEADER */
+.nhd_pay .nhasset .header {height:var(--header-height)}
+.nhd_pay .nhasset .header h1 {padding-left:var(--container-space);padding-right:44px;height:var(--header-height);line-height:var(--header-height);font-size:var(--fontSize18);text-align:left;color:#000;}
+.nhd_pay .nhasset .header h1 a,
+.nhd_pay .nhasset .header h1 .pageTit {height:var(--header-height);line-height:var(--header-height);}
+.nhd_pay .nhasset .header h1 img {display:block;margin:25px auto 0;}
+.nhd_pay .nhasset .header [class^="btn"] {height:100%;}
+.nhd_pay .nhasset .header .btnBack {top:50%;left:8px;margin:-16px 0;width:32px;height:32px}
+.nhd_pay .nhasset .header .btnBack:before {position:absolute;top:50%;left:50%;margin:-16px;width:32px;height:32px;background:var(--path-color);-webkit-clip-path:polygon(var(--path-back));clip-path:polygon(var(--path-back))}
+.nhd_pay .nhasset .header .btnBack ~ h1 {padding-left:40px;}
+.nhd_pay .nhasset .header .btnNav {display:none;}
+/* [MD2502_024] 공통 헤더영역 변경 */
+.nhd_pay .nhasset .header .btnAlram {display:none}
+.nhd_pay .nhasset .header .btnGoHome {top:50%;right:11px;margin:-16px 0;width:32px;height:32px;}
+.nhd_pay .nhasset .header .btnGoHome:before {position:absolute;top:50%;left:50%;margin:-16px;width:32px;height:32px;background:var(--path-color);-webkit-clip-path:polygon(var(--path-home));clip-path:polygon(var(--path-home))}
+.nhd_pay .nhasset .header .hide {top:19px;}
+.nhd_pay .nhasset .header .delt {top:24px;width:19px;height:19px;}
+
+/* GNB */
+.nhd_pay .nhasset .gnb {top:var(--header-height)}
+.nhd_pay .nhasset .gnb a.active {color:var(--point1);}
+.nhd_pay .nhasset .gnb a.active:after {background-color:var(--point1)}
+.nhd_pay .nhasset .gnb .menuStar a .menuStarInner {position:relative;background:none;}
+.nhd_pay .nhasset .gnb .menuStar a .menuStarInner:before {content:'';display:block;position:absolute;top:50%;left:-1px;width:clamp(18px, 1.8rem, 26px);height:clamp(18px, 1.8rem, 26px);background:#888888;-webkit-clip-path:polygon(var(--path-star));clip-path:polygon(var(--path-star));transform:translate(0%,-50%);}
+.nhd_pay .nhasset .gnb .menuStar a.active .menuStarInner:before {background-color:var(--point1)}
+
+/* CONTAINER */
+.nhd_pay .nhasset .container {padding-top:var(--header-height);padding-bottom:115px}
+.nhd_pay .nhasset .container.hasGnb,
+.nhd_pay .nhasset.hasGnb .container  {padding-top:calc(var(--header-height) + 50px)}
+
+/* TOP BTN */
+.nhd_pay .nhasset .goTopBtn, 
+.nhd_pay .nhasset .goTopBtn2 {right:26px;bottom:68px;width:36px;height:36px;border-radius:50%;background:var(--point1);box-shadow:2px 0 10px 0 rgba(0,0,0,0.1);}
+.nhd_pay .nhasset .goTopBtn:before, 
+.nhd_pay .nhasset .goTopBtn2:before {content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background-color:#fff;-webkit-clip-path:polygon(var(--path-top));clip-path:polygon(var(--path-top));}
+.nhd_pay .nhasset .goTopBtn2 {bottom:100px;}
+.nhd_pay .nhasset .goTopBtn.gray {right:21px;bottom:120px;background-color:#d0d0d0}
+
+/* FOOTER */
+.nhd_pay .nhasset .mainAssetConnBtn {background-color:var(--point1);}
+.nhd_pay .nhasset .mainAssetConnBtn a:before,
+.nhd_pay .nhasset .mainAssetConnBtn a:after {content:'';display:block;position:absolute;top:15px;left:50%;margin-left:-5px;width:9px;height:9px;background:#fff;}
+.nhd_pay .nhasset .mainAssetConnBtn a:after {background:var(--point1);-webkit-clip-path:polygon(var(--path-plus2));clip-path:polygon(var(--path-plus2));}
+
+/* 통합메인 */
+.nhd_pay.nhassetMain .nhasset .header .mainTopLogo {margin-left:28px;width:calc(100% - 28px);background-position:50% 50%;;}
+
+/* ************************************
+ * [LAYOUT] 팝업
+ * ************************************/
+/* 레이아웃 */
+.nhd_pay .nhasset .popBtnWrap .popBtn {position:relative;height:auto;border:solid #fff;border-width:2px 8px 12px;border-spacing:8px;border-collapse:separate;background-image:linear-gradient(to bottom,#fff 0px,#fff 20px);background-origin:border-box;}
+.nhd_pay .nhasset .popBtnWrap .popBtn > a {padding:0 10px;border-radius:16px;font-weight:700;white-space:nowrap;line-height:56px;}
+.nhd_pay .nhasset .popBtnWrap .popBtn > a:only-child {width:100%;}
+.nhd_pay .nhasset .popBtnWrap .popBtn > a.confirmBtn {background:var(--point1);color:#fff;}
+.nhd_pay .nhasset .popBtnWrap .btnDel {top:12px;}
+.nhd_pay .nhasset .popWrap .popClose, 
+.nhd_pay .nhasset .popBtnWrap .popClose {background:none;}
+.nhd_pay .nhasset .popWrap .popClose:before, 
+.nhd_pay .nhasset .popBtnWrap .popClose:before {content:'';display:block;position:absolute;top:50%;left:50%;margin:-14px;width:28px;height:28px;background:var(--path-color);-webkit-clip-path:polygon(var(--path-close));clip-path:polygon(var(--path-close));}
+
+/* 레이어팝업 : 센터형 */
+.nhd_pay .nhasset.popWrap.centerLayer .popInner {background:#fff;border-radius:16px;}
+.nhd_pay .nhasset.popWrap.centerLayer .popInner h1 {height:auto;padding:20px 20px 16px;font-size:20px;font-weight:700;text-align:center;color:var(--color1);line-height:1;}
+.nhd_pay .nhasset.popWrap.centerLayer .popInner h1.ac a:after {height:15px;}
+.nhd_pay .nhasset.popWrap.centerLayer .popInner .popCont {overflow:auto;padding:0 20px 16px;text-align:center;color:var(--color3)}
+.nhd_pay .nhasset.popWrap.centerLayer .popInner .popCont .confirmMsg {padding-left:0;padding-bottom:0;padding-right:0;}
+.nhd_pay .nhasset.popWrap.centerLayer .popInner .popCont .confirmMsg.type01 {position:relative;background:none;}
+.nhd_pay .nhasset.popWrap.centerLayer .popInner .popCont .confirmMsg.type01:before,
+.nhd_pay .nhasset.popWrap.centerLayer .popInner .popCont .confirmMsg.type01:after {content:'';display:block;position:absolute;top:20px;left:50%;}
+.nhd_pay .nhasset.popWrap.centerLayer .popInner .popCont .confirmMsg.type01:before {background:var(--point1);border-radius:50%;margin:0 -20px;width:40px;height:40px;}
+.nhd_pay .nhasset.popWrap.centerLayer .popInner .popCont .confirmMsg.type01:after {-webkit-clip-path:polygon(var(--path-save));clip-path:polygon(var(--path-save));background:#fff;margin:3px -18px;width:36px;height:36px;}
+.nhd_pay .nhasset.popWrap.centerLayer .popBtnWrap .popBtn {border-width:0 12px 12px;}
+.nhd_pay .nhasset.popWrap.centerLayer .popBtnWrap .popBtn > a {width:50%;height:44px;border-radius:6px;background:var(--btn-bg);color:var(--btn-color);line-height:44px;font-size:16px !important;font-weight:400;}
+.nhd_pay .nhasset.popWrap.centerLayer .popBtnWrap .popBtn > a.confirmBtn {background-color:var(--point1);color:#fff;}
+.nhd_pay .nhasset.popWrap.centerLayer .popInnerNotice .popBtnWrap .popBtn {height:100%;border:0;}
+
+/* 레이어팝업 : 슬라이드형 */
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popInner h1 {padding-top:32px;padding-bottom:16px;height:auto;border-radius:16px 16px 0 0;line-height:1.5;font-weight:700;}
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popClose {top:14px;}
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popClose:before {margin:-11px;width:22px;height:22px;}
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a {font-size:18px !important;}
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a:not(.confirmBtn):not(.btnPressDefault) {background:var(--btn-bg);color:var(--btn-color);}
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a.confirmBtn.disabled {background-color:var(--bg-disabled);color:var(--color-disabled2);}
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a:first-child:not(:last-child) {width:calc(100%/3);}
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popInner.titMini h1 {padding-top:16px;}
+
+/* 레이어팝업 : 풀팝업 */
+.nhd_pay .nhasset.popWrap.fullLayerPop {background:#fff;}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popInner h1 {padding-left:var(--container-space);height:var(--header-height);line-height:var(--header-height);font-size:var(--fontSize20);text-align:left;font-weight:bold;}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popInner h1 a {height:var(--header-height);line-height:var(--header-height);font-size:var(--fontSize20);}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn {top:-12px;z-index:10;height:58px;border-width:0 8px 0;border-spacing:8px 0;}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a {font-size:18px !important;}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a:not(.confirmBtn):not(.btnPressDefault) {background:var(--btn-bg);color:var(--btn-color);font-size:18px !important;}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a.btnPressDefault {background-color:#666;border-color:#666;color:#fff;}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a:first-child:not(:last-child) {width:calc(100%/3);}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a.disabled {background-color:#fff;border-color:var(--border-disabled);color:var(--color-disabled);}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn a.confirmBtn.disabled {background-color:var(--bg-disabled);color:var(--color-disabled2);}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popInner .popBtnWrap .popClose {top:14px;right:6px}
+.nhd_pay .nhasset.popWrap.fullLayerPop.grayPop .popBtnWrap .popBtn,
+.nhd_pay .nhasset.popWrap.fullLayerPop .grayPop ~ .popBtnWrap .popBtn,
+.nhd_pay .nhasset.popWrap.fullLayerPop .popCont.fullH ~ .popBtnWrap .popBtn {border-color:transparent;background-image:linear-gradient(to bottom,#f0f2f408 0px ,#f0f2f4 12px, #fff 50px);}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popcoachArea .popBtnWrap .popBtn {height:85px;background:none;border:none;}
+
+/* 컨텐츠 : 선택형 */
+.nhd_pay .nhasset .popCont .selectList {padding:0 var(--container-space);}
+.nhd_pay .nhasset .popCont .selectList li.active a, 
+.nhd_pay .nhasset .popCont .selectList li.active span,
+.nhd_pay .nhasset .popCont .selectList li.active > button {color:var(--point1) !important;}
+.nhd_pay .nhasset .popCont .selectList li.active a,
+.nhd_pay .nhasset .popCont .selectList li.active > button,
+.nhd_pay .nhasset.popWrap .popInner .popCont .selectList li.active label {position:relative;background:none;}
+.nhd_pay .nhasset .popCont .selectList li.active a:after,
+.nhd_pay .nhasset .popCont .selectList li.active > button:after,
+.nhd_pay .nhasset.popWrap .popInner .popCont .selectList li.active label:after {content:'';display:block;position:absolute;top:50%;right:-6px;margin-top:-12px;width:24px;height:24px;-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));background:var(--point1);}
+.nhd_pay .nhasset .popCont .selectList.isBorder li.active a:after {right:12px;}
+.nhd_pay .nhasset .popCont .accList.selectList.isBorder {padding:0 var(--container-space);}
+
+/* ************************************
+ * [CONTENT] 텍스트
+ * ************************************/
+.nhd_pay .nhasset .point,
+.nhd_pay .nhasset .txtGreen,
+.nhd_pay .nhasset .formListBox.overseaType .pointColor {color:var(--point1) !important;}
+.nhd_pay .nhasset .tag.green,
+.nhd_pay .nhasset .tag.GreenBgwh,
+.nhd_pay .nhasset .tag.Green,
+.nhd_pay .nhasset .tag.bgSky {color:var(--point1) !important;border-color:var(--point1)  !important;}
+.nhd_pay .nhasset .totalCnt strong {color:var(--point1);}
+.nhd_pay .nhasset .value.up .dataValue, 
+.nhd_pay .nhasset .value.up .won {color:var(--point1);}
+.nhd_pay .nhasset .wrapTag span.type01, 
+.nhd_pay .nhasset .wrapTag em.type01 {border-color:var(--point1);color:var(--point1)}
+.nhd_pay .nhasset .assetLoadingWrap .assetLoadingValue {color:var(--point1)}
+.nhd_pay .nhasset .tag.bgGreen {background-color:var(--point1);}
+.nhd_pay .nhasset .subTxt9:after {background-color:var(--txt-border-color);}
+.nhd_pay .nhasset .dsrResult .defTit .highLight:before {background-color:var(--txt-border-color);}
+.nhd_pay .nhasset .unHighLight:before {background-color:var(--txt-border-color);}
+
+/* ************************************
+ * [CONTENT] 버튼
+ * ************************************/
+/* 액션버튼 */
+.nhd_pay .nhasset [class*="btnPress"] {height:56px;line-height:56px;}
+.nhd_pay .nhasset .btnPressPoint,
+.nhd_pay .nhasset .btnBodyGreen {background-color:var(--point1);}
+.nhd_pay .nhasset .btnPressDefault {background-color:var(--btn-bg);color:var(--btn-color);}
+.nhd_pay .nhasset .btnPressPoint.disabled,
+.nhd_pay .nhasset .btnPressDefault.disabled {background-color:var(--bg-disabled);color:var(--color-disabled2);}
+
+/* 컨텐츠버튼 */
+.nhd_pay .nhasset .btnBodyLine.greenBg {background-color:var(--point1);border-color:var(--point1);}
+.nhd_pay .nhasset .contBtn02,
+.nhd_pay .nhasset .retireBtnWrap .btnBodyLine.active {border-color:var(--point1);color:var(--point1);}
+.nhd_pay .nhasset .linkType3 {color:var(--point1);}
+.nhd_pay .nhasset .linkType4,
+.nhd_pay .nhasset a.link.arrGreen:not(.disabled),
+.nhd_pay .nhasset .greenLink {color:var(--point1)}
+.nhd_pay .nhasset .greenLink:after {filter:var(--filter);}
+.nhd_pay .nhasset a.link.arrGreen:not(.disabled) {position:relative;background:none;}
+.nhd_pay .nhasset a.link.arrGreen:not(.disabled):after {content:'';display:block;position:absolute;top:50%;right:0;margin-top:-4px;width:6px;height:10px;background:url('../images/arr_right06.png') no-repeat 0 0;background-size:6px 10px;filter:var(--filter);}
+.nhd_pay .nhasset .areaBodyBtnFlex.likeAllone .btnBodyGreen {background-color:var(--point1);border-radius:10px;}
+.nhd_pay .nhasset .linkType1.pointColor {border-color:var(--point1);}
+.nhd_pay .nhasset .moreArea a.moreLink {color:var(--point1);}
+.nhd_pay .nhasset .moreArea a.moreLink:after {filter:var(--filter);}
+
+/* 기타버튼 */
+.nhd_pay .nhasset .registBtn a,
+.nhd_pay .nhasset .likeBtn01,
+.nhd_pay .nhasset .btnDownload,
+.nhd_pay .nhasset .roundBtnWrap a.active,
+.nhd_pay .nhasset .roundBtnWrap a:active {background-color:var(--point1);}
+.nhd_pay .nhasset .roundBtnWrap a.active:after,
+.nhd_pay .nhasset .roundBtnWrap a:active:after {border-color:var(--point1);}
+
+/* 하단고정영역 */
+.nhd_pay .nhasset .areaBtnDefault {border:solid transparent;table-layout:auto;border-width:40px 8px 4px;border-spacing:8px;border-collapse:separate;background-image:linear-gradient(to bottom,#fff0 0px,#fff 50px);background-origin:border-box;}
+.nhd_pay .nhasset .areaBtnDefault [class^="btn"] {padding:0 8px;border-radius:16px;font-size:18px;font-weight:700;}
+.nhd_pay .nhasset .areaBtnDefault:not(.half) [class^="btn"]:first-child:not(:last-child) {width:calc(100%/3);}
+
+/* 탭버튼 */
+.nhd_pay .nhasset .tabWrap.type01 ul li a {padding:12px 0 10px;height:auto;font-size:var(--fontSize16);color:var(--color5);line-height:1.5;font-weight:bold;}
+.nhd_pay .nhasset .tabWrap.type01 ul li a.on {border-color:#222;color:#222;font-weight:900;}
+.nhd_pay .nhasset .boxTypeWrap .tabWrap.type01 {margin:0 -20px}
+.nhd_pay .nhasset .boxTypeWrap .tabWrap.type01 ul {padding:0 10px;}
+.nhd_pay .nhasset .tabWrap.type02 li.active {border-color:var(--point1);color:var(--point1);}
+.nhd_pay .nhasset .tabWrap.type05 a.active {background-color:var(--point1);}
+.nhd_pay .nhasset .tabWrap.type07 ul > li > a.active,
+.nhd_pay .nhasset .tabWrap.type08 > ul > li a.active,
+.nhd_pay .nhasset .tabWrap.type09 > ul > li a.active {background-color:var(--point1);border-color:var(--point1);}
+.nhd_pay .nhasset .tabNavi {top:var(--header-height);}
+.nhd_pay .nhasset .tabNavi ul {margin-bottom:-1px;padding:0 var(--container-space);justify-content:initial;}
+.nhd_pay .nhasset .tabNavi ul > li {flex:1;}
+.nhd_pay .nhasset .tabNavi ul a {justify-content:center;padding:12px;height:auto;font-size:var(--fontSize16);}
+.nhd_pay .nhasset .tabNavi ul a[aria-current="page"] {color:#222;font-weight:900;}
+.nhd_pay .nhasset .tabNavi ul a[aria-current="page"]:after {position:absolute;bottom:0;left:0;right:0;margin:0;width:100%;height:2px;background:#222;border-radius:0;}
+.nhd_pay .nhasset .productSwiperMenu .swiper-slide a {padding:12px 0 10px;font-size:var(--fontSize16);color:var(--color5);line-height:1.5;font-weight:bold;}
+.nhd_pay .nhasset .productSwiperMenu .swiper-slide.swiper-slide-thumb-active {border-color:#222;}
+.nhd_pay .nhasset .productSwiperMenu .swiper-slide.swiper-slide-thumb-active a {color:#222;font-weight:900;}
+.nhd_pay .nhasset .totalSort .swiper-pagination-bullet-active {background-color:var(--point1);}
+.nhd_pay .nhasset .btnSortWrap .btn.selected {background-color:var(--point1);border-color:var(--point1);}
+.OS164 .nhd_pay .nhasset .tabNavi {top:0;}
+
+/* 가로스크롤버튼 */
+.nhd_pay .nhasset .scAreaWrap {padding:10px var(--container-space);margin:10px var(--container-space-1) 0;}
+.nhd_pay .nhasset .scAreaWrap ul > li:last-child {margin-right:0;padding-right:var(--container-space);}
+.nhd_pay .nhasset .tabWrap.type06 .scAreaWrap ul > li > a,
+.nhd_pay .nhasset .scrollBtnArea > ul > li > a,
+.nhd_pay .nhasset .anchorListdWrap .anchorSubject > li > a {padding-top:5px;padding-bottom:6px;border-color:var(--tab-line);font-size:var(--fontSize14);line-height:1.5;font-weight:bold;}
+.nhd_pay .nhasset .scrollBtnArea > ul > li.selected > a,
+.nhd_pay .nhasset .anchorListdWrap .anchorSubject > li.selected a,
+.nhd_pay .nhasset .tabWrap.type06 .scAreaWrap ul > li > a.active {border-color:var(--tab-bg);background-color:var(--tab-bg);font-weight:900;}
+.nhd_pay .nhasset .boxTypeWrap .scrollBtnArea {margin-left:-20px;margin-right:-20px;padding-left:20px;padding-right:20px;}
+
+/* ************************************
+ * [CONTENT] 폼
+ * ************************************/
+/* 입력박스 */
+.nhd_pay .nhasset input:focus:not(.error),
+.nhd_pay .nhasset .formWrap .inputList.on:not(.error),
+.nhd_pay .nhasset .formWrapBox .inputList.on:not(.error),
+.nhd_pay .nhasset .pickList.psHopeRdo .inptType .inputList.on:not(.error) {border-color:var(--point1);}
+.nhd_pay .nhasset .formWrap textarea:focus {box-shadow:0 0 1pt 1.5pt var(--point1);}
+.nhd_pay .nhasset .inputText1.error:focus, 
+.nhd_pay .nhasset .error .inputText1:focus {border-color:var(--line5)}
+
+/* 체크박스 */
+.nhd_pay .nhasset input[type='checkbox']:before, 
+.nhd_pay .nhasset input[type='checkbox']:after {display:block;position:absolute;top:0;left:0;width:2px;height:0;background:var(--border-color2);transform-origin:left top;}
+.nhd_pay .nhasset input[type='checkbox']:before {top:17px;left:10px;height:12px;border-radius:0 0 3px 3px;transform:rotate(-140deg);}
+.nhd_pay .nhasset input[type='checkbox']:after {top:12px;left:4px;height:7px;border-radius:3px 3px 0 0;transform:rotate(-45deg);}
+.nhd_pay .nhasset input[type='checkbox']:checked:before,
+.nhd_pay .nhasset input[type='checkbox']:checked:after {background-color:var(--point-check);animation-fill-mode:forwards;animation-timing-function:ease;animation-duration:0.3s}
+.nhd_pay .nhasset input[type='checkbox']:checked:before {animation-name:dothatopcheck;}
+.nhd_pay .nhasset input[type='checkbox']:checked:after {animation-name:dothabottomcheck;}
+/* 체크박스 disabled 수정 */
+.nhd_pay .nhasset input[type='checkbox']:checked:disabled:before,
+.nhd_pay .nhasset input[type='checkbox']:checked:disabled:after {background:#fff;}
+.nhd_pay .nhasset input[type='checkbox'] + label {margin-left:4px;}
+.nhd_pay .nhasset input[type='radio'].desgChk {clip:auto;width:24px;height:24px;background:none;}
+.nhd_pay .nhasset input[type='radio'].desgChk:before, 
+.nhd_pay .nhasset input[type='radio'].desgChk:after {content:'';display:block;position:absolute;top:0;left:0;margin:0;width:2px;height:0;background:var(--border-color2);transform-origin:left top;}
+.nhd_pay .nhasset input[type='radio'].desgChk:before {top:17px;left:10px;height:12px;border-radius:0 0 3px 3px;transform:rotate(-140deg);}
+.nhd_pay .nhasset input[type='radio'].desgChk:after {top:12px;left:4px;height:7px;border-radius:3px 3px 0 0;transform:rotate(-45deg);}
+.nhd_pay .nhasset input[type='radio'].desgChk:checked:before,
+.nhd_pay .nhasset input[type='radio'].desgChk:checked:after {background-color:var(--point-check);animation-fill-mode:forwards;animation-timing-function:ease;animation-duration:0.3s}
+.nhd_pay .nhasset input[type='radio'].desgChk:checked:before {animation-name:dothatopcheck;}
+.nhd_pay .nhasset input[type='radio'].desgChk:checked:after {animation-name:dothabottomcheck;}
+.nhd_pay .nhasset input[type='radio'].desgChk:checked:disabled:before,
+.nhd_pay .nhasset input[type='radio'].desgChk:checked:disabled:after {background:var(--border-color2);}
+@keyframes dothabottomcheck {
+    0% {height:0px}
+    100% {height:7px}
+}
+@keyframes dothatopcheck {
+    0% {height:0px}
+    50% {height:0px}
+    100% {height:12px}
+}
+
+.nhd_pay .nhasset input[type='checkbox'].chekTypeOther:before, 
+.nhd_pay .nhasset input[type='checkbox'].chekTypeOther:after,
+.nhd_pay .nhasset .formWrap.selectAll .cont input[type="checkbox"]:before, 
+.nhd_pay .nhasset .formWrap.selectAll .cont input[type="checkbox"]:after {content:'';}
+.nhd_pay .nhasset input[type='checkbox'].chekTypeOther {position:relative;width:24px;height:24px;border-radius:50%;border:1px solid var(--border-color3);background:#fff;--point-check:#fff;}
+.nhd_pay .nhasset input[type='checkbox'].chekTypeOther:checked {background-color:var(--point1);border-color:var(--point1);filter:none;}
+.nhd_pay .nhasset input[type='checkbox'].chekTypeOther:disabled,
+.nhd_pay .nhasset input[type='checkbox'].chekTypeOther:checked:disabled {opacity:1;border-color:var(--border-disabled2);background-color:var(--border-disabled2)}
+.nhd_pay .nhasset input[type='checkbox'].chekTypeOther:disabled + label,
+.nhd_pay .nhasset input[type='checkbox'].chekTypeOther:checked:disabled + label {color:var(--color-disabled)}
+.nhd_pay .nhasset .formWrap.selectAll .cont input[type="checkbox"] {position:relative;width:24px;height:24px;background:none !important;} /* 260602 [MD2606_062] NH Pay 앱에서 고객등록 시 휴대폰본인인증 화면 오류 수정 */
+.nhd_pay .nhasset .formWrap.selectAll .cont input[type="checkbox"]:checked {filter:none;}
+.nhd_pay .nhasset .wrapCheck input[type='checkbox'].chekTypeOther:checked {background-color:var(--point1) !important;background-image:none !important;}
+.nhd_pay .nhasset .checkBtnType input[type='checkbox'] {clip:auto;background:none;}
+.nhd_pay .nhasset .checkBtnType input[type='checkbox']:before {content:'';top:25px;left:22px;}
+.nhd_pay .nhasset .checkBtnType input[type='checkbox']:after {content:'';top:20px;left:16px;}
+.nhd_pay .nhasset .checkBtnType input[type='checkbox'] + label {margin-left:0;background-image:none;}
+.nhd_pay .nhasset .checkBtnType input[type='checkbox']:checked + label {border-color:var(--point1);color:var(--point1);}
+
+/* 라디오버튼 */
+/* 라디오버튼 disabled 수정 S */
+.nhd_pay .nhasset input[type='radio'] {width:24px;height:24px;background-color:#fff;transition:border 0.2s;--point1:#3182f7;}
+.nhd_pay .nhasset input[type='radio']:after {content:'';position:absolute;left:50%;top:50%;margin:-5px;width:10px;height:10px;border-radius:100%;transition:background-color 0.2s;}
+.nhd_pay .nhasset input[type='radio']:checked {background-color:var(--point1);}
+.nhd_pay .nhasset input[type='radio']:checked:after {background-color:#fff;}
+.nhd_pay .nhasset input[type='radio']:disabled {background-color:#fff;}
+.nhd_pay .nhasset input[type='radio']:checked:disabled:after {background-color:#e1e1e1;}
+/* 라디오버튼 disabled 수정 E */
+.nhd_pay .nhasset input[type='radio'] + label {margin-left:4px;}
+
+/* 박스형 */
+.nhd_pay .nhasset div.chkBox input[type='checkbox'] {clip:auto;}
+.nhd_pay .nhasset div.chkBox input[type='checkbox'] + label {border-color:#f1f3f9;background:#f1f3f9;border-radius:6px;color:var(--color3);}
+.nhd_pay .nhasset div.chkBox input[type='checkbox']:before,
+.nhd_pay .nhasset div.chkBox input[type='checkbox']:after {content:'';top:50%;}
+.nhd_pay .nhasset div.chkBox input[type='checkbox']:before {left:20px;margin-top:4px}
+.nhd_pay .nhasset div.chkBox input[type='checkbox']:after {left:14px;}
+.nhd_pay .nhasset div.chkBox input[type='checkbox']:checked + label {position:relative;background:transparent;border-color:var(--point1);color:var(--point1);}
+.nhd_pay .nhasset .boxRadio input[type="radio"], 
+.nhd_pay .nhasset .boxRadio input[type="checkbox"] {position:absolute  !important;width:100% !important;height:100% !important;}
+.nhd_pay .nhasset .boxRadio input[type="radio"] + label,
+.nhd_pay .nhasset .boxRadio input[type="checkbox"] + label,
+.nhd_pay .nhasset .boxCheck input + label {margin-left:0;border-color:#f1f3f9;background:#f1f3f9;border-radius:6px;color:var(--color3);}
+.nhd_pay .nhasset .boxRadio input:checked + label {border-color:var(--point1);background:#fff;color:var(--point1)}
+.nhd_pay .nhasset .boxRadio input:checked + label:before {margin:0 -2px -6px;width:22px;height:22px;background:var(--point-check);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+.nhd_pay .nhasset .boxRadio input:disabled + label {background-color:var(--bg-disabled);border-color:var(--bg-disabled);color:var(--color-disabled)}
+.nhd_pay .nhasset .boxRadio input:disabled:checked + label {color:var(--point1);}
+.nhd_pay .nhasset .boxCheck input:checked + label {background:#fff;border-color:var(--point1);color:var(--point1);}
+.nhd_pay .nhasset .boxCheck input:checked + label:before {margin:-3px 0 0 -4px;width:24px;height:24px;background:var(--point-check);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));vertical-align:middle;}
+.nhd_pay .nhasset .roundChk input + label {margin-left:0;;}
+.nhd_pay .nhasset .roundChk input:checked + label {background-color:var(--point1);}
+.nhd_pay .nhasset .roundChk input:checked + label:after {border-color:var(--point1);}
+.nhd_pay .nhasset .roundChk.t1 input + label {padding-top:6px;padding-bottom:5px;border-color:var(--tab-line);font-size:var(--fontSize14);line-height:1.5;color:var(--color5);font-weight:bold;}
+.nhd_pay .nhasset .roundChk.t1 input:checked + label {background-color:var(--tab-bg);border-color:var(--tab-bg);color:#fff;font-weight:900;}
+.nhd_pay .nhasset .roundChk.t1 input:checked + label:after {border-color:var(--tab-bg)}
+.nhd_pay .nhasset .menuRadio .menuRadioInn input[type='radio'] + label {padding:3px 13px 3px 3px;border:2px solid #fff;}
+.nhd_pay .nhasset .menuRadio .menuRadioInn input[type='radio']:checked + label {color:var(--point1);border-color:var(--point1);}
+.nhd_pay .nhasset .menuRadio .menuRadioInn input[type='radio']:checked + label:before {border-radius:50%;background:#f2f4f8}
+.nhd_pay .nhasset .menuRadio .menuRadioInn input[type='radio']:checked + label:after {top:7px;left:6px;width:28px;height:30px;border:none;background:var(--point-check);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+.nhd_pay .nhasset .addrSelectWrap li a {background:#f1f3f9;border-color:#f1f3f9;color:var(--color3);border-width:2px;}
+.nhd_pay .nhasset .addrSelectWrap li.active {color:var(--point1);}
+.nhd_pay .nhasset .addrSelectWrap li.active,
+.nhd_pay .nhasset .addrSelectWrap li.active a {border-color:var(--point1);background:#fff;color:var(--point1);}
+.nhd_pay .nhasset .addrSelectWrap li.active a:before {margin:0 0 -6px -2px;width:22px;height:22px;background:var(--point-check);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check))}
+.nhd_pay .nhasset .autoRepeat .chkRadio input[type='radio'] {left:12px;top:50%;transform:translate(0%,-50%);}
+.nhd_pay .nhasset div.chkRadio input[type='radio'] + label {background:none;}
+.nhd_pay .nhasset div.chkRadio input[type='radio']:checked + label {border-color:var(--point1);}
+
+/* 토글 */
+.nhd_pay .nhasset [class*="tgBtn"] input[type="checkbox"] + label {margin-left:12px;}
+.nhd_pay .nhasset .tgBtn input[type="checkbox"] + label {margin-left:0;}
+.nhd_pay .nhasset .tgBtn2 input[type='checkbox'] + label {margin-left:7px;}
+.nhd_pay .nhasset .tgBtnType2 input[type="checkbox"]:checked + label,
+.nhd_pay .nhasset .tgBtn input[type="checkbox"]:checked,
+.nhd_pay .nhasset .tgBtn2 input[type='checkbox']:checked + label,
+.nhd_pay .nhasset .tgBtn3 input[type='checkbox']:checked + label {background-color:var(--point1);}
+.nhd_pay .nhasset .tgBtn input[type='checkbox']:checked + label {color:var(--point1);}
+.nhd_pay .nhasset .tgBtnType2.t1 input[type="checkbox"]:checked + label {background:none;}
+.nhd_pay .nhasset .tgBtn3 input[type="checkbox"]:checked {filter:none;}
+.nhd_pay .nhasset .tgBtn3 input[type='checkbox'] + label {margin-left:0;}
+
+/* 카테고리 */
+.nhd_pay .nhasset .selectCerti > li input[type="radio"]:checked + label:after, 
+.nhd_pay .nhasset .selectCerti > li input[type="checkbox"]:checked + label:after,
+.nhd_pay .nhasset .selectCerti .e li input[type="radio"]:checked + label:after {border-color:var(--point1);}
+.nhd_pay .nhasset .categoryWrap input + label {margin-left:0;border-color:#f1f3f9;background:#f1f3f9;color:var(--color3);}
+.nhd_pay .nhasset .categoryWrap input:checked + label {border-color:var(--point1);background:#fff;color:var(--point1);font-weight:bold;}
+.nhd_pay .nhasset .cateSubList:before {height:100%;}
+.nhd_pay .nhasset .cateSubList.chkType .roundChk input[type="checkbox"]:checked + label {background-color:var(--point1);}
+.nhd_pay .nhasset .cateSubList.chkType .roundChk input[type="checkbox"]:checked + label:after {border-color:var(--point1);}
+.nhd_pay .nhasset .cateSubList .roundChkWrap.flexType .roundChk input + label {padding-top:6px;padding-bottom:5px;border-color:var(--tab-line);font-size:var(--fontSize14);color:var(--color5);line-height:1.5;font-weight:bold;}
+.nhd_pay .nhasset .cateSubList .roundChkWrap.flexType .roundChk input:checked + label {background:var(--tab-bg);color:#fff;font-weight:900;}
+.nhd_pay .nhasset .cateSubList .roundChkWrap.flexType .roundChk input:checked + label:after {border-color:var(--tab-bg);}
+
+/* 동의 */
+.nhd_pay .nhasset .formWrap.selectAll .cont input[type="checkbox"].chekTypeOther {position:static;border:0;border-radius:0;}
+.nhd_pay .nhasset .formWrap.selectAll .cont input[type="checkbox"].chekTypeOther:checked {--point-check:#3182f7;}
+.nhd_pay .nhasset .agreeSubcont .boxRadio input[type="checkbox"] + label {background:#fff;}
+
+/* 슬라이더 */
+.nhd_pay .nhasset .rangeWrap.type02 .ui-slider-range {background:var(--point1);}
+.nhd_pay .nhasset .rangeWrap.type02 .ui-slider-handle {border-color:var(--point1);}
+.nhd_pay .nhasset .rangeWrap.type02 .ui-slider-handle .rangeSum {color:var(--point1);}
+
+/* 폼영역 */
+.nhd_pay .nhasset .formWrap .infoBox.bdNone .aptTag, 
+.nhd_pay .nhasset .infoboxWrap .infoBox .aptTag {border-color:var(--point1);color:var(--point1);}
+
+/* 선택형 : 체크박스 / 라디오버튼 */
+.nhd_pay .nhasset .pickList li input[type="radio"]:before,
+.nhd_pay .nhasset .pickList li input[type="radio"]:after {display:none;}
+.nhd_pay .nhasset .pickList input[type="checkbox"] + label,
+.nhd_pay .nhasset .pickList li input[type="radio"] + label {margin-left:0;--point1:#3182f7;--point-check:var(--point1);}
+.nhd_pay .nhasset .pickList input[type="checkbox"]:checked + label,
+.nhd_pay .nhasset .pickList li input[type="radio"]:checked + label {border-color:var(--point1);}
+.nhd_pay .nhasset .pickList input[type="checkbox"]:checked + label:after,
+.nhd_pay .nhasset .pickList li input[type="radio"]:checked + label:after {width:24px;height:24px;background:var(--point-check);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+.nhd_pay .nhasset .formWrap.msaeType .pickList input[type="checkbox"]:checked + label, 
+.nhd_pay .nhasset .formWrap.msaeType .pickList input[type="radio"]:checked + label,
+.nhd_pay .nhasset .pickList input[type="checkbox"]:checked + label .withdrawList .accNum {color:var(--point1)}
+.nhd_pay .nhasset .pickList li.inptType .inputList:not(.on) {background-color:#f1f3f9;border-color:#f1f3f9;}
+.nhd_pay .nhasset .pickList li.inptType .inputList:not(.on) > input {background-color:transparent;}
+
+/* 선택형 : 셀렉트박스 유형 */
+.nhd_pay .nhasset .cs.filterSelect button {border-color:var(--point1);}
+
+/* ************************************
+ * [CONTENT] 목록
+ * ************************************/
+/* 선택형 */
+.nhd_pay .nhasset .accList.selectList.isBorder li.active {border-color:var(--point1);}
+.nhd_pay .nhasset .listPsion > li button.active:before {border-color:var(--point1);}
+.nhd_pay .nhasset .listPsion > li button.active:after {width:24px;height:24px;background:var(--point-check);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+.nhd_pay .nhasset .listPsion > li button.active .title {color:var(--point1);}
+.nhd_pay .nhasset .listCerti > li button.active {border-color:var(--point1);}
+.nhd_pay .nhasset .bankInfoList .bankInfoListBox.active:before {content:'';display:block;position:absolute;top:19px;right:16px;width:24px;height:24px;background:var(--point-check);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+.nhd_pay .nhasset .bankInfoList .bankInfoListBox.active:after {border-color:var(--point1);background:none;}
+.nhd_pay .nhasset .searchResultWrap .searchResultList > li.active > a {position:relative;background:none;}
+.nhd_pay .nhasset .searchResultWrap .searchResultList > li.active > a:after {content:'';display:block;position:absolute;top:50%;right:-6px;margin-top:-11px;width:22px;height:22px;background:var(--point-check);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+
+/* 카드상품 */
+.nhd_pay .nhasset .swCardComp .cardBenefitFlag {color:var(--point1);}
+
+/* 거래내역 */
+.nhd_pay .nhasset .inoutListWrap .inColor {color:var(--point1) !important;}
+.nhd_pay .nhasset .infoData2 label {z-index:1;}
+.nhd_pay .nhasset .infoData2 label > input[type='checkbox'].chekTypeOther {position:absolute;border:0;border-radius:0;}
+.nhd_pay .nhasset .infoData2 label > input[type='checkbox'].chekTypeOther:before {top:50%;left:31px;margin:6px 0 0 -4px;}
+.nhd_pay .nhasset .infoData2 label > input[type='checkbox'].chekTypeOther:after {top:50%;left:21px;}
+.nhd_pay .nhasset .infoData2 label .tit:before {left:var(--space16);z-index:-1;width:24px;height:24px;border-radius:50%;border:1px solid var(--border-color);background:#fff;}
+.nhd_pay .nhasset .infoData2 label > input:checked + .tit:before {background:var(--point1);border-color:var(--point1)}
+.nhd_pay .nhasset .infoData2 label > input:checked + .tit:after {background-color:#fff;}
+.nhd_pay .nhasset .infoData2[data-toggle="wrap"] .summary [data-toggle="btn"] {z-index:2;}
+.nhd_pay .nhasset .infoData2[data-toggle="wrap"] .summary label .tit {margin-left:-4px;padding-left:32px;min-height:24px;align-items:center;}
+.nhd_pay .nhasset .infoData2[data-toggle="wrap"] .summary label .tit:before {left:0;}
+.nhd_pay .nhasset .infoData2[data-toggle="wrap"] .summary label > input[type='checkbox'].chekTypeOther:before {top:17px;left:7px;margin:0;}
+.nhd_pay .nhasset .infoData2[data-toggle="wrap"] .summary label > input[type='checkbox'].chekTypeOther:after {top:12px;left:1px;margin:0;}
+
+/* ************************************
+ * [CONTENT] 정보
+ * ************************************/
+/* 총금액 */
+.nhd_pay .nhasset .totalBox.greenBg .totalVal,
+.nhd_pay .nhasset .totalPopWrap .totalAmnt  {color:var(--point1);}
+
+/* 요약정보 */
+.nhd_pay .nhasset .flagSchelule.unerColor-g {border-color:var(--point1);color:var(--point1);}
+.nhd_pay .nhasset .accTopInfo .accName .titHiglight:before {background-color:var(--point1)}
+.nhd_pay .nhasset .infoSummary2 .tit[data-value]:only-child {margin-bottom:-20px;}
+
+/* 서비스 안내 */
+.nhd_pay .nhasset .msAssetCont .bigNumList .num {color:var(--point1);}
+
+/* 진행상황 */
+.nhd_pay .nhasset .stepWrap ol > li.active > span {background:var(--point1);border-color:var(--point1);}
+.nhd_pay .nhasset .numList2 li .num {color:var(--point1);background-color:var(--box-bg2);}
+.nhd_pay .nhasset .certStep > li .certStepTitle .num {background-color:var(--point1);}
+
+/* 박스형 */
+.nhd_pay .nhasset .statusWrap.addTpye,
+.nhd_pay .nhasset .msaeMainBox02 .msaTopArea,
+.nhd_pay .nhasset .msaeMainBox02 .bottomArea,
+.nhd_pay .nhasset .visualWrap.msAsset,
+.nhd_pay .nhasset .formWrap.formListBox > ol > li,
+.nhd_pay .nhasset .subMainDlWrap .wrap_dl_calender .dlCalenderInner,
+.nhd_pay .nhasset .perforWrap,
+.nhd_pay .nhasset .warpMonthSet .topHead.month,
+.nhd_pay .nhasset .formWrap.formListBox > ul > li,
+.nhd_pay .nhasset .remainWrap,
+.nhd_pay .nhasset .assetBookMarkWrap > ul > li > a,
+.nhd_pay .nhasset .allMenuBefore, 
+.nhd_pay .nhasset .allMenuSubject,
+.nhd_pay .nhasset .allMenuListWrap,
+.nhd_pay .nhasset .lookSwiper .swiper-slide,
+.nhd_pay .nhasset .nolistBox,
+.nhd_pay .nhasset .enentListWrap,
+.nhd_pay .nhasset .assetSelectLlistWrap .assetSelectLlist > li,
+.nhd_pay .nhasset .listCerti > li,
+.nhd_pay .nhasset .typeSelList > li a,
+.nhd_pay .nhasset .yatexgraphArea,
+.nhd_pay .nhasset .itemWrapShadow,
+.nhd_pay .nhasset .yanowWrap.ty01,
+.nhd_pay .nhasset .yanowWrap.bdR10,
+.nhd_pay .nhasset .subMainDlWrap .boxTypeRound,
+.nhd_pay .nhasset .boxTypeWrap,
+.nhd_pay .nhasset .boxTypeToggle,
+.nhd_pay .nhasset .boxWrapShadow,
+.nhd_pay .nhasset .formWrap.addShoow,
+.nhd_pay .nhasset .infoSummary1,
+.nhd_pay .nhasset .infoCont2,
+.nhd_pay .nhasset .infoCont3,
+.nhd_pay .nhasset .infoData3:before,
+.nhd_pay .nhasset .infoData3:after,
+.nhd_pay .nhasset .infoData2 label, .nhd_pay .nhasset .infoData2 li,
+.nhd_pay .nhasset .infoData2[data-toggle="wrap"] > dl,
+.nhd_pay .nhasset .bbsView1 .area,
+.nhd_pay .nhasset .areaBanner8 a,
+.nhd_pay .nhasset .areaBox1,
+.nhd_pay .nhasset .mesArea2.img1, 
+.nhd_pay .nhasset .mesArea2.img2 {border-radius:16px;}
+.nhd_pay .nhasset .infoSummary1 .info3[data-swiper-type].swiper-initialized:before,
+.nhd_pay .nhasset .infoSummary1 .info3[data-swiper-type].swiper-initialized:after,
+.nhd_pay .nhasset .yatoggleWarp .yaInfoWrap .moreOpenBtn01:before,
+.nhd_pay .nhasset .moreInfoArea .moreInfoWrap .moreOpenBtn:before,
+.nhd_pay .nhasset .btnMore:before {border-radius:0 0 16px 16px;}
+.nhd_pay .nhasset .moreInfoArea .moreInfoWrap .moreOpenBtn:before,
+.nhd_pay .nhasset .btnMore:before {height:16px;}
+.nhd_pay .nhasset .yanowWrap {border-top-left-radius:16px;border-top-right-radius:16px;}
+.nhd_pay .nhasset .bxArrow .boxTypeWrap,
+.nhd_pay .nhasset .boxTypeWrap.delShadow {border-bottom-left-radius:0;border-bottom-right-radius:0;}
+.nhd_pay .nhasset .boxTypeWrap .boxTitArea.bgAssetConn,
+.nhd_pay .nhasset .asTitWrap,
+.nhd_pay .nhasset .totalCnt.totalTitWrap.typeB,
+.nhd_pay .nhasset .totalTitWrap.typeob,
+.nhd_pay .nhasset .cs.moreListTit,
+.nhd_pay .nhasset .totalBox.greenBg,
+.nhd_pay .nhasset .perforWrap,
+.nhd_pay .nhasset .retireTopWrap,
+.nhd_pay .nhasset .IrpBoxArea,
+.nhd_pay .nhasset .wmDownloadAreaWrap,
+.nhd_pay .nhasset .guideListTop,
+.nhd_pay .nhasset .reptGuideArea:not(.ty01),
+.nhd_pay .nhasset .greenBox2,
+.nhd_pay .nhasset .carSpendDetail .carSpendCataSum,
+.nhd_pay .nhasset .pushTitWrap,
+.nhd_pay .nhasset .lf.bg_buble_wrap,
+.nhd_pay .nhasset .lf.moreListTit {background-color:var(--box-bg2);}
+.nhd_pay .nhasset .lf.bg_buble_wrap {background-image:none;}
+
+/* ************************************
+ * [CONTENT] 게시판
+ * ************************************/
+/* 목록형 */
+.nhd_pay .nhasset .bbsList1 > dl > dt:before {filter:var(--filter);}
+
+/* ************************************
+ * [CONTENT] 슬라이드
+ * ************************************/
+.nhd_pay .nhasset .swiper-pagination .swiper-pagination-bullet-active,
+.nhd_pay .nhasset .swiper-control.swiperControlNew .swiper-pagination .swiper-pagination-bullet-active {background-color:var(--point1)}
+
+/* ************************************
+ * [PAGE] 페이지별 색상 변경
+ * ************************************/
+/* 별별서비스 */
+.nhd_pay .nhasset .boxTypeWrap.starBenefitType02 .title.noneType span.pointColor:after {background-color:var(--point1)}
+
+/* 나만의 메뉴 설정 */
+.nhd_pay .nhasset .sortableWrap .sortableBtnsWrap .sortableBtns button.active {background-color:var(--point1);}
+.nhd_pay .nhasset .sortableWrap .sortableBtnsWrap .sortableBtns button.drag.active:after,
+.nhd_pay .nhasset .sortableWrap .sortableBtnsWrap .sortableBtns button.button.active:after,
+.nhd_pay .nhasset .sortable > li:nth-child(1), 
+.nhd_pay .nhasset .sortable > li:nth-child(2), 
+.nhd_pay .nhasset .sortable > li:nth-child(3), 
+.nhd_pay .nhasset .sortable > li:nth-child(4) {border-color:var(--point1);}
+.nhd_pay .nhasset .sortable > li:nth-child(1), 
+.nhd_pay .nhasset .sortable > li:nth-child(2), 
+.nhd_pay .nhasset .sortable > li:nth-child(3), 
+.nhd_pay .nhasset .sortable > li:nth-child(4) {background-color:var(--box-bg);}
+
+/* 자산 */
+.nhd_pay .nhasset .asTitWrap .chkWrap {margin-top:-24px;width:24px;}
+.nhd_pay .nhasset .asTitWrap .chkWrap input[type='checkbox'] {position:absolute;}
+.nhd_pay .nhasset .asTitWrap .chkWrap input[type='checkbox']:not(:checked) {background-color:#fff;}
+.nhd_pay .nhasset .maybeWishList > li > a.active {outline-color:var(--point1);}
+.nhd_pay .nhasset .directInputArea .inputList input[type='text'] {outline-color:var(--point1);}
+.nhd_pay .nhasset .purposeList .sortable li {border-color:#fff;background-color:#fff;}
+.nhd_pay .nhasset .purposeList.reachGoal .goalResult .accConnect {border-bottom-color:var(--point1);}
+.nhd_pay .nhasset .boxTypeWrap.addchallType .postIt .value em {color:var(--point1);}
+.nhd_pay .nhasset .overseaType .boxRadio.rdoNone input:checked + label {color:var(--point1);}
+
+/* 소비 */
+.nhd_pay .nhasset .cateBottomFixBox {bottom:85px;background-color:var(--box-bg2);}
+.nhd_pay .nhasset .csTopsellWrap .label {position:relative;z-index:1;background:none;}
+.nhd_pay .nhasset .csTopsellWrap .label:before {content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1;background:url('../images/bg_csTopsellWrap_label.png') no-repeat;background-size:100% auto;filter:var(--filter);}
+.nhd_pay .nhasset .csSubsellWrap .cs.label {border-color:var(--point1);color:var(--point1);}
+.nhd_pay .nhasset .csTopsellWrap .price.undertext:after,
+.nhd_pay .nhasset .csTopsellWrap.t1 .price .dataValue:after {background-color:var(--txt-border-color);}
+.nhd_pay .nhasset .csTopsellWrap.t1 .mes {background-color:var(--box-bg2);}
+.nhd_pay .nhasset .csTopsellWrap.t1 .mes > .link:after {filter:var(--filter);}
+.nhd_pay .nhasset .cs.detailTitWrap .tit {color:var(--point1);}
+.nhd_pay .nhasset .billListWrap .billLisMenu {top:var(--header-height);}
+.nhd_pay .nhasset .swCardComp .cardBenefitFlag:after {background-color:var(--txt-border-color);}
+
+/* 플래너 */
+.nhd_pay .nhasset .subMainDlWrap .category:after {background-color:var(--txt-border-color);}
+
+/* 금융자산분석 */
+.nhd_pay .nhasset .investTop .investLeft {color:var(--point1);}
+.nhd_pay .nhasset .investCont .investItem .investLeft {color:var(--point1);background-color:var(--box-bg2)}
+.nhd_pay .nhasset .investLanking3 .investLankingArea .left {background-color:var(--box-bg2)}
+.nhd_pay .nhasset .top3Wrap .titFlags {background-color:var(--point1)}
+.nhd_pay .nhasset .top3Wrap .titFlags:after {border-top-color:var(--point1);}
+.nhd_pay .nhasset .psIngWrap .psMe.active, .nhasset .psIngWrap .psFuture.active {border-color:var(--point1);color:var(--point1);}
+.nhd_pay .nhasset .retireTotal .cont {color:var(--point1);}
+.nhd_pay .nhasset .retireBtnWrap .btnBodyLine.active {border-color:var(--point1);color:var(--point1);}
+.nhd_pay .nhasset .psTbtnWrap .toggleBtn span {color:var(--point1);}
+.nhd_pay .nhasset .IrpBoxArea .value {color:var(--point1);}
+.nhd_pay .nhasset .tabDistance li.active,
+.nhd_pay .nhasset .branchReset .postBtn.active {background-color:var(--point1);}
+.nhd_pay .nhasset .branchReset .postReset span {filter:var(--filter);}
+.nhd_pay .nhasset .yatexMore a .num {color:var(--point1)}
+.nhd_pay .nhasset .listTitWrap2 .dataValue {color:var(--point1)}
+.nhd_pay .nhasset .subsPlaneList .titBox .info dd {color:var(--point1)}
+.nhd_pay .nhasset .areaTabWrap .tabContWrap.type06 .selChkBox li input:checked + label {color:var(--point1)}
+.nhd_pay .nhasset .areaTabWrap .tabContWrap.type06 .selChkBox li input:checked + label:after {margin-top:-10px;width:22px;height:22px;background:var(--point-check);-webkit-clip-path:polygon(var(--path-check));clip-path:polygon(var(--path-check));}
+.nhd_pay .nhasset .infoCont2 .scAreaWrap {padding:0;margin:0;}
+.nhd_pay .nhasset .reptGuideArea h3 {color:var(--point1);}
+.nhd_pay .nhasset .productMenu {top:var(--header-height)}
+.nhd_pay .nhasset .baseLineText {color:var(--point1);}
+.nhd_pay .nhasset .penstionMainBox .itemBox p strong {color:var(--point1);}
+.nhd_pay .nhasset .PsSWiperBtn {top:var(--header-height);}
+.nhd_pay .nhasset .infoStep1 ol > li[aria-current="step"]:before {top:var(--header-height);background:linear-gradient(90deg, #3066b6 0%, #4694e5 100%)}
+.nhd_pay .nhasset .inputRange1 .area {--el-bg1:#3066b6;--el-bg2:#4694e5;}
+.nhd_pay .nhasset .branchOfficeWrap.h100p {top:115px;}
+.nhd_pay .nhasset .reptSumBox .pointColor:before,
+.nhd_pay .nhasset .reptTxt p .point:before,
+.nhd_pay .nhasset .yatexYearImg01 .yaYearTit .greenLine:before,
+.nhd_pay .nhasset .yatexYearImg03 .serGraphWrap .toptxt:after {background-color:var(--txt-border-color);}
+.nhd_pay .nhasset .yatexYearImg03 .serGraphWrap .txt span {color:var(--point1);}
+.nhd_pay .nhasset .vipConsultKind li input[type="radio"]:checked + label {border-color:var(--point1);}
+
+/* 생활편의 */
+.nhd_pay .nhasset .carSpendDetail .carSpendCataSum dd {color:var(--point1);}
+.nhd_pay .nhasset .lf.pickList li input[type="radio"]:checked + label .tit {color:var(--point1);}
+.nhd_pay .nhasset .lf.bg_buble_wrap li .undertext:after {background-color:var(--txt-border-color);opacity:0.5;}
+.nhd_pay .nhasset .famWrap > ul li a span.selected:after {border-color:var(--point1)}
+.nhd_pay .nhasset .lf.fullInbodyBtn {background-color:var(--point1);font-size:var(--fontSize16);border-radius:6px;}
+.nhd_pay .nhasset .compareWrap .me .dataValue {color:var(--point1);}
+.nhd_pay .nhasset .stepList .step {color:var(--point1);}
+.nhd_pay .nhasset .underFlexList li .under {color:var(--point1);}
+.nhd_pay .nhasset .underFlexList li .under:before {background-color:var(--txt-border-color);}
+.nhd_pay .nhasset .gradeCountWrap .gradePointWrap .point .pointIinner:after {background-color:var(--txt-border-color);}
+.nhd_pay .nhasset .claimList > li a {border-radius:16px;}
+.nhd_pay .nhasset .lf .roundChk input + label {padding:7px 16px 6px;font-size:var(--font-size14);line-height:1.5;font-weight:bold;}
+.nhd_pay .nhasset .lf .roundChk input:checked + label {background-color:var(--tab-bg) !important;font-weight:900;}
+.nhd_pay .nhasset .lf .roundChk input:checked + label:after {border-color:var(--tab-bg);}
+/*
+.nhd_pay .nhasset .lf.roundChkWrap {margin:0;}
+.nhd_pay .nhasset .lf.roundChkWrap ul {overflow-x:auto;overflow-y:hidden;flex-wrap:nowrap;width:auto;margin-left:var(--container-space-1);margin-right:var(--container-space-1);padding:0 var(--container-space)}
+.nhd_pay .nhasset .lf.roundChkWrap ul::-webkit-scrollbar {display:none;}
+*/
+
+/* 설정/관리 */
+.nhd_pay .nhasset .wrap_bank_check ul li input[type=checkbox]:checked + label {border-color:var(--point1);}
+.nhd_pay .nhasset .ps.tabWrap li.active, .nhasset .ps.tabWrap li.r_active {background-color:var(--point1);}
+.nhd_pay .nhasset .billListWrap .billLisMenu > ul > li.selected > a {border-color:var(--tab-bg);background-color:var(--tab-bg) !important;}
+.nhd_pay .nhasset .billListWrap .billLisMenu > ul > li > a.btnBillMenu {padding-top:5px;padding-bottom:6px;font-size:var(--fontSize14);border-color:var(--tab-line);line-height:1.5;font-weight:bold;}
+.nhd_pay .nhasset .billListWrap .billLisMenu > ul > li > a.btnBillMenu.active {border-color:var(--tab-bg);background-color:var(--tab-bg);font-weight:900;}
+.nhd_pay .nhasset .topInfoWrap {background-color:var(--box-bg2);}
+.nhd_pay .assetSelectLlistWrap .assetSelectSub > li .accountInfo input {position:relative;background:none;}
+.nhd_pay .assetSelectLlistWrap .assetSelectSub > li .accountInfo input:before,
+.nhd_pay .assetSelectLlistWrap .assetSelectSub > li .accountInfo input:after {content:'';}
+
+/* 고객등록 */
+.nhd_pay .nhasset .cerNumBox .btnCerti {background-color:var(--point1);}
+
+/* 로그아웃 */
+.nhd_pay .nhasset .logoutWrap {background:none;position:relative;}
+.nhd_pay .nhasset .logoutWrap:before,
+.nhd_pay .nhasset .logoutWrap:after {content:'';display:block;position:absolute;top:8px;left:50%;margin:0 -25px;width:50px;height:50px;}
+.nhd_pay .nhasset .logoutWrap:before {background:var(--point1);border-radius:50%;}
+.nhd_pay .nhasset .logoutWrap:after {background:#fff;-webkit-clip-path:polygon(var(--path-logout));clip-path:polygon(var(--path-logout));}
+
+/* 상단고정 */
+.nhd_pay .nhasset .bgWhite.likeSticky {background-color:#fff;}
+
+/* ************************************
+ * 키패드 재정의
+ * ************************************/
+.keypad body.nhd_pay:not(.fixControl) .areaBtnDefault {position:fixed !important;width:100% !important;top:auto !important;margin:0 !important}
+
+/* [MD2411_092] [자산연결 동의 절차 간소화] */
+.nhd_pay .nhasset input[type='radio'].chekTypeOther {position:relative;width:24px;height:24px;border-radius:50%;border:1px solid var(--border-color3);background:none;--point-check:#fff;}
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:before, 
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:after {content:'';display:block;position:absolute;width:2px;background: var(--border-color2);transform-origin: left top;}
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:before {top:17px;left:10px;height:12px;border-radius:0 0 3px 3px;transform:rotate(-140deg);}
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:after {top:16px;left:9px;height:7px;border-radius:3px 3px 0 0;transform:rotate(-45deg);}
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:checked {background-color:var(--point1);border-color:var(--point1);filter:none;}
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:checked:before,
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:checked:after {background-color:var(--point-check);animation-fill-mode:forwards;animation-timing-function:ease;animation-duration:0.3s}
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:checked:before {animation-name:dothatopcheck;}
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:checked:after {animation-name:dothabottomcheck;}
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:checked:disabled:before,
+.nhd_pay .nhasset input[type='radio'].chekTypeOther:checked:disabled:after {background:var(--border-color2);}
+.nhd_pay .nhasset input[type='radio'].chekTypeOther + label {margin-left:4px;}
+
+
+/****************************************************************/
+/* [NURIER SYSTEM] UI Dev Team : NH-Pay 스타일 재정의 : 20251027 */
+/****************************************************************/
+.nhd_pay {--gray-300:#bbb;}
+body.nhd_pay,.nhd_pay .wrapper.nhasset{background-color:#fff !important;color:#222}
+/* HEADER */
+.nhd_pay .nhasset .header h1 {font-size:20px;color:#222;position: relative;}
+.nhd_pay .nhasset .header h1 img {margin:25px 0 0 4px;}
+.nhd_pay .nhasset .header h1 img[src*="logoMydata2"]{position: absolute;top:50%;left:50%;margin:0;transform:translate(-50%,-50%)}
+/* 공통 헤더영역 변경 */
+.nhd_pay .nhasset .header .btnBack{left:12px;z-index:1200} /* 2025-11-24 */
+.nhd_pay .nhasset .header .btnBack:before{background:url('../images/makebetter/nhpay/icon_header_arrow.svg') no-repeat center / 32px auto;clip-path:none}
+.nhd_pay .nhasset .header .btnBack ~ h1{padding-left:44px}
+.nhd_pay .nhasset .header .btnGoHome{display:none}
+/* 2025-11-06 현재 전체메뉴 안보이게 
+.nhd_pay .nhasset .header .btnNav {display:inline-block;top:50%;right:12px;margin:-16px 0;width:32px;height:32px}
+.nhd_pay .nhasset .header .btnNav:before{position:absolute;top:50%;left:50%;margin:-16px;width:32px;height:32px;background:url('../images/makebetter/nhpay/icon_menu_32.svg') no-repeat center / 32px auto} */
+/* CONTAINER */
+.nhd_pay .nhasset .container{padding:var(--header-height) 20px 140px} /* MSPS4100 */
+/* 레이아웃 */
+/* .nhd_pay .nhasset .popBtnWrap .popBtn > a {line-height:52px;} */
+.nhd_pay .nhasset.popWrap.fullLayerPop .popBtnWrap .popBtn {top:-6px;	border-width: 7px 8px 7px;}
+.nhd_pay .nhasset.popWrap.fullLayerPop .popCont.termPop + .popBtnWrap .popBtn {top:-14px}
+.nhd_pay .nhasset .popBtnWrap .popBtn > a {line-height:56px;}
+/* 레이어팝업 : 슬라이드형 */
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popInner h1 {padding-bottom:20px;font-size:18px;}
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popClose {top:18px;right:18px;width:28px;height:28px;background:url('../images/makebetter/nhpay/icon_x.svg') no-repeat center / 24px auto;}
+/* .nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a:not(.confirmBtn):not(.btnPressDefault) {border-color:var(--btn-bg)} */
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a:not(.confirmBtn):not(.btnPressDefault) {border: none;}
+.nhd_pay .nhasset .popBtnWrap .popBtn > a.btnPressDefault {border-color:var(--btn-bg);	background:var(--btn-bg) !important;color:var(--btn-color);}
+.nhd_pay .nhasset.popWrap[class*="slidePop"] .popBtnWrap .popBtn a:last-child:not(:first-child){width:70%;}
+.nhd_pay .nhasset .areaBtnDefault .btnPressDefault {	background-color: #f1f3f9;	border: 1px solid #f1f3f9;	color: #556b8e;}
+.nhd_pay .nhasset .areaBtnDefault {border: solid transparent !important;	table-layout: auto;	border-width: 40px 8px 4px;	border-spacing: 8px;	border-collapse: separate;	background-image: linear-gradient(to bottom,#fff0 0px,#fff 50px);	background-origin: border-box;}
+.nhd_pay .noResultWrap {	background: url('../images/makebetter/nhpay/icon_nodata_bill3.svg') no-repeat center top / 48px auto;}
+.nhd_pay .nhasset .btnBodyLine {	font-size: 16px}
+.nhd_pay .nhasset .formWrap .inputList data {	padding-left: 4px;}
+.nhd_pay .nhasset .popCont .transfer {padding: 0 20px;}
+.nhd_pay .nhasset .formWrap .cal .inputList{padding-right:24px;}
+.nhd_pay .nhasset .cal .inputList.disabled input[type="tel"]:disabled,
+.nhd_pay .nhasset .cal .inputList.disabled input[type="tel"]:read-only,
+.nhd_pay .nhasset .cal .inputList.disabled{background-color: #f6f6f6 !important;}
+.nhd_pay .nhasset .formWrap .cal .inputList .btnCalendar{position: absolute;top:50%;width:24px;height:24px;background:url('../images/makebetter/nhpay/icon_calendar01_24.svg') no-repeat center / 24px auto;transform: translateY(-50%);}
+.nhd_pay .nhasset .formWrap .inputList {padding-right: 16px;border:none;border-bottom: 1px solid var(--gray-300);border-radius: 0;}
+.nhd_pay .nhasset input::placeholder{font-size:18px}
+.nhd_pay .nhasset input[type='text'],
+.nhd_pay .nhasset input[type='tel'],
+.nhd_pay .nhasset input[type='password'],
+.nhd_pay .nhasset .selectValue {height: 56px;padding-left: 4px;font-size: 18px;;font-weight:600;}
+.nhd_pay .nhasset .selectValue {line-height: 56px;}
+.nhd_pay .nhasset .selectBtn {width: 20px;height: 56px;}
+.nhd_pay .nhasset .stList {padding: 0 16px;}
+.nhd_pay .nhasset .stList .selectBtn {background-color: transparent;}
+.nhd_pay .nhasset .stList.boxType a {height: 56px;border: none;border-bottom:2px solid #eee;border-radius:0;line-height: 56px;}
+.nhd_pay .nhasset .boxTypeWrap .stList {padding: 0;}
+.nhd_pay .nhasset .boxTypeWrap .stList .selectBtn {height: 56px;}
+.nhd_pay .nhasset .inputList input[type='text']:read-only,
+.nhd_pay .nhasset .inputList input[type='tel']:read-only,
+.nhd_pay .nhasset .inputList input[type='password']:read-only,
+.nhd_pay .nhasset .inputList input[type='text']:disabled,
+.nhd_pay .nhasset .inputList input[type='tel']:disabled,
+.nhd_pay .nhasset .inputList input[type='password']:disabled {background-color:#f6f6f6 !important;color: #888;}
+.nhd_pay .nhasset .formWrap .inputList .btnSearch {margin-right: -8px;height:57px}
+.nhd_pay .nhasset .formWrap .inputList .btnSearch[data-label] {background-position: calc(100% - 8px) 50%;}
+.nhd_pay .nhasset .formWrap .inputList .btnSearch[data-label] {padding-left: 0;}
+/* 박스형 */
+.nhd_pay .nhasset .boxRadio input[type="radio"] + label,
+.nhd_pay .nhasset .boxRadio input[type="checkbox"] + label,
+.nhd_pay .nhasset .boxCheck input + label {min-height:44px;padding:9px 8px;font-weight:500}
+.nhd_pay .nhasset .boxRadio input:checked + label:before {all:unset;}
+.nhd_pay .nhasset .tgBtnType2.small24 label {width: 44px;}
+/* 체크박스 */
+.nhd_pay .nhasset input[type='checkbox'].chekTypeOther:checked {background-image:none;}
+.nhd_pay .nhasset .formWrap.selectAll .cont input[type="checkbox"]:checked {filter:none;background:none}
+.nhd_pay .nhasset .formWrap.selectAll .cont input[type="checkbox"]{margin-right:0}
+.nhd_pay .nhasset .billLisMenu.psAtSt {	background-color: #fff;}
+.nhd_pay .nhasset .tostpopupWrap {position: fixed;width: 100%;top: 70px;left: 0;padding: 0 16px;z-index:20;}
+.nhd_pay .nhasset .tostpopupWrap .tostMsg {background: url('../images/makebetter/nhpay/icon_caption_red_24.svg') no-repeat left 12px center / 24px auto;background-color: rgba(50, 62, 93, 1);border-radius: 6px;padding: 12px 16px 12px 42px;color: #fff;font-size: 16px;font-weight: 500;}
+.nhd_pay .nhasset .boxTypeWrap {border: 1px solid #ddd;box-shadow: none;}
+.nhd_pay .nhasset .boxTypeWrap.listBoxWrap.addLine {border-bottom:1px solid #ddd !important;}
+.nhd_pay .nhasset .connLine .listTitWrap .connectStatus.sucessConn {color: var(--point1);}
+.nhd_pay .nhasset .infoSummary2 .tit[data-value]:before{z-index: 1;}
+.nhd_pay .nhasset .boxTypeWrap{overflow:hidden}
+.nhd_pay .anchorListdWrap .anchorSubjectWrap.hasSticky {z-index:1200;} /* 2025-11-07 클릭 오류 */
+/* 알아두세요 */
+.nhd_pay .nhasset .info_area {margin-top: 30px;}
+.nhd_pay .nhasset .info_area .info_area_title {position: relative;font-size: clamp(13px,1.3rem, 19.5px);background: url(../images/common/icon_info.png) no-repeat left center;background-size: 14px;padding-left: 20px;display: block;}
+.nhd_pay .nhasset .info_area .info_area_title::after{all:unset}
+.nhd_pay .nhasset .info_area ul[class^='listBul'] {margin-top: 10px;}
+/* 더보기 */
+.nhd_pay .nhasset .listMoreBtn {text-align: center;border: none;}
+.nhd_pay .nhasset .listMoreBtn a {position: relative;display: inline-block;padding-left: 20px;}
+.nhd_pay .nhasset .listMoreBtn a:after {all:unset}
+.nhd_pay .nhasset .listMoreBtn a:before {	content: "";	position: absolute;	top:50%;	left:0;	background: url('../images/makebetter/nhpay/icon_plus_16.png') no-repeat center / 16px auto;width: 16px;height: 16px;transform: translateY(calc(-50% - 1px));}
+/* 테이블 */
+.nhd_pay *[class^="wrapTbl"] table {border-top: 1px solid #606060;}
+.nhd_pay [class^="wrapTbl"] th, [class^="wrapTbl"] td {padding: 12px 8px;font-size: 14px;border-bottom: 1px solid #d3ddeb;}
+.nhd_pay [class^="wrapTbl"] td {border-left: 1px solid #d3ddeb;}
+.nhd_pay [class^="wrapTbl"] th {font-weight: normal;text-align: left;background: #ebeff5;color: #444;font-weight: 500;}
+.nhd_pay .nhasset .tblData1 {overflow: hidden;border-top: 1px solid #606060;border-bottom: 1px solid #d3ddeb;}
+.nhd_pay .nhasset .tblData1 thead th {height: 45px;background: #ebeff5;color: #444;font-weight: 500;}
+.nhd_pay .nhasset .tblData1 th, .nhasset .tblData1 td {padding: 12px 10px;border: 1px solid #d3ddeb;color: #444;font-size: 14px;font-weight: 400;}
+.nhd_pay [class^="wrapTbl"].blue table {border-top-color: #53b1ce;}
+.nhd_pay [class^="wrapTbl"].blue th {background-color: #249EC3;color: #fff;border-bottom-color: #fff;}
+.nhd_pay [class^="wrapTbl"].blue td{border-bottom-color:#e1e1e1}
+.nhd_pay [class^="wrapTbl"].blue th+td{border-left:none}
+.nhd_pay [class^="wrapTbl"].blue tbody tr:last-of-type th,
+.nhd_pay [class^="wrapTbl"].blue tbody tr:last-of-type td{border-bottom-color:#53b1ce}
+/* MSPS3120 */
+.nhd_pay .anchorListdWrap .anchorSubjectWrap{position: relative;z-index: 1200;top:0}
+.nhd_pay .anchorListdWrap .anchorSubjectWrap.hasSticky{position: fixed;top:50px}

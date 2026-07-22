@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="NH Bank">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="shortcut icon" href="#">
+	<title>금리인하요구권 수용 여부 판단을 위한 개인(신용)정보 조회 동의서</title>
+	<link type="text/css" rel="stylesheet" href="../css/nh_base.css">
+	<link rel="stylesheet" type="text/css" href="../css/nh_layout.css">
+	<link rel="stylesheet" type="text/css" href="../css/nh_comm.css">
+	<link rel="stylesheet" type="text/css" href="../css/nhasset_com.css">
+	<link rel="stylesheet" type="text/css" href="../css/nhasset_cont.css">
+	<link rel="stylesheet" type="text/css" href="../css/nhasset_myd.css">
+	<link type="text/css" rel="stylesheet" href="../css/ms_allone.css">
+	<style type="text/css">html{background-color:#fff }</style>
+</head>
+</head>
+<body class="nhasset">
+	<!-- [필수] 금리인하요구권 수용 여부 판단을 위한 개인(신용)정보 조회 동의서 -->
+	<div class="term_cont">
+		<h2 class="popTemrsBigTit">
+			[필수] 금리인하요구권 수용 여부 판단을 위한 개인(신용)정보 조회 동의서
+		</h2>
+		
+		<p class="popTermsTxt">
+			귀하는 개인(신용)정보의 제공·조회에 관한 동의를 거부하실 수 있으며, 개인의 신용도 등을 평가하기 위한 목적 이외의 개인(신용)정보
+			제공·조회 동의를 철회할 수 있습니다. 다만, 본 동의는 금리인하요구 신청에 대한 심사를 위해 필수적인 사항이므로 동의를 거부하시는 경우
+			관련 업무수행이 불가능합니다.
+		</p>
+	
+		<h3 class="popTemrsTit">
+			<script>
+				console.log("# document.addEventListener() params : "+ window.location.search ); // ex) mydOrgnm=%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88&mydOrgCd=AAAA1B00000
+				var defaultOrgnm  = "[대출 금융회사명]";
+				var urlLocationSearch = window.location.search;
+				if (urlLocationSearch==undefined || urlLocationSearch==null || urlLocationSearch==="") {
+					// skip
+				} else {
+					var params = "";
+					if (urlLocationSearch.charAt(0)=="?") {
+						params = urlLocationSearch.substring(1);
+					} else {
+						params = urlLocationSearch;
+					}
+					var arrUrlParam = params.split("&");           // { "mydOrgnm=%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88", "mydOrgCd=AAAA1B00000" }
+					var arrMydOrgnm = arrUrlParam[0].split("=");   // { "mydOrgnm", "%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88" }
+					
+					if (arrMydOrgnm==undefined || arrMydOrgnm==null || arrMydOrgnm==="" || arrMydOrgnm.lenth==1) {
+						// skip
+					} else {
+						if (arrMydOrgnm[1]==undefined || arrMydOrgnm[1]==null || arrMydOrgnm[1]==="") {
+							// skip
+						} else {
+							console.log("arrMydOrgnm[0] : ", arrMydOrgnm[0]); // ex) "mydOrgnm"
+							console.log("arrMydOrgnm[1] : ", arrMydOrgnm[1]); // ex) "%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88"
+							
+							var mydOrgnm = arrMydOrgnm[1];
+							console.log("# mydOrgnm1 : "+ mydOrgnm );
+							console.log("# mydOrgnm2 : "+ decodeURIComponent(mydOrgnm) );
+							defaultOrgnm = decodeURIComponent(mydOrgnm);
+						}
+					}
+				}
+				document.write(defaultOrgnm);
+			</script> 귀중</h3>
+		<div class="wrapTblDefault blue mt20">
+			<table>
+				<caption>수집이용 내용 표</caption>
+				<colgroup>
+					<col style="width:30%">
+					<col style="width:auto">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row" colspan="2">1. 수집&middot;이용에 관한 사항</th>
+					</tr>
+					<tr>
+						<th scope="row">수집·이용 목적</th>
+						<td>
+							금리인하요구 신청에 대한 심사를 위한 신용정보회사 또는 신용정보집중기관에 개인(신용)정보 조회
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">보유 및 이용기간</th>
+						<td>
+							<em class="pointColor fs15"><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+								귀하의 개인(신용)정보는 수집·이용에 관한 동의일로부터 본인에 대한 신용정보
+								조회 동의의 효력 기간까지 보유·이용됩니다. 단, 신용정보 조회 동의의 효력 기간
+								종료 후에는 금융사고 조사, 분쟁 해결, 민원처리 및 법령상 의무이행만을 위하여
+								보유·이용됩니다.
+							</em>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							동의를 거부할 권리 및 동의를 거부할 경우의 불이익
+						</th>
+						<td>
+							개인(신용)정보 수집·이용에 관한 동의는 계약의 체결 및 이행을 위하여 필수적이므로, 위 사항에
+							동의하셔야만 금융거래관계의 설정 및 유지가 가능합니다.
+						</td>
+					</tr>
+					
+				</tbody>
+			</table>
+		</div>
+
+		<!-- 수집·이용 항목 -->
+		<h3 class="popTemrsTit">수집&middot;이용 항목</h3>
+		<div class="wrapTblDefault blue mt10">
+			<table>
+				<caption>수집&middot;이용 항목 표</caption>
+				<colgroup>
+					<col style="width:30%">
+					<col style="width:auto">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row"><span class="icoBrdUnique"></span> 고유식별정보</th>
+						<td>
+							<strong class="pointColor fs15">주민등록번호</strong><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="wrapTblDefault blue">
+			<table>
+				<caption>수집&middot;이용 항목 표</caption>
+				<colgroup>
+					<col style="width:30%">
+					<col style="width:auto">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th colspan="2"><span class="icoBrdPeople"></span>개인(신용)정보</th>
+					</tr>
+					<tr>
+						<th scope="row"><span class="icoBrdFolder"></span><br>개인(식별)정보</th>
+						<td>
+							성명, 주소, 전화번호 등 연락처<!-- [삭제 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 em 삭제 -->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- // 수집·이용 항목 -->
+
+		<!-- 제공에 관한 사항 -->
+		<div class="wrapTblDefault blue mt40">
+			<table>
+				<caption>제공 항목 표</caption>
+				<colgroup>
+					<col style="width:30%">
+					<col style="width:auto">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row" colspan="2">2. 제공에 관한 사항</th>
+					</tr>
+					<tr>
+						<th scope="row" rowspan="2">제공받는 자</th>
+						<td>
+							<em class="pointColor fs15">종합신용정보집중기관, 신용정보회사(NICE평가정보, 코리아크레딧뷰로(주) 등)</em><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+						</td>
+					</tr>
+					<tr>
+						<td class="bgBlue">
+							<em class="pointColor fs15"><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+								※ 신용정보회사 및 신용정보집중기관의 세부 현황은 
+								<script>
+									console.log("# document.addEventListener() params : "+ window.location.search ); // ex) mydOrgnm=%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88&mydOrgCd=AAAA1B00000
+									var defaultOrgnm  = "[대출 금융회사명]";
+									var urlLocationSearch = window.location.search;
+									if (urlLocationSearch==undefined || urlLocationSearch==null || urlLocationSearch==="") {
+										// skip
+									} else {
+										var params = "";
+										if (urlLocationSearch.charAt(0)=="?") {
+											params = urlLocationSearch.substring(1);
+										} else {
+											params = urlLocationSearch;
+										}
+										var arrUrlParam = params.split("&");           // { "mydOrgnm=%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88", "mydOrgCd=AAAA1B00000" }
+										var arrMydOrgnm = arrUrlParam[0].split("=");   // { "mydOrgnm", "%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88" }
+										
+										if (arrMydOrgnm==undefined || arrMydOrgnm==null || arrMydOrgnm==="" || arrMydOrgnm.lenth==1) {
+											// skip
+										} else {
+											if (arrMydOrgnm[1]==undefined || arrMydOrgnm[1]==null || arrMydOrgnm[1]==="") {
+												// skip
+											} else {
+												console.log("arrMydOrgnm[0] : ", arrMydOrgnm[0]); // ex) "mydOrgnm"
+												console.log("arrMydOrgnm[1] : ", arrMydOrgnm[1]); // ex) "%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88"
+												
+												var mydOrgnm = arrMydOrgnm[1];
+												console.log("# mydOrgnm1 : "+ mydOrgnm );
+												console.log("# mydOrgnm2 : "+ decodeURIComponent(mydOrgnm) );
+												defaultOrgnm = decodeURIComponent(mydOrgnm);
+											}
+										}
+									}
+									document.write(defaultOrgnm);
+								</script> 홈페이지에서 확인하실 수 있습니다.
+							</em>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">제공받는 자의 이용목적</th>
+						<td>
+							<em class="pointColor fs15"><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+								종합신용정보집중기관 : 신용정보의 집중관리 및 활용 등 법령에서 정한 종합신용정보집중기관의 업무수행<br>
+								신용정보회사 : 당사 요청정보 제공을 위한 대상자식별, 실명인증 등 본인확인 업무 및 신용관련 모형개발
+								및 분석을 위한 자료활용, 신용판단 및 본인확인 등 법령에서 정한 신용정보회사의 업무
+							</em>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">보유 및 이용기간</th>
+						<td>
+							<em class="pointColor fs15">금융거래 등 상거래관계 종료일로부터 5년(관련 법령상 보존기간을 따름)</em><em class="pointColor fs15"><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							동의를 거부할 권리 및 동의를 거부할 경우의 불이익
+						</th>
+						<td>
+							개인(신용)정보 제공에 관한 동의는 계약의 체결 및 이행을 위하여 필수적이므로, 위 사항에 동의하셔야만
+							금융거래관계의 설정 및 유지가 가능합니다.	
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3 class="popTemrsTit">제공 항목</h3>
+		<div class="wrapTblDefault blue mt10">
+			<table>
+				<caption>수집&middot;이용 항목 표</caption>
+				<colgroup>
+					<col style="width:30%">
+					<col style="width:auto">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row"><span class="icoBrdUnique"></span> 고유식별정보</th>
+						<td>
+							<strong class="pointColor fs15">주민등록번호</strong><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- // 제공에 관한 사항 -->
+
+		<!-- 조회에 관한 사항 -->
+		<div class="wrapTblDefault blue mt40">
+			<table>
+				<caption>제공 항목 표</caption>
+				<colgroup>
+					<col style="width:30%">
+					<col style="width:auto">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row" colspan="2">3. 조회에 관한 사항</th>
+					</tr>
+					<tr>
+						<th scope="row" rowspan="2">조회 대상 기관</th>
+						<td>
+							<em class="pointColor fs15">종합신용정보집중기관, 신용정보회사(NICE평가정보, 코리아크레딧뷰료(주) 등)</em><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+						</td>
+					</tr>
+					<tr>
+						<td class="bgBlue">
+							<em class="pointColor fs15"><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+								※ 신용정보회사 및 신용정보집중기관의 세부 현황은 
+								<script>
+									console.log("# document.addEventListener() params : "+ window.location.search ); // ex) mydOrgnm=%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88&mydOrgCd=AAAA1B00000
+									var defaultOrgnm  = "[대출 금융회사명]";
+									var urlLocationSearch = window.location.search;
+									if (urlLocationSearch==undefined || urlLocationSearch==null || urlLocationSearch==="") {
+										// skip
+									} else {
+										var params = "";
+										if (urlLocationSearch.charAt(0)=="?") {
+											params = urlLocationSearch.substring(1);
+										} else {
+											params = urlLocationSearch;
+										}
+										var arrUrlParam = params.split("&");           // { "mydOrgnm=%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88", "mydOrgCd=AAAA1B00000" }
+										var arrMydOrgnm = arrUrlParam[0].split("=");   // { "mydOrgnm", "%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88" }
+										
+										if (arrMydOrgnm==undefined || arrMydOrgnm==null || arrMydOrgnm==="" || arrMydOrgnm.lenth==1) {
+											// skip
+										} else {
+											if (arrMydOrgnm[1]==undefined || arrMydOrgnm[1]==null || arrMydOrgnm[1]==="") {
+												// skip
+											} else {
+												console.log("arrMydOrgnm[0] : ", arrMydOrgnm[0]); // ex) "mydOrgnm"
+												console.log("arrMydOrgnm[1] : ", arrMydOrgnm[1]); // ex) "%ED%95%98%EB%82%98%EC%BA%90%ED%94%BC%ED%83%88"
+												
+												var mydOrgnm = arrMydOrgnm[1];
+												console.log("# mydOrgnm1 : "+ mydOrgnm );
+												console.log("# mydOrgnm2 : "+ decodeURIComponent(mydOrgnm) );
+												defaultOrgnm = decodeURIComponent(mydOrgnm);
+											}
+										}
+									}
+									document.write(defaultOrgnm);
+								</script> 홈페이지에서 확인하실 수 있습니다.
+							</em>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">조회 목적</th>
+						<td>
+							<em class="pointColor fs15"><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+								금리인하요구 신청에 대한 심사와 관련하여 신용정보회사 또는 신용정보집중기관에 개인(신용)정보 조회
+							</em>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row" rowspan="2">조회 동의의 효력기간</th>
+						<td>
+							<em class="pointColor fs15"><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+								(금융)거래 종료일*로부터 5년까지 보유·이용됩니다. (금융)거래 종료일 후에는
+								금융사고 조사, 분쟁 해결, 민원처리, 법령상 의무이행 및 리스크 관리업무만을
+								위하여 보유·이용됩니다.
+							</em>
+						</td>
+					</tr>
+					<tr>
+						<td class="bgBlue">
+							<em class="pointColor fs15"><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+								* (금융)거래 종료일이란 당사와 거래중인 모든 금융거래가 종료한 날을 뜻합니다.
+							</em>
+						</td>
+					</tr>
+					<tr>
+						<th scope="row">
+							동의를 거부할 권리 및 동의를 거부할 경우의 불이익
+						</th>
+						<td>
+							개인(신용)정보 조회에 관한 동의는 계약의 체결 및 이행을 위하여 필수적이므로, 위 사항에
+							동의하셔야만 금융거래관계의 설정 및 유지가 가능합니다.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<h3 class="popTemrsTit">조회 항목</h3>
+		<div class="wrapTblDefault blue mt10">
+			<table>
+				<caption>수집&middot;이용 항목 표</caption>
+				<colgroup>
+					<col style="width:30%">
+					<col style="width:auto">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th scope="row"><span class="icoBrdUnique"></span> 고유식별정보</th>
+						<td>
+							<strong class="pointColor fs15">주민등록번호</strong><!-- [추가 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 class 추가 -->
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="wrapTblDefault blue mt10">
+			<table>
+				<caption>제공 항목 표</caption>
+				<colgroup>
+					<col style="width:30%">
+					<col style="width:auto">
+				</colgroup>
+				<tbody>
+					<tr>
+						<th colspan="2"><span class="icoBrdPeople"></span>개인(신용)정보</th>
+					</tr>
+					<!-- [삭제 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 em 삭제 -->
+					<tr>
+						<th><span class="icoBrdFolder"></span><br>개인식별정보</th>
+						<td>
+							성명, 고유식별정보, 국적, 직업, 주소, 전자우편 주소, 전화번호 등 연락처
+						</td>
+					</tr>
+					<tr>
+						<th><span class="icoBrdFolder"></span><br>신용도판단정보</th>
+						<td>
+							연체정보, 대위변제 · 대지급정보 등
+						</td>
+					</tr>
+					<tr>
+						<th><span class="icoBrdFolder"></span><br>신용거래정보</th>
+						<td>
+							대출(현금서비스 포함), 채무보증, 신용카드(체크카드 포함), 당좌(가계당좌)예금 등
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><span class="icoBrdDeal"></span><br>신용능력정보</th>
+						<td>
+							재산 · 채무 · 소득의 총액, 납세실적 등
+						</td>
+					</tr>
+					<tr>
+						<th scope="row"><span class="icoBrdDeal"></span><br>기타 정보</th>
+						<td>
+							신용평점
+						</td>
+					</tr>
+					<!-- // [삭제 260225] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 em 삭제 -->
+				</tbody>
+			</table>
+		</div>
+		<!-- // 조회에 관한 사항 -->
+	</div>
+	<!-- // [필수] 금리인하요구권 수용 여부 판단을 위한 개인(신용)정보 조회 동의서 -->
+</body>
+</html>
