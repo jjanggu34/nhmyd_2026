@@ -22,7 +22,7 @@
 <link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_myd.css">
 <link rel="stylesheet" type="text/css" href="../../nhmyd/css/nhasset_myd_mb.css">
 <link rel="stylesheet" type="text/css" href="../../nhmyd/css/ms_style.css">
-<link rel="stylesheet" type="text/css" href="../vendor/main.scoped.css?v=3">
+<link rel="stylesheet" type="text/css" href="../assets/css/nds.scoped.css?v=34">
 <style>.toast-wrap{display:none;} .toast-wrap.show{display:flex;}</style>
 </head>
 <body>
@@ -46,7 +46,14 @@
       <div class="card__divider"></div>
       <div class="card__button-row">
         <span class="badge"><button type="button" class="btn-icon"><img src="../vendor/icons/alarm-notice-24.svg" width="20" height="20" alt="알림" style="vertical-align:middle;"></button><span class="badge__count">3</span></span>
-        <span class="indicator-number">3 / 5</span>
+        <div class="indicator-number">
+          <div class="indicator-number__paging">
+            <button type="button" class="indicator-number__arrow" aria-label="이전"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4L6 8L10 12"></path></svg></button>
+            <span class="indicator-number__count"><span class="indicator-number__current">3</span><span class="indicator-number__dash"></span><span class="indicator-number__total">5</span></span>
+            <button type="button" class="indicator-number__arrow" aria-label="다음"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4L10 8L6 12"></path></svg></button>
+          </div>
+          <button type="button" class="indicator-number__control" aria-label="일시정지"><svg viewBox="0 0 8 8" fill="currentColor"><rect x="1" y="0" width="2" height="8"></rect><rect x="5" y="0" width="2" height="8"></rect></svg></button>
+        </div>
         <button type="button" class="btn btn--primary btn--sm">전체 내역</button>
       </div>
     </div>
@@ -76,7 +83,7 @@
             <div class="accordion-box__title-row"><span class="accordion-box__title">카테고리별 상세</span></div>
             <span class="accordion-box__sub">쇼핑/식비/교통 등</span>
           </div>
-          <span class="accordion-box__arrow"><img src="../vendor/icons/arrow-down1-24.svg" width="16" height="16" alt="펼치기" style="vertical-align:middle;"></span>
+          <span class="accordion-box__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
         </button>
         <div class="accordion-box__body" hidden>
           <div class="list-kv"><span class="list-kv__title">쇼핑</span><span class="list-kv__data">180,000원</span></div>
@@ -87,7 +94,7 @@
 
     <!-- Empty state toggle demo -->
     <div class="empty empty--result" id="emptyDemo" style="margin-top:20px; display:none;">
-      <span class="empty__icon">📭</span>
+      <span class="empty__icon"><svg viewBox="0 0 40 40"><path d="M6 4h28a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H16l-6 6v-6H6a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" fill="#d3d3d3"></path><circle cx="13" cy="16" r="2" fill="#b3b3b3"></circle><circle cx="20" cy="16" r="2" fill="#b3b3b3"></circle><circle cx="27" cy="16" r="2" fill="#b3b3b3"></circle></svg></span>
       <p class="empty__text">조회된 내역이 없습니다</p>
     </div>
 

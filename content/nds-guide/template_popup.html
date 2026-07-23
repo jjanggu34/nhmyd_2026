@@ -31,7 +31,7 @@
 <link rel="stylesheet" type="text/css" href="../nhmyd/css/ms_style.css">
 
 <!-- [신규 작업 영역] NDS 컴포넌트 CSS -->
-<link rel="stylesheet" type="text/css" href="vendor/main.scoped.css?v=4">
+<link rel="stylesheet" type="text/css" href="assets/css/nds.scoped.css?v=34">
 
 <script>
 	// [손대지 않는 영역] slidePopConfirm()은 nhasset-ui.js의 popOpenRun을 통해
@@ -67,19 +67,19 @@
 			     그래서 h1 / popCont / popBtnWrap+popBtn 은 "기능 훅"으로 반드시 남기고,
 			     시각 스타일만 NDS 클래스를 나란히 붙여서 처리합니다. -->
 			<!-- [중요] NDS 실제 bottomsheet은 좌우 24px 패딩(spacing-24)이 기본값입니다.
-			     popCont/popBtnWrap은 레거시 클래스라 패딩이 없으므로, 아래처럼 인라인으로
-			     명시적으로 넣어줘야 합니다 — 안 그러면 버튼/텍스트가 화면 양끝에 그대로
-			     붙어버려서(라운드 처리도 안 보이고) 다른 화면 것과 다르게 보입니다. -->
+			     popCont/popBtnWrap은 레거시 클래스라 기본 패딩이 없어서, assets/css/nds.scoped.css의
+			     .nds-scope .popCont / .nds-scope .popBtnWrap 규칙에서 12/24/32px 값을 한 번만
+			     정의해 적용합니다(이전엔 파일마다 인라인으로 중복 기재했었음). -->
 			<div class="nds-scope" style="padding-top:20px;">
 				<h1 class="bottomsheet__title ac mt0" style="padding:0 24px;">[SAMPLE] 팝업 타이틀</h1>
-				<div class="popCont" style="padding:12px 24px 0;">
+				<div class="popCont">
 					<p>[SAMPLE] 안내 메시지가 들어가는 영역입니다. 부가 설명 문구도 이 안에 넣습니다.</p>
 					<div class="card card--gap-24" style="margin-top:16px;">
 						<span class="card__eyebrow">[SAMPLE] 참고 정보</span>
 						<p class="card__guide-text">필요 시 카드/뱃지 등 다른 NDS 컴포넌트도 이 안쪽에 함께 쓸 수 있습니다.</p>
 					</div>
 				</div>
-				<div class="popBtnWrap" style="padding:32px 24px calc(32px + env(safe-area-inset-bottom));">
+				<div class="popBtnWrap">
 					<button type="button" class="popBtn btn btn--primary btn--full btn--lg">확인</button>
 				</div>
 			</div>
