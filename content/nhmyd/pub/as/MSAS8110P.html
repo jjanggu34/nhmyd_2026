@@ -1,0 +1,108 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 관련대출 선택 </title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(document).ready(function(){
+		slidePopOption();
+	})
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 관련대출 선택 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopOption">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>관련대출 선택</h1>
+		<div class="popCont">
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 대출계좌목록 -->
+			<!-- -------------------------------------- -->
+			<ul class="selectList">
+				<li class="active">
+					<a href="javascript:;" title="선택됨">
+						[기관명] 상품명
+						<ul class="listItem">
+							<li>
+								<span class="tit">잔액 : </span>
+								<span class="value">1,000,000<em class="won">원</em></span>
+								<span class="tit ml10">신규일 : </span>
+								<span class="value date"> 2022.09.01</span>
+							</li>
+						</ul>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						[농협은행] 직장인대출
+						<ul class="listItem">
+							<li>
+								<span class="tit">잔액 : </span>
+								<span class="value">1,000,000<em class="won">원</em></span>
+								<span class="tit ml10">신규일 : </span>
+								<span class="value date"> 2022.09.01</span>
+							</li>
+						</ul>
+					</a>
+				</li>
+				<li class="active">
+					<a href="javascript:;" title="선택됨">
+						[신한은행] e편한전세대출
+						<ul class="listItem">
+							<li>
+								<span class="tit">잔액 : </span>
+								<span class="value">1,000,000<em class="won">원</em></span>
+								<span class="tit ml10">신규일 : </span>
+								<span class="value date"> 2022.09.01</span>
+							</li>
+						</ul>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						[농협은행] (일반자금)중소기업보증료지원대출-혁신스타트업금융지원 보증료지원
+						<ul class="listItem">
+							<li>
+								<span class="tit">잔액 : </span>
+								<span class="value">1,000,000<em class="won">원</em></span>
+								<span class="tit ml10">신규일 : </span>
+								<span class="value date"> 2022.09.01</span>
+							</li>
+						</ul>
+					</a>
+				</li>
+			</ul>
+			<!-- -------------------------------------- -->
+		</div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

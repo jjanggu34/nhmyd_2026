@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="robots" content="no-index,follow" />
+<meta name="title" content="" />
+<meta name="author" content="" />
+<meta name="content" content="" />
+<meta name="keywords" content="NH마이데이터" />
+<meta name="description" content="NH마이데이터" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<title>[팝업] 날짜 선택(년,월,일)</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+    calendarAlign();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- [팝업] 날짜 선택 -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>날짜 선택</h1>
+		<!-- 팝업컨텐츠 -->
+		<div class="popCont">
+			<div class="yearSet dayPicSet timePicSet">
+				<ol class="yearsetLft">
+					<li><a href="javascript:;"><span>2024</span></a></li>
+					<li><a href="javascript:;" class="active"><span>2025</span></a></li>
+				</ol>
+				
+				<ol class="yearsetRht">
+					<li><a href="javascript:;"><span>01</span></a></li>
+					<li><a href="javascript:;"><span>02</span></a></li>
+					<li><a href="javascript:;"><span>03</span></a></li>
+					<li><a href="javascript:;"><span>04</span></a></li>
+					<li><a href="javascript:;"><span>05</span></a></li>
+					<li><a href="javascript:;"><span>06</span></a></li>
+					<li><a href="javascript:;"><span>07</span></a></li>
+					<li><a href="javascript:;"><span>08</span></a></li>
+					<li><a href="javascript:;" class="active"><span>09</span></a></li>
+					<li><a href="javascript:;"><span>10</span></a></li>
+					<li><a href="javascript:;"><span>11</span></a></li>
+					<li><a href="javascript:;"><span>12</span></a></li>
+				</ol>
+
+				<ol class="yearsetDay">
+					<li><a href="javascript:;"><span>1</span></a></li>
+					<li><a href="javascript:;"><span>2</span></a></li>
+					<li><a href="javascript:;"><span>3</span></a></li>
+					<li><a href="javascript:;"><span>4</span></a></li>
+					<li><a href="javascript:;"><span>5</span></a></li>
+					<li><a href="javascript:;"><span>6</span></a></li>
+					<li><a href="javascript:;"><span>7</span></a></li>
+					<li><a href="javascript:;"><span>8</span></a></li>
+					<li><a href="javascript:;"><span>9</span></a></li>
+					<li><a href="javascript:;"><span>10</span></a></li>
+					<li><a href="javascript:;"><span>11</span></a></li>
+					<li><a href="javascript:;"><span>12</span></a></li>
+					<li><a href="javascript:;"><span>13</span></a></li>
+					<li><a href="javascript:;"><span>14</span></a></li>
+					<li><a href="javascript:;"><span>15</span></a></li>
+					<li><a href="javascript:;"><span>16</span></a></li>
+					<li><a href="javascript:;"><span>17</span></a></li>
+					<li><a href="javascript:;"><span>18</span></a></li>
+					<li><a href="javascript:;"><span>19</span></a></li>
+					<li><a href="javascript:;"><span>20</span></a></li>
+					<li><a href="javascript:;"><span>21</span></a></li>
+					<li><a href="javascript:;"><span>22</span></a></li>
+					<li><a href="javascript:;"><span>23</span></a></li>
+					<li><a href="javascript:;" class="active"><span>24</span></a></li>
+					<li><a href="javascript:;"><span>25</span></a></li>
+					<li><a href="javascript:;"><span>26</span></a></li>
+					<li><a href="javascript:;"><span>27</span></a></li>
+					<li><a href="javascript:;"><span>28</span></a></li>
+					<li><a href="javascript:;"><span>29</span></a></li>
+					<li><a href="javascript:;"><span>30</span></a></li>
+				</ol>
+			</div>
+		</div>
+		<!-- 팝업컨텐츠 -->
+
+		<!-- 팝업 버튼영역  -->
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+		<!-- // 팝업 버튼영역 -->
+	</div>
+</div>
+
+<!-- [샘플] 스크립트 -->
+<script type="text/javascript">
+
+</script>
+<!-- // -->
+</body>
+</html>

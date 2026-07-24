@@ -1,0 +1,68 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 알림 발생 조건 선택</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script>
+	$(document).ready(function(){
+		// slidePopOption();
+		slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+		
+		// [추가 260116] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 11번 a태그 선택됨
+		// a태그 선택됨
+		const links = document.querySelectorAll('.selectList li a')
+
+		links.forEach(link => {
+			links.addEventListner('click', function(e) {
+				e.preventDefault();
+				// 전체에서 title제거
+				links.forEach(a => a.removeAttribute('title'))
+				// 클릭된 요소에만 title="선택됨" 설정
+				this.setAttrbute('title', '선택됨');
+			});
+		});
+		// a태그 선택됨
+		// // [추가 260116] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 11번 a태그 선택됨
+	})  
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 알림 발생 조건 선택 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>어떤 경우에 알림을 받을까요?</h1>
+		<div class="popCont">
+			<ul class="selectList">
+				<li class="active"><a href="javascript:;" title="선택됨">증가하거나 감소할 때</a></li>
+				<li><a href="javascript:;">증가할 때만</a></li>
+				<li><a href="javascript:;">감소할 때만</a></li>
+			</ul>
+		</div>
+		<div class="popBtnWrap">
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."><img src="../../images/makebetter/icon/ico_close2_24.svg" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

@@ -1,0 +1,887 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [폼]</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+<style>
+	.nhasset .cal .inputList .btnCalendar{background-image:url('../../images/makebetter/icon/ico_calendar_24.svg') ;background-size:24px auto}
+	.nhasset input[type='checkbox'].chek:disabled{background-image: url(../../images/makebetter/icon/ico_check_24.svg);}
+	.nhasset input[type='checkbox'].chek:checked:disabled {background-image: url(../../images/makebetter/icon/ico_check_fill_24.svg);}
+	.nhasset input[type='checkbox'].chekTypeOther:disabled {background-position-x: unset;opacity: 1;}
+	.nhasset input[type='checkbox'].chekTypeOther:checked:disabled {background-image: url('../../images/makebetter/icon/ico_checkbox_fill_24.svg');background-position-x:unset;opacity: 0.4;}
+</style>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>폼</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="definition.html">기본정보</a>
+				<a href="layout_sample.html">레이아웃</a>
+				<a href="txt_sample.html">타이틀/텍스트</a>
+				<a href="button_sample.html">버튼</a>
+				<a href="form_sample.html" aria-current="page">폼</a>
+				<a href="table_sample.html">테이블</a>	
+			</div>
+		</nav>
+	</header>
+
+	<!-- ###################################### -->
+	<!-- ### UI Guide [버튼] ### -->
+	<!-- ###################################### -->
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">폼영역</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 폼영역 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">폼영역</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [INPUT] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">INPUT</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .inputList</h4>
+					<div class="guide_section2 formWrap">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="inputList">
+										<input type="text" title="대체텍스트" placeholder="대체텍스트">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<div class="inputList">
+								<input type="text" title="대체텍스트" placeholder="텍스트">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">입력중 : .on</h5>
+							<div class="inputList on">
+								<input type="text" title="대체텍스트" placeholder="대체텍스트" value="텍스트입력중">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">입력후</h5>
+							<div class="inputList">
+								<input type="text" title="대체텍스트" placeholder="대체텍스트" value="텍스트입력">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+							<hr class="guide_line">
+							<div class="inputList">
+								<input type="tel" title="대체텍스트" placeholder="숫자" value="123">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">오류 : .error</h5>
+							<div class="inputList error">
+								<input type="text" title="대체텍스트" placeholder="대체텍스트" value="텍스트오류">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">비활성화 : readonly / disabled</h5>
+							<div class="inputList">
+								<input type="text" title="대체텍스트" placeholder="대체텍스트" value="비활성화" disabled>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2 formWrap">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="inputList unitMan">
+										<input type="tel" title="대체텍스트" value="000,000" placeholder="숫자만 입력">
+										<span class="unit">원</span>
+										<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h4 class="guide_title4">.inputList.unitMan / .inputList.unitMan2</h4>
+							<div class="inputList unitMan">
+								<input type="tel" title="대체텍스트" value="000,000" placeholder="숫자만 입력">
+								<span class="unit">원</span>
+								<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [SELECT] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">SELECT</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .inputList</h4>
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="inputList">
+									<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+										<span class="selectValue">placeholder</span>
+										<span class="selectBtn"></span>
+									</a>
+									<select name="" title="선택해주세요">
+										<option value=""></option>
+									</select>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_section2 formWrap">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<div class="inputList">
+								<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+									<span class="selectValue">선택된 값</span>
+									<span class="selectBtn"></span>
+								</a>
+								<select name="" title="선택해주세요">
+									<option value=""></option>
+								</select>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">오류 : .error</h5>
+							<div class="inputList error">
+								<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+									<span class="selectValue">오류 값</span>
+									<span class="selectBtn"></span>
+								</a>
+								<select name="" title="선택해주세요">
+									<option value=""></option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [CHECK BOX] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">CHECK BOX</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .check</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="check">
+										<input type="checkbox" id="ID">
+										<label class="check" for="ID">항목명</label>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<div class="check">
+								<input type="checkbox" id="Fcheck0101" class="chek">
+								<label class="check" for="Fcheck0101">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0102" class="chek" checked>
+								<label class="check" for="Fcheck0102">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0103" class="chek" disabled>
+								<label class="check" for="Fcheck0103">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0104" class="chek" checked disabled>
+								<label class="check" for="Fcheck0104">항목명</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : input.chekTypeOther</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="check">
+										<input type="checkbox" id="ID">
+										<label class="check" for="ID">항목명</label>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<div class="check">
+								<input type="checkbox" id="Fcheck0201" class="chekTypeOther">
+								<label class="check" for="Fcheck0201">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0202" class="chekTypeOther" checked>
+								<label class="check" for="Fcheck0202">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0203" class="chekTypeOther" disabled>
+								<label class="check" for="Fcheck0203">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0204" class="chekTypeOther" checked disabled>
+								<label class="check" for="Fcheck0204">항목명</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [RADIO BUTTON] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">RADIO BUTTON</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .chkRadio</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="formArray">
+										<span class="chkRadio">
+											<input type="radio" name="NAME" id="ID">
+											<label for="ID">항목명</label>
+										</span>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<div class="formArray">
+								<span class="chkRadio">
+									<input type="radio" id="FchkRadio0101" name="FchkRadio01" checked>
+									<label for="FchkRadio0101">항목명</label>
+								</span>
+								<span class="chkRadio">
+									<input type="radio" id="FchkRadio0102" name="FchkRadio01">
+									<label for="FchkRadio0102">항목명</label>
+								</span>
+							</div>
+							<div class="formArray">
+								<span class="chkRadio">
+									<input type="radio" id="FchkRadio0103" name="FchkRadio02" checked disabled>
+									<label for="FchkRadio0103">항목명</label>
+								</span>
+								<span class="chkRadio">
+									<input type="radio" id="FchkRadio0104" name="FchkRadio02" disabled>
+									<label for="FchkRadio0104">항목명</label>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : .boxRadio</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="boxRadio">
+										<div class="boxRadioInn">
+											<span>
+												<input type="radio" name="NAME" id="ID" aria-label="구분자(항목명)">
+												<label for="ID" aria-hidden="true">항목명</label>
+											</span>
+										</div>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio01" id="FboxRadio0101" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0101" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio01" id="FboxRadio0102" aria-label="구분자(항목명)">
+										<label for="FboxRadio0102" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio01" id="FboxRadio0103" aria-label="구분자(항목명)">
+										<label for="FboxRadio0103" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">2단구조 : .wrapType</h5>
+							<p class="guide_txt">.formWrap &gt; .titListBox 안에 사용할 경우에는 .wrapType는 하단 여백이 삭제되므로 .wrapType2 사용을 권장함.</p>
+							<div class="boxRadio wrapType">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio02" id="FboxRadio0201" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0201" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio02" id="FboxRadio0202" aria-label="구분자(항목명)">
+										<label for="FboxRadio0202" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio02" id="FboxRadio0203" aria-label="구분자(항목명)">
+										<label for="FboxRadio0203" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio02" id="FboxRadio0204" aria-label="구분자(항목명)">
+										<label for="FboxRadio0204" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">2단구조 : .wrapType2</h5>
+							<p class="guide_txt">.formWrap &gt; .titListBox 안에 사용할 경우에는 .wrapType는 하단 여백이 삭제되므로 .wrapType2 사용을 권장함.</p>
+							<div class="boxRadio wrapType2">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio03" id="FboxRadio0301" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0301" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio03" id="FboxRadio0302" aria-label="구분자(항목명)">
+										<label for="FboxRadio0302" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio03" id="FboxRadio0303" aria-label="구분자(항목명)">
+										<label for="FboxRadio0303" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio03" id="FboxRadio0304" aria-label="구분자(항목명)">
+										<label for="FboxRadio0304" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">3단구조 : .wrapType3</h5>
+							<div class="boxRadio wrapType3">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0401" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0401" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0402" aria-label="구분자(항목명)">
+										<label for="FboxRadio0402" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0403" aria-label="구분자(항목명)">
+										<label for="FboxRadio0403" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0404" aria-label="구분자(항목명)">
+										<label for="FboxRadio0404" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0405" aria-label="구분자(항목명)">
+										<label for="FboxRadio0405" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0406" aria-label="구분자(항목명)">
+										<label for="FboxRadio0406" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">1단구조 : .rowType</h5>
+							<div class="boxRadio rowType">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio05" id="FboxRadio0501" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0501" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio05" id="FboxRadio0502" aria-label="구분자(항목명)">
+										<label for="FboxRadio0502" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [FORM WRAPPER] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">FORM WRAPPER</h3>
+
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .formWrap</h4>
+					<ul class="guide_txt">
+						<li>타이틀의 폰트 사이즈가 15px일 경우 사용함.</li>
+						<li>기본적으로 라인이 없으며, 라인이 필요한 경우 <strong>&lt;hr class="divLine"&gt;</strong> 사용함.</li>
+					</ul>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="formWrap boxTypeWrap"> <!-- [D] 박스형일 경우 boxTypeWrap 추가 -->
+										<ul>
+											<li>
+												<div class="inputList">
+													<input type="text" title="대체텍스트" placeholder="대체텍스트">
+													<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+												</div>
+											</li>
+											<li>
+												<hr class="divLine">
+												<div class="formTit">
+													<strong>타이틀</strong>
+												</div>
+												<div class="inputList">
+													<input type="text" title="대체텍스트" placeholder="대체텍스트">
+													<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area t2">
+							<h5 class="guide_title4">기본구조</h5>
+							<div class="formWrap boxTypeWrap">
+								<ul>
+									<li>
+										<div class="formTit">
+											<strong>타이틀</strong>
+										</div>
+										<div class="inputList">
+											<input type="text" title="대체텍스트" placeholder="대체텍스트">
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+									</li>
+									<li>
+										<hr class="divLine">
+										<div class="formTit">
+											<strong>타이틀</strong>
+										</div>
+										<div class="inputList error">
+											<input type="text" title="대체텍스트" placeholder="대체텍스트" value="ㄱㅇ">
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+										<p class="errorTxt">오류메세지 노출</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area t2">
+							<h5 class="guide_title4">날짜선택</h5>
+							<div class="formWrap boxTypeWrap">
+								<ul>
+									<li>
+										<div class="formTit">
+											<strong>날짜선택</strong>
+										</div>
+										<div class="cal">
+											<div class="inputList">
+												<input type="text" title="대체텍스트" placeholder="대체텍스트">
+												<a href="javascript:;" class="btnCalendar" title="날짜선택" role="button"><span class="blind">날짜선택</span></a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="formTit"><strong>날짜선택</strong></div>
+										<div class="cal">
+											<div class="inputList">
+												<input type="text" value="2023.12.01" title="대체텍스트" placeholder="대체텍스트">
+												<a href="javascript:;" class="btnCalendar" title="날짜선택" role="button"><span class="blind">날짜선택</span></a>
+											</div>
+										</div>
+										<p class="subTxt2">상담은 3영업일 이후 부터 15영업일 까지 가능합니다.</p>
+									</li>
+									<li>
+										<div class="formTit">
+											<strong>계약기간(선택)</strong>
+										</div>
+										<div class="calendarForm">
+											<div class="cal">
+												<div class="inputList disabled">
+													<input type="text" value="2020.09.03" title="조회 시작일" placeholder="시작일선택">
+													<a href="javascript:;" class="btnCalendar" title="시작일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+												</div>
+											</div>
+											<span class="symbol"> ~ </span>
+											<div class="cal">
+												<div class="inputList disabled">
+													<input type="text" title="조회 종료일" placeholder="종료일선택">
+													<a href="javascript:;" class="btnCalendar" title="종료일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- ### [유형4] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형4 : .formArea1</h4>
+					<p class="guide_txt">오른쪽 정렬이 기본입니다.</p>
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="formArea1">
+									<p class="side">텍스트 노출</p> <!-- [D] 왼쪽정렬 : 위치는 어디에 있든 항상 왼쪽 정렬임 -->
+
+									<!-- [D] 오른쪽 정렬 영역 -->
+									<!-- // -->
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본구조</h5>
+							<div class="formArea1">
+								<span>
+									<input type="checkbox" id="formChk11" class="chekTypeOther">
+									<label for="formChk11">항목명</label>
+								</span>
+								<span>
+									<input type="checkbox" id="formChk12" class="chekTypeOther" checked>
+									<label for="formChk12">항목명</label>
+								</span>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">좌우배치 : .formArea1 &gt; .side</h5>
+							<div class="formArea1">
+								<p class="side">텍스트 노출</p>
+								<div class="formArray">
+									<span class="chkRadio">
+										<input type="radio" id="sample001" name="sample01">
+										<label for="sample001">항목명</label>
+									</span>
+									<span class="chkRadio">
+										<input type="radio" id="sample002" name="sample01" checked>
+										<label for="sample002">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 약관동의 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT4">
+			<h2 class="guide_title">약관동의</h2>
+			<div class="guide_cont">
+				<div class="guide_section2">
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="formWrap selectAll">
+									<div class="total">
+										<div class="formHolder check">
+											<input type="checkbox" id="ID" class="chekTypeOther">
+											<label class="check" for="ID">전체동의</label>
+										</div>
+									</div>
+									<div class="cont">
+										<div class="formHolder check">
+											<input type="checkbox" id="ID">
+											<label class="check" for="ID">[필수] 항목명</label>
+											<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+										</div>
+									</div>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_area">
+						<h3 class="guide_title4">기본구조</h3>
+						<div class="formWrap selectAll">
+							<div class="total">
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0101" class="chekTypeOther">
+									<label class="check" for="FselectAll0101">전체동의</label>
+								</div>
+							</div>
+							<div class="cont">
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0102">
+									<label class="check" for="FselectAll0102">[필수] 항목명</label>
+									<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+								</div>
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0103">
+									<label class="check" for="FselectAll0103">[필수] 항목명</label>
+									<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="guide_section2">
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="formWrap selectAll">
+									<div class="total">
+										<div class="formHolder check">
+											<input type="checkbox" id="FselectAll0201" class="chekTypeOther">
+											<label class="check" for="FselectAll0201">전체동의</label>
+										</div>
+									</div>
+									<div class="cont">
+										<div class="formHolder check">
+											<input type="checkbox" id="FselectAll0202">
+											<label class="check" for="FselectAll0202">[필수] 항목명</label>
+											<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+										</div>
+										<div class="agreeSubcont">
+											<div class="agreeSubTitle">
+												<strong>상품 서비스 안내 방법</strong>
+												<span class="formHolder check">
+													<input type="checkbox" id="type_all001" class="chekTypeOther">
+													<label class="check" for="type_all001"> 전체</label>
+												</span>
+											</div>
+											<div class="boxRadio">
+												<div class="boxRadioInn">
+													<span>
+														<input id="productInfo01" type="checkbox" aria-label="구분자(항목명)">
+														<label class="radio" for="productInfo01" aria-hidden="true">구분자(항목명)</label>
+													</span>
+												</div>
+												<div class="boxRadioInn">
+													<span>
+														<input id="productInfo02" type="checkbox" aria-label="구분자(항목명)">
+														<label class="radio" for="productInfo02" aria-hidden="true">구분자(항목명)</label>
+													</span>
+												</div>
+											</div>
+											<div class="boxRadio">
+												<div class="boxRadioInn">
+													<span>
+														<input id="productInfo03" type="checkbox" aria-label="구분자(항목명)">
+														<label class="radio" for="productInfo03" aria-hidden="true">구분자(항목명)</label>
+													</span>
+												</div>
+												<div class="boxRadioInn">
+													<span>
+														<input id="productInfo04" type="checkbox" aria-label="구분자(항목명)">
+														<label class="radio" for="productInfo04" aria-hidden="true">구분자(항목명)</label>
+													</span>
+												</div>
+											</div>
+										</div>
+										<div class="formHolder check otherDisabled">
+											<input type="checkbox" id="FselectAll0203" disabled>
+											<label class="check" for="FselectAll0203">[필수] 항목명</label>
+											<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+										</div>
+									</div>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_area">
+						<h3 class="guide_title4">상세동의 추가 : .agreeSubcont</h3>
+						<div class="formWrap selectAll">
+							<div class="total">
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0201" class="chekTypeOther">
+									<label class="check" for="FselectAll0201">전체동의</label>
+								</div>
+							</div>
+							<div class="cont">
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0202">
+									<label class="check" for="FselectAll0202">[필수] 항목명</label>
+									<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+								</div>
+								<div class="agreeSubcont">
+									<div class="agreeSubTitle">
+										<strong>상품 서비스 안내 방법</strong>
+										<span class="formHolder check">
+											<input type="checkbox" id="type_all001" class="chekTypeOther">
+											<label class="check" for="type_all001"> 전체</label>
+										</span>
+									</div>
+									<div class="boxRadio">
+										<div class="boxRadioInn">
+											<span>
+												<input id="productInfo01" type="checkbox" aria-label="구분자(항목명)">
+												<label class="radio" for="productInfo01" aria-hidden="true">구분자(항목명)</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input id="productInfo02" type="checkbox" aria-label="구분자(항목명)">
+												<label class="radio" for="productInfo02" aria-hidden="true">구분자(항목명)</label>
+											</span>
+										</div>
+									</div>
+									<div class="boxRadio">
+										<div class="boxRadioInn">
+											<span>
+												<input id="productInfo03" type="checkbox" aria-label="구분자(항목명)">
+												<label class="radio" for="productInfo03" aria-hidden="true">구분자(항목명)</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input id="productInfo04" type="checkbox" aria-label="구분자(항목명)">
+												<label class="radio" for="productInfo04" aria-hidden="true">구분자(항목명)</label>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="formHolder check otherDisabled">
+									<input type="checkbox" id="FselectAll0203" disabled>
+									<label class="check" for="FselectAll0203">[필수] 항목명</label>
+									<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ################################# -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$('.filterSearchWrap .btnSearch2').click(function(){
+		var $this = $(this);
+		var $parent = $this.closest('.filterSearchWrap');
+		if (!$this.hasClass('searchAfter')){
+			$parent.find('.filterSearch').show().find('.inputList').show().find('input:text').focus();
+			$parent.find('.filterSearchRes').hide();
+			$parent.find('.filterSearch').find('.btnSearDel').show().removeClass('mt0');
+		}else{
+			$parent.find('.filterSearch').hide();
+			$this.removeClass('searchAfter').find('.blind').text('적요검색 열기');
+		}
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

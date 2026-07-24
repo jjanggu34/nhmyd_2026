@@ -1,0 +1,122 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 부동산 선택</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(document).ready(function() {
+		fullLayerPop();
+	});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 부동산 선택 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>부동산 선택</h1>
+		<div class="popCont grayPop">
+			<!-- -------------------------------------- -->
+			<!-- [선택영역] -->
+			<!-- -------------------------------------- -->
+			<ul class="listSelPart">
+				<li>
+					<button type="button"  class="active" title="선택됨">
+						<div class="partWrap">
+							<div class="name">
+								<p class="tit">인덕원푸르지오엘센트로</p>
+							</div>
+							<div class="address">
+								<p>경기도 의왕시 안양판교로 100 (포일동, 인덕원 푸르지오 엘센트로)</p>
+							</div>
+							<div class="etc"><span>아파트</span><span>113.95㎡</span></div>
+							<div class="money">
+								<p class="now"><strong>12억 5,500만</strong></p> <span class="arrowUp" role="img" aria-label="증가"><em
+										class="blind">증가</em></span> <span class="amount inColor"><strong>4억 5,500만</strong>원</span>
+							</div>
+						</div>
+					</button>
+				</li>
+				<li>
+					<button type="button">
+						<div class="partWrap">
+							<div class="name">
+								<p class="tit">대명스위트빌</p>
+							</div>
+							<div class="address">
+								<p>경기도 의왕시 갈미1로 5 (내손동)</p>
+							</div>
+							<div class="etc"><span>오피스텔</span><span>45.44㎡</span></div>
+							<div class="money">
+								<p class="now"><strong>8,000만</strong></p> <span class="arrowDown" role="img" aria-label="감소"><em
+										class="blind">감소</em></span> <span class="amount outColor"><strong>2,000만</strong>원</span>
+							</div>
+						</div>
+					</button>
+				</li>
+				<li>
+					<button type="button">
+						<div class="partWrap">
+							<div class="name">
+								<p class="tit">올원아파트</p>
+							</div>
+							<div class="address">
+								<p> </p>
+							</div>
+							<div class="etc"><span>기타부동산</span><span>㎡</span></div>
+							<div class="money">
+								<p class="now"><strong>1,000만</strong></p>
+							</div>
+						</div>
+					</button>
+				</li>
+				<li>
+					<button type="button">
+						<div class="partWrap">
+							<div class="name">
+								<p class="tit">청계빌라</p>
+							</div>
+							<div class="address">
+								<p> </p>
+							</div>
+							<div class="etc"><span>기타부동산</span><span>㎡</span></div>
+							<div class="money">
+								<p class="now"><strong>1억</strong></p>
+							</div>
+						</div>
+					</button>
+				</li>
+			</ul>
+			<!-- -------------------------------------- -->
+		</div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>기본정보 입력</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_myd_mb.css">
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>기본정보 입력</h1>
+		<!-- [MD2507_087_v0.11] 혜택 알리미 서비스 신규 개발 홈버튼  -> 전체메뉴 수정 -->
+		<a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 기본정보 입력 ### -->
+	<!-- ###################################### -->
+	<div class="container bgWhite">
+		<div class="infoBanner">
+			<div>
+				<span>김영희</span>님이 혜택알리미<br />가족정보 제공 동의를 요청하셨습니다.
+				<p class="mt4 pb10">요청자와의 가족 관계 및 개인 정보를 입력해 주세요.</p>
+			</div>
+		</div>
+		<!-- -------------------------------------- -->
+		<!-- [입력영역] -->
+		<!-- -------------------------------------- -->
+		
+		<div class="formWrap">
+			<div class="titListBox">
+				<strong class="formTit disInline -medium">요청자와의 관계 <em class="color3">(필수)</em></strong>
+				<div class="inputList"><!-- 오류일경우 class="error" 추가 -->
+					<a href="javascript:;" title="선택" aria-haspopup="true">
+						<span class="selectValue">선택</span>
+						<span class="selectBtn"></span>
+					</a>
+					<select name="" title="선택해주세요">
+						<option value=""></option>
+					</select>
+				</div>
+				<div class="inputList error"><!-- [D] error일때 클래스 error 추가 -->
+					<a href="javascript:;" title="선택" aria-haspopup="true">
+						<span class="selectValue">선택</span>
+						<span class="selectBtn"></span>
+					</a>
+					<select name="" title="선택해주세요">
+						<option value=""></option>
+					</select>
+				</div>
+				<p class="errorTxt">요청자와의 관계를 선택해 주세요.</p>
+				
+				<strong class="formTit disInline -medium">요청자와 함께 사는 여부 <em class="color3">(필수)</em></strong>
+				<div class="boxRadio wrapType2">
+					<div class="boxRadioInn">
+						<span>
+							<input type="radio" name="FboxRadio03" id="FboxRadio0301" aria-label="함께 사는 가족" checked="">
+							<label for="FboxRadio0301" aria-hidden="true">함께 사는 가족</label>
+						</span>
+					</div>
+					<div class="boxRadioInn">
+						<span>
+							<input type="radio" name="FboxRadio03" id="FboxRadio0302" aria-label="함께 살지 않는 가족">
+							<label for="FboxRadio0302" aria-hidden="true">함께 살지 않는 가족</label>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- // -->
+
+		<!-- -------------------------------------- -->
+		<!-- [하단버튼] -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">다음</a> <!-- [D] 활성화 : 클래스명(disabled) 삭제 / aria-disabled="true" 삭제 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

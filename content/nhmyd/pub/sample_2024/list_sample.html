@@ -1,0 +1,113 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [목록]</title>
+<script src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>목록</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="list_sample.html" aria-current="page">목록</a>
+				<a href="info_sample.html">정보</a>
+				<a href="product_sample.html">상품</a>
+				<a href="form_sample.html">폼</a>
+				<a href="bnr_sample.html">배너</a>
+				<a href="toggle_sample.html">토글</a>
+			</div>
+		</nav>
+	</header>
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">거래</a>
+			<a href="#GCONTENT2">순위</a>
+			<a href="#GCONTENT3">계좌</a>
+			<a href="#GCONTENT4">기관</a>
+			<a href="#GCONTENT5">기타</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 거래 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1" style="height:500px;">
+			<h2 class="guide_title">거래</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] 자산 -->
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 순위 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT2" style="height:500px;">
+			<h2 class="guide_title">순위</h2>
+
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 계좌 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT3" style="height:500px;">
+			<h2 class="guide_title">계좌</h2>
+
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 기관 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT4" style="height:500px;"> 
+			<h2 class="guide_title">기관</h2>
+
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 기타 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT5" style="height:500px;">
+			<h2 class="guide_title">기타</h2>
+
+		</section>
+		<!-- ################################# -->
+	</div>
+</div>
+
+<script>
+	//상세 내역 폴딩
+	$('.btn_folding').click(function(){
+		var $this = $(this);
+		var $wrap = $(this).parents('.wrap_folding');
+		$wrap.toggleClass('active');
+		if ($wrap.hasClass('active')) {
+			$wrap.children('.folding_cont').attr('aria-hidden','false');
+			$wrap.children('.folding_cont').slideDown(200);
+			$this.attr('aria-expanded','true')
+		}else{
+			$wrap.children('.folding_cont').attr('aria-hidden','true');
+			$wrap.children('.folding_cont').slideUp(200);
+			$this.attr('aria-expanded','false');
+		}
+	});
+</script>
+</body>
+</html>

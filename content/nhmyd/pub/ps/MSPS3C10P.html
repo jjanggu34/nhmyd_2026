@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 인증서 선택</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+	fullLayerPop();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 인증서 선택  ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop" role="dialog">
+	<div class="popInner">
+		<h1>인증서 선택</h1>
+		<div class="popCont grayPop">
+			<h2 class="defTit">자산연결을 위해<br><strong>인증서를 선택</strong>하세요</h2>
+			<ul class="listCerti activeCerti">
+				<li>
+					<button type="button" class="publicCerti" aria-selected="false">
+						<div>
+							<strong class="title">공동인증서</strong>
+							<div class="certiInfo"><span>김농협</span>/<span>은행개인</span>/<span>금융결제원</span></div>
+							<div class="certiInfo"><span>만료일 YYYY.MM.DD</span>/<span>전용저장소</span></div>
+						</div>
+					</button>
+				</li>
+				<li>
+					<button type="button" class="publicCerti" aria-selected="false">
+						<div>
+							<strong class="title">공동인증서</strong>
+							<div class="certiInfo"><span>김농협</span>/<span>증권개인</span>/<span>SignKorea</span></div>
+							<div class="certiInfo"><span>만료일 YYYY.MM.DD</span>/<span>공유저장소</span></div>
+						</div>
+					</button>
+				</li>
+			</ul>
+		</div>
+		<div class="popBtnWrap">
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘픟] 스크립트  ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$('.activeCerti button').click(function(){
+		var $this = $(this);
+		$this.closest('.activeCerti').find('button').removeClass('active').attr('aria-selected','false');
+		$this.addClass('active').attr('aria-selected','true');
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

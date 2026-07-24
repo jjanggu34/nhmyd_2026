@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 쿠션페이지</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		fullLayerPop();
+		$('#popupLayer_dim').show().css('z-index','1'); 
+	});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 쿠션페이지 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="mesArea3 img2">
+		<p>
+			<span><strong>고객님의 서비스 가입 현황을<br>조회중입니다.<br>잠시만 기다려 주세요.</strong></span>
+			<span class="btns none">
+				<button type="button" class="contBtn06 green">뒤로가기</button>
+			</span>
+		</p>
+	</div>
+</div>
+
+<div class="nhasset popWrap" id="popupLayer_dim" aria-hidden="true"><div class="dim"></div></div> <!-- [샘플용] -->
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	$(window).on('load',function(){
+		//샘플 : 10초 초과 시 문구 변경 예시
+		setTimeout(function(){
+			$('.mesArea3.img2 strong').html('많은 기관들에게 조회 요청 중입니다.<br>계속 기다리시거나<br>잠시 후 본 화면에 다시 접속해서<br>조회결과를 확인할 수 있어요.');
+			$('.mesArea3.img2 .btns').removeClass('none');
+		},10000);
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

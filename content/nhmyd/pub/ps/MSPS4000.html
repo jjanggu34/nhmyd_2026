@@ -1,0 +1,180 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>연결자산관리 | 설정/관리</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack" role="button"><span>이전화면으로</span></a>
+		<h1>연결자산관리</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 연결자산관리  ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 공통 SPOT 배너 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE1] 신규자산 -->
+		<div class='yaTopBanner Ty01 bgTy03'>
+			<a href='javascript:;' class="link yalinkBtn" role='button'>
+				<span>N개 기관에 신규자산이 있어요</span>
+				<p>새롭게 가입한 상품 연결하기</p>
+			</a>
+			<button type='button' class='btnClose'><span class='blind'>닫기</span></button>
+		</div>
+		<!-- [CASE2] 기한만료 -->
+		<div class="yaTopBanner Ty01 bgTy02">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>연결 만료된 N개 기관이 있어요</span>
+				<p>연결하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+		<!-- [CASE3] 만료예정 -->
+		<div class="yaTopBanner Ty01 bgTy01">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>만료예정인 N개 기관이 있어요</span>
+				<p>연결하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 상단문구 -->
+		<!-- -------------------------------------- -->
+		<h2 class="defTit bgAssetConnAdmin">연결중인 <strong>자산을</strong><br><strong>확인하고 관리</strong>합니다</h2>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 기관목록 -->
+		<!-- -------------------------------------- -->
+		<div class="assetSelectLlistWrap">
+			<div class="assetSelectLlistAll typeBetween">
+				<span class="checkBtnType"><input type="checkbox" id="listAll" aria-label="전체선택"><label for="listAll" aria-hidden="true">전체선택</label></span>
+				<a href="javascript:;" class="btnBodyLine btnAdd" role="button">신규기관연결</a>
+			</div>
+			<ul class="assetSelectLlist shadowType">
+				<!-- [CASE] 농협은행 -->
+				<li class="nhType">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<span class="imgWrap">
+								<img src="../../images/logos/AABG0000.png" alt="" class="imgLogo">
+							</span>
+							<span class="bankName">NH농협은행<em class="count">1</em></span>
+						</span>
+						<a href="javascript:;" class="linkDetail"><span class="blind">NH농협은행 기관 상세보기</span></a>
+					</div>
+				</li>
+				<!-- [CASE] 농협카드 -->
+				<li class="nhType">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<span class="imgWrap">
+								<img src="../../images/logos/AABG0000.png" alt="" class="imgLogo">
+							</span>
+							<span class="bankName">NH농협카드<em class="count">1</em></span>
+						</span>
+						<a href="javascript:;" class="linkDetail"><span class="blind">NH농협카드 기관 상세보기</span></a>
+					</div>
+				</li>
+				<!-- [CASE] 만료예정 -->
+				<li>
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" checked id="listSub00" class="chekTypeOther" >
+							<label for="listSub00">
+								<span class="imgWrap"><img src="../../images/logos/AAAZ0000.png" alt="" class="imgLogo"></span>
+								<span class="bankName">농축협<em class="count">1</em></span>
+							</label>
+							<span class="tag gray ml10">만료예정</span>
+						</span>
+						<a href="javascript:;" class="linkDetail"><span class="blind">농축협 기관 상세보기</span></a>
+					</div>
+				</li>
+				<!-- [CASE] 해제 -->
+				<li>
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" id="listSub10" class="chekTypeOther" disabled>
+							<label for="listSub10">
+								<span class="imgWrap"><img src="../../images/logos/AAER0000.png" alt="" class="imgLogo"></span>
+								<span class="bankName">신한은행<em class="count">1</em></span>
+							</label>
+							<span class="tag bgGray ml10">해제</span>
+						</span>
+						<a href="javascript:;" class="linkDetail"><span class="blind">신한은행 기관 상세보기</span></a>
+					</div>
+				</li>
+				<!-- [CASE] 만료 -->
+				<li>
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" id="listSub20" class="chekTypeOther" disabled>
+							<label for="listSub10">
+								<span class="imgWrap"><img src="../../images/logos/AAEY0000.png" alt="" class="imgLogo"></span>
+								<span class="bankName">삼성증권<em class="count">1</em></span>
+							</label>
+							<span class="tag gray ml10">만료</span>
+						</span>
+						<a href="javascript:;" class="linkDetail"><span class="blind">삼성증권 기관 상세보기</span></a>
+					</div>
+				</li>
+				<!-- // -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" checked id="listSub30" class="chekTypeOther" >
+							<label for="listSub10">
+								<span class="imgWrap"><img src="../../images/logos/AAEO0000.png" alt="" class="imgLogo"></span>
+								<span class="bankName">국민은행<em class="count">1</em></span>
+							</label>
+						</span>
+						<a href="javascript:;" class="linkDetail"><span class="blind">국민은행 기관 상세보기</span></a>
+					</div>
+				</li>
+				<!-- // -->
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 바로가기 -->
+		<!-- -------------------------------------- -->
+		<!-- // -->
+		<div class="areaBodyBtnFlex mt20">
+			<button type="button" class="btnBodyLine">변경</button>
+			<button type="button" class="btnBodyLine">기간연장</button>
+		</div>
+		<!-- // -->
+		<ul class="btnBoxWrap">
+			<li><button type="button"><span class="iconDel">해제/삭제</span></button></li>
+			<li><button type="button"><span class="iconDataAdmin2">데이터전송관리</span></button></li>
+		</ul>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

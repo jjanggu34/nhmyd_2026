@@ -1,0 +1,79 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자동/직접등록 | 맞춤정보 등록 | 가족정보등록 | 맞춤정부혜택 | 생활편의</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>맞춤정보 등록</h1>
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 맞춤정보 등록(자동/직접등록) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<div class="boxTypeWrap">
+			<div class="lf_bgWrap">
+				<div class="defTit mt0">
+					<h2>가족 정보를<br /><strong>어떻게 등록</strong>할까요?</h2>
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">등록 툴팁 열기</span></button>
+						<div class="tooltipCont w100p">
+							<p>등록 후에도 수정이 가능합니다.</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="peoplePick mg0 mt20">
+				<ul class="pickList">
+					<li role="button" tabindex="0" aria-label="자동 등록 : 주민등록등본 정보를 통해 자동으로 입력합니다." title="인증관리 페이지로 이동">
+						<input type="radio" name="pick001" id="rdo01">
+						<label for="rdo01" class="rdoCheck">
+							<span class="lf_bg pickCate"><img src="../../images/ico_lf01.gif" alt=""></span>
+							<span class="txt">
+								<em class="tit">자동 등록</em>
+								<em class="sub">주민등록등본 정보를 통해<br />자동으로 입력합니다.</em>
+							</span>
+						</label>
+					</li>
+					<li role="button" tabindex="0" aria-label="직접 등록: 직접 가족정보를 입력합니다." title="가족정보등록 페이지로 이동">
+						<input type="radio" name="pick001" id="rdo02">
+						<label for="rdo02" class="rdoCheck">
+							<span class="lf_bg pickCate"><img src="../../images/ico_lf02.gif" alt=""></span>
+							<span class="txt">
+								<em class="tit">직접 등록</em>
+								<em class="sub">직접 가족정보를 입력합니다.</em>
+							</span>
+						</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

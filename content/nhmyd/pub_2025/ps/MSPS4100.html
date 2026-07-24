@@ -1,0 +1,374 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>기관상세 | 연결자산관리 | 설정관리</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>기관 상세</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 기관상세 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 기관정보 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<div class="agencyDetail">
+				<!-- [MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) 서민금융진흥원일 경우 S -->
+				<span class="imgWrap">
+					<img src="../../images/logos/AAOW0000.png" alt="" class="imgLogo">
+					<span class="bankName">서민금융진흥원</span>
+				</span>
+				<!-- [CASE] 만료예정/해제/만료 : 해당하는 각 텍스트 노출 -->
+				<span class="tag bgGray">만료예정</span>
+				<!-- // -->
+				<!-- //[MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) 서민금융진흥원일 경우 E -->
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 연결중인 자산 목록 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<ul class="agencyDetailList">
+				<!-- [CASE] 기본 -->
+				<!-- [MD2408_068] [숨은자산(휴면예금·휴먼보험금)조회] -->
+				<!-- [MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) 서민금융진흥원일 경우 -->
+				<li>
+					<a href="javascript:;" role="button">
+						<div class="title">기관명(넘치는 경우 줄바꿈 처리 넘치는 경우 줄바꿈 처리)</div>
+						<div class="subInfo">계좌번호</div>
+					</a>
+				</li>
+				<!-- // -->
+				<li>
+					<a href="javascript:;" role="button">
+						
+						<div class="likeBtn flex">
+							<div>
+								<div class="title">기관명(넘치는 경우 줄바꿈 처리 넘치는 경우 줄바꿈 처리)</div>
+								<div class="subInfo">계좌번호(회차), 상태</div>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" role="button">
+						<div class="likeBtn flex">
+							<div>
+								<div class="title">기관명(넘치는 경우 줄바꿈 처리 넘치는 경우 줄바꿈 처리)</div>
+								<div class="subInfo">계좌번호(회차), 상태</div>
+							</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" role="button">
+						<div class="likeBtn flex">
+							<div>
+								<div class="title">기관명(넘치는 경우 줄바꿈 처리 넘치는 경우 줄바꿈 처리)</div>
+								<div class="subInfo">계좌번호(회차), 상태</div>
+							</div>
+							<span class="assetSelectFlag ml10">
+								<span class="tag Green">숨은자산</span>
+							</span>
+						</div>
+					</a>
+				</li>
+				<!-- //[MD2408_068] [숨은자산(휴면예금·휴먼보험금)조회] -->
+
+				<!-- [CASE] 공공기관 -->
+				<!-- <li>
+					<a href="javascript:;" role="button">
+						<div class="likeBtn flex">
+							<div>
+								<div class="title">건강·장기 요양보험료 납부확인서(직장가입자)</div>
+							</div>
+							<span class="assetSelectFlag ml10">
+								<span class="tag Green">숨은자산</span>
+							</span>
+						</div>
+					</a>
+				</li> -->
+				<!-- [CASE] 농협은행/농협카드 -->
+				<!-- <li>
+					<div class="likeBtn flex">
+						<div>
+							<div class="title">상품명(넘치는 경우 줄바꿈 처리 넘치는 경우 줄바꿈 처리)</div>
+							<div class="subInfo">계좌번호(회차), 상태</div>
+						</div>
+						<span class="assetSelectFlag ml10">
+							<span class="tag Green">숨은자산</span>
+						</span>
+					</div>
+				</li> -->
+				<!-- // -->
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 연결정보 : 농협은행/농협카드 미노출 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<div class="dataDiscList">
+				<!-- [MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) 서민금융진흥원일 경우 -->
+				<!-- <dl>
+					<dt>연결구분</dt>
+					<dd>정기(주 1회)</dd>
+				</dl>
+				<dl>
+					<dt>연결시작(연장)일자</dt>
+					<dd>2022.06.23</dd>
+				</dl>
+				<dl>
+					<dt>연결종료(예정)일자</dt>
+					<dd>YYYY.MM.DD</dd>
+				</dl> -->
+
+				<dl>
+					<dt>연결구분</dt>
+					<dd>정기(주 1회)</dd>
+				</dl>
+				<dl>
+					<dt>연결시작(연장)일자</dt>
+					<dd>2022.06.23</dd>
+				</dl>
+				<!-- [CASE] 정상/만료예정 -->
+				<dl>
+					<dt>연결종료(예정)일자</dt>
+					<dd>YYYY.MM.DD</dd>
+				</dl>
+				<!-- [CASE] 해제/만료 -->
+				<dl>
+					<dt>연결종료일자</dt>
+					<dd>YYYY.MM.DD</dd>
+				</dl>
+				<!-- [CASE] 공공기간 미노출 -->
+				<dl>
+					<dt>연결정보</dt>
+					<dd>
+						<ul>
+							<li>적요 또는 거래메모</li>
+							<li>가맹점명 및 사업자등록번호</li>
+							<li>상품구매 카테고리</li>
+						</ul>
+					</dd>
+				</dl>
+				<!-- // -->
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 바로가기 -->
+		<!-- -------------------------------------- -->
+		<ul class="btnBoxWrap mt20">
+			<!-- [CASE] 정상/만료예정 -->
+			<li><button type="button"><span class="iconDel">해제/삭제</span></button></li>
+			<!-- [CASE] 해제/만료 -->
+			<li><button type="button"><span class="iconDel">삭제</span></button></li>
+			<!-- // -->
+			<li><button type="button" onclick="uiUpdateMotion(this)"><span class="iconUpdate">업데이트</span></button></li>
+		</ul>
+		<div class="areaBodyBtnFlex mt20">
+			<!-- [MD2411_092_v0.21] 자산연결 동의 절차 간소화(2.0반영) 텍스트 수정 -->
+			<button type="button" class="btnBodyLine">정보변경</button>
+			<button type="button" class="btnBodyLine">기간연장</button>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<!-- [CASE] 정상/만료예정 -->
+			<!-- [MD2411_092_v0.14] 자산연결 동의 절차 간소화(2.0반영) 텍스트 수정 -->
+			<!-- [MD2411_092_v0.21] 자산연결 동의 절차 간소화(2.0반영) 텍스트 수정 -->
+			<a href="javascript:;" class="btnPressPoint" role="button">자산연결 변경</a>
+			<!-- [CASE] 해제/만료 -->
+			<!-- <a href="javascript:;" class="btnPressPoint" role="button">재연결</a> -->
+			<!-- [CASE] 농협은행/농협카드 -->
+			<!-- <a href="javascript:;" class="btnPressPoint" role="button">확인</a> -->
+			<!-- // -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	//샘플 : 업데이트 버튼 클릭시 모션 추가
+	function uiUpdateMotion(el){
+		var _txt = '업데이트';
+		if($(el).find('> .iconUpdate').text() == '업데이트 중') tostpop('error');
+		$(el).find('> .iconUpdate').addClass('ani').text('업데이트 중');
+		setTimeout(function(){
+			//업데이트 후 이벤트 샘플
+			$(el).find('> .iconUpdate').removeClass('ani').text(_txt);
+			tostpop();
+		},4000)
+	}
+
+	//샘플 : 토스트팝업
+	function tostpop(type){
+		var $tostCont = '';
+		if(type == 'error')  $tostCont = '<div class="tostpopupWrap" aria-live="assertive"><div class="tostMsg error">이미 업데이트가 진행중입니다.</div></div>'
+		else $tostCont = '<div class="tostpopupWrap" aria-live="assertive"><div class="tostMsg">업데이트가 완료되었습니다.</div></div>';
+
+		$('.container').after($tostCont);
+		setTimeout(function(){
+			$('.tostpopupWrap').remove();
+		},4000)
+	}
+
+	//샘플 : 케이스 화면 정의
+	// $(document).ready(function(){
+	// 	var a = [
+	// 		'정상(MSPS4100)', 
+	// 		'만료예정(MSPS4100_1)', 
+	// 		'해제(MSPS4100_3)', 
+	// 		'만료(MSPS4100_4)', 
+	// 		'공공기관_정상/만료예정(MSPS4100_5)', 
+	// 		'공공기관_해제(MSPS4100_6)', 
+	// 		'공공기관_만료(MSPS4100_7)',
+	// 		'농협은행(MSPS4100_8)',
+	// 		'농협카드(MSPS4100_9)'
+	// 		]; // 케이스 명
+	// 	var b = [
+	// 		'MSPS4100', 
+	// 		'MSPS41001', 
+	// 		'MSPS41003', 
+	// 		'MSPS41004', 
+	// 		'MSPS41005', 
+	// 		'MSPS41006', 
+	// 		'MSPS41007',
+	// 		'MSPS41008', 
+	// 		'MSPS41009'
+	// 		]; // 함수 명
+	// 	var num = a.length; // 케이스 수
+	// 	uiCaseMenu(a,b,num);
+	// 	uiCaseMSPS4100();
+	// });
+
+	// var _html = [$('.agencyDetailList > li:eq(0)').html(), $('.agencyDetailList > li:eq(1)').html(), $('.agencyDetailList > li:eq(2)').html()];
+	// var _btn =  [$('.btnBoxWrap > li:eq(0)').html(), $('.btnBoxWrap > li:eq(1)').html(), $('.btnBoxWrap > li:eq(2)').html()];
+
+	// //샘플 : 케이스 : 정상
+	// function uiCaseMSPS4100(){uiCase(1)}
+
+	// //샘플 : 케이스 : 만료예정
+	// function uiCaseMSPS41001(){uiCase(2,'만료예정')}
+
+	// //샘플 : 케이스 : 해제
+	// function uiCaseMSPS41003(){uiCase(3,'해제')}
+
+	// //샘플 : 케이스 : 만료
+	// function uiCaseMSPS41004(){uiCase(4,'만료')}
+	
+	// //샘플 : 케이스 : 공공기관_정상/만료예정
+	// function uiCaseMSPS41005(){uiCase(5)}
+
+	// //샘플 : 케이스 : 공공기관_해제
+	// function uiCaseMSPS41006(){uiCase(6,'해제')}
+
+	// //샘플 : 케이스 : 공공기관_만료
+	// function uiCaseMSPS41007(){uiCase(7,'만료')}
+
+	// //샘플 : 케이스 : 농협은행
+	// function uiCaseMSPS41008(){uiCase(8)}
+
+	// //샘플 : 케이스 : 농협카드
+	// function uiCaseMSPS41009(){uiCase(9)}
+
+	// //샘플 : 케이스 
+	// function uiCase(a, b){
+	// 	var orgData = {
+	// 		imgUrl : 'AAEM0000',
+	// 		orgNm : '우리은행'
+	// 	}
+	// 	var _addHtml = _html[0];
+	// 	var _addBtn = '<li>'+_btn[0]+'</li> <li>'+_btn[2]+'</li>';
+	// 	var _info = 4;
+	// 	var _btns = 1;
+
+	// 	$('.areaBodyBtnFlex, .boxTypeWrap:nth-child(3)').show();
+		
+	// 	if(a == 3 || a == 4 || a == 6 || a == 7) {
+	// 		_info = 3;
+	// 		_btns = 2;
+	// 		_addBtn = '<li>'+_btn[1]+'</li>';
+	// 		$('.areaBodyBtnFlex').hide();
+	// 	};
+
+	// 	if(a == 5 || a == 6 || a == 7){
+	// 		orgData.imgUrl = 'PBAAVN0000';
+	// 		orgData.orgNm = '국민건강보험공단';
+	// 		_addHtml = _html[1];
+	// 	}
+
+	// 	if(a == 8 || a == 9){
+	// 		_btns = 3;
+	// 		_addBtn = '<li>'+_btn[2]+'</li>';
+	// 		_addHtml = _html[2];
+	// 		$('.areaBodyBtnFlex, .boxTypeWrap:nth-child(3)').hide();
+
+	// 		if(a == 8){
+	// 			orgData.imgUrl = 'AABG0000';
+	// 			orgData.orgNm = 'NH농협은행';
+	// 		}else{
+	// 			orgData.imgUrl = 'AABG0000';
+	// 			orgData.orgNm = 'NH농협카드';
+	// 		}
+	// 	}
+
+	// 	//상태태그
+	// 	if(b) $('.agencyDetail .tag').show().text(b);
+	// 	else $('.agencyDetail .tag').hide();
+
+	// 	//기관로고
+	// 	$('.imgWrap img').attr('src', '../../images/logos/'+ orgData.imgUrl +'.png');
+	// 	$('.imgWrap .bankName').text(orgData.orgNm);
+
+	// 	//자산목록
+	// 	$('.agencyDetailList').html('<li>'+_addHtml+'</li>');
+
+	// 	//연결정보
+	// 	$('.dataDiscList > dl').show().filter('dl:nth-child('+_info+')').hide();
+	// 	if(a == 5 || a == 6 || a == 7) $('.dataDiscList > dl:last-child').hide();
+
+	// 	//해지/삭제/업데이트버튼
+	// 	$('.btnBoxWrap').html(_addBtn);
+
+	// 	//하단버튼(btn3)
+	// 	$('.areaBtnDefault > a').hide().filter('a:nth-child('+_btns+')').show();
+	// }
+</script>
+<!-- ###################################### -->
+</body>
+</html>

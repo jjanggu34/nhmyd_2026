@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>건강검진결과 | 헬스케어</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>건강검진결과</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 건강검진결과 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 업데이트바 -->
+		<!-- -------------------------------------- -->
+		<div class="pageRefreshWrap">
+			<div class="pageRefresInner">
+				<span>
+					<span class="date">08.05 10:45</span>
+					<button type="button" class="btnUpdate"><span class="blind">업데이트</span></button>
+				</span>
+				<button type="button" class="btnAlrt new" aria-expanded="false"><span class="blind">알림</span></button>
+			</div>
+			<div class="pageAlertWrap">
+				<ul>
+					<li class="alertNotice">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>연결중인 자산 확인이 필요해요</dt>
+								<dd>OOO에서 전송 중단 또는 거절이 있었습니다.<br/>연결관리 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보 확인이 필요해요</dt>
+								<dd><span>$연말정산$</span> 정보수집 중 오류가 있었습니다.<br/><span>$연말정산$</span> 설정 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>업데이트한지 <span>N</span>일이 지났어요</dt>
+								<dd><span>$연말정산$</span> 정보 업데이트가 필요합니다.<br/>인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보수집이 필요해요</dt>
+								<dd><span>$연말정산$</span> 서비스 이용을 위해 정보수집이 필요합니다. 인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+				</ul>
+				<div class="pageAlertNoData">
+					<p>업데이트 알림 내역이 없습니다.</p>
+				</div>
+				<button type="button" aria-expanded="true" class="pageAlertClose"><span>닫기</span></button>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 건강나이 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE1] 실제 나이 > 건강나이 경우 -->
+		<h2 class="defTit icoHc1">
+			<strong>$김농협$</strong>님,<br>
+			건강관리를 잘하고 계시네요!<br>
+			<a href="javascript:;" class="contBtn01 green" role="button">자랑하러 가기</a>
+		</h2>
+		<div class="boxTypeWrap">
+			<div class="compareWrap">
+				<div class="standard">
+					<span class="tit people">실제나이</span>
+					<span class="dataValueWrap">
+						<strong class="dataValue">43</strong><em class="se">세</em>
+					</span>
+				</div>
+				<div class="icoEqual type03" role="img" aria-label="실제나이보다 건강나이가 더 어려요"></div>
+				<div class="me">
+					<span class="tit heart">건강나이</span>
+					<span class="dataValueWrap">
+						<strong class="dataValue"><em>41</em></strong><em class="se">세</em>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- [CASE2] 실제 나이 = 건강나이 경우 -->
+		<h2 class="defTit icoHc2">
+			<strong>$김농협$</strong>님,<br>
+			건강을 위해 좀 더 노력하세요!<br>
+		</h2>
+		<div class="boxTypeWrap">
+			<div class="compareWrap">
+				<div class="standard">
+					<span class="tit people">실제나이</span>
+					<span class="dataValueWrap">
+						<strong class="dataValue">41</strong><em class="se">세</em>
+					</span>
+				</div>
+				<div class="icoEqual type02" role="img" aria-label="실제나이와 건강나이가 같아요"></div>
+				<div class="me">
+					<span class="tit heart">건강나이</span>
+					<span class="dataValueWrap">
+						<strong class="dataValue"><em>41</em></strong><em class="se">세</em>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- [CASE3] 실제 나이 < 건강나이 경우 -->
+		<h2 class="defTit icoHc3">
+			<strong>$김농협$</strong>님,<br>
+			건강관리에 신경 써야 겠어요!<br>
+		</h2>
+		<div class="boxTypeWrap">
+			<div class="compareWrap">
+				<div class="standard">
+					<span class="tit people">실제나이</span>
+					<span class="dataValueWrap">
+						<strong class="dataValue">41</strong><em class="se">세</em>
+					</span>
+				</div>
+				<div class="icoEqual type01" role="img" aria-label="실제나이보다 건강나이가 더 많아요"></div>
+				<div class="me">
+					<span class="tit heart">건강나이</span>
+					<span class="dataValueWrap">
+						<strong class="dataValue"><em>43</em></strong><em class="se">세</em>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- [CASE4] 검진결과 없어서 건강나이 없는 경우 -->
+		<h2 class="defTit icoHc1">
+			<strong>$김농협$</strong>님,<br>
+			건강길만 걸으세요!<br>
+		</h2>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 지난 검진결과 비교 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<strong>검진결과</strong><br>
+			<strong class="txtt2"><strong class="pointColor13">경계 2건</strong>, <strong class="pointColor02">질환의심 1건</strong>이 있네요</strong>  <!-- [2023-01-06] 문구수정 -->
+			<div class="graphWrap" style="margin-top:10px;height:120px;" tabindex="0" role="img" aria-label="2016년 정상 14건 경계 2건, 2021년 정상 15건 경계 1건">
+				<div class="guide_empty">차트영역</div>
+			</div>
+			<ul class="legendList tyac">
+				<li><span class="legendTit type10">정상</span></li>
+				<li><span class="legendTit type33">경계</span></li>
+				<li><span class="legendTit type34">질환의심</span></li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 건강검진 결과 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<p class="flex">
+				<strong class="txtt2 fwB">건강검진결과</strong>
+				<a href="javascript:;" class="selLink" title="검진일자 선택" aria-haspopup="true"><strong>2021.11.13</strong></a>
+			</p>
+			<!-- [비만] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc1">비만</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<div class="statusUp type01">지난 검진대비 <em>경계 1건</em> 증가</div>
+				<div class="statusUp type02">지난 검진대비 <em>질환의심 1건</em> 증가</div>
+				<ul div class="hcStatusList fatCase">
+					<li>
+						<span class="tit">신장</span>
+						<span class="val">175.17cm</span>
+						<span class="result"></span>
+					</li>
+					<li>
+						<span class="tit">체중</span>
+						<span class="val">70.8kg</span>
+						<span class="result"></span>
+					</li>
+					<li>
+						<span class="tit">허리둘레</span>
+						<span class="val">175.17cm</span>
+						<span class="result type02">경계</span>
+					</li>
+					<li>
+						<span class="tit">체질량지수</span>
+						<span class="val">22.9kg/m<sup>2</sup></span>
+						<span class="result type03">질환의심</span>
+					</li>
+				</ul>
+			</div>
+			<hr class="divLine">
+
+			<!-- [시각이상] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc2">시각이상</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<ul div class="hcStatusList">
+					<li>
+						<span class="tit">신장<span class="subTxt">(좌/우)</span></span>
+						<span class="val">1.2 / 1.0</span>
+						<span class="result"></span>
+					</li>
+				</ul>
+			</div>
+			<hr class="divLine">
+
+			<!-- [청각이상] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc3">청각이상</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<ul div class="hcStatusList">
+					<li>
+						<span class="tit">청각<span class="subTxt">(좌/우)</span></span>
+						<span class="val">정상 / 정상</span>
+						<span class="result"></span>
+					</li>
+				</ul>
+			</div>
+			<hr class="divLine">
+
+			<!-- [고혈압] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc4">고혈압</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<ul div class="hcStatusList">
+					<li>
+						<span class="tit">혈압<span class="subTxt">(수축기/이완기)</span></span>
+						<span class="val">117/75mmHg</span>
+						<span class="result type01">정상</span>
+					</li>
+				</ul>
+			</div>
+			<hr class="divLine">
+
+			<!-- [빈혈] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc5">빈혈</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<ul div class="hcStatusList">
+					<li>
+						<span class="tit">혈색소</span>
+						<span class="val">15.5g/dL</span>
+						<span class="result type01">정상</span>
+					</li>
+				</ul>
+			</div>
+			<hr class="divLine">
+
+			<!-- [당뇨병] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc6">당뇨병</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<ul div class="hcStatusList">
+					<li>
+						<span class="tit">공복혈당</span>
+						<span class="val">83md/dL</span>
+						<span class="result type01">정상</span>
+					</li>
+				</ul>
+			</div>
+			<hr class="divLine">
+
+			<!-- [이상지질혈증] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc7">이상지질혈증</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<ul div class="hcStatusList">
+					<li>
+						<span class="tit">총콜레스테롤</span>
+						<span class="val">201 md/dL</span>
+						<span class="result type01">정상</span>
+					</li>
+					<li>
+						<span class="tit">HDL콜레스테롤</span>
+						<span class="val">60 mg/dL</span>
+						<span class="result type01">정상</span>
+					</li>
+					<li>
+						<span class="tit">중성 지방</span>
+						<span class="val">110 mg/dL</span>
+						<span class="result type01">정상</span>
+					</li>
+					<li>
+						<span class="tit">LDL 콜레스테롤</span>
+						<span class="val">119 mg/dL</span>
+						<span class="result type01">정상</span>
+					</li>
+				</ul>
+			</div>
+			<hr class="divLine">
+
+			<!-- [만성신장질환] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc8">만성신장질환</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<ul div class="hcStatusList">
+					<li>
+						<span class="tit">요단백</span>
+						<span class="val">음성</span>
+						<span class="result type01">정상</span>
+					</li>
+					<li>
+						<span class="tit">혈청크레아티닌</span>
+						<span class="val">0.8mg/dL</span>
+						<span class="result type01">정상</span>
+					</li>
+					<li>
+						<span class="tit">신사구체여과율<span class="subTxt">(GFR)</span></span>
+						<span class="val">110 mg/dL</span>
+						<span class="result type01">정상</span>
+					</li>
+				</ul>
+			</div>
+			<hr class="divLine">
+
+			<!-- [간장질환] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc9">간장질환</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<ul div class="hcStatusList">
+					<li>
+						<span class="tit">AST<span class="subTxt">(SGOT)</span></span>
+						<span class="val">32U/L</span>
+						<span class="result type01">정상</span>
+					</li>
+					<li>
+						<span class="tit">ALT<span class="subTxt">(SGPT)</span></span>
+						<span class="val">28U/L</span>
+						<span class="result type01">정상</span>
+					</li>
+					<li>
+						<span class="tit">감마지티피<span class="subTxt">(y-GTP)</span></span>
+						<span class="val">46U/L</span>
+						<span class="result type01">정상</span>
+					</li>
+				</ul>
+			</div>
+			<hr class="divLine">
+
+			<!-- [폐결핵/흉부질환] -->
+			<div class="hcStatusWrap">
+				<div class="hcStatusTit"><strong class="icoCHc10">폐결핵/흉부질환</strong><a href="javascript:;" class="linkTxt3" role="button">상세보기</a></div>
+				<ul div class="hcStatusList">
+					<li>
+						<span class="tit">폐결핵/흉부질환</span>
+						<span class="val">정상</span>
+						<span class="result type01">정상</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 배너영역 -->
+		<!-- -------------------------------------- -->
+		<div class="yabannerArea">
+			<div class="yabanner bghc" role="button" tabindex="0" title="새창이동(금상몰의 보장성보험)">
+				<p>나를 위한 건강보험, 실손보험<br>지금 찾아보기</p>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">확인</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NH자산+ || 가이드 시스템</title>
+	<!-- <meta http-equiv="Cache-Control" content="no-store"> -->
+	<meta name="publisher" content="[SEPTEM] UI Dev Team">
+	<link rel="stylesheet" href="com/css/datatables.min.css">
+	<link rel="stylesheet" href="com/css/colorbox.css">
+	<link rel="stylesheet" href="com/css/septem_pubcom.css">
+	<link rel="stylesheet" href="com/css/prism.css">
+	<script src="./com/js/prism.js"></script>
+	<script src="com/js/jquery-3.6.0.min.js"></script>
+	<!-- <script src="com/js/jquery-1.12.4.min.js"></script> -->
+</head>
+<body>
+
+<div class="skipNav">
+	<a href="#main">본문 바로가기</a>
+	<a href="#gnb">메뉴 바로가기</a>
+</div>
+
+<header>
+	<div class="title">
+		<div class="subject">
+			<img src="com/images/guide_logo_nh.svg" alt="NH Bank, NH 농협" class="nhLogo">
+			<span class="headerTit"><em class="headerYear">UI/UX Guide SYSTEM</em> <em class="prj">NH마이데이터</em></span>
+		</div>
+		<div class="menu">
+			<ul>
+				<li><a href="pubList_2026.html">퍼블리스트</a></li>
+				<li><a href="pubGuide.html">UI가이드</a></li>
+				<li><a href="pubImage.html">이미지리스트</a></li>
+				<li><a href="pubA11y.html">접근성2024</a></li>
+				<li><a href="pub2025.html">접근성2025</a></li>
+				<li><a class="active" href="pub2026.html" title="선택됨">접근성2026</a></li>
+			</ul>
+		</div>		
+	</div>
+</header>
+
+<main id="main" class="pubA11y pub2026">
+	<h1>마이데이터 모바일 애플리케이션 접근성 1차 심사 결과 조치 가이드</h1>
+	<ul>
+		<li>접근성 1차 심사 결과를 기준으로 작성된 항목입니다.</li>
+	</ul>
+	<div class="guide_progress">
+		<ul>
+			<li class="all"><button type="button">전체</button><span></span></li>
+			<li class="ing"><button type="button">개발 필요</button><span></span></li>
+			<li class="wait"><button type="button">기타</button><span></span></li>
+			<li class="wait2"><button type="button">퍼블 작업중</button><span></span></li>
+			<li class="end"><button type="button">완료</button><span></span></li>
+		</ul>
+	</div>
+
+
+	<!-- ----------------------------------------- -->
+	<!-- [검사 항목별 평가 결과] -->
+	<!-- ----------------------------------------- -->
+	<section class="guide_section">
+		<h2>검사 항목별 평가</h2>
+		<h3>
+			보고서 : (MA심사)_NH스마트뱅킹 마이데이터(농협은행)_for_Android(v.4.1.6)_PHONE_1st.pdf<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			(MA심사)_NH스마트뱅킹 마이데이터(농협은행)_for_iOS(v.2.2.7)_PHONE_1st.pdf
+		</h3>
+		<h3>
+			주석명 : [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응
+		</h3>
+		<div class="guide_table">
+			<table>
+				<caption>검사 항목별 평가</caption>
+				<colgroup>
+					<col style="width:40px;">
+					<col style="width:160px;">
+					<col style="width:350px;">
+					<col style="width:50px;">
+					<col style="width:300px;">
+					<col style="width:auto;min-width:300px">
+					<col style="width:100px;">
+					<col style="width:100px;">
+					<col style="width:100px;">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">지침</th>
+						<th scope="col">화면경로</th>
+						<th scope="col">페이지</th>
+						<th scope="col">오류항목</th>
+						<th scope="col">오류내용</th>
+						<th scope="col">퍼블파일</th>
+						<th scope="col">개발파일</th>
+						<th scope="col">작업내용</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- [오류1] -->
+					<tr class="end" role="button" data-tab="uiSection01_1">
+						<td><span class="num"></span></td>
+						<td>초점 이동</td>
+						<td>2.2 '전체' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							사용자 인터페이스는 초점이 적용되고, 논리적인 순서로 이동돼야 한다.
+						</td>
+						<td>
+							- 해당 컨트롤은 탭이 아닌 웹의 바로가기 링크와 같은 역할의 링크 입니다. 그러나 링크 기능 실행 시 초점이 스크롤된 2댑스 메뉴로 이동하지 않고 현재 링크에 유지되어 부적절합니다. <br>
+							* 기능 실행 시 스크롤된 콘텐츠 영역의 첫번째 요소로 스크린리더 초점이 이동되도록 구현해야 합니다.
+							스크린리더로 우측 메뉴 영역(2뎁스 메뉴)을 순차 탐색 방법으로 탐색 시 좌측의 1뎁스 메뉴가 정상적으로 화면에 표시되지 않아 이후 1뎁스 메뉴를 임의탐색할 수 없습니다.<br>
+							* 2뎁스 메뉴에서 순차 탐색으로 스크롤 발생 시 좌측의 1뎁스 메뉴가 정상적으로 표시되도록 수정해야 합니다. <br>
+							※ 스크롤 제스처로 탐색 시에는 정상적으로 표시됩니다. 이와 같이 표시되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="../pub_2025/co/MSCO9280.html" target="_blank">MSCO9280</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_1">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_01.png" alt=""/></span>
+								<dl>
+									<dt>html</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div class="container bgWhite pb0"><!-- [추가 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 pb0 클래스 추가 -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<!-- [수정 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 href="#content-1" ~ "#content-9" 앵커 추가 -->
+													<li><a href="#content-1" class="tabLink active" data-target="content-1">최근 이용</a></li>
+													<li><a href="#content-2" class="tabLink" data-target="content-2">추천</a></li>
+													<li><a href="#content-3" class="tabLink" data-target="content-3">자산관리</a></li>
+													<li><a href="#content-4" class="tabLink" data-target="content-4">소비관리</a></li>
+													<li><a href="#content-5" class="tabLink" data-target="content-5">대출/신용관리</a></li>
+													<li><a href="#content-6" class="tabLink" data-target="content-6">목표/계획</a></li>
+													<li><a href="#content-7" class="tabLink" data-target="content-7">세금/절세</a></li>
+													<li><a href="#content-8" class="tabLink" data-target="content-8">라이프</a></li>
+													<li><a href="#content-9" class="tabLink" data-target="content-9">관리센터</a></li>
+													<!-- // [수정 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 href="#content-1" ~ "#content-9" 앵커 추가 -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<!-- [수정 260219] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 tabindex="1" 추가 -->
+													<div id="content-1" role="tabpanel"  class="contentSec" tabindex="1">
+													<div id="content-2" role="tabpanel"  class="contentSec" tabindex="1">
+													<div id="content-3" role="tabpanel"  class="contentSec" tabindex="1">
+													<div id="content-4" role="tabpanel"  class="contentSec" tabindex="1">
+													<div id="content-5" role="tabpanel"  class="contentSec" tabindex="1">
+													<div id="content-6" role="tabpanel"  class="contentSec" tabindex="1">
+													<div id="content-7" role="tabpanel"  class="contentSec" tabindex="1">
+													<div id="content-8" role="tabpanel"  class="contentSec" tabindex="1">
+													<div id="content-9" role="tabpanel"  class="contentSec" tabindex="1">
+													<!-- // [수정 260219] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 tabindex="1" 추가 -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+
+								<dl>
+									<dt>js</dt>
+									<dd>페이지 내에 스크립트 추가</dd>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													/* [추가 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 이동 */
+													let sectionPos = new Array();
+													// 1depth
+													const tabsNav = document.querySelector('.tabsNav');
+													const tabLink = document.querySelectorAll('.tabLink');
+													// 2depth
+													const contentArea = document.querySelector('.contentArea');
+													const contentSec = document.querySelectorAll('.contentSec');
+													const contentLink = document.querySelectorAll('.contentSec ul a');
+
+													// 첫번째 1depth 메뉴가 active 되게
+													document.addEventListener('DOMContentLoaded', function() {
+														tabLink[0].classList.add('active');
+													})
+
+													// 2depth section
+													contentSec.forEach(function(item, index){
+														sectionPos.push(item.offsetTop);
+														console.log("2depth section1");
+													});
+
+													document.addEventListener('click', function(e){
+														sectionPos = [];
+														contentSec.forEach(function(item, index){
+														sectionPos.push(item.offsetTop);
+														});
+														console.log("2depth section2");
+													});
+
+													// 1depth 클릭 시 2depth 메뉴로 포커스 이동
+													// tabLink.forEach((tabLinkClick) => {
+													//   tabLinkClick.addEventListener('click', (e) => {
+													//     console.log("1depth click");
+
+													//     const target = document.querySelector(e.target.getAttribute('href'));
+													//     contentArea.scrollTo({
+													//       top: target.offsetTop,
+													//       left: 0,
+													//     });
+
+													//     const focusItem = target.querySelectorAll('.contentSec ul a')[0];
+													//     focusItem.focus();
+													// });
+
+													/* [추가 260311] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 이동 */
+													document.addEventListener('click', function(e){
+														if(e.target.closest('.tabLink')){
+															e.preventDefault();
+
+															const target = document.querySelector(e.target.getAttribute('href'))
+															const focusItem = target.querySelectorAll('.contentSec ul a')[0];
+
+															contentArea.scrollTo(0, target.offsetTop + 16);
+															focusItem.focus();
+															console.log("1depth click");
+														}
+													});
+													// 1depth 클릭 시 1depth active
+													document.addEventListener('click', function(){ 
+														const tabLinks = document.querySelectorAll('.tabLink');
+														
+														tabLinks.forEach((item) => {
+														item.addEventListener('click', () => {
+															tabLinks.forEach(i => i.classList.remove('active'))
+															item.classList.add('active');
+															console.log("1depth 클릭 시 1depth active");
+														})
+														})
+													})
+													/* // [추가 260311] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 이동 */
+
+													// 2depth 클릭 시
+													contentLink.forEach((contentLinkClick) => {
+														contentLinkClick.addEventListener('click', (e) => {
+														console.log("2depth click");
+														});
+													});
+
+													// 2depth 스크롤시 1depth active 클래스
+													contentArea.addEventListener('scroll', function(e){
+														console.log("2depth 스크롤 중");
+
+														const scrollPos = e.target.scrollTop;
+														const tabLinkActive = document.querySelector('.tabLink.active');
+
+														if(sectionPos[1] > scrollPos && !tabLink[0].classList.contains('active')){
+														tabLinkActive.classList.remove('active');
+														tabLink[0].classList.add('active');
+														}
+														else if((sectionPos[sectionPos.length - 1] <= scrollPos && !tabLink[tabLink.length - 1].classList.contains('active')) || (e.target.scrollHeight - e.target.clientHeight <= e.target.scrollTop && !tabLink[tabLink.length - 1].classList.contains('active'))){
+														tabLinkActive.classList.remove('active');
+														tabLink[tabLink.length - 1].classList.add('active');
+														}
+														else {
+														for(let i = 1; i < sectionPos.length - 1; i++){
+															if(sectionPos[i] <= scrollPos && sectionPos[i + 1] > scrollPos && !tabLink[i].classList.contains('active')){
+																tabLinkActive.classList.remove('active');
+																tabLink[i].classList.add('active');
+															}
+														}
+														}
+													});
+
+													// 스크롤 초기화
+													contentArea.scrollTo(0, 0);
+													/* // [추가 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 이동 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류1] -->
+
+					<!-- [오류2] -->
+					<tr class="end" role="button" data-tab="uiSection01_2">
+						<td><span class="num"></span></td>
+						<td>명도 대비</td>
+						<td>3.2 '자산 모아보기' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(명도 대비) 모든 콘텐츠는 전경색과 배경색이 구분될 수 있도록 제공돼야 한다
+						</td>
+						<td>
+							- 콘텐츠의 명도 대비가 3:1 미만으로 제공되어 부적절 합니다. <br>
+							* 3:1 이상으로 제공될 수 있도록 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="../pub_2025/as/MSASM000.html" target="_blank">MSASM000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_2">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_02.png" alt=""/></span>
+								<p>--blue-500:#5181E1; 색상값을 추가하여 --blue-300 -> --blue-500 으로 변경</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류2] -->
+
+					<!-- [오류3] -->
+					<tr class="end" role="button" data-tab="uiSection01_3">
+						<td><span class="num"></span></td>
+						<td>초점 이동</td>
+						<td>3.2 '자산 모아보기' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(초점 이동) 사용자 인터페이스는 초점이 적용되고, 논리적인 순서로 이동돼쟈 한다.
+						</td>
+						<td>
+							- 스크린리더 임의/순차 탐색시 배너 콘텐츠에 접근할 수 없어 부적절 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="../pub_2025/as/MSASM000.html" target="_blank">MSASM000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_3">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_03.png" alt=""/></span>
+								<p>role="button" 추가</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류3] -->
+
+					<!-- [오류4] -->
+					<tr class="end" role="button" data-tab="uiSection01_4">
+						<td><span class="num"></span></td>
+						<td>대체 텍스트</td>
+						<td>3.2 '자산 모아보기' 항목별 주요 오류</td>
+						<td><span>IOS</span></td>
+						<td>
+							(대체 텍스트)텍스트 아닌 콘텐츠는 대체 가능한 텍스트를 함께 제공해야 한다.
+						</td>
+						<td>
+							- 해당 콘텐츠에 대체 텍스트가 제공되지 않아 부적절 합니다. <br>
+							* '상승' 등 과 같은 적절한 대체 텍스트를 제공해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="../pub_2025/as/MSASM000.html" target="_blank">MSASM000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_4">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_04.png" alt=""/></span>
+								<dl>
+									<dt>html</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+													<span class="arrowUp" role="img" aria-label="증가"><span class="blind">증가</span></span>
+													<span class="arrowDown" role="img" aria-label="감소"><span class="blind">감소</span></span>
+													<span class="arrowNone" role="img" aria-label="없음"><span class="blind">없음</span></span>
+													<!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+									<dd>
+										span class="blind" 에 대체 텍스트 (증가/감소/없음)를 추가 하였습니다.
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류4] -->
+
+					<!-- [오류5] -->
+					<tr class="end" role="button" data-tab="uiSection01_5">
+						<td><span class="num"></span></td>
+						<td>상태 제공</td>
+						<td>5.2 '자산 연결(연결기관 선택하기)' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(상태 제공) 사용자 인터페이스는 보조 기술을 이용하여 사용할 수 있어야 한다.
+						</td>
+						<td>
+							- 해당 컨트롤에 상태정보가 제공되지 않아 부적절 합니다.<br>
+							※ '선택됨' 등 과 같은 상태정보를 제공하여 스크린리더 사용자가 인지할 수 있도록 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td>
+							<a href="ps/MSPS3110.html" target="_blank">MSPS3110</a>
+							<a href="ps/MSPS3120.html" target="_blank">MSPS3120</a>
+							<a href="ps/MSPS3120_1.html" target="_blank">MSPS3120_1</a>
+						</td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_5">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_05.png" alt=""/></span>
+								<dl>
+									<dt>html</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<span class="blind">선택됨</span>
+												</script>
+											</code>
+										</pre>
+									</dd>
+									<dd>
+										선택됨 추가
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류5] -->
+
+					<!-- [오류6] -->
+					<tr class="end" role="button" data-tab="uiSection01_6">
+						<td><span class="num"></span></td>
+						<td>초점 이동</td>
+						<td>5.2 '자산 연결(연결기관 선택하기)' 항목별 주요 오류</td>
+						<td><span>IOS</span></td>
+						<td>
+							(초점 이동)사용자 인터페이스는 초점이 적용되고, 논리적인 순서로 이동돼야 한다.
+						</td>
+						<td>
+							- '최상단으로 이동' 버튼 실행 후 순차탐색시 초점이 스크롤막대로 이동되어 이후 순차탐색으로 내부 콘텐츠를 탐색할 수 없습니다. <br>
+							* '최상단으로 이동' 버튼 실행 후 순차탐색시 화면 최상단 콘텐츠로 초점이 이동 될 수 있도록 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td>
+							<a href="ps/MSPS3120.html" target="_blank">MSPS3120</a>
+							<a href="ps/MSPS3120_1.html" target="_blank">MSPS3120_1</a>
+						</td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_6">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_06.png" alt=""/></span>
+								<dl>
+									<dt>html, js</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													// [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 6번 탑버튼 클릭시 초점이동 처음부터
+													//업권 탭메뉴 첫번째인 상태에서 탑버튼 선택 시 : 페이지 상단 이동
+													//업권 탭메뉴 두번째 이상인 상태에서 탑버튼 선택 시 : 첫번째메뉴로 이동
+													// $(document).off('click', '.goTopBtn2').on('click', '.goTopBtn2' , function(){
+													// 	var _index = $('.anchorSubject li.selected').index();
+													// 	if(_index == 0) $('html,body').animate({ scrollTop: '0' }, 300);
+													// 	else $('.anchorSubject li:eq(0) a').trigger('click');
+													// });
+
+													// 탑버튼 선택 시 페이지 wrapper부터로 초점 이동
+													$('.wrapper').attr({
+														'tabindex' : '-1'
+													});
+													$('.goTopBtn2').click(function() {
+														window.scrollTo({top:0, behavior:'smooth'});
+														$('.wrapper').focus();
+													});
+													// [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 6번 탑버튼 클릭시 초점이동 처음부터
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류6] -->
+
+					<!-- [오류7] -->
+					<tr class="end" role="button" data-tab="uiSection01_7">
+						<td><span class="num"></span></td>
+						<td>상태 정보</td>
+						<td>5.2 '자산 연결(연결기관 선택하기)' 항목별 주요 오류</td>
+						<td><span>IOS</span></td>
+						<td>
+							(상태 정보)상태정보가 부적절한 컨트롤
+						</td>
+						<td>
+							- 전체선택 후 하위 콘텐츠에 초점 접근시 '선택안됨'으로 정보가 제공되어 부적절 합니다. <br>
+							* 전체선택 후에도 상태정보가 적절히 변경될 수 있도록 수정되어야 합니다. <br>
+							※ 관련 콘텐츠 공통 오류입니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td>
+							<a href="ps/MSPS3120.html" target="_blank">MSPS3120</a>
+							<a href="ps/MSPS3120_1.html" target="_blank">MSPS3120_1</a>
+						</td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_7">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_07.png" alt=""/></span>
+								<p>은행, 카드 등 업권 전체 선택 체크 시 기관별 aria-checked="true" 로 적용이 필요합니다.</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류7] -->
+
+					<!-- [오류8] -->
+					<tr class="end" role="button" data-tab="uiSection01_8">
+						<td><span class="num"></span></td>
+						<td>대체 텍스트</td>
+						<td>6.2 '인증방식 선택' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(대체 텍스트)텍스트 아닌 콘텐츠는 대체 가능한 텍스트를 함께 제공해야 한다.
+						</td>
+						<td>
+							- 해당 영역의 대체 텍스트가 '약관보기'로 간략히 제공되어 부적절 합니다.<br>
+							* '[필수]인증서 본인확인서비스 이용약관 보기' 등과 같이 어떠한 약관과 관련된 컨트롤인지 스크린리더 사용자가 인지할 수 있도록 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="ps/MSPS3C01P.html" target="_blank">MSPS3C01P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_8">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_08.png" alt=""/></span>
+								<p>대체 텍스트 수정</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류8] -->
+
+					<!-- [오류9] -->
+					<tr class="end" role="button" data-tab="uiSection01_9">
+						<td><span class="num"></span></td>
+						<td>색에 무관한 인식</td>
+						<td>6.2 '인증방식 선택' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(색에 무관한 인식)모든 정보는 색에 관계없이 인식될 수 있어야 한다.
+						</td>
+						<td>
+							- '체크박스' 의 선택여부가 색으로만 구분되어 부적절 합니다.<br>
+							* 색상 뿐만 아니라 다른 시각정보(두께, 밑줄, 크기, 테두리 등)로 구분할 수 있도록 변경해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="ps/MSPS3C01P.html" target="_blank">MSPS3C01P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_9">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_09.png" alt=""/></span>
+								<p></p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류9] -->
+
+					<!-- [오류10] -->
+					<tr class="end" role="button" data-tab="uiSection01_10">
+						<td><span class="num"></span></td>
+						<td>초점 이동</td>
+						<td>6.2 '인증방식 선택' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(초점 이동)사용자 인터페이스는 초점이 적용되고, 논리적인 순서로 이동돼야 한다.
+						</td>
+						<td>
+							- '이용 동의' 레이어 팝업 활성화시 초점이 팝업창 내부로 이동되지 않고 그대로 머물러 있어 스크린리더 순차탐색시 딤드된 영역을 모두 탐색 후 초점이 팝업창으로 이동되어 부적절 합니다. <br>
+							* 딤드된 영역에 초점이 이동되지 않도록 WAI-ARIA의 aria-hidden="true"를 적용하여 수정할 수 있습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="ps/MSPS3C01P.html" target="_blank">MSPS3C01P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_10">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_10.png" alt=""/></span>
+								<p>dim에 aria-hidden="true" 추가</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류10] -->
+
+					<!-- [오류11] -->
+					<tr class="end" role="button" data-tab="uiSection01_11">
+						<td><span class="num"></span></td>
+						<td>상태 제공</td>
+						<td>11.2 '내 자산 안심 알림서비스' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(상태 제공)사용자 인터페이스는 보조 기술을 이용하여 사용할 수 있어야 한다.
+						</td>
+						<td>
+							- 선택된 콘텐츠에 상태정보가 제공되지 않아 부적절 합니다.<br>
+							* '선택됨' 등 과 같은 상태정보가 제공될 수 있도록 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="../pub_2025/ae/MSAEe210P.html" target="_blank">MSAEe210P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_11">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_11.png" alt=""/></span>
+								<dl>
+									<dt>js</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													// [추가 260116] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 11번 a태그 선택됨
+													// a태그 선택됨
+													const links = document.querySelectorAll('.selectList li a')
+
+													links.forEach(link => {
+														links.addEventListner('click', function(e) {
+															e.preventDefault();
+															// 전체에서 title제거
+															links.forEach(a => a.removeAttribute('title'))
+															// 클릭된 요소에만 title="선택됨" 설정
+															this.setAttrbute('title', '선택됨');
+														});
+													});
+													// a태그 선택됨
+													// // [추가 260116] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 11번 a태그 선택됨
+												</script>
+											</code>
+										</pre>
+									</dd>
+									<dd>
+										상단에 js를 추가하여 선택한 요소에만 title="선택됨" 을 설정
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류11] -->
+
+					<!-- [오류12] -->
+					<tr class="end" role="button" data-tab="uiSection01_12">
+						<td><span class="num"></span></td>
+						<td>대체텍스트</td>
+						<td>12.2 '상품 모아보기' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(대체 텍스트)텍스트 아닌 콘텐츠는 대체 가능한 텍스트를 함께 제공해야 한다.
+						</td>
+						<td>
+							- 해당 영역의 대체 텍스트가 제공 되었으나 일부 부적절한 내용이 제공 되었습니다.<br>
+							* 화면에 보여지는 내용과 동등한 내용의 정보가 제공될 수 있도록 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="ht/MSHT4200.html" target="_blank">MSHT4200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_12">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_12.png" alt=""/></span>
+								<dl>
+									<dt>html</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													차곡차곡 모아 목돈을 만들어 보세요!
+													<!-- [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 12번,13번 구조 변경 -->
+													<span class="data"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+													<span class="hipen">~</span>
+													<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+													<!-- // [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 12번,13번 구조 변경 -->
+
+													대출이 필요하신 당신을 위해 농협은행 대표 상품을 추천해요
+													<!-- [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 12번,13번 구조 변경 -->
+													<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+													<span class="hipen">~</span>
+													<span class="data"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+													<!-- // [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 12번,13번 구조 변경 -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류12] -->
+
+					<!-- [오류13] -->
+					<tr class="end" role="button" data-tab="uiSection01_13">
+						<td><span class="num"></span></td>
+						<td>초점 이동</td>
+						<td>12.2 '상품 모아보기' 항목별 주요 오류</td>
+						<td><span>IOS</span></td>
+						<td>
+							(초점 이동)사용자 인터페이스는 초점이 적용되고, 논리적인 순서로 이동돼야 한다.
+						</td>
+						<td>
+							- 스크린리더 순차 탐색시 초점의 이동순서가 1>2>3 순으로 이동되어 부적절 합니다.<br>
+							* 1>3>2 순으로 이동될 수 있도록 수정 되어야 합니다.<br>
+							- 스크린리더 순차 탐색시 화살표 방향으로 초점이 이동되어 부적절 합니다.<br>
+							* 초점이 논리적인 순서에 따라 이동될 수 있도록 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="ht/MSHT4200.html" target="_blank">MSHT4200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_13">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_13.png" alt=""/></span>
+								<dl>
+									<dt>html</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													차곡차곡 모아 목돈을 만들어 보세요!
+													<!-- [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 12번,13번 구조 변경 -->
+													<span class="data"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+													<span class="hipen">~</span>
+													<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+													<!-- // [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 12번,13번 구조 변경 -->
+
+													대출이 필요하신 당신을 위해 농협은행 대표 상품을 추천해요
+													<!-- [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 12번,13번 구조 변경 -->
+													<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+													<span class="hipen">~</span>
+													<span class="data"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+													<!-- // [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 12번,13번 구조 변경 -->
+
+													배너 로고 초점이동 불가사항 수정 기존 before -> img 로 수정함
+													<div class="txtBox">
+														<!-- [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 13번 로고 수정 -->
+														<img src="../../images/logo_nhfire.png" alt="NH농협생명" class="img">
+														<!-- // [수정 260119] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 13번 로고 수정 -->
+														<span class="hashTxt">my보험 한눈에</span>
+														<p class="subTit">내 보험 보장내역 알아보기</p>
+													</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류13] -->
+
+					<!-- [오류14] -->
+					<tr class="end" role="button" data-tab="uiSection01_14">
+						<td><span class="num"></span></td>
+						<td>상태 정보</td>
+						<td>14.2 '머니 캘린더' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(상태 정보)사용자 인터페이스는 보조 기술을 이용하여 사용할 수 있어야 한다.
+						</td>
+						<td>
+							- 비활성화된 달력 콘텐츠에 관련 상태 정보가 제공되지 않아 부적절 합니다. <br>
+							* aria-disabled 속성을 이용하여 비활성화된 상태 정보를 제공해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="cs/MSCS2100.html" target="_blank">MSCS2100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_14">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_14.png" alt=""/></span>
+								<p>내역이 없는 날 : aria-disabled="true"</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류14] -->
+
+					<!-- [오류15] -->
+					<tr class="end" role="button" data-tab="uiSection01_15">
+						<td><span class="num"></span></td>
+						<td>대체 텍스트</td>
+						<td>15.2 '소비패턴' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(대체 텍스트)텍스트 아닌 콘텐츠는 대체 가능한 텍스트를 함께 제공해야 한다.
+						</td>
+						<td>
+							- 그래프 콘텐츠에 대체 텍스트가 제공되지 않았습니다. <br>
+							* 그래프의 의미를 스크린리더 사용자가 알 수 있는 적절한 대체 텍스트가 제공되어야 합니다.
+							그래프가 표시되는 영역의 요소에 role="img" 로 이미지 역할을 정의하고 aria-label 속성값에
+							그래프와 동등한 내용의 대체 텍스트를 제공하면 됩니다.
+							예) div role="img" aria-label="7월 사용 금액 …"<!--그래프 표시 영역-->/div
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="cs/MSCS3200.html" target="_blank">MSCS3200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_15">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_15.png" alt=""/></span>
+								<p>
+									개발 차트 불러올 때 aria-label에<br>
+ 									aria-label="온라인쇼핑 5월 154,000원, 6월 189,000원 외식 5월 254,000원, 6월 289,000원 생활/마트 5월 50,000원, 6월 60,000원 쇼핑 5월 30,000원, 6월 20,000원 교통 5월 30,000원, 6월 40,000원 자동차/주유 5월 0원, 6월 0원 카페/간식 5월 20,000원, 6월 30.000원 이 외 5월 0원, 6월 0원" <br>
+									이런 방식으로 해당 차트 데이터를 입력 부탁 드립니다.
+								</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류15] -->
+
+					<!-- [오류16] -->
+					<tr class="end" role="button" data-tab="uiSection01_16">
+						<td><span class="num"></span></td>
+						<td>명도 대비</td>
+						<td>16.2 '신용관리' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(명도 대비)모든 콘텐츠는 전경색과 배경색이 구분될 수 있도록 제공돼야 한다.
+						</td>
+						<td>
+							- 캡쳐된 이미지에 표시된 콘텐츠의 명도대비가 기준 3:1 미만입니다. <br>
+							* 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="../pub_2025/ae/MSAEb200.html" target="_blank">MSAEb200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_16">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_16.png" alt=""/></span>
+								<p>class="v2" 를 추가하여 v2일 경우에 색상 변경</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류16] -->
+
+					<!-- [오류17] -->
+					<tr class="end" role="button" data-tab="uiSection01_17">
+						<td><span class="num"></span></td>
+						<td>대체 텍스트, 명도 대비</td>
+						<td>20.2 '금융플래너' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(대체 텍스트)텍스트 아닌 콘텐츠는 대체 가능한 텍스트를 함께 제공해야 한다. <br>
+							(명도 대비)모든 콘텐츠는 전경색과 배경색이 구분될 수 있도록 제공돼야 한다.
+						</td>
+						<td>
+							이미지 및 대체 텍스트 관리자페이지에서 관리
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="fp/MSFP2000.html" target="_blank">MSFP2000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>운영 적용</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_17">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_17.png" alt=""/></span>
+								<p>
+									- 배너 콘텐츠의 대체 텍스트가 제공되었으나 미흡합니다. <br>
+									* 배너 콘텐츠에서 제공하는 정보와 동등한 정보가 제공될 수 있도록 수정되어야 합니다. <br>
+									- 캡쳐된 이미지에 표시된 콘텐츠의 명도대비가 기준 3:1 미만입니다.
+									<br><br>
+									수정된 이미지 전달 예정
+								</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류17] -->
+
+					<!-- [오류18] -->
+					<tr class="end" role="button" data-tab="uiSection01_18">
+						<td><span class="num"></span></td>
+						<td>초점 이동</td>
+						<td>20.2 '금융플래너' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(초점 이동)사용자 인터페이스는 초점이 적용되고, 논리적인 순서로 이동돼야 한다.
+						</td>
+						<td>
+							- 스크린리더 순차 탐색시 보이지 않는 영역에 초점이 접근되어 부적절 합니다. <br>
+							* 불필요한 영역에 초점이 접근되지 않도록 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="fp/MSFP2000.html" target="_blank">MSFP2000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_18">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_18.png" alt=""/></span>
+								<dl>
+									<dt>js</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<!-- [수정 260116] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 18번 불필요한 영역에 초점이 접근되어 필요 없다면 삭제하거나 aria-hidden="true" 적용 -->
+													<a id="updateFailed" onclick="goMSCM3300R();" href="javascript:;" class="btnFail" title="수집결과화면으로 이동" style="display:none">
+														<span class="blind">수집실패</span>
+													</a>
+													<!-- // [수정 260116] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 18번 불필요한 영역에 초점이 접근되어 필요 없다면 삭제하거나 aria-hidden="true" 적용 -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+									<dd>
+										불필요한 영역에 초점이 접근되어, 필요 없다면 삭제하거나 aria-hidden="true" 적용
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류18] -->
+
+					<!-- [오류19] -->
+					<tr class="end" role="button" data-tab="uiSection01_19">
+						<td><span class="num"></span></td>
+						<td>대체 텍스트</td>
+						<td>21.2 'NH주택청약 플래너' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(대체 텍스트)텍스트 아닌 콘텐츠는 대체 가능한 텍스트를 함께 제공해야 한다.
+						</td>
+						<td>
+							- 해당 그래프 영역에 대체 텍스트가 제공되지 않아 부적절 합니다. <br>
+							* 스크린리더 사용자가 내용을 파악할 수 있는 적절한 대체 텍스트를 제공하거나 꾸밈 이미지
+							일 경우 초점이 접근되지 않도록 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="ae/MSAE7100.html" target="_blank">MSAE7100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_19">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_19.png" alt=""/></span>
+								<dl>
+									<dt>html</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div class="graphWrap mt0" style="height:160px;" aria-hidden="true"><!-- [추가 260225] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 19번 aria-hidden="true" 추가 -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류19] -->
+
+					<!-- [오류20] -->
+					<tr class="end" role="button" data-tab="uiSection01_20">
+						<td><span class="num"></span></td>
+						<td>초점 이동</td>
+						<td>21.2 'NH주택청약 플래너' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(초점 이동)사용자 인터페이스는 초점이 적용되고, 논리적인 순서로 이동돼야 한다.
+						</td>
+						<td>
+							- 은행 아이콘 영역에 초점이 접근되지 않아 부적절 합니다. <br>
+							* 해당 영역에 초점이 접근되고 관련 정보가 제공될 수 있도로 수정되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="ae/MSAE7100.html" target="_blank">MSAE7100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_20">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_20.png" alt=""/></span>
+								<dl>
+									<dt>js</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													// <!-- [수정 260220] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 20번 role="img" aria-label="NH농협은행" 추가 -->
+													$('.accList .imgWrap').attr({
+														'role':'img',
+														'aria-label' : 'NH농협은행',
+														'tabindex' : '0'
+													});
+													// <!-- // [수정 260220] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 20번 role="img" aria-label="NH농협은행" 추가 -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류20] -->
+
+					<!-- [오류21] -->
+					<tr class="end" role="button" data-tab="uiSection01_21">
+						<td><span class="num"></span></td>
+						<td>입력 도움</td>
+						<td>21.2 'NH주택청약 플래너' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(입력 도움)입력서식은 입력 오류를 방지하거나 정정할 수 있어야 한다.
+						</td>
+						<td>
+							- 해당 컨트롤에 레이블이 제공되지 않아 사용자가 기능의 목적을 알 수 없습니다. <br>
+							* 컨트롤의 목적을 알 수 있는 적절한 레이블이 제공되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="ae/MSAE7100.html" target="_blank">MSAE7100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_21">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_21.png" alt=""/></span>
+								<p>aria-label="신규 청약공고 알림 토글" 추가</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류21] -->
+
+					<!-- [오류22] -->
+					<tr class="end" role="button" data-tab="uiSection01_22">
+						<td><span class="num"></span></td>
+						<td>입력 도움</td>
+						<td>22.2 '종합소득세' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(입력 도움)입력서식은 입력 오류를 방지하거나 정정할 수 있어야 한다.
+						</td>
+						<td>
+							- '원천징수세액' 입력서식의 레이블이 '필요경비'로 제공되어 부적절 합니다. <br>
+							* 입력서식에 적합한 레이블이 제공될 수 있도록 수정되어야 합니다.
+						</td>
+						<td><a href="ae/MSAE8100.html" target="_blank">MSAE8100</a></td>
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_22">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_22.png" alt=""/></span>
+								<p>
+									퍼블 소스 상으로는 제대로 되어있습니다. <br>
+									개발 소스 기타소득 > 원천징수세액 인풋에 title이 필요 경비로 들어가있습니다.
+								</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류22] -->
+
+					<!-- [오류23] -->
+					<!-- <tr class="wait" role="button" data-tab="uiSection01_23">
+						<td><span class="num"></span></td>
+						<td>대체 텍스트</td>
+						<td>25.2 '맞춤정부혜택' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(대체 텍스트)텍스트 아닌 콘텐츠는 대체 가능한 텍스트를 함께 제공해야 한다.
+						</td>
+						<td>
+							메뉴 삭제
+						</td>
+						<td><a href="lf/MSLFM000.html" target="_blank">MSLFM000</a></td>
+						<td><span>-</span></td>
+						<td><span>작업 보류</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_23">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_23.png" alt=""/></span>
+								<p>
+									- 배너 콘텐츠에 대체 텍스트가 제공 되었으나 'NH농협생명'이라는 정보가 누락되었습니다.<br>
+									- 배너 콘텐츠의 대체 텍스트가 제공되었으나 미흡합니다.
+								</p>
+							</div>
+						</td>
+					</tr> -->
+					<!-- // [오류23] -->
+
+					<!-- [오류24] -->
+					<!-- <tr class="wait" role="button" data-tab="uiSection01_24">
+						<td><span class="num"></span></td>
+						<td>명도 대비</td>
+						<td>25.2 '맞춤정부혜택' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(명도 대비)모든 콘텐츠는 전경색과 배경색이 구분될 수 있도록 제공돼야 한다.
+						</td>
+						<td>
+							메뉴 삭제
+						</td>
+						<td><a href="lf/MSLFM000.html" target="_blank">MSLFM000</a></td>
+						<td><span>-</span></td>
+						<td><span>작업 보류</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_24">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_24.png" alt=""/></span>
+								<p>
+									- 캡쳐된 이미지에 표시된 콘텐츠의 명도대비가 기준 3:1 미만입니다. <br>
+									* 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다. <br>
+									※ 동일 전경색과 배경색을 사용한 배너 콘텐츠 공통 오류입니다.
+								</p>
+							</div>
+						</td>
+					</tr> -->
+					<!-- // [오류24] -->
+
+					<!-- [오류25] -->
+					<!-- <tr class="wait" role="button" data-tab="uiSection01_25">
+						<td><span class="num"></span></td>
+						<td>상태 정보</td>
+						<td>25.2 '맞춤정부혜택' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(상태 정보)사용자 인터페이스는 보조 기술을 이용하여 사용할 수 있어야 한다.
+						</td>
+						<td>
+							메뉴 삭제
+						</td>
+						<td><a href="lf/MSLF2100.html" target="_blank">MSLF2100</a></td>
+						<td><span>-</span></td>
+						<td><span>작업 보류</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_25">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_25.png" alt=""/></span>
+								<p>
+									- '배우자 탭' 선택 후 '본인 캐릭터' 영역 초점 접근시 상태정보가 '선택됨' 으로 제공되며, '배우자 캐릭터' 영역에는 상태정보가 제공되지 않아 부적절 합니다. <br>
+									* 현재 선택된 항목에 적합한 상태정보가 제공될 수 있도록 수정되어야 합니다.
+								</p>
+							</div>
+						</td>
+					</tr> -->
+					<!-- // [오류25] -->
+
+					<!-- [오류26] -->
+					<!-- <tr class="wait" role="button" data-tab="uiSection01_26">
+						<td><span class="num"></span></td>
+						<td>상태 정보</td>
+						<td>25.2 '맞춤정부혜택' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(상태 정보)사용자 인터페이스는 보조 기술을 이용하여 사용할 수 있어야 한다.
+						</td>
+						<td>
+							메뉴 삭제
+						</td>
+						<td><a href="lf/MSLF2100.html" target="_blank">MSLF2100</a></td>
+						<td><span>-</span></td>
+						<td><span>작업 보류</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_26">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_26.png" alt=""/></span>
+								<p>
+									- '배우자 캐릭터'에 초점 접근 후 화면 더블 탭 시 '배우자 캐릭터'가 선택되지 않아 부적절 합니다. <br>
+									* 화면 더블 탭 시 해당 캐릭터가 선택되어 기능을 사용할 수 있도록 수정되어야 합니다.
+								</p>
+							</div>
+						</td>
+					</tr> -->
+					<!-- // [오류26] -->
+
+					<!-- [오류27] -->
+					<!-- <tr class="wait" role="button" data-tab="uiSection01_27">
+						<td><span class="num"></span></td>
+						<td>초점 이동</td>
+						<td>26.2 '맞춤정부혜택' > '가족정보 관리' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(초점 이동)사용자 인터페이스는 보조 기술을 이용하여 사용할 수 있어야 한다.
+						</td>
+						<td>
+							- '생년월일'을 선택하는 스핀버튼에서 순차탐색시 초점이 외부로 벗어나 운용이 불가능 합니다. <br>
+							* 안드로이드 기본 스핀버튼의 동작 방식과 같이 운용할 수 있도록 수정되어야 합니다.
+						</td>
+						<td><a href="../pub_2025/co/MSCO0011P.html" target="_blank">MSCO0011P</a></td>
+						<td><span>-</span></td>
+						<td><span>작업 보류</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_27">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_27.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr> -->
+					<!-- // [오류27] -->
+
+					<!-- [오류28] -->
+					<tr class="end" role="button" data-tab="uiSection01_28">
+						<td><span class="num"></span></td>
+						<td>명도 대비</td>
+						<td>27.2 'NH트렌드+' 항목별 주요 오류</td>
+						<td><span>공통</span></td>
+						<td>
+							(명도 대비)모든 콘텐츠는 전경색과 배경색이 구분될 수 있도록 제공돼야 한다.
+						</td>
+						<td>
+							- 캡쳐된 이미지에 표시된 콘텐츠 및 컨트롤의 명도대비가 기준 3:1 미만입니다. <br>
+							* 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="td/MSTD9200.html" target="_blank">MSTD9200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>작업 완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_28">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2026/guide_a11y_28.png" alt=""/></span>
+								<p>
+									디자인 스타일 변경
+								</p>
+							</div>
+						</td>
+					</tr>
+					<!-- // [오류28] -->
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- ----------------------------------------- -->
+</main>
+
+<footer>
+	<button class="top" title="상단으로"></button>
+	<address>Copyright © NH Bank. All Rights Reserved.</address>
+</footer>
+
+<script src="com/js/datatables.min.js"></script>
+<script src="com/js/jquery.colorbox-min.js"></script>
+<script src="com/js/septem_pubcom.js"></script>
+<script>
+$(document).ready(function(){
+	var _all = $('.guide_table > table > tbody > tr:not([data-tabcont])').length,
+		_ing = $('.guide_table > table > tbody > tr.ing').length,
+		_wait = $('.guide_table > table > tbody > tr.wait').length,
+		_wait2 = $('.guide_table > table > tbody > tr.wait2').length,
+		_end = $('.guide_table > table > tbody > tr.end').length
+	
+	$('.guide_progress .all > span').text(_all);
+	$('.guide_progress .ing > span').text(_ing);
+	$('.guide_progress .wait > span').text(_wait);
+	$('.guide_progress .wait2 > span').text(_wait2);
+	$('.guide_progress .end > span').text(_end);
+
+	$('.guide_progress button').on('click',function(){
+		
+		if($(this).parent().hasClass('all')){
+			$('.guide_table > table > tbody > tr:not([data-tabcont])').show();
+		}else{
+			$('.guide_table > table > tbody > tr:not([data-tabcont])').hide();
+			if($(this).parent().hasClass('ing')) $('.guide_table > table > tbody > tr.ing').show();
+			else if($(this).parent().hasClass('wait')) $('.guide_table > table > tbody > tr.wait').show();
+			else if($(this).parent().hasClass('end')) $('.guide_table > table > tbody > tr.end').show();
+			else if($(this).parent().hasClass('wait2')) $('.guide_table > table > tbody > tr.wait2').show();
+		}
+	})
+	/*
+	$('.guide_table > table').each(function(i, obj){
+		$('.guide_table > table > tbody > tr:not([data-tabcont]):not(.ing)').hide();
+	});
+	*/
+
+	
+	$('[data-tab]').on('click', function(){
+		var _id = $(this).attr('data-tab');
+		var _cont = $('[data-tabcont="'+_id+'"]');
+		//$('[data-tabcont]').removeClass('active');
+		if(_cont.hasClass('active')){
+			_cont.removeClass('active');
+			$(this).removeClass('active')
+		}else{
+			_cont.addClass('active');
+			$(this).addClass('active');
+		} 
+	});
+
+	// tr 순서
+	const nums = document.querySelectorAll('.guide_table .num');
+	nums.forEach((el, idx) => {
+		el.textContent = idx + 1;
+	})
+	// tr 순서
+});
+</script>
+</body>
+</html>

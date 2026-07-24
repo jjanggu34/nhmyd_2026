@@ -1,0 +1,136 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 기간 선택</title>
+<script src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_myd_mb.css">
+<script>
+	$(document).ready(function(){
+		slidePopOption();
+	})  
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 기간 선택 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopOption">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>기간 선택</h1>
+		<div class="popCont">
+			<div class="formWrap formListBox02 mtst">
+				<ul>
+					<li>
+						<strong class="formTit mt0">기간</strong>
+						<div class="calendarForm">
+							<div class="cal">
+								<div class="inputList">
+									<input type="text" value="2020-10-22" title="조회 시작일" placeholder="시작일선택" readonly="readonly">
+									<!-- <a href="javascript:;" class="btnCalendar" title="시작일 날짜선택" role="button"><span class="blind">날짜선택</span></a> -->
+								</div>
+							</div>
+							<span class="symbol">-</span>
+							<div class="cal">
+								<div class="inputList">
+									<input type="text" value="2020-10-28" title="조회 종료일" placeholder="종료일선택" readonly="readonly">
+									<!-- <a href="javascript:;" class="btnCalendar" title="종료일 날짜선택" role="button"><span class="blind">날짜선택</span></a> -->
+								</div>
+							</div>
+						</div>
+						<div class="roundBtnWrap mt10">
+							<a href="javascript:;" role="button" title="1주일 추가">1주일</a><!-- 활성화일 경우 class="active" 추가-->
+							<a href="javascript:;" role="button" title="1개월 추가">1개월</a>
+						</div>
+					</li>
+					<li>
+						<strong class="formTit mt8">대상</strong>
+
+						<!-- 샘플 : 컨설팅 서비스 선택 시 -->
+						<div class="boxRadio rdo3">
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo13" id="rdo30" type="radio" aria-label="대상(전체)" checked>
+									<label for="rdo30" aria-hidden="true">전체</label>
+								</span>
+							</div>
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo13" id="rdo31" type="radio" aria-label="대상(맞춤혜택)">
+									<label for="rdo31" aria-hidden="true">맞춤혜택</label>
+								</span>
+							</div>
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo13" id="rdo32" type="radio" aria-label="대상(신청현황)">
+									<label for="rdo32" aria-hidden="true">신청현황</label>
+								</span>
+							</div>
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo13" id="rdo33" type="radio" aria-label="대상(이용안내)">
+									<label for="rdo33" aria-hidden="true">이용안내</label>
+								</span>
+							</div>
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo13" id="rdo34" type="radio" aria-label="대상(가족정보)">
+									<label for="rdo34" aria-hidden="true">가족정보</label>
+								</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<strong class="formTit mt8">정렬</strong>
+						<div class="boxRadio">
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo14" id="rdo40" type="radio" aria-label="정렬(최신순)" checked>
+									<label for="rdo40" aria-hidden="true">최신순</label>
+								</span>
+							</div>
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo14" id="rdo41" type="radio" aria-label="정렬(과거순)">
+									<label for="rdo41" aria-hidden="true">과거순</label>
+								</span>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="grayBox -mb">
+							<p>혜택알리미는 최근 30일 동안의 알림만 확인할 수 있습니다.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

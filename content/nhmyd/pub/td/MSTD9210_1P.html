@@ -1,0 +1,95 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 트렌드</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+
+<!-- [수정 260602] [MD2601_002] [NH트렌드+] 콘텐츠 상세 페이지 레이아웃 개선 : 관련파일 경로변경 -->
+<!-- zoomIn js & css -->
+<link href="../../css/pinchzoomer.css" rel="stylesheet">
+<script src="../../js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="../../js/jquery.mousewheel.min.js"></script>
+<script src="../../js/hammer.min.js" type="text/javascript"></script>
+<script src="../../js/TweenMax.min.js" type="text/javascript"></script>
+<script src="../../js/jquery.pinchzoomer.min.js" type="text/javascript"></script>
+<!-- //zoomIn js & css -->
+<!-- //[수정 260602] [MD2601_002] [NH트렌드+] 콘텐츠 상세 페이지 레이아웃 개선 : 관련파일 경로변경 -->
+
+<script>
+	$(document).ready(function() {
+		fullLayerPop();
+	});
+</script>
+</head>
+<body>
+	<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+	<div class="nhasset popWrap fullLayerPop">
+		<div class="popInner">
+			<h1>크게 보기</h1>
+			<div class="popCont bbsView1">
+				<h2 class="tit">사람들은 어떤 과일을 좋아할까요?</h2> <!-- [관리자에서 등록한 타이틀] -->
+				<div class="zoomHolder">
+					<div id="pzEvtExample" data-elem="pinchzoomer">
+						<table align=center border=0 width=100%>
+							<tr>
+								<td align=center width=100%>
+									<div class="areaImg1 trend_areaImg1">
+										<ul>
+											<li><img src="../../images/temp/@img_trend04_01.png" alt="NH트렌드+ 사람들은 어떤 과일을 좋아할까요? 22년 ~ 23년 NH멤버스 회원 소비 데이터 분석 : NH농협은행"></li>
+											<li><img src="../../images/temp/@img_trend04_02.png" alt="01. 꾸준히 늘어나는 과일 소비 : 맛있고, 우리 몸에도 좋은 과일, 모두들 좋아하시죠? 그래서 인지 1인당 과일 소비량도 매년 늘고 있어요. (1인당 과일 소비량 20년 32.3kg 에서 22년 37.9kg으로 5.6kg 증가) NH멤버스 고객 2,989만명 중에서 과일을 구매한 784만명을 분석한 결과 실제로 22년 대비 23년 과일 소비금액이 15.5% 증가했고 과일 구매건수도 7.3%증가 했네요."></li>
+											<li><img src="../../images/temp/@img_trend04_03.png" alt="대체텍스트"></li>
+											<li><img src="../../images/temp/@img_trend04_04.png" alt="대체텍스트"></li>
+											<li><img src="../../images/temp/@img_trend04_05.png" alt="대체텍스트"></li>
+											<li><img src="../../images/temp/@img_trend04_06.png" alt="대체텍스트"></li>
+											<li><img src="../../images/temp/@img_trend04_07.png" alt="대체텍스트"></li>
+										</ul>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="popBtnWrap">
+				<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+			</div>
+		</div>
+	</div>
+	<script>
+		$(document).ready(function () {
+			tostpop();//토스트 팝업 호출
+			PinchZoomer.init(); 
+			pzTouchFix();
+		})
+	
+		function tostpop(){
+			var $tostCont = '<div class="infoMsgWrap" aria-live="assertive"><p class="infoMsg">이미지를 두 손가락으로 펼쳐서 크게 볼 수 있어요.</p><button type="button" class="closeBtn" onclick="mesToastClose(this);return false;"><span class="blind">닫기</span></button></div>'
+			$('.zoomHolder').after($tostCont);
+			setTimeout(function(){
+				$('.infoMsgWrap').fadeOut();
+			},4000)
+		}
+		
+		
+
+		
+
+	</script>
+</body>
+
+</html>

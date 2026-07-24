@@ -1,0 +1,2856 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [정보]</title>
+<script src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>정보</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="list_sample.html">목록</a>
+				<a href="info_sample.html" aria-current="page">정보</a>
+				<a href="product_sample.html">상품</a>
+				<a href="form_sample.html">폼</a>
+				<a href="bnr_sample.html">배너</a>
+				<a href="toggle_sample.html">토글</a>
+			</div>
+		</nav>
+	</header>
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">상단영역</a>
+			<a href="#GCONTENT2">요약정보</a>
+			<a href="#GCONTENT3">상세정보</a>
+			<a href="#GCONTENT4">기타정보</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 상단영역 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">상단영역</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] 자산정보 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : 자산정보</h3>
+				
+				<!-- ### 기본구조 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title4">기본구조</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="boxWrapShadow">
+											<!-- [기본정보] -->
+											<div class="boxTypeWrap delShadow">
+												<!-- // -->
+												<div class="accTopInfo mt0">
+													<h2 class="accName">
+														별명 또는 계좌명
+														<span class="acBookmark"><span class="blind">즐겨찾기</span></span>
+														<img src="../../images/logos/AABG0000.png" alt="기관명" class="imgLogo">
+													</h2>
+													<dl class="totalBalance">
+														<dt>총 잔액
+															<!-- [CASE] 외화 노출 -->
+															<div class="tooltipWrap">
+																<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">환율 안내 툴팁 열기</span></button>
+																<div class="tooltipCont">
+																	<p>전일 환율을 반영하여 당시 환율을 반영한 거래내역과 다를 수 있습니다.</p>
+																	<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+																</div>
+															</div>
+															<!-- // -->
+														</dt>
+														<dd>
+															<strong>1,000,000</strong>원
+															<span class="remitWrap"><button type="button" class="contBtn03 ml12">이체</button></span>
+														</dd>
+													</dl>
+
+													<!-- [CASE] 대출 -->
+													<div class="etcInfo">
+														예금금리 <strong class="dataValue">00.00</strong><em class="won">%</em>
+													</div>
+
+													<!-- [CASE] 만기일 -->
+													<div class="etcInfo">만기일 <em>D-DAY</em></div>
+													<div class="etcInfo">만기일 경과</div>
+													<div class="etcInfo">만기일 <em>D-000</em></div>
+
+													<!-- [CASE] 투자 -->
+													<div class="etcInfo compare">
+														평가손익
+														<div class="tooltipWrap">
+															<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가손익 툴팁 열기</span></button>
+															<div class="tooltipCont">
+																<p>평가손익과 수익률은 예상 수익으로 실제와 상이할 수 있습니다.</p>
+																<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+															</div>
+														</div>
+								
+														<!-- 증가 -->
+														<span class="arrowUp" role="img" aria-label="증가"><em class="blind">증가</em></span>
+														<span class="amount"><strong>000</strong>원 (+<strong class="dataValue">0.00</strong><em class="won">%</em>)</span>
+														<!-- 감소 -->
+														<span class="arrowDown" role="img" aria-label="감소"><em class="blind">감소</em></span>
+														<span class="amount"><strong>000</strong>원 (-<strong class="dataValue">0.00</strong><em class="won">%</em>)</span>
+														<!-- 변동 없음 -->
+														<span class="arrowNone"><em class="blind">없음</em></span>
+														<span class="amount"><strong>0</strong>원</span>
+														<!-- // -->
+													</div>
+
+													<!-- [CASE] 연금 -->
+													<div class="wrapTag">
+														<span class="type01 radius4">#세제혜택</span>
+													</div>
+													<!-- // -->
+												</div>
+												<!-- // -->
+								
+												<hr class="divLine">
+								
+												<!-- // -->
+												<div class="accInfoDetail">
+													<ul class="detailList">
+														<li>
+															<span class="tit">항목명</span>
+															<span class="value">내용</span>
+														</li>
+														<li>
+															<span class="tit">항목명</span>
+															<span class="value">내용</span>
+														</li>
+														<li>
+															<span class="tit">자동이체</span>
+															<span class="value">N건<button type="button" class="contBtnArrow">자동이체 상세보기</button></span>
+														</li>
+														<li>
+															<span class="tit">회차정보</span>
+															<span class="value">00건 
+																<button type="button" class="contBtnArrow" title="회차정보 더보기">더보기</button>
+															</span>
+														</li>
+													</ul>
+												</div>
+
+												<!-- [기관별 검색] -->
+												<div class="inputListArea mt20">
+													<span class="tit pointColor11">기관별 검색</span>
+													<div class="inputList">
+														<a href="javascript:;" title="기관별 검색" aria-haspopup="true">
+															<span class="selectValue">전체</span>
+															<span class="selectBtn"></span>
+														</a>
+														<select name="" title="선택해주세요">
+															<option value=""></option>
+														</select>
+													</div>
+												</div>
+
+												<!-- [계좌별 검색] -->
+												<div class="inputListArea mt20">
+													<span class="tit pointColor11">계좌별 검색</span>
+													<div class="inputList">
+														<a href="javascript:;" title="계좌별 검색" aria-haspopup="true">
+															<span class="selectValue">전체</span>
+															<span class="selectBtn"></span>
+														</a>
+														<select name="" title="선택해주세요">
+															<option value=""></option>
+														</select>
+													</div>
+												</div>
+												<!-- // -->
+											</div>
+								
+											<!-- [상세정보] -->
+											<div class="moreInfoArea">
+												<div class="moreInfoWrap toggleWrap">
+													<div class="moreInfo toggleCont" style="display:none">
+														<hr class="divLine2" aria-hidden="true">
+														<ul class="detailList">
+															<li>
+																<span class="tit">계좌번호</span>
+																<span class="value">03580204123456  <button type="button" class="contBtn01" title="계좌번호 복사">복사</button></span>
+															</li>
+															<li>
+																<span class="tit">신규일자</span>
+																<span class="value">0000.00.00</span>
+															</li>
+															<li>
+																<span class="tit">출금가능금액</span>
+																<span class="value"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+															</li>
+														</ul>
+													</div>
+													<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+												</div>
+											</div>
+											<!-- // -->
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+				</div>
+
+				<!-- ### 계좌 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">계좌</h4>
+					<!-- // -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h5 class="accName">
+									별명 또는 계좌명
+									<span class="acBookmark"><span class="blind">즐겨찾기</span></span>
+									<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+								</h5>
+								<dl class="totalBalance">
+									<dt>총 잔액</dt>
+									<dd>
+										<strong>1,000,000</strong>원
+										<span class="remitWrap"><button type="button" class="contBtn03 ml12">이체</button></span>
+									</dd>
+								</dl>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">입출금</span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">상품명</span>
+									</li>
+									<li>
+										<span class="tit">자동이체</span>
+										<span class="value">N건<button type="button" class="contBtnArrow">자동이체 상세보기</button></span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li>
+											<span class="tit">계좌번호</span>
+											<span class="value">03580204123456  <button type="button" class="contBtn01" title="계좌번호 복사">복사</button></span>
+										</li>
+										<li>
+											<span class="tit">신규일자</span>
+											<span class="value">0000.00.00</span>
+										</li>
+										<li>
+											<span class="tit">출금가능금액</span>
+											<span class="value"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h5 class="accName">
+									별명 또는 계좌명
+									<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+								</h5>
+								<dl class="totalBalance">
+									<dt>총 잔액
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">환율 안내 툴팁 열기</span></button>
+											<div class="tooltipCont">
+												<p>전일 환율을 반영하여 당시 환율을 반영한 거래내역과 다를 수 있습니다.</p>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+									</dt>
+									<dd><strong>1,000,000</strong>원</dd>
+								</dl>
+								<div class="etcInfo">만기일 <em>D-DAY</em></div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">외화&gt;예금</span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">상품명</span>
+									</li>
+									<li>
+										<span class="tit">회차정보</span>
+										<span class="value">00건
+											<button type="button" class="contBtnArrow" title="회차정보 더보기">더보기</button>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+				</div>
+
+				<!-- ### 투자 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">투자</h4>
+					<!-- // -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo">
+								<h5 class="accName">
+									종목명
+									<img src="../../images/logos/AAEY0000.png" alt="삼성증권" class="imgLogo">
+								</h5>
+								<dl class="totalBalance">
+									<dt>평가금액</dt>
+									<dd><strong>1,000,000</strong>원</dd>
+								</dl>
+								<div class="etcInfo compare">
+									평가손익
+									<div class="tooltipWrap">
+										<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가손익 툴팁 열기</span></button>
+										<div class="tooltipCont">
+											<p>평가손익과 수익률은 예상 수익으로 실제와 상이할 수 있습니다.</p>
+											<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+										</div>
+									</div>
+									<span class="arrowUp" role="img" aria-label="증가"><em class="blind">증가</em></span>
+									<span class="amount"><strong>000</strong>원 (+<strong class="dataValue">0.00</strong><em class="won">%</em>)</span>
+								</div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">투자&gt;국내주식</span>
+									</li>
+								</ul>
+							</div>
+							<div class="inputListArea mt20">
+								<span class="tit pointColor11">기관별 검색</span>
+								<div class="inputList">
+									<a href="javascript:;" title="기관별 검색" aria-haspopup="true">
+										<span class="selectValue">전체</span>
+										<span class="selectBtn"></span>
+									</a>
+									<select name="" title="선택해주세요">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none;">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo">
+								<h5 class="accName">
+									한국투자미국배당귀족증권자투자신탁[USD][주식]ClassA
+									<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+								</h5>
+								<dl class="totalBalance">
+									<dt>평가금액
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가금액안내 툴팁 열기</span></button>
+											<div class="tooltipCont">
+												<p>평가금액이 외화인 경우, 전일 매매기준율로 환산합니다.</p>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+									</dt>
+									<dd><strong>1,000,000</strong>원</dd>
+								</dl>
+			
+								<div class="etcInfo compare">
+									평가손익
+									<div class="tooltipWrap">
+										<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가손익 툴팁 열기</span></button>
+										<div class="tooltipCont">
+											<p>평가손익과 수익률은 예상 수익으로 실제와 상이할 수 있습니다.</p>
+											<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+										</div>
+									</div>
+									<span class="arrowDown" role="img" aria-label="감소"><em class="blind">감소</em></span>
+									<span class="amount"><strong>000</strong>원 (-<strong class="dataValue">0.00</strong><em class="won">%</em>)</span>
+								</div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">투자&gt;펀드</span>
+									</li>
+								</ul>
+							</div>
+							<div class="inputListArea mt20">
+								<span class="tit pointColor11">계좌별 검색</span>
+								<div class="inputList">
+									<a href="javascript:;" title="계좌별 검색" aria-haspopup="true">
+										<span class="selectValue">전체</span>
+										<span class="selectBtn"></span>
+									</a>
+									<select name="" title="선택해주세요">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none;">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap pb10">
+							<div class="accTopInfo">
+								<h5 class="accName">
+									일임형 개인종합자산관리계좌(ISA)
+									<img src="../../images/logos/AABG0000.png" alt="농협은행 로고" class="imgLogo">
+								</h5>
+								<dl class="totalBalance">
+									<dt>평가금액</dt>
+									<dd><strong>1,000,000</strong>원</dd>
+								</dl>
+			
+								<div class="etcInfo compare">
+									평가손익
+									<div class="tooltipWrap">
+										<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가손익 툴팁 열기</span></button>
+										<div class="tooltipCont">
+											<p>평가손익과 수익률은 예상 수익으로 실제와 상이할 수 있습니다.</p>
+											<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+										</div>
+									</div>
+									<span class="arrowNone"><em class="blind">없음</em></span>
+									<span class="amount"><strong>0</strong>원</span>
+								</div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">투자 &gt; 신탁/ISA</span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">$신탁 계좌명$</span>
+									</li>
+									<li>
+										<span class="tit">잔액</span>
+										<span class="value"><strong class="dataValue">6,399,000</strong><em class="won">원</em></span>
+									</li>
+									<li>
+										<span class="tit">개설일</span>
+										<span class="value">2020.07.21</span>
+									</li>
+									<li>
+										<span class="tit">만기일</span>
+										<span class="value">2020.07.21</span>
+									</li>
+									<li>
+										<span class="tit">운용상품 현황</span>
+										<span class="value">N개
+											<button type="button" class="contBtnArrow" title="운용상품 더보기">더보기</button>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo">
+								<h2 class="accName">
+									카카오페이증권
+									<img src="../../images/logos/AAGU0000.png" alt="" class="imgLogo">
+								</h2>
+								<dl class="totalBalance">
+									<dt>예수금
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">예수금 안내 툴팁 열기</span></button><!-- [접근성_2024]  대체텍스트가 부적절하게 제공된 컨트롤 : 텍스트 변경 -->
+											<div class="tooltipCont">
+												<p>예수금이 외화인 경우, 전일 매매기준율로 환산합니다.</p>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+									</dt>
+									<dd><strong>1,000,000</strong>원</dd>
+								</dl>
+							</div>		
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">기타상품 &gt; 예수금</span>
+									</li>
+								</ul>
+							</div>
+							<div class="inputListArea mt20">
+								<span class="tit pointColor11">계좌별 검색</span>
+								<div class="inputList">
+									<a href="javascript:;" title="계좌별 검색" aria-haspopup="true">
+										<span class="selectValue">전체</span>
+										<span class="selectBtn"></span>
+									</a>
+									<select name="" title="선택해주세요">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none;">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li>
+											<span class="tit">계좌번호</span>
+											<span class="value">3021417655471 <button type="button" class="contBtn01" title="계좌번호 복사">복사</button></span>
+										</li>
+										<li>
+											<span class="tit">신규일자</span>
+											<span class="value">2020.04.20</span>
+										</li>
+									</ul>
+									<hr class="divLine05" aria-hidden="true">
+									<ul class="detailList">
+										<li>
+											<span class="tit">예수금(KRW) </span>
+											<span class="value"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+					<hr class="guide_line mt25 mb25">
+					<!-- // -->
+					<h5 class="guide_title4">배당내역</h5>
+					<div class="boxWrapShadow astfixed">
+						<div class="boxTypeWrap pb0">
+							<div class="accTopInfo baedangBg">
+								<dl class="totalBalance bigSize">
+									<dt class="foSt">나의 최근 배당내역</dt>
+									<dd><em class="chong">총</em><strong class="dataValue">1,000,000</strong><em class="won">원</em></dd>
+								</dl>
+								<p class="timeTxt">조회기간 : 0000.00.00 ~ 0000.00.00</p>
+							</div>
+							<hr class="divLine mt10">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">국내</span>
+										<span class="value"><strong class="dataValue">90,000</strong><em class="won">원</em></span>
+									</li>
+									<li>
+										<span class="tit">해외</span>
+										<div class="dspb">
+											<span class="value"><strong class="dataValue">100</strong><em class="won">원</em></span>
+											<span class="value"><strong class="dataValue">USD 100</strong></span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 부채 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">부채</h4>
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h5 class="accName">
+									별명 및 계좌명
+									<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+								</h5>
+								<dl class="totalBalance">
+									<dt>대출잔액</dt>
+									<dd><strong>100,000,000</strong>원</dd>
+								</dl>
+								<div class="etcInfo">
+									금리 <strong class="dataValue">00.00</strong><em class="won">%</em>
+								</div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">담보대출 &gt; 담보대출</span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">상품명</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h5 class="accName">
+									별명 또는 상품명
+									<img src="../../images/logos/AAHC0000.png" alt="오케이파이낸셜대부" class="imgLogo">
+								</h5>
+								<div class="etcInfo">만기일 <em>D-000</em></div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">운용리스 </span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">상품명</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+
+					<h5 class="guide_title4">학자금대출</h5>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="boxTypeWrap">
+											<div class="accTopInfo mt0">
+												<h2 class="accName">
+													한국장학재단
+													<img src="../../images/logos/AAOV0000.png" alt="" class="imgLogo">
+												</h2>
+												<dl class="totalBalance">
+													<dt>남은 학자금 대출</dt>
+													<dd><strong>400,000,000</strong>원</dd>
+												</dl>
+								
+												<!-- [차트영역] -->
+												<div class="areaChart2 t3">
+													<div class="chart"><span style="width:0%;"></span></div>
+													<ul class="item1">
+														<li>
+															<p><span>총 신용한도</span><span class="dataValue">000,000,000</span><em class="won">원</em></p>
+														</li>
+														<li style="--el-width:0%;"><span>0% 갚음</span></li> <!-- [D] 차트와 동일한 %적용 : --el-width:50%; -->
+													</ul>
+												</div>
+												<!-- // -->
+											</div>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="boxTypeWrap">
+						<div class="accTopInfo mt0">
+							<h6 class="accName">
+								한국장학재단
+								<img src="../../images/logos/AAOV0000.png" alt="" class="imgLogo">
+							</h6>
+							<dl class="totalBalance">
+								<dt>남은 학자금 대출</dt>
+								<dd><strong>400,000,000</strong>원</dd>
+							</dl>
+							<div class="areaChart2 t3">
+								<div class="chart"><span style="width:18.5%;"></span></div>
+								<ul class="item1">
+									<li>
+										<p><span>총 신용한도</span><span class="dataValue">000,000,000</span><em class="won">원</em></p>
+									</li>
+									<li style="--el-width:18.5%;"><span>18.5% 갚음</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<h5 class="guide_title4">학자금대출_상세</h5>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="boxWrapShadow">
+											<!-- [기본내용] -->
+											<div class="boxTypeWrap delShadow">
+												<div class="accTopInfo mt0">
+													<dl class="totalBalance t3">
+														<dt><span>2019년 1학기 등록금</span><span>남은금액</span></dt>
+														<dd><strong>4,200,000</strong>원</dd>
+													</dl>
+													<div class="wrapTag">
+														<span class="type01 radius4">#취업 후 상환</span><span class="type02 radius4">#금리 1.7%</span>
+													</div>
+												</div>
+											</div>
+
+											<!-- [상세정보] -->
+											<div class="moreInfoArea">
+												<div class="moreInfoWrap toggleWrap">
+													<div class="moreInfo toggleCont" style="display:none">
+														<hr class="divLine2" aria-hidden="true">
+														<ul class="detailList">
+															<li>
+																<div class="tit">종류</div>
+																<div class="value dataWord1">
+																	<span>1학기 취업 후 상환</span>
+																	<span>등록금</span>
+																</div>
+															</li>
+															<li>
+																<div class="tit">빌린금액</div>
+																<div class="value"><strong class="dataValue">1,189,500</strong><em class="won">원</em></div>
+															</li>
+															<li>
+																<div class="tit">갚은금액</div>
+																<div class="value"><strong class="dataValue">1,189,500</strong><em class="won">원</em></div>
+															</li>
+															<li>
+																<div class="tit">기간
+																	<div class="tooltipWrap">
+																		<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">취업 후 상환대출 안내 툴팁 열기</span></button>
+																		<div class="tooltipCont">
+																			<p>취업 후 상환 대출은 일정 소득이 생기면 갚기 시작해요. 소득에 따라 갚아야 하는 기간과 금액이 달라져요.</p>     
+																			<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">취업 후 상환대출 안내 툴팁 닫기</span></button>
+																		</div>
+																	</div>
+																</div>
+																<div class="value">2019.3.30 ~</div>
+															</li>
+															<li>
+																<div class="tit">현재금리</div>
+																<div class="value">1.7%</div>
+															</li>
+															<li>
+																<div class="tit">상태</div>
+																<div class="value">
+																	<div class="pointColor05">상환중</div>
+																</div>
+															</li>
+															<li>
+																<div class="tit">정기 상환 방법
+																	<div class="tooltipWrap">
+																		<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">정기 상환 방법이란? 툴팁 열기</span></button>
+																		<div class="tooltipCont">
+																			<p>취업 후 상환 학자금 대출은 일정 기준 이상 연소득 발생 등 의무적 상환 대상자가 되실 경우, 고객님께서 다니고 계시는 회사에서 월급의 일부를 공제하여 국세청에 대신 납부하는 것이 기본이에요.</p>
+																			<p class="mt10">매월 공제되는 것을 원치 않으시는 경우 국세청 혹은 한국장학재단을 통해 5월 말까지 의무상환액 1년치 전액을 전부 납부하거나 5월 말과 11월 말 절반씩 나누어 미리 납부할 수도 있어요.</p>
+																			<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">정기 상환 방법이란? 툴팁 닫기</span></button>
+																		</div>
+																	</div>
+																</div>
+																<div class="value">직접 납부</div>
+															</li>
+														</ul>
+													</div>
+													<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button> <!--09.21 toggleTxt07 수정-->
+												</div>
+											</div>
+											<!-- // -->
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<!-- // -->
+							<div class="accTopInfo mt0">
+								<dl class="totalBalance t3">
+									<dt><span>2019년 1학기 등록금</span><span>남은금액</span></dt>
+									<dd><strong>4,200,000</strong>원</dd>
+								</dl>
+								<div class="wrapTag">
+									<span class="type01 radius4">#취업 후 상환</span><span class="type02 radius4">#금리 1.7%</span>
+								</div>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li>
+											<div class="tit">종류</div>
+											<div class="value dataWord1">
+												<span>1학기 취업 후 상환</span>
+												<span>등록금</span>
+											</div>
+										</li>
+										<li>
+											<div class="tit">빌린금액</div>
+											<div class="value"><strong class="dataValue">1,189,500</strong><em class="won">원</em></div>
+										</li>
+										<li>
+											<div class="tit">갚은금액</div>
+											<div class="value"><strong class="dataValue">1,189,500</strong><em class="won">원</em></div>
+										</li>
+										<li>
+											<div class="tit">기간
+												<div class="tooltipWrap">
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">취업 후 상환대출 안내 툴팁 열기</span></button>
+													<div class="tooltipCont">
+														<p>취업 후 상환 대출은 일정 소득이 생기면 갚기 시작해요. 소득에 따라 갚아야 하는 기간과 금액이 달라져요.</p>     
+														<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">취업 후 상환대출 안내 툴팁 닫기</span></button>
+													</div>
+												</div>
+											</div>
+											<div class="value">2019.3.30 ~</div>
+										</li>
+										<li>
+											<div class="tit">현재금리</div>
+											<div class="value">1.7%</div>
+										</li>
+										<li>
+											<div class="tit">상태</div>
+											<div class="value">
+												<div class="pointColor05">상환중</div>
+											</div>
+										</li>
+										<li>
+											<div class="tit">정기 상환 방법
+												<div class="tooltipWrap">
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">정기 상환 방법이란? 툴팁 열기</span></button>
+													<div class="tooltipCont">
+														<p>취업 후 상환 학자금 대출은 일정 기준 이상 연소득 발생 등 의무적 상환 대상자가 되실 경우, 고객님께서 다니고 계시는 회사에서 월급의 일부를 공제하여 국세청에 대신 납부하는 것이 기본이에요.</p>
+														<p class="mt10">매월 공제되는 것을 원치 않으시는 경우 국세청 혹은 한국장학재단을 통해 5월 말까지 의무상환액 1년치 전액을 전부 납부하거나 5월 말과 11월 말 절반씩 나누어 미리 납부할 수도 있어요.</p>
+														<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">정기 상환 방법이란? 툴팁 닫기</span></button>
+													</div>
+												</div>
+											</div>
+											<div class="value">직접 납부</div>
+										</li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button> <!--09.21 toggleTxt07 수정-->
+							</div>
+						</div>
+						<!-- // -->
+					</div>
+				</div>
+
+				<!-- ### 연금 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">연금</h4>
+
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo">
+								<h5 class="accName">
+									별명 또는 상품명
+									<img src="../../images/logos/AABU0000.png" alt="기업은행" class="imgLogo">
+								</h5>
+								<dl class="totalBalance">
+									<dt>평가금액
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가금액 안내 툴팁 열기</span></button>
+											<div class="tooltipCont">
+												<p>투자내역이 없는 경우, 평가금액이 0원으로 표시됩니다.</p>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+									</dt>
+									<dd><strong>1,000,000</strong>원</dd>
+								</dl>
+								<div class="etcInfo compare">
+									평가손익
+									<div class="tooltipWrap">
+										<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가손익 툴팁 열기</span></button>
+										<div class="tooltipCont">
+											<p>평가손익과 수익률은 예상 수익으로 실제와 상이할 수 있습니다.</p>
+											<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+										</div>
+									</div>
+									<span class="arrowUp" role="img" aria-label="증가"><em class="blind">증가</em></span>
+									<span class="amount"><strong>000</strong>원 (+<strong class="dataValue">0.00</strong><em class="won">%</em>)</span>
+								</div>
+								<div class="wrapTag">
+									<span class="type01 radius4">#세제혜택</span>
+								</div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">개인연금&gt;연금저축펀드</span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">상품명</span>
+									</li>
+									<li>
+										<span class="tit">운용상품 현황</span>
+										<span class="value">N개
+											<button type="button" class="contBtnArrow" title="운용상품 더보기">더보기</button>
+										</span>
+									</li>
+									<li>
+										<span class="tit">자동이체</span>
+										<span class="value">N건
+											<button type="button" class="contBtnArrow">자동이체 상세보기</button>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none;">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap pb10">
+							<div class="accTopInfo">
+								<h5 class="accName">
+									별명 또는 상품명
+									<img src="../../images/logos/AABG0000.png" alt="기업은행 로고" class="imgLogo">
+								</h5>
+								<dl class="totalBalance">
+									<dt>평가금액
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가금액 안내 툴팁 열기</span></button>
+											<div class="tooltipCont">
+												<p>투자내역이 없는 경우, 평가금액이 0원으로 표시됩니다.</p>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+									</dt>
+									<dd><strong>1,000,000</strong>원</dd>
+								</dl>
+								<div class="etcInfo compare">
+									평가손익
+									<div class="tooltipWrap">
+										<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가손익 툴팁 열기</span></button>
+										<div class="tooltipCont">
+											<p>평가손익과 수익률은 예상 수익으로 실제와 상이할 수 있습니다.</p>
+											<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+										</div>
+									</div>
+									<span class="arrowDown" role="img" aria-label="감소"><em class="blind">감소</em></span>
+									<span class="amount"><strong>000</strong>원 (-<strong class="dataValue">0.00</strong><em class="won">%</em>)</span>
+								</div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">개인연금&gt;DC형</span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">DC형 퇴직연금 상품명</span>
+									</li>
+									<li>
+										<span class="tit">계좌잔액</span>
+										<span class="value"><strong class="dataValue">96,000</strong><em class="won">원</em></span>
+									</li>
+									<li>
+										<span class="tit">개설일</span>
+										<span class="value">2020.07.21</span>
+									</li>
+									<li>
+										<span class="tit">운용상품 현황</span>
+										<span class="value">N개
+											<button type="button" class="contBtnArrow" title="운용상품 더보기">더보기</button><!--09.26 수정-->
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 선불페이 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">선불페이 &middot; 카드</h4>
+					<!-- // -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h2 class="accName">
+									네이버파이낸셜
+									<img src="../../images/logos/AAHY0000.png" alt="" class="imgLogo">
+								</h2>
+								<dl class="totalBalance">
+									<dt>총 잔액</dt>
+									<dd><strong>1,000,000</strong>원</dd>
+								</dl>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">선불페이</span>
+									</li>
+								</ul>
+							</div>
+							<div class="inputListArea">
+								<span class="tit">권면정보</span>
+								<div class="inputList">
+									<a href="javascript:;" title="권면정보선택" aria-haspopup="true">
+										<span class="selectValue">네이버페이 포인트</span>
+										<span class="selectBtn"></span>
+									</a>
+									<select name="" title="선택해주세요">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							<div class="inputListArea">
+								<span class="tit">연결계정</span>
+								<div class="inputList">
+									<a href="javascript:;" title="연결계정 선택" aria-haspopup="true">
+										<span class="selectValue">jwl0****</span>
+										<span class="selectBtn"></span>
+									</a>
+									<select name="" title="선택해주세요">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h2 class="accName">
+									우리카드
+									<img src="../../images/logos/AAAH0000.png" alt="" class="imgLogo">
+								</h2>
+								<dl class="totalBalance">
+									<dt>총 잔액</dt>
+									<dd><strong>1,000,000</strong>원</dd>
+								</dl>
+							</div>		
+							<hr class="divLine">
+							<div class="accInfoDetail mt10">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">선불카드</span>
+									</li>
+								</ul>
+							</div>
+							<div class="inputListArea">
+								<span class="tit">카드정보</span>
+								<div class="inputList">
+									<a href="javascript:;" title="카드정보선택" aria-haspopup="true">
+										<span class="selectValue">1234****</span>
+										<span class="selectBtn"></span>
+									</a>
+									<select name="" title="선택해주세요">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button> <!--09.26 toggleTxt07 추가-->
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+				</div>
+
+				<!-- ### 보험 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">보험</h4>
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h5 class="accName">
+									별명 또는 보험상품명
+									<img src="../../images/logos/AAAR0000.png" alt="삼성생명" class="imgLogo">
+								</h5>
+								<dl class="totalBalance">
+									<dt>보험료</dt>
+									<dd>매월마다 <strong>1,000,000</strong>원</dd>
+								</dl>
+								<div class="wrapTag">
+									<span class="type01 radius4">#갱신형</span>
+									<span class="type02 radius4">#변액보험</span>
+									<span class="type03 radius4">#유니버셜</span>
+								</div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">질병보험&gt;종합보장보험</span>
+									</li>
+									<li>
+										<span class="tit">피보험자</span>
+										<span class="value">홍*동 외 5명</span>
+									</li>
+									<li>
+										<span class="tit">보장내역</span>
+										<span class="value">N건
+											<button type="button" class="contBtnArrow" title="보장내역 더보기">더보기</button>
+										</span>
+									</li>
+									<li>
+										<span class="tit">특약정보</span>
+										<span class="value">N건
+											<button type="button" class="contBtnArrow" title="특약정보 더보기">더보기</button>
+										</span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">상품명</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo">
+								<h5 class="accName">
+									별명 또는 보험상품명
+									<img src="../../images/logos/AAAT0000.png" alt="롯데손해보험" class="imgLogo">
+								</h5>
+								<div class="etcInfo ty01">
+									<span class="carNum">123가1234</span> | <span class="carName">G4 렉스턴</span>
+								</div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">
+											자동차보험&gt;종합보장보험
+										</span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">상품명</span>
+									</li>
+									<li>
+										<span class="tit">보장내역</span>
+										<span class="value">10건
+											<button type="button" class="contBtnArrow" title="보장내역 더보기">더보기</button>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h5 class="accName">
+									별명 또는 보험상품명
+									<img src="../../images/logos/AAAT0000.png" alt="롯데손해보험" class="imgLogo">
+								</h5>
+								<div class="wrapTag mt20">
+									<span class="type01 radius4">#갱신형</span>
+								</div>
+							</div>
+							<hr class="divLine">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="tit">유형</span>
+										<span class="value">$보험 유형$</span>
+									</li>
+									<li>
+										<span class="tit">피보험자</span>
+										<span class="value">홍*동 외 N명</span>
+									</li>
+									<li>
+										<span class="tit">피보험물</span>
+										<span class="value">가나다라 외 N건</span>
+									</li>
+									<li>
+										<span class="tit">목적물수</span>
+										<span class="value">N건
+											<button type="button" class="contBtnArrow" aria-haspopup="true" title="목적물 더보기">더보기</button></button>
+										</span>
+									</li>
+									<li>
+										<span class="tit">보장내역</span>
+										<span class="value">N건
+											<button type="button" class="contBtnArrow" aria-haspopup="true" title="보장내역 더보기">더보기</button></button>
+										</span>
+									</li>
+									<li>
+										<span class="tit">특약정보</span>
+										<span class="value">N건
+											<button type="button" class="contBtnArrow" aria-haspopup="true" title="특약정보 더보기">더보기</button>
+										</span>
+									</li>
+									<li>
+										<span class="tit">상품명</span>
+										<span class="value">상품명</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] 승인정보 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2 : 승인정보</h3>
+
+				<!-- ### 기본구조 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title4">기본구조</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="boxWrapShadow">
+											<!-- [승인정보] -->
+											<div class="boxTypeWrap delShadow">
+												<!-- // -->
+												<div class="accTopInfo mt0">
+													<h2 class="accName totalBalance mt0">
+														한솥도시락
+														<span class="imgWrap icoCate">
+															<span class="img"><img src="../../images/category/cs/ico_cate_cs01.png" alt="외식"></span>
+														</span>
+													</h2>
+													<dl class="totalBalance">
+														<dt class="mb10">2022.07.19 20:00:28</dt>
+														<dd><strong>-14,000</strong>원<button type="button" class="cs_money_retail"><span class="blind">금액수정</span></button></dd>
+													</dl>
+													<p class="subTxt mt10 pointColor21">원래 금액으로 되돌리기<button type="button" class="cs_upDate"><span class="blind">되돌리기</span></button></p> <!-- [D] 금액수정시 노출 -->
+												</div>
+												<!-- // -->
+								
+												<hr class="divLine" aria-hidden="true">
+								
+												<!-- // -->
+												<div class="accInfoDetail">
+													<ul class="detailList">
+														<li>
+															<span class="cs tit">카테고리</span>
+															<span class="value">소비&gt;외식&gt;한식<button type="button" class="cs_money_retail ml5"><span class="blind">카테고리수정</span></button></span>
+														</li>
+														<li>
+															<span class="cs tit">결제수단</span>
+															<span class="value">카카오뱅크 롯데카드</span>
+														</li>
+													</ul>
+												</div>
+												<!-- // -->
+											</div>
+								
+											<!-- [거래상세정보] -->
+											<div class="moreInfoArea">
+												<!-- // -->
+												<div class="moreInfoWrap toggleWrap">
+													<div class="moreInfo toggleCont" style="display:none">
+														<div class="csMoreDetailWrap">
+															<ul class="detailList">
+																<li>
+																	<div class="tit">승인금액
+																		<div class="tooltipWrap">
+																			<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금액수정 안내 툴팁 열기</span></button>
+																			<div class="tooltipCont">
+																				<p>금액 수정 시, 실제 승인금액은 변경되지 않습니다.</p>
+																				<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+																			</div>
+																		</div>
+																	</div>
+																	<span class="value">-14,000원</span>
+																</li>
+																<li>
+																	<span class="tit">승인상태</span>
+																	<span class="value">승인</span>
+																</li>
+																<li>
+																	<span class="tit">결제방법</span>
+																	<span class="value">일시불</span>
+																</li>
+																<li>
+																	<span class="tit">승인번호</span>
+																	<span class="value">07076458</span>
+																</li>
+															</ul>
+														</div>
+													</div>
+													<button type="button" class="moreOpenBtn toggleBtn" aria-expanded="false" role="button"><span class="toggleTxt07">상세정보 보기</span></button>
+												</div>
+												<!-- // -->
+											</div>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h5 class="accName totalBalance mt0">
+									한솥도시락
+									<span class="imgWrap icoCate">
+										<span class="img"><img src="../../images/category/cs/ico_cate_cs01.png" alt="외식"></span>
+									</span>
+								</h5>
+								<dl class="totalBalance">
+									<dt class="mb10">2022.07.19 20:00:28</dt>
+									<dd><strong>-14,000</strong>원<button type="button" class="cs_money_retail"><span class="blind">금액수정</span></button></dd>
+								</dl>
+								<p class="subTxt mt10 pointColor21">원래 금액으로 되돌리기<button type="button" class="cs_upDate"><span class="blind">되돌리기</span></button></p> <!-- [D] 금액수정시 노출 -->
+							</div>
+							<hr class="divLine" aria-hidden="true">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="cs tit">카테고리</span>
+										<span class="value">소비&gt;외식&gt;한식<button type="button" class="cs_money_retail ml5"><span class="blind">카테고리수정</span></button></span>
+									</li>
+									<li>
+										<span class="cs tit">결제수단</span>
+										<span class="value">카카오뱅크 롯데카드</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<div class="csMoreDetailWrap">
+										<ul class="detailList">
+											<li>
+												<div class="tit">승인금액
+													<div class="tooltipWrap">
+														<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금액수정 안내 툴팁 열기</span></button>
+														<div class="tooltipCont">
+															<p>금액 수정 시, 실제 승인금액은 변경되지 않습니다.</p>
+															<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+														</div>
+													</div>
+												</div>
+												<span class="value">-14,000원</span>
+											</li>
+											<li>
+												<span class="tit">승인상태</span>
+												<span class="value">승인</span>
+											</li>
+											<li>
+												<span class="tit">결제방법</span>
+												<span class="value">일시불</span>
+											</li>
+											<li>
+												<span class="tit">승인번호</span>
+												<span class="value">07076458</span>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn" aria-expanded="false" role="button"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 승인취소 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">승인취소</h4>
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h5 class="accName totalBalance mt0">
+									한솥도시락
+									<span class="imgWrap icoCate">
+										<span class="img"><img src="../../images/category/cs/ico_cate_cs01.png" alt="외식"></span>
+									</span>
+								</h5>
+								<dl class="totalBalance">
+									<dt class="mb10">2022.07.19 20:00:28</dt>
+									<dd><strong class="cscancel">-14,000</strong>원</dd>
+								</dl>
+							</div>
+							<hr class="divLine" aria-hidden="true">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="cs tit">카테고리</span>
+										<span class="value">소비&gt;외식&gt;한식<button type="button" class="cs_money_retail ml5"><span class="blind">카테고리수정</span></button></span>
+									</li>
+									<li>
+										<span class="cs tit">결제수단</span>
+										<span class="value">카카오뱅크 롯데카드</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<div class="csMoreDetailWrap">
+										<ul class="detailList">
+											<li><div class="guide_empty">상세정보내용노출</div></li>
+										</ul>
+									</div>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn" aria-expanded="false" role="button"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+			
+				</div>
+
+				<!-- ### 복합결제 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">복합결제</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="boxWrapShadow">
+											<!-- [승인정보] -->
+											<div class="boxTypeWrap delShadow">
+												<!-- // -->
+												<div class="accTopInfo mt0">
+													<h2 class="accName totalBalance mt0">
+														11번가
+														<span class="imgWrap icoCate"><span class="img"><img src="../../images/category/cs/ico_cate_cs05.png" alt="온라인쇼핑"></span></span>
+													</h2>
+													<dl class="totalBalance">
+														<dt class="mb10">2022.07.19 20:00:28</dt>
+														<dd><strong>-110,000</strong>원<button type="button" class="cs_money_retail"><span class="blind">금액수정</span></button></dd>
+													</dl>
+													<p class="subTxt mt10 pointColor21">원래 금액으로 되돌리기<button type="button" class="cs_upDate"><span class="blind">되돌리기</span></button></p>
+												</div>
+												<!-- // -->
+								
+												<hr class="divLine" aria-hidden="true">
+								
+												<!-- // -->
+												<div class="accInfoDetail">
+													<ul class="detailList">
+														<li>
+															<span class="cs tit">카테고리</span>
+															<span class="value">소비&gt;온라인쇼핑&gt;인터넷쇼핑<button type="button" class="cs_money_retail ml5"><span class="blind">카테고리수정</span></button></span>
+														</li>
+														<li>
+															<span class="cs tit">결제수단</span>
+															<span class="value">복합결제</span>
+														</li>
+														<li>
+															<span class="cs tit">페이결제기관</span>
+															<span class="value">네이버</span>
+														</li>
+													</ul>
+												</div>
+												<!-- // -->
+											</div>
+								
+											<!-- [거래상세정보] -->
+											<div class="moreInfoArea">
+												<!-- // -->
+												<div class="moreInfoWrap toggleWrap">
+													<div class="moreInfo toggleCont" style="display:none">
+														<div class="csMoreDetailWrap t1">
+															<!-- [샘플] 카드 간편결제  -->
+															<div class="data1">
+																<!-- // -->
+																<dl>
+																	<dt>결제수단</dt>
+																	<dd>현대카드ZERO Edition2(포인트형)</dd>
+																</dl>
+																<!-- // -->
+																<ul class="detailList">
+																	<li>
+																		<div class="tit">결제금액
+																			<div class="tooltipWrap">
+																				<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금액수정안내 툴팁 열기</span></button>
+																				<div class="tooltipCont">
+																					<p>금액 수정 시, 실제 승인금액은 변경되지 않습니다.</p>
+																					<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">금액수정안내 툴팁 닫기</span></button>
+																				</div>
+																			</div>
+																		</div>
+																		<span class="value">-40,000원</span>
+																	</li>
+																	<li>
+																		<span class="tit">결제상태</span>
+																		<span class="value">결제 (YYYY.MM.DD)</span> <!-- [D] 부분 취소일 경우에만 날짜 노출 -->
+																	</li>
+																	<li>
+																		<span class="tit">승인번호</span>
+																		<span class="value">12345678</span>
+																	</li>
+																</ul>
+																<!-- // -->
+															</div>
+								
+															<!-- [샘플] N pay 머니  -->
+															<div class="data1">
+																<dl>
+																	<dt>결제수단</dt>
+																	<dd>N pay 머니</dd>
+																</dl>
+																<ul class="detailList">
+																	<li>
+																		<div class="tit">결제금액
+																			<div class="tooltipWrap">
+																				<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금액수정안내 툴팁 열기</span></button>
+																				<div class="tooltipCont">
+																					<p>금액 수정 시, 실제 승인금액은 변경되지 않습니다.</p>
+																					<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">금액수정안내 툴팁 닫기</span></button>
+																				</div>
+																			</div>
+																		</div>
+																		<span class="value">-25,000원</span>
+																	</li>
+																	<li>
+																		<span class="tit">결제상태</span>
+																		<span class="value">결제</span>
+																	</li>
+																</ul>
+															</div>
+															<!-- // -->
+														</div>
+													</div>
+													<button type="button" class="moreOpenBtn toggleBtn" aria-expanded="false" role="button"><span class="toggleTxt07">상세보기</span></button>
+												</div>
+												<!-- // -->
+											</div>
+											<!-- // -->
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="accTopInfo mt0">
+								<h5 class="accName totalBalance mt0">
+									11번가
+									<span class="imgWrap icoCate"><span class="img"><img src="../../images/category/cs/ico_cate_cs05.png" alt="온라인쇼핑"></span></span>
+								</h5>
+								<dl class="totalBalance">
+									<dt class="mb10">2022.07.19 20:00:28</dt>
+									<dd><strong>-110,000</strong>원<button type="button" class="cs_money_retail"><span class="blind">금액수정</span></button></dd>
+								</dl>
+								<p class="subTxt mt10 pointColor21">원래 금액으로 되돌리기<button type="button" class="cs_upDate"><span class="blind">되돌리기</span></button></p>
+							</div>
+							<hr class="divLine" aria-hidden="true">
+							<div class="accInfoDetail">
+								<ul class="detailList">
+									<li>
+										<span class="cs tit">카테고리</span>
+										<span class="value">소비&gt;온라인쇼핑&gt;인터넷쇼핑<button type="button" class="cs_money_retail ml5"><span class="blind">카테고리수정</span></button></span>
+									</li>
+									<li>
+										<span class="cs tit">결제수단</span>
+										<span class="value">복합결제</span>
+									</li>
+									<li>
+										<span class="cs tit">페이결제기관</span>
+										<span class="value">네이버</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:block">
+									<div class="csMoreDetailWrap t1">
+										<div class="data1">
+											<dl>
+												<dt>결제수단</dt>
+												<dd>현대카드ZERO Edition2(포인트형)</dd>
+											</dl>
+											<ul class="detailList">
+												<li>
+													<div class="tit">결제금액
+														<div class="tooltipWrap">
+															<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금액수정안내 툴팁 열기</span></button>
+															<div class="tooltipCont">
+																<p>금액 수정 시, 실제 승인금액은 변경되지 않습니다.</p>
+																<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">금액수정안내 툴팁 닫기</span></button>
+															</div>
+														</div>
+													</div>
+													<span class="value">-40,000원</span>
+												</li>
+												<li>
+													<span class="tit">결제상태</span>
+													<span class="value">결제 (YYYY.MM.DD)</span>
+												</li>
+												<li>
+													<span class="tit">승인번호</span>
+													<span class="value">12345678</span>
+												</li>
+											</ul>
+										</div>
+										<div class="data1">
+											<dl>
+												<dt>결제수단</dt>
+												<dd>N pay 머니</dd>
+											</dl>
+											<ul class="detailList">
+												<li>
+													<div class="tit">결제금액
+														<div class="tooltipWrap">
+															<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금액수정안내 툴팁 열기</span></button>
+															<div class="tooltipCont">
+																<p>금액 수정 시, 실제 승인금액은 변경되지 않습니다.</p>
+																<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">금액수정안내 툴팁 닫기</span></button>
+															</div>
+														</div>
+													</div>
+													<span class="value">-25,000원</span>
+												</li>
+												<li>
+													<span class="tit">결제상태</span>
+													<span class="value">결제</span>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn active less" aria-expanded="true" role="button"><span class="toggleTxt07">접기</span></button>
+							</div>
+						</div>
+					</div>
+					<!-- | // | -->
+				</div>
+
+				<!-- ### 현금 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">현금</h4>
+					<!-- // -->
+					<div class="boxTypeWrap pb0">
+						<div class="accTopInfo mt0">
+							<h5 class="accName totalBalance mt0">
+								복권
+								<span class="imgWrap icoCate"><span class="img"><img src="../../images/category/cs/ico_cate_cs18.png" alt="소비 기타"></span></span>
+							</h5>
+							<dl class="totalBalance">
+								<dt class="mb10">2022.07.19 20:00:28</dt>
+								<dd><strong>-120,000</strong>원<button type="button" class="cs_money_retail"><span class="blind">금액수정</span></button></dd>
+							</dl>
+						</div>
+						<hr class="divLine" aria-hidden="true">
+						<div class="accInfoDetail">
+							<ul class="detailList">
+								<li>
+									<span class="tit">카테고리</span>
+									<span class="value">소비&gt;소비 기타</span>
+								</li>
+								<li>
+									<span class="tit">거래수단</span>
+									<span class="value">현금(직접등록)</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="boxTypeWrap pb0">
+						<div class="accTopInfo mt0">
+							<h5 class="accName totalBalance mt0">
+								월세입금
+								<span class="imgWrap icoCate"><span class="img"><img src="../../images/category/cs/ico_cate_cs71.png" alt="급여"></span></span>
+							</h5>
+							<dl class="totalBalance">
+								<dt class="mb10">2022.07.18 20:28</dt>
+								<dd class="pointColor"><strong>+200,000</strong>원<button type="button" class="cs_money_retail"><span class="blind">금액수정</span></button></dd>
+							</dl>
+						</div>
+						<hr class="divLine" aria-hidden="true">
+						<div class="accInfoDetail">
+							<ul class="detailList">
+								<li>
+									<span class="cs tit">카테고리</span>
+									<span class="value">수입&gt;수입 기타</span>
+								</li>
+								<li>
+									<span class="cs tit">거래수단</span>
+									<span class="value">현금(반복등록)</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- // -->
+				</div>
+
+				<!-- ### 카드 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">카드</h4>
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow containTooltip">
+							<div class="swiper dateSelWrap">
+								<a href="javascript:;" class="btn-month-prev" role="button" tabindex="0" aria-label="이전달"><span class="blind">이전달</span></a>
+								<a href="javascript:;" class="btn-month-next " role="button" tabindex="0" aria-label="다음달"><span class="blind">다음달</span></a>
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="monthSelectArea">
+											<strong class="month">2022년 7월</strong>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="accTopInfo mt30">
+								<div class="wrapTag">
+									<span class="type01">본인</span><span class="type04">신용</span><span class="type02">교통</span><span class="type08">현금</span><span class="type05">MASTER</span>
+								</div>
+								<div class="totalBalance bigSize flex mt0">
+									<button class="bigArrDown" type="button"><strong>올바른 MYPICK 카드</strong></button>
+									<img src="../../images/img_card_all100.png" alt="" class="cardImg">
+								</div>
+							</div>
+							<div class="areaBodyBtnFull mt20">
+								<a href="javascript:;" class="btnBodyLine" role="button">실적 충족 현황 보기</a>
+							</div>
+							<ul class="mt20 pt20 bdt detailList posR">
+								<li>
+									<span class="tit">카드번호</span>
+									<span class="value">2113********7445</span>
+								</li>
+								<li>
+									<span class="tit">이용기간</span>
+									<span class="value">11.01 ~ 11.10</span>
+								</li>
+								<li>
+									<div class="tit">
+										이용금액
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">이용금액 툴팁열기</span></button>
+											<div class="tooltipCont lf0">
+												<p>1일부터 말일까지 카드 이용금액 총합입니다. 가족카드, 리볼빙, 카드론 이용금액이 제외된 금액입니다.</p>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+									</div>
+									<span class="value pointColor"><strong class="dataValue">4,200,000</strong><em class="won">원</em></span>
+								</li>
+							</ul>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<ul class="detailList">
+										<li><div class="guide_empty">상세정보내용노출</div></li>
+									</ul>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt05">추가정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형3] 정기지출 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형3 : 정기지출</h3>
+				<div class="boxTypeWrap pt0 t1">
+					<div class="outgoingsSubject">
+						<div class="logoArea">
+							<span class="imgWrap">
+								<img src="../../images/logos/AAAU0000.png" alt="에스케이텔레콤 로고" class="imgLogo">
+							</span>
+						</div>
+						<strong class="title">SKT 통신비</strong>
+						<div class="summary">
+							<span>5일 예상</span><span>생활지출</span>
+						</div>
+					</div>
+					<div class="infoBox2">
+						<ul class="detailList">
+							<li>
+								<div class="tit">
+									결제금액
+									<div class="tooltipWrap">
+										<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">결제금액 안내툴팁</span></button>
+										<div class="tooltipCont">
+											<div class="msaeTool">
+												<ul class="popBul">
+													<li>생활지출 내역은 직전 월(1일~말일)까지의 금액의 합산을 노출합니다.</li>
+													<li>직전 월이 없는 경우는 당월(현재일까지) 금액의 합산을 노출합니다.</li>
+													<li>매월 1일 직전 월 합산 금액으로 업데이트 됩니다.</li>
+												</ul>
+											</div>  
+											<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+										</div>
+									</div>
+								</div>
+								<span class="value"><strong>59,600원</strong></span>
+							</li>
+							<li>
+								<span class="tit">결제수단</span>
+								<span class="value pointColor9">현대카드ZERO Edition2(할인형)</span>
+							</li>
+						</ul>
+					</div>
+					<div class="areaBodyBtnFull mt20">
+						<a href="javascript:;" class="btnBodyLine" role="button">정기지출 아니라면 숨기기</a>
+					</div>
+				</div>
+
+				<div class="boxTypeWrap pt0 t1">
+					<div class="outgoingsSubject">
+						<div class="logoArea">
+							<span class="imgWrap">
+								<img src="../../images/category/fc/ico_cate_fc10_01.png" alt="직접등록" class="imgLogo">
+							</span>
+						</div>
+						<strong class="title">한솥도시락</strong>
+						<div class="summary">
+							<span>5일 예상</span><span>생활지출</span>
+						</div>
+						<div class="mt10">
+							<p class="subTxt3 pointColor9">김농협님이 직접 추가한 내역이에요</p>
+						</div>
+					</div>
+					<div class="infoBox2">
+						<ul class="detailList">
+							<li>
+								<div class="tit">결제금액
+									<div class="tooltipWrap">
+										<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">결제금액 안내툴팁</span></button>
+										<div class="tooltipCont">
+											<div class="msaeTool">
+												<ul class="popBul">
+													<li>생활지출 내역은 직전 월(1일~말일)까지의 금액의 합산을 노출합니다.</li>
+													<li>직전 월이 없는 경우는 당월(현재일까지) 금액의 합산을 노출합니다.</li>
+													<li>매월 1일 직전 월 합산 금액으로 업데이트 됩니다.</li>
+												</ul>
+											</div>  
+											<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+										</div>
+									</div>
+								</div>
+								<span class="value"><strong>17,000원</strong></span>
+							</li>
+							<li>
+								<span class="tit">결제수단</span>
+								<span class="value pointColor9">현대카드ZERO Edition2(할인형)</span>
+							</li>
+						</ul>
+					</div>
+					<div class="areaBodyBtnFull mt20">
+						<a href="javascript:;" class="btnBodyLine" role="button">정기지출 아니라면 삭제하기</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형4] 예산관리 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형4 : 예산관리</h3>
+				<div class="cs boxTypeWrap pt0">
+					<div class="filterArea">
+						<div class="filterSelect"><button type="button"><strong>10월</strong><span class="pointColor9">(10.01~10.31)</span></button></div>
+					</div>
+					<div class="totalBalance">
+						<div class="bigTxt success">
+							예산 <strong class="value">300</strong><em>만원</em>으로<br> 한 달 살기 도전 중!
+						</div>
+						<p class="imojiTit">
+							권장소비보다 <span class="pointColor14">400,000원 적게</span> 썼어요
+							<span class="icoImg"><img src="../../images/ico_emoji05.png" alt=""></span>
+						</p>
+					</div>
+					<div class="spendChart bdNone pb20 pl0 pr0">
+						<div class="graphTit">
+							<strong class="tit">월 예산 
+								<em class="pointColor14">20.0%</em> 사용
+							</strong>
+						</div>
+						<div class="mt30 spendChart bdNone p0">
+							<div class="graphBg" style="height:auto;">
+								<div class="graphWrap" style="height:16px;background:#f6f6f6;" tabindex="0" role="img" aria-label="설정한 예산 대비 소비 200%">
+									<div class="grahpBubble type01" style="top:-36px;right:0;">
+										<p>1,000,000원 남음</p>
+									</div>
+									<div class="guide_empty">차트영역</div>
+									<div class="graphLimit" style="left:30%">
+										<span class="box">권장</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="ac">
+						<a href="javascript:;" class="linkTxt ac" aria-haspopup="true">나의 한 달 예산 설정하기</a>
+					</div>
+				</div>
+
+				<div class="cs boxTypeWrap pt0">
+					<div class="filterArea">
+						<div class="filterSelect"><button type="button">10월<span class="pointColor9 fs13">(10.01~10.31)</span></button></div>
+					</div>
+					<div class="totalBalance">
+						<div class="bigTxt allfail01">
+							예산 <strong class="value">300</strong><em>만원</em>으로<br> 한 달 살기 실패!
+						</div>
+						<p class="imojiTit">예산 초과 1,120,433원
+							<span class="icoImg"><img src="../../images/ico_emoji06.png" alt="눈물 아이콘"></span>
+						</p>
+					</div>
+					<div class="spendChart bdNone pb20 pl0 pr0">
+						<div class="graphTit">
+							<strong class="tit">월 예산
+								<em class="pointColor13">20.0%</em> 사용
+							</strong>
+						</div>
+						<div class="spendChart bdNone p0 mt10">
+							<div class="graphWrap" style="height:16px;background:#f6f6f6;" tabindex="0" role="img" aria-label="설정한 예산 대비 소비는 40%">
+								<div class="guide_empty">차트영역</div>
+							</div>
+						</div>
+					</div>
+					<div class="ac">
+						<a href="javascript:;" class="linkTxt ac" aria-haspopup="true">나의 한 달 예산 설정하기</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형5] 소비력분석 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형5 : 소비력분석</h3>
+				<div class="boxTypeWrap t1">
+					<h4 class="defSubTit1"><span>김농협</span>님의 비교 그룹은?
+						<div class="tooltipWrap">
+							<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">비교그룹 안내툴팁</span></button>
+							<div class="tooltipCont">
+								<div class="msaeTool">
+									<ul class="popBul">
+										<li>비교 그룹 산출이 불가한 경우 전체 고객과 비교합니다.</li>
+									</ul>
+								</div>
+								<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">비교그룹 안내툴팁 닫기</span></button>
+							</div>
+						</div>
+					</h4>
+					<div class="areaInfo4">
+						<dl class="ic1">
+							<dt>나이</dt>
+							<dd>30대</dd>
+						</dl>
+						<dl class="ic2">
+							<dt>신용</dt>
+							<dd>매우 높음</dd>
+						</dl>
+						<dl class="ic3">
+							<dt>월 소득</dt>
+							<dd>높음</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형6] 플래너 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형6 : 플래너</h3>
+
+				<div class="guide_area2">
+					<h4 class="guide_title3">상세내용</h4>
+
+					<h5 class="guide_title4">계좌</h5>
+					<div class="boxTypeWrap plannerDetail">
+						<div class="planFlagWrap"><span class="planType unerColor-g">출금예정</span></div>
+						<div class="accTopInfo">
+							<h5 class="accName"><span class="titHiglight">농협은행</span> 주거래입출금통장<img src="../../images/logos/AABG0000.png" class="imgLogo" alt=""></h5>
+							<p class="accNum">3470054646651</p>
+							<dl class="totalBalance">
+								<dt>금액</dt>
+								<dd><strong>6,399,000</strong>원</dd>
+							</dl>
+						</div>
+						<hr class="divLine" aria-hidden="true">
+						<div class="guide_empty mb20">상세정보내용노출</div>
+					</div>
+
+					<h5 class="guide_title4">카드</h5>
+					<div class="boxTypeWrap plannerDetail">
+						<div class="planFlagWrap"><span class="planType unerColor-p">납부예정</span> </div>
+						<div class="accTopInfo">
+							<h5 class="accName">
+								<span class="titHiglight">삼성카드</span>
+								카드대금결제
+								<img src="../../images/logos/AAEV0000.png" class="imgLogo" alt="">
+							</h5>
+							<dl class="totalBalance">
+								<dt>금액</dt>
+								<dd><strong>6,399,000</strong>원</dd>
+							</dl>
+						</div><hr class="divLine" aria-hidden="true">
+						<div class="guide_empty mb20">상세정보내용노출</div>
+					</div>
+				</div>
+
+				<div class="guide_area2">
+					<h4 class="guide_title3">출금항목관리</h4>
+					<div class="boxTypeWrap accTopItemList">
+						<h5>출금계좌</h5>
+						<div class="cont">
+							<span class="imgWrap">
+								<img src="../../images/logos/AABG0000.png" alt="" class="imgLogo">
+							</span>
+							<div class="accTxt">
+								<span>NH주거래우대통장 (비대면 실명확인) </span>
+								<span class="addTxt">농협은행(302-1722-8890)</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형7] 기관정보 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형7 : 기관정보</h3>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형8] 투자정보 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형8 : 투자정보</h3>
+				<div class="boxTypeWrap ovNone bgTy01">
+					<div class="totalBalanceNow">
+						<div class="msaeAseet">
+							<strong>김농협</strong>님 투자수익은 <br>상위 <strong class="pointColor">82%</strong>에요
+							<div class="tooltipWrap">
+								<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">나와 투자고수 비교 기준 안내 툴팁 열기</span></button>
+								<div class="tooltipCont">
+									<div class="msaeTool">
+										<ul class="popBul">
+											<li>나와 투자고수의 자산별(국내주식, 해외주식, 펀드) 투자수익률과 가장 많이 보유한 TOP3 종목(상품) 비교에요.</li>
+											<li>투자고수의 수익률, 평가금액, 보유종목수, 보유수량은 상위 20% 투자고수의 평균이에요.</li>
+										</ul>
+									</div>  
+									<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 요약정보 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT2">
+			<h2 class="guide_title">요약정보</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [총 금액] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">총 금액</h3>
+
+				<!-- ### 소비 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">소비</h4>
+					<div class="boxTypeWrap">
+						<div class="filterArea mt0">
+							<div>
+								<span class="txtt2 mb0">
+									이번 달 총 소비
+									<button type="button" class="assetSet" onclick="slidePopOption();"><span class="blind">총 자산 설정하기</span></button>
+								</span>
+							</div>
+							<div class="filterSelect"><button type="button" title="월 선택 팝업열기"><strong>7월</strong><span class="pointColor9">(06.05~07.04)</span></button></div>
+						</div>
+						<div>
+							<dl class="totalBalance bigSize2">
+								<dd><strong class="dataValue">2,098,694</strong><strong class="won">원</strong></dd>
+								<dt class="mt10">총 수입 7,234,567 원</dt>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 결제 요약 정보 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">결제 요약 정보</h4>
+					<div class="boxTypeWrap t1">
+						<dl class="totalBalance t1">
+							<dt>결제 요약 정보</dt>
+							<dd>총<strong class="dataValue">9,999,999,999</strong><em class="won">원</em></dd>
+						</dl>
+						<div class="guide_empty">차트영역</div>
+					</div>
+
+					<div class="infoSummary1">
+						<div class="tit">
+							<h4><span>7월</span> 총 결제 금액은?</h4>
+							<div class="tooltipWrap">
+								<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">결제금액 안내툴팁</span></button>
+								<div class="tooltipCont">
+									<div class="msaeTool">
+										<ul class="popBul">
+											<li>자산사용 관리 메뉴에서 숨김 처리한 카드는 또래비교 내역에서 제외됩니다.</li>
+											<li>가맹점명 미동의 카드는 하단 카테고리별 또래비교에서 제외됩니다.</li>
+										</ul>
+									</div>
+									<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+								</div>
+							</div>
+							<div class="side"><button type="button" class="contBtn06 c1">또래 변경</button></div>
+						</div>
+						<div class="info1">
+							<dl>
+								<dt><span>김농협</span>님</dt>
+								<dd><strong class="dataValue">9,940,885,000</strong><span class="won">원</span></dd>
+							</dl>
+							<dl>
+								<dt><span>30</span>대 또래</dt>
+								<dd><strong class="dataValue">1,223,455,500</strong><span class="won">원</span></dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 할부금액 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">할부금액</h4>
+					<div class="boxTypeWrap">
+						<div class="totalBalance bigSize bgNCard bgNCard03 mt0">
+							<p class="subTxt3">총 잔여 할부금액</p>
+							<div class="bigTxt type01 mt0">
+								<strong>40,000,000</strong><em class="won">원</em>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 금융자산 총액 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">금융자산 총액</h4>
+					<div class="boxTypeWrap ovNone">
+						<div class="totalBalanceNow">
+							<div class="msaeAseetItem">
+								금융자산 총액은<br>
+								<strong class="pointColor">1,690,804,400</strong>원 이에요
+								<div class="tooltipWrap">
+									<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금융자산 총액 안내 툴팁 열기</span></button>
+									<div class="tooltipCont">
+										<div class="msaeTool">
+											<ul class="popBul">
+												<li>자산진단의 금융자산 총액은 자산 &gt; 순자산의 금융자산 총액과 다를 수 있어요.</li>
+												<li>선불페이 잔액은 자산>순자산에 포함되지만 자산진단 서비스에는 포함되지 않아요.</li>
+												<li>연결하지 않은 자산이 있다면 추가 연결하여 분석 정확도를 높여보세요.</li>
+												<li>자산진단의 금융자산총액은 연금을 포함한 금액입니다.</li>
+											</ul>
+										</div>
+										<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="filterSelect mt10"><button type="button" title="비교그룹 선택 팝업열기">비교그룹 800~1000만원 &middot;30대&middot;서울</button></div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 상세정보 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT3">
+			<h2 class="guide_title">상세정보</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] 좌우배치 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">좌우배치</h3>
+
+				<!-- ### 기본구조 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title4">기본구조</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<ul class="detailList">
+											<li>
+												<div class="tit">
+													항목명
+													<div class="tooltipWrap w98">
+														<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">툴팁 열기</span></button>
+														<div class="tooltipCont">
+															<div class="msaeTool">
+																<ul class="popBul">
+																	<li>내용이 노출됩니다.</li>
+																</ul>
+															</div>  
+															<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+														</div>
+													</div>
+												</div>
+												<div class="value">내용</div>
+											</li>
+											<li>
+												<div class="tit">항목명</div>
+												<div class="value">내용</div>
+											</li>
+										</ul>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<ul class="detailList">
+						<li>
+							<div class="tit">
+								항목명
+								<div class="tooltipWrap w98">
+									<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">툴팁 열기</span></button>
+									<div class="tooltipCont">
+										<div class="msaeTool">
+											<ul class="popBul">
+												<li>내용이 노출됩니다.</li>
+											</ul>
+										</div>  
+										<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+									</div>
+								</div>
+							</div>
+							<div class="value">내용</div>
+						</li>
+						<li>
+							<div class="tit">항목명</div>
+							<div class="value">내용</div>
+						</li>
+						<li>
+							<div class="tit">항목명</div>
+							<div class="value">내용</div>
+						</li>
+					</ul>
+				</div>
+
+				<!-- ### 활용 ### -->
+				<div class="guide_area">
+					<h4 class="guide_title4">활용1 : .infoBox</h4>
+					<div class="infoBox">
+						<ul class="detailList">
+							<li>
+								<span class="tit">결제방법</span>
+								<span class="value">할부 3개월 (1회차)</span>
+							</li>
+							<li>
+								<span class="tit">결제 후 할부 잔액</span>
+								<span class="value">10,000원</span>
+							</li>
+							<li>
+								<span class="tit">수수료</span>
+								<span class="value">1,000원</span>
+							</li>
+						</ul>
+					</div>
+
+					<h4 class="guide_title4">활용2 : .grayBgLine</h4>
+					<div class="grayBgLine t1">
+						<ul class="detailList">
+							<li>
+								<span class="tit">월 평균 결제금액</span>
+								<span class="value"><strong class="dataValue">1,234,567,890</strong><em class="won">원</em></span>
+							</li>
+							<li>
+								<span class="tit">월 평균 결제 건수</span>
+								<span class="value"><strong class="dataValue">99,999</strong><em class="won">건</em></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 기타정보 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT4">
+			<h2 class="guide_title">기타정보</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [컨텐츠] 실적 충족 현황 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">컨텐츠) 실적 충족 현황</h3>
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<!-- [반복] -->
+									<div class="perforWrap">
+										<h3 class="cate">서비스 명</h3>
+										<p class="txt">혜택 내용</p>
+										<div class="bgArea">
+											<div class="banefitBox"> <!-- [D] 미충족일 경우 클래스명(typeN) 추가 -->
+												<div class="month">
+													<strong>10월<em class="tag blue">충족</em></strong>
+													<span class="status">11월 혜택 제공<em class="blind">당월서비스 적용가능</em></span>
+												</div>
+											</div>
+											<div class="banefitBox typeN"> <!-- [D] 미충족일 경우 클래스명(typeN) 추가 -->
+												<div class="month">
+													<strong>11월<em class="tag">미충족</em> </strong>
+												</div>
+												<div class="grahpBubble type01" style="position: relative; margin-top: 10px; margin-bottom: 10px; float:left">
+													<p style="font-size: 13px;">200,000원</p>
+												</div>
+												<div style="clear: both;"></div>
+												<div class="graphWrap" style="height:16px;background:#f6f6f6;" tabindex="0" role="img" aria-label="" id="chartHolder">
+													<div class="guide_empty">그래프영역</div>
+												</div>
+												<div class="graphBtm">
+													<span class="tit">필요실적 500,000원</span>
+													<strong class="value">300,000원 부족</strong>
+												</div>
+											</div>
+										</div>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+				<div class="perforWrap">
+					<h4 class="cate">서비스 명</h4>
+					<p class="txt">혜택 내용</p>
+					<div class="bgArea">
+						<div class="banefitBox">
+							<div class="month">
+								<strong>10월<em class="tag blue">충족</em></strong>
+								<span class="status">11월 혜택 제공<em class="blind">당월서비스 적용가능</em></span>
+							</div>
+						</div>
+						<div class="banefitBox typeN">
+							<div class="month">
+								<strong>11월<em class="tag">미충족</em> </strong>
+							</div>
+							<div class="grahpBubble type01" style="position: relative; margin-top: 10px; margin-bottom: 10px; float:left">
+								<p style="font-size: 13px;">200,000원</p>
+							</div>
+							<div style="clear: both;"></div>
+							<div class="graphWrap" style="height:16px;background:#f6f6f6;" tabindex="0" role="img" aria-label="" id="chartHolder">
+								<div class="guide_empty">그래프영역</div>
+							</div>
+							<div class="graphBtm">
+								<span class="tit">필요실적 500,000원</span>
+								<strong class="value">300,000원 부족</strong>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="perforWrap">
+					<h4 class="cate">서비스 명</h4>
+					<p class="txt">혜택 내용</p>
+					<div class="bgArea">
+						<div class="banefitBox typeN">
+							<div class="month">
+								<strong>10월<em class="tag">미충족</em></strong>
+								<span class="status">11월 혜택 미제공<em class="blind">당월서비스 적용불가능</em></span>
+							</div>
+						</div>
+						<div class="banefitBox">
+							<div class="month">
+								<strong>11월<em class="tag blue">충족</em> </strong>
+							</div>
+							<div class="grahpBubble type01" style="position: relative; margin-top: 10px; margin-bottom: 10px; float:right">
+								<p style="font-size: 13px;">500,000원</p>
+							</div>
+							<div style="clear: both;"></div>
+							<div class="graphWrap" style="height:16px;background:#f6f6f6;" tabindex="0" role="img" aria-label="" id="chartHolder">
+								<div class="guide_empty">그래프영역</div>
+							</div>
+							<div class="graphBtm">
+								<span class="tit">필요실적 500,000원</span>
+								<strong class="value">충족</strong>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [컨텐츠] 비교정보 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">컨텐츠) 비교정보</h3>
+
+				<!-- ### 신용점수 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">신용점수</h4>
+					<div class="infoCont2">
+						<h5 class="tit">나의 신용점수는</h5>
+						<p class="con">
+							<span>
+								전체 상위 <strong>4%</strong>이고<br>
+								<span class="filterSelect"><button type="button" title="비교대상선택" aria-haspopup="true">30대 평균</button></span>보다 <strong class="case1">120점</strong> 높아요
+							</span>
+							<span class="emoji"><img src="../../images/emoji/img_emoji_0204.png" alt=""></span>
+						</p>
+						<div class="areaChart2 t1">
+							<dl class="item1">
+								<dt>나</dt>
+								<dd>
+									<div class="chart"><span style="width:80%;"></span></div>
+									<div><span class="dataValue">981</span><em class="won">점</em></div>
+								</dd>
+							</dl>
+							<dl class="item2">
+								<dt>30대</dt>
+								<dd>
+									<div class="chart"><span style="width:50%;"></span></div>
+									<div><span class="dataValue">851</span><em class="won">점</em></div>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					<div class="infoCont2 t4">
+						<h4 class="tit">나의 신용점수는</h4>
+						<p class="con">
+							전체 상위 <strong>4%</strong>에요
+							<span class="emoji"><img src="../../images/emoji/img_emoji_0204.png" alt=""></span>
+						</p>
+						<p class="con">30대 평균 대비는 <span class="case1"><strong>130점</strong> 높아요</span></p>
+						<div class="areaChart2 t1">
+							<dl class="item1">
+								<dt>나</dt>
+								<dd>
+									<div class="chart"><span style="width:80%;"></span></div>
+									<div><span class="dataValue">981</span><em class="won">점</em></div>
+								</dd>
+							</dl>
+							<dl class="item2">
+								<dt>30대 평균</dt>
+								<dd>
+									<div class="chart"><span style="width:50%;"></span></div>
+									<div><span class="dataValue">851</span><em class="won">점</em></div>
+								</dd>
+							</dl>
+						</div>
+						<div class="btns1"><a href="javascript:;" class="linkTxt">나의 신용평점 비교하기</a></div>
+					</div>
+					<div class="infoCont2 t3">
+						<h2 class="tit">나의 NICE추정소득은</h2>
+						<div class="tooltipWrap">
+							<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">추정소득이란? 툴팁 열기</span></button>
+							<div class="tooltipCont">
+								<div class="msaeTool">
+									<p>추정소득은 NICE평가정보㈜의 소득 추정 모델에서 <span>MM</span>월 <span>DD</span>일 기준으로 산출된 추정치이며, 실제와 다를 수 있습니다.</p>
+								</div>
+								<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">추정소득이란? 툴팁 닫기</span></button>
+							</div>
+						</div>
+						<p class="con">
+							<span><strong><span class="dataValue">3,900</span><em class="won">만원</em></strong>으로 전체 상위 <strong>25%</strong>예요.</span>
+							<span class="emoji"><img src="../../images/emoji/img_emoji_0203.png" alt=""></span>
+						</p>
+						<div class="areaChart1" style="height:160px;">
+							<p class="item"><span>소득중간</span><span>2,900만원</span></p>
+							<div class="chart"><div class="guide_empty">차트가 들어갑니다.</div></div>
+						</div>
+						<div class="info1">
+							<dl class="img1">
+								<dt>나와 소득이 비슷한 인원</dt>
+								<dd>32,544,4232 명</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 소비력분석 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">소비력분석</h4>
+					<div class="infoCont2">
+						<h3 class="tit">월 평균 카드 결제 금액</h3>
+						<!-- // -->
+						<div class="tooltipWrap">
+							<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">월 평균 카드 결제 금액 이란? 툴팁 열기</span></button>
+							<div class="tooltipCont">
+								<div class="msaeTool">
+									<ul class="popBul">
+										<li>월 평균 카드 결제 금액은 측정일로부터 12개월 평균 사용치 입니다.</li>
+										<li>최근 1년 카드 평균 결제금액에는 일시불(신용),일시불(체크), 할부,현금서비스가 해당됩니다.</li>
+									</ul>
+								</div>
+								<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+							</div>
+						</div>
+						<p class="con">
+							카드 결제금액이<br>
+							비교그룹보다 <strong><span class="dataValue">1,344</span><em class="won">만원</em></strong> 많아요
+						</p>
+						<div class="info2">
+							<dl>
+								<dt>내 카드 결제 금액</dt>
+								<dd><span class="dataValue">0</span><em class="won">원</em></dd>
+								<dd class="areaChart2 t4" data-chart="wrap"></dd>
+							</dl>
+							<dl>
+								<dt>비교그룹 카드 결제 금액</dt>
+								<dd><span class="dataValue">1억 2,340</span><em class="won">만원</em></dd>
+								<dd class="areaChart2 t4" data-chart="wrap"><div class="guide_empty">차트영역</div></dd>
+							</dl>
+						</div>
+					</div>
+
+					<div class="infoCont2">
+						<h3 class="tit">나의 카드값은</h3>
+
+						<div class="tooltipWrap">
+							<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">나의 카드값 이란? 툴팁 열기</span></button>
+							<div class="tooltipCont">
+								<div class="msaeTool">
+									<ul class="popBul">
+										<li>나의 카드값은 측정일로부터 12개월 평균 사용치 입니다.</li>
+									</ul>
+								</div>
+								<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+							</div>
+						</div>
+						<p class="con">
+							<span class="sub">유사소득군의 동일 연령대인</span>
+							<span>30대</span> 평균과 비슷해요<span class="emoji"><img src="../../images/emoji/img_emoji_0202.png" alt=""></span>
+						</p>
+						<div class="areaChart1" style="height:130px;"><div class="chart"><div class="guide_empty">차트가 들어갑니다.</div></div></div>	
+						<div class="info1">
+							<dl>
+								<dt><span>30대</span> 또래 기준으로</dt>
+								<dd>
+									월 <strong><span class="dataValue">234</span><em class="won">만원</em></strong> 소비 하는 게 적절해요!
+									<div class="tooltipWrap">
+										<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">월 권장 소비액 툴팁 열기</span></button>
+										<div class="tooltipCont">
+											<div class="msaeTool">
+												<ul class="popBul">
+													<li>분기별로 소비금액을 산출 하고 있어, 3개월 후 적정금액의 변화를 확인 할 수 있습니다.</li>
+												</ul>
+											</div>
+											<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+										</div>
+									</div>
+								</dd>
+							</dl>
+						</div>
+					</div>					
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [컨텐츠] 진단결과 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">컨텐츠) 진단결과</h3>
+
+				<!-- ### 조기은퇴진단결과 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">조기은퇴진단결과</h4>
+					<div class="infoCont2 t1">
+						<h4 class="hide">경제수명</h4>
+						<div class="areaInfo1 t1">
+							<p><span>진단일 : </span><strong>0000.00.00</strong></p>
+							<div class="side">
+								<div class="mesToast1">
+									<p>최신금액으로 새롭게 진단해 보세요</p>
+									<button type="button" class="closeBtn" onclick="mesToastClose(this);return false;"><span class="blind">닫기</span></button>
+								</div>
+								<button type="button" class="contBtn04 ic1">다시진단하기</button>
+							</div>
+						</div>
+						<p class="con">모은 자산으로<br><strong>64세</strong>까지 생활할 수 있어요</p>
+						<div class="con2">
+							<p>예상 경제수명은 <strong>64세</strong>에요</p>
+							<div class="tooltipWrap">
+								<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">경제수명 안내 툴팁 열기</span></button>
+								<div class="tooltipCont">
+									<dl>
+										<dt>경제수명(Economic Life)</dt>
+										<dd>희망생활비로 은퇴자금을 소비했을 때 자금이 고갈되는 나이를 말해요.</dd>
+										<dd class="subTxt2 mt10">※ 은퇴자금이 남아있어도 희망생활비를 완전히 충당하지 못하는 나이부터 경제수명으로 간주합니다.</dd>
+									</dl>
+									<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">경제수명 안내 툴팁 닫기</span></button>
+								</div>
+							</div>
+							<p class="block">기대수명까지 <strong>24년</strong> 자금이 부족해요</p>
+						</div>
+						<div class="tabWrap type06">
+							<div class="scAreaWrap">
+								<ul>
+									<li><a href="javascript:;" class="active on">간략보기</a></li>
+									<li><a href="javascript:;">자세히보기</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="tabContWrap type06">
+							<div class="tabCont01">
+								<div class="areaChart1" style="height:160px;">
+									<div class="info"><span>64</span>세에 고갈예상</div>
+									<div class="chart"><div class="guide_empty">차트가 들어갑니다.</div></div>
+								</div>
+								<div class="txt2"><p>‘자세히보기’에서 연령별 상세금액을 확인하세요.</p></div>
+							</div>
+							<div class="tabCont02" style="display:none">
+								<div class="areaChart1" style="height:160px;">
+									<div class="info"><span>64</span>세에 고갈예상</div>
+									<div class="info img1">좌우로 스크롤 해주세요</div>
+									<div class="chart"><div class="guide_empty">차트가 들어갑니다.</div></div>
+								</div>
+								<div class="txt2"><p>그래프를 선택하면 연령별 상세금액 확인이 가능합니다.</p></div>
+							</div>
+						</div>
+					</div>
+					<div class="infoCont2 t1">
+						<h4 class="hide">준비자금 달성률</h4>
+						<p class="con">자유를 찾아서 열심히 항해 중~<span class="emoji"><img src="../../images/emoji/img_emoji_0207.png" alt=""></span></p>
+						<p class="con"><strong>67세</strong>에 은퇴준비율은 <strong>28%</strong>입니다!</p>
+						<div class="areaChart2">
+							<div class="chart"><span style="width:28%;"></span></div>
+							<p><span class="dataValue">0억 0,000</span><em class="won">만원</em> <span>부족해요</span></p>
+						</div>
+						<div class="info3">
+							<dl>
+								<dt class="hide">수신받은 필요자금</dt>
+								<dd><strong class="dataValue">0억 0,000</strong><span class="won">만원</span></dd>
+								<dd>필요해요</dd>
+							</dl>
+							<dl>
+								<dt class="hide">수신받은 준비자금</dt>
+								<dd><strong class="dataValue">0억 0,000</strong><span class="won">만원</span></dd>
+								<dd>모을 수 있어요</dd>
+							</dl>
+						</div>
+						<div class="btns2"><button type="button" class="linkType1" aria-haspopup="true">준비금액 수정하기</button></div>
+					</div>
+					<div class="areaBodyBtnFlex">
+						<a href="../../pub/ae/MSAEa600.html" target="_blank" class="btnBodyGray">적용된 페이지 보기</a>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+		</section>
+		<!-- ################################# -->
+	</div>
+</div>
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	//토스트팝업 샘플
+	// $('.mesToast1').delay(4000).fadeOut(400);
+	mesToastClose = function(e) {
+		var $mesToast1 = $(e).closest(".mesToast1");
+		$mesToast1.fadeOut(400);
+	};
+</script>
+<!-- ###################################### -->
+</body>
+</html>

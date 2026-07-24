@@ -1,0 +1,914 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [폼]</title>
+<script src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>폼</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="product_sample.html">상품</a>
+				<a href="form_sample.html" aria-current="page">폼</a>
+				<a href="toggle_sample.html">토글</a>
+			</div>
+		</nav>
+	</header>
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">등록/수정</a>
+			<a href="#GCONTENT2">선택</a>
+			<a href="#GCONTENT3">조회조건</a>
+			<a href="#GCONTENT4">검색</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 등록/수정 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">등록/수정</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] 자산 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : 자산</h3>
+				
+				<!-- ### 부동산 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">부동산</h4>
+					<div class="boxTypeWrap pt0">
+						<div class="formWrap estWrap">
+							<ul>
+								<li>
+									<strong class="formTit">월세 보증금(선택)
+										<em class="inputVal"></em>
+									</strong>
+									<div class="inputList unitMan">
+										<input type="tel" title="월세 보증금(필수아님, 최소 1만원 이상)" name="" id="" value="" placeholder="최소 1만원 이상">
+										<span class="unit">만원</span>
+										<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+									</div>
+									<div class="roundBtnWrap">
+										<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+										<a href="javascript:;" role="button" title="1,000만원 추가">+1,000만</a>
+										<a href="javascript:;" role="button" title="1억 추가">+1억</a>
+										<a href="javascript:;" role="button" title="10억 추가">+10억</a>
+									</div>
+									<p class="errorTxt" style="display:none;">1부터 9,999,999만원까지 입력 가능합니다.</p>
+								</li>
+								<li>
+									<strong class="formTit">월세
+										<em class="inputVal"></em>
+									</strong>
+									<div class="inputList unitMan">
+										<input type="tel" title="월세(최소 1만원 이상)" name="" id="" value="" placeholder="최소 1만원 이상">
+										<span class="unit">만원</span>
+										<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+									</div>
+									<div class="roundBtnWrap">
+										<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+										<a href="javascript:;" role="button" title="1,000만원 추가">+1,000만</a>
+										<a href="javascript:;" role="button" title="1억 추가">+1억</a>
+										<a href="javascript:;" role="button" title="10억 추가">+10억</a>
+									</div>
+								</li>
+								<li>
+									<strong class="formTit">월세
+										<em class="inputVal">(7억 5천만원)</em>
+									</strong>
+									<div class="inputList unitMan">
+										<input type="tel" title="월세(최소 1만원 이상)" name="" id="" value="75,000" placeholder="최소 1만원 이상">
+										<span class="unit">만원</span>
+										<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+									</div>
+									<div class="roundBtnWrap">
+										<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+										<a href="javascript:;" role="button" title="1,000만원 추가">+1,000만</a>
+										<a href="javascript:;" role="button" title="1억 추가">+1억</a>
+										<a href="javascript:;" role="button" title="10억 추가">+10억</a>
+									</div>
+								</li>
+								<li>
+									<strong class="formTit">월세
+										<em class="inputVal">(0만원)</em>
+									</strong>
+									<div class="inputList unitMan error">
+										<input type="tel" title="월세(최소 1만원 이상)" name="" id="" value="0" placeholder="최소 1만원 이상">
+										<span class="unit">만원</span>
+										<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+									</div>
+									<div class="roundBtnWrap">
+										<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+										<a href="javascript:;" role="button" title="1,000만원 추가">+1,000만</a>
+										<a href="javascript:;" role="button" title="1억 추가">+1억</a>
+										<a href="javascript:;" role="button" title="10억 추가">+10억</a>
+									</div>
+									<p class="errorTxt">1부터 9,999,999만원까지 입력 가능합니다.</p>
+								</li>
+								<li>
+									<strong class="formTit">월세 납입일(선택)</strong>
+									<div class="iptDayWrap">
+										<div class="inputList unitMan2 standUse">
+											<span class="stand">매월</span>
+											<input type="tel" title="납입일" value="" placeholder="납입일">
+											<span class="unit">일</span>
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+										<button type="button" class="btnDay">말일</button>
+									</div>
+									<div class="mt10">
+										<input type="checkbox" id="listAll" class="chekTypeOther" name=""><label for="listAll">금융플래너에서 월세 납입일을 알려드려요.</label>
+									</div>
+								</li>
+								<li>
+									<strong class="formTit">월세 출금계좌(선택)<button type="button" class="contBtn01">초기화</button></strong>
+									<div class="stList">
+										<a href="javascript:;" title="월세 출금계좌 선택" aria-haspopup="true">
+											<span class="selectValue placeholder">계좌를 선택해주세요.</span>
+											<span class="selectBtn"></span>
+										</a>
+										<select name="" title="선택해주세요">
+											<option value=""></option>
+										</select>
+									</div>
+								</li>
+								<li>
+									<strong class="formTit">계약기간(필수)<button type="button" class="contBtn01">초기화</button></strong>
+									<div class="calendarForm">
+										<div class="cal">
+											<div class="inputList">
+												<input type="text" value="" title="계약 시작일" placeholder="시작일선택" readonly="readonly">
+												<a href="javascript:;" class="btnCalendar" role="button"><span class="blind">계약 시작일 선택</span></a>
+											</div>
+										</div>
+										<span class="symbol">-</span>
+										<div class="cal">
+											<div class="inputList">
+												<input type="text" value="" title="계약 종료일" placeholder="종료일선택" readonly="readonly">
+												<a href="javascript:;" class="btnCalendar" role="button"><span class="blind">계약 종료일 선택</span></a>
+											</div>
+										</div>
+									</div>
+									<p class="errorTxt" style="display:none;">시작일을 선택시 종료일을 선택해주세요.</p>
+								</li>
+								<li>
+									<strong class="formTit mt20">관련대출(선택)<button type="button" class="contBtn01 green" title="관련대출 추가">추가</button></strong>
+									<!-- [CASE] 관련대출 선택 했을 경우 노출 -->
+									<div class="inputBoth01 div8_2">
+										<div class="inputList inputB01">
+											<input type="text" title="대출자산" value="[신한]마이너스대출" name="" id="" placeholder="" readonly>
+											<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+										</div>
+										<div class="inputB02">
+											<button type="button" class="contBtn01" title="[신한]마이너스대출">삭제</button>
+										</div>
+									</div>
+									<div class="inputBoth01 div8_2">
+										<div class="inputList inputB01">
+											<input type="text" title="대출자산" value="[NH농협]마이너스대출" name="" id="" placeholder="" readonly>
+											<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+										</div>
+										<div class="inputB02">
+											<button type="button" class="contBtn01" title="[NH농협]마이너스대출">삭제</button>
+										</div>
+									</div>
+									<!-- // -->
+								</li>
+								<li>
+									<strong class="formTit">메모(선택)</strong>
+									<textarea placeholder="메모를 입력해주세요. (최대30자)" maxlength="30"></textarea>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 실물 ### -->
+				<div class="guide_area">
+					<h4 class="guide_title3">실물</h4>
+					<!-- // -->
+					<h5 class="guide_title4">금</h5>
+					<div class="formWrap realAsset">
+						<ul>
+							<li>
+								<strong class="formTit">명칭</strong>
+								<div class="inputList">
+									<input type="text" title="명칭" value="결혼예물" placeholder="명칭을 입력해주세요.">
+									<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								</div>
+								<div class="roundChkWrap flexType mt10">
+									<ul>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="sample00" id="sample01" aria-label="재테크">
+												<label for="sample01" aria-hidden="true">재테크</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="sample00" id="sample02" aria-label="돌잔치">
+												<label for="sample02" aria-hidden="true">돌잔치</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="sample00" id="sample03" aria-label="결혼예물" checked>
+												<label for="sample03" aria-hidden="true">결혼예물</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="sample00" id="sample04" aria-label="모임">
+												<label for="sample04" aria-hidden="true">모임</label>
+											</span>
+										</li>
+									</ul>
+								</div>
+								<p class="errorTxt" style="display:none;">특수문자[!@#$*()-=|;:,./]만 입력 가능합니다.</p>
+							</li>
+							<li>
+								<strong class="formTit">금 단위</strong>
+								<div class="boxRadio">
+									<div class="boxRadioInn">
+										<span>
+											<input name="rdo01" id="rdo01" type="radio" aria-label="금 단위(그램(g))" checked>
+											<label for="rdo01" aria-hidden="true">그램(g)</label>
+										</span>
+									</div>
+									<div class="boxRadioInn">
+										<span>
+											<input name="rdo01" id="rdo03" type="radio" aria-label="금 단위(돈)">
+											<label for="rdo03" aria-hidden="true">돈</label>
+										</span>
+									</div>
+								</div>
+							</li>
+							<li>
+								<strong class="formTit">보유량<em class="inputVal"></em></strong>
+								<div class="inputList">
+									<input type="tel" title="보유량" placeholder="보유량을 입력해주세요.">
+									<span class="unit">g</span>
+									<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								</div>
+								<p class="errorTxt" style="display:none">0보다 큰 숫자만 입력 가능합니다.</p>
+							</li>
+							<li>
+								<strong class="formTit">보유량<em class="inputVal">환산금액: 0원</em></strong>
+								<div class="inputList">
+									<input type="tel" title="보유량" value="12,345" placeholder="보유량을 입력해주세요.">
+									<span class="unit">g</span>
+									<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								</div>
+								<p class="errorTxt" style="display:none">0보다 큰 숫자만 입력 가능합니다.</p>
+							</li>
+							<li>
+								<strong class="formTit">보유량<em class="inputVal">환산금액: 0원</em></strong>
+								<div class="inputList error">
+									<input type="tel" title="보유량" value="0" placeholder="보유량을 입력해주세요.">
+									<span class="unit">g</span>
+									<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								</div>
+								<p class="errorTxt">0보다 큰 숫자만 입력 가능합니다.</p>
+							</li>
+							<li>
+								<strong class="formTit">총 구매가(선택)<em class="inputVal"></em></strong>
+								<div class="inputList">
+									<input type="tel" title="총 구매가(선택)" value="" placeholder="금액을 입력해주세요.">
+									<span class="unit">원</span>
+									<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								</div>
+								<p class="errorTxt" style="display:none">1부터 999,999,999,999까지 입력 가능합니다.</p>
+							</li>
+						</ul>
+					</div>
+					<!-- // -->
+					<hr class="guide_line mt40 mb40">
+					<!-- // -->
+					<h5 class="guide_title4">외화</h5>
+					<div class="formWrap realAsset">
+						<ul>
+							<li>
+								<strong class="formTit">명칭</strong>
+								<div class="inputList">
+									<input type="text" title="명칭" value="" placeholder="명칭을 입력해주세요.">
+									<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								</div>
+								<div class="roundChkWrap mt10">
+									<ul>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="sample00" id="sample01" aria-label="여행">
+												<label for="sample01" aria-hidden="true">여행</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="sample00" id="sample02" aria-label="재테크">
+												<label for="sample02" aria-hidden="true">재테크</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="sample00" id="sample03" aria-label="출장">
+												<label for="sample03" aria-hidden="true">출장</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="sample00" id="sample04" aria-label="유학">
+												<label for="sample04" aria-hidden="true">유학</label>
+											</span>
+										</li>
+									</ul>
+								</div>
+								<p class="errorTxt" style="display:none;">특수문자[!@#$*()-=|;:,./]만 입력 가능합니다.</p>
+							</li>
+							<li>
+								<strong class="formTit">외화종류선택</strong>
+								<div class="stList">
+									<a href="javascript:;" title="외화종류선택" aria-haspopup="true">
+										<span class="selectValue placeholder">USD(미국달러)</span> <!-- [D] value 값이 들어오면 class placeholder 삭제 -->
+										<span class="selectBtn"></span>
+									</a>
+									<select name="" title="선택해주세요">
+										<option value=""></option>
+									</select>
+								</div>
+							</li>
+							<li>
+								<strong class="formTit">보유금액</strong>
+								<div class="inputList unitMan">
+									<input type="tel" title="보유금액" value="" placeholder="금액을 입력해주세요.">
+									<span class="unit">USD</span>
+									<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- // -->
+				</div>
+
+				<!-- ### 목표 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">목표</h4>
+					<div class="boxTypeWrap addchallType">
+						<div class="formWrap">
+							<ul>
+								<li class="pt0">
+									<strong class="formTit">목표명</strong>
+									<div class="inputList">
+										<input type="text" title="목표명" value="" placeholder="목표명을 입력해 주세요.">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+									<p class="errorTxt" style="display:none;">특수문자는 !@#$*()-=|;:,./ 만 입력 가능합니다.</p>
+								</li>
+								<li>
+									<strong class="formTit">목표명</strong>
+									<div class="inputList error">
+										<input type="text" title="목표명" value="%" placeholder="목표명을 입력해 주세요.">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+									<p class="errorTxt">특수문자는 !@#$*()-=|;:,./ 만 입력 가능합니다.</p>
+								</li>
+								<li>
+									<strong class="formTit">간편 계산기</strong>
+									<a href="javascript:;" class="btnBodyLine" role="button">해외여행 경비</a>
+								</li>
+								<li>
+									<strong class="formTit">간편 계산기</strong>
+									<div class="formWrap overseaType mt20">
+										<div class="boxRadio rddsf">
+											<div class="boxRadioInn">
+												<span role="button" tabindex="0" aria-label="등록금"> <!-- [D] 팝업호출하므로 role="button" 추가 -->
+													<input name="rdo13" id="rdo16" type="radio">
+													<label for="rdo16">등록금</label>
+												</span>
+											</div>
+											<div class="boxRadioInn">
+												<span role="button" tabindex="0" aria-label="유학" title="선택됨"> <!-- [D] 선택된 경우 상태 추가 -->
+													<input name="rdo13" id="rdo17" type="radio" checked>
+													<label for="rdo17">유학</label>
+												</span>
+											</div>
+											<div class="boxRadioInn">
+												<span role="button" tabindex="0" aria-label="결혼">
+													<input name="rdo13" id="rdo18" type="radio">
+													<label for="rdo18">결혼</label>
+												</span>
+											</div>
+											<div class="boxRadioInn">
+												<span role="button" tabindex="0" aria-label="출산">
+													<input name="rdo13" id="rdo19" type="radio">
+													<label for="rdo19">출산</label>
+												</span>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<strong class="formTit">부동산 선택</strong>
+									<div class="boxRadio">
+										<div class="boxRadioInn">
+											<span role="button" title="선택됨" tabindex="0" aria-label="아파트"> <!-- [D] 팝업호출하므로 role="button" 추가 -->
+												<input name="MSOB4000" type="radio" checked>
+												<label>아파트</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span role="button" tabindex="0" aria-label="오피스텔">
+												<input name="MSOB4000" type="radio">
+												<label>오피스텔</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input name="MSOB4000" type="radio" aria-label="부동산(기타부동산)">
+												<label for="rdo18">기타부동산</label>
+											</span>
+										</div>
+									</div>
+									<div class="infoBox bdNone">
+										<div class="infotitWrap">
+											<p class="tit">인덕원 푸르지오엘센트로</p>
+										</div>
+										<p class="subTxt3 pointColor11">경기 의왕시 포일동 638</p>
+										<ul class="detailList">
+											<li>
+												<span class="tit">면적</span>
+												<span class="value">61.99㎡</span>
+											</li>
+											<li>
+												<span class="tit">시세</span>
+												<span class="value">16억 8000만원</span>
+											</li>
+										</ul>
+									</div>
+									<div class="areaBodyBtnFull mt20">
+										<a href="javascript:;" class="btnBodyLine" role="button">다시 선택하기</a>
+									</div>
+								</li>
+								<li>
+									<strong class="formTit">상환할 대출상품</strong>
+									<p class="infoTxt">최소 1개 이상의 대출상품을 연결해주세요.</p>
+			
+									<!-- [CASE] 계좌 보유시 노출 -->
+									<div class="grayBgLine ty01 mt20">
+										<div class="boxDelWrap">
+											<ul class="detailList">
+												<li>
+													<span class="tit">대출계좌</span>
+													<span class="value">힘찬직장인대출</span>
+												</li>
+												<li>
+													<span class="tit">계좌번호</span>
+													<span class="value">신한은행123456789000</span>
+												</li>
+												<li>
+													<span class="tit">만기일자</span>
+													<span class="value">2030.04.22</span>
+												</li>
+												<li>
+													<span class="tit">대출잔액</span>
+													<span class="value">110,000,000원</span>
+												</li>
+											</ul>
+											<a href="javascript:" class="contBtn01" role="button">삭제</a>
+										</div>
+										<div class="datePluswrap"></div>
+										<div class="boxDelWrap">
+											<ul class="detailList">
+												<li>
+													<span class="tit">대출상품</span>
+													<span class="value">올원 비상금대출</span>
+												</li>
+												<li>
+													<span class="tit">계좌번호</span>
+													<span class="value">농협 11212000000</span>
+												</li>
+												<li>
+													<span class="tit">만기일자</span>
+													<span class="value">2023.01.01</span>
+												</li>
+												<li>
+													<span class="tit">대출잔액</span>
+													<span class="value"><strong class="dataValue">110,000,000</strong><em class="won">원</em></span>
+												</li>
+											</ul>
+											<a href="javascript:" class="contBtn01" role="button">삭제</a>
+										</div>
+										<div class="allLoanBox">
+											<span>총 대출잔액</span>
+											<span class="dataValue pointColor">1,000,000,000<em class="won">원</em></span>
+										</div>
+									</div>
+									<div class="mosbMore">
+										<a href="javascript:;" title="항목 더보기">전체보기</a> 
+									</div>
+									<!-- // -->
+			
+									<div class="areaBodyBtnFull mt20">
+										<a href="javascript:;" class="btnBodyLine" role="button">대출상품 연결하기</a>
+									</div>
+								</li>
+								<li>
+									<strong class="formTit">목표 금액</strong>
+									<div class="inputList unitMan">
+										<input type="tel" title="목표 금액" value="" placeholder="1만원 이상 입력해 주세요.">
+										<span class="unit">만원</span>
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+									<div class="roundBtnWrap">
+										<a href="javascript:;" role="button" title="1만원 추가">+1만</a>
+										<a href="javascript:;" role="button" title="10만원 추가">+10만</a>
+										<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+										<a href="javascript:;" role="button" title="1000만원 추가">+1,000만</a>
+										<a href="javascript:;" role="button" title="1억원 추가">+1억</a>
+									</div>
+									<p class="errorTxt" style="display:none;">1부터 9,999,999만원까지 입력 가능합니다.</p>
+								</li>
+								<li>
+									<div class="formTit">목표 기간
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">목표 기간 안내툴팁</span></button>
+											<div class="tooltipCont">
+												<p>	
+													목표 설정 기간은 1개월~10년입니다.
+													종료일자는 특정 일자로 지정이 가능합니다.
+												</p>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+									</div>
+									<div class="inputList unitMan" data-input="1">
+										<input type="tel" title="목표 기간" value="12" placeholder="목표기간을 입력해주세요">
+										<span class="unit">개월</span>
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+									<div class="roundBtnWrap">
+										<a href="javascript:;" role="button" title="1개월 추가">+1개월</a>
+										<a href="javascript:;" role="button" title="3개월 추가">+3개월</a>
+										<a href="javascript:;" role="button" title="6개월 추가">+6개월</a>
+										<a href="javascript:;" role="button" title="1년 추가">+1년</a>
+										<a href="javascript:;" role="button" title="3년 추가">+3년</a>
+									</div>
+									<div class="obChk mt20 fr" role="button" tabindex="0" aria-label="목표달성일 지정하기"> <!-- [D] 팝업호출하므로 role="button" 추가 : 선택시 상태정보 추가 (title="선택됨") -->
+										<input type="checkbox" id="listAll" class="chekTypeOther"><label>목표달성일 지정하기</label>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] 소비 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2 : 소비</h3>
+
+				<!-- ### 거래내역 저장 ### -->
+				<div class="guide_area">
+					<h4 class="guide_title3">거래내역 저장</h4>
+
+					<div class="formWrap t1">
+						<div class="titListBox">
+							<ul>
+								<!-- [항목하나] -->
+								<li>
+									<div class="formTitN"><strong>거래기간</strong></div>
+									<div class="formTxt">최근 1년 이내, 최대 3개월까지 조회 가능</div>
+									<div class="calendarForm">
+										<div class="cal">
+											<div class="inputList">
+												<input type="text" value="2023.06.26" title="조회 시작일" placeholder="시작일선택" readonly="readonly">
+												<a href="javascript:;" class="btnCalendar" title="시작일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+											</div>
+										</div>
+										<span class="symbol">~</span>
+										<div class="cal">
+											<div class="inputList">
+												<input type="text" value="2023.07.25" title="조회 종료일" placeholder="종료일선택" readonly="readonly">
+												<a href="javascript:;" class="btnCalendar" title="종료일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+											</div>
+										</div>
+									</div>
+									<div class="roundChkWrap t1">
+										<ul>
+											<li>
+												<span class="roundChk">
+													<input type="radio" name="MSCS2700P1" aria-label="조회기간선택(1주일)" id="MSCS2700P11">
+													<label for="MSCS2700P11" aria-hidden="true">1주일</label>
+												</span>
+											</li>
+											<li>
+												<span class="roundChk">
+													<input type="radio" name="MSCS2700P1" aria-label="조회기간선택(1개월)" id="MSCS2700P12" checked>
+													<label for="MSCS2700P12" aria-hidden="true">1개월</label>
+												</span>
+											</li>
+											<li>
+												<span class="roundChk">
+													<input type="radio" name="MSCS2700P1" aria-label="조회기간선택(3개월)" id="MSCS2700P13" >
+													<label for="MSCS2700P13" aria-hidden="true">3개월</label>
+												</span>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<!-- [항목하나] -->
+								<li>
+									<hr class="divLine3" aria-hidden="true">
+									<div class="formTitN">
+										<strong>거래구분</strong>
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">거래구분 안내 툴팁 열기</span></button>
+											<div class="tooltipCont">
+												<div class="msaeTool">
+													<ul class="popBul">
+														<li>페이결제 : 네이버, 카카오 결제는 페이결제에 포함됩니다.</li>
+														<li>거래 내역은 업권별 중복 제거된 내역으로 제공됩니다. (ex.네이버-계좌간편결제인 경우 페이결제로 제공되며 해당 결제의 계좌 거래내역은 중복 제외 처리)</li>
+													</ul>
+												</div>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+									</div>
+									<div class="boxRadio wrapType2">
+										<div class="boxRadioInn">
+											<span>
+												<input type="checkbox" name="MSCS2700P2" aria-label="거래구분(신용카드)" id="MSCS2700P21" checked>
+												<label for="MSCS2700P21" aria-hidden="true">신용카드</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input type="checkbox" name="MSCS2700P2" aria-label="거래구분(체크카드)" id="MSCS2700P22" checked>
+												<label for="MSCS2700P22" aria-hidden="true">체크카드</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input type="checkbox" name="MSCS2700P2" aria-label="거래구분(페이결제)" id="MSCS2700P23" checked>
+												<label for="MSCS2700P23" aria-hidden="true">페이결제</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input type="checkbox" name="MSCS2700P2" aria-label="거래구분(선불카드)" id="MSCS2700P24" checked>
+												<label for="MSCS2700P24" aria-hidden="true">선불카드</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input type="checkbox" name="MSCS2700P2" aria-label="거래구분(계좌)" id="MSCS2700P25" checked>
+												<label for="MSCS2700P25" aria-hidden="true">계좌</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input type="checkbox" name="MSCS2700P2" aria-label="거래구분(현금)" id="MSCS2700P26" checked>
+												<label for="MSCS2700P26" aria-hidden="true">현금</label>
+											</span>
+										</div>
+									</div>
+								</li>
+								<!-- [항목하나] -->
+								<li>
+									<div class="check">
+										<input type="checkbox" id="MSCS2700P3" class="chekTypeOther">
+										<label class="check" for="MSCS2700P3">숨긴내역 포함</label>
+									</div>
+								</li>
+								<!-- [//] -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 선택 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT2">
+			<h2 class="guide_title">선택</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] 단일선택 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : 단일선택</h3>
+
+				<!-- ### 숨긴내역 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">숨긴내역 : 반복선택</h4>
+					<div class="boxTypeWrap">
+						<h5 class="txtt2"><strong>반복 등록 건</strong></h5>
+						<div class="formWrap selectAll p0">
+							<div class="d-flex">
+								<div>
+									<input type="radio" id="MSCS26000" name="MSCS2600">
+									<label for="MSCS26000">000213송달료1680011103</label>
+								</div>
+								<div>
+									<a href="javascript:;" class="linkTxt">상세내역</a>
+								</div>
+							</div>
+							<div class="d-flex">
+								<div>
+									<input type="radio" id="MSCS26001" name="MSCS2600">
+									<label for="MSCS26001">현대백화점</label>
+								</div>
+								<div>
+									<a href="javascript:;" class="linkTxt">상세내역</a>
+								</div>
+							</div>
+							<div class="d-flex">
+								<div>
+									<input type="radio" id="MSCS26002" name="MSCS2600" disabled>
+									<label for="MSCS26002">11번가</label>
+								</div>
+								<div>
+									<a href="javascript:;" class="linkTxt">상세내역</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 조회조건 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT3">
+			<h2 class="guide_title">조회조건</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] 기간설정 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : 기간설정</h3>
+				<div class="guide_area">
+					<!-- // -->
+					<div class="formWrap">
+						<ul class="searchFormWrap">
+							<li>
+								<div class="calendarForm">
+									<div class="cal">
+										<div class="inputList">
+											<input type="tel" value="2021-10-01" title="조회 시작일" placeholder="시작일선택" readonly="readonly">
+											<a href="javascript:;" class="btnCalendar" title="시작일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+										</div>
+									</div>
+									<span class="symbol">-</span>
+									<div class="cal">
+										<div class="inputList">
+											<input type="tel" value="2021-10-08" title="조회 종료일" placeholder="종료일선택" readonly="readonly">
+											<a href="javascript:;" class="btnCalendar" title="종료일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+										</div>
+									</div>
+								</div>
+								<div class="roundChkWrap mt15">
+									<ul>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="MSCS2410P" id="MSCS2410P1" aria-label="검색기간(1주일)" checked>
+												<label for="MSCS2410P1" aria-hidden="true">1주일</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="MSCS2410P" id="MSCS2410P2" aria-label="검색기간(1개월)">
+												<label for="MSCS2410P2" aria-hidden="true">1개월</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="MSCS2410P" id="MSCS2410P3" aria-label="검색기간(3개월)">
+												<label for="MSCS2410P3" aria-hidden="true">3개월</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="MSCS2410P" id="MSCS2410P4" aria-label="검색기간(6개월)">
+												<label for="MSCS2410P4" aria-hidden="true">6개월</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="MSCS2410P" id="MSCS2410P5" aria-label="검색기간(1년)">
+												<label for="MSCS2410P5" aria-hidden="true">1년</label>
+											</span>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!-- // -->
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] 구분 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2 : 구분</h3>
+				<div class="guide_area">
+					<!-- // -->
+					<strong class="formTit bdNone mt0 ">거래구분</strong>
+					<div class="addrSelectWrap">
+						<div class="boxCheck">
+							<div class="boxChkInn">
+								<input name="chksel" id="MSCS2500P1" type="checkbox" aria-label="거래구분(신용카드)" checked>
+								<label for="MSCS2500P1" aria-hidden="true">신용카드</label> 
+							</div>
+							<div class="boxChkInn">
+								<input name="chksel" id="MSCS2500P2" type="checkbox" aria-label="거래구분(체크카드)" checked>
+								<label for="MSCS2500P2" aria-hidden="true">체크카드</label>
+							</div>
+							<div class="boxChkInn">
+								<input name="chksel" id="MSCS2500P3" type="checkbox" aria-label="거래구분(페이결제)" checked>
+								<label for="MSCS2500P3" aria-hidden="true">페이결제</label>
+							</div>
+							<div class="boxChkInn">
+								<input name="chksel" id="MSCS2500P4" type="checkbox" aria-label="거래구분(선불카드)" checked>
+								<label for="MSCS2500P4" aria-hidden="true">선불카드</label>
+							</div>
+							<div class="boxChkInn">
+								<input name="chksel" id="MSCS2500P5" type="checkbox" aria-label="거래구분(계좌)" checked>
+								<label for="MSCS2500P5" aria-hidden="true">계좌</label> 
+							</div>
+							<div class="boxChkInn">
+								<input name="chksel" id="MSCS2500P6" type="checkbox" aria-label="거래구분(현금)" checked>
+								<label for="MSCS2500P6" aria-hidden="true">현금</label>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 검색 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT4">
+			<h2 class="guide_title">검색</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] 머니캘린더 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : 머니캘린더</h3>
+
+				<div class="boxTypeWrap formWrap pb10">
+					<div class="totalBalance mt0">
+						<div class="searchBox">
+							<strong>거래내용을<br />검색해보세요</strong>
+						</div>
+					</div>
+					<div class="inputList mt20 addrSrch">
+						<input type="text" title="검색어 입력" value="" placeholder="2자 이상 검색 (예: 급여, 하나로마트 등)">
+						<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+						<button class="btnSearch"><span class="blind">찾기</span></button>
+					</div><hr class="bdT3">
+					<div class="filterWrap pt0">
+						<div><span class="sortValue">2020.09.01 ~ 2020.09.30</span></div>
+						<div><button type="button" class="sortBtn"><span class="blind">조회조건 선택 설정하기</span></button></div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ################################# -->
+	</div>
+</div>
+</body>
+</html>

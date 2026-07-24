@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>미청구 보험금 상세 | 휴면예금 | 자산현황(숨은자산) | 자산</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<!--  [MD2408_068_v0.11] 숨은자산(휴면예금,휴면보험금) 조회 텍스트 띄어쓰기 수정 -->
+		<h1>미청구보험금 상세</h1>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 미청구 보험금 상세 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 메세지 : 순자산 포함 안된 자산일 경우 노출 -->
+		<!-- -------------------------------------- -->
+		<div class="layerMsgWrap ty01">
+			<p>순자산 금액에 포함되지 않은 자산이에요.</p>
+			<button type="button" class="layerMsgClose"><span class="blind">닫기</span></button>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 보험정보 -->
+		<!-- -------------------------------------- -->
+		<div class="boxWrapShadow">
+			<!-- [보험기본내용] -->
+			<div class="boxTypeWrap delShadow">
+				<!-- // -->
+				<div class="accTopInfo">
+					<h2 class="accName">
+						$상품명$
+						<img src="../../images/logos/AAAR0000.png" alt="삼성생명보험" class="imgLogo">
+					</h2>
+					<dl class="totalBalance">
+						<dt>미청구보험금 합계
+							<!-- [D] 외환일 경우 노출 -->
+							<div class="tooltipWrap">
+								<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">계좌잔액 외화 안내 툴팁 열기</span></button>
+								<div class="tooltipCont">
+									<p>계좌잔액이 외화인 경우, 전일 매매기준율로 환산합니다.</p>
+									<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+								</div>
+							</div>
+							<!-- // -->
+						</dt>
+						<dd><strong>1,000,000</strong>원</dd>
+					</dl>
+				</div>
+				<!-- // -->
+				<!--  [MD2410_086] [숨긴내역배너영역] -->
+				<a href="javascript:;" role="button" class="cslayerMsgWrap ty02 link">
+					<p>사용하지 않는 계좌는 해지가 가능해요.</p>
+				</a>
+				<hr class="divLine">
+
+				<!-- // -->
+				<div class="accInfoDetail">
+					<ul class="detailList">
+						<!-- [MD2408_068_v0.11] 숨은자산(휴면예금,휴면보험금) 조회 텍스트 추가 -->
+						<!-- [MD2410_086_v0.12] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 텍스트 추가 -->
+						<li>
+							<span class="tit">기관명</span>
+							<span class="value">$기관명$</span>
+						</li>
+						<li>
+							<span class="tit">유형</span>
+							<span class="value">생명보험</span>
+						</li>
+						<li>
+							<span class="tit">증권번호</span>
+							<span class="value">3021417655471 <button type="button" class="contBtn01" title="증권번호 복사">복사</button></span>
+						</li>
+						<li>
+							<span class="tit">미청구보험금</span>
+							<span class="value">00건
+								<button type="button" class="contBtnArrow">미청구보험금 더보기</button>
+							</span>
+						</li>
+					</ul>
+				</div>
+				<!-- // -->
+			</div>
+
+			<!-- [보험상세정보] -->
+			<div class="moreInfoArea">
+				<div class="moreInfoWrap toggleWrap">
+					<div class="moreInfo toggleCont" style="display: none;">
+						<hr class="divLine2" aria-hidden="true">
+						<ul class="detailList">
+							<li>
+								<span class="tit">보험구분</span>
+								<span class="value">미청구보험금</span>
+							</li>
+							<li>
+								<span class="tit">지점명</span>
+								<span class="value">삼성화재 강남점</span>
+							</li>
+							<li>
+								<span class="tit">지점전화번호</span>
+								<span class="value">02-1234-5678</span>
+							</li>
+							<li>
+								<span class="tit">계약관계</span>
+								<span class="value">보험계약자</span>
+							</li>
+
+							<!-- [D] 외화일 경우 노출 -->
+							<li>
+								<span class="tit">잔액(USD) </span>
+								<span class="value"><strong class="dataValue">2,099</strong></span>
+							</li>
+							<li>
+								<span class="tit">적용환율</span>
+								<span class="value">1USD=<strong class="dataValue">1234.12</strong><em class="won">원</em></span>
+							</li>
+							<!-- // -->
+						</ul>
+					</div>
+					<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+				</div>
+			</div>
+			<!-- // -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//[샘플] 레이어팝업 닫기 클릭 이벤트
+	$('.layerMsgClose').click(function(){
+		$(this).closest('.layerMsgWrap').hide();
+	});
+	//[MD2408_068_v0.13] [숨은자산(휴면예금·휴먼보험금)조회] 복사 Tap시 노출되는 문구 정의 추가
+	$(document).ready(function () {
+		$('.contBtn01').click(function(){
+			tostpop();//토스트 팝업 호출
+		});
+	});
+	function tostpop(){
+		var $tostCont = '<div class="tostpopupWrap" aria-live="assertive"><div class="tostMsg">계좌번호를 클립보드에 복사하였습니다.</div></div>'
+		$('.container').after($tostCont);
+		setTimeout(function(){
+			$('.tostpopupWrap').remove();
+		},4000)
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

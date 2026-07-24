@@ -1,0 +1,244 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [테이블]</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>테이블</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="definition.html">기본정보</a>
+				<a href="layout_sample.html">레이아웃</a>
+				<a href="txt_sample.html">타이틀/텍스트</a>
+				<a href="button_sample.html">버튼</a>
+				<a href="form_sample.html">폼</a>
+				<a href="table_sample.html" aria-current="page">테이블</a>	
+			</div>
+		</nav>
+	</header>
+
+	<!-- ###################################### -->
+	<!-- ### UI Guide [테이블] ### -->
+	<!-- ###################################### -->
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">기본유형</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 기본유형 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<!-- -------------------------------------- -->
+			<!-- [테이블 구조] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">테이블 구조</h3>
+<div class="guide_code"><pre>
+&lt;div class="wrapTblDefault"&gt;
+	&lt;table&gt;
+		&lt;caption&gt;테이블제목(th명, th명, th명)&lt;/caption&gt;
+		&lt;colgroup&gt;
+			&lt;col style="width:**"&gt;
+		&lt;/colgroup&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th scope="col"&gt;항목명&lt;/th&gt;
+				&lt;th scope="col"&gt;항목명&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;th scope="row"&gt;항목명&lt;/th&gt;
+				&lt;td&gt;내용&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;th scope="row"&gt;항목명&lt;/th&gt;
+				&lt;td&gt;내용&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+	&lt;/table&gt;
+&lt;/div&gt;
+</pre></div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [기본형] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">기본형 : .wrapTblDefault &gt; table</h3>
+				<div class="guide_area">
+					<!-- // -->
+					<div class="wrapTblDefault">
+						<table>
+							<caption>테이블제목(항목명, 항목명, 항목명)</caption>
+							<colgroup>
+								<col style="width:30%">
+								<col style="width:auto">
+								<col style="width:30%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">항목명</th>
+									<th scope="col">항목명</th>
+									<th scope="col">항목명</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">항목명</th>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+								<tr>
+									<th scope="row">항목명</th>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- // -->
+					<div class="wrapTblDefault">
+						<table>
+							<caption>테이블제목(항목명, 항목명, 항목명)</caption>
+							<colgroup>
+								<col style="width:30%">
+								<col style="width:auto">
+								<col style="width:30%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">항목명</th>
+									<th scope="col">항목명</th>
+									<th scope="col">항목명</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>내용</td>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+								<tr>
+									<td>내용</td>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- // -->
+					<div class="wrapTblDefault">
+						<table>
+							<caption>테이블제목</caption>
+							<colgroup>
+								<col style="width:30%">
+								<col style="width:auto">
+								<col style="width:30%">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th scope="row">항목명</th>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+								<tr>
+									<th scope="row">항목명</th>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- // -->
+	
+					<h4 class="guide_title4">제목 센터형 : .thCenter</h4>
+					<div class="wrapTblDefault">
+						<table class="thCenter">
+							<caption>테이블제목(항목명, 항목명, 항목명)</caption>
+							<colgroup>
+								<col style="width:30%">
+								<col style="width:auto">
+								<col style="width:30%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">항목명</th>
+									<th scope="col">항목명</th>
+									<th scope="col">항목명</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">항목명</th>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+								<tr>
+									<th scope="row">항목명</th>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+	
+					<h4 class="guide_title4">제목 + 내용 센터형 : .thCenter + .tdCenter</h4>
+					<div class="wrapTblDefault">
+						<table class="thCenter tdCenter">
+							<caption>테이블제목(항목명, 항목명, 항목명)</caption>
+							<colgroup>
+								<col style="width:30%">
+								<col style="width:auto">
+								<col style="width:30%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">항목명</th>
+									<th scope="col">항목명</th>
+									<th scope="col">항목명</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row">항목명</th>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+								<tr>
+									<th scope="row">항목명</th>
+									<td>내용</td>
+									<td>내용</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ################################# -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

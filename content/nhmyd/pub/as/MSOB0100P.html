@@ -1,0 +1,107 @@
+<DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 계좌 연결하기</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(function(){
+		slidePopOption();
+	})
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 계좌 연결하기 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopOption">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>계좌 연결하기</h1>
+		<div class="popCont">
+			<ul class="selectList">
+				<li>
+					<span class="imgWrap">
+						<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+					</span>
+					<a href="javascript:;" role="button">
+						<strong class="fwN">[별명]계좌명 또는 상품명</strong>
+						<div class="ob divingTxt fcGray"><span>계좌번호</span></div>
+						<div class="accInfo">
+							<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<span class="imgWrap">
+						<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+					</span>
+					<a href="javascript:;" role="button">
+						<strong class="fwN">한국투자미국배당귀족증권자투자신탁[USD][주식]ClassA</strong>
+						<div class="ob divingTxt fcGray"><span>4580000002511</span></div>
+						<div class="accInfo">
+							<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+						</div>
+					</a>
+				</li>
+				<!-- [CASE] 선택한 계좌 -->
+				<li class="active">
+					<span class="imgWrap">
+						<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+					</span>
+					<a href="javascript:;" role="button" title="선택됨">
+						<strong class="fwN">[매직트리] 매직트리</strong>
+						<div class="ob divingTxt fcGray"><span>3021037336171</span></div>
+						<div class="accInfo">
+							<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+						</div>
+					</a>
+				</li>
+				<!-- [CASE] 다른 목표에서 연결중인 계좌 -->
+				<li class="select">
+					<span class="imgWrap">
+						<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+					</span>
+					<a href="javascript:;" role="button">
+						<strong class="fwN">NH올원e예금</strong>
+						<div class="ob divingTxt fcGray">
+							<span>3030000116632</span>
+							<div class="accDate">만기일 2024.10.16</div>
+						</div>
+						<div class="accInfo">
+							<div class="wrapTag"><span class="type02">연결중</span></div>
+							<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+						</div>
+					</a>
+				</li>
+				<!-- // -->
+			</ul>
+		</div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">연결하기</a> <!-- [D] 비활성화 시 disabled 추가 -->
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

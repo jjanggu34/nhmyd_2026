@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 납부예정 항목 선택</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+$(document).ready(function(){
+	slidePopOption();
+})  
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"> </div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 납부예정 항목 선택 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopOption">
+	<div class="dim"></div>
+	<div class="popInner">
+		<!-- [[MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 텍스트 수정 -->
+		<h1>납부예정 항목 선택</h1>
+		<div class="popCont">
+			<div class="formWrap msaeType">
+				<div class="boxRadio rowType msaeType">
+					<ul class="pickList">
+						<li>	
+							<input type="checkbox" name="rdo01" id="rdo011" checked aria-label="[직접등록] 학원비">	
+							<label for="rdo011" class="rdoCheck" aria-hidden="true">
+								<span class="withdrawList">
+									<span class="title">[직접등록] 학원비</span>
+								</span>
+							</label>
+						</li>
+						<li>	
+							<input type="checkbox" name="rdo01" id="rdo012" aria-label="[농협생명보험] 실속만점 1234567890123">	
+							<label for="rdo012" class="rdoCheck" aria-hidden="true"> 
+								<span class="withdrawList">
+									<span class="title">[농협생명보험] 실속만점</span>
+									<span class="accNum al">1234567890123</span>
+								</span>
+							</label>
+						</li>
+						<li>	
+							<input type="checkbox" name="rdo01" id="rdo013"   checked aria-label="[지방세] 주민세 7979352222">	
+							<label for="rdo013" class="rdoCheck" aria-hidden="true">
+								<span class="withdrawList">
+									<span class="title">[지방세] 주민세</span>
+									<span class="accNum al">7979352222</span>
+								</span>
+							</label>
+						</li>
+						<li>	
+							<input type="checkbox" name="rdo01" id="rdo014"  aria-label="[SK텔레콤] 휴대폰 010*95**1****">	
+							<label for="rdo014" class="rdoCheck" aria-hidden="true">
+								<span class="withdrawList">
+									<span class="title">[SK텔레콤] 휴대폰</span>
+									<span class="accNum al">010*95**1****</span>
+								</span>
+							</label>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>	
+		
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- // -->
+</body>
+</html>

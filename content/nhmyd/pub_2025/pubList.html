@@ -1,0 +1,3397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NH마이데이터(은행) || 가이드 시스템</title>
+	<meta name="publisher" content="[NURIER] FrontEnd Dev Team">
+	<link rel="icon" href="worklist/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="worklist/css/datatables.min.css">
+	<link rel="stylesheet" href="worklist/css/colorbox.css">
+	<link rel="stylesheet" href="worklist/css/nurier_worklist.css">
+	<script src="worklist/js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+      <div class="title">
+        <div class="subject">
+          <img src="worklist/images/guide_logo_nh_green.svg" alt="NH Bank, NH 농협" class="nhLogo" />
+          <span class="headerTit">
+            <span class="headerYear">UI/UX Guide SYSTEM</span> |
+            <span class="prj">NH마이데이터</span>
+          </span>
+          <div class="total"><em>진행률 </em></div>
+        </div>
+        <div class="search">
+          <input type="search" id="tableSearch" placeholder="검색어입력" />
+        </div>
+        <div class="menu">
+          <ul>
+            <li><a href="pubList.html" class="active" title="선택됨">퍼블리스트</a></li>
+            <li><a href="pubGuide.html">UI가이드</a></li>
+            <!-- <li><a href="pubImage.html">이미지리스트</a></li>
+            <li><a href="pubA11y.html" title="선택됨">접근성</a></li> -->
+          </ul>
+        </div>
+      </div>
+      <nav class="gnb">
+        <ul>
+          <!-- gnb는 depth1로 자동생성됩니다. -->
+          <li><span class="active">전체보기</span></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="pubList">
+      <!-- 공통(co) -->
+      <table class="display compact">
+        <caption>공통(co)</caption>
+        <tbody>
+          <tr>
+            <td class="depth2">공통</td>
+            <td class="depth3">GNB</td>
+            <td class="depth4"></td>
+            <td class="depthEtc"></td>
+            <td class="pname">공통 GNB</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0000.html">MSCO0000</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-05">2025-09-05</span>
+              <span data-date="2025-09-11">2025-09-11</span>
+              <span data-date="2025-10-21">2025-10-21</span>
+              <span data-date="2025-10-27">2025-10-27</span>
+              <span data-date="2025-10-28">2025-10-28</span>
+              <span data-date="2025-11-19">2025-11-19</span>
+              <span data-date="2025-11-27">2025-11-27</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-27 통합메인(가입 전),전체메뉴 gnb 타이틀 텍스트로 변경</p>
+              <p>2025-10-28 NHpay GNB 반영(최종컴펌 전)</p>
+              <p>2025-10-28 전체메뉴 올뱅-홈버튼 노출로 변경 요청</p>
+              <p>2025-10-27 가입 전 GNB 홈버튼 추가, 프로세스 GNB 수정</p>
+              <p>2025-10-21 가입 전 타이틀 이미지 변경</p>
+              <p>2025-09-11 전체메뉴 바닥페이지 전환으로 인한 GNB 추가</p>
+              <p>화면ID 임의 발급</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">공통</td>
+            <td class="depth3">팝업</td>
+            <td class="depth4">날짜 선택</td>
+            <td class="depthEtc">년,월,일</td>
+            <td class="pname">[S_팝업] 날짜 선택(년,월,일)</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0011P.html">MSCO0011P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">공통</td>
+            <td class="depth3">팝업</td>
+            <td class="depth4">날짜 선택</td>
+            <td class="depthEtc">연도 선택</td>
+            <td class="pname">[S_팝업] 연도 선택(최대2년)</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0016P.html">MSCO0016P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-11-17</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>화면ID 임의 발급</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">공통</td>
+            <td class="depth3">팝업</td>
+            <td class="depth4">통화 선택</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[S_팝업] 통화 선택</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0012P.html">MSCO0012P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">공통</td>
+            <td class="depth3">팝업</td>
+            <td class="depth4">컨펌</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[C_팝업] 컨펌 case</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0013P.html">MSCO0013P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">공통</td>
+            <td class="depth3">팝업</td>
+            <td class="depth4">확인</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[C_팝업] 확인 case</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0014P.html">MSCO0014P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">공통</td>
+            <td class="depth3">팝업</td>
+            <td class="depth4">조회기간 설정</td>
+            <td class="depthEtc">1년</td>
+            <td class="pname">[S_팝업] 조회기간 설정(1년)</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0015P.html">MSCO0015P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-26</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // 공통(co) -->
+
+      <!-- 통합메인(co) -->
+      <table class="display compact">
+        <caption>통합메인(co)</caption>
+        <tbody>
+          <tr class="del">
+            <td class="depth2">통합메인</td>
+            <td class="depth3">가입 전</td>
+            <td class="depth4">서비스 안내</td>
+            <td class="depthEtc">(old)</td>
+            <td class="pname">NH마이데이터 가입 전 서비스 안내 - old</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO9101-old.html">MSCO9101</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-15">2025-10-15</span>
+              <span data-date="2025-10-21">2025-10-21</span>
+              <span data-date="2025-10-27">2025-10-27</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-27 가입 전 GNB 홈버튼 추가</p>
+              <p>2025-10-21 가입 전 타이틀 이미지 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">통합메인</td>
+            <td class="depth3">가입 전</td>
+            <td class="depth4">서비스 안내</td>
+            <td class="depthEtc">(new)</td>
+            <td class="pname">NH마이데이터 가입 전 서비스 안내 - new</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO9101.html">MSCO9101</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-11-26">2025-11-26</span>
+              <span data-date="2025-12-02">2025-12-02</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-02 심의필 확정 수정</p>
+              <p>2025-11-26 신규 안내 페이지</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">통합메인</td>
+            <td class="depth3">가입 후</td>
+            <td class="depth4">홈</td>
+            <td class="depthEtc"></td>
+            <td class="pname">가입 후 홈</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO9211.html">MSCO9211</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-11">2025-09-17</span>
+              <span data-date="2025-09-15">2025-09-24</span>
+              <span data-date="2025-09-29">2025-09-29</span>
+              <span data-date="2025-10-20">2025-10-20</span>
+              <span data-date="2025-10-21">2025-10-21</span>
+              <span data-date="2025-10-23">2025-10-23</span>
+              <span data-date="2025-11-27">2025-11-27</span>
+              <span data-date="2025-12-03">2025-12-03</span>
+              <span data-date="2025-12-08">2025-12-08</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-08 알림배너 전체 클릭영역 변경 요청</p>
+              <p>2025-12-03 bgNewMain 클래스 제거 및 메뉴 이미지 태그 추가 요청</p>
+              <p>2025-11-27 목표 설정 배너영역 전체 클릭 수정 요청</p>
+              <p>2025-10-23 목표 설정 배너 수정 요청</p>
+              <p>2025-10-21 마이피드case 추가, 임시배너 3종 추가, 컨테이너 배경색 추가</p>
+              <p>2025-10-20 메뉴 코드명 이미지 맵핑, 개인화 메세지 case 추가</p>
+              <p>2025-09-29 메뉴 코드명 변경으로 인한 클래스명 변경 및 p 태그 추가</p>
+              <p>2025-09-24 배너 텍스트 컬러 변경</p>
+              <p>각 case 주석처리 참조하세요</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">통합메인</td>
+            <td class="depth3">가입 후</td>
+            <td class="depth4">홈</td>
+            <td class="depthEtc">개인화 메세지 case</td>
+            <td class="pname">가입 후 홈 - 개인화 메세지 case</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO9211-2.html">MSCO9211-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-10-20</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>개인화 메세지 case</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">통합메인</td>
+            <td class="depth3">가입 후</td>
+            <td class="depth4">나만의 메뉴 설정</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[F_팝업] 나만의 메뉴 설정</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO9271P.html">MSCO9271P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-17">2025-09-17</span>
+              <span data-date="2025-09-29">2025-09-29</span>
+              <span data-date="2025-11-03">2025-11-03</span>
+              <span data-date="2025-12-04">2025-12-04</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+               <p>2025-12-04 메뉴 이미지 object로 변경 요청</p>
+               <p>2025-11-03 즐겨찾기 메뉴 disabled case 추가</p>
+               <p>2025-09-29 메뉴 코드명 변경으로 인한 클래스명 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">통합메인</td>
+            <td class="depth3">가입 후</td>
+            <td class="depth4">전체메뉴</td>
+            <td class="depthEtc"></td>
+            <td class="pname">전체메뉴</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO9280.html">MSCO9280</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-05">2025-09-05</span>
+              <span data-date="2025-09-11">2025-09-11</span>
+              <span data-date="2025-09-15">2025-09-15</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-10-28">2025-10-28</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-27">2025-11-27</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-27 gnb 타이틀 텍스트로 변경, 메뉴명 일부 수정</p>
+              <p>2025-11-10 공통js 오류 수정</p>
+              <p>2025-10-28 전체메뉴 올뱅-홈버튼 노출로 변경 요청</p>
+              <p>2025-09-26 JS 분리</p>
+              <p>2025-09-15 오타, 여백 수정</p>
+              <p>2025-09-11 이에 따라 화면ID도 변경</p>
+              <p>2025-09-11 [F팝업]에서 바닥페이지로 변경</p>
+            </td>
+          </tr>
+          <tr class="del">
+            <td class="depth2">통합메인</td>
+            <td class="depth3">가입 후</td>
+            <td class="depth4">전체메뉴</td>
+            <td class="depthEtc"></td>
+            <td class="pname">전체메뉴</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO9280P.html">MSCO9280P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-05">2025-09-05</span>
+              <span data-date="2025-09-11">2025-09-11</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-11 [F팝업]에서 바닥페이지로 변경, 팝업 삭제</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">통합메인</td>
+            <td class="depth3">가입 후</td>
+            <td class="depth4">전체메뉴</td>
+            <td class="depthEtc">서비스 환경설정</td>
+            <td class="pname">서비스 환경설정</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO9281.html">MSCO9281</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-05">2025-09-05</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-02 해지/지급 신청내역 추가 요청</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // 통합메인(co) -->
+
+      <!-- 자산관리(as) -->
+      <table class="display compact">
+        <caption>자산관리(as)</caption>
+        <tbody>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4"></td>
+            <td class="depthEtc"></td>
+            <td class="pname">자산모아보기(서브메인)</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM000.html">MSASM000</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-11">2025-09-11</span>
+              <span data-date="2025-09-15">2025-09-15</span>
+              <span data-date="2025-09-22">2025-09-22</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-10-01">2025-10-01</span>
+              <span data-date="2025-10-15">2025-10-15</span>
+              <span data-date="2025-10-17">2025-10-17</span>
+              <span data-date="2025-10-20">2025-10-20</span>
+              <span data-date="2025-10-21">2025-10-21</span>
+              <span data-date="2025-10-24">2025-10-24</span>
+              <span data-date="2025-10-27">2025-10-27</span>
+              <span data-date="2025-10-29">2025-10-29</span>
+              <span data-date="2025-12-01">2025-12-01</span>
+              <span data-date="2025-12-10">2025-12-10</span>
+              <span data-date="2025-12-12">2025-12-12</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-12 폰트 고정 반영</p>
+              <p>2025-12-10 스켈레톤 UI 반영</p>
+              <p>2025-12-01 디자인 변경 요청</p>
+              <p>2025-10-29 띠배너 위치 변경</p>
+              <p>2025-10-27 내가 몰랐던 숨은자산 리스트 추가, 계좌/보험금 숨은자산찾기 띠배너 추가, 카테고리 타이틀 컬러 수정</p>
+              <p>2025-10-24 부동산 포함기타 아이콘 코드화 9종</p>
+              <p>2025-10-21 대출 상품 tab 연결확인 케이스 추가 요청</p>
+              <p>2025-10-20 sorting tab 일반 tab으로 전환 요청</p>
+              <p>2025-10-17 sorting tab 추가 요청</p>
+              <p>2025-10-15 링크영역 추가, 배너 추가 요청</p>
+              <p>2025-10-01 디자인 변경 전체수정</p>
+              <p>2025-09-26 JS 분리</p>
+              <p>2025-09-22 이체버튼, 연결확인버튼 정렬 수정 요청</p>
+              <p>2025-09-15 앵커스크롤 수정 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">스켈레톤 UI case</td>
+            <td class="depthEtc"></td>
+            <td class="pname">자산모아보기(서브메인)-스켈레톤 UI case</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM000-SK.html">MSASM000-SK</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-12-10">2025-12-10</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-10 스켈레톤 UI case</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">empty case</td>
+            <td class="depthEtc"></td>
+            <td class="pname">자산모아보기(서브메인)-empty case</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM100.html">MSASM100</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-09">2025-09-09</span>
+              <span data-date="2025-09-15">2025-09-15</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-10-01">2025-10-01</span>
+              <span data-date="2025-10-24">2025-10-24</span>
+              <span data-date="2025-11-19">2025-11-19</span>
+              <span data-date="2025-12-12">2025-12-12</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-12 폰트 고정 반영</p>
+              <p>2025-11-19 숨긴 계좌,대출,투자 case 추가 요청</p>
+              <p>2025-10-24 내가 몰랐던 숨은자산 텍스트 현행화</p>
+              <p>2025-10-01 텍스트 크기 컬러 수정</p>
+              <p>2025-09-26 JS 분리</p>
+              <p>2025-09-15 앵커스크롤 수정 요청</p>
+              <p>2025-09-09 empty case</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">지급신청 안내</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[S_팝업] 지급신청 안내</td>
+            <td class="path">
+              <a target="_blank" href="as/MSAS0832P.html">MSAS0832P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-10-27</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">즐겨찾기</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[F_팝업] 즐겨찾기</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM500P.html">MSASM500P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-04">2025-09-04</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 폰트 고정 반영</p>
+              <p>2025-09-04 empty case 포함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">empty case</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[F_팝업] 즐겨찾기-empty case</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM500P-1.html">MSASM500P-1</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-11-19">2025-11-19</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 폰트 고정 반영</p>
+              <p>2025-09-04 empty case 포함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">자산숨기기</td>
+            <td class="depthEtc">은행계좌</td>
+            <td class="pname">[F_팝업] 숨긴자산관리(은행계좌)</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM600P.html">MSASM600P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-04">2025-09-04</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 폰트 고정 반영</p>
+              <p>2025-09-04 empty case 포함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">자산숨기기</td>
+            <td class="depthEtc">통합 case</td>
+            <td class="pname">[F_팝업] 숨긴자산관리(통합 case)</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM601P.html">MSASM601P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-11-05">2025-11-05</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 폰트 고정 반영</p>
+              <p>2025-11-05 화면ID 임의 발급, empty case 포함</p>
+            </td>
+          </tr>          
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">자산숨기기</td>
+            <td class="depthEtc">증권계좌</td>
+            <td class="pname">[F_팝업] 숨긴자산관리(증권계좌)</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM610P.html">MSASM610P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-04">2025-09-04</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 폰트 고정 반영</p>
+              <p>2025-09-04 empty case 포함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">자산숨기기</td>
+            <td class="depthEtc">대출계좌</td>
+            <td class="pname">[F_팝업] 숨긴자산관리(대출계좌)</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM620P.html">MSASM620P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-04">2025-09-04</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 폰트 고정 반영</p>
+              <p>2025-09-04 empty case 포함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">자산숨기기</td>
+            <td class="depthEtc">연금계좌</td>
+            <td class="pname">[F_팝업] 숨긴자산관리(연금계좌)</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM630P.html">MSASM630P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-04">2025-09-04</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 폰트 고정 반영</p>
+              <p>2025-09-04 empty case 포함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">자산숨기기</td>
+            <td class="depthEtc">선불카드 페이</td>
+            <td class="pname">[F_팝업] 숨긴자산관리(선불카드 페이)</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM640P.html">MSASM640P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-04">2025-09-04</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 폰트 고정 반영</p>
+              <p>2025-09-04 empty case 포함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">자산숨기기</td>
+            <td class="depthEtc">보험</td>
+            <td class="pname">[F_팝업] 숨긴자산관리(보험)</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM650P.html">MSASM650P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-04">2025-09-04</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 폰트 고정 반영</p>
+              <p>2025-09-04 empty case 포함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">자산모아보기(서브메인)</td>
+            <td class="depth4">자산관리</td>
+            <td class="depthEtc">진단하기</td>
+            <td class="pname">[S_팝업] 진단하기 선택</td>
+            <td class="path">
+              <a target="_blank" href="as/MSASM710P.html">MSASM710P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-09</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // 자산관리(as) -->
+
+      <!-- 자산관리(ae) -->
+      <table class="display compact">
+        <caption>자산관리(ae)</caption>
+        <tbody>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">서비스 안내</td>
+            <td class="depthEtc"></td>
+            <td class="pname">밸런스진단 서비스 안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd100.html">MSAEd100</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-22</span>
+              <span data-date="2025-08-22">2025-08-22</span>
+              <span data-date="2025-10-16">2025-10-16</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-16 높이 오류 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 STEP 1</td>
+            <td class="depthEtc"></td>
+            <td class="pname">밸런스진단</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd200.html">MSAEd200</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-28">2025-08-28</span>
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-10-28">2025-10-28</span>
+              <span data-date="2025-12-02">2025-12-02</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-02 분석 대상 자산 카운터 애니메이션 추가 요청</p>
+              <p>2025-10-28 GNB 이전버튼 추가(공통변경)</p>
+              <p>2025-09-26 0% 일 때 최소크기 적용 제외</p>
+              <p>2025-08-29 최소크기 차트영역(5%) 반영</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 STEP 1</td>
+            <td class="depthEtc">자산 등록 안내</td>
+            <td class="pname">[S_팝업] 자산 등록 안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd200P.html">MSAEd200P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-28">2025-08-28</span>
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-12-03">2025-12-03</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-03 자산연결 하기 -> 자산 추가하기 문구 수정 요청 </p>
+              <p>2025-08-27 기획, 디자인 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 STEP 1</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[F_팝업] 분석 대상 자산 안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd210P.html">MSAEd210P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-26">2025-08-26</span>
+              <span data-date="2025-09-10">2025-09-10</span>
+              <span data-date="2025-09-30">2025-09-30</span>
+              <span data-date="2025-11-03">2025-11-03</span>
+              <span data-date="2025-11-13">2025-11-13</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-25 주식 및 채권 분류 세분화 및 문구 수정</p>
+              <p>2025-11-13 기관명 삭제 수정 요청</p>
+              <p>2025-11-03 채권, 대체투자 문구 수정</p>
+              <p>2025-09-30 기타 항목 여백 수정</p>
+              <p>2025-09-10 오타,여백 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 STEP 2</td>
+            <td class="depthEtc">밸런스진단 (기준 설정)</td>
+            <td class="pname">밸런스진단 (진단결과 있음)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd300.html">MSAEd300</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-28">2025-08-28</span>
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-09-10">2025-09-10</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+              <span data-date="2025-11-13">2025-11-13</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-11-19">2025-11-19</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-19 문구 수정 요청</p>
+              <p>2025-11-17 문구 수정 요청</p>
+              <p>2025-11-13 문구 수정 요청</p>
+              <p>2025-10-02 알아두세요 오류 수정</p>
+              <p>2025-09-10 위험등급 순서 변경 요청</p>
+              <p>2025-08-29 최소크기 차트영역(5%) 반영</p>
+              <p>2025-08-28 case 분리</p>
+              <p>2025-08-27 기획, 디자인 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 STEP 2</td>
+            <td class="depthEtc">밸런스진단 (기준 설정)</td>
+            <td class="pname">밸런스진단 (진단결과 없음)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd300-1.html">MSAEd300-1</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-28">2025-08-28</span>
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+              <span data-date="2025-11-19">2025-11-19</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-19 문구 수정 요청</p>
+              <p>2025-10-02 알아두세요 오류 수정</p>
+              <p>2025-08-29 최소크기 차트영역(5%) 반영</p>
+              <p>2025-08-28 case 분리, 화면ID 임의 발급</p>
+              <p>2025-08-27 기획, 디자인 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 STEP 2</td>
+            <td class="depthEtc">투자성향진단 이동 안내</td>
+            <td class="pname">[S_팝업] 투자성향진단 이동 안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd300P.html">MSAEd300P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-28">2025-08-28</span>
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-08-29">2025-09-10</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-10 문구 개행 요청</p>
+              <p>2025-08-27 기획, 디자인 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 결과</td>
+            <td class="depthEtc"></td>
+            <td class="pname">밸런스진단 결과</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd400.html">MSAEd400</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-28">2025-08-28</span>
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-09-12">2025-09-12</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+              <span data-date="2025-10-28">2025-10-28</span>
+              <span data-date="2025-10-31">2025-10-31</span>
+              <span data-date="2025-11-03">2025-11-03</span>
+              <span data-date="2025-11-12">2025-11-12</span>
+              <span data-date="2025-11-13">2025-11-13</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-11-24">2025-11-24</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-25 문구 수정 요청</p>
+              <p>2025-11-24 프로그래스바 수정 요청</p>
+              <p>2025-11-17 문구 수정 요청</p>
+              <p>2025-11-13 문구 수정 요청</p>
+              <p>2025-11-12 WMS 통신 실패 메세지 추가 요청</p>
+              <p>2025-11-03 문구수정 및 늘려요 관련상품 보기 버튼 추가</p>
+              <p>2025-10-31 주식, 채권, 현금 늘어요 줄어요 스타일 변경, 배너스타일 변경 및 추가</p>
+              <p>2025-10-28 권장 0 일때 case 추가</p>
+              <p>2025-10-02 알아두세요 오류 수정</p>
+              <p>2025-09-26 신흥국↔선진국 위치변경 요청, JS 분리, 0% 일 때 최소크기 적용 제외</p>
+              <p>2025-09-12 범례 데이터 현행화</p>
+              <p>2025-08-29 최소크기 차트영역(5%) 반영</p>
+              <p>2025-08-27 기획, 디자인 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 결과</td>
+            <td class="depthEtc">투자기준설정 다시하기</td>
+            <td class="pname">[S_팝업] 투자기준설정 다시하기</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd400P.html">MSAEd400P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-28">2025-08-28</span>
+              <span data-date="2025-08-29">2025-08-29</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-08-28 기획, 디자인 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 결과</td>
+            <td class="depthEtc">보유 자산 보기(주식/채권/현금)</td>
+            <td class="pname">[F_팝업] 보유 자산 보기(주식/채권/현금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd410P.html">MSAEd410P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-09-12">2025-09-12</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-11">2025-11-11</span>
+              <span data-date="2025-12-03">2025-12-03</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-03 자산연결 하기 -> 자산 추가하기 문구 수정 요청 </p>
+              <p>2025-11-11 Empty Case 추가 요청</p>
+              <p>2025-10-10 버튼명 수정 요청</p>
+              <p>2025-09-12 채권, 현금 case 추가</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 결과</td>
+            <td class="depthEtc">관련 상품 안내(현금)</td>
+            <td class="pname">[F_팝업] 관련 상품 안내(현금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd420P.html">MSAEd420P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-14 문구 수정 요청</p>
+              <p>2025-10-02 알아두세요 오류 수정</p>
+              <p>2025-09-26 외화예금 금리 삭제 요청 등 수정</p>
+              <p>현금 비중 확대 + AI</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 결과</td>
+            <td class="depthEtc">관련 상품 안내(주식/채권)</td>
+            <td class="pname">[F_팝업] 관련 상품 안내(주식/채권)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd421P.html">MSAEd421P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+              <span data-date="2025-11-03">2025-11-03</span>
+              <span data-date="2025-11-11">2025-11-11</span>
+              <span data-date="2025-11-19">2025-11-19</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-19 문구 수정 요청 및 구분선 제거</p>
+              <p>2025-11-11 우대금리 기준일 추가 요청</p>
+              <p>2025-11-03 펀드 태그 배너 팝업 줄 바꿈 추가</p>
+              <p>2025-10-02 알아두세요 오류 수정</p>
+              <p>2025-09-26 여백 수정</p>
+              <p>주식/채권 비중 확대 case</p>
+              <p>화면ID 임의 발급</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">밸런스진단 결과</td>
+            <td class="depthEtc">밸런스진단 다시하기</td>
+            <td class="pname">[S_팝업] 밸런스진단 다시하기</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd440P.html">MSAEd440P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-28">2025-08-28</span>
+              <span data-date="2025-08-29">2025-08-29</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-08-27 기획, 디자인 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">WM 통신 오류</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[C_팝업] WM 통신 오류</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd500P.html">MSAEd500P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-29</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>화면ID 임의 발급</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">밸런스진단</td>
+            <td class="depth4">프로세스 이탈 시</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[C_팝업] 프로세스 이탈 시</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEd510P.html">MSAEd510P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-29</span>
+              <span>2025-11-03</span>
+              <span>2025-11-13</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-13 문구수정 요청</p>
+              <p>2025-11-03 팝업 안내 문구 수정</p>
+              <p>화면ID 임의 발급</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">서비스 안내</td>
+            <td class="depthEtc"></td>
+            <td class="pname">내 자산 안심 알림서비스 안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe100.html">MSAEe100</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-08-29">2025-08-29</span>
+              <span data-date="2025-09-05">2025-09-05</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+              <span data-date="2025-11-18">2025-11-18</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-18 문구 수정 요청</p>
+              <p>2025-10-02 알아두세요 오류 수정</p>
+              <p>2025-09-26 자산 변동 내역 스크롤 속도 관련 data set 추가 및 JS 분리</p>
+              <p>2025-09-05 하단 여백 수정 html 구조변경</p>
+              <p>2025-08-29 에니메이션, 오타 수정 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">서비스 안내</td>
+            <td class="depthEtc">자산연결</td>
+            <td class="pname">[S_팝업] 자산 미연결 Case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe100P.html">MSAEe100P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-21</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>화면ID 임의 발급</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">알림 정보 입력</td>
+            <td class="depthEtc"></td>
+            <td class="pname">알림 정보 입력</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe200.html">MSAEe200</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">알림 정보 입력</td>
+            <td class="depthEtc">알림 발생 조건</td>
+            <td class="pname">[S_팝업] 알림 발생 조건</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe210P.html">MSAEe210P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-21</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">알림 정보 입력</td>
+            <td class="depthEtc">뒤로가기 확인</td>
+            <td class="pname">[C_팝업] 뒤로가기 확인</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe220P.html">MSAEe220P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-09-05">2025-09-05</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-05 문구 수정</p>
+              <p>화면ID 임의 발급</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">계좌 정보 선택</td>
+            <td class="depthEtc">선택 전</td>
+            <td class="pname">계좌 정보 선택 전</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe300.html">MSAEe300</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-21</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>화면ID 임의 발급</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">계좌 정보 선택</td>
+            <td class="depthEtc">전체계좌 선택</td>
+            <td class="pname">전체계좌 선택</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe310.html">MSAEe310</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-09-09">2025-09-09</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-07 앵커 스크롤 호출 초기값 변경</p>
+              <p>2025-09-26 JS 분리</p>
+              <p>2025-09-09 내부 JS 수치 조정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">계좌 정보 선택</td>
+            <td class="depthEtc">특정계좌 선택</td>
+            <td class="pname">특정계좌 선택</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe320.html">MSAEe320</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-07 앵커 스크롤 호출 초기값 변경</p>
+              <p>2025-09-26 JS 분리</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">계좌 정보 선택</td>
+            <td class="depthEtc">최대 계좌 알림</td>
+            <td class="pname">[C_팝업] 최대 10개 제한</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe330P.html">MSAEe330P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-21</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">업데이트 중 안내화면</td>
+            <td class="depthEtc"></td>
+            <td class="pname">업데이트 중 안내화면</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe500.html">MSAEe500</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-09-05">2025-09-05</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-05 하단 여백, 오타 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">자산 변동 내역</td>
+            <td class="depthEtc"></td>
+            <td class="pname">자산 변동 내역</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe600.html">MSAEe600</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-22">2025-08-22</span>
+              <span data-date="2025-09-11">2025-09-11</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+              <span data-date="2025-10-23">2025-10-23</span>
+              <span data-date="2025-11-13">2025-11-13</span>
+              <span data-date="2025-11-14">2025-11-14</span>
+              <span data-date="2025-11-18">2025-11-18</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-18 문구 수정 요청</p>
+              <p>2025-11-14 알림설정 버튼 하단 고정 요청</p>
+              <p>2025-11-13 지난주보다 Case 추가 요청</p>
+              <p>2025-10-23 알아두세요 오류 수정</p>
+              <p>2025-10-02 알아두세요 오류 수정</p>
+              <p>2025-09-26 비교그래프 JS 분리</p>
+              <p>2025-09-11 비교그래프 시간삭제 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">자산 변동 내역</td>
+            <td class="depthEtc">변동 내역 상세(자산)</td>
+            <td class="pname">[F_팝업] 변동 내역 상세(자산)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe610P.html">MSAEe610P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-22">2025-08-22</span>
+              <span data-date="2025-09-05">2025-09-05</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-05 투자 변동률, New 뱃지 삭제</p>
+              <p>투자, 계좌 합본</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">자산 변동 내역</td>
+            <td class="depthEtc">변동 내역 상세(대출)</td>
+            <td class="pname">[F_팝업] 변동 내역 상세(대출)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe650P.html">MSAEe650P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-22</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">자산 변동 내역</td>
+            <td class="depthEtc">알림 설정</td>
+            <td class="pname">[S_팝업] 알림 설정(자산 변동 내역)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe620P.html">MSAEe620P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-21</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">자산 변동 내역</td>
+            <td class="depthEtc">알림 옵션 변경</td>
+            <td class="pname">알림 옵션 변경</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe630.html">MSAEe630</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>스텝 없음 주의</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">자산 변동 내역</td>
+            <td class="depthEtc">알림 옵션 변경</td>
+            <td class="pname">[S_팝업] 알림 옵션 변경 완료</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe631P.html">MSAEe631P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-21</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc"></td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">자산 변동 내역</td>
+            <td class="depthEtc">알림 계좌 변경</td>
+            <td class="pname">알림 계좌 변경</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe640.html">MSAEe640</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-09-26">2025-09-26</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-18">2025-11-18</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-18 문구 수정 요청</p>
+              <p>2025-11-07 앵커 스크롤 호출 초기값 변경</p>
+              <p>2025-09-26 JS 분리</p>
+              <p>스텝 없음 주의</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">자산관리</td>
+            <td class="depth3">내 자산 안심 알림서비스</td>
+            <td class="depth4">자산 변동 내역</td>
+            <td class="depthEtc">알림 계좌 변경</td>
+            <td class="pname">[S_팝업] 알림 계좌 변경 완료</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEe641P.html">MSAEe641P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-08-21</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc"></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // 자산관리(ae) -->
+
+      <!-- 세금/절세(ae) -->
+      <table class="display compact">
+        <caption>세금/절세(ae)</caption>
+        <tbody>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">서비스안내</td>
+            <td class="depth4"></td>
+            <td class="depthEtc"></td>
+            <td class="pname">금융소득 모니터링 서비스안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf100.html">MSAEf100</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span  data-date="2025-11-06">2025-11-06</span>
+              <span  data-date="2025-11-21">2025-11-21</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-21 문구 수정 및 줄바꿈 요청</p>
+              <p>화면ID 임의 발급, 금융소득 모니터링 일반페이지</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">서비스안내</td>
+            <td class="depth4"></td>
+            <td class="depthEtc"></td>
+            <td class="pname">[F_팝업] 금융소득 모니터링 서비스안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf100P.html">MSAEf100P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span  data-date="2025-11-25">2025-11-25</span>
+              <span  data-date="2025-11-21">2025-11-21</span>
+              <span data-date="2025-10-16">2025-10-16</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-25 패딩 값 수정</p>
+              <p>2025-11-21 문구 수정 및 줄바꿈 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">발생금융소득</td>
+            <td class="depthEtc">전체 case</td>
+            <td class="pname">금융소득 모니터링(메인) 발생금융소득 - 전체 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf200.html">MSAEf200</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-10-15">2025-10-15</span>
+              <span data-date="2025-10-16">2025-10-16</span>
+              <span data-date="2025-10-23">2025-10-23</span>
+              <span data-date="2025-10-31">2025-10-31</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-11-21">2025-11-21</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+              <span data-date="2025-12-03">2025-12-03</span>
+              <span data-date="2025-12-04">2025-12-04</span>
+              <span data-date="2025-12-11">2025-12-11</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-11 안내배너 추가 요청</p>
+              <p>2025-12-04 알아두세요 문구 수정 요청</p>
+              <p>2025-12-03 알아두세요 문구 수정 요청</p>
+              <p>2025-11-21 알아두세요 문구 수정 및 추가</p>
+              <p>2025-11-21 Case 추가 요청</p>
+              <p>2025-11-17 금융소득 없을 때 배너 케이스 추가 요청</p>
+              <p>2025-10-31 조회기간 주석처리</p>
+              <p>2025-10-23 차트 케이스 및 금융어드바이스 텍스트 수정</p>
+              <p>2025-10-16 맨 위로 기능 추가 요청</p>
+              <p>2025-10-15 툴팁 텍스트 변경 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">발생금융소득</td>
+            <td class="depthEtc">NH농협은행 case</td>
+            <td class="pname">금융소득 모니터링(메인) 발생금융소득 - NH농협은행 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf200-3.html">MSAEf200-3</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-10-21">2025-10-21</span>
+              <span data-date="2025-10-23">2025-10-23</span>
+              <span data-date="2025-11-04">2025-11-04</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+              <span data-date="2025-12-03">2025-12-03</span>
+              <span data-date="2025-12-04">2025-12-04</span>
+              <span data-date="2025-12-11">2025-12-11</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-11 안내배너 추가 요청</p>
+              <p>2025-12-04 알아두세요 문구 수정 요청</p>
+              <p>2025-12-03 알아두세요 문구 수정 요청</p>
+              <p>2025-11-25 알아두세요 문구 수정 및 추가</p>
+              <p>2025-11-04 조회기간 주석처리</p>
+              <p>2025-10-23 차트 케이스 및 금융어드바이스 텍스트 수정</p>
+              <p>2025-10-21 다시 조회 형식으로 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">발생금융소득</td>
+            <td class="depthEtc">다른 금융기관 case</td>
+            <td class="pname">금융소득 모니터링(메인) 발생금융소득 - 다른 금융기관 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf200-4.html">MSAEf200-4</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-15">2025-10-15</span>
+              <span data-date="2025-10-23">2025-10-23</span>
+              <span data-date="2025-11-04">2025-11-04</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+              <span data-date="2025-12-03">2025-12-03</span>
+              <span data-date="2025-12-04">2025-10-15</span>
+              <span data-date="2025-12-11">2025-12-11</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-11 안내배너 추가 요청</p>
+              <p>2025-12-04 알아두세요 문구 수정 요청</p>
+              <p>2025-12-03 알아두세요 문구 수정 요청</p>
+              <p>2025-11-25 알아두세요 문구 수정 및 추가</p>
+              <p>2025-11-04 조회기간 주석처리</p>
+              <p>2025-10-23 차트 케이스 및 금융어드바이스 텍스트 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">추정금융소득</td>
+            <td class="depthEtc"></td>
+            <td class="pname">금융소득 모니터링(메인) 추정금융소득</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf200-5.html">MSAEf200-5</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-16">2025-10-16</span>
+              <span data-date="2025-10-23">2025-10-23</span>
+              <span data-date="2025-10-31">2025-10-31</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+              <span data-date="2025-11-27">2025-11-27</span>
+              <span data-date="2025-12-03">2025-12-03</span>
+              <span data-date="2025-12-04">2025-12-04</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-04 알아두세요 문구 수정 요청</p>
+              <p>2025-12-03 알아두세요 문구 수정 요청</p>
+              <p>2025-11-27 다중 케이스, 배당 삭제 요청</p>
+              <p>2025-11-25 알아두세요 문구 수정 및 추가</p>
+              <p>2025-11-10 그룹리스트 만료(예정) case 주석 요청</p>
+              <p>2025-10-31 조회기간 주석처리</p>
+              <p>2025-10-23 차트 케이스 및 금융어드바이스 텍스트 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">발생/추정 금융소득</td>
+            <td class="depthEtc">empty case</td>
+            <td class="pname">금융소득 모니터링(메인) - 발생/추정 empty case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf200-2.html">MSAEf200-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-09-29">2025-09-29</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-15">2025-10-15</span>
+              <span data-date="2025-11-04">2025-11-04</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+              <span data-date="2025-12-03">2025-12-03</span>
+              <span data-date="2025-12-04">2025-12-04</span>
+              <span data-date="2025-12-11">2025-12-11</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-11 안내배너 추가 요청</p>
+              <p>2025-12-04 알아두세요 문구 수정 요청</p>
+              <p>2025-12-03 알아두세요 문구 수정 요청</p>
+              <p>2025-11-25 알아두세요 문구 수정 및 추가</p>
+              <p>2025-11-04 조회기간 주석처리</p>
+              <p>2025-10-15 툴팁 텍스트 변경 요청</p>
+              <p>2025-10-10 디자인 변경 수정</p>
+              <p>2025-10-02 알아두세요 오류 수정</p>
+              <p>2025-09-29 버튼명 수정 요청</p>
+              <p>empty case</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">나의금융소득(당월)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">나의금융소득(당월)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf210.html">MSAEf210</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 개선사항 - [F팝업]에서 바닥페이지로 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">고액의 배당소득 안내</td>
+            <td class="depthEtc"></td>
+            <td class="pname">고액의 배당소득 안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf220.html">MSAEf220</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 개선사항 - [F팝업]에서 바닥페이지로 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">입력소득발생일≠실제발생소득일</td>
+            <td class="depthEtc"></td>
+            <td class="pname">(입력 소득발생일 ≠ 실제 발생소득일) 금융소득 안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf230.html">MSAEf230</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-15 개선사항 - [F팝업]에서 바닥페이지로 변경</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">나의금융소득(당월)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[F_팝업] 나의금융소득(당월)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf210P.html">MSAEf210P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-22">2025-09-22</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-24">2025-11-24</span>
+              <span data-date="2025-11-26">2025-11-26</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-26 상품명 링크 재수정 요청</p>
+              <p>2025-11-24 상품명 링크로 변경 요청</p>
+              <p>2025-10-14 여백 변경 수정 요청</p>
+              <p>2025-10-10 디자인 변경 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">고액의 배당소득 안내</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[F_팝업] 고액의 배당소득 안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf220P.html">MSAEf220P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-22">2025-09-22</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-24">2025-11-24</span>
+              <span data-date="2025-11-26">2025-11-26</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-26 상품명 링크 재수정 요청</p>
+              <p>2025-11-24 상품명 링크로 변경 요청</p>
+              <p>2025-10-14 여백 변경 수정 요청</p>
+              <p>2025-10-10 디자인 변경 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">입력소득발생일≠실제발생소득일</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[F_팝업] (입력 소득발생일 ≠ 실제 발생소득일) 금융소득 안내</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf230P.html">MSAEf230P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-22">2025-09-22</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-24">2025-11-24</span>
+              <span data-date="2025-11-26">2025-11-26</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-26 상품명 링크 재수정 요청</p>
+              <p>2025-11-24 상품명 링크로 변경 요청</p>
+              <p>2025-10-14 여백 변경 수정 요청</p>
+              <p>2025-10-10 디자인 변경 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">금융소득 조회기간 설정</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[S_팝업] 금융소득 조회기간 설정</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0015P.html">MSAEf250P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-26</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>MSCO0015P 공통 팝업 사용</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">메인</td>
+            <td class="depth4">금융소득 조회기간 설정</td>
+            <td class="depthEtc">설정시 선택 불가 안내</td>
+            <td class="pname">[C_팝업] 금융소득 조회기간 설정시 선택 불가 안내</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0014P.html">MSAEf260P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>MSCO0014P 공통 팝업 사용</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 상세(예금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">발생 금융소득 상세(예금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf310.html">MSAEf310</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-25 당행의 추정소득 상세페이지 안내 case 추가</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 상세(예금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">발생 금융소득 상세(예금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf310-2.html">MSAEf310-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-10-10</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 상세(적금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">발생 금융소득 상세(적금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf310-3.html">MSAEf310-3</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-10-10</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 상세(적금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">발생 금융소득 상세(적금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf310-4.html">MSAEf310-4</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-10-10</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 상세(예금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">추정 금융소득 상세(예금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf310-5.html">MSAEf310-5</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-25 당행의 추정소득 상세페이지 안내 case 추가</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 상세(예금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">추정 금융소득 상세(예금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf310-6.html">MSAEf310-6</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-25">2025-11-25</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-25 당행의 추정소득 상세페이지 안내 case 추가</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 상세(적금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">추정 금융소득 상세(적금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf310-7.html">MSAEf310-7</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-11-25">2025-11-25</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-25 당행의 추정소득 상세페이지 안내 case 추가</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 상세(적금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">추정 금융소득 상세(적금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf310-8.html">MSAEf310-8</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-11-25">2025-11-25</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-11-25 당행의 추정소득 상세페이지 안내 case 추가</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 간편상세(예금/적금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">발생 금융소득 간편상세(예금/적금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf320.html">MSAEf320</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-10-10</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 간편상세(예금/적금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">발생 금융소득 간편상세(예금/적금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf320-2.html">MSAEf320-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-10-10</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 수정(예금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">발생 금융소득 수정(예금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf330.html">MSAEf330</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>            
+              <p>2025-11-17 소득발생일 관련 수정 요청</p>            
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 수정(예금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">발생 금융소득 수정(예금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf330-2.html">MSAEf330-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>             
+              <p>2025-11-17 소득발생일 관련 수정 요청</p>             
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 수정(적금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">발생 금융소득 수정(적금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf330-3.html">MSAEf330-3</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>              
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>             
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 수정(적금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">발생 금융소득 수정(적금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf330-4.html">MSAEf330-4</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>            
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>           
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 간편수정(예금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">발생 금융소득 간편수정(예금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf340.html">MSAEf340</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>          
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>              
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 간편수정(예금)</td>
+            <td class="depthEtc"> 외화 case</td>
+            <td class="pname">발생 금융소득 간편수정(예금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf340-2.html">MSAEf340-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>            
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>               
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 간편수정(적금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">발생 금융소득 간편수정(적금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf340-3.html">MSAEf340-3</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>             
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>              
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">발생 금융소득 간편수정(적금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">발생 금융소득 간편수정(적금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf340-4.html">MSAEf340-4</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>             
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>               
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 수정(예금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">추정 금융소득 수정(예금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf350.html">MSAEf350</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>             
+              <p>2025-11-17 소득발생일 관련 수정 요청</p>
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 수정(예금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">추정 금융소득 수정(예금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf350-2.html">MSAEf350-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>             
+              <p>2025-11-17 소득발생일 관련 수정 요청</p>           
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 수정(적금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">추정 금융소득 수정(적금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf350-3.html">MSAEf350-3</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>             
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>           
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 수정(적금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">추정 금융소득 수정(적금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf350-4.html">MSAEf350-4</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>             
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>             
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 간편수정(예금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">추정 금융소득 간편수정(예금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf360.html">MSAEf360</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>           
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>             
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 간편수정(예금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">추정 금융소득 간편수정(예금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf360-2.html">MSAEf360-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>             
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>           
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 간편수정(적금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">추정 금융소득 간편수정(적금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf360-3.html">MSAEf360-3</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>             
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>             
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">추정 금융소득 간편수정(적금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">추정 금융소득 간편수정(적금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf360-4.html">MSAEf360-4</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+              <span data-date="2025-12-15">2025-12-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-12-15 소득발생일 → 계좌해지 추정일 변경</p>            
+              <p>2025-11-17 소득발생일 관련 추가 요청</p>           
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+              <p>2025-09-30 디자인 리뷰 이후 재작업 예정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">배당 상세 목록</td>
+            <td class="depthEtc"></td>
+            <td class="pname">배당 상세 목록</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf370.html">MSAEf370</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-22">2025-09-22</span>
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-09-25">2025-09-25</span>
+              <span data-date="2025-09-29">2025-09-29</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-14 여백 변경 수정 요청</p>
+              <p>2025-10-10 디자인 변경 수정</p>
+              <p>2025-09-29 제외 case 추가요청</p>
+              <p>2025-09-25 문구 수정 소득 => 포함</p>
+              <p>2025-09-23 헤더 TOBE 현행화</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">배당 상세 목록</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">배당 상세 목록 - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf370-2.html">MSAEf370-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-22">2025-09-22</span>
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-09-25">2025-09-25</span>
+              <span data-date="2025-09-29">2025-09-29</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-14 여백 변경 수정 요청</p>
+              <p>2025-10-10 디자인 변경 수정</p>
+              <p>2025-09-29 제외 case 추가요청</p>
+              <p>2025-09-25 문구 수정 소득 => 포함</p>
+              <p>2025-09-23 헤더 TOBE 현행화</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 등록/수정(예금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">직접등록한 금융상품 등록/수정(예금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3100.html">MSAEf3100</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-11-17 날짜선택 input readonly 재 변경 요청 요청</p>            
+              <p>2025-11-10 날짜선택 input readonly 변경 요청</p>
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 등록/수정(예금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">직접등록한 금융상품 등록/수정(예금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3100-2.html">MSAEf3100-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-11-17 날짜선택 input readonly 재 변경 요청 요청</p>              
+              <p>2025-11-10 날짜선택 input readonly 변경 요청</p>
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 등록/수정(적금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">직접등록한 금융상품 등록/수정(적금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3100-3.html">MSAEf3100-3</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-11-17 날짜선택 input readonly 재 변경 요청 요청</p>             
+              <p>2025-11-10 날짜선택 input readonly 변경 요청</p>
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 등록/수정(적금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">직접등록한 금융상품 등록/수정(적금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3100-4.html">MSAEf3100-4</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-11-17 날짜선택 input readonly 재 변경 요청 요청</p>             
+              <p>2025-11-10 날짜선택 input readonly 변경 요청</p>
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 등록/수정(배당)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">직접등록한 금융상품 등록/수정(배당)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3110.html">MSAEf3110</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-11-17 날짜선택 input readonly 재 변경 요청 요청</p>            
+              <p>2025-11-10 날짜선택 input readonly 변경 요청</p>
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 등록/수정(배당)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">직접등록한 금융상품 등록/수정(배당) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3110-2.html">MSAEf3110-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-10-14">2025-10-14</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-11-17 날짜선택 input readonly 재 변경 요청 요청</p>            
+              <p>2025-11-10 날짜선택 input readonly 변경 요청</p>
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-14 input type="tel"→"text" 변경 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 등록/수정(간편등록)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">직접등록한 금융상품 등록/수정(간편등록)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3130.html">MSAEf3130</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-24">2025-09-24</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-11-17 날짜선택 input readonly 재 변경 요청 요청</p>             
+              <p>2025-11-10 날짜선택 input readonly 변경 요청</p>
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-10 디자인 변경 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 등록/수정(간편등록)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">직접등록한 금융상품 등록/수정(간편등록) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3130-2.html">MSAEf3130-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-11-07">2025-11-07</span>
+              <span data-date="2025-11-10">2025-11-10</span>
+              <span data-date="2025-11-17">2025-11-17</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">              
+              <p>2025-11-17 날짜선택 input readonly 재 변경 요청 요청</p>               
+              <p>2025-11-10 날짜선택 input readonly 변경 요청</p>
+              <p>2025-11-07 input reset btn 위치변경 요청</p>
+              <p>2025-10-10 디자인 변경 수정</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">날짜선택</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[S_팝업] 날짜선택</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0011P.html">MSAEf3150P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>MSCO0011P 공통 팝업 사용</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">통화선택</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[S_팝업] 통화선택</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0012P.html">MSAEf3160P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>MSCO0012P 공통 팝업 사용</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">사용중인 금융소득명 안내</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[C_팝업] 사용중인 금융소득명 안내</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0013P.html">MSAEf3170P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>MSCO0013P 공통 팝업 사용</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">고액의 금융소득 입력(계산)안내</td>
+            <td class="depthEtc">확인 case</td>
+            <td class="pname">[C_팝업] 고액의 금융소득 입력(계산)안내 - 확인 case</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0014P.html">MSAEf3180P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>MSCO0014P 공통 팝업 사용</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">고액의 금융소득 입력(계산)안내</td>
+            <td class="depthEtc">컨펌 case</td>
+            <td class="pname">[C_팝업] 고액의 금융소득 입력(계산)안내 - 컨펌 case</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0013P.html">MSAEf3180P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>MSCO0013P 공통 팝업 사용</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">입력 소득 발생과 소득 발생일이 다른 경우 안내</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[C_팝업] 입력 소득 발생과 소득 발생일이 다른 경우 안내</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0013P.html">MSAEf3190P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>MSCO0013P 공통 팝업 사용</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">계좌정보 다시 불러오기 안내</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[C_팝업] 계좌정보 다시 불러오기 안내</td>
+            <td class="path">
+              <a target="_blank" href="co/MSCO0013P.html">MSAEf3210P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-24</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>MSCO0013P 공통 팝업 사용</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 상세(예금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">직접등록한 금융상품 상세(예금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3230.html">MSAEf3230</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-18">2025-09-18</span>
+              <span data-date="2025-09-23">2025-09-23</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-23 헤더 TOBE 현행화</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 상세(예금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">직접등록한 금융상품 상세(예금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3230-2.html">MSAEf3230-2</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-18">2025-09-18</span>
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-10-24">2025-10-24</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-24 외화표시 영역 삭제 요청</p>
+              <p>2025-09-23 헤더 TOBE 현행화</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 상세(적금)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">직접등록한 금융상품 상세(적금)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3230-7.html">MSAEf3230-7</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-10-10</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 상세(적금)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">직접등록한 금융상품 상세(적금) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3230-8.html">MSAEf3230-8</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-10-10">2025-10-10</span>
+              <span data-date="2025-10-24">2025-10-24</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-24 외화표시 영역 삭제 요청</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 상세(배당)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">직접등록한 금융상품 상세(배당)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3230-3.html">MSAEf3230-3</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-18">2025-09-18</span>
+              <span data-date="2025-09-23">2025-09-23</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-23 헤더 TOBE 현행화</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 상세(배당)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">직접등록한 금융상품 상세(배당) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3230-4.html">MSAEf3230-4</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-18">2025-09-18</span>
+              <span data-date="2025-09-23">2025-09-23</span>
+              <span data-date="2025-10-24">2025-10-24</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-24 외화표시 영역 추가 요청</p>
+              <p>2025-09-23 헤더 TOBE 현행화</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 상세(간편등록)</td>
+            <td class="depthEtc"></td>
+            <td class="pname">직접등록한 금융상품 상세(간편등록)</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3230-5.html">MSAEf3230-5</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-18">2025-09-18</span>
+              <span data-date="2025-09-23">2025-09-23</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-23 헤더 TOBE 현행화</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">금융소득 모니터링</td>
+            <td class="depth3">금융소득 내역확인</td>
+            <td class="depth4">직접등록한 금융상품 상세(간편등록)</td>
+            <td class="depthEtc">외화 case</td>
+            <td class="pname">직접등록한 금융상품 상세(간편등록) - 외화 case</td>
+            <td class="path">
+              <a target="_blank" href="ae/MSAEf3230-6.html">MSAEf3230-6</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-18">2025-09-18</span>
+              <span data-date="2025-09-23">2025-09-23</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-23 헤더 TOBE 현행화</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // 세금/절세(ae) -->
+
+      <!-- 관리센터(ps) -->
+      <table class="display compact">
+        <caption>관리센터(ps)</caption>
+        <tbody>
+          <tr>
+            <td class="depth2">관리센터</td>
+            <td class="depth3">약관/동의서관리</td>
+            <td class="depth4">서비스 이용 관리</td>
+            <td class="depthEtc">내 자산 안심 알림서비스 해지</td>
+            <td class="pname">내 자산 안심 알림서비스 해지</td>
+            <td class="path">
+              <a target="_blank" href="ps/MSPS8000-1.html">MSPS8000</a>
+            </td>
+            <td class="year">2022</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-10-02">2025-10-02</span>
+              <span data-date="2025-10-10">2025-10-10</span>
+            </td>
+            <td class="name">
+              <span class="edit">변경</span>
+            </td>
+            <td class="etc">
+              <p>2025-10-10 혜택알리미 텍스트 수정 요청</p>
+              <p>2025-10-02 혜택알리미 추가 요청</p>
+              <p>NHpay 과업과 중복 되어 실제 파일명은 MSPS8000-1.html</p>
+            </td>
+          </tr>
+          <tr class="del">
+            <td class="depth2">관리센터</td>
+            <td class="depth3">약관/동의서관리</td>
+            <td class="depth4">알림서비스 해지</td>
+            <td class="depthEtc"></td>
+            <td class="pname">[S_팝업] 내 자산 안심 알림서비스 해지확인</td>
+            <td class="path">
+              <a target="_blank" href="ps/MSPS8300P.html">MSPS8300P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-08-21">2025-08-21</span>
+              <span data-date="2025-08-22">2025-08-22</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-08-22 현업 삭제 요청 - ASIS 사용함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">관리센터</td>
+            <td class="depth3">자산연결</td>
+            <td class="depth4">자산연결공통</td>
+            <td class="depthEtc">인증방식 선택</td>
+            <td class="pname">[F_팝업] 인증방식 선택</td>
+            <td class="path">
+              <a target="_blank" href="ps/MSPS3C21P.html">MSPS3C21P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-02">2025-09-02</span>
+              <span data-date="2025-09-15">2025-09-15</span>
+              <span data-date="2025-09-17">2025-09-17</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-17 금융,네이버 인증서 아이콘 수정</p>
+              <p>2025-09-15 NH, 공동 인증서 아이콘 수정</p>
+              <p>타 인증서 html 내 주석 처리 참조</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">관리센터</td>
+            <td class="depth3">자산연결</td>
+            <td class="depth4">자산연결공통</td>
+            <td class="depthEtc">인증방식 선택(인증서 없음)</td>
+            <td class="pname">[F_팝업] 인증방식 선택(인증서 없음)</td>
+            <td class="path">
+              <a target="_blank" href="ps/MSPS3C21-1P.html">MSPS3C21-1P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-02">2025-09-02</span>
+              <span data-date="2025-09-15">2025-09-15</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-15 추가하기 아이콘 수정</p>
+              <p>2025-09-02 case 분리</p>
+              <p>화면ID 임의발급</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">관리센터</td>
+            <td class="depth3">자산연결</td>
+            <td class="depth4">자산연결공통</td>
+            <td class="depthEtc">인증서 선택</td>
+            <td class="pname">[S_팝업] 인증서 선택</td>
+            <td class="path">
+              <a target="_blank" href="ps/MSPS3C22P.html">MSPS3C22P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-02">2025-09-02</span>
+              <span data-date="2025-09-15">2025-09-15</span>
+              <span data-date="2025-09-17">2025-09-17</span>
+              <span data-date="2025-12-08">2025-12-08</span>
+            </td>
+            <td class="name">
+              <span class="edit">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-12-08 인증서 레이블 수정 요청</p>
+              <p>2025-09-17 금융,네이버 인증서 아이콘 수정</p>
+              <p>2025-09-15 NH, 공동 인증서 아이콘 수정</p>
+            </td>
+          </tr>
+          <tr class="del">
+            <td class="depth2">관리센터</td>
+            <td class="depth3">자산연결</td>
+            <td class="depth4">자산연결공통</td>
+            <td class="depthEtc">인증방식 선택</td>
+            <td class="pname">[S_팝업] NH인증서 이용동의</td>
+            <td class="path">
+              <a target="_blank" href="ps/MSPS3C23P.html">MSPS3C23P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span data-date="2025-09-02">2025-09-02</span>
+              <span data-date="2025-09-03">2025-09-03</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+              <p>2025-09-03 현업 삭제요청 ASIS 사용함</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="depth2">관리센터</td>
+            <td class="depth3">자산연결</td>
+            <td class="depth4">자산연결공통</td>
+            <td class="depthEtc">인증방식 점검</td>
+            <td class="pname">[C_팝업]NH 인증서 점검 안내</td>
+            <td class="path">
+              <a target="_blank" href="ps/MSPS3C24P.html">MSPS3C24P</a>
+            </td>
+            <td class="year">2025</td>
+            <td class="date">
+              <span>2025-09-02</span>
+            </td>
+            <td class="name">
+              <span class="new">신규</span>
+            </td>
+            <td class="etc">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- // 관리센터(ps) -->
+    </main>
+    <footer>
+      <button title="상단으로" class="top"></button>
+      <address>Copyright © NH Bank. All Rights Reserved.</address>
+    </footer>
+
+    <script src="worklist/js/datatables.min.js"></script>
+    <script src="worklist/js/jquery.colorbox-min.js"></script>
+    <script src="worklist/js/jquery.nicescroll.min.js"></script>
+    <script src="worklist/js/nurier_worklist.js?v20250731"></script>
+
+<script type="text/javascript">
+	$(".display.compact").each(function(){
+		var $this = $(this);
+		var $del = $this.find("tr.del").length;
+		var $depTotal = $this.find(".date").length - $del;
+		//console.log('전체갯수='+$depTotal);
+		//console.log('삭제='+$del);
+		$(".display.compact td.date").each(function(){
+			var $this = $(this);
+			var $this_comp = $this.children().text().length;
+			//console.log('날짜있냐없냐='+$this_comp);
+			if ($this_comp > 1) {
+				$this.addClass("completed");
+			}
+		});
+		var $compTotal = $this.find(".date.completed").length - $del;
+		//console.log('날짜있는거-삭제='+$compTotal);
+		$this.find("caption").append(" (<span class='compTotal'>"+ $compTotal + "</span>/<span class='depTotal'>" + $depTotal + "</span>)");
+	});
+
+	var _depSum = 0;
+	var _compSum = 0;
+	$("caption .depTotal").each(function(){
+		_depSum += Number($(this).text());
+
+	});
+	$("caption .compTotal").each(function(){
+		_compSum += Number($(this).text());
+
+	});
+	console.log(_depSum,_compSum);
+	$(".gnb > ul > li:first-child > span").append(" (" + _compSum + "/" + _depSum + ")" );
+	$(".total").find("> em").append(_compSum + " / " + _depSum + "Pages ("+ parseInt((_compSum / _depSum) * 100) + "%)");
+  $(".gnb").niceScroll({
+		cursorcolor: "#19973c",
+    cursorwidth: "3px"
+	});
+  $("body").niceScroll({
+		cursorcolor: "#19973c",
+    cursorwidth: "7px"
+	});
+</script>
+</body>
+</html>

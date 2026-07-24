@@ -1,0 +1,169 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 금 관리</title>
+<script src="../pub-assets/js/head.js"></script>
+<script> 
+	$(function(){
+		fullLayerPop();
+	})
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 금 관리 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1>금 관리</h1>
+		<div class="popCont">
+			<!-- -------------------------------------- -->
+			<!-- [입력영역] -->
+			<!-- -------------------------------------- -->
+			<div class="formWrap realAsset">
+				<ul>
+					<li>
+						<strong class="formTit">명칭</strong>
+						<div class="inputList">
+							<input type="text" title="명칭" value="결혼예물" placeholder="명칭을 입력해주세요.">
+							<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+						</div>
+						<div class="roundChkWrap flexType mt10">
+							<ul>
+								<li>
+									<span class="roundChk">
+										<input type="radio" name="sample00" id="sample01" aria-label="재테크">
+										<label for="sample01" aria-hidden="true">재테크</label>
+									</span>
+								</li>
+								<li>
+									<span class="roundChk">
+										<input type="radio" name="sample00" id="sample02" aria-label="돌잔치">
+										<label for="sample02" aria-hidden="true">돌잔치</label>
+									</span>
+								</li>
+								<li>
+									<span class="roundChk">
+										<input type="radio" name="sample00" id="sample03" aria-label="결혼예물" checked>
+										<label for="sample03" aria-hidden="true">결혼예물</label>
+									</span>
+								</li>
+								<li>
+									<span class="roundChk">
+										<input type="radio" name="sample00" id="sample04" aria-label="모임">
+										<label for="sample04" aria-hidden="true">모임</label>
+									</span>
+								</li>
+							</ul>
+						</div>
+						<p class="errorTxt" style="display:none;">특수문자[!@#$*()-=|;:,./]만 입력 가능합니다.</p>
+					</li>
+					<li>
+						<strong class="formTit">금 단위</strong>
+						<!-- [MD2502_014] 금 등록 시 보유량 제한 해제 S -->
+						<div class="tabWrap">
+							<ul class="boxRadio" role="tablist">
+								<li class="boxRadioInn">
+									<a href="javascript:;" class="active on">
+										<input name="rdo01" id="rdo01" type="radio" aria-label="금 단위(그램(g))" checked>
+										<label for="rdo01" aria-hidden="true">그램(g)</label>
+									</a>
+								</li>
+								<li class="boxRadioInn">
+									<a href="javascript:;">
+										<input name="rdo01" id="rdo03" type="radio" aria-label="금 단위(돈)">
+										<label for="rdo03" aria-hidden="true">돈</label>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="tabContWrap">
+							<div class="tabCont">
+								<strong class="formTit">보유량<em class="inputVal">환산금액: 0원</em></strong>
+								<div class="inputList">
+									<input type="tel" title="보유량" value="1" placeholder="보유량을 입력해주세요.">
+									<span class="unit">g</span>
+									<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								</div>
+								<p class="errorTxt">0보다 큰 숫자만 입력 가능합니다.</p>
+								<!-- [MD2502_014] 금 등록 시 보유량 제한 해제 error텍스트 추가 -->
+								<p class="errorTxt">100,000g 미만의 보유량, 소수점 2자리 까지 입력 가능합니다.</p>
+							</div>
+							<div class="tabCont" style="display:none">
+								<strong class="formTit">보유량<em class="inputVal">환산금액: 0원 (총 1.875g) 보유</em></strong>
+								<div class="inputList">
+									<input type="tel" title="보유량" value="0.5" placeholder="보유량을 입력해주세요.">
+									<span class="unit">돈</span>
+									<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								</div>
+								<p class="errorTxt">0보다 큰 숫자만 입력 가능합니다.</p>
+								<!-- [MD2502_014] 금 등록 시 보유량 제한 해제 error텍스트 추가 -->
+								<p class="errorTxt">100,000돈 미만의 보유량, 소수점 1자리 까지 입력 가능합니다.</p>
+							</div>
+						</div>
+						<!-- [MD2502_014] 금 등록 시 보유량 제한 해제 E -->
+					</li>
+					<li>
+						<strong class="formTit">총 구매가(선택)<em class="inputVal"> 1g = 5,333원</em></strong>
+						<div class="inputList">
+							<input type="tel" title="총 구매가(선택)" value="10,000" placeholder="금액을 입력해주세요.">
+							<span class="unit">원</span>
+							<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+						</div>
+						<p class="errorTxt">1부터 999,999,999,999까지 입력 가능합니다.</p>
+					</li>
+				</ul>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [정보영역] -->
+			<!-- -------------------------------------- -->
+			<div class="grayBgLine mt30">
+				<ul class="detailList">
+					<li>
+						<span class="tit">매매기준율</span>
+						<span class="value">0원/1𝑔<br>(YYYY.MM.DD)</span>
+					</li>
+					<li>
+						<span class="tit">정보제공</span>
+						<span class="value">한국금거래소쓰리엠</span>
+					</li>
+					<li>
+						<span class="tit">등록일</span>
+						<span class="value">2020.07.31</span>
+					</li>
+				</ul>
+			</div>
+			<!-- -------------------------------------- -->
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn"> 
+				<a href="javascript:;" class="" role="button">삭제</a> 
+				<a href="javascript:;" class="confirmBtn" role="button">확인</a> 
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+				<img src="../../images/common/btn_popClose.png" alt="닫기">
+			</a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

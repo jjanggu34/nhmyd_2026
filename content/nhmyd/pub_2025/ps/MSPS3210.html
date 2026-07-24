@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>목록전송요구서 | 통합인증 | 자산연결 | 설정/관리</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset bgWhite">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>자산연결</h1>
+		<a href="javascript:;" class="btnEtc">나가기</a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 목록전송요구서  ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 수정 S -->
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] STEP -->
+		<!-- -------------------------------------- -->
+		<div class="stepWrap">
+			<ol role="img" aria-label="총 3단계 중 2번째 단계">
+				<li><span>1</span></li>
+				<li class="active"><span>2</span></li>
+				<li><span>3</span></li>
+				<!-- <li><span>4</span></li> -->
+			</ol>
+		</div>
+		<!-- //[MD2411_092_v0.09] [자산연결 동의 절차 간소화] 수정 E -->
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 상단문구 -->
+		<!-- -------------------------------------- -->
+		<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 텍스트 수정  -->
+		<!-- [MD2411_092_v0.20] [자산연결 동의 절차 간소화] 타이틀 텍스트 수정  -->
+		<h2 class="agr_title_info">
+			<span class="text-highlight-y">선택한 기관의 <strong>가입상품 전송요구 및</strong></span>
+			<span><strong>개인(신용)정보 수집·이용에 동의</strong>해주세요.</span>
+		</h2>
+		<div class="noticeWrap mt20">
+			<p>NH농협은행은 「신용정보의 이용 및 보호에 관한 법률」,「개인정보 보호법」 등 관련 법령에 따라 다음과 같이 귀하의 개인(신용)정보를 처리합니다.</p>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 연결할 기관 -->
+		<!-- -------------------------------------- -->
+		<div class="assSetList">
+			<div class="listTop">
+				<h3 class="tit">연결할 기관 (총 6개)</h3>
+				<div class="box pointColor f16">
+					카카오뱅크, 농협은행, 하나은행, KB손해보험, IBK은행, 국민은행
+				</div>
+			</div>
+		</div>
+		<div class="assSetList">
+			<div class="listType_table type5">
+				<dl class="listbox">
+					<dt class="list_title">제공받는 자</dt>
+					<dd class="list_item f14">NH 농협은행</dd>
+				</dl>
+				<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 텍스트 삭제 -->
+				<!-- <dl class="listbox">
+					<dt class="list_title">정기전송여부</dt>
+					<dd class="list_item f14">아니오</dd>
+				</dl> -->
+				<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 텍스트 수정 S -->
+				<dl class="listbox">
+					<dt class="list_title">전송 및 수집·이용 목적</dt>
+					<dd class="list_item f14">전송요구를 통한 본인신용정보 통합조회, 데이터분석 서비스의 이용</dd>
+				</dl>
+				<dl class="listbox">
+					<dt class="list_title">보유·이용 기간 및 전송요구 유효기간</dt>
+					<dd class="list_item">
+						<strong>아래 중 가장 먼저 도래하는 기간</strong>
+						<ul>
+							<li><strong>- 서비스 이용 종료시까지</strong></li>
+							<li><strong>- 삭제요구시까지</strong></li>
+							<li><strong>- 마지막 서비스 로그인 일로부터 1년이 경과한때까지</strong></li>
+						</ul>
+					</dd>
+				</dl>
+				<!-- //[MD2411_092_v0.09] [자산연결 동의 절차 간소화] 텍스트 수정 E -->
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 수집 및 이용 항목 -->
+		<!-- -------------------------------------- -->
+		<div class="assSetList">
+			<div class="listTop"><h3 class="tit">수집 및 이용 항목</h3></div>
+			<div class="listType_table type5">
+				<dl class="listbox">
+					<dt class="list_title color1">개인(식별)정보</dt>
+					<!-- [MD2411_092_v0.20] [자산연결 동의 절차 간소화] 텍스트 CI 삭제 -->
+					<dd class="list_item pointColor9 f14">전자서명, 접근토큰, 인증서, 전송요구서</dd>
+				</dl>
+			</div>
+			<p class="title">
+				개인신용정보
+				<button type="button" class="contBtn01" title="신용거래정보 상세 보기">신용거래정보 상세</button>
+			</p>
+			<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 마크업 텍스트 수정 S -->
+			<div class="wrapTblDefault mt12">
+				<table class="thCenter">
+					<caption>개인신용정보 표</caption>
+					<colgroup>
+						<col width="28%">
+						<col width="*">
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row" rowspan="2">은행</th>
+							<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 관리자에서 입력 사항 수정 및 추가  -->
+							<td>계좌목록, DC형 퇴직연금 목록, 개인형IRP목록, 선불카드 목록</td>
+						</tr>
+						<tr>
+							<td style="border-left:1px solid #ebebeb;">수신상품 정보, 펀드상품 정보, 대출상품 정보, DC형 퇴직연금 정보, 개인형 IRP 정보, 선불카드 정보</td>
+						</tr>
+						<tr>
+							<th scope="row" rowspan="2">카드</th>
+							<td>카드 목록, 선불카드목록</td>
+						</tr>
+						<tr>
+							<td style="border-left:1px solid #ebebeb;">카드정보, 포인트 정보, 월별 카드 이용정보, 일별 카드 이용정보, 승인 상세정보, 카드대출정보, 카드매입취소정보, 선불카드 정보</td>
+						</tr>
+						<tr>
+							<th scope="row" rowspan="2">증권</td>
+							<td>계좌 목록, DC형 퇴직연금 목록, 개인형IRP목록</td>
+						</tr>
+						<tr>
+							<td style="border-left:1px solid #ebebeb;">계좌정보, 상품정보, 연금계좌정보, DC형 퇴직연금 정보, 개인형IRP 정보</td>
+						</tr>
+						<tr>
+							<th scope="row" rowspan="2">보험</td>
+							<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 관리자에서 입력 사항 수정 및 추가  -->
+							<td>보험증권 목록, 보험대출상품 목록, DC형퇴직연금 목록, 개인형IRP 목록</td>
+						</tr>
+						<tr>
+							<td style="border-left:1px solid #ebebeb;">보험정보, 장기인 보험정보(계약자), 장기인 보험정보(피보험자), 물및일반 보험정보(계약자), 물및일반 보험정보(피보험자), 자동차 보험정보(계약자), 자동차 보험정보(피보험자), 보험대출상품정보, DC형 퇴직연금정보, 개인형IRP 정보</td>
+						</tr>
+						<!-- [MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) 서민금융진흥원 추가 -->
+						<tr>
+							<th scope="row"  rowspan="2">서민금융진흥원</td>
+							<td>숨은금융자산(출연) 목록</td>
+						</tr>
+						<tr>
+							<td style="border-left:1px solid #ebebeb;">숨은금융자산(출연) 상세</td>
+						</tr>
+						<!-- <tr>
+							<th scope="row">전자금융</th>
+							<td>선불전자지급수단 목록 및 계정 목록</td>
+						</tr>
+						<tr>
+							<th scope="row">캐피탈</th>
+							<td>계좌(대출/운용리스)목록</td>
+						</tr>
+						<tr>
+							<th scope="row">보증보험</td>
+							<td>보증보험 증권 목록</td>
+						</tr>
+						<tr>
+							<th scope="row">통신</td>
+							<td>개통신 계약 목록</td>
+						</tr> -->
+					</tbody>
+				</table>
+			</div>
+			<!-- //[MD2411_092_v0.09] [자산연결 동의 절차 간소화] 마크업 텍스트 수정 E -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 거부권리 및 불이익 -->
+		<!-- -------------------------------------- -->
+		<div class="assSetList">
+			<div class="listTop">
+				<h3 class="tit">거부권리 및 불이익</h3>
+				<div class="box">
+					귀하는 개인(신용)정보 제공에 관한 동의를 거부하실 수 있습니다. 다만 서비스 이용을 위한 필수 동의사항으로 동의하지 않는 경우 본인신용정보 통합조회, 데이터분석 서비스를 이용할 수 없습니다.
+				</div>
+			</div>
+		</div>
+		<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 추가 S -->
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정기전송 여부 -->
+		<!-- -------------------------------------- -->
+		<div class="assSetList">
+			<div class="listTop">
+				<h3 class="tit">정기전송 여부</h3>
+				<div class="box">
+					<div class="formWrap mt20">
+						<ul>
+							<!-- [MD2411_092_v0.20] [자산연결 동의 절차 간소화] 아니오선택시 상단문구 수정,공공일 경우 추가 S -->
+							<li class="pt0">
+								<strong class="formTit mt0">금융자산 정보를 정기적으로 가져올까요?</strong>
+								<p class="subTxt noSelTxt" style="display:none;">정기적 전송을 선택하지 않으셨어요.</p>
+								<p class="subTxt" id="periodTxt">금융정보는 <span class="periodTxt pointColor">1주</span> 1회(변경가능), 공공정보는 월 1회 정기전송 합니다.</p>
+								<div class="boxRadio tabChkWrap">
+									<div class="boxRadioInn">
+										<span>
+											<input name="rdo1" id="rdo1" type="radio">
+											<label for="rdo1">아니오</label>
+										</span>
+									</div>
+									<div class="boxRadioInn">
+										<span>
+											<input name="rdo1" id="rdo2" type="radio" checked="">
+											<label for="rdo2">예</label>
+										</span>
+									</div>
+								</div>
+								<div class="baseChkType">
+									<ul class="subChkList" id="periodList">
+										<li><input type="radio" id="rdo_w1" class="chekTypeOther" name="rdo_w"><label for="rdo_w1">1주</label></li>
+										<li><input type="radio" id="rdo_w2" class="chekTypeOther" name="rdo_w"><label for="rdo_w2">2주</label></li>
+										<li><input type="radio" id="rdo_w3" class="chekTypeOther" name="rdo_w"><label for="rdo_w3">3주</label></li>
+										<li><input type="radio" id="rdo_w4" class="chekTypeOther" name="rdo_w"><label for="rdo_w4">4주</label></li>
+									</ul>
+									<p class="infoTxtGray">※ 6개월동안 로그인하지 않을 경우 정기적 전송은 자동 중단됩니다.</p>
+								</div>
+							</li>
+							<!-- //[MD2411_092_v0.20] [자산연결 동의 절차 간소화] 아니오선택시 상단문구 수정,공공일 경우 추가 E -->
+							<li>
+								<strong class="formTit mt0">정보를 언제까지 가져올까요?</strong>
+								<div class="baseChkType">
+									<ul class="subChkList">
+										<li><input type="radio" id="rdo_y1" class="chekTypeOther" name="rdo_y"><label for="rdo_y1">1년</label></li>
+										<li><input type="radio" id="rdo_y2" class="chekTypeOther" name="rdo_y"><label for="rdo_y2">2년</label></li>
+										<li><input type="radio" id="rdo_y3" class="chekTypeOther" name="rdo_y"><label for="rdo_y3">3년</label></li>
+										<li><input type="radio" id="rdo_y4" class="chekTypeOther" name="rdo_y"><label for="rdo_y4">4년</label></li>
+										<li><input type="radio" id="rdo_y5" class="chekTypeOther" name="rdo_y"><label for="rdo_y5">5년</label></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //[MD2411_092_v0.09] [자산연결 동의 절차 간소화] 추가 E -->
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 동의 -->
+		<!-- -------------------------------------- -->
+		<div class="assetSelectLlistAll mt20">
+			<span><input type="checkbox" id="listAll" class="chekTypeOther" name="" ><label for="listAll">개인(신용)정보 수집·이용 동의</label></span>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">동의하고 계속하기</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트  ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$('.btnPressPoint').click(function(){
+		var $winHei = $(window).height();
+		var $headerHeight = $('.header').height();
+		var $btnHeight = $('.areaBtnDefault').height();
+		var $heightSum = $winHei - $headerHeight -$btnHeight ;
+		var $scrollHeight = $('html, body').scrollTop();
+		$('html, body').stop().animate({ scrollTop: $scrollHeight + $heightSum }, 300);
+	});
+
+	$(window).scroll(function(){
+		var $docHeight =  $(document).height()
+		var $winHei = $(window).height();
+		var $scrollHeight = $('html, body').scrollTop();
+		var $scrollBottom = $docHeight - $winHei - $scrollHeight;
+		// if ($scrollBottom == 0) {
+		// 	alert('scroll bottom')
+		// }
+	});
+	// [MD2411_092_v0.20] [자산연결 동의 절차 간소화] 아니오 선택시 상단문구 수정
+	$(".tabChkWrap input[type='radio']").on('click',function(){
+		if( $("#rdo1").is(":checked")) {
+			$('.chkContWrap').find(".subChkList").hide();
+			$('.subTxt').hide();
+			$('.subTxt.noSelTxt').show();
+			$('.baseChkType').hide();
+		}else if($("#rdo2").is(":checked")) {
+			$('.chkContWrap').find(".subChkList").show();
+			$('.subTxt').show();
+			$('.subTxt.noSelTxt').hide();
+			$('.baseChkType').show();
+		}
+	});
+	$('#periodList li').on('click',function(){
+		var Text_period = $(this).text();
+		$('#periodTxt').show();
+		$('#periodTxt .periodTxt').text(Text_period);
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

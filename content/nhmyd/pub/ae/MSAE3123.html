@@ -1,0 +1,114 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>신청영업점(step 2) | 영업점방문상담신청 | VIP금융컨설팅 | 금융자산분석</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>VIP 금융컨설팅</h1>
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 신청영업점 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [정보영역] 신청정보 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<div class="titWrap mt0">
+				<h2 class="defSubTit1">신청정보입력</h2>
+			</div>
+			<ul class="detailList mt20">
+				<li>
+					<span class="tit">이름</span>
+					<span class="value">김농협</span> 
+				</li>
+				<li>
+					<span class="tit">투자성향등급</span>
+					<span class="value">위험중립형(21.08.08 까지)</span>
+				</li>
+				<li>
+					<span class="tit">은퇴 희망나이</span>
+					<span class="value">만 55세</span> 
+				</li>
+				<li>
+					<span class="tit">휴대폰번호</span>
+					<span class="value">휴대폰번호</span> 
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [링크영역] 상담을 받으실 영업점 검색 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap overUnset pb28">
+			<div class="defSubTit mt0">
+				<h2>상담을 받으실 영업점은?</h2>
+				<div class="tooltipWrap">
+					<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">상담을 받으실 영업점 안내 툴팁 열기</span></button>
+					<div class="tooltipCont lf0">
+						<p>현재 위치와 가까운 영업점을 방문하시려면 ‘가까운 영업점 찾기’를, 고객님이 원하시는 영업점이 있으시다면 ‘영업점 찾기’를 선택해 주세요.
+						</p>
+						<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+					</div>
+				</div>
+			</div>
+			<p class="subTxt3">VIP 금융컨설팅 상담은 영업점을 통해 진행됩니다.</p>
+
+			<!--
+				[현행화_2024] 개발 페이지 확인 후 role="button"으로 변경
+				[가까운 영엽점 찾기] [이름으로 찾기]는 라디오버튼의 기능을 하고 있지 않고,
+				검색 페이지 이동 버튼 기능을 하고 있기 때문에 span태그에 role="button"을 추가하여 라디오버튼의 기능을 삭제함.
+			-->
+			<div class="boxRadio mt20">
+				<div class="boxRadioInn">
+					<span role="button" aria-label="가까운 영업점 찾기" tabindex="0">
+						<input name="rdo13" type="radio">
+						<label>가까운 영업점 찾기</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span role="button" aria-label="이름으로 찾기" tabindex="0">
+						<input name="rdo13" type="radio">
+						<label for="rdo17">이름으로 찾기</label>
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [하단버튼] -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressDefault" role="button">이전</a>
+			<a href="javascript:;" class="btnPressPoint disabled" aria-disabled="true" role="button">다음</a> <!-- [D]활성화시 disabled / aria-disabled="true"삭제 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

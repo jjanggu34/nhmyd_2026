@@ -1,0 +1,120 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>(탭)제공이력조회 | 데이터전송관리 | 연결자산관리 | 설정관리</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>데이터전송관리</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] (탭)요청내역조회 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 상단문구 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap pt0">
+			<div class="ps tabWrap r10 type02">
+				<ul>
+					<li><a href="javascript:;">요청내역조회</a></li>
+					<li class="r_active"><a href="javascript:;" aria-current="page">제공이력조회</a></li> <!-- [D] 탭버튼으로 되어 있지만, 운영에서는 페이지 이동이므로, 링크 형태로 변경함 -->
+				</ul>
+			</div>
+			<div class="infoBox3">
+				<p class="bigTit"><span>타기관을 통해</span><br><strong>자산정보를 제공한 내역</strong>입니다</p>
+			</div>
+			<ul class="listBul disc mt20">
+				<li>정보제공일 기준 1개월 이내 내역만 제공합니다.</li>
+				<li>1개월이 경과한 내역은 마이데이터 종합포털<br /><a href="www.mydatacenter.or.kr" target="_blank" class="underLine">www.mydatacenter.or.kr</a>에서 확인하실 수 있습니다.</li>
+			</ul>
+		</div>
+		
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 요청내역 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE] 요청내역 있음 -->
+		<div class="boxTypeWrap">
+			<ul class="agencyDetailList lineType">
+				<li>
+					<a href="javascript:;" role="button">
+						<span class="imgWrap">
+							<img src="../../images/logos/AAEM0000.png" alt="" class="imgLogo"><span>우리은행</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" role="button">
+						<span class="imgWrap">
+							<img src="../../images/logos/AAFO0000.png" alt="" class="imgLogo"><span>현대카드</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" role="button">
+						<span class="imgWrap">
+							<img src="../../images/logos/AAEO0000.png" alt="" class="imgLogo"><span>국민은행</span>
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" role="button">
+						<span class="imgWrap">
+							<img src="../../images/logos/PBAAVN0000.png" alt="" class="imgLogo"><span>국민건강보험공단</span>
+						</span>
+					</a>
+				</li>
+			</ul>
+			<div class="listMoreBtn">
+				<a href="javascript:;" title="항목 더보기">더보기</a>
+			</div>
+		</div>
+
+		<!-- [CASE] 조회내역 없음 -->
+		<div class="nolistBox">
+			<div class="noResultWrap"><p>조회 내역이 없습니다.</p></div>
+		</div>
+		<!-- // -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		//샘플 : 탭버튼 ARIA 속성 제거
+		setTimeout(function(){
+			var _wrap = $('.tabWrap.type02');
+			_wrap.find('ul, li , a').removeAttr('role');
+			_wrap.find('a').removeAttr('aria-selected');
+		},1000);
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

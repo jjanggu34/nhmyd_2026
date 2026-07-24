@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="robots" content="no-index,follow" />
+<meta name="title" content="" />
+<meta name="author" content="" />
+<meta name="content" content="" />
+<meta name="keywords" content="NH마이데이터" />
+<meta name="description" content="NH마이데이터" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<title>배당내역 상세(외화배당) | 금융소득확인 | 금융소득 모니터링</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<style>
+
+  /* .nhasset .incomeRow .incomeToggleLabel{position: relative;} */
+
+  /* .nhasset .incomeList .incomeItem.-disabled{
+    border: 1px solid red;
+  } */
+  /*기존코드에서 수정됨*/
+/* .nhasset .incomeRow .incomeToggleLabel{display:flex;align-items:center;justify-content:flex-end;gap:4px;cursor:pointer} */
+
+
+/* 신규 코드 */
+/* .nhasset .incomeList .incomeItem .txnAmountSub{font-size: var(--fontSize14); font-weight: 400}
+.nhasset .incomeRow .incomeToggleLabel::before{ content: "포함"; display: inline-block; font-size: var(--fontSize13); font-weight: 400; color: var(--color3); }
+.nhasset .incomeList .incomeItem.-disabled .incomeRow .incomeToggleLabel::before{ content: "제외"; }
+.nhasset .incomeList .incomeItem.-disabled .txnTitle{color: var(--color3);}
+.nhasset .incomeList .incomeItem.-disabled .incomeRow .incomeDate{color: var(--color4);}
+.nhasset .incomeList .incomeItem.-disabled .txnAmount{color: var(--color4);}
+.nhasset .incomeList .incomeItem.-disabled .txnAmountSub{color: var(--color4);}
+.nhasset .incomeList .incomeItem.-disabled .balanceItem{} */
+</style>
+</head>
+<body>
+<div class="wrapper nhasset">
+  <!-- header -->
+  <div class="header">
+    <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+    <h1>금융소득 확인</h1>
+    <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+  </div>
+  <!-- //header -->
+  <!-- ############################################ -->
+  <!-- ### [내용] 배당내역 상세(외화배당) ### -->
+  <!-- ############################################ -->
+  <div class="container bgWhite pb40">
+    <ul class="mbAccList mt24"><!-- 2025-10-14 여백 수정 요청-->
+      <li class="mbAccListItem p0 bdNone -aic">
+        <span class="mbCiWrap">
+          <img src="../../images/makebetter/logos/AABG0000.svg" class="mbCi" alt="NH농협은행 Ci" />
+        </span>
+        <div class="mbAccItem">
+          <span class="body1 ellipsis">마데에서 불러온 종목명</span><!-- 2025-10-10 디자인 수정 -->
+        </div>
+      </li>
+    </ul>
+    <ul class="incomeList mt32">
+      <li class="incomeItem">
+        <div class="incomeRow">
+          <span class="incomeDate">2025.07.03</span>
+          <label class="incomeToggleLabel">
+            <span class="fs13 color3">포함<span class="blind">해당 소득의 금융소득 포함 여부</span></span><!-- 2025-09-25 문구 수정 소득 => 포함-->
+            <span class="toggleSwitch">
+              <input type="checkbox" class="toggleInput" name="income01" checked />
+              <span class="toggleSlider" aria-hidden="true"></span>
+            </span>
+          </label>
+        </div>
+        <div class="txnRow">
+          <span class="txnTitle">ETF분배금 입금</span>
+          <div class="txnAmountWrap">
+            <span class="txnAmount">420,000원</span>
+            <p class="fs14 mt2">USD <span>4.02</span></p>
+          </div>
+        </div>
+        <!-- 환율정보 -->
+        <dl class="bgAsis balanceItem mt16">
+          <dt class="balanceItemTitle">환율정보</dt>
+          <dd class="balanceItemValue">1AED(아랍에미리트연합국...) = <span>1,480</span>원</dd>
+          <dd class="balanceItemSub">기준일 <span class="ml8">2025.07.03</span></dd>
+        </dl>
+        <!-- // 환율정보 -->
+      </li>
+      <li class="incomeItem -disabled"><!-- 2025-09-29 초기값 제외 케이스일 때 -disabled 추가, 이후 (공통js에서 체크 처리) -->
+        <div class="incomeRow">
+          <span class="incomeDate">2025.07.03</span>
+          <label class="incomeToggleLabel">
+            <span class="fs13 color3">제외<span class="blind">해당 소득의 금융소득 포함 여부</span></span><!-- 2025-09-29 초기값 제외 케이스일 때 텍스트 "제외", 이후 (공통js에서 체크 처리) -->
+            <span class="toggleSwitch">
+              <input type="checkbox" class="toggleInput" name="income02"/><!-- 2025-09-29 초기값 제외 케이스일 때 chexked 삭제, 이후 (공통js에서 체크 처리) -->
+              <span class="toggleSlider" aria-hidden="true"></span>
+            </span>
+          </label>
+        </div>
+        <div class="txnRow">
+          <span class="txnTitle">ETF분배금 입금</span>
+          <div class="txnAmountWrap">
+            <span class="txnAmount">420,000원</span>
+            <p class="fs14 mt2">USD <span>4.02</span></p>
+          </div>
+        </div>
+        <!-- 환율정보 -->
+        <dl class="bgAsis balanceItem mt16">
+          <dt class="balanceItemTitle">환율정보</dt>
+          <dd class="balanceItemValue">1AED(아랍에미리트연합국...) = <span>1,480</span>원</dd>
+          <dd class="balanceItemSub">기준일 <span class="ml8">2025.07.03</span></dd>
+        </dl>
+        <!-- // 환율정보 -->
+      </li>
+      <li class="incomeItem">
+        <div class="incomeRow">
+          <span class="incomeDate">2025.07.03</span>
+          <label class="incomeToggleLabel">
+            <span class="fs13 color3">포함<span class="blind">해당 소득의 금융소득 포함 여부</span></span><!-- 2025-09-25 문구 수정 소득 => 포함-->
+            <span class="toggleSwitch">
+              <input type="checkbox" class="toggleInput" name="income03" checked/>
+              <span class="toggleSlider" aria-hidden="true"></span>
+            </span>
+          </label>
+        </div>
+        <div class="txnRow">
+          <span class="txnTitle">ETF분배금 입금</span>
+          <div class="txnAmountWrap">
+            <span class="txnAmount">420,000원</span>
+            <p class="fs14 mt2">USD <span>4.02</span></p>
+          </div>
+        </div>
+        <!-- 환율정보 -->
+        <dl class="bgAsis balanceItem mt16">
+          <dt class="balanceItemTitle">환율정보</dt>
+          <dd class="balanceItemValue">1AED(아랍에미리트연합국...) = <span>1,480</span>원</dd>
+          <dd class="balanceItemSub">기준일 <span class="ml8">2025.07.03</span></dd>
+        </dl>
+        <!-- // 환율정보 -->
+      </li>
+      <li class="incomeItem">
+        <div class="incomeRow">
+          <span class="incomeDate">2025.07.03</span>
+          <label class="incomeToggleLabel">
+            <span class="fs13 color3">포함<span class="blind">해당 소득의 금융소득 포함 여부</span></span><!-- 2025-09-25 문구 수정 소득 => 포함-->
+            <span class="toggleSwitch">
+              <input type="checkbox" class="toggleInput" name="income04" checked />
+              <span class="toggleSlider" aria-hidden="true"></span>
+            </span>
+          </label>
+        </div>
+        <div class="txnRow">
+          <span class="txnTitle">ETF분배금 입금</span>
+          <div class="txnAmountWrap">
+            <span class="txnAmount">420,000원</span>
+            <p class="fs14 mt2">USD <span>4.02</span></p>
+          </div>
+        </div>
+        <!-- 환율정보 -->
+        <dl class="bgAsis balanceItem mt16">
+          <dt class="balanceItemTitle">환율정보</dt>
+          <dd class="balanceItemValue">1AED(아랍에미리트연합국...) = <span>1,480</span>원</dd>
+          <dd class="balanceItemSub">기준일 <span class="ml8">2025.07.03</span></dd>
+        </dl>
+        <!-- // 환율정보 -->
+      </li>
+      <li class="incomeItem">
+        <div class="incomeRow">
+          <span class="incomeDate">2025.07.03</span>
+          <label class="incomeToggleLabel">
+            <span class="fs13 color3">포함<span class="blind">해당 소득의 금융소득 포함 여부</span></span><!-- 2025-09-25 문구 수정 소득 => 포함-->
+            <span class="toggleSwitch">
+              <input type="checkbox" class="toggleInput" name="income05" checked />
+              <span class="toggleSlider" aria-hidden="true"></span>
+            </span>
+          </label>
+        </div>
+        <div class="txnRow">
+          <span class="txnTitle">ETF분배금 입금</span>
+          <div class="txnAmountWrap">
+            <span class="txnAmount">420,000원</span>
+            <p class="fs14 mt2">USD <span>4.02</span></p>
+          </div>
+        </div>
+        <!-- 환율정보 -->
+        <dl class="bgAsis balanceItem mt16">
+          <dt class="balanceItemTitle">환율정보</dt>
+          <dd class="balanceItemValue">1AED(아랍에미리트연합국...) = <span>1,480</span>원</dd>
+          <dd class="balanceItemSub">기준일 <span class="ml8">2025.07.03</span></dd>
+        </dl>
+        <!-- // 환율정보 -->
+      </li>
+    </ul>
+
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 더보기 버튼영역 -->
+    <!-- -------------------------------------- -->
+    <div class="listMoreBtn mt16">
+      <a href="javascript:;" title="항목 더보기">더보기</a>
+    </div>
+    <!-- -------------------------------------- -->
+  </div>
+  <!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script></script>
+<!-- ###################################### -->
+</body>
+</html>

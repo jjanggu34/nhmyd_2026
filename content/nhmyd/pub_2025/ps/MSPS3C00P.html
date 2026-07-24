@@ -1,0 +1,90 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 인증방식 선택</title>
+<script src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+	fullLayerPop();
+});
+</script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 인증방식 선택 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop" role="dialog">
+	<div class="popInner">
+		<h1>인증방식 선택</h1>
+		<div class="popCont grayPop">
+			<h2 class="defTit">자산연결을 위해<br><strong>본인인증방식을 선택</strong>하세요</h2>
+			<ul class="listCerti">
+				<!-- NH농협은행 비대면 마이데이터 고객여정 개선(2025) NH인증서(모바일) 추가 -->
+				<li>
+					<button type="button" class="nhCerti">
+						<span>
+							<strong class="title">NH인증서(모바일)</strong>
+							<span class="tag bgSky">최근사용</span>
+						</span>
+					</button>
+				</li>
+				<!-- NH농협은행 비대면 마이데이터 고객여정 개선(2025) 공동인증서 삭제 -->
+				<!-- <li>
+					<button type="button" class="publicCerti">
+						<span>
+							<strong class="title">공동인증서</strong>
+							<span class="tag bgSky">있음</span>
+							<span class="tag bgSky">최근사용</span>
+							<span class="tag bgOrange">없음</span>
+						</span>
+					</button>
+				</li> -->
+				<!-- // -->
+				<li>
+					<button type="button" class="financeCerti">
+						<span>
+							<strong class="title">금융인증서</strong>
+							<!-- [CASE] 인증서 있는 경우 -->
+							<span class="tag bgSky">있음</span>
+							<!-- [CASE] 인증서 없는 경우 -->
+							<span class="tag bgOrange">없음</span>
+							<!-- // -->							
+						</span>
+					</button>
+				</li>
+				<li>
+					<button type="button" class="naverCerti">
+						<span>
+							<strong class="title">네이버인증서</strong>
+						</span>
+					</button>
+				</li>
+			</ul>
+			<!-- [MD2411_092_v0.16] [자산연결 동의 절차 간소화] 개별인증 삭제  -->
+			<!-- <div class="mt15"><a href="javascript:;" class="linkTxt2"><span>국민은행</span>에서 인증하기</a></div> -->
+		</div>
+		<div class="popBtnWrap">
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

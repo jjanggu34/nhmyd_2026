@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NH Bank">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="#">
+<title>[팝업] 가맹점 정보 수집동의</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 가맹점 정보 수집동의 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1 class="ac">앗, 추가 정보가 필요해요!</h1>
+		<div class="popCont">
+			<div class="cardBenefitNone type02">
+				<p>혜택 많이 받는 카드를 찾으려면<br>가맹점정보를 불러와야 해요.</p>
+			</div>
+			<div class="popInnerCont mt30">
+				<input type="checkbox" id="listAll" class="chekTypeOther" name=""><label for="listAll">오늘 다시 보지 않기</label>
+			</div>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">취소</a>
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">가맹점정보 불러오기</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

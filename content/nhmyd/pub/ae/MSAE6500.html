@@ -1,0 +1,124 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자산n절세 인사이트 | 연말정산 | 금융자산분석</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>자산n절세 인사이트</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 자산n절세 인사이트 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 소팅영역 -->
+		<!-- -------------------------------------- -->
+		<div class="tabWrap type06">
+			<div class="scAreaWrap">
+				<ul>
+					<li><a href="javascript:;" data-value="all" class="active">전체</a></li>
+					<li><a href="javascript:;" data-value="0">자산</a></li>
+					<li><a href="javascript:;" data-value="1">절세</a></li>
+					<li><a href="javascript:;" data-value="2">가타</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 목록영역 -->
+		<!-- -------------------------------------- -->
+		<div class="tabContWrap type06 yatexCutWrap">
+			<div class="tabCont01">
+				<p class="mt10">총 3건</p>
+				<ul class="thumbList">
+					<li>
+						<a href="javascript:;" role="button">
+							<div class="imgArea"><img src="../../images/dumy_thumb01.png" alt=""></div>
+							<div class="summary">
+								<strong>언택트시대의 직장인, 자산관리 전략 어떻게?</strong>
+								<span class="subtext">2021.4.16</span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" role="button">
+							<div class="imgArea"><img src="../../images/dumy_thumb02.png" alt=""></div>
+							<div class="summary">
+								<strong>2020년 연말정산의 모든것 Part2. 주택과 관련된 소득공제</strong>
+								<span class="subtext">2021.4.16</span>
+							</div>
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" role="button">
+							<div class="imgArea"><img src="../../images/dumy_thumb03.png" alt=""></div>
+							<div class="summary">
+								<strong>상속세 절반으로 줄이는 기술. 사전증여 </strong>
+								<span class="subtext">2021.4.16</span>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$(window).on('load', function(){
+		setTimeout(function(){
+			//[샘플] 탭버튼을 라디오버튼으로 변경함 : 탭버튼의 구조가 아닌 소팅 기능으로 변경
+			$('.scAreaWrap ul, .scAreaWrap ul li').removeAttr('role');
+			$('.scAreaWrap ul a').removeAttr('aria-selected').attr({'role':'radio','aria-checked':'false'});
+			$('.scAreaWrap ul a.active').attr('aria-checked','true');
+		},100);
+
+		//[샘플] 클릭이벤트 재정의
+		$(document).off('click', '.tabWrap a').on('click', '.tabWrap a', function() {
+			var _parents = $(this).closest('.scAreaWrap');
+			var _val = $(this).data('value');
+			_parents.find('a').attr('aria-checked','false');
+			$(this).attr('aria-checked','true');
+			if(_val == 'all'){
+				$('.thumbList li').show();
+				$('.tabCont01 > p').text('총 3건');
+			}else{
+				$('.thumbList li').hide().eq(_val).show();
+				$('.tabCont01 > p').text('총 1건');
+			}
+		});
+	});
+
+</script>
+<!-- ###################################### -->
+</body>
+</html>

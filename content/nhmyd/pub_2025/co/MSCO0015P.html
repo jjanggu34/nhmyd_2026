@@ -1,0 +1,93 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 조회기간 설정</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script>
+	$(document).ready(function(){
+		slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+	})  
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 조회기간 설정 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>조회기간 설정</h1>
+		<div class="popCont">
+      <div class="period">
+        <h2 class="body3 color3 -medium">조회기간</h2>
+        <div class="formWrap mt12">
+          <div class="roundSquareWrap">
+            <div class="roundSquare">
+              <input type="radio" name="period" id="period-01" aria-label="조회기간(1주일)">
+              <label for="period-01" aria-hidden="true">1주일</label>
+            </div>
+            <div class="roundSquare">
+              <input type="radio" name="period" id="period-02" aria-label="조회기간(1개월)">
+              <label for="period-02" aria-hidden="true">1개월</label>
+            </div>
+            <div class="roundSquare">
+              <input type="radio" name="period" id="period-03" aria-label="조회기간(3개월)">
+              <label for="period-03" aria-hidden="true">3개월</label>
+            </div>
+            <div class="roundSquare">
+              <input type="radio" name="period" id="period-04" aria-label="조회기간(6개월)">
+              <label for="period-04" aria-hidden="true">6개월</label>
+            </div>
+            <div class="roundSquare">
+              <input type="radio" name="period" id="period-05" aria-label="조회기간(1년)">
+              <label for="period-05" aria-hidden="true">1년</label>
+            </div>
+          </div>
+
+          <div class="calendarForm mt12">
+            <div class="cal">
+              <div class="inputList">
+                <input type="tel" value="2025-08-14" title="조회 시작일" placeholder="시작일선택">
+                <a href="javascript:;" class="btnCalendar" title="시작일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+              </div>
+            </div>
+            <span class="symbol">~</span>
+            <div class="cal">
+              <div class="inputList">
+                <input type="tel" value="2025-09-26" title="조회 종료일" placeholder="종료일선택" readonly>
+                <a href="javascript:;" class="btnCalendar" title="종료일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+              </div>
+            </div>
+          </div>
+          <p class="caption1 color4 mt12">조회기간은 최대 1년까지만 설정 가능합니다.</p>
+        </div>
+      </div>
+		</div>
+    <div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">조회</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

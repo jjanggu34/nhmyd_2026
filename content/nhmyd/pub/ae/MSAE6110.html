@@ -1,0 +1,269 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>연말정산(1~3월) | 연말정산 | 금융자산분석</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>연말정산</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 연말정산(1~3월) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 업데이트바 -->
+		<!-- -------------------------------------- -->
+		<div class="pageRefreshWrap">
+			<div class="pageRefresInner">
+				<span>
+					<span class="date">08.05 10:45</span>
+					<button type="button" class="btnUpdate"><span class="blind">업데이트</span></button>
+				</span>
+				<button type="button" class="btnAlrt new" aria-expanded="false"><span class="blind">알림</span></button>
+			</div>
+			<div class="pageAlertWrap">
+				<ul>
+					<li class="alertNotice">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>연결중인 자산 확인이 필요해요</dt>
+								<dd>OOO에서 전송 중단 또는 거절이 있었습니다.<br/>연결관리 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보 확인이 필요해요</dt>
+								<dd><span>$연말정산$</span> 정보수집 중 오류가 있었습니다.<br/><span>$연말정산$</span> 설정 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>업데이트한지 <span>N</span>일이 지났어요</dt>
+								<dd><span>$연말정산$</span> 정보 업데이트가 필요합니다.<br/>인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보수집이 필요해요</dt>
+								<dd><span>$연말정산$</span> 서비스 이용을 위해 정보수집이 필요합니다. 인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+				</ul>
+				<div class="pageAlertNoData">
+					<p>업데이트 알림 내역이 없습니다.</p>
+				</div>
+				<button type="button" aria-expanded="true" class="pageAlertClose"><span>닫기</span></button>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 공통 SPOT 배너 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE1] 기한만료 -->
+		<div class="yaTopBanner Ty01 bgTy02">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>연결 만료된 N개 기관이 있어요</span>
+				<p>재연결하고 환급금액 확인하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+		<!-- [CASE2] 만료예정 -->
+		<div class="yaTopBanner Ty01 bgTy01">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>만료예정인 N개 기관이 있어요</span>
+				<p>재연결하고 환급금액 확인하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+		<!-- [CASE3] 자산연결 -->
+		<div class='yaTopBanner Ty01 bgTy03'>
+			<a href='javascript:;' class="link yalinkBtn" role='button'>
+				<span>환급금액을 위해 자산연결이 필요해요!</span>
+				<p>지금바로 자산연결하기</p>
+			</a>
+			<button type='button' class='btnClose'><span class='blind'>닫기</span></button>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 기본정보 -->
+		<!-- -------------------------------------- -->
+		<div class="noDataBox yaType">
+			<a href="javascript:;" class="link yalinkBtn">
+				<p>기본정보 </p>
+				<span>연 7000만원, 무주택, 인적공제 없음</span>
+			</a>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 상단 안내문구 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE] 환급 -->
+		<h2 class="defTit">
+			<strong>2024년</strong> <span>13월의 월급은 <span><br>
+			<strong><span class="dataValue">11,970,000원</span></strong>  환급이 예상돼요!
+		</h2>
+		<div class="yatexNowWrap"></div>
+
+		<!-- [CASE] 추가납부 -->
+		<h2 class="defTit">
+			<strong>2024년</strong> <span>13월의 월급은 <span><br>
+			<strong><span class="dataValue">11,970,000원</span></strong> 추가납부가 예상돼요!
+		</h2>
+		<div class="yatexNowWrap"></div>
+
+		<!-- [CASE] 환급액없음 -->
+		<h2 class="defTit">
+			<strong>$기준년도$</strong> <span>13월의 월급은 <span><br>
+			환급액이 없을 것으로 예상돼요!
+		</h2>
+		<div class="yatexNowWrap case02"></div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 계산결과 -->
+		<!-- -------------------------------------- -->
+		<div class="yatopArea dsf">
+			<div class="titWrap">
+				<strong class="tit">계산기준</strong>
+				<div class="tooltipWrap">
+					<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">계산기준 툴팁 열기</span></button>
+					<div class="tooltipCont">
+						<ul class="bulList">
+							<li>계산된 금액은 실제 연말정산 시 환급금액과는 다를 수 있습니다.</li>
+							<li>올해납부 예상 세액은 2024년 기납부 예상세액을 의미합니다.</li>
+							<li>농어촌특별세액은 제외됩니다.</li>
+						</ul>
+						<!-- [현행화_2024] 운영소스 현행화
+							<ul class="bulList">
+								<li>농어촌특별세액은 제외됩니다.</li>
+								<li>올해납부 예상 세액은 근로소득 지급명세서 상의 기납부세액을 의미합니다.</li>
+								<li>연간 사용에 대한 환산(추정) 금액으로 실제금액과 차이가 발생할 수 있습니다.</li>
+								<li>연말정산은 근로소득자에게 최적화되어 있습니다.</li>
+							</ul>
+						-->
+						<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+					</div>
+				</div>
+			</div>
+			<button type="button" class="contBtn01">입력항목보기</button>
+		</div>
+		<!-- [정보영역] -->
+		<div class="formWrap mt20 yaSulOther">
+			<div class="yanowWrap ty01">		
+				<div clsss="cont">
+					<ul class="yalistBox">
+						<li class="mt0">
+							<span class="list_title"><strong class="defSubTit3">소득공제</strong></span>
+							<span class="list_item"><span class="dataValue">8,000,000</span>원</span>
+						</li>
+					</ul>
+					<ul class="yalistBox">
+						<li>
+							<span class="list_title"><strong class="defSubTit3">인적공제</strong></span>
+							<span class="list_item"><span class="dataValue">1,589,055</span>원</span>
+						</li> 
+					</ul>
+				</div>
+				<div class="yalistboxWrap">
+					<ul class="yalistBox">
+						<li>
+							<span class="list_title">과세표준</span>
+							<span class="list_item"><span class="dataValue">2,257,700</span>원</span>
+						</li> 
+					</ul>
+				</div>
+				<div class="cont addBd">
+					<ul class="yalistBox pt5">
+						<li class="mt15">
+							<span class="list_title">산출세액</span>
+							<span class="list_item"><span class="dataValue">2,257,700</span>원</span>
+						</li> 
+					</ul>
+					<ul class="yalistBox">
+						<li>
+							<span class="list_title"><strong class="defSubTit3">세액공제</strong></span>
+							<span class="list_item"><span class="dataValue">8,589,055</span>원</span>
+						</li>
+					</ul>
+				</div>
+				<div class="cont addBd mt20">
+					<ul class="yalistBox pt5">
+						<li>
+							<span class="list_title">결정세액</span>
+							<span class="list_item"><span class="dataValue">2,257,700</span>원</span>
+						</li> 
+						<li>
+							<span class="list_title">올해납부세액</span>
+							<span class="list_item"><span class="dataValue">2,257,700</span>원</span>
+						</li>						
+					</ul>
+				</div>
+				<div class="cont addBd mt20">
+					<ul class="yalistBox pt5">
+						<li>
+							<span class="list_title"><strong class="defSubTit3">환급 예상액</strong></span>
+							<span class="list_item pointColor"><span class="dataValue">2,257,700</span>원 추가납부</span>
+						</li> 
+					</ul>
+				</div>
+				<div class="resultBtnMore">
+						<a href="javascript:;" class="btnBodyLine rad8" role="button">계산 결과 자세히 보기</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 연결배너 -->
+		<!-- -------------------------------------- -->
+		<div class="yabannerArea mt30">
+			<div class="yabanner ty06">
+				<a href="javascript:;" class="link"  role="button">
+					자산n절세 인사이트
+				</a>
+				<p>전문가의 꿀팁을 한번에 확인하기</p>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 바로가기 링크 -->
+		<!-- -------------------------------------- -->
+		<div class="yatexbtnWrap mt25">
+			<a href="javascript:;" class="setBtn">설정하기</a>
+			<a href="javascript:;" class="sinmBtn">자산연결</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

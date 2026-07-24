@@ -1,0 +1,581 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>서브메인 | 목표 | 자산관리</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>목표</h1>
+		<!-- [MD2502_024] 공통 헤더영역 변경 알람 추가 -->
+		<a href="javascript:;" class="btnAlram" role="button"><span>알람</span></a>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 목표(서브메인) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 업데이트바 -->
+		<!-- -------------------------------------- -->
+		<div class="pageRefreshWrap">
+			<div class="pageRefresInner">
+				<span>
+					<span class="date">08.05 10:45</span>
+					<button type="button" class="btnUpdate"><span class="blind">업데이트</span></button>
+				</span>
+				<button type="button" class="btnAlrt new" aria-expanded="false"><span class="blind">알림</span></button>
+			</div>
+			<div class="pageAlertWrap">
+				<ul>
+					<li class="alertNotice">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>연결중인 자산 확인이 필요해요</dt>
+								<dd>OOO에서 전송 중단 또는 거절이 있었습니다.<br/>연결관리 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보 확인이 필요해요</dt>
+								<dd><span>$연말정산$</span> 정보수집 중 오류가 있었습니다.<br/><span>$연말정산$</span> 설정 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>업데이트한지 <span>N</span>일이 지났어요</dt>
+								<dd><span>$연말정산$</span> 정보 업데이트가 필요합니다.<br/>인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보수집이 필요해요</dt>
+								<dd><span>$연말정산$</span> 서비스 이용을 위해 정보수집이 필요합니다. 인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+
+				</ul>
+				<div class="pageAlertNoData">
+					<p>업데이트 알림 내역이 없습니다.</p>
+				</div>
+				<button type="button" aria-expanded="true" class="pageAlertClose"><span>닫기</span></button>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [상단영역] -->
+		<!-- -------------------------------------- -->
+		<div class="cl totalBalance msob">
+			<p class="defTxt">
+				내가 이루고 싶은 모든 것!<br>
+				<strong>목표를 세워보세요!</strong>
+			</p>
+			<!-- [D] 등록된 목표 갯수만큼 아이콘 변경 : 현재 사용하지 않음.
+			<div class="purposeListTotal" role="img" aria-label="목표개수 99개"><strong>99</strong></div>
+			<div class="purposeListTotal is2" role="img" aria-label="목표개수 2개"><strong>2</strong></div>
+			<div class="purposeListTotal is1" role="img" aria-label="목표개수 1개"><strong>1</strong></div>
+			<div class="purposeListTotal is0" role="img" aria-label="목표개수 0개"><strong>0</strong></div>
+			-->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [플로팅 버튼] 목표등록 -->
+		<!-- -------------------------------------- -->
+		<div class="registBtn">
+			<a href="javascript:;">목표등록</a>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [바로가기 버튼] -->
+		<!-- -------------------------------------- -->
+		<div class="flexSt">
+			<button type="button" class="contBtn02 fo12">완료목표 보기</button>
+			<button type="button" class="contBtn03 bgWhite" aria-haspopup="true">순서 설정</button>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [목록영역] 등록된 목표 -->
+		<!-- -------------------------------------- -->
+		<div class="boxWrapShadow mosbBox">
+			<div class="boxTypeWrap">
+				<div class="purposeList">
+					<ul>
+						<!-- [CASE] 위험 -->
+						<li>
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob02_01.png" alt=""></span>
+									<p class="tit">목돈마련</p>
+								</div>
+								<span class="amnt"><em>목표일까지 7일 남음</em></span>
+								<div class="recentResult">
+									<span class="now minus"><em class="blind">현재까지 금액</em>1,000,000 <em class="won">원</em></span>
+								</div>
+								<div class="baseGraph msBar"><span class="lineGraph red" data-value="1"></span></div>
+								<div class=" msobunitWrap">
+									<p class="unit4"><span class="step01">위험</span><span class="icoWrap"><span class="blind">위험 아이콘</span></span></p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob02_02.png" alt=""></span>
+									<p class="tit">여행가기</p>
+								</div>
+								<span class="amnt"><em>목표일까지 7일 남음</em></span>
+								<div class="recentResult">
+									<span class="now minus"><em class="blind">현재까지 금액</em>1,000,000 <em class="won">원</em></span>
+								</div>
+								<div class="baseGraph msBar"><span class="lineGraph red" data-value="100"></span></div>
+								<div class=" msobunitWrap">
+									<p class="unit1"><span class="step01">위험</span><span class="icoWrap"><span class="blind">위험 아이콘</span></span></p>
+								</div>
+							</a>
+						</li>
+						<!-- [CASE] 주의 -->
+						<li>
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob02_03.png" alt=""></span>
+									<p class="tit">대출줄이기</p>
+								</div>
+								<span class="amnt"><em>목표일까지 7일 남음</em></span>
+								<div class="recentResult">
+									<span class="now minus"><em class="blind">현재까지 금액</em>1,000,000 <em class="won">원</em></span>
+								</div>
+								<div class="baseGraph msBar"><span class="lineGraph yellow" data-value="1"></span></div>
+								<div class=" msobunitWrap">
+									<p class="unit5"><span class="step02">주의</span><span class="icoWrap"><span class="blind">주의 아이콘</span></span></p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob02_04.png" alt=""></span>
+									<p class="tit">자동차</p>
+								</div>
+								<span class="amnt"><em>목표일까지 7일 남음</em></span>
+								<div class="recentResult">
+									<span class="now minus"><em class="blind">현재까지 금액</em>1,000,000 <em class="won">원</em></span>
+								</div>
+								<div class="baseGraph msBar"><span class="lineGraph yellow" data-value="100"></span></div>
+								<div class=" msobunitWrap">
+									<p class="unit2"><span class="step02">주의</span><span class="icoWrap"><span class="blind">주의 아이콘</span></span></p>
+								</div>
+							</a>
+						</li>
+						<!-- [CASE] 최고 -->
+						<li>
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob02_05.png" alt=""></span>
+									<p class="tit">내집마련</p>
+								</div>
+								<span class="amnt"><em>목표일까지 7일 남음</em></span>
+								<div class="recentResult">
+									<span class="now minus"><em class="blind">현재까지 금액</em>1,000,000 <em class="won">원</em></span>
+								</div>
+								<div class="baseGraph msBar"><span class="lineGraph mildgreen" data-value="1"></span></div>
+								<div class=" msobunitWrap">
+									<p class="unit6"><span class="step03">최고</span><span class="icoWrap"><span class="blind">위험 아이콘</span></span></p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob02_06.png" alt=""></span>
+									<p class="tit">내가 만든 목표</p>
+								</div>
+								<span class="amnt"><em>목표일까지 7일 남음</em></span>
+								<div class="recentResult">
+									<span class="now minus"><em class="blind">현재까지 금액</em>1,000,000 <em class="won">원</em></span>
+								</div>
+								<div class="baseGraph msBar"><span class="lineGraph mildgreen" data-value="100"></span></div>
+								<div class=" msobunitWrap">
+									<p class="unit3"><span class="step03">최고</span><span class="icoWrap"><span class="blind">위험 아이콘</span></span></p>
+								</div>
+							</a>
+						</li>
+
+						<!-- [CASE] 계좌등록하지 않은 경우 -->
+						<li>
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob01_10.png" alt=""></span>
+									<p class="tit">레벨업을 위한 자격증 취득</p>
+								</div>
+								<span class="amnt"><em>목표일까지 7일 남음</em></span>
+								<div class="recentResult">
+									<span class="noti">계좌를 연결해주세요.</span>
+									<span class="amnt"><em>7일 남음</em></span>
+								</div>
+								<div class="baseGraph msBar"><span class="lineGraph" data-value="0"></span></div>
+							</a>
+						</li>
+
+						<!-- [CASE] 추천 목표 -->
+						<li class="bgGray">
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob01_04.png" alt=""></span>
+									<p class="tit">등록금, 언제부터 준비할까"</p>
+								</div>
+
+								<div class="recentResult">
+									<span class="noti">지금부터 계획 세우기</span>
+									<span class="discountDay"><span class="icoQes"></span><em>일 남음</em></span>
+								</div>
+								<p class="recoTag"><span class="blind">추천 태그</span></p>
+							</a>
+						</li>
+						<li class="bgGray">
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob01_04.png" alt=""></span>
+									<p class="tit">유학, 언제부터 준비할까</p>
+								</div>
+								<div class="recentResult">
+									<span class="noti">지금부터 계획 세우기</span>
+									<span class="discountDay"><span class="icoQes"></span><em>일 남음</em></span>
+								</div>
+								<p class="recoTag"><span class="blind">추천 태그</span></p>
+							</a>
+						</li>
+						<li class="bgGray">
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob01_02.png" alt=""></span>
+									<p class="tit">결혼, 얼마나 들까</p>
+								</div>
+								<div class="recentResult">
+									<span class="noti">지금부터 계획 세우기</span>
+									<span class="discountDay"><span class="icoQes"></span><em>일 남음</em></span>
+								</div>
+								<p class="recoTag"><span class="blind">추천 태그</span></p>
+							</a>
+						</li>
+						<li class="bgGray">
+							<a href="javascript:;" role="button">
+								<div class="purposeTit">
+									<span class="purposeCateS"><img src="../../images/category/ob/ico_cate_ob01_01.png" alt=""></span>
+									<p class="tit">출산, 얼마나 들까</p>
+								</div>
+								<div class="recentResult">
+									<span class="noti">지금부터 계획 세우기</span>
+									<span class="discountDay"><span class="icoQes"></span><em>일 남음</em></span>
+								</div>
+								<p class="recoTag"><span class="blind">추천 태그</span></p>
+							</a>
+						</li>
+						<!-- // -->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="mosbMore">
+			<a href="javascript:;" title="항목 더보기">전체보기</a>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [목록영역] 추천목표 -->
+		<!-- -------------------------------------- -->
+		<div class="challengeWrap">
+			<div class="challengeTxt">
+				<p class="defTxt">
+					내 관심사에 맞는 6개월<br>
+					<strong>챌린지!</strong>
+				</p>
+			</div>
+			<div class="flexSt">
+				<button type="button" class="contBtn03 bgWhite" aria-haspopup="true">관심사 설정</button>
+			</div>
+			<div class="swiper-container peoplePick">
+				<ul class="swiper-wrapper">
+					<li class="swiper-slide">
+						<div class="peopleWrap bgblue">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_06.png" alt="">부동산</h2>
+							<p class="exTxt">발코니 감성 홈카페 꾸미기</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bggreen">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_02.png" alt="">결혼</h2> 
+							<p class="exTxt">로맨틱 허니문 준비하기</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bgmildblue">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_04.png" alt="">교육</h2>
+							<p class="exTxt">자녀 교육비 마련 시작</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bggreen">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_03.png" alt="">공연</h2>
+							<p class="exTxt">예술의 전당에서 클래식 감상</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bgblue">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_05.png" alt="">맛집</h2>
+							<p class="exTxt">특별한 날 호텔 뷔페 가기</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bgmildblue">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_01.png" alt="">건강</h2>
+							<p class="exTxt">안마의자로 힐링하기</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bgblue">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_09.png" alt="">여행</h2>
+							<p class="exTxt">2박3일 럭셔리 호캉스</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bggreen">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_07.png" alt="">쇼핑</h2>
+							<p class="exTxt">수고한 나에게 주는 선물</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bgblue">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_08.png" alt="">스포츠</h2>
+							<p class="exTxt">영국 프리미어 리그 직관하기</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bgmildblue">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_10.png" alt="">자격증</h2>
+							<p class="exTxt">레벨업을 위한 자격증 취득</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bggreen">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_11.png" alt="">자동차</h2>
+							<p class="exTxt">내 차 유리막코팅 해주기</p>
+						</div>
+					</li>
+					<li class="swiper-slide">
+						<div class="peopleWrap bgblue">
+							<h2 class="callTit"><img src="../../images/category/ob/ico_cate_ob01_12.png" alt="">자동차</h2>
+							<p class="exTxt">투자 시드머니 만들기</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="swiper-pagination peoplePickPage"></div>
+			
+			<!-- [샘플] 스크립트 -->
+			<script>
+				peoplePick();
+				function peoplePick(){
+					var swiper = new Swiper('.peoplePick',{
+						slidesPerView: "auto",
+						spaceBetween:7,
+						loop: true,
+						centerSlides:true,
+						pagination: {
+							el:'.peoplePickPage',
+							clickable:true,
+							bulletElement:'a'
+						},
+						on:{
+							init:function(){
+								$('.peoplePick .swiper-slide').attr({'aria-hidden':true, 'role':'button'});
+								$('.peoplePick .swiper-slide-active').attr('aria-hidden',false);
+							},
+							slideChangeTransitionEnd: function(){
+								var $mainBannerBtn = $(".peoplePickPage");
+								$mainBannerBtn.find("a").attr('title','');
+								$mainBannerBtn.find("a").eq(this.activeIndex).attr('title','선택됨');
+								$('.peoplePick .swiper-slide').attr('aria-hidden',true);
+								$(".peoplePick .swiper-slide-active").attr('aria-hidden',false);
+							}
+						}
+					});
+					$('.swiper-pagination-bullet-active').attr('title','선택됨');
+				}
+			</script>
+			<!-- // -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] 신규계좌 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<div class="ObMainBanner" role="button" tabindex="0">
+				<h2>목표 연결이 가능한<br />신규 계좌가 <span class="pointColor">2</span>개 있어요</h2>
+				<p>목표에 계좌 연결하고 자산관리 시작하기!</p>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] 목표 달성을 위한 추천상품  -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap bgType04 oblistbg01 addShadow">
+			<div class="visualSubWrap">
+				<h3 class="visualSub type01">목표 달성을 위한 추천상품</h3>
+				<p class="visualSubPara">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+			</div>
+			<ul class="prodListWrap">
+				<li>
+					<a href="javascript:;">
+						<!-- [MD2411_100] 수신상품추천 배너 관련 화면(서비스) 변경 : 마크업 변경 -->
+						<div class="prodRecomWrap t1">
+							<strong class="prodTit">NH왈츠회전예금II</strong>
+							<em class="prodRecommInfo">조건유지 시 나의 예상 금리</em>
+							<div class="prodRecomVal dsf">
+								<span class="dataValueWrap">
+									<span class="data1"><strong class="dataValue">2.85</strong><em class="per">%</em></span>
+								</span>
+								<div class="prodVal ty01">
+									기본 <span class="dataValue">1.05</span><em class="per">%</em>(연/세전, 12개월)
+								</div>
+							</div>
+						</div>
+						<!-- // [MD2411_100] 수신상품추천 배너 관련 화면(서비스) 변경 : 마크업 변경 -->
+						<div class="prodInfoWrap">	
+							<span class="prodValue">예상우대금리(1.8%p)</span>
+							<span class="hashWrap3">
+								<em class="hastag">급여이체,</em> <em class="hastag">마케팅동의,</em><em class="hastag">월평균 2회 비대면이체</em> 등
+							</span>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;">
+						<!-- [MD2411_100] 수신상품추천 배너 관련 화면(서비스) 변경 : 마크업 변경 -->
+						<div class="prodRecomWrap t1">
+							<strong class="prodTit">e금리우대예금</strong>
+							<div class="prodRecomVal dsf">
+								<span class="dataValueWrap">
+									<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+									<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+								</span>
+								<div class="prodVal ty01">(연/세전, 12개월)</div>
+							</div>
+							<div class="data2">온라인 전용 농협은행 대표 예금</div>
+							<span class="hashWrap">
+								<em class="hastag bg01">#상품태그</em>
+								<em class="hastag bg02">#상품태그</em>
+							</span>
+						</div>
+						<!-- // [MD2411_100] 수신상품추천 배너 관련 화면(서비스) 변경 : 마크업 변경 -->
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] 선택약관(7번) 미동의한 고객의 경우  -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap bgType04 oblistbg04 addShadow">
+			<div class="visualSubWrap">
+				<h3 class="prodListTit">목표 달성을 위한 추천상품</h3>
+				<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+			</div>
+			<ul class="prodListWrap">
+				<li>
+					<div class="disagree">
+						<a href="javascript:;" role="button">
+							<p class="disagreeP"><strong>나만 알고 싶은 추천상품</strong></p>
+						</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] 챌린지 달성을 위한 추천상품  -->
+		<!-- [MD2402_014] 상품추천 배너 관련 화면(서비스) 변경 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap bgType02 oblistbg02 addShadow">
+			<div class="visualSubWrap">
+				<h3 class="visualSub type01">챌린지 달성을 위한 추천상품
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">챌린지 달성을 위한 추천상품 안내툴팁</span></button>
+						<div class="tooltipCont">
+							<p>6개월 기간동안 자동으로 목표금액을 모아주는 논스톱 목표달성 기능입니다.</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</h3>
+				<p class="visualSubPara">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+			</div>
+			<ul class="prodListWrap">
+				<li>
+					<a href="javascript:;" role="button">
+						<!-- [MD2411_100] 수신상품추천 배너 관련 화면(서비스) 변경 : 마크업 변경 -->
+						<div class="prodRecomWrap t1">
+							<strong class="prodTit">NH올원e 미니적금</strong>
+							<div class="prodRecomVal dsf">
+								<span class="dataValueWrap">
+									<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+									<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+								</span>
+								<div class="prodVal ty01">(연/세전, 12개월)</div>
+							</div>
+							<div class="data2">목적자금 마련을 위한 단기 소액 적금</div>
+							<span class="hashWrap">
+								<em class="hastag bg03">#목돈모으기</em>
+								<em class="hastag bg01">#여행</em>
+								<em class="hastag bg02">#초단기</em>
+							</span>
+						</div>
+						<!-- // [MD2411_100] 수신상품추천 배너 관련 화면(서비스) 변경 : 마크업 변경 -->
+					</a>
+				</li>
+			</ul>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	$(".purposeList ul li").each(function(i) {
+		graphValue = $(this).find(".lineGraph").attr("data-value");
+		$(this).find(".lineGraph").animate({width:graphValue + "%"}, 500);
+		iconPs = $(this).find(".msobunitWrap >  p");
+		iconPs.animate({left:graphValue + "%"}, 500);
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

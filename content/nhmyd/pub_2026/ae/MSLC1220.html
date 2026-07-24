@@ -1,0 +1,247 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>대출/신용관리 | AI대출금리케어 | 신청대상 목록</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+	<div class="wrapper nhasset">
+		<!-- header -->
+		<div class="header">
+			<a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+			<h1>AI대출금리케어</h1>
+			<a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+		</div>
+		<!-- //header -->
+		
+		<!-- ###################################### -->
+		<div class="container"> <!-- [수정 260421] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 class="pb40" 삭제 -->
+			<div class="fullyWrap bgAsis ">
+				<div class="interestBox">
+					<h2 class="defTit mt0 mb32">금리인하요구권<br>신청 가능한 계좌예요</h2>
+
+					<!-- [S] [수정 260421] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 리스트 내 checkbox 추가 / 전체적인 구조 변경 -->
+					<div class="formWrap selectAll listChk">
+						<div class="total">
+							<div class="formHolder check">
+								<input type="checkbox" id="type_all01" checked="checked" class="chekTypeOther"> <!-- [D] 비활성화일 경우 aria-disabled="true" disabled="disabled" 추가-->
+								<label class="check" for="type_all01">전체계좌 선택</label>
+							</div>
+						</div>
+						<div class="cont">
+							<ul class="interestBox_list">
+								<!-- [계좌반복] -->
+								<li class="lst">
+									<input type="checkbox" id="chk1" checked="checked">
+									<label for="chk1"><span class="blind">NH주택담보대출</span></label>
+									<div class="accTit">
+										<span class="imgWrap"><img src="../../images/makebetter/logos/AABG0000.svg" alt="" class="imgLogo"></span>
+										<div class="accInfoWrap">
+											<p class="accTit">
+												NH주택담보대출
+											</p>
+											<div class="accInfo">
+												<span class="accName">NH농협은행</span>
+												<span class="accNum">99999999998888</span>
+												<!-- [수정 260127] [MD2601_001] (기존) 111-2222-3333-44 → (수정) 1112222333344  *'-' 표시 생략 -->
+											</div>
+										</div>
+										<a href="javascript:;" role="option" class="arr_btn"></a>
+									</div>
+									
+									<ul class="detailList">
+										<li>
+											<span class="tit">대출잔액</span>
+											<span class="value">1억5,000만<em class="won">원</em></span>
+										</li>
+										<li>
+											<span class="tit">만기일</span>
+											<span class="value">2028.11.22</span>
+										</li>
+										<li>
+											<span class="tit">적용금리</span>
+											<span class="value">5.00%</span>
+										</li>
+									</ul>
+								</li>
+								<!-- // -->
+								<li class="lst">
+									<input type="checkbox" id="chk2" disabled="disabled"> <!-- [D] 활성화 제외 계좌일 경우 disabled="disabled" 추가 -->
+									<label for="chk2"><span class="blind">$상품명이 아주 긴 문장으로 이루어진 상품명입니다(or별명)$</span></label>
+									<div class="accBedge">
+										<!-- [S] [수정 260506] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 뱃지 class변경 -->
+										<span class="bedge03">신청완료</span>
+										<!-- <span class="bedge01">수용</span> --> <!-- [삭제 260512] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 뱃지 위치변경 -->
+										<!-- [E] [수정 260506] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 뱃지 class변경 -->
+									</div>
+									<div class="accTit">
+										<span class="imgWrap"><img src="../../images/makebetter/logos/AABG0000.svg" alt="" class="imgLogo"></span>
+										<div class="accInfoWrap">
+											<p class="accTit">
+												$상품명이 아주 긴 문장으로 이루어진 상품명입니다(or별명)$
+												<!-- <span class="bedge01">미응답</span> --> <!-- [삭제 260421] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : bedge 위치이동 -->
+											</p>
+											<div class="accInfo">
+												<span class="accName">기관명</span>
+												<span class="accNum">$계좌번호$</span>
+											</div>
+										</div>
+										<a href="javascript:;" role="option" class="arr_btn"></a>
+									</div>
+		
+									<ul class="detailList">
+										<li>
+											<span class="tit">대출잔액</span>
+											<span class="value">1억<em class="won">원</em></span>
+										</li>
+										<li>
+											<span class="tit">만기일</span>
+											<span class="value">YYYY.MM.DD</span>
+										</li>
+										<li>
+											<span class="tit">적용금리</span>
+											<span class="value">5.00%</span>
+										</li>
+										<!-- [S] [추가 260512] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발  -->
+										<li>
+											<span class="tit">최근 심사결과(2025.11.10)</span>
+											<div class="accBedge">
+												<span class="bedge01">수용</span>
+												<!-- 
+												<span class="bedge02">불수용</span>
+												<span class="bedge02">처리불가</span>
+												-->
+												<!-- [D] 불수용, 처리불가 케이스 -->
+											</div>
+										</li>
+										<!-- [E] [추가 260512] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발  -->
+									</ul>
+								</li>
+								<!-- // -->
+								<li class="lst">
+									<input type="checkbox" id="chk3" disabled="disabled"> <!-- [D] 활성화 제외 계좌일 경우 disabled="disabled" 추가 -->
+									<label for="chk3"><span class="blind">$상품명$</span></label>
+									<div class="accBedge">
+										<!-- [S] [수정 260506] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 뱃지 class변경 -->
+										<span class="bedge03">신청완료</span>
+										<!-- <span class="bedge02">불수용</span> --> <!-- [삭제 260512] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 뱃지 위치변경 -->
+										<!-- <span class="bedge02">신청불가</span> --> <!-- [삭제 260506] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : '신청불가' -> '처리불가'로 변경 -->
+										<!-- <span class="bedge02">처리불가</span> --> <!-- [삭제 260512] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 뱃지 위치변경 -->
+										<!-- [E] [수정 260506] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 뱃지 class변경 -->
+									</div>
+									<div class="accTit">
+										<span class="imgWrap"><img src="../../images/makebetter/logos/AABG0000.svg" alt="" class="imgLogo"></span>
+										<div class="accInfoWrap">
+											<p class="accTit">
+												$상품명$
+												<!-- <span class="bedge02">심사중</span> --> <!-- [삭제 260421] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : bedge 위치이동 -->
+											</p>
+											<div class="accInfo">
+												<span class="accName">기관명</span>
+												<span class="accNum">$계좌번호$</span>
+											</div>
+										</div>
+										<a href="javascript:;" role="option" class="arr_btn"></a>
+									</div>
+		
+									<ul class="detailList">
+										<li>
+											<span class="tit">대출잔액</span>
+											<span class="value">5,000만<em class="won">원</em></span>
+										</li>
+										<li>
+											<span class="tit">만기일</span>
+											<span class="value">YYYY.MM.DD</span>
+										</li>
+										<li>
+											<span class="tit">적용금리</span>
+											<span class="value">5.00%</span>
+										</li>
+										<!-- [S] [추가 260512] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발  -->
+										<li>
+											<span class="tit">최근 심사결과(2025.11.10)</span>
+											<div class="accBedge">
+												<span class="bedge02">처리불가</span>
+											</div>
+										</li>
+										<!-- [E] [추가 260512] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발  -->
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- [E] [수정 260421] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 리스트 내 checkbox 추가 / 전체적인 구조 변경 -->
+					
+					<!-- [추가 260223] [MD2601_001]  마이데이터를 활용한 금리인하요구권 개발 버튼 추가 -->
+					<div class="mt30">
+						<a href="javascript:;" class="linkType2 bdn">대출계좌 더 연결하기</a>
+					</div>
+					<!-- // [추가 260223] [MD2601_001]  마이데이터를 활용한 금리인하요구권 개발 버튼 추가 -->
+				</div>
+			</div>
+			
+			<!-- -------------------------------------- -->
+			<hr class="divLine mt0 mb0">
+			<!-- -------------------------------------- -->
+
+			<!-- -------------------------------------- -->
+			<div class="fullyWrap bgWhite pt0 pb0">
+				<!-- -------------------------------------- -->
+				<!-- [SECTION] 알아두세요 -->
+				<!-- -------------------------------------- -->
+				<div class="info_area"><!-- 2025-10-02 중복id로 인한 오류 수정(id변경) -->
+				  <a href="javascript:;" class="noticeBtn" data-target="#MSLC1220" aria-expanded="false" aria-controls="MSLC1220" id="MSLC1220_label">
+					<strong class="info_area_title">알아두세요<span style="display:none">펼치기</span></strong>
+				  </a>
+				  <ul class="listBul disc noticeCont" aria-labelledby="MSLC1220_label" role="region" id="MSLC1220" style="display:none">
+					<li>예적금 담보대출, 보금자리론, 보험계약대출, 운용리스, 리볼빙, 현금서비스의 경우 마이데이터를 활용한 금리인하요구권 신청 대상에 포함되지 않습니다. </li>
+						<li>위 목록에 조회되더라도 해당 금융기관별로 금리인하 대상 상품 여부가 다를 수 있습니다.</li>
+						<li>
+							아래의 경우에는 금리인하요구권 신청이 불가하므로, 해당 금융기관에 직접 문의해 주시기 바랍니다. <br>
+							- 실물 서류가 필요한 경우<br>
+							- 차주가 금융기관으로 직접 이미 신청한 경우<br>
+							- 차주가 별도의 추가동의에 미응답하여 심사가 지연되는 경우
+						</li>
+				  </ul>
+				</div>
+				<!-- -------------------------------------- -->
+			</div>
+			<!-- -------------------------------------- -->
+
+			<!-- [S] [추가 260421] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 -->
+			<!-- -------------------------------------- -->
+			<!-- [SECTION] 하단버튼 -->
+			<!-- -------------------------------------- -->
+			<div class="areaBtnDefault">
+				<a href="javascript:;" class="btnPressPoint" role="button">선택계좌 신청하기</a> <!-- [D] 비활성화 클래스명 (disabled) 및 aria-disabled="true" 추가 -->
+			</div>
+			<!-- -------------------------------------- -->
+			<!-- [E] [추가 260421] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 -->
+		</div>
+		<!-- ###################################### -->
+	</div>
+
+	<!-- ### [샘플] 스크립트 ### -->
+	<!-- ###################################### -->
+	<script type="text/javascript">
+	</script>
+	<!-- ###################################### -->
+	<!-- ### [샘플] 스크립트 ### -->
+</body>
+</html>
+	

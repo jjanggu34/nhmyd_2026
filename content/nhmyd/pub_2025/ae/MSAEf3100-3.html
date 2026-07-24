@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>직접등록한 금융상품 등록/수정(적금) | 금융소득확인 | 금융소득 모니터링</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+  <div class="wrapper nhasset">
+    <!-- header -->
+    <div class="header">
+      <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+      <h1>금융소득 확인</h1>
+      <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+    </div>
+    <!-- //header -->
+
+    <div class="container bgWhite">
+    <!-- ############################################ -->
+    <!-- ### [내용] 직접등록한 금융상품 등록/수정(적금) ### -->
+    <!-- ############################################ -->
+      <!-- ### 탭 버튼 (모양만 탭)### -->
+      <div class="incomeMonHeader">
+        <div class="sortTabs">
+          <div class="sortlist col2">
+            <button class="sortItem active" title="상세등록(현재)">상세등록</button><!-- [D] 선택된 값 active 클래스 추가 -->
+            <button class="sortItem" title="간편등록">간편등록</button>
+          </div>
+        </div>
+      </div>
+      <!-- ### // 탭 버튼 ### -->
+
+      <div class="financeIncomeWrap">
+        <!--  예금/적금/배당 선택 버튼-->
+        <ul class="incomeMonitorList">
+          <li><a href="javascript:;" title="예금">예금</a></li> 
+          <li class="selected"><a href="javascript:;" title="적금(현재)">적금</a></li><!-- [D] 선택된 값 selected 클래스 추가 -->
+          <li><a href="javascript:;" title="배당">배당</a></li>
+        </ul>
+        <!-- // 예금/적금/배당 선택 버튼-->
+        
+        <div class="formWrap mt12">
+          <!--  소득 발생일 -->
+          <h3 class="fs14 -medium color3">소득 발생일</h3>
+          <div class="calendarForm mt12">
+            <div class="inputList">
+              <input type="text" value="2025.12.28" title="소득 발생일" placeholder="소득 발생일"><!-- 2025-11-10 readonly 추가 요청, 2025-11-17 다시 삭제 요청 -->
+              <a href="javascript:;" class="btnCalendar" role="button"><span class="blind">소득 발생일 선택</span></a>
+            </div>
+          </div>
+          <!-- //  소득 발생일 -->
+          <!-- 금융소득명 -->
+          <h3 class="fs14 -medium color3 mt32">금융소득명</h3>
+          <div class="titListBox">
+            <div class="inputList mt12">
+              <input type="text" title="금융소득명" value="" placeholder="직접 등록하는 금융소득명">
+              <a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+            </div>
+          </div>
+          <!-- // 금융소득명 -->
+          <!-- 통화종류 -->
+          <h3 class="fs14 -medium color3 mt32">통화종류</h3>
+          <div class="inputList mt12">
+            <a href="javascript:;" title="통화종류 선택" aria-haspopup="true">
+              <span class="selectValue">원</span>
+              <span class="selectBtn"></span>
+            </a>
+            <select name="" title="선택해주세요">
+              <option value=""></option>
+            </select>
+          </div>
+          <!-- // 통화종류 -->
+
+          <!-- 월 납입액 -->
+          <h3 class="fs14 -medium color3 mt32">월 납입액</h3>
+          <div class="inputList unitMan mt12">
+            <input type="tel" title="월 납입액" value="" placeholder="매월 납입하는 금액">
+            <span class="unit">원</span><!-- 2025-11-07 올원가이드에 따른 위치 변경 -->
+            <a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+          </div>
+          <!-- // 월 납입액 -->
+          <!-- 월 납입액 에러일 때 -->
+          <div class="inputList unitMan mt12 error"><!-- [D] 에러 시 error 클래스 추가  -->
+            <input type="tel" title="납입한 총 금액" value="" placeholder="매월 납입하는 금액">
+            <span class="unit">원</span><!-- 2025-11-07 올원가이드에 따른 위치 변경 -->
+            <a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+          </div>
+          <p class="errorTxt mt12">1천원~5,000만원 사이의 금액을 입력해 주세요</p><!-- 에러 시 메세지 추가 -->
+          <!-- //월 납입액 에러일 때 -->
+
+          <!-- 납입 금액 추가 -->
+          <div class="addBtnWrap mt12">
+            <a href="javascript:;" class="btn -tertiary -sm" role="button" title="10만원 추가">+10만</a>
+            <a href="javascript:;" class="btn -tertiary -sm" role="button" title="50만원 추가">+50만</a>
+            <a href="javascript:;" class="btn -tertiary -sm" role="button" title="100만원 추가">+100만</a>
+            <a href="javascript:;" class="btn -tertiary -sm" role="button" title="500만원 추가">+500만</a>
+          </div>
+          <!-- // 납입 금액 추가 -->
+
+          <!-- 납입횟수 -->
+          <h3 class="fs14 -medium color3 mt32">납입횟수</h3>
+          <div class="inputList unitMan mt12">
+            <input type="tel" title="총 납입 횟수" value="" placeholder="총 납입 횟수">
+            <span class="unit">회</span><!-- 2025-11-07 올원가이드에 따른 위치 변경 -->
+            <a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+          </div>
+          <!-- // 납입횟수 -->
+          <!-- 납입횟수 에러일 때 -->
+          <div class="inputList unitMan mt12 error"><!-- [D] 에러 시 error 클래스 추가  -->
+            <input type="tel" title="총 납입 횟수" value="" placeholder="총 납입 횟수">
+            <span class="unit">회</span><!-- 2025-11-07 올원가이드에 따른 위치 변경 -->
+            <a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+          </div>
+          <p class="errorTxt mt12">1회~60회 사이 납입횟수를 입력해 주세요</p><!-- 에러 시 메세지 추가 -->
+          <!-- //납입횟수 에러일 때 -->
+
+          <!-- 계좌 개설일~계좌 만기일 -->
+          <h3 class="fs14 -medium color3 mt32">계좌 개설일~계좌 만기일</h3>
+          <div class="calendarForm mt12">
+            <div class="cal">
+              <div class="inputList">
+                <input type="tel" value="2023.01.03" title="계좌 개설일" placeholder="계좌 개설일">
+                <a href="javascript:;" class="btnCalendar" title="계좌 개설일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+              </div>
+            </div>
+            <span class="symbol">~</span>
+            <div class="cal">
+              <div class="inputList">
+                <input type="tel" value="2025.12.28" title="계좌 만기일" placeholder="계좌 만기일"><!-- 2025-11-17 readonly 삭제 요청 -->
+                <a href="javascript:;" class="btnCalendar" title="계좌 만기일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- //  계좌 개설일~계좌 만기일 -->
+
+          <!-- 금리 -->
+          <h3 class="fs14 -medium color3 mt32">금리</h3>
+          <div class="inputList unitMan mt12">
+            <input type="text" title="내 금융소득의 금리" value="" placeholder="내 금융소득의 금리">
+            <span class="unit">%</span><!-- 2025-11-07 올원가이드에 따른 위치 변경 -->
+            <a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+          </div>
+          <!-- // 금리 -->
+          <!-- 금리 에러일 때 -->
+          <div class="inputList unitMan mt12 error"><!-- [D] 에러 시 error 클래스 추가  -->
+            <input type="text" title="내 금융소득의 금리" value="" placeholder="내 금융소득의 금리">
+            <span class="unit">%</span><!-- 2025-11-07 올원가이드에 따른 위치 변경 -->
+            <a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+          </div>
+          <p class="errorTxt mt12">1%~10% 사이의 금리를 입력해 주세요</p><!-- 에러 시 메세지 추가 -->
+          <!-- // 금리 -->
+
+          <!-- 이자소득 계산 전 -->
+          <div class="softGreenBox disabled mt32">
+            <p class="fs14">이자소득을 계산해 주세요</p>
+          </div>
+          <div class="areaBodyBtnFull mt16">
+            <button type="button" class="btnBodyLine green" aria-disabled="false">계산하기</button><!-- [D] 비활성화 시 aria-disabled="true" / disabled 클래스 추가 -->
+          </div>            
+          <!-- // 이자소득 계산 전 -->
+          <!-- 이자소득 계산 후 -->
+          <div class="softGreenBox mt32"><!-- [D] 비활성화시 disabled 클래스 추가 -->
+            <p class="fs14">발생소득</p>
+            <strong class="fs16 -medium pointColor"><span>367,360</span>원</strong>
+          </div>
+          <div class="areaBodyBtnFull mt16">
+            <button type="button" class="btnBodyLine disabled" aria-disabled="true" disabled>계산하기</button>
+          </div>            
+          <!-- // 이자소득 계산 후 -->
+        </div>
+      </div>
+
+      <!-- -------------------------------------- -->
+      <!-- [SECTION] 버튼영역 -->
+      <!-- -------------------------------------- -->
+      <div class="areaBtnDefault">
+        <!-- 이자소득 계산 전 (비활성) -->
+        <a href="javascript:;" class="btnPressPoint disabled" role="button" aria-disabled="true">나의 금융소득 저장</a><!-- [D] 활성화 aria-disabled="false" / 클래스명 disabled 삭제 -->
+        <!-- // 이자소득 계산 전 (비활성) -->
+        <!-- 이자소득 계산 후 (활성) -->
+        <!-- <a href="javascript:;" class="btnPressPoint" role="button" aria-disabled="false">나의 금융소득 저장</a> -->
+        <!-- // 이자소득 계산 후 (활성) -->
+      </div>
+      <!-- -------------------------------------- -->      
+    </div>   
+    <!-- ###################################### -->
+  </div>
+
+  <!-- ###################################### -->
+  <!-- ### [샘플] 스크립트 ### -->
+  <!-- ###################################### -->
+<script>
+</script>
+  <!-- ###################################### -->
+</body>
+</html>

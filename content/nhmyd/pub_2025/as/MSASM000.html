@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자산모아보기</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+  <!-- header -->
+  <div class="header">
+    <a href="javascript:;" class="btnBack" role="button"><span>이전화면으로</span></a>
+    <h1>자산모아보기</h1>
+    <a href="javascript:;" class="btnAlram" role="button"><span>알람</span></a>
+    <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+  </div>
+  <!-- //header -->
+  <div class="container bgWhite pb40 fontFixed"><!-- 2025-12-12 자산모아모기 폰트고정용 fontFixed -->
+    <!-- skeleton 2025-12-10 추가 -->
+    <div class="is-skeleton">
+      <div class="fullyWrap bgNewMain2">
+        <div class="skeleton"></div>
+        <div class="skeleton -small mt15"></div>
+        <div class="skeleton -hlarge -medium mt10"></div>
+        <div class="skeleton -hxsmall -medium mt3"></div>
+      </div>
+
+      <div class="skeleton -hlarge mt18"></div>
+      <div class="skeleton -hsmall mt28"></div>
+      <div class="skeleton -hmedium mt4"></div>
+      <hr class="divLine">
+
+      <div class="skeleton -small"></div>
+      <div class="displayFx -jcBetween mt16">
+        <div class="skeleton -circle"></div>
+        <div class="skeletonWrap">
+          <div class="skeleton -hsmall"></div>
+          <div class="skeleton -hmedium mt4"></div>
+        </div>
+      </div>
+      <hr class="divLine">
+
+      <div class="skeleton -small"></div>
+      <div class="displayFx -jcBetween mt16">
+        <div class="skeleton -circle"></div>
+        <div class="skeletonWrap">
+          <div class="skeleton -hsmall"></div>
+          <div class="skeleton -hmedium mt4"></div>
+        </div>
+      </div>
+      <hr class="divLine">
+
+      <div class="skeleton -small"></div>
+      <div class="displayFx -jcBetween mt16">
+        <div class="skeleton -circle"></div>
+        <div class="skeletonWrap">
+          <div class="skeleton -hsmall"></div>
+          <div class="skeleton -hmedium mt4"></div>
+        </div>
+      </div>
+      <hr class="divLine">
+
+      <div class="skeleton -small"></div>
+      <div class="displayFx -jcBetween mt16">
+        <div class="skeleton -circle"></div>
+        <div class="skeletonWrap">
+          <div class="skeleton -hsmall"></div>
+          <div class="skeleton -hmedium mt4"></div>
+        </div>
+      </div>
+      <hr class="divLine">
+
+      <div class="skeleton -small"></div>
+      <div class="displayFx -jcBetween mt16">
+        <div class="skeleton -circle"></div>
+        <div class="skeletonWrap">
+          <div class="skeleton -hsmall"></div>
+          <div class="skeleton -hmedium mt4"></div>
+        </div>
+      </div>
+      <hr class="divLine">
+
+      <div class="skeleton -small"></div>
+      <div class="displayFx -jcBetween mt16">
+        <div class="skeleton -circle"></div>
+        <div class="skeletonWrap">
+          <div class="skeleton -hsmall"></div>
+          <div class="skeleton -hmedium mt4"></div>
+        </div>
+      </div>
+    </div>
+    <!-- //skeleton 2025-12-10 추가 끝 -->
+
+    <div class="fullyWrap bgNewMain2"><!-- 2025-09-30 배경색 변경 -->
+      <!-- ###################################### -->
+      <!-- ### 업데이트 및 알림 ### -->
+      <!-- ###################################### -->
+      <div class="pageRefreshWrap">
+        <div class="pageRefresInner mt0">
+          <span>
+            <span class="date">07.18 00:00</span>
+            <button type="button" class="btnUpdate" title="업데이트하기"><span class="blind">07.18 00:00 업데이트 완료</span></button>
+          </span>
+          <button type="button" class="btnAlrt new" aria-expanded="false"><!-- 알림 있을 때 new 클래스 -->
+            <span class="blind">알림</span>
+          </button>
+        </div>
+        <div class="pageAlertWrap">
+          <ul>
+            <li class="alertNotice">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>연결중인 자산 확인이 필요해요</dt>
+                  <dd>OOO에서 전송 중단 또는 거절이 있었습니다.<br/>연결관리 화면에서 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertNotice">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>만료예정기관이 있어요</dt>
+                  <dd>만료예정인 {n}개 기관을 재연결해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertNotice">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>신규자산이 있어요</dt>
+                  <dd>{n}개 기관에 신규자산을 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertNotice">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>연결만료된 기관이 있어요</dt>
+                  <dd>연결만료된 [n]개 기관을 재연결해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertError">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>정보 확인이 필요해요</dt>
+                  <dd><span>$연말정산$</span> 정보수집 중 오류가 있었습니다.<br/><span>$연말정산$</span> 설정 화면에서 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertError">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>업데이트한지 <span>N</span>일이 지났어요</dt>
+                  <dd><span>$연말정산$</span> 정보 업데이트가 필요합니다.<br/>인증관리 화면에서 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertError">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>정보수집이 필요해요</dt>
+                  <dd><span>$연말정산$</span> 서비스 이용을 위해 정보수집이 필요합니다. 인증관리 화면에서 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+          </ul>
+          <!-- 알림 없을 때 -->
+          <div class="pageAlertNoData">
+            <p>업데이트 알림 내역이 없습니다.</p>
+          </div>
+          <!-- // 알림 없을 때 -->
+          <button type="button" aria-expanded="true" class="pageAlertClose"><span>접기</span></button>
+        </div>
+      </div>
+      <!-- ###################################### -->
+      <h2 class="h5 assetConn">순자산</h2>
+      <div class="pstotalBalance">
+        <div class="asset displayFx -jcBetween">
+          <em>
+            <span>999,000,000</span>원
+          </em>
+          <a href="javascript:;" class="btn -tertiary -sm">진단하기</a>
+        </div>
+        <p class="fs14 -medium"><!-- 2025-12-11 디자인 변경 fs13 fs14 -->
+          <span>08.29</spanclass=> 보다 <span>5,000,000</span>원 <span class="pointColor">늘었어요</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- ### [바로가기] : 운영에서 sticky 스크립트 사용하고 있지 않음 ### -->
+    <div class="billListWrap assetView fog mt8">
+      <!-- ###################################### -->
+      <!-- ### 바로가기 링크 ### -->
+      <!-- ###################################### -->
+      <div class="billLisMenu">
+        <ul class="billMenu">
+          <li class="selected"><a href="javascript:;" anchor-title="dem01" class="btnBillMenu" data-bill-menu="dbm01">계좌</a></li>
+          <li><a href="javascript:;" anchor-title="dem02" class="btnBillMenu" data-bill-menu="dbm02" >대출</a></li>
+          <li><a href="javascript:;" anchor-title="dem03" class="btnBillMenu" data-bill-menu="dbm03" >투자</a></li>
+          <li><a href="javascript:;" anchor-title="dem04" class="btnBillMenu" data-bill-menu="dbm04" >연금</a></li>
+          <li><a href="javascript:;" anchor-title="dem05" class="btnBillMenu" data-bill-menu="dbm05" >보험</a></li>
+          <li><a href="javascript:;" anchor-title="dem06" class="btnBillMenu" data-bill-menu="dbm06" >선불카드 &middot; 페이</a></li>
+          <li><a href="javascript:;" anchor-title="dem07" class="btnBillMenu" data-bill-menu="dbm07" >부동산</a></li>
+          <li><a href="javascript:;" anchor-title="dem08" class="btnBillMenu" data-bill-menu="dbm08" >기타</a></li>
+          <li><a href="javascript:;" anchor-title="dem09" class="btnBillMenu" data-bill-menu="dbm09" >숨은자산</a></li>
+        </ul>
+      </div>
+      <div class="fogOverlay"></div><!-- 목록 오른쪽 끝 화이트 딤처리 -->
+      <!-- ###################################### -->
+
+      <!-- ###################################### -->
+      <!-- ### 바로가기 목록 ### -->
+      <!-- ###################################### -->
+      <div class="billListCont">
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 계좌 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem01">
+          <div class="mbSelectLlistWrap">
+            <div class="mbTitWrap">
+              <div>
+                <h2 class="h4 togTit color3">계좌</h2>
+                <em class="h2 mt2"><span>456,123,000</span>원</em>
+              </div>
+              <a href="javascript:;" role="button" class="favoriteBtn">즐겨찾기</a>
+            </div>
+
+            <div class="mbAccListWrap">
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem -button"><!-- 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have1">해지가능</span>
+                    <span class="tagLabel have3">연결만료</span>
+                    <span class="tagLabel have3">연결만료예정</span>
+                    <span class="tagLabel have4">목표</span>
+                  </div>
+                  <div class="mbCiWrap -favorite"><!-- 즐겨찾기 "-favorite" 클래스 -->
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">우리아이저축예금</span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>11,500,000</span>원</strong>
+                    </div>
+                  </a>
+                  <a href="javascript:;" role="button" title="이체하기" class="btn -tertiary -xs">이체</a>
+                </li>
+              </ul>
+              <!-- // ### 즐겨찾기 계좌 ### -->
+
+              <hr class="divLine">
+
+              <h3 class="body3 -medium color3">입출금</h3><!-- 2025-10-27 칼라 변경 color3 추가 -->
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협</span>
+                    </div>
+                    <em class="mbAccAmount">
+                      <strong><span>11,500,000</span>원</strong>
+                    </em>
+                  </a>
+                  <a href="javascript:;" role="button" class="btn -tertiary -xs">이체</a>
+                </li>
+                <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">$별칭$or$계좌명$</span>
+                    </div>
+                  </a>
+                  <a href="javascript:;" role="button" class="connect">연결확인</a>
+                </li>
+              </ul>
+              <!-- // ### 입출금 ### -->
+
+              <hr class="divLine">
+
+              <h3 class="body3 -medium color3">예적금</h3><!-- 2025-10-27 칼라 변경 color3 추가 -->
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have1">해지가능</span>
+                    <span class="tagLabel have2">D-Day</span>
+                    <span class="tagLabel have3">연결만료예정</span>
+                    <span class="tagLabel have4">목표</span>
+                    <span class="tagLabel have5">만기경과</span>
+                  </div>
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis -new">NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협</span><!-- [D] New일 때 "-new" 클래스 추가 -->
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>11,500,000</span>원</strong>
+                    </div>
+                  </a>
+                  <a href="javascript:;" role="button" class="btn -tertiary -xs">이체</a>
+                </li>
+              </ul>
+              <!-- // ### 예적금 ### -->
+
+              <hr class="divLine">
+
+              <h3 class="body3 -medium color3">외화</h3><!-- 2025-10-27 칼라 변경 color3 추가 -->
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem">
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have1">해지가능</span>
+                    <span class="tagLabel have2">D-Day</span>
+                    <span class="tagLabel have3">연결만료예정</span>
+                    <span class="tagLabel have4">목표</span>
+                  </div>
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis -new">NH농축협 외화예금</span><!-- [D] New일 때 "-new" 클래스 추가 -->
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>11,500,000</span>원</strong>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <!-- // ### 외화 ### -->
+
+              <hr class="divLine">
+
+              <!-- ### 숨긴 계좌 있을 때 ### -->
+              <div class="prodListWrap -hide">
+                <a href="javascript:;" role="button">
+                  <div class="prodRecomWrap">
+                    <!-- 2025-11-06 갯수 주석처리
+                    <em class="prodTit">숨긴 계좌 <span>3</span>개</em> 
+                    -->
+                    <em class="prodTit">숨긴 계좌</em>
+                  </div>
+                </a>
+              </div>
+              <!-- // ### 숨긴 계좌 있을 때 ### -->
+
+              <hr class="divLine">
+
+              <!-- ### 다른 은행 계좌 불러오기 ### -->
+              <div class="prodListWrap -another">
+                <a href="javascript:;" role="button" class="fs15 -medium color2"><!-- 2025-12-01 디자인 변경 fs15 -->
+                  다른 은행 계좌 불러오기
+                </a>
+              </div>
+              <!-- // ### 다른 은행 계좌 불러오기 ### -->
+
+              <!-- [SECTION] 띠배너 -->
+              <!-- [계좌] 당타행 예적금 만기 30일 이내 상품 보유 시 | 예적금 만기 안내 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg01" role="button">예적금 <span>N</span>건의 만기가 얼마 안 남았어요!</a>
+              </div>
+              <!-- [계좌] 2025-10-27 추가요청 숨은자산찾기 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg26" role="button">자산목록의 숨은자산을 확인해보세요</a>
+              </div>
+              <!-- [계좌] 빅데이터 시나리오 | 청년우대형 주택청약종합저축 안내 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner02 bg02" role="button">청년을 위한 내 집 마련의 필수 상품!</a>
+              </div>
+              <!-- [계좌] 빅데이터 시나리오 | MZ세대를 위한 예금상품 스뱅 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg03" role="button">MZ 고객님께 딱 맞는 예금상품!</a>
+              </div>
+              <!-- [계좌] 빅데이터 시나리오 | 주택청약종합저축 안내 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner03 bg04" role="button">내 집 마련의 꿈을 위한 청약통장!</a>
+              </div>
+              <!-- [계좌] 당타행 입출금 통장 적요에 정기지출 보유 시 | 정기지출관리 서브메인 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner02 bg05" role="button">입출금 통장의 정기지출을 확인해보세요</a>
+              </div>
+              <!-- [계좌] 당타행 입출금 잔액 합산 천원 이상 보유 시 | 잠자는 돈 깨우기 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg06" role="button">입출금 통장에 잠자는 돈을 발견했어요!</a>
+              </div>
+              <!-- [계좌] 발생 조건 없는 고객의 경우(스뱅) | 스뱅금상몰 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner04 bg07" role="button">가장 인기있는 NH이달의 상품을 확인하세요</a>
+              </div>
+              <!-- [계좌] 발생 조건 없는 고객의 경우(스뱅) | 올원금상몰 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner04 bg07" role="button">가장 인기있는 예적금 상품을 확인하세요</a>
+              </div>
+              <!-- [계좌] 이자소득이 발생한 경우 | 금융소득 모니터링 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner02 bg08" role="button">내 금융소득 내역을 확인해보세요</a>
+              </div>
+              <!-- // 띠배너 -->
+
+            </div><!-- // mbAccListWrap -->
+          </div><!-- // mbSelectLlistWrap -->
+
+          <!-- 연결 계좌 없을 때
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">계좌</h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">계좌를 연결해보세요!</strong>
+                </div>
+              </a>
+            </div>
+          </div> -->
+
+        </div><!-- // inoutListWrap anchor-cont="dem01" 스크롤1 -->
+        <!-- // 계좌 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 대출 2025-10-17 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem02">
+          <div class="mbSelectLlistWrap">
+            <div class="mbTitWrap">
+              <div>
+                <h2 class="h4 togTit color3">대출</h2>
+                <em class="h2 mt2"><span>456,123,000</span>원</em>
+              </div>
+              <a href="javascript:;" role="button" class="btn -tertiary -sm">모아보기</a>
+            </div>
+
+            <div class="mbAccListWrap">
+              <!-- 탭 -->
+              <div class="mbTabs mt24">
+                <div class="col2" role="tablist" aria-label="대출상품 잔액순서, 금리순서로 보기">
+                  <button id="tab-11" class="active" role="tab" aria-controls="panel-11" tabindex="0">잔액순</button><!-- [D] aria-controls 은 상세div(보이는 영역) id 와 맞춰주세요 -->
+                  <button id="tab-22" role="tab" aria-controls="panel-22" tabindex="-1">금리순</button><!-- [D] aria-controls 은 상세div(보이는 영역) id 와 맞춰주세요 -->
+                </div>
+                <!-- ### 탭 대출 잔액순 ### -->
+                <div id="panel-11" role="tabpanel" tabindex="0" aria-labelledby="tab-11"><!-- [D] aria-labelledby 은 button id 와 맞춰주세요 -->
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have1">해지가능</span>
+                        <span class="tagLabel have3">연결만료</span>
+                        <span class="tagLabel have3">연결만료예정</span>
+                        <span class="tagLabel have4">목표</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">대딤돌 첫 생애 대출</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>211,500,000</span>원</strong>
+                          <span class="separator">연 <span>60.39</span>%</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem -button">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have1">해지가능</span>
+                        <span class="tagLabel have3">연결만료예정</span>
+                        <span class="tagLabel have4">목표</span>
+                        <span class="tagLabel have5">마이너스</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">NH 마이너스 통장 or 별명</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <span class="separator">연 <span>6.39</span>%</span>
+                        </div>
+                      </a>
+                      <a href="javascript:;" role="button" title="이체하기" class="btn -tertiary -xs">이체</a>
+                    </li>
+                    <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have3">연결만료</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">$별칭$or$계좌명$</span>
+                        </div>
+                      </a>
+                      <a href="javascript:;" role="button" class="connect">연결확인</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- // ### 탭 대출 잔액순 ### -->
+                <!-- ### 탭 대출 금리순 ### -->
+                <div id="panel-22" role="tabpanel" tabindex="0" aria-labelledby="tab-22" hidden><!-- [D] aria-labelledby 은 button id 와 맞춰주세요 -->
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem -button">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have1">해지가능</span>
+                        <span class="tagLabel have3">연결만료예정</span>
+                        <span class="tagLabel have4">목표</span>
+                        <span class="tagLabel have5">마이너스</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">NH 마이너스 통장 or 별명</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <span class="separator">연 <span>6.39</span>%</span>
+                        </div>
+                      </a>
+                      <a href="javascript:;" role="button" title="이체하기" class="btn -tertiary -xs">이체</a>
+                    </li>
+                    <li class="mbAccListItem">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have1">해지가능</span>
+                        <span class="tagLabel have3">연결만료</span>
+                        <span class="tagLabel have3">연결만료예정</span>
+                        <span class="tagLabel have4">목표</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">대딤돌 첫 생애 대출</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>211,500,000</span>원</strong>
+                          <span class="separator">연 <span>60.39</span>%</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have3">연결만료</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">$별칭$or$계좌명$</span>
+                        </div>
+                      </a>
+                      <a href="javascript:;" role="button" class="connect">연결확인</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- // ### 탭 대출 금리순 ### -->
+              </div>
+              <!-- // 탭 -->
+
+              <hr class="divLine">
+
+              <!-- ### 학자금 대출 있을 때 ### -->
+              <div class="prodListWrap -hide -cap">
+                <a href="javascript:;" role="button">
+                  <span class="fs14 color3 -medium">학자금 대출</span><!-- 2025-12-01 디자인 변경 color3 -->
+                  <div class="prodRecomWrap">
+                    <strong class="prodTit fs16 color1"><span>13,000,000</span>원</strong>
+                  </div>
+                </a>
+              </div>
+              <!-- // ### 학자금 대출 있을 때 ### -->
+
+              <hr class="divLine">
+
+              <!-- ### 숨긴 대출 있을 때 ### -->
+              <div class="prodListWrap -hide">
+                <a href="javascript:;" role="button">
+                  <div class="prodRecomWrap">
+                    <!-- 2025-11-06 갯수 주석처리
+                    <em class="prodTit">숨긴 대출 <span>3</span>개</em> 
+                    -->
+                    <em class="prodTit">숨긴 대출</em>
+                  </div>
+                </a>
+              </div>
+              <!-- // ### 숨긴 대출 있을 때 ### -->
+
+              <hr class="divLine">
+
+              <!-- ### 다른 대출 계좌 불러오기 ### -->
+              <div class="prodListWrap -another">
+                <a href="javascript:;" role="button" class="fs15 -medium color2"><!-- 2025-12-01 디자인 변경 fs15 -->
+                  다른 대출 계좌 불러오기
+                </a>
+              </div>
+              <!-- // ### 다른 대출 계좌 불러오기 ### -->
+
+              <!-- [SECTION] 띠배너 -->
+              <!-- [대출] 당타행 대출 만기 45일 이내 상품 보유 시 | 대출만기 안내 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg01" role="button">만기가 얼마 안 남은 대출이 <span>N</span>건 있어요!</a>
+              </div>
+              <!-- [대출] 빅데이터 시나리오 통신업권 | 대출상품 안내 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner03 bg13" role="button">통신사 이용 고객님을 위한 상품!</a>
+              </div>
+              <!-- [대출] 빅데이터 시나리오 | 대출상품 안내 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner04 bg14" role="button">고객님께 딱 맞는 대출 상품!</a>
+              </div>
+              <!-- [대출] 대출을 보유한 고객의 경우 | DSR 계산기 메인 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner02 bg15" role="button">DSR 계산기에서 대출한도 계산해보세요</a>
+              </div>
+              <!-- // 띠배너 -->
+
+            </div><!-- // mbAccListWrap -->
+          </div><!-- // mbSelectLlistWrap -->
+
+          <!-- 대출 계좌 없을 때
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">대출</h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">대출 계좌를 연결해보세요!</strong>
+                </div>
+              </a>
+            </div>
+          </div> -->
+
+        </div><!-- // inoutListWrap anchor-cont="dem02" 스크롤2 -->
+        <!-- // 대출 2025-10-17 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 투자 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem03">
+          <div class="mbSelectLlistWrap">
+            <div class="mbTitWrap">
+              <div>
+                <h2 class="h4 togTit color3">투자</h2>
+                <em class="h2 mt2"><span>456,123,000</span>원</em>
+              </div>
+              <a href="javascript:;" role="button" class="btn -tertiary -sm">모아보기</a>
+            </div>
+
+            <div class="mbAccListWrap">
+              <!-- 탭 -->
+              <div class="mbTabs mt24">
+                <div class="col2" role="tablist" aria-label="투자상품 계좌별 상품별 보기">
+                  <button id="tab-1" class="active" role="tab" aria-controls="panel-1" tabindex="0">계좌별</button><!-- [D] aria-controls 은 상세div(보이는 영역) id 와 맞춰주세요 -->
+                  <button id="tab-2" role="tab" aria-controls="panel-2" tabindex="-1">상품별</button><!-- [D] aria-controls 은 상세div(보이는 영역) id 와 맞춰주세요 -->
+                </div>
+                <!-- ### 탭 투자 계좌별 ### -->
+                <div id="panel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1"><!-- [D] aria-labelledby 은 button id 와 맞춰주세요 -->
+                  <p class="caption1 color4 mt8">계좌별 금액은 순자산 금액과 다를 수 있습니다.</p>
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have3">연결만료</span>
+                        <span class="tagLabel have3">연결만료예정</span>
+                        <span class="tagLabel have4">목표</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">종합_위탁 육칠팔구십일이삼사오육칠팔구일이삼사오육칠팔구</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>999,999,999,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE1] 증가 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="arrowUp" role="img" aria-label="증가"><span class="blind">증가</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="amount"><span>99,556,897</span>원 (+<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem">
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">NH종합_위탁</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>311,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE2] 감소 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="arrowDown" role="img" aria-label="감소"><span class="blind">감소</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="amount"><span>99,556,897</span>원 (-<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem">
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AACT0000.svg" class="mbCi" alt="한국투자증권 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">종합_위탁</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE3] 동일 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="arrowNone" role="img" aria-label="없음"><span class="blind">없음</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="amount pl0"><span>0</span>원 (<span>0</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have3">연결만료</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AACT0000.svg" class="mbCi" alt="한국투자증권 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">한국투자증권</span>
+                        </div>
+                      </a>
+                      <a href="javascript:;" role="button" class="connect">연결확인</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- // ### 탭 투자 계좌별 ### -->
+                <!-- ### 탭 투자 상품별 ### -->
+                <div id="panel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden><!-- [D] aria-labelledby 은 button id 와 맞춰주세요 -->
+                  <p class="caption1 color4 mt8">해당 종목을 여러 증권사를 통해 매수한 경우, +가 표시됩니다.</p>
+                  <h3 class="body3 -medium color3 mt24">국내주식</h3><!-- 2025-10-27 칼라 변경 color3 추가 -->
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have4">목표</span>
+                      </div>
+                      <div class="mbCiWrap -plus"><!-- [D] 여러 증권사를 통해 매수한 경우 "-plus" 클래스 -->
+                        <img src="../../images/makebetter/logos/AAGU0000.svg" class="mbCi" alt="카카오페이 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">카카오페이</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE1] 증가 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="arrowUp" role="img" aria-label="증가"><span class="blind">증가</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="amount"><span>556,897</span>원 (+<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem">
+                      <div class="mbCiWrap -plus"><!-- [D] 여러 증권사를 통해 매수한 경우 "-plus" 클래스 -->
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">$상품명$</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE2] 감소 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="arrowDown" role="img" aria-label="감소"><span class="blind">감소</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="amount"><span>99,556,897</span>원 (-<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                    <!-- 2025-10-21 만료case 추가요청 -->
+                    <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have3">연결만료</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AACT0000.svg" class="mbCi" alt="한국투자증권 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem">
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">한국투자증권</span>
+                        </div>
+                      </a>
+                      <a href="javascript:;" role="button" class="connect">연결확인</a>
+                    </li>
+                  </ul>
+
+                  <hr class="divLine">
+
+                  <h3 class="body3 -medium color3">해외주식</h3><!-- 2025-10-27 칼라 변경 color3 추가 -->
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem">
+                      <div class="mbCiWrap -plus"><!-- [D] 여러 증권사를 통해 매수한 경우 "-plus" 클래스 -->
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">테슬라</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE1] 증가 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="arrowUp" role="img" aria-label="증가"><span class="blind">증가</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="amount"><span>556,897</span>원 (+<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+
+                  <hr class="divLine">
+
+                  <h3 class="body3 -medium color3">펀드</h3><!-- 2025-10-27 칼라 변경 color3 추가 -->
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem">
+                      <div class="mbCiWrap -plus"><!-- [D] 여러 증권사를 통해 매수한 경우 "-plus" 클래스 -->
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">디즈니</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE1] 증가 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="arrowUp" role="img" aria-label="증가"><span class="blind">증가</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="amount"><span>556,897</span>원 (+<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+
+                  <hr class="divLine">
+
+                  <h3 class="body3 -medium color3">예수금</h3><!-- 2025-10-27 칼라 변경 color3 추가 -->
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem">
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AAER0000.svg" class="mbCi" alt="신한증권 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">신한증권</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+
+                  <hr class="divLine">
+
+                  <h3 class="body3 -medium color3">기타투자상품</h3><!-- 2025-10-27 칼라 변경 color3 추가 -->
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem">
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AAER0000.svg" class="mbCi" alt="신한증권 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">특정 신탁</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE3] 동일 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="arrowNone" role="img" aria-label="없음"><span class="blind">없음</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="amount pl0"><span>0</span>원 (<span>0</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- // ### 탭 투자 상품별 ### -->
+              </div>
+              <!-- // 탭 -->
+
+              <hr class="divLine">
+
+              <!-- ### 숨긴 증권 계좌 있을 때 ### -->
+              <div class="prodListWrap -hide">
+                <a href="javascript:;" role="button">
+                  <div class="prodRecomWrap">
+                    <!-- 2025-11-06 갯수 주석처리
+                    <em class="prodTit">숨긴 증권 계좌 <span>3</span>개</em> 
+                    -->
+                    <em class="prodTit">숨긴 증권 계좌</em>
+                  </div>
+                </a>
+              </div>
+              <!-- // ### 숨긴 증권 계좌 있을 때 ### -->
+
+              <hr class="divLine">
+
+              <!-- ### 다른 투자 자산 불러오기 ### -->
+              <div class="prodListWrap -another">
+                <a href="javascript:;" role="button" class="fs15 -medium color2"><!-- 2025-12-01 디자인 변경 fs15 -->
+                  다른 투자 자산 불러오기
+                </a>
+              </div>
+              <!-- // ### 다른 투자 자산 불러오기 ### -->
+
+              <!-- [SECTION] 띠배너 -->
+              <!-- [투자] 배당내역이 있는 경우 상시 | 배당내역 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg09" role="button">내가 받은 배당 내역을 확인해보세요</a>
+              </div>
+              <!-- [투자] 외화자산, 해외 주식은 없고 배당내역이 없는 국내 주식만 보유한 경우 | 투자고수 따라잡기 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner04 bg10" role="button">내 자산상태를 진단해보세요</a>
+              </div>
+              <!-- [투자] 빅데이터 시나리오 | 외화예금 안내 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner04 bg11" role="button">해외투자 고객님께 딱 맞는 외화 예금!</a>
+              </div>
+              <!-- [투자] 최적자산배분 보다 내 기초자산의 비중이 ±3% 이상인 자산이 1개 이상 있을 경우 | 밸런스진단 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner02 bg12" role="button">내 투자 밸런스를 진단해보세요</a><!-- 2025-12-09 배경컬러 변경 요청 -->
+              </div>
+              <!-- [투자] 해외배당 소득 발생 시 | 금융소득 모니터링 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner02 bg08" role="button">내 금융소득 내역을 확인해보세요</a><!-- 2025-12-09 배경컬러 변경 요청 -->
+              </div>
+              <!-- // 띠배너 -->
+
+            </div><!-- // mbAccListWrap -->
+          </div><!-- // mbSelectLlistWrap -->
+
+          <!-- 투자 계좌 없을 때
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">투자</h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">투자 자산을 연결해보세요!</strong>
+                </div>
+              </a>
+            </div>
+          </div> -->
+
+        </div><!-- // inoutListWrap anchor-cont="dem03" 스크롤3 -->
+        <!-- // 투자 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 연금 2025-10-17 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem04">
+          <div class="mbSelectLlistWrap">
+            <div class="mbTitWrap">
+              <div>
+                <h2 class="h4 togTit color3">연금</h2>
+                <em class="h2 mt2"><span>456,123,000</span>원</em>
+              </div>
+              <a href="javascript:;" role="button" class="btn -tertiary -sm">진단하기</a>
+            </div>
+
+            <div class="mbAccListWrap">
+              <!-- 탭 -->
+              <div class="mbTabs mt24">
+                <div class="col2" role="tablist" aria-label="연금상품 금액순서, 수익률순서로 보기">
+                  <button id="tab-3" class="active" role="tab" aria-controls="panel-3" tabindex="0">금액순</button><!-- [D] aria-controls 은 상세div(보이는 영역) id 와 맞춰주세요 -->
+                  <button id="tab-4" role="tab" aria-controls="panel-4" tabindex="-1">수익률순</button><!-- [D] aria-controls 은 상세div(보이는 영역) id 와 맞춰주세요 -->
+                </div>
+                <!-- ### 탭 연금 금액순 ### -->
+                <div id="panel-3" role="tabpanel" tabindex="0" aria-labelledby="tab-3"><!-- [D] aria-labelledby 은 button id 와 맞춰주세요 -->
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have3">연결만료</span>
+                        <span class="tagLabel have3">연결만료예정</span>
+                        <span class="tagLabel have4">목표</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">퇴직연금 IRP</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>211,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE1] 증가 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="arrowUp" role="img" aria-label="증가"><span class="blind">증가</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="amount"><span>556,897</span>원 (+<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem">
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">연금저축신탁 채권형</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE2] 감소 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="arrowDown" role="img" aria-label="감소"><span class="blind">감소</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="amount"><span>556,897</span>원 (+<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have3">연결만료예정</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">개인형ISA</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>0</span>원</strong><!-- [D] 2025-12-01 디자인 변경 0원 일 때 color X(클래스 제거) -->
+                          <em class="mbAccRate">
+                            <!-- [CASE3] 동일 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="arrowNone" role="img" aria-label="없음"><span class="blind">없음</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="amount pl0"><span>0</span>원 (<span>0</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- // ### 탭 연금 금액순 ### -->
+                <!-- ### 탭 연금 수익률순 ### -->
+                <div id="panel-4" role="tabpanel" tabindex="0" aria-labelledby="tab-4" hidden><!-- [D] aria-labelledby 은 button id 와 맞춰주세요 -->
+                  <ul class="mbAccList -gather">
+                    <li class="mbAccListItem">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have3">연결만료</span>
+                        <span class="tagLabel have3">연결만료예정</span>
+                        <span class="tagLabel have4">목표</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">퇴직연금 IRP</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>211,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE1] 증가 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="arrowUp" role="img" aria-label="증가"><span class="blind">증가</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="amount"><span>556,897</span>원 (+<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem">
+                      <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have3">연결만료예정</span>
+                      </div>
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">개인형ISA</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>0</span>원</strong><!-- [D] 2025-12-01 디자인 변경 0원 일 때 color X(클래스 제거) -->
+                          <em class="mbAccRate">
+                            <!-- [CASE3] 동일 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="arrowNone" role="img" aria-label="없음"><span class="blind">없음</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소/없음 대체텍스트 -->
+                            <span class="amount pl0"><span>0</span>원 (<span>0</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="mbAccListItem">
+                      <div class="mbCiWrap">
+                        <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                      </div>
+                      <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                        <div class="mbAccTitWrap">
+                          <span class="mbAccTit ellipsis">연금저축신탁 채권형</span>
+                        </div>
+                        <div class="mbAccAmount">
+                          <strong><span>11,500,000</span>원</strong>
+                          <em class="mbAccRate">
+                            <!-- [CASE2] 감소 -->
+                            <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="arrowDown" role="img" aria-label="감소"><span class="blind">감소</span></span>
+                            <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                            <span class="amount"><span>556,897</span>원 (+<span>35.2</span>%)</span>
+                          </em>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- // ### 탭 연금 수익률순 ### -->
+              </div>
+              <!-- // 탭 -->
+
+              <hr class="divLine">
+
+              <!-- ### 숨긴 연금 있을 때 ### -->
+              <div class="prodListWrap -hide">
+                <a href="javascript:;" role="button">
+                  <div class="prodRecomWrap">
+                    <!-- 2025-11-06 갯수 주석처리
+                    <em class="prodTit">숨긴 연금 <span>3</span>개</em> 
+                    -->
+                    <em class="prodTit">숨긴 연금</em>
+                  </div>
+                </a>
+              </div>
+              <!-- // ### 숨긴 연금 있을 때 ### -->
+
+              <hr class="divLine">
+
+              <!-- ### 다른 연금 자산 불러오기 ### -->
+              <div class="prodListWrap -another">
+                <a href="javascript:;" role="button" class="fs15 -medium color2"><!-- 2025-12-01 디자인 변경 fs15 -->
+                  다른 연금 자산 불러오기
+                </a>
+              </div>
+              <!-- // ### 다른 연금 자산 계좌 불러오기 ### -->
+
+              <!-- [SECTION] 띠배너 -->
+              <!-- [연금] 빅데이터 | 개인퇴직연금 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner04 bg16" role="button">노후 준비의 첫 걸음을 위한 IRP!</a>
+              </div>
+              <!-- [연금] 상시 | 연금진단 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner05 bg17" role="button">은퇴 후 예상 연금 수령액을 확인해보세요</a>
+              </div>
+              <!-- // 띠배너 -->
+
+            </div><!-- // mbAccListWrap -->
+          </div><!-- // mbSelectLlistWrap -->
+
+          <!-- 연금 자산 없을 때
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">연금</h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">연금 자산을 연결해보세요!</strong>
+                </div>
+              </a>
+            </div>
+          </div> -->
+        </div><!-- // inoutListWrap anchor-cont="dem04" 스크롤4 -->
+        <!-- // 연금 2025-10-17 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 보험 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem05">
+          <div class="mbSelectLlistWrap">
+            <div class="mbTitWrap">
+              <div>
+                <h2 class="h4 togTit color3">보험</h2>
+              </div>
+              <a href="javascript:;" role="button" class="btn -tertiary -sm">모아보기</a>
+            </div>
+
+            <div class="mbAccListWrap">
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem">
+                  <span class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have3">연결만료예정</span>
+                  </span>
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">애니카 다이렉트 자동차 보험</span>
+                    </div>
+                    <em class="mbAccDetail">123가1234 <span>랜드로버랜드로버랜드로버랜드로버 레인지로버 스포티랜드로버 레인지로버 스포티</span></em>
+                  </a>
+                </li>
+                <li class="mbAccListItem">
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have3">연결만료</span>
+                  </div>
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">우리아이 안심 건강보험</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              <hr class="divLine">
+
+              <h3 class="h5 mt24">다른 사람이 가입해준 내 보험은?</h3><!-- 2025-10-27 칼라 변경 color3 추가, 2025-12-01 디자인 변경 h5 -medium, clolr3(삭제) -->
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">100세 청춘보험 0809</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">$상품명$</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              <hr class="divLine">
+
+              <!-- ### 숨긴 보험 있을 때 ### -->
+              <div class="prodListWrap -hide">
+                <a href="javascript:;" role="button">
+                  <div class="prodRecomWrap">
+                    <!-- 2025-11-06 갯수 주석처리
+                    <em class="prodTit">숨긴 보험 <span>3</span>개</em> 
+                    -->
+                    <em class="prodTit">숨긴 보험</em>
+                  </div>
+                </a>
+              </div>
+              <!-- // ### 숨긴 보험 있을 때 ### -->
+
+              <hr class="divLine">
+
+              <!-- ### 다른 보험 불러오기 ### -->
+              <div class="prodListWrap -another">
+                <a href="javascript:;" role="button" class="fs15 -medium color2"><!-- 2025-12-01 디자인 변경 fs15 -->
+                  다른 보험 불러오기
+                </a>
+              </div>
+              <!-- // ### 다른 보험 불러오기 ### -->
+
+              <!-- [SECTION] 띠배너 -->
+              <!-- [보험] 2025-10-27 추가요청 숨은자산찾기 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg26" role="button">자산목록의 숨은자산을 확인해보세요</a>
+              </div>
+              <!-- [보험] 30일 이내 실손보험 청구 대상 진료기록이 있는 고객의 경우 | 병원방문내역 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg21" role="button">헬스케어에서 실손 보험금을 청구하세요</a>
+              </div>
+              <!-- [보험] 30일 이내 건강검진 받은 고객의 경우 | 건강검진 결과 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg22" role="button">헬스케어에서 건강검진 결과 확인하세요</a>
+              </div>
+              <!-- [보험] 실손보험을 보유한 고객의 경우 | 실손보험청구 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg21" role="button">헬스케어에서 실손 보험금을 청구하세요</a>
+              </div>
+              <!-- [보험] 상시 | NH농협금융 상품 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg23" role="button">위험에 대비한 보장자산을 준비하세요</a>
+              </div>
+              <!-- // 띠배너 -->
+
+            </div><!-- // mbAccListWrap -->
+          </div><!-- // mbSelectLlistWrap -->
+
+          <!-- 보험 없을 때
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">보험</h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">보험을 연결해보세요!</strong>
+                </div>
+              </a>
+            </div>
+          </div> -->
+        </div><!-- // inoutListWrap anchor-cont="dem05" 스크롤5 -->
+        <!-- // 보험 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 선불카드 &middot; 페이 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem06">
+          <div class="mbSelectLlistWrap">
+            <div class="mbTitWrap">
+              <div>
+                <h2 class="h4 togTit color3">선불카드 &middot; 페이</h2>
+                <em class="h2 mt2"><span>456,123,000</span>원</em>
+              </div>
+            </div>
+
+            <div class="mbAccListWrap">
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem">
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have3">연결만료</span>
+                    <span class="tagLabel have3">연결만료예정</span>
+                  </div>
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAQH0000.svg" class="mbCi" alt="네이버 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">네이버 페이</span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>11,500,000</span>원</strong>
+                    </div>
+                  </a>
+                </li>
+                <li class="mbAccListItem -button"><!-- 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have3">연결만료</span>
+                  </div>
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">NH농협 페이</span>
+                    </div>
+                  </a>
+                  <a href="javascript:;" role="button" class="connect">연결확인</a>
+                </li>
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAGU0000.svg" class="mbCi" alt="카카오 페이 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">카카오 페이</span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>11,500,000</span>원</strong>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              <hr class="divLine">
+
+              <!-- ### 숨긴 선불카드 &middot; 페이 있을 때 ### -->
+              <div class="prodListWrap -hide">
+                <a href="javascript:;" role="button">
+                  <div class="prodRecomWrap">
+                    <!-- 2025-11-06 갯수 주석처리
+                    <em class="prodTit">숨긴 선불카드 &middot; 페이 <span>3</span>개</em> 
+                    -->
+                    <em class="prodTit">숨긴 선불카드 &middot; 페이</em>
+                  </div>
+                </a>
+              </div>
+              <!-- // ### 숨긴 선불카드 &middot; 페이 있을 때 ### -->
+
+              <hr class="divLine">
+
+              <!-- ### 다른 선불카드 &middot; 페이 불러오기 ### -->
+              <div class="prodListWrap -another">
+                <a href="javascript:;" role="button" class="fs15 -medium color2"><!-- 2025-12-01 디자인 변경 fs15 -->
+                  다른 선불카드 &middot; 페이 불러오기
+                </a>
+              </div>
+              <!-- // ### 다른 선불카드 &middot; 페이 불러오기 ### -->
+
+              <!-- [SECTION] 띠배너 -->
+              <!-- [선불페이] 빅데이터 시나리오 | 선불페이 이용꿀팁 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg18" role="button">혜택 받으며 선불페이 이용하는 꿀팁!</a>
+              </div>
+              <!-- // 띠배너 -->
+
+            </div><!-- // mbAccListWrap -->
+          </div><!-- // mbSelectLlistWrap -->
+
+          <!-- 선불카드 &middot; 페이 없을 때
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">선불카드 &middot; 페이</h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">선불카드&middot;페이를 연결해보세요!</strong>
+                </div>
+              </a>
+            </div>
+          </div> -->
+        </div><!-- // inoutListWrap anchor-cont="dem06" 스크롤6 -->
+        <!-- // 선불카드 &middot; 페이 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 부동산 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem07">
+          <div class="mbSelectLlistWrap">
+            <div class="mbTitWrap">
+              <div>
+                <h2 class="h4 togTit color3">부동산</h2>
+                <em class="h2 mt2"><span>456,123,000</span>원</em>
+              </div>
+              <a href="javascript:;" role="button" class="btn -tertiary -sm">관리하기</a>
+            </div>
+
+            <div class="mbAccListWrap">
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem">
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have4">자가</span>
+                  </div>
+                  <div class="mbCiWrap"><!-- 2025-10-24 카테고리별 아이콘 클래스 코드화 -->
+                    <i class="ico_etcNewAsset07"></i>
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">주공네이버 아파트<span class="color5">지분율 100%</span></span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>5</span>억<span>5,000</span>만원</strong>
+                      <em class="mbAccRate">
+                        <!-- [CASE1] 증가 -->
+                        <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                        <span class="arrowUp" role="img" aria-label="증가"><span class="blind">증가</span></span>
+                        <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                        <span class="amount"><span>2</span>억<span>5,000</span>만원</span>
+                      </em>
+                    </div>
+                  </a>
+                </li>
+                <li class="mbAccListItem">
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have1">전세</span>
+                  </div>
+                  <div class="mbCiWrap"><!-- 2025-10-24 카테고리별 아이콘 클래스 코드화 -->
+                    <i class="ico_etcNewAsset08"></i>
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">동일 하이츠</span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>3</span>억<span>5,000</span>만원</strong>
+                    </div>
+                  </a>
+                </li>
+                <li class="mbAccListItem">
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have5">월세</span>
+                  </div>
+                  <div class="mbCiWrap"><!-- 2025-10-24 카테고리별 아이콘 클래스 코드화 -->
+                    <i class="ico_etcNewAsset09"></i>
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">한진빌라</span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>1</span>억<span>5,000</span>만원</strong>
+                      <span class="separator">월세 <span>100</span>만원</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              <hr class="divLine">
+
+              <!-- ### 다른 부동산 추가하기 ### -->
+              <div class="prodListWrap -another">
+                <a href="javascript:;" role="button" class="fs14 -medium color2">
+                  다른 부동산도 추가하기
+                </a>
+              </div>
+              <!-- // ### 다른 부동산 추가하기 ### -->
+
+              <!-- [SECTION] 띠배너 -->
+              <!-- [부동산] 청약통장을 보유한 고객의 경우 | 주택청약알림/청약가점 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner03 bg19" role="button">주택청약플래너에서 알림을 신청하세요</a>
+              </div>
+              <!-- [부동산] 상시 | 목표등록(부동산) -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner03 bg20" role="button">내 집 마련의 목표를 등록해보세요</a>
+              </div>
+              <!-- // 띠배너 -->
+
+            </div><!-- // mbAccListWrap -->
+          </div><!-- // mbSelectLlistWrap -->
+
+          <!-- 부동산 없을 때
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">부동산</h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">부동산을 추가해보세요!</strong>
+                </div>
+              </a>
+            </div>
+          </div>  -->
+        </div><!-- // inoutListWrap anchor-cont="dem07" 스크롤7 -->
+        <!-- // 부동산 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 기타 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem08">
+          <div class="mbSelectLlistWrap">
+            <div class="mbTitWrap">
+              <div>
+                <h2 class="h4 togTit color3">
+                  기타
+                  <div class="tooltipWrap">
+                    <button type="button" class="toolTipBtn -small" onclick="tooltipOpen($(this))">
+                      <span class="blind">기타 자산으로 등록 가능한 항목 안내 툴팁 열기</span>
+                    </button>
+                    <div class="tooltipCont">
+                      <h3>기타 자산으로 등록 가능한 항목</h3>
+                      <ul class="listBul nodisc noticeCont" tabindex="-1">
+                        <li> 자동차, 금, 외화, 현금(보유현금, 빌린현금) 등</li>
+                      </ul>
+                      <button type="button" class="close" onclick="tooltipClose($(this))">
+                        <span class="blind">툴팁 닫기</span>
+                      </button>
+                    </div>
+                  </div>
+                </h2>
+                <em class="h2 mt2"><span>456,123,000</span>원</em>
+              </div>
+            </div>
+
+            <div class="mbAccListWrap">
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap"><!-- 2025-10-24 카테고리별 아이콘 클래스 코드화 -->
+                    <i class="ico_etcNewAsset04"></i>
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">아내 몰래 둔 비자금</span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>5</span>억<span>5,000</span>만원</strong>
+                    </div>
+                  </a>
+                </li>
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap"><!-- 2025-10-24 카테고리별 아이콘 클래스 코드화 -->
+                    <i class="ico_etcNewAsset01"></i>
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">홍콩달라<span class="color5">USD 500.00</span></span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>5</span>억<span>5,000</span>만원</strong>
+                    </div>
+                  </a>
+                </li>
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap"><!-- 2025-10-24 카테고리별 아이콘 클래스 코드화 -->
+                    <i class="ico_etcNewAsset06"></i>
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">결혼예물<span class="color5">10g</span></span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>5</span>억<span>5,000</span>만원</strong>
+                      <em class="mbAccRate">
+                        <!-- [CASE1] 증가 -->
+                        <!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                        <span class="arrowUp" role="img" aria-label="증가"><span class="blind">증가</span></span>
+                        <!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 4번 증가/감소 대체텍스트 -->
+                        <span class="amount"><span>2</span>억<span>5,000</span>만원</span>
+                      </em>
+                    </div>
+                  </a>
+                </li>
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap"><!-- 2025-10-24 카테고리별 아이콘 클래스 코드화 -->
+                    <i class="ico_etcNewAsset00"></i><!-- 카테고리 분류 없을 떄 ico_etcNewAsset00 -->
+                  </div>
+                  <a href="javascript:;" class="mbAccItem"><!-- 2025-10-15 링크영역 변경요청 -->
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">추가 기타자산이 필요할 경우 대비 아이콘</span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>5</span>억<span>5,000</span>만원</strong>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              <hr class="divLine">
+
+              <!-- ###  다양한 자산 추가하기 ### -->
+              <div class="prodListWrap -another">
+                <a href="javascript:;" role="button" class="fs14 -medium color2">
+                  다양한 자산을 추가해보세요
+                </a>
+              </div>
+              <!-- // ###  다양한 자산 추가하기 ### -->
+
+              <!-- [SECTION] 띠배너 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner04 bg24" role="button">세금포인트 확인하기</a>
+              </div>
+              <!-- // 띠배너 -->
+
+            </div><!-- // mbAccListWrap -->
+          </div><!-- // mbSelectLlistWrap -->
+
+          <!-- 기타 자산 없을 때
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">
+              기타
+              <div class="tooltipWrap">
+                <button type="button" class="toolTipBtn -small" onclick="tooltipOpen($(this))">
+                  <span class="blind">기타 자산으로 등록 가능한 항목 안내 툴팁 열기</span>
+                </button>
+                <div class="tooltipCont">
+                  <h3>기타 자산으로 등록 가능한 항목</h3>
+                  <ul class="listBul nodisc noticeCont" tabindex="-1">
+                    <li> 자동차, 금, 외화, 현금(보유현금, 빌린현금) 등</li>
+                  </ul>
+                  <button type="button" class="close" onclick="tooltipClose($(this))">
+                    <span class="blind">툴팁 닫기</span>
+                  </button>
+                </div>
+              </div>
+            </h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">다양한 자산을 추가해보세요!</strong>
+                </div>
+              </a>
+            </div>
+          </div> -->
+        </div><!-- // inoutListWrap anchor-cont="dem08" 스크롤8 -->
+        <!-- // 기타 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 내가 몰랐던 숨은자산 2025-10-27 수정 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem09">
+          <div class="mbSelectLlistWrap">
+            <div class="mbTitWrap">
+              <div>
+                <h2 class="h4 togTit color3">내가 몰랐던 숨은자산</h2>
+                <em class="h2 mt2">최대 <span>456,123,000</span>원</em>
+              </div>
+            </div>
+            <!-- 2025-12-01 디자인 변경 body1 -medium(삭제) -->
+            <h3 class="body1 mt24">각 금융기관의 휴면예금 및 휴면/미청구보험금
+              <div class="tooltipWrap">
+                <button type="button" class="toolTipBtn -small" onclick="tooltipOpen($(this))">
+                  <span class="blind">기타 자산으로 등록 가능한 항목 안내 툴팁 열기</span>
+                </button>
+                <div class="tooltipCont">
+                  <h3>휴면/미청구보험금 정보 안내</h3>
+                  <ul class="listBul nodisc noticeCont" tabindex="-1">
+                    <li>보험금은 각 보험회사에서 제공한 자료로 휴면보험금과 미청구보험금이 중복되어 노출될 수 있으며 실제 금액과 상이할 수 있습니다.</li>
+                  </ul>
+                  <button type="button" class="close" onclick="tooltipClose($(this))">
+                    <span class="blind">툴팁 닫기</span>
+                  </button>
+                </div>
+              </div>
+            </h3>
+
+            <div class="mbAccListWrap mt24">
+              <h3 class="body3 -medium color3">휴면예금</h3>
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have3">연결만료예정</span>
+                  </div>
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem">
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협NH농축협</span>
+                    </div>
+                    <em class="mbAccAmount">
+                      <strong><span>500,000</span>원</strong>
+                    </em>
+                  </a>
+                  <a href="javascript:;" role="button" class="btn -tertiary -xs">해지</a>
+                </li>
+                <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem">
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">$별칭$or$계좌명$</span>
+                    </div>
+                  </a>
+                  <a href="javascript:;" role="button" class="connect">연결확인</a>
+                </li>
+              </ul>
+              <!-- // ### 휴면예금 ### -->
+
+              <hr class="divLine">
+
+              <h3 class="body3 -medium color3">휴면보험금</h3>
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbAccLabelWrap w100p"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have3">연결만료</span>
+                  </div>
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem">
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">NH생명NH생명NH생명NH생명NH생명NH생명NH생명NH생명NH생명NH생명NH생명</span>
+                    </div>
+                  </a>
+                  <a href="javascript:;" role="button" class="connect">연결확인</a>
+                </li>
+              </ul>
+              <!-- // ### 휴면보험금 ### -->
+
+              <hr class="divLine">
+
+              <h3 class="body3 -medium color3">미청구 보험금</h3>
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem">
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">NH생명 종합건강보험 1.0(무배당)일당 가나다라마바</span>
+                    </div>
+                    <div class="mbAccAmount">
+                      <strong><span>500,000</span>원</strong>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <!-- // ### 미청구 보험금 ### -->
+
+              <!-- 2025-10-29 띠배너 위치 변경 -->
+
+              <h3 class="body1 mt24 mb24">서민금융진흥원에 존재하는 휴면예금 및 휴면보험금</h3><!-- 2025-12-01 디자인 변경 body1 -medium(삭제) -->
+              <h3 class="body3 -medium color3">휴면예금</h3>
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem">
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">기관명</span>
+                    </div>
+                    <em class="mbAccAmount">
+                      <strong><span>500,000</span>원</strong>
+                    </em>
+                  </a>
+                  <a href="javascript:;" role="button" class="btn -tertiary -xs">지급</a>
+                </li>
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem">
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">$기관명$</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <!-- // ### 서민금융진흥원 휴면예금 ### -->
+
+              <hr class="divLine">
+
+              <h3 class="body3 -medium color3">휴면보험금</h3>
+              <ul class="mbAccList -gather">
+                <li class="mbAccListItem">
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AABF0000.svg" class="mbCi" alt="NH농협은행 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem">
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">$기관명$</span>
+                    </div>
+                  </a>
+                </li>
+                <li class="mbAccListItem -button"><!-- [D] 이체버튼 등 버튼 있을 때 "-button" 클래스 -->
+                  <div class="mbCiWrap">
+                    <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                  </div>
+                  <a href="javascript:;" class="mbAccItem">
+                    <div class="mbAccTitWrap">
+                      <span class="mbAccTit ellipsis">기관명</span>
+                    </div>
+                    <em class="mbAccAmount">
+                      <strong><span>500,000</span>원</strong>
+                    </em>
+                  </a>
+                  <a href="javascript:;" role="button" class="btn -tertiary -xs">지급</a>
+                </li>
+              </ul>
+              <!-- // ### 서민금융진흥원 휴면보험금 ### -->
+
+              <!-- [SECTION] 띠배너 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner01 bg01" role="button">해지 신청한 내역이 총 <span>N</span>건 있어요.</a>
+              </div>
+              <!-- // 띠배너 -->
+              <!-- [SECTION] 띠배너 2025-10-29 위치 변경 -->
+              <div class="mt24">
+                <a href="javascript:;" class="accountBanner03 bg25" role="button">해지/지급 내역이 있는지 확인해 보세요</a>
+              </div>
+              <!-- // 띠배너 2025-10-29 위치 변경 -->
+            </div><!-- // mbAccListWrap -->
+          </div><!-- // mbSelectLlistWrap -->
+
+          <!-- 숨은자산 없을 때
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">숨은자산</h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">숨은 자산을 찾아보세요!</strong>
+                </div>
+              </a>
+            </div>
+          </div> -->
+        </div><!-- // inoutListWrap anchor-cont="dem09" 스크롤9 -->
+        <!-- // 숨은자산 -->
+
+        <hr class="divLine mb32">
+
+        <!-- 2025-10-15 배너 추가 요청 -->
+        <div class="mbBanner">
+          <a href="javascript:;" class="swiperLayer-vip vip">
+            <!-- [D] 금융자산 금액별 텍스트 반영해 주세요 -->
+            <!-- [D] vip 금융자산 5억원 이상일 때 -->
+            <span>금융자산 5억원 이상 VIP고객님을 위한</span>
+            <strong>재무&middot;세무&middot;부동산 전문가 상담</strong>
+            <!-- [D] vip 금융자산 1억원 이상일 때
+            <span>금융자산 1억원 이상 VIP고객님을 위한</span>
+            <strong>재무&middot;세무&middot;부동산 전문가 상담</strong>
+            -->
+            <!-- [D] 걍 vip 일 때
+            <span>VIP고객님을 위한</span>
+            <strong>재무&middot;세무&middot;부동산 전문가 상담</strong>
+            -->
+          </a>
+        </div>
+        <!-- // 2025-10-15 배너 추가 요청 -->
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 스와이퍼 배너 -->
+        <!-- -------------------------------------- -->
+        <div class="swiper-container bannerSwiperImgtype ent01">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide">
+              <div class="mbBanner">
+                <a href="javascript:;" class="swiperLayer01 bg01" role="button"><!-- [수정 260224] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 03번 role="button" 수정 -->
+                  <span>제휴사 대출상품 쉽고 빠르게 비교하기!</span>
+                  <strong>나에게 딱 맞는 대출한도와 금리는?</strong>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="mbBanner">
+                <a href="javascript:;" class="swiperLayer02 bg02" role="button"><!-- [수정 260224] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 03번 role="button" 수정 -->
+                  <span>DSR 계산기로 손쉽게 확인해보세요</span>
+                  <strong>내 DSR은 얼마?</strong>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="mbBanner">
+                <a href="javascript:;" class="swiperLayer03 bg03" role="button"><!-- [수정 260224] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 03번 role="button" 수정 -->
+                  <span>나의 세금포인트, 얼마나 쌓였을까?</span>
+                  <strong>세금포인트 확인하기</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="auto_page_btnps mt12">
+            <div class="swiper-pagination assetView pageCarDriveBanner"></div>
+            <div class="btnPSWrap">
+              <button type="button" class="stop"><span class="blind">자동재생 정지</span></button>
+            </div>
+          </div>
+        </div>
+        <!-- // 스와이퍼 배너 -->
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 즐겨찾기 &middot; 숨기기 순자산 설정하기 -->
+        <!-- -------------------------------------- -->
+        <div class="prodListWrap assetView mt32">
+          <a href="javascript:;" role="button">
+            <div class="prodRecomWrap favorite" >
+              <strong class="prodTit">즐겨찾기 &middot; 숨기기</strong>
+            </div>
+          </a>
+          <a href="javascript:;" role="button">
+            <div class="prodRecomWrap netAssetSetting">
+              <strong class="prodTit">순자산 설정하기</strong>
+            </div>
+          </a>
+        </div>
+      <!-- // 즐겨찾기 &middot; 숨기기 순자산 설정하기 -->
+
+      </div>
+      <!-- ###################################### -->
+    </div>
+
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 버튼영역(하단버튼 플로팅X) -->
+    <!-- -------------------------------------- -->
+    <div class="areaBtnStatic mt32">
+      <a href="javascript:;" class="btnPressPoint" role="button">자산 추가하기</a>
+    </div>
+    <!-- -------------------------------------- -->
+  </div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+// 2025-09-26 앵커 스크롤 JS 분리
+initializeAnchorScroll();
+
+//샘플 : 스와이프 이미지 배너
+$('.bannerSwiperImgtype.ent01').each(function(){
+  var $swiperContainer = $(this);
+  var swiperBannerImg01 = new Swiper('.bannerSwiperImgtype.ent01', {
+    slidesPerView: 1,
+    watchOverflow:true,
+    spaceBetween: 10,
+    loop: true,
+    observer:true,
+    observeParents : true,
+    autoplay: {
+      delay: 6000,
+      disableOnInteraction: true,
+      pauseOnMouseEnter: true,
+    },
+
+    pagination: {
+      el: '.swiper-pagination.pageCarDriveBanner',
+      type: 'bullets',
+      clickable: true,
+      bulletElement: 'a',
+    },
+    //달력 aria-hidden 적용
+    on: {
+      transitionEnd: function () {
+        $('.swiper-slide').attr('aria-hidden', 'true')
+        $('.swiper-slide-active').attr('aria-hidden', 'false')
+      }
+    }
+  });
+
+  var $psbtn = $swiperContainer.find('.stop');
+  $psbtn.click(function(){
+    $(this).toggleClass('active');
+    if($(this).hasClass('active')){
+      $(this).attr('title','자동재생 시작');
+      $(this).find('.blind').text('자동재생 시작');
+      swiperBannerImg01.autoplay.stop();
+    }
+    else {
+      $(this).attr('title','자동재생 정지');
+      $(this).find('.blind').text('자동재생 정지');
+      swiperBannerImg01.autoplay.start();
+    }
+  });
+});
+
+// 2025-12-10 스켈레톤 UI 퍼블 확인용
+document.addEventListener('DOMContentLoaded',function(){
+  setTimeout(function(){
+    $('.is-skeleton').remove();
+  },300);
+});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

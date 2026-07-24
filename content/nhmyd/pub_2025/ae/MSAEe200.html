@@ -1,0 +1,222 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>내 자산 안심 알림서비스 | 금융자산분석</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>내 자산 안심 알림서비스</h1>
+		<a href="javascript:;" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ############################################ -->
+	<!-- ### [내용] 내 자산 안심 알림서비스 정보입력 ### -->
+	<!-- ############################################ -->
+	<div class="container bgWhite">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정보입력 현재 스텝 -->
+		<!-- -------------------------------------- -->
+        <div class="infoStep1" role="img" aria-label="정보입력: 총 2단계 중 1번째 단계">
+            <ol>
+                <li aria-current="step"> <!-- [D] 현재 스텝 li : aria-current="step" 노출 -->
+                    <i aria-hidden="true">1</i>
+                    <span>정보입력</span>
+                </li>
+                <li>
+                    <i aria-hidden="true">2</i>
+                    <span>자산선택</span>
+                </li>
+            </ol>
+        </div>         
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 안내 배너 -->
+		<!-- -------------------------------------- -->
+		<div class="infoBanner"> <!-- [D] t* : 폰트크기 및 스타일 재정의 -->
+			<div class="img1"> <!-- [D] img* : 아이콘 및 BG 색상정의 -->
+				<span>맞춤 알림을 받으시려면<br>필요한 정보를 입력해주세요</span>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정보입력 -->
+		<!-- -------------------------------------- -->
+		 <div class="formWrap">
+			<strong class="formTit disInline">어떤 방법으로 받고 싶나요?</strong>
+			<div class="boxRadio wrapType2">
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio01" id="FboxRadio0101" aria-label="알림수신방법(앱푸시)">
+						<label for="FboxRadio0101" aria-hidden="true">앱푸시</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio01" id="FboxRadio0102" aria-label="알림수신방법(카카오톡)">
+						<label for="FboxRadio0102" aria-hidden="true">카카오톡</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio01" id="FboxRadio0103" aria-label="알림수신방법(문자 SMS)">
+						<label for="FboxRadio0103" aria-hidden="true">문자 (SMS)</label>
+					</span>
+				</div>
+			</div>
+
+			<strong class="formTit disInline">매주 어떤 요일에 받고 싶나요?</strong>
+			<div class="boxRadio wrapType3">
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio02" id="FboxRadio0201" aria-label="알림수신요일(월)">
+						<label for="FboxRadio0201" aria-hidden="true">월</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio02" id="FboxRadio0202" aria-label="알림수신요일(화)">
+						<label for="FboxRadio0202" aria-hidden="true">화</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio02" id="FboxRadio0203" aria-label="알림수신요일(수)">
+						<label for="FboxRadio0203" aria-hidden="true">수</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio02" id="FboxRadio0204" aria-label="알림수신요일(목)">
+						<label for="FboxRadio0204" aria-hidden="true">목</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio02" id="FboxRadio0205" aria-label="알림수신요일(금)">
+						<label for="FboxRadio0205" aria-hidden="true">금</label>
+					</span>
+				</div>
+			</div>
+      
+			<strong class="formTit disInline">
+				어떤 경우에 알림을 받을까요?
+				<span>계좌합산금액에 변동이 생기면 알림으로 알려드려요.</span>			
+			</strong>
+			<div class="inputList"><!-- [D] 선택된 값 표시 시 on 클래스 추가 -->
+				<a href="javascript:;" title="선택" aria-haspopup="true">
+					<span class="selectValue">선택</span>
+					<span class="selectBtn"></span>
+				</a>
+				<select name="" title="선택해주세요">
+					<option value=""></option>
+				</select>
+			</div>
+
+			<div class="inputList on"><!-- [D] 선택된 값 표시 시 on 클래스 추가 -->
+				<a href="javascript:;" title="선택" aria-haspopup="true">
+					<span class="selectValue">증가하거나 감소할 때</span>
+					<span class="selectBtn"></span>
+				</a>
+				<select name="" title="선택해주세요">
+					<option value=""></option>
+				</select>
+			</div>
+			<!-- ------------------------------------------------------- -->
+
+			<strong class="formTit disInline">
+				얼마나 변동되면 알림을 받을까요?
+				<span class="directUnit" style="display:none">0 또는 미입력 시 자산에 변동이 없어도 매주 알려드려요.</span><!-- [D] 직접 입력일 때 노출 -->
+			</strong>
+
+			<div class="boxRadio wrapType2">
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio04" id="FboxRadio0401" aria-label="알림변동금액(100만원 이상)">
+						<label for="FboxRadio0401" aria-hidden="true">100만원 이상</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio04" id="FboxRadio0402" aria-label="알림변동금액(1,000만원 이상)">
+						<label for="FboxRadio0402" aria-hidden="true">1,000만원 이상</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio04" id="FboxRadio0403" aria-label="알림변동금액(1억원 이상)">
+						<label for="FboxRadio0403" aria-hidden="true">1억원 이상</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio04" id="FboxRadio0404" aria-label="알림변동금액(직접입력)">
+						<label for="FboxRadio0404" aria-hidden="true">직접입력</label>
+					</span>
+				</div>
+			</div>
+			<div class="titListBox">
+				<div class="inputList unitMan mt8" style="display:none">
+					<input type="tel" title="직접입력금액" value="" placeholder="숫자만 입력">
+					<span class="unit">만원</span><!-- 2025-11-07 올원가이드에 따른 위치 변경 -->
+					<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+				</div>
+				<!-- 에러 시 error 클래스 추가 ------------------------- 
+				<div class="inputList unitMan mt8 error" style="display:none"> 에러 시 error 클래스 추가 
+					<input type="tel" title="직접입력금액" value="" placeholder="숫자만 입력">
+					<span class="unit">만원</span>
+					<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+				</div>
+				<p class="errorTxt">0원부터 9억 9천 9백만원까지 입력 가능합니다.</p> 에러 시 메세지 추가
+				------------------------------------------------------- -->				
+			</div>
+		 </div>
+        <!-- -------------------------------------- -->
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 버튼영역 -->
+		<!-- -------------------------------------- -->
+        <div class="areaBtnDefault">
+            <a href="javascript:;" class="btnPressPoint disabled" role="button" aria-disabled="true">다음</a>
+        </div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+//직접입력 클릭이벤트
+$(document).on('click','[name="FboxRadio04"]',function(){
+	const ariaLabelValue = $(this).attr('aria-label');
+	if (ariaLabelValue === '알림변동금액(직접입력)') {
+		$(".inputList.unitMan, .directUnit").show();
+    } else {
+		$(".inputList.unitMan, .directUnit").hide();
+    }
+});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

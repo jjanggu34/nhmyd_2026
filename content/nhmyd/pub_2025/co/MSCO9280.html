@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"   >
+<meta name="apple-mobile-web-app-title" content="NH마이데이터">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>전체메뉴</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<style>
+  /* 퍼블 확인용 css 실제 서비스에는 불필요 */
+  .guide_button .btn_sw03{display: none !important;}
+</style>
+</head>
+<body>
+<div class="wrapper nhasset">
+  <!-- header -->
+  <div class="header newMain"><!-- [D] 전체메뉴 -newMain 클래스 -->
+    <h1 class="fs18 -medium">NH마이데이터</h1><!-- 2025-10-21 타이틀 이미지 변경, 2025-11-27 텍스트로 재 변경 -->
+    <!-- 2025-10-28 전체메뉴는 올뱅도 홈버튼 상시노출 되는것으로 변경 -both 클래스 추가 -->
+    <a href="javascript:;" class="btnGoHome -both" role="button"><span class="blind">Home</span></a>
+    <a href="javascript:;" class="btnCloseMenu" role="button"><span class="blind">이전화면으로 복귀</span></a>
+  </div>
+  <!-- //header -->
+
+  <div class="container bgWhite pb0"><!-- [추가 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 pb0 클래스 추가 -->
+    <div class="allMenuContainer">
+      <!-- 상단 고정 영역 -->
+      <div class="allMenuNav">
+        <ul class="csIconLlist">
+          <li class="item -home">
+            <a href="javascript:;" role="button" title="메인홈"><span>메인</span></a>
+          </li>
+          <li class="item -set">
+            <a href="javascript:;" role="button" title="자산"><span>자산</span></a>
+          </li>
+          <li class="item -account">
+            <a href="javascript:;" role="button" title="소비"><span>소비</span></a>
+          </li>
+          <li class="item -configuration">
+            <a href="javascript:;" role="button" title="환경설정"><span>설정</span></a>
+          </li>
+        </ul>
+        <div class="link horizontal">
+          <a href="javascript:;" class="ico_link ico-assets-link" role="button">자산 연결하기</a>
+        </div>
+      </div>
+      <!-- // 상단 고정 영역 -->
+
+      <!-- 하단 메뉴 영역 -->
+      <div class="allMenuWrap">
+        <ul role="tablist" class="tabsNav">
+            <!-- 2025-11-10 js 오류 처리 role="tab" 삭제
+            <li><a href="javascript:;" role="tab" class="tabLink active" data-target="content-1">최근 이용</a></li>
+            <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-2">추천</a></li>
+            <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-3">자산관리</a></li>
+            <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-4">소비관리</a></li>
+            <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-5">대출/신용관리</a></li>
+            <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-6">목표/계획</a></li>
+            <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-7">세금/절세</a></li>
+            <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-8">라이프</a></li>
+            <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-9">관리센터</a></li>
+            -->
+            <!-- [수정 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 href="#content-1" ~ "#content-9" 앵커 추가 -->
+            <li><a href="#content-1" class="tabLink" data-target="content-1">최근 이용</a></li>
+            <li><a href="#content-2" class="tabLink" data-target="content-2">추천</a></li>
+            <li><a href="#content-3" class="tabLink" data-target="content-3">자산관리</a></li>
+            <li><a href="#content-4" class="tabLink" data-target="content-4">소비관리</a></li>
+            <li><a href="#content-5" class="tabLink" data-target="content-5">대출/신용관리</a></li>
+            <li><a href="#content-6" class="tabLink" data-target="content-6">목표/계획</a></li>
+            <li><a href="#content-7" class="tabLink" data-target="content-7">세금/절세</a></li>
+            <li><a href="#content-8" class="tabLink" data-target="content-8">라이프</a></li>
+            <li><a href="#content-9" class="tabLink" data-target="content-9">관리센터</a></li>
+            <!-- // [수정 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 href="#content-1" ~ "#content-9" 앵커 추가 -->
+        </ul>
+        <div class="contentArea">
+          <!-- [수정 260219] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 tabindex="1" 추가 -->
+          <div id="content-1" role="tabpanel"  class="contentSec" tabindex="1">
+            <h3 class="tit">최근 이용</h3>
+            <ul>
+              <li><a href="javascript:;" role="button">금융플래너</a></li>
+              <li><a href="javascript:;" role="button">세금계산기</a></li>
+            </ul>
+          </div>
+          <div id="content-2" role="tabpanel"  class="contentSec" tabindex="1">
+            <h3 class="tit">추천</h3>
+            <ul>
+              <li><a href="javascript:;" role="button">내 자산 안심 알림</a></li>
+              <li><a href="javascript:;" role="button">밸런스진단</a></li>
+              <li><a href="javascript:;" role="button">연말정산</a></li><!-- 2025-11-05 추가-->
+            </ul>
+          </div>
+          <div id="content-3" role="tabpanel"  class="contentSec" tabindex="1">
+            <h3 class="tit">자산관리</h3>
+            <ul>
+              <li><a href="javascript:;" role="button">자산모아보기</a><span class="badges -new">NEW</span></li>
+              <li><a href="javascript:;" role="button">자산진단</a></li>
+              <li><a href="javascript:;" role="button">연금 진단</a></li>
+              <li><a href="javascript:;" role="button">조기은퇴진단</a></li>
+              <li><a href="javascript:;" role="button">밸런스진단</a><span class="badges -new">NEW</span></li><!-- 2025-11-05 NEW badge 추가-->
+              <li><a href="javascript:;" role="button">내 자산 안심 알림</a><span class="badges -new">NEW</span></li><!-- 2025-11-05 NEW badge 추가-->
+              <li><a href="javascript:;" role="button">월간 자산 보고서</a></li>
+              <li><a href="javascript:;" role="button">상품모아보기</a></li>
+            </ul>
+          </div>
+          <div id="content-4" role="tabpanel"  class="contentSec" tabindex="1">
+            <h3 class="tit">소비관리</h3>
+            <ul>
+              <li><a href="javascript:;" role="button">소비모아보기</a></li>
+              <li><a href="javascript:;" role="button">예산관리</a></li>
+              <li><a href="javascript:;" role="button">머니캘린더</a></li>
+              <li><a href="javascript:;" role="button">소비패턴</a></li>
+              <li><a href="javascript:;" role="button">정기소비관리</a></li>
+              <li><a href="javascript:;" role="button">카드이용내역</a></li>
+              <li><a href="javascript:;" role="button">카드리포트</a></li>
+              <li><a href="javascript:;" role="button">카드혜택비교</a></li>
+            </ul>
+          </div>
+          <div id="content-5" role="tabpanel"  class="contentSec" tabindex="1">
+            <h3 class="tit">대출/신용관리</h3>
+            <ul>
+              <li><a href="javascript:;" role="button">신용관리</a></li>
+              <li><a href="javascript:;" role="button">신용점수올리기</a></li>
+              <!-- [추가 260121] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 메뉴 추가 -->
+              <li><a href="javascript:;" role="button">AI대출금리케어</a></li>
+              <!-- // [추가 260121] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 메뉴 추가 -->
+              <li><a href="javascript:;" role="button">DSR 계산기</a></li>
+            </ul>
+          </div>
+          <div id="content-6" role="tabpanel"  class="contentSec" tabindex="1">
+            <h3 class="tit">목표/계획</h3>
+            <ul>
+              <li><a href="javascript:;" role="button">목표 설정/관리</a></li>
+              <li><a href="javascript:;" role="button">그때 그랬다면</a></li>
+              <li><a href="javascript:;" role="button">금융플래너</a></li>
+              <li><a href="javascript:;" role="button">주택청약플래너</a></li>
+            </ul>
+
+          </div>
+          <div id="content-7" role="tabpanel"  class="contentSec" tabindex="1">
+            <h3 class="tit">세금/절세</h3>
+            <ul>
+              <li><a href="javascript:;" role="button">금융소득 모니터링</a><span class="badges -new">NEW</span></li><!-- 2025-11-05 NEW badge 추가-->
+              <li><a href="javascript:;" role="button">세금계산기</a></li>
+              <li><a href="javascript:;" role="button">연말정산</a></li>
+            </ul>
+          </div>
+          <div id="content-8" role="tabpanel"  class="contentSec" tabindex="1">
+            <h3 class="tit">라이프</h3>
+            <ul>
+              <li><a href="javascript:;" role="button">내차관리</a></li>
+              <li><a href="javascript:;" role="button">나의 건강관리</a></li>
+              <li><a href="javascript:;" role="button">건강검진결과조회</a></li>
+              <li><a href="javascript:;" role="button">병원방문 관리</a></li>
+              <li><a href="javascript:;" role="button">실손보험청구</a></li>
+              <li><a href="javascript:;" role="button">건강카드뉴스</a></li>
+              <li><a href="javascript:;" role="button">요양병원찾기</a></li>
+              <li><a href="javascript:;" role="button">주말약국찾기</a></li>
+              <li><a href="javascript:;" role="button">맞춤정부혜택</a></li>
+              <li><a href="javascript:;" role="button">혜택알리미</a><span class="badges -new">NEW</span></li><!-- 2025-11-05 NEW badge 추가-->
+              <li><a href="javascript:;" role="button">혜택플러스</a></li>
+              <li><a href="javascript:;" role="button">NH트렌드+</a></li>
+            </ul>
+          </div>
+          <div id="content-9" role="tabpanel"  class="contentSec" tabindex="1">
+            <h3 class="tit">관리센터</h3>
+            <ul>
+              <li><a href="javascript:;" role="button">마이데이터 공지사항</a></li>
+              <li><a href="javascript:;" role="button">마이데이터 이벤트</a></li>
+              <li><a href="javascript:;" role="button">서비스 환경설정</a></li>
+            </ul>
+          </div>
+          <!-- // [수정 260219] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 tabindex="1" 추가 -->
+        </div>
+      </div>
+      <!-- // 하단 메뉴 영역 -->
+    </div>
+  </div>
+</div>
+<!-- ###################################### -->
+<!-- ### 페이지 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+  /* [추가 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 이동 */
+  let sectionPos = new Array();
+  // 1depth
+  const tabsNav = document.querySelector('.tabsNav');
+  const tabLink = document.querySelectorAll('.tabLink');
+  // 2depth
+  const contentArea = document.querySelector('.contentArea');
+  const contentSec = document.querySelectorAll('.contentSec');
+  const contentLink = document.querySelectorAll('.contentSec ul a');
+
+  // 첫번째 1depth 메뉴가 active 되게
+  document.addEventListener('DOMContentLoaded', function() {
+    tabLink[0].classList.add('active');
+  })
+
+  // 2depth section
+  contentSec.forEach(function(item, index){
+      sectionPos.push(item.offsetTop);
+      console.log("2depth section1");
+  });
+
+  document.addEventListener('click', function(e){
+    sectionPos = [];
+    contentSec.forEach(function(item, index){
+      sectionPos.push(item.offsetTop);
+    });
+    console.log("2depth section2");
+  });
+
+  // 1depth 클릭 시 2depth 메뉴로 포커스 이동
+  // tabLink.forEach((tabLinkClick) => {
+  //   tabLinkClick.addEventListener('click', (e) => {
+  //     console.log("1depth click");
+
+  //     const target = document.querySelector(e.target.getAttribute('href'));
+  //     contentArea.scrollTo({
+  //       top: target.offsetTop,
+  //       left: 0,
+  //     });
+
+  //     const focusItem = target.querySelectorAll('.contentSec ul a')[0];
+  //     focusItem.focus();
+  // });
+
+  /* [추가 260311] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 이동 */
+  document.addEventListener('click', function(e){
+    if(e.target.closest('.tabLink')){
+        e.preventDefault();
+
+        const target = document.querySelector(e.target.getAttribute('href'))
+        const focusItem = target.querySelectorAll('.contentSec ul a')[0];
+
+        contentArea.scrollTo(0, target.offsetTop + 16);
+        focusItem.focus();
+        console.log("1depth click");
+    }
+  });
+  // 1depth 클릭 시 1depth active
+  document.addEventListener('click', function(){ 
+    const tabLinks = document.querySelectorAll('.tabLink');
+    
+    tabLinks.forEach((item) => {
+      item.addEventListener('click', () => {
+        tabLinks.forEach(i => i.classList.remove('active'))
+        item.classList.add('active');
+        console.log("1depth 클릭 시 1depth active");
+      })
+    })
+  })
+  /* // [추가 260311] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 이동 */
+
+  // 2depth 클릭 시
+  contentLink.forEach((contentLinkClick) => {
+    contentLinkClick.addEventListener('click', (e) => {
+      console.log("2depth click");
+    });
+  });
+
+  // 2depth 스크롤시 1depth active 클래스
+  contentArea.addEventListener('scroll', function(e){
+    console.log("2depth 스크롤 중");
+
+    const scrollPos = e.target.scrollTop;
+    const tabLinkActive = document.querySelector('.tabLink.active');
+
+    if(sectionPos[1] > scrollPos && !tabLink[0].classList.contains('active')){
+      tabLinkActive.classList.remove('active');
+      tabLink[0].classList.add('active');
+    }
+    else if((sectionPos[sectionPos.length - 1] <= scrollPos && !tabLink[tabLink.length - 1].classList.contains('active')) || (e.target.scrollHeight - e.target.clientHeight <= e.target.scrollTop && !tabLink[tabLink.length - 1].classList.contains('active'))){
+      tabLinkActive.classList.remove('active');
+      tabLink[tabLink.length - 1].classList.add('active');
+    }
+    else {
+      for(let i = 1; i < sectionPos.length - 1; i++){
+          if(sectionPos[i] <= scrollPos && sectionPos[i + 1] > scrollPos && !tabLink[i].classList.contains('active')){
+            tabLinkActive.classList.remove('active');
+              tabLink[i].classList.add('active');
+          }
+      }
+    }
+  });
+
+  // 스크롤 초기화
+  contentArea.scrollTo(0, 0);
+  /* // [추가 260129] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 1번 메뉴 이동 */
+</script>
+<!-- ###################################### -->
+</body>
+</html>

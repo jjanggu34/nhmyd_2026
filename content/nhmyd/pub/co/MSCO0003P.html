@@ -1,0 +1,56 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 자동로그아웃(안내)</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(document).ready(function(){
+		popCenter();
+	})
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 자동로그아웃(안내) ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap centerLayer" id="auto_logout_info" role="dialog">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1 class="ac bdbNone">
+			<a href="javascript:;" role="heading" aria-level="1"></a>
+		</h1>
+		<div class="popCont" style="max-height: 446px;">
+			<div class="logoutWrap"> <p>자동로그아웃 안내</p> </div>
+			<div class="guideList ac"><p>로그인 후 일정시간 동안 이용이 없는 경우 자동으로 로그아웃 됩니다.</p> </div>
+			<!-- 남은시간 카운트 -->
+			<div class="timeCount timeLimit" aria->남은시간 43 초</div>
+			<!-- // 남은시간 카운트 -->
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" onclick="fn_logout();" role="button">로그아웃</a>
+				<a href="javascript:;" class="confirmBtn" onclick="autoExtSession();" role="button" aria-disabled="false">접속연장</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

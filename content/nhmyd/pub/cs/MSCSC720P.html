@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 카테고리 선택 (출금)</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(document).ready(function () {
+		fullLayerPop();
+	})
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 카테고리 선택 (출금) ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1>카테고리 선택</h1>
+		<div class="popCont grayPop">
+			<div class="formWrap boxTypeWrap cataBoxTypeWrap">
+				<!-- -------------------------------------- -->
+				<!-- 이체 -->
+				<!-- -------------------------------------- -->
+				<ul>
+					<li>
+						<strong class="cs formTit">이체</strong>
+						<ul class="selectCerti noChk">
+							<li>
+								<input type="radio" id="selCerti011" name="selCerti00" aria-label="출금이체">
+								<label for="selCerti011" aria-hidden="true">
+									<div class="logoArea">
+										<img src="../../images/category/cs/ico_cate_cs82.png" alt="출금이체">
+									</div>
+									<div class="title">출금이체</div>
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="selCerti022" name="selCerti00" aria-label="저축">
+								<label for="selCerti022" aria-hidden="true">
+									<div class="logoArea">
+										<img src="../../images/category/cs/ico_cate_cs83.png" alt="저축">
+									</div>
+									<div class="title">저축</div>
+								</label>
+							</li>
+							<li>
+								<input type="radio" id="selCerti033" name="selCerti00" aria-label="현금">
+								<label for="selCerti033" aria-hidden="true">
+									<div class="logoArea">
+										<img src="../../images/category/cs/ico_cate_cs84.png" alt="현금">
+									</div>
+									<div class="title">현금</div>
+								</label>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<ul class="selectCerti noChk">
+							<li>
+								<input type="radio" id="selCerti044" name="selCerti00" aria-label="이체기타">
+								<label for="selCerti044" aria-hidden="true">
+									<div class="logoArea">
+										<img src="../../images/category/cs/ico_cate_cs85.png" alt="이체기타">
+									</div>
+									<div class="title">이체기타</div>
+								</label>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<!-- -------------------------------------- -->
+				<!-- 소비 -->
+				<!-- -------------------------------------- -->
+				<ul>
+					<!-- [항목_01] 외식, 카페/간식, 술/유흥 -->
+					<li class="wrapCataWrap">
+						<strong class="cs formTit">소비</strong>
+						<!-- [중분류] -->
+						<ul class="selectCerti">
+							<div class="e e1">
+								<li>
+									<input type="radio" id="selCerti01" name="selCerti00" aria-label="외식">
+									<label for="selCerti01" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs01.png" alt="외식">
+										</div>
+										<div class="title">외식</div>
+									</label>
+								</li>
+							</div>
+
+							<div class="e e2">
+								<li>
+									<input type="radio" id="selCerti02" name="selCerti00" aria-label="카페/간식">
+									<label for="selCerti02" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs02.png" alt="카페·간식">
+										</div>
+										<div class="title">카페/간식</div>
+									</label>
+								</li>
+							</div>
+
+							<div class="e e3">
+								<li>
+									<input type="radio" id="selCerti03" name="selCerti00" aria-label="술/유흥">
+									<label for="selCerti03" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs03.png" alt="술·유흥">
+										</div>
+										<div class="title">술/유흥</div>
+									</label>
+								</li>
+							</div>
+						</ul>
+
+						<!-- [소분류] 외식 -->
+						<div class="cate_SubWrap cate_01 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti01_sub" id="selCerti01_1" type="radio" aria-label="한식">
+										<label for="selCerti01_1" aria-hidden="true">한식</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti01_sub" id="selCerti01_2" type="radio" aria-label="중식">
+										<label for="selCerti01_2" aria-hidden="true">중식</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti01_sub" id="selCerti01_3" type="radio" aria-label="일식">
+										<label for="selCerti01_3" aria-hidden="true">일식</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti01_sub" id="selCerti01_4" type="radio" aria-label="양식/뷔페">
+										<label for="selCerti01_4" aria-hidden="true">양식/뷔페</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti01_sub" id="selCerti01_5" type="radio" aria-label="페스트푸드">
+										<label for="selCerti01_5" aria-hidden="true">페스트푸드</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti01_sub" id="selCerti01_6" type="radio" aria-label="배달">
+										<label for="selCerti01_6" aria-hidden="true">배달</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti01_sub" id="selCerti01_7" type="radio" aria-label="외식 기타">
+										<label for="selCerti01_7" aria-hidden="true">외식 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 카페/간식 -->
+						<div class="cate_SubWrap cate_02 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti02_sub" id="selCerti02_1" type="radio" aria-label="커피/음료">
+										<label for="selCerti02_1" aria-hidden="true">커피/음료</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti02_sub" id="selCerti02_2" type="radio" aria-label="빵/디저트">
+										<label for="selCerti02_2" aria-hidden="true">빵/디저트</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti02_sub" id="selCerti02_3" type="radio" aria-label="카페/간식 기타">
+										<label for="selCerti02_3" aria-hidden="true">카페/간식 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 술/유흥 -->
+						<div class="cate_SubWrap cate_03 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti03_sub" id="selCerti03_1" type="radio" aria-label="주점">
+										<label for="selCerti03_1" aria-hidden="true">주점</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti03_sub" id="selCerti03_2" type="radio" aria-label="노래방">
+										<label for="selCerti03_2" aria-hidden="true">노래방</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti03_sub" id="selCerti03_3" type="radio" aria-label="주류">
+										<label for="selCerti03_3" aria-hidden="true">주류</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti03_sub" id="selCerti03_4" type="radio" aria-label="술/유흥 기타">
+										<label for="selCerti03_4" aria-hidden="true">술/유흥 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- // -->
+					</li>
+					<!-- [항목_02] 쇼핑, 온라인쇼핑, 생활/마트 -->
+					<li class="wrapCataWrap">
+						<!-- [중분류] -->
+						<ul class="selectCerti">
+							<div class="e e1">
+								<li>
+									<input type="radio" id="selCerti04" name="selCerti00" aria-label="쇼핑">
+									<label for="selCerti04" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs04.png" alt=" 쇼핑">
+										</div>
+										<div class="title">쇼핑</div>
+									</label>
+								</li>
+							</div>
+							<div class="e e2">
+								<li>
+									<input type="radio" id="selCerti05" name="selCerti00" aria-label="온라인쇼핑">
+									<label for="selCerti05" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs05.png" alt="온라인쇼핑">
+										</div>
+										<div class="title">온라인쇼핑</div>
+									</label>
+								</li>
+							</div>
+
+							<div class="e e3">
+								<li>
+									<input type="radio" id="selCerti06" name="selCerti00" aria-label="생활/마트">
+									<label for="selCerti06" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs06.png" alt="생활·마트">
+										</div>
+										<div class="title">생활/마트</div>
+									</label>
+								</li>
+							</div>
+						</ul>
+
+						<!-- [소분류] 쇼핑 -->
+						<div class="cate_SubWrap cate_01 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti04_sub" id="selCerti04_1" type="radio" aria-label="백화점">
+										<label for="selCerti04_1" aria-hidden="true">백화점</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti04_sub" id="selCerti04_2" type="radio" aria-label="의류">
+										<label for="selCerti04_2" aria-hidden="true">의류</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti04_sub" id="selCerti04_3" type="radio" aria-label="잡화">
+										<label for="selCerti04_3" aria-hidden="true">잡화</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti04_sub" id="selCerti04_4" type="radio" aria-label="액세서리">
+										<label for="selCerti04_4" aria-hidden="true">액세서리</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti04_sub" id="selCerti04_5" type="radio" aria-label="쇼핑 기타">
+										<label for="selCerti04_5" aria-hidden="true">쇼핑 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 온라인쇼핑 -->
+						<div class="cate_SubWrap cate_02 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti05_sub" id="selCerti05_1" type="radio" aria-label="인터넷쇼핑">
+										<label for="selCerti05_1" aria-hidden="true">인터넷쇼핑</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti05_sub" id="selCerti05_2" type="radio" aria-label="홈쇼핑">
+										<label for="selCerti05_2" aria-hidden="true">홈쇼핑</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti05_sub" id="selCerti05_3" type="radio" aria-label="앱스토어">
+										<label for="selCerti05_3" aria-hidden="true">앱스토어</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti05_sub" id="selCerti05_4" type="radio" aria-label="온라인쇼핑 기타">
+										<label for="selCerti05_4" aria-hidden="true">온라인쇼핑 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 생활/마트 -->
+						<div class="cate_SubWrap cate_03 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti06_sub" id="selCerti06_1" type="radio" aria-label="대형마트">
+										<label for="selCerti06_1" aria-hidden="true">대형마트</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti06_sub" id="selCerti06_2" type="radio" aria-label="편의점">
+										<label for="selCerti06_2" aria-hidden="true">편의점</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti06_sub" id="selCerti06_3" type="radio" aria-label="식재료">
+										<label for="selCerti06_3" aria-hidden="true">식재료</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti06_sub" id="selCerti06_4" type="radio" aria-label="생활용품">
+										<label for="selCerti06_4" aria-hidden="true">생활용품</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti06_sub" id="selCerti06_5" type="radio" aria-label="가구/가전">
+										<label for="selCerti06_5" aria-hidden="true">가구/가전</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti06_sub" id="selCerti06_6" type="radio" aria-label="택배/우편">
+										<label for="selCerti06_6" aria-hidden="true">택배/우편</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti06_sub" id="selCerti06_7" type="radio" aria-label="생활/마트 기타">
+										<label for="selCerti06_7" aria-hidden="true">생활/마트 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- // -->
+					</li>
+					<!-- [항목_03] 주거/통신, 의료/건강, 교육/자녀 -->
+					<li class="wrapCataWrap">
+						<!-- [중분류] -->
+						<ul class="selectCerti">
+							<div class="e e1">
+								<li>
+									<input type="radio" id="selCerti07" name="selCerti00" aria-label="주거/통신">
+									<label for="selCerti07" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs07.png" alt="주거·통신">
+										</div>
+										<div class="title">주거/통신</div>
+									</label>
+								</li>
+							</div>
+							<div class="e e2">
+								<li>
+									<input type="radio" id="selCerti08" name="selCerti00" aria-label="의료/건강">
+									<label for="selCerti08" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs08.png" alt="의료·건강">
+										</div>
+										<div class="title">의료/건강</div>
+									</label>
+								</li>
+							</div>
+
+							<div class="e e3">
+								<li>
+									<input type="radio" id="selCerti09" name="selCerti00" aria-label="교육/자녀">
+									<label for="selCerti09" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs09.png" alt=" 교육·자녀">
+										</div>
+										<div class="title">교육/자녀</div>
+									</label>
+								</li>
+							</div>
+						</ul>
+
+						<!-- [소분류] 주거/통신 -->
+						<div class="cate_SubWrap cate_01 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti07_sub" id="selCerti07_1" type="radio" aria-label="통신비">
+										<label for="selCerti07_1" aria-hidden="true">통신비</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti07_sub" id="selCerti07_2" type="radio" aria-label="관리비/공과금">
+										<label for="selCerti07_2" aria-hidden="true">관리비/공과금</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti07_sub" id="selCerti07_3" type="radio" aria-label="월세">
+										<label for="selCerti07_3" aria-hidden="true">월세</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti07_sub" id="selCerti07_4" type="radio" aria-label="가스/전기/수도">
+										<label for="selCerti07_4" aria-hidden="true">가스/전기/수도</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti07_sub" id="selCerti07_5" type="radio" aria-label="국세/지방세">
+										<label for="selCerti07_5" aria-hidden="true">국세/지방세</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti07_sub" id="selCerti07_6" type="radio" aria-label="주거/통신 기타">
+										<label for="selCerti07_6" aria-hidden="true">주거/통신 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 의료/건강 -->
+						<div class="cate_SubWrap cate_02 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti08_sub" id="selCerti08_1" type="radio" aria-label="병원">
+										<label for="selCerti08_1" aria-hidden="true">병원</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti08_sub" id="selCerti08_2" type="radio" aria-label="약국">
+										<label for="selCerti08_2" aria-hidden="true">약국</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti08_sub" id="selCerti08_3" type="radio" aria-label="건강식품">
+										<label for="selCerti08_3" aria-hidden="true">건강식품</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti08_sub" id="selCerti08_4" type="radio" aria-label="운동">
+										<label for="selCerti08_4" aria-hidden="true">운동</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti08_sub" id="selCerti08_5" type="radio" aria-label="의료/건강 기타">
+										<label for="selCerti08_5" aria-hidden="true">의료/건강 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 교육/자녀 -->
+						<div class="cate_SubWrap cate_03 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti09_sub" id="selCerti09_1" type="radio" aria-label="학교">
+										<label for="selCerti09_1" aria-hidden="true">학교</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti09_sub" id="selCerti09_2" type="radio" aria-label="유치원/어린이집">
+										<label for="selCerti09_2" aria-hidden="true">유치원/어린이집</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti09_sub" id="selCerti09_3" type="radio" aria-label="학원/강의">
+										<label for="selCerti09_3" aria-hidden="true">학원/강의</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti09_sub" id="selCerti09_4" type="radio" aria-label="학습교재">
+										<label for="selCerti09_4" aria-hidden="true">학습교재</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti09_sub" id="selCerti09_5" type="radio" aria-label="돌봄비">
+										<label for="selCerti09_5" aria-hidden="true">돌봄비</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti09_sub" id="selCerti09_6" type="radio" aria-label="자녀용돈">
+										<label for="selCerti09_6" aria-hidden="true">자녀용돈</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti09_sub" id="selCerti09_7" type="radio" aria-label="교육/자녀 기타">
+										<label for="selCerti09_7" aria-hidden="true">교육/자녀 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- // -->
+					</li>
+					<!-- [항목_04] 뷰티/미용, 자동차/주유, 교통 -->
+					<li class="wrapCataWrap">
+						<!-- [중분류] -->
+						<ul class="selectCerti">
+							<div class="e e1">
+								<li>
+									<input type="radio" id="selCerti10" name="selCerti00" aria-label="뷰티/미용">
+									<label for="selCerti10" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs10.png" alt="뷰티·미용">
+										</div>
+										<div class="title">뷰티/미용</div>
+									</label>
+								</li>
+							</div>
+							<div class="e e2">
+								<li>
+									<input type="radio" id="selCerti11" name="selCerti00" aria-label="자동차/주유">
+									<label for="selCerti11" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs11.png" alt="자동차·주유">
+										</div>
+										<div class="title">자동차/주유</div>
+									</label>
+								</li>
+							</div>
+
+							<div class="e e3">
+								<li>
+									<input type="radio" id="selCerti12" name="selCerti00" aria-label="교통">
+									<label for="selCerti12" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs12.png" alt="교통">
+										</div>
+										<div class="title">교통</div>
+									</label>
+								</li>
+							</div>
+						</ul>
+
+						<!-- [소분류] 뷰티/미용 -->
+						<div class="cate_SubWrap cate_01 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti10_sub" id="selCerti10_1" type="radio" aria-label="화장품">
+										<label for="selCerti10_1" aria-hidden="true">화장품</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti10_sub" id="selCerti10_2" type="radio" aria-label="미용실">
+										<label for="selCerti10_2" aria-hidden="true">미용실</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti10_sub" id="selCerti10_3" type="radio" aria-label="바디관리">
+										<label for="selCerti10_3" aria-hidden="true">바디관리</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti10_sub" id="selCerti10_4" type="radio" aria-label="미용관리">
+										<label for="selCerti10_4" aria-hidden="true">미용관리</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti10_sub" id="selCerti10_5" type="radio" aria-label="피부/성형외과">
+										<label for="selCerti10_5" aria-hidden="true">피부/성형외과</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti10_sub" id="selCerti10_6" type="radio" aria-label="뷰티/미용 기타">
+										<label for="selCerti10_6" aria-hidden="true">뷰티/미용 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 자동차/주유 -->
+						<div class="cate_SubWrap cate_02 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti11_sub" id="selCerti11_1" type="radio" aria-label="주유">
+										<label for="selCerti11_1" aria-hidden="true">주유</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti11_sub" id="selCerti11_2" type="radio" aria-label="주차">
+										<label for="selCerti11_2" aria-hidden="true">주차</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti11_sub" id="selCerti11_3" type="radio" aria-label="세차">
+										<label for="selCerti11_3" aria-hidden="true">세차</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti11_sub" id="selCerti11_4" type="radio" aria-label="통행료">
+										<label for="selCerti11_4" aria-hidden="true">통행료</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti11_sub" id="selCerti11_5" type="radio" aria-label="차량구매">
+										<label for="selCerti11_5" aria-hidden="true">차량구매</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti11_sub" id="selCerti11_6" type="radio" aria-label="정비">
+										<label for="selCerti11_6" aria-hidden="true">정비</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti11_sub" id="selCerti11_7" type="radio" aria-label="대리운전">
+										<label for="selCerti11_7" aria-hidden="true">대리운전</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti11_sub" id="selCerti11_8" type="radio" aria-label="자동차/주유 기타">
+										<label for="selCerti11_8" aria-hidden="true">자동차/주유 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 교통 -->
+						<div class="cate_SubWrap cate_03 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti12_sub" id="selCerti12_1" type="radio" aria-label="버스/지하철">
+										<label for="selCerti12_1" aria-hidden="true">버스/지하철</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti12_sub" id="selCerti12_2" type="radio" aria-label="택시">
+										<label for="selCerti12_2" aria-hidden="true">택시</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti12_sub" id="selCerti12_3" type="radio" aria-label="철도/고속버스">
+										<label for="selCerti12_3" aria-hidden="true">철도/고속버스</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti12_sub" id="selCerti12_4" type="radio" aria-label="교통 기타">
+										<label for="selCerti12_4" aria-hidden="true">교통 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- // -->
+					</li>
+					<!-- [항목_05] 문화/여가, 여행/숙박, 금융 -->
+					<li class="wrapCataWrap">
+						<!-- [중분류] -->
+						<ul class="selectCerti">
+							<div class="e e1">
+								<li>
+									<input type="radio" id="selCerti13" name="selCerti00" aria-label="문화/여가">
+									<label for="selCerti13" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs13.png" alt="문화·여가">
+										</div>
+										<div class="title">문화/여가</div>
+									</label>
+								</li>
+							</div>
+							<div class="e e2">
+								<li>
+									<input type="radio" id="selCerti14" name="selCerti00" aria-label="여행/숙박">
+									<label for="selCerti14" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs14.png" alt=" 여행·숙박">
+										</div>
+										<div class="title">여행/숙박</div>
+									</label>
+								</li>
+							</div>
+
+							<div class="e e3">
+								<li>
+									<input type="radio" id="selCerti15" name="selCerti00" aria-label="금융">
+									<label for="selCerti15" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs15.png" alt="금융">
+										</div>
+										<div class="title">금융</div>
+									</label>
+								</li>
+							</div>
+						</ul>
+
+						<!-- [소분류] 문화/여가 -->
+						<div class="cate_SubWrap cate_01 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti13_sub" id="selCerti13_1" type="radio" aria-label="영화">
+										<label for="selCerti13_1" aria-hidden="true">영화</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti13_sub" id="selCerti13_2" type="radio" aria-label="도서">
+										<label for="selCerti13_2" aria-hidden="true">도서</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti13_sub" id="selCerti13_3" type="radio" aria-label="게임">
+										<label for="selCerti13_3" aria-hidden="true">게임</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti13_sub" id="selCerti13_4" type="radio" aria-label="음악">
+										<label for="selCerti13_4" aria-hidden="true">음악</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti13_sub" id="selCerti13_5" type="radio" aria-label="공연/전시">
+										<label for="selCerti13_5" aria-hidden="true">공연/전시</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti13_sub" id="selCerti13_6" type="radio" aria-label="레저/스포츠">
+										<label for="selCerti13_6" aria-hidden="true">레저/스포츠</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti13_sub" id="selCerti13_7" type="radio" aria-label="문화/여가 기타">
+										<label for="selCerti13_7" aria-hidden="true">문화/여가 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 여행/숙박 -->
+						<div class="cate_SubWrap cate_02 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti14_sub" id="selCerti14_1" type="radio" aria-label="숙박비">
+										<label for="selCerti14_1" aria-hidden="true">숙박비</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti14_sub" id="selCerti14_2" type="radio" aria-label="항공권">
+										<label for="selCerti14_2" aria-hidden="true">항공권</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti14_sub" id="selCerti14_3" type="radio" aria-label="여행/관광">
+										<label for="selCerti14_3" aria-hidden="true">여행/관광</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti14_sub" id="selCerti14_4" type="radio" aria-label="여행/숙박 기타">
+										<label for="selCerti14_4" aria-hidden="true">여행/숙박 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 금융 -->
+						<div class="cate_SubWrap cate_03 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti15_sub" id="selCerti15_1" type="radio" aria-label="보험">
+										<label for="selCerti15_1" aria-hidden="true">보험</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti15_sub" id="selCerti15_2" type="radio" aria-label="이자/대출">
+										<label for="selCerti15_2" aria-hidden="true">이자/대출</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti15_sub" id="selCerti15_3" type="radio" aria-label="금융 기타">
+										<label for="selCerti15_3" aria-hidden="true">금융 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- // -->
+					</li>
+					<!-- [항목_06] 경조사/선물, 반려동물, 기타 -->
+					<li class="wrapCataWrap">
+						<!-- [중분류] -->
+						<ul class="selectCerti">
+							<div class="e e1">
+								<li>
+									<input type="radio" id="selCerti16" name="selCerti00" aria-label="경조사/선물">
+									<label for="selCerti16" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs16.png" alt="경조사 선물">
+										</div>
+										<div class="title">경조사/선물</div>
+									</label>
+								</li>
+							</div>
+							<div class="e e2">
+								<li>
+									<input type="radio" id="selCerti17" name="selCerti00" aria-label="반려동물">
+									<label for="selCerti17" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs17.png" alt=" 반려동물">
+										</div>
+										<div class="title">반려동물</div>
+									</label>
+								</li>
+							</div>
+
+							<div class="e e3">
+								<li>
+									<input type="radio" id="selCerti18" name="selCerti00" aria-label="기타">
+									<label for="selCerti18" aria-hidden="true">
+										<div class="logoArea">
+											<img src="../../images/category/cs/ico_cate_cs18.png" alt="기타">
+										</div>
+										<div class="title">기타</div>
+									</label>
+								</li>
+							</div>
+						</ul>
+
+						<!-- [소분류] 경조사/선물 -->
+						<div class="cate_SubWrap cate_01 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti16_sub" id="selCerti16_1" type="radio" aria-label="경조사비">
+										<label for="selCerti16_1" aria-hidden="true">경조사비</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti16_sub" id="selCerti16_2" type="radio" aria-label="기부/회비">
+										<label for="selCerti16_2" aria-hidden="true">기부/회비</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti16_sub" id="selCerti16_3" type="radio" aria-label="선물">
+										<label for="selCerti16_3" aria-hidden="true">선물</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti16_sub" id="selCerti16_4" type="radio" aria-label="결혼">
+										<label for="selCerti16_4" aria-hidden="true">결혼</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti16_sub" id="selCerti16_5" type="radio" aria-label="경조사/선물 기타">
+										<label for="selCerti16_5" aria-hidden="true">경조사/선물 기타</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 반려동물 -->
+						<div class="cate_SubWrap cate_02 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti17_sub" id="selCerti17_1" type="radio" aria-label="기타">
+										<label for="selCerti17_1" aria-hidden="true">반려동물</label>
+									</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- [소분류] 기타 -->
+						<div class="cate_SubWrap cate_03 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti18_sub" id="selCerti18_1" type="radio" aria-label="기타">
+										<label for="selCerti18_1" aria-hidden="true">기타</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti18_sub" id="selCerti18_2" type="radio" aria-label="미분류">
+										<label for="selCerti18_2" aria-hidden="true">미분류</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- // -->
+					</li>
+					<!-- [항목_07] 관리비 -->
+					<li class="wrapCataWrap">
+						<!-- [중분류] -->
+						<ul class="selectCerti">
+							<div class="e e1">
+								<li>
+									<input type="radio" id="selCerti19" name="selCerti00" aria-label="관리비">
+									<label for="selCerti19" aria-hidden="true">
+										<div class="logoArea">
+											<img id="img01" src="../../images/category/cs/ico_cate_cs07.png" alt="관리비">
+										</div>
+										<div class="title">관리비</div>
+									</label>
+								</li>
+							</div>
+						</ul>
+
+						<!-- [소분류] 관리비 -->
+						<div class="cate_SubWrap cate_01 overseaType">
+							<strong class="formTit mt0">세부 카테고리 선택</strong>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input name="selCerti19_sub" id="selCerti19_1" type="radio" aria-label="관리비">
+										<label for="selCerti19_1" aria-hidden="true">관리비</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					<!-- // -->
+				</ul>
+				<!-- -------------------------------------- -->
+			</div>
+			<div class="cateBottomFixBox">
+				<input type="checkbox" id="listAll" class="chekTypeOther" name=""><label for="listAll">앞으로 같은 카테고리 자동 적용하기</label>
+			</div>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$('.nhasset .selectCerti .e li input[type="radio"]').each(function(){
+		var $this = $(this);
+		$this.on('change',function(){
+			var _checked = $this.is(':checked');
+			if (_checked) {
+				var $thisIndex = $this.closest('div.e').index();
+				$('.cate_SubWrap').hide();
+				$(this).closest('.wrapCataWrap').find('.cate_SubWrap').eq($thisIndex).slideDown(300).find('.formTit').attr('tabindex','-1').focus();
+				var $thisPos = $this.closest('.selectCerti').position().top;
+				$('.popCont').animate({ scrollTop: $thisPos },{}, 300);
+			}
+		})
+	});
+	$(document).ready(function(){
+        var selecWidth = $('.selectCerti').width() - 7.9;
+        $('.info_area').css('width', selecWidth).hide()
+        $('.e').click(function(){
+            $('.info_area').css('margin-left', '0');
+            $('.e > .info_area').hide();
+            $(this).children('.info_area').stop().slideDown('fast')
+        })
+    })
+</script>
+<!-- ###################################### -->
+</body>
+</html>

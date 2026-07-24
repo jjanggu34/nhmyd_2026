@@ -1,0 +1,1994 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [배너]</title>
+<script src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+<style>
+	.guide_sample {position:relative;z-index:1;padding:20px 10px 20px 40px;background:#fff;border:1px solid #000;}
+	.guide_sample > .guide {position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
+	.guide_sample > .guide > span {position:absolute;display:flex;font-size:var(--fontSize10);color:var(--point2);}
+	.guide_sample > .guide > span:before,
+	.guide_sample > .guide > span:after{content:'';display:block;position:absolute;}
+	.guide_sample > .guide > .h {align-items:center;justify-content:flex-end;top:20px;left:0;padding-right:10px;bottom:20px;width:40px;letter-spacing:-0.05em;}
+	.guide_sample > .guide > .h:before {right:2px;width:9px;height:100%;border-top:1px solid var(--line1);border-bottom:1px solid var(--line1)}
+	.guide_sample > .guide > .h:after {right:6px;width:1px;height:100%;background:var(--line1)}
+	.guide_sample > .guide > .r {top:21px;left:41px;padding:5px;color:#fff;}
+	.guide_sample > .guide > .r:before {top:0;left:0;width:calc(var(--el-value) * 2);height:calc(var(--el-value) * 2);border-radius:var(--el-value) 0 0 0;border-left:1px solid #fff;border-top:1px solid #fff}
+	.guide_sample > .guide > [class^="p"] {justify-content:center;align-items:center;top:20px;left:40px;background:var(--el-background);opacity:0.3;color:#fff;}
+	.guide_sample > .guide > .pr,
+	.guide_sample > .guide > .pl {width:var(--el-value);height:calc(100% - 40px);}
+	.guide_sample > .guide > .pr {left:auto;right:10px;}
+	.guide_sample > .guide > .pt,
+	.guide_sample > .guide > .pb {height:var(--el-value);width:calc(100% - 50px);}
+	.guide_sample > .guide > .pb {top:auto;bottom:20px;}
+	.guide_sample .guide_el {margin:0 !important;}
+	.areaBodyBtnFlex {position:relative;}
+</style>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>배너</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="txt_sample.html">타이틀/텍스트</a>
+				<a href="button_sample.html">버튼</a>
+				<a href="form_sample.html">폼</a>
+				<a href="list_sample.html">목록</a>
+				<a href="product_sample.html">상품</a>
+				<a href="info_sample.html">정보</a>
+				<a href="table_sample.html">테이블</a>
+				<a href="bbs_sample.html">게시판</a>
+				<a href="banner_sample.html" aria-current="page">배너</a>
+				<a href="chart_sample.html">차트</a>
+				<a href="etc_sample.html">기타</a>
+			</div>
+		</nav>
+	</header>
+
+	<!-- ###################################### -->
+	<!-- ### UI Guide [배너] ### -->
+	<!-- ###################################### -->
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">카드형</a>
+			<a href="#GCONTENT2">슬라이드형</a>
+			<a href="#GCONTENT3">기타유형</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 카드형 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">카드형</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] 아이콘형 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : 아이콘형</h3>
+
+				<div class="guide_area">
+					<h4 class="guide_title3">.greenBanner</h4>
+					<a href="javascript:;" class="greenBanner">NH농협은행에서 만들기</a>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .areaBanner2 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .areaBanner2</h3>
+				<ul class="guide_txt">
+					<li class="pointColor">2023 고도화에서 새로 정의한 배너이며, 공통으로 사용하는 것을 지향함.</li>
+					<li>.t* : 폰트사이즈 및 여백 이미지 사이즈는 이중클래스로 제어함.</li>
+					<li>.img** : 이미지 및 BG색상을 정의함.</li>
+				</ul>
+
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="areaBanner2"> <!-- [D] t* : 폰트크기 및 스타일 재정의 -->
+										<a href="javascript:;" class="img1"> <!-- [D] img* : 아이콘 및 BG 색상정의 -->
+											<span>배너내용1</span>
+											<span>배너내용2</span>
+										</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+
+				<!-- ### 기본 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">기본</h4>
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h">auto</span>
+							<span class="pt" style="--el-value:18px">18</span>
+							<span class="pl" style="--el-value:20px">20</span>
+							<span class="pr" style="--el-value:104px">104</span>
+							<span class="pb" style="--el-value:20px">20</span>
+							<span class="r" style="--el-value:10px">10</span>
+						</div>
+						<div class="areaBanner2 guide_el">
+							<a href="javascript:;" class="img1 guide_el">
+								<span>F: 14px/900/#111</span>
+								<span>F: 12px/400/#111</span>
+							</a>
+						</div>
+					</div>
+					<div class="areaBanner2">
+						<a href="javascript:;" class="img1" title="@페이지명@ 바로가기">
+							<span>신용관리 어렵지 않아요</span>
+							<span>우리가 다 알아서 관리해주니까! </span>
+						</a>
+					</div>
+				</div>
+
+				<!-- ### 좌우배치 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">좌우배치 : .col</h4>
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h">170</span>
+							<span class="pt" style="--el-value:16px">16</span>
+							<span class="pl" style="--el-value:20px">20</span>
+							<span class="pr" style="--el-value:20px">20</span>
+							<span class="pb" style="--el-value:20px">16</span>
+							<span class="r" style="--el-value:10px">10</span>
+						</div>
+						<div class="areaBanner2 col guide_el">
+							<a href="javascript:;" class="img1 guide_el" style="width:100%">
+								<span>F: 12px/400/#111</span>
+								<span>F: 14px/900/#111</span>
+							</a>
+						</div>
+					</div>
+					<hr class="guide_line">
+					<div class="areaBanner2 col">
+						<a href="javascript:;" class="img2" title="DSR계산기 서브메인">
+							<span>나의 DSR은 얼마?</span>
+							<span>DSR 계산기 가기</span>
+						</a>
+						<a href="javascript:;" class="img3" title="대환대출 서비스 안내">
+							<span>다른 금융기관 대출</span>
+							<span>NH로 갈아타기</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- ### 스타일변경1 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">스타일변경1 : .t1</h4>
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h">auto</span>
+							<span class="pt" style="--el-value:18px">16</span>
+							<span class="pl" style="--el-value:20px">20</span>
+							<span class="pr" style="--el-value:104px">104</span>
+							<span class="pb" style="--el-value:16px">16</span>
+							<span class="r" style="--el-value:6px">6</span>
+						</div>
+						<div class="areaBanner2 t1 guide_el">
+							<a href="javascript:;" class="img1 guide_el" title="@페이지명@ 바로가기">
+								<span>F:13px/400/#666</span>
+								<span>F:14px/bold/#111</span>
+							</a>
+						</div>
+					</div>
+					<div class="areaBanner2 t1">
+						<a href="javascript:;" class="img4" title="PUSH 설정화면 바로가기">
+							<span>내 카드 분석을 매달 비교해볼까요?</span>
+							<span>매달 알림 받기</span>
+						</a>
+					</div>
+					<div class="areaBanner2 t1">
+						<a href="javascript:;" role="button" class="img5" title="신용점수 올리기 화면 바로가기">
+							<span>지금 나의 신용점수는?</span>
+							<span>신용점수 확인하고 점수 올리기</span>
+						</a>
+					</div>
+					<div class="areaBanner2 t1">
+						<a href="javascript:;" class="img7">
+							<span>자주 사용하는 내 소비내역</span>
+							<span>정기지출에서 바로 확인하기</span>
+						</a>
+					</div>
+					<div class="areaBanner2 t1">
+						<a href="javascript:;" class="img8">
+							<span>현금 반복등록한 내역</span>
+							<span>정기지출에서 바로 확인하기</span>
+						</a>
+					</div>
+					<div class="areaBanner2 t1">
+						<a href="javascript:;" class="img9" title="정보수집동의 내역" aria-haspopup="true">
+							<span>더 정확한 분석을 위해</span>
+							<span>가맹점 정보 제공 동의하기</span>
+						</a>
+					</div>
+					<div class="areaBanner2 t1">
+						<a href="javascript:;" class="img11">
+							<span>제일 많이 사용한 <span class="data1">현대카드</span></span>
+							<span>카드상세내역 지금 확인하기</span>
+						</a>
+					</div>
+					<div class="areaBanner2 t1">
+						<a href="javascript:;" class="img15">
+							<span>사용 중인 카드 연결하고 더 정확한 결과 보기</span>
+							<span>카드 자산 연결하기</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- ### 스타일변경2 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">스타일변경2 : .t3</h4>
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h">auto</span>
+							<span class="pt" style="--el-value:18px">18</span>
+							<span class="pl" style="--el-value:20px">20</span>
+							<span class="pr" style="--el-value:95px">95</span>
+							<span class="pb" style="--el-value:20px">20</span>
+							<span class="r" style="--el-value:10px">10</span>
+						</div>
+						<div class="areaBanner2 t3 guide_el">
+							<a href="javascript:;" class="img1 guide_el" title="@페이지명@ 바로가기">
+								<span>폰트스타일<br>F:16px/bold/#111</span>
+								<span>F:14px/400/#666</span>
+							</a>
+						</div>
+					</div>
+
+					<div class="areaBanner2 t3">
+						<a href="javascript:;" class="img6" title="@페이지명@ 바로가기">
+							<span>자산을 많이 연결할수록<br>신용점수를 올리는데 유리해요</span>
+							<span>추가 자산 연결하러 가기</span>
+						</a>
+					</div>
+
+					<div class="areaBanner2 t3">
+						<a href="javascript:;" class="img10" title="신용대출 목록 화면 바로가기">
+							<span>방금 올라간 신용점수로<br>신용대출 상담을 받아보세요</span>
+							<span>나에게 적절한 대출 상품 알아보기</span>
+						</a>
+					</div>
+				</div>
+
+				<!-- ### 스타일변경3 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">스타일변경3 : .t4</h4>
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h">auto</span>
+							<span class="pt" style="--el-value:20px">20</span>
+							<span class="pl" style="--el-value:20px">20</span>
+							<span class="pr" style="--el-value:95px">95</span>
+							<span class="pb" style="--el-value:20px">20</span>
+							<span class="r" style="--el-value:10px">10</span>
+						</div>
+						<div class="areaBanner2 t4 guide_el">
+							<a href="javascript:;" class="img1 guide_el" title="@페이지명@ 바로가기">
+								<span>F:14px/bold/#111</span>
+								<span>폰트스타일<br>F:12px/400/#666</span>
+							</a>
+						</div>
+					</div>
+
+					<div class="areaBanner2 t4">
+						<a href="javascript:;" class="img12">
+							<span>카드리포트 확인하기</span>
+							<span>카드리포트가 발행되었어요. <br>확인해보세요</span>
+						</a>
+					</div>
+
+					<div class="areaBanner2 t4">
+						<a href="javascript:;" class="img13">
+							<span>내 카드 분석</span>
+							<span>나는 얼마나 쓰고 내 또래는 얼마나 쓰고 있을까?</span>
+						</a>
+					</div>
+
+					<div class="areaBanner2 t4">
+						<a href="javascript:;" class="img14">
+							<span>조기은퇴진단</span>
+							<span>나도 파이어족이 될 수 있을까?<br>조기은퇴가 가능한지 확인해보세요.</span>
+						</a>
+					</div>
+
+					<div class="areaBanner2 t4">
+						<a href="javascript:;" class="img16">
+							<span>서비스 가입 현황 조회</span>
+							<span>모든 마이데이터사업자로부터<br>서비스 가입 현황을 조회할 수 있어요.</span>
+						</a>
+						<a href="javascript:;" class="img17">
+							<span>제3자 제공 동의 내역 조회</span>
+							<span>모든 마이데이터사업자로부터<br>제3자 제공 동의 내역을 조회할 수 있어요.</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .areaBanner4 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .areaBanner4</h3>
+				<div class="guide_sample" style="--el-background:var(--point3);">
+					<div class="guide">
+						<span class="h">auto</span>
+						<span class="pt" style="--el-value:24px">24</span>
+						<span class="pl" style="--el-value:98px">98</span>
+						<span class="pr" style="--el-value:20px">20</span>
+						<span class="pb" style="--el-value:20px">20</span>
+						<span class="r" style="--el-value:15px">15</span>
+					</div>
+					<div class="areaBanner4 guide_el">
+						<a href="javascript:;" class="img1" title="신용점수 올리기 서비스 안내">
+							<span>폰트스타일<br>F:16px/900/#FFF</span>
+							<span>F:14px/400/#FFF</span>
+						</a>
+					</div>
+				</div>
+				<ul class="guide_txt">
+					<li class="pointColor">2023 고도화에서 새로 정의한 배너이며, 공통으로 사용하는 것을 지향함.</li>
+				</ul>
+				<hr class="guide_line">
+				<div class="areaBanner4">
+					<a href="javascript:;" class="img1" title="신용점수 올리기 서비스 안내">
+						<span>로켓을 눌러서<br>신용점수를 즉시 올려보세요!</span>
+						<span>최근 15일 전 정보 제출</span>
+					</a>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .areaBanner6 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .areaBanner6</h3>
+				<ul class="guide_txt">
+					<li class="pointColor">2023 고도화에서 새로 정의한 배너이며, 공통으로 사용하는 것을 지향함.</li>
+					<li>.t* : 폰트사이즈 및 여백 이미지 사이즈는 이중클래스로 제어함.</li>
+					<li>.img** : 이미지 및 BG색상을 정의함.</li>
+				</ul>
+
+				<!-- ### 기본 ### -->
+				<div class="guide_area">
+					<h4 class="guide_title3">기본</h4>
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h">min<br>32</span>
+							<span class="pt" style="--el-value:14px">14</span>
+							<span class="pl" style="--el-value:20px">20</span>
+							<span class="pr" style="--el-value:20px">20</span>
+							<span class="pb" style="--el-value:14px">14</span>
+							<span class="r" style="--el-value:10px">10</span>
+						</div>
+						<div class="areaBanner6 guide_el">
+							<a href="javascript:;" class="img1"><span>F:12px/bold/#111</span></a>
+						</div>
+					</div>
+
+					<div class="areaBanner6">
+						<a href="javascript:;" class="img1"><span>출금계좌를 농협은행으로 변경해보세요.</span></a>
+					</div>
+				</div>
+
+				<!-- ### 스타일변경 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">스타일변경 : .t1</h4>
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h">min<br>32</span>
+							<span class="pt" style="--el-value:14px">14</span>
+							<span class="pl" style="--el-value:14px">14</span>
+							<span class="pr" style="--el-value:30px">30</span>
+							<span class="pb" style="--el-value:14px">14</span>
+							<span class="r" style="--el-value:6px">6</span>
+						</div>
+						<div class="areaBanner6 t1 guide_el">
+							<a href="javascript:;" class="img2"><span>F:14px/bold/#111</span></a>
+						</div>
+					</div>
+					
+					<div class="areaBanner6 t1">
+						<a href="javascript:;" class="img2"><span>최근 신용조회·변동 내역 보기</span></a>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .areaBanner7 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .areaBanner7</h3>
+				<div class="guide_sample" style="--el-background:var(--point2);">
+					<div class="guide">
+						<span class="h">auto</span>
+						<span class="pt" style="--el-value:24px">24</span>
+						<span class="pl" style="--el-value:20px">20</span>
+						<span class="pr" style="--el-value:95px">95</span>
+						<span class="pb" style="--el-value:24px">24</span>
+						<span class="r" style="--el-value:10px">10</span>
+					</div>
+					<div class="areaBanner7 guide_el">
+						<dl class="img">
+							<dt class="tit"><span>폰트:12px/bold/#666</span><strong>폰트사이즈<br>16px/bold/#111</strong></dt>
+						</dl>
+					</div>
+				</div>
+				<ul class="guide_txt">
+					<li class="pointColor">2023 고도화에서 새로 정의한 배너이며, 공통으로 사용하는 것을 지향함.</li>
+					<li>.img** : 이미지 및 BG색상을 정의함.</li>
+					<li>토글 컨텐츠와 함께 사용함. (.toggleWrap)</li>
+				</ul>
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="areaBanner7">
+										<dl class="img1">
+											<dt class="tit"><span>부가설명</span><strong>타이틀</strong></dt>
+											<dd class="toggleWrap">
+												<div class="toggleCont" style="display:none;">
+													<ul class="info">
+														<li>내용이 노출됩니다.</li>
+													</ul>
+													<div class="btns"><a href="javascript:;" class="linkTxt2">버튼명</a></div>
+												</div>
+												<button type="button" class="btnMore toggleBtn toggleTxt08"><span>자세히 보기</span></button>
+											</dd>
+										</dl>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+
+
+				<div class="areaBanner7">
+					<dl class="img1">
+						<dt class="tit"><span>한눈에 보는 자산진단</span><strong>나는야 능숙한 투자고수 ~ 관리자에서 등록되는 문구 입니다.</strong></dt>
+						<dd class="toggleWrap">
+							<div class="toggleCont" style="display:none;">
+								<ul class="info">
+									<li>투자수익 상위 <span>00%</span>로, 투자고수 시네요!</li>
+									<li>다른 투자고수들이 가장 많이 투자하는 종목은 <span>Top1항목</span>이고 평균적으로 <strong class="dataValue">0,000</strong><span class="won">만원</span> 투자하고 있어요.</li>
+									<li>다른 투자고수들은 어떻게 다른지 비교해 볼까요?</li>
+								</ul>
+								<div class="btns"><a href="javascript:;" class="linkTxt2">투자수익률 확인</a></div>
+							</div>
+							<button type="button" class="btnMore toggleBtn toggleTxt08"><span>자세히 보기</span></button>
+						</dd>
+					</dl>
+					<dl class="img2">
+						<dt class="tit"><span>한눈에 보는 연금진단</span><strong>균형있는<br>연금계획이 필요해요</strong></dt>
+						<dd class="toggleWrap">
+							<div class="toggleCont" style="display:none;">
+								<ul class="info">
+									<li>지난 3개월에 비해 내가모은연금이 <strong class="dataValue">0,000</strong><span class="won">만원</span> 늘었어요.</li>
+									<li>연금진단 결과 공적연금 비중이 75%로 가장 높았어요(MM.DD 기준).</li>
+									<li>원하는 시기에 연금소득이 발생할 수 있도록 생애 전체를 고려한 균형있는 연금계획이 필요해요. </li>
+								</ul>
+								<div class="btns"><a href="javascript:;" class="linkTxt2">연금자산 점검하기</a></div>
+							</div>
+							<button type="button" class="btnMore toggleBtn toggleTxt08"><span>자세히 보기</span></button>
+						</dd>
+					</dl>
+					<dl class="img3">
+						<dt class="tit"><span>한눈에 보는 조기은퇴진단</span><strong>은퇴준비자금이<br>줄고있다..?!</strong></dt>
+						<dd class="toggleWrap">
+							<div class="toggleCont" style="display:none;">
+								<ul class="info">
+									<li>금융자산이 안전자산에 편중되어 있어요</li>
+									<li>지난 6개월보다 은퇴준비자금이 <strong class="dataValue">0,000</strong><span class="won">만원</span> 하락했어요.</li>
+									<li>은퇴자금이 하락하면 은퇴 후 자금고갈이 빨라질 수 있어요. 진단을 통해 나의 은퇴준비자금을 다시 점검해 볼까요?</li>
+								</ul>
+								<div class="btns"><a href="javascript:;" class="linkTxt2">조기은퇴진단 확인</a></div>
+							</div>
+							<button type="button" class="btnMore toggleBtn toggleTxt08"><span>자세히 보기</span></button>
+						</dd>
+					</dl>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .areaBanner8 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .areaBanner8</h3>
+				<div class="guide_sample" style="--el-background:var(--point2);">
+					<div class="guide">
+						<span class="h">auto</span>
+						<span class="pt" style="--el-value:24px">24</span>
+						<span class="pl" style="--el-value:20px">20</span>
+						<span class="pr" style="--el-value:20px">20</span>
+						<span class="pb" style="--el-value:24px">24</span>
+						<span class="r" style="--el-value:10px">10</span>
+					</div>
+					<div class="areaBanner8 guide_el">
+						<a href="javascript:;" class="img guide_el">
+							<span class="txt1">F:12px/400/#555</span>
+							<span class="txt2"><strong>F:19px/900/#111</strong></span>
+							<span class="txt3">F:14px/bold/#666</span>
+						</a>
+					</div>
+				</div>
+				<ul class="guide_txt">
+					<li class="pointColor">2023 고도화에서 새로 정의한 배너이며, 공통으로 사용하는 것을 지향함.</li>
+					<li>.img** : 이미지 및 BG색상을 정의함.</li>
+					<li>data-mode="ani" : 애니메이션이 필요한 부분</li>
+				</ul>
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="areaBanner8">
+										<!-- [CASE1] 이력없음 -->
+										<a href="javascript:;" class="img1">
+											<span class="txt1">지금 나의 NICE 신용점수는?</span>
+											<span class="txt2"><strong data-num-action="???">???점</strong></span>
+											<span class="txt3">신용점수 확인하고 점수 올리기</span>
+										</a>
+
+										<!-- [CASE2] 이력있음 -->
+										<a href="javascript:;" class="img1">
+											<span class="txt1">지금 나의 NICE 신용점수는?</span>
+											<span class="txt2 active" data-mode="ani"><strong data-num-action="981">981점</strong><i>에서</i><strong>???점</strong></span> <!-- [D] 숫자 모션 하단 스크립트 참고 : data-num-action -->
+											<span class="txt3">쉽고 간편하게 신용점수 올리기</span>
+										</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+				<div class="areaBanner8">
+					<a href="javascript:;" class="img1">
+						<span class="txt1">지금 나의 NICE 신용점수는?</span>
+						<span class="txt2"><strong data-num-action="???">???점</strong></span>
+						<span class="txt3">신용점수 확인하고 점수 올리기</span>
+					</a>
+					<a href="javascript:;" class="img1">
+						<span class="txt1">지금 나의 NICE 신용점수는?</span>
+						<span class="txt2 active" data-mode="ani"><strong data-num-action="981">981점</strong><i>에서</i><strong>???점</strong></span> <!-- [D] 숫자 모션 하단 스크립트 참고 : data-num-action -->
+						<span class="txt3">쉽고 간편하게 신용점수 올리기</span>
+					</a>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .inBannerWarp -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .inBannerWarp</h3>
+
+				<!-- ### 자산) 연결 배너 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">자산) 연결 배너</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="inBannerWarp">
+											<a href="javascript:;" role="button">
+												<div class="inBanner shadowBox bg20"> <!-- [D] bg20 : BG 및 img 변경 -->
+													<p>
+														<span class="bnSub">예적금 만기가 얼마 남지 않은 당신!</span>
+														<span class="bnSub">지금 한 번 확인해볼까요?</span>
+													</p>
+												</div>
+											</a>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h" style="--el-value:90px">90</span>
+							<span class="pt" style="--el-value:25px">25</span>
+							<span class="pl" style="--el-value:25px">25</span>
+							<span class="pr" style="--el-value:25px">25</span>
+							<span class="pb" style="--el-value:25px">25</span>
+							<span class="r" style="--el-value:10px">10</span>
+						</div>
+						<div class="inBannerWarp guide_el">
+							<a href="javascript:;" role="button">
+								<div class="inBanner shadowBox bg20">
+									<p>
+										<span class="bnSub">폰트스타일 : 13px/400/#555</span>
+										<span class="bnSub">폰트스타일 : 13px/400/#555</span>
+									</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="inBannerWarp">
+						<a href="javascript:;" role="button">
+							<div class="inBanner shadowBox bg20">
+								<p>
+									<span class="bnSub">예적금 만기가 얼마 남지 않은 당신!</span>
+									<span class="bnSub">지금 한 번 확인해볼까요?</span>
+								</p>
+							</div>
+						</a>
+					</div>
+					<div class="inBannerWarp">
+						<a href="javascript:;" role="button">
+							<div class="inBanner shadowBox bg23">
+								<p>
+									<span class="bnSub">지난달까지 내가 받은 배당금액은?</span>
+									<span class="bnSub">배당 내역을 확인해보세요</span>
+								</p>
+							</div>
+						</a>
+					</div>
+					<div class="inBannerWarp">
+						<a href="javascript:;" role="button">
+							<div class="inBanner shadowBox bg24">
+								<p>
+									<span class="bnSub">대출 만기가 얼마 남지 않은 당신!</span>
+									<span class="bnSub">만기 전에 꼼꼼하게 챙겨보세요.</span>
+								</p>
+							</div>
+						</a>
+					</div>
+					<div class="inBannerWarp">
+						<a href="javascript:;" role="button">
+							<div class="inBanner shadowBox bg25">
+								<p>
+									<span class="bnSub">나는 노후준비를 잘 하고 있을까?</span>
+									<span class="bnSub">예상 연금수령액을 확인해보세요</span>
+								</p>
+							</div>
+						</a>
+					</div>
+					<div class="inBannerWarp">
+						<a href="javascript:;" role="button">
+							<div class="inBanner shadowBox bg26">
+								<p>
+									<span class="bnSub">주택청약플래너에서 알림 신청하고</span>
+									<span class="bnSub">청약정보를 받아보세요</span>
+								</p>
+							</div>
+						</a>
+					</div>
+					<div class="inBannerWarp">
+						<a href="javascript:;" role="button">
+							<div class="inBanner shadowBox bg27">
+								<p>
+									<span class="bnSub">병원비 발견! 실손보험이 있다면 </span>
+									<span class="bnSub">헬스케어에서 보험금을 청구하세요</span>
+								</p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<!-- ### 상품모아보기) 연결배너 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">상품모아보기) 연결배너</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="inBannerWarp addShadow">
+											<a href="javascript:;" role="button">
+												<div class="inBanner typeS2 bg05">
+													<p>
+														<span class="bnTit">대출이 필요하시면<br>
+															농협은행과 상담해보세요.</span>
+														<span class="bnArrow">나에게 맞는 대출 찾기</span>
+													</p>
+												</div>
+											</a>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h" style="--el-value:111px">auto</span>
+							<span class="pt" style="--el-value:25px">25</span>
+							<span class="pl" style="--el-value:25px">25</span>
+							<span class="pr" style="--el-value:25px">25</span>
+							<span class="pb" style="--el-value:25px">25</span>
+							<span class="r" style="--el-value:10px">10</span>
+						</div>
+						<div class="inBannerWarp addShadow guide_el">
+							<a href="javascript:;" role="button">
+								<div class="inBanner typeS2 bg05">
+									<p>
+										<span class="bnTit">폰트사이즈<br> 15px / 600 / #111</span>
+										<span class="bnArrow">폰트사이즈 : 13px / 400 / #555</span>
+									</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="inBannerWarp addShadow">
+						<a href="javascript:;" role="button">
+							<div class="inBanner typeS2 bg05">
+								<p>
+									<span class="bnTit">대출이 필요하시면<br>농협은행과 상담해보세요.</span>
+									<span class="bnArrow">나에게 맞는 대출 찾기</span>
+								</p>
+							</div>
+						</a>
+					</div>
+
+					<div class="inBannerWarp addShadow">
+						<a href="javascript:;">
+							<div class="inBanner typeP bg09">
+								<p>
+									<span class="bnTit">나만 투자 안해도 괜찮은걸까?</span>
+									<span class="bnArrow">나에게 맞는 펀드 찾기</span>
+								</p>
+							</div>
+						</a>
+					</div>
+		
+					<div class="inBannerWarp addShadow">
+						<a href="javascript:;">
+							<div class="inBanner typeB bg07">
+								<p>
+									<span class="bnTit">보장자산으로 든든하게 준비하기!</span>
+									<span class="bnArrow">나에게 맞는 보험 찾기</span>
+								</p>
+							</div>
+						</a>
+					</div>
+		
+					<div class="inBannerWarp addShadow">
+						<a href="javascript:;">
+							<div class="inBanner typeO bg08">
+								<p>
+									<span class="bnTit">소중한 우리 아이,<br>갑자기 아프면 어떡하지?</span>
+									<span class="bnArrow">자녀보험 확인하기</span>
+								</p>
+							</div>
+						</a>
+					</div>
+
+					<div class="inBannerWarp addShadow">
+						<a href="javascript:;">
+							<div class="inBanner typeY2 bg11">
+								<p>
+									<span class="bnTit">비대면으로 스마트하게!<br>최대 80% 환율우대 적용</span>
+									<span class="bnArrow">너도나도 환전신청</span>
+								</p>
+							</div>
+						</a>
+					</div>
+		
+					<div class="inBannerWarp addShadow">
+						<a href="javascript:;">
+							<div class="inBanner typeG3 bg10">
+								<p>
+									<span class="bnTit">원할 때 환전하고, 안전하게 보관하고!<br>최대 90% 환율우대 적용</span>
+									<span class="bnArrow">내맘대로 외화BOX</span>
+								</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .prodBanner -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .prodBanner</h3>
+				<div class="guide_sample" style="--el-background:var(--point2);">
+					<div class="guide">
+						<span class="h">auto</span>
+						<span class="pt" style="--el-value:23px">23</span>
+						<span class="pl" style="--el-value:20px">20</span>
+						<span class="pr" style="--el-value:18px">18</span>
+						<span class="pb" style="--el-value:23px">23</span>
+						<span class="r" style="--el-value:10px">10</span>
+					</div>
+					<div class="prodBanner guide_el">
+						<a href="javascript:;" title="금융상품몰 이동" target="_blank">
+							<div class="baTxt">폰트스타일<br>F:16px / 600 / #111</div>
+							<p class="linkWrap"><span class="linkTxt">F:13px / 400 / #666</span></p>
+						</a>
+					</div>
+				</div>
+				<ul class="guide_txt">
+					<li class="pointColor2">상품관 관련된 배너를 제외한 공통에서는 사용을 지양함.</li>
+					<li>ty** : 이미지 및 BG 정의함.</li>
+				</ul>
+
+				<div class="prodBanner ty01">
+					<a href="javascript:;" title="금융상품몰 이동" target="_blank">
+						<div class="baTxt">대출이 필요하시면 <br>농협은행과 상담해보세요</div>
+						<p class="linkWrap"><span class="linkTxt">나에게 맞는 대출 찾기</span></p>
+					</a>
+				</div>
+
+				<div class="prodBanner ty02">
+					<a href="javascript:;">
+						<div class="baTxt">가까운 영업점 직원과<br>전문상담을 해보세요</div>
+						<p class="linkWrap"><span class="linkTxt">영업점 방문예약 하기</span></p>	
+					</a>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .icoBanner -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .icoBanner</h3>
+				<div class="guide_area">
+					<div class="guide_sample" style="--el-background:var(--point2);">
+						<div class="guide">
+							<span class="h">auto</span>
+							<span class="pt" style="--el-value:20px">20</span>
+							<span class="pl" style="--el-value:65px">65</span>
+							<span class="pr" style="--el-value:20px">20</span>
+							<span class="pb" style="--el-value:20px">20</span>
+							<span class="r" style="--el-value:10px">10</span>
+						</div>
+						<div class="icoBanner">
+							<a href="javascript:;">
+								<strong class="txt">F:12px/400/#111</strong>
+							</a>
+						</div>
+					</div>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="icoBanner ico01">
+											<a href="javascript:;">
+												<strong class="txt">카드포인트를 게좌로 입금하러 가기</strong>
+											</a>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="icoBanner ico01">
+						<a href="javascript:;">
+							<strong class="txt">카드포인트를 게좌로 입금하러 가기</strong>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .yaTopBanner -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .yaTopBanner</h3>
+				<div class="guide_sample" style="--el-background:var(--point2);">
+					<div class="guide">
+						<span class="h">auto</span>
+						<span class="pt" style="--el-value:15px">15</span>
+						<span class="pl" style="--el-value:20px">20</span>
+						<span class="pr" style="--el-value:20px">20</span>
+						<span class="pb" style="--el-value:15px">15</span>
+						<span class="r" style="--el-value:10px">10</span>
+					</div>
+					<div class="yaTopBanner Ty01 bgTy01 guide_el">
+						<a href="javascript:;" class="link yalinkBtn" role="button">
+							<span>F) 13px/#666</span>
+							<p>F) 16px/bold/#111</p>
+						</a>
+						<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+					</div>
+				</div>
+
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="yaTopBanner Ty01 bgTy01">
+										<a href="javascript:;" class="link yalinkBtn" role="button">
+											<span>부가설명</span>
+											<p>타이틀</p>
+										</a>
+										<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+
+				<div class="yaTopBanner Ty01 bgTy01">
+					<a href="javascript:;" class="link yalinkBtn" role="button">
+						<span>연결만료된 N개 기관이 있어요</span>
+						<p>재연결하고 환급금액 확인하기</p>
+					</a>
+					<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+				</div>
+				<div class="yaTopBanner Ty01 bgTy02">
+					<a href="javascript:;" class="link yalinkBtn" role="button">
+						<span>만료예정인 N개 기관이 있어요</span>
+						<p>재연결하고 환급금액 확인하기</p>
+					</a>
+					<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+				</div>
+				<div class="yaTopBanner Ty01 bgTy03">
+					<a href="javascript:;" class="link yalinkBtn" role="button">
+						<span>환급금액을 위해 자산연결이 필요해요!</span>
+						<p>지금바로 자산연결하기</p>
+					</a>
+					<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+				</div>
+				<hr class="guide_line">
+				<h4 class="guide_title4">.myTopBanner</h4>
+				<ul class="guide_txt">
+					<li>위와 동일한 배너이지만 클래스명과 구조가 다름</li>
+					<li>해당 배너는 소비현황 페이지에 마크업이 되어 있었지만, 개발에서는 사용하지 않음 (위에 배너로 공통 사용)</li>
+					<li>중복 UI이며, 운영에서는 사용하지 않은 배너로 삭제함</li>
+				</ul>
+				<div class="myTopBanner bgTy03">
+					<a href="javascript:;" class="close" title="베너 닫기 버튼"></a>
+					<p class="txt">N개 기관에 신규자산이 있어요</p>
+					<a href="javascript:;" class="link">새롭게 가입한 상품 연결하기</a>
+				</div>
+				<div class="myTopBanner bgTy02">
+					<a href="javascript:;" class="close" title="베너 닫기 버튼"></a>
+					<p class="txt">연결만료된 N개 기관이 있어요</p>
+					<a href="javascript:;" class="link">재 연결하고 소비현황 확인하기</a>
+				</div>
+				<div class="myTopBanner bgTy01">
+					<a href="javascript:;" class="close" title="베너 닫기 버튼"></a>
+					<p class="txt">만료예정인 N개 기관이 있어요</p>
+					<a href="javascript:;" class="link">재 연결하고 소비현황 확인하기</a>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .mybannerArea -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .mybannerArea</h3>
+				<div class="guide_sample" style="--el-background:var(--point2);">
+					<div class="guide">
+						<span class="h">auto</span>
+						<span class="pt" style="--el-value:20px">20</span>
+						<span class="pl" style="--el-value:20px">20</span>
+						<span class="pr" style="--el-value:20px">20</span>
+						<span class="pb" style="--el-value:20px">20</span>
+						<span class="r" style="--el-value:10px">10</span>
+					</div>
+					<div class="mybannerArea guide_el"> 
+						<a href="javascript:;" role="button" title="관리자 등록 링크화면 이동" class="mybanner guide_el" style="background-color:#d6f1ea;">
+							<div class="txtWrap">
+								<strong class="mainTit">폰트사이즈 : 16px / 900 / #111</strong>
+								<p class="subTxt">폰트사이즈<br>14px / 400 / #111</p>
+							</div>
+							<div class="myImgWrap"><img src="../../images/banner/my_obj_pigmoney.png" alt=""></div>
+						</a>
+					</div>
+				</div>
+				<ul class="guide_txt">
+					<li class="pointColor2">특정 서비스에만 사용하고 있는 배너이므로 공통으로 사용하는 것을 지양함</li>
+					<li>배너이미지 : 전경이미지(개발에서 관리함)</li>
+					<li>배경색상 : 랜덤으로 노출되고 있음 (inline style)</li>
+				</ul>
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="mybannerArea">
+										<!-- [CASE] 배너유형 -->
+										<a href="javascript:;" role="button" title="관리자 등록 링크화면 이동" class="mybanner tyBanner" style="background-image:url('../../images/my/img_fd01_bg.png');">
+											<div class="txtWrap">
+												<strong class="mainTit">제목</strong>
+												<p class="subTxt">서브텍스트</p>
+											</div>
+											<div class="myImgWrap"><img src="../../images/banner/" alt=""></div>
+										</a>
+
+										<!-- [CASE] 카드유형 -->
+										<a href="javascript:;" role="button" title="관리자 등록 링크화면 이동" class="mybanner tyCard" style="background-color:#fff;">
+											<div class="txtWrap">
+												<strong class="mainTit">제목</strong>
+												<p class="subTxt">서브텍스트</p>
+												<strong class="highTit">000<span>일</span></strong>
+												<p class="cardTxt">지금까지 내가 완료한 목표 00 개</p>
+											</div>
+											<div class="myImgWrap"><img src="../../images/banner/" alt=""></div>
+										</a>
+										<!-- // -->
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+
+				<!-- ### 배너형 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">배너형 : .tyBanner</h4>
+					<div class="mybannerArea">
+						<a href="javascript:;" role="button" title="관리자 등록 링크화면 이동" class="mybanner tyBanner" style="background-color:#d6f1ea;">
+							<div class="txtWrap">
+								<strong class="mainTit">잠자는 돈 깨우기</strong>
+								<p class="subTxt">입출금 통장의 잠자는 돈 발견!<br>굴리기 딱 좋은 상품을 찾았어요!</p>
+							</div>
+							<div class="myImgWrap"><img src="../../images/banner/my_obj_pigmoney.png" alt=""></div>
+						</a>
+					</div>
+				</div>
+
+				<!-- ### 카드형 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">카드형 : .tyCard</h4>
+					<div class="mybannerArea">
+						<a href="javascript:;" role="button" title="관리자 등록 링크화면 이동" class="mybanner tyCard" style="background-color:#fff;">
+							<div class="txtWrap">
+								<strong class="mainTit">NH마이데이터와 함께한 시간</strong>
+								<p class="subTxt">NH마이데이터와 만난지</p>
+								<strong class="highTit">293<span>일</span></strong>
+								<p class="cardTxt">지금까지 내가 완료한 목표 12 개</p>
+							</div>
+							<div class="myImgWrap"><img src="../../images/banner/my_obj_clock.png" alt=""></div>
+						</a>
+					</div>
+				</div>
+
+				<!-- ### 버튼 ### -->
+				<div class="areaBodyBtnFlex">
+					<a href="../../pub/st/MSAR4100.html" target="_blank" class="btnBodyGray">적용된 페이지 보기</a>
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .yabanner -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .yabanner</h3>
+				<div class="guide_sample" style="--el-background:var(--point2);">
+					<div class="guide">
+						<span class="h">auto</span>
+						<span class="pt" style="--el-value:20px">20</span>
+						<span class="pl" style="--el-value:20px">20</span>
+						<span class="pr" style="--el-value:20px">20</span>
+						<span class="pb" style="--el-value:20px">20</span>
+						<span class="r" style="--el-value:10px">10</span>
+					</div>
+					<div class="yabannerArea guide_el">
+						<div class="yabanner guide_el">
+							<p>폰트 스타일<br>F:15px/bold/#111</p>
+						</div>
+					</div>
+				</div>
+				<ul class="guide_txt">
+					<li class="pointColor2">특정 서비스에만 사용하고 있는 배너이므로 공통으로 사용하는 것을 지양함</li>
+					<li>세부 스타일은 이중 클래스에서 지정함.</li>
+				</ul>
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="yabannerArea">
+										<div class="yabanner ty**"> <!-- [D] ty** : 스타일지정클래스 -->
+											<a href="javascript:;" class="link">링크</a>
+											<p>배너문구노출영역</p>
+										</div>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+
+				<!-- ### 활용 : .yabannerArea ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">활용 : .yabannerArea &gt; .yabanner</h4>
+
+					<h5 class="guide_title4">텍스트유형</h5>
+					<div class="yabannerArea mt10">
+						<div class="yabanner ty02">
+							<a href="javascript:;" class="link">
+								<p>주택청약 가입하고 <br>최대 96만원 공제 받기!</p>
+							</a>
+						</div>
+					</div>
+					<hr class="guide_line">
+
+					<h5 class="guide_title4">박스유형(링크)</h5>
+					<div class="yabannerArea mt30">
+						<div class="yabanner ty06">
+							<a href="javascript:;" class="link"  role="button">자산n절세 인사이트</a>
+							<p>전문가의 꿀팁을 한번에 확인하기</p>
+						</div>
+					</div>
+
+					<div class="yabannerArea mt30">
+						<div class="yabanner ty08">
+							<p>지난 결과에 아쉬워 마세요!</p>
+							<a href="javascript:;" class="link">
+								모의계산하고 더 환급 받기!
+							</a>
+						</div>
+					</div>
+
+					<div class="yabannerArea mt30">
+						<div class="yabanner ty10">
+							<a href="javascript:;" class="link"  role="button">모의계산하기</a>
+							<p>13월의 월급을 계산해보세요</p>
+						</div>
+					</div>
+					<div class="yabannerArea mt20">
+						<a href="javascript:;" title="">
+							<div class="yabanner ty17">
+								<span class="subTxt">간편하게 바로 확인 가능한</span>
+								<p>세금계산 바로 가기</p>
+							</div>
+						</a>
+					</div>
+					<div class="yabannerArea mt20">
+						<a href="javascript:;" title="">
+							<div class="yabanner ty15">
+								<span class="subTxt">금융자산 1억원 이상 VIP고객님을 위한</span>
+								<p>재무·세무·부동산 전문가 상담</p>
+							</div>
+						</a>
+					</div>
+					<div class="yabannerArea mt30">
+						<a href="javascript:;" title="">
+							<div class="yabanner ty16">
+								<p>700만원까지 공제가능한<br>IRP상품 보러가기</p>
+							</div>
+						</a>
+					</div>
+					<div class="yabannerArea baHalf">
+						<div class="yabanner ty11">
+							<a href="javascript:;" class="link">
+								정산결과<br> 리뷰
+							</a>
+						</div>
+			
+						<div class="yabanner ty12">
+							<a href="javascript:;" class="link">
+								자산n절세 <br>인사이트
+							</a>
+						</div>
+					</div>
+
+					<div class="yabannerArea baHalf">
+						<div class="yabanner ty11 ty13">
+							<a href="javascript:;" class="link">
+								건강보험료 계산<br> 바로가기
+							</a>
+						</div>
+			
+						<div class="yabanner ty11 ty14">
+							<a href="javascript:;" class="link">
+								똑똑하게 준비하는 <br>절세팁
+							</a>
+						</div>
+					</div>
+
+					<hr class="guide_line">
+					<h5 class="guide_title4">박스유형(보험내용) : .htBgTy**</h5>
+					<div class="yabannerArea">
+						<div class="yabanner bghc">
+							<p>나를 위한 건강보험, 실손보험<br>지금 찾아보기</p>
+						</div>
+					</div>
+					<div class="yabannerArea mt20">
+						<a href="javascript:;" title="">
+							<div class="yabanner htBgTy01">
+								<p class="txtt2"><strong>2022년 건강검진 내역 확인하기</strong></p>
+								<span class="subTxt">최근 건강검진받았다면<br>정보를 조회해 보세요</span>
+							</div>
+						</a>
+					</div>
+					<div class="yabannerArea mt20">
+						<a href="javascript:;" title="">
+							<div class="yabanner htBgTy02">
+								<span class="subTxt">김농협님, 병원 다녀오셨나요?</span>
+								<p class="subTit"><strong>실손보험금 청구하기</strong></p>
+							</div>
+						</a>
+					</div>
+					<div class="yabannerArea mt20">
+						<a href="javascript:;" title="">
+							<div class="yabanner htBgTy03">
+								<span class="hashTxt">#건강 #여행/레져 #운전자 #화재</span>
+								<p class="subTit">내 보장자산 늘리기!</p>
+							</div>
+						</a>
+					</div>
+					<div class="yabannerArea mt20">
+						<a href="javascript:;" title="">
+							<div class="yabanner htBgTy04">
+								<div class="txtBox">
+									<span class="hashTxt">농협은행 X 농협손해보험</span>
+									<p class="subTit">내 보험 셀프보장분석 서비스</p>
+								</div>
+								<p class="lawNumBox">준법심의필: 준법202111-072(2021.11.23.~2022.11.22.)</p>
+							</div>
+						</a>
+					</div>
+					<div class="yabannerArea">
+						<div class="yabannerArea mt20">
+							<a href="javascript:;">
+								<div class="yabanner htBgTy05">
+									<p class="subTxt">건강관리의 첫걸음은 건강정보 확인 입니다.</p>
+								</div>
+							</a>
+						</div>
+					</div>
+					<div class="yabannerArea mt20">
+						<a href="javascript:;" title="">
+							<div class="yabanner htBgTy06">
+								<div class="txtBox">
+									<span class="hashTxt">my보험 한눈에</span>
+									<p class="subTit">내 보험 보장내역 알아보기</p>
+								</div>
+								<p class="lawNumBox">준법심의필 : 준법202212-017(2022.12.14~2023.12.13)</p>
+							</div>
+						</a>
+					</div>
+					<div class="yabannerArea mt20">
+						<a href="javascript:;" title="">
+							<div class="yabanner htBgTy07">
+								<div class="txtBox">
+									<span class="hashTxt">농협은행 X 농협손해보험</span></span>
+									<p class="subTit">내 보험 셀프보장분석 서비스</p>
+								</div>
+								<p class="lawNumBox">준법심의필 202212-028(2022.12.21~2023.12.20)</p>
+							</div>
+						</a>
+					</div>
+
+					<hr class="guide_line">
+					<h5 class="guide_title4">박스유형(안내형) : 연말정산</h5>
+					<div class="yabannerArea">
+						<div class="yabanner tyCase01">
+							<p>주택청약을 000만원</br>더 납입해보세요</p>
+						</div>
+					</div>
+
+					<div class="yatopArea">
+						<div class="yabannerArea">
+							<div class="yabanner ty14">
+								<p>20,000,000원 더 사용 했으면<br>최대공제를 받을 수 있었어요!</p>
+							</div>
+						</div>
+						<div class="formWrap addShoow addType">
+							<div class="yatoggleWarp">
+								<div class="yaInfoWrap toggleWrap">
+									<div class="yamoreInfo  toggleCont bdtNone" style="display: none;">
+										<div class="yanowWrap">
+											<div clsss="cont">
+												<ul class="yalistTitleBox bdbNone">
+													<li>
+														<span class="list_title">공제금액</span>
+														<span class="list_item"><span class="dataValue">3,690,055</span>원</span>
+													</li> 
+													<li>
+														<span class="list_title">공제 한도액</span>
+														<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+													</li>
+													<li>
+														<span class="list_title">사용금액</span>
+														<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<button type="button" class="moreOpenBtn01 toggleBtn" role="button" aria-expanded="false"><span class="toggleTxt08">자세히 보기</span> </button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="areaBodyBtnFlex">
+						<a href="../../pub/ae/MSAE6200.html" target="_blank" class="btnBodyGray">적용된 페이지 보기</a>
+					</div>
+
+					<a href="javascript:;" role="button" class="starTaxReduction ty07">
+						<div class="yabannerArea">
+							<div class="titImgBanner ty07">
+								<strong>상속세</strong>
+							</div>
+						</div>
+						<div class="formWrap addShoow">
+							<div class="yanowWrap bdR10">
+								<div class="taxInfoWrap">
+									<div class="priceTitWrap"><strong class="priceTit"><em>약 </em><strong class="dataValue">999,999,999</strong> <em>원</em></strong></div>
+									<p class="subTxt">마지막으로 계산한 상속세 예상금액</p>
+								</div>
+								<div class="mt20">
+									<span class="linkTxt2">세금이 얼마나 나올지 걱정되나요?</span>
+								</div>
+							</div>
+						</div>
+					</a>
+					<div class="areaBodyBtnFlex">
+						<a href="../../pub/co/MSCO9260.html" target="_blank" class="btnBodyGray">적용된 페이지 보기</a>
+					</div>
+				</div>
+
+				<!-- ### 활용 : .starYaWrap ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">활용 : .starYaWrap &gt; .yabannerArea</h4>
+					<div class="starYaWrap starYadataNone">
+						<div class="yabannerArea">
+							<div class="yabanner bgSkyblue bgType03 pb20">
+								<strong>2022년</strong> 13월의 월급은<br>
+								<p class="starBigTxt"><strong><span class="dataValue">?,???,???</span>원</strong> 환급</p>
+								<div class="mt10">
+									<a href="javascript:;" class="linkTxt2">얼마나 환급받을까요?</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="starYaWrap">
+						<div class="yabannerArea">
+							<div class="yabanner bgSkyblue bgType05 pb20">
+								<strong>2022년</strong> 13월의 월급은<br>없을 것으로 예상돼요!</p>
+								<div class="mt10">
+									<a href="javascript:;" class="linkTxt2">어떻게 계산했는지 궁금하세요?</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 활용 : .reptBannerBox ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">활용 : .reptBannerBox &gt; .yabanner.ty15</h4>
+
+					<div class="reptBannerBox rptBg01">
+						<a href="javascript:;" title="">
+							<div class="yabanner ty15">
+								<h5>작심삼일이 걱정이라면?</h5>
+								<p class="subTxt">월 예산 설정하고 한달 살기 도전해 보세요!</p>
+								<p><span class="link arrGreen">월 예산 설정하기</span></p>
+							</div>
+						</a>
+					</div>
+
+					<div class="reptBannerBox rptBg02">
+						<a href="javascript:;" title="">
+							<div class="yabanner ty15">
+								<h5>데이터 정기전송에 동의하고 보고서를<br>
+									최신데이터로 유지하세요.</h5>
+								<p><span class="linkTxt">정기전송 동의하기</span></p>
+							</div>
+						</a>
+					</div>
+
+					<div class="reptBannerBox rptBg03">
+						<a href="javascript:;" title="">
+							<div class="yabanner ty15">
+								<h5>나에게 꼭 맞춘 월간 보고서를<br>
+									바로 확인할 수 있도록 알려드려요.</h5>
+								<p><span class="linkTxt">알림 설정하기</span></p>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .msaeBannerWrap -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .msaeBannerWrap</h3>
+				<div class="guide_sample" style="--el-background:var(--point2);">
+					<div class="guide">
+						<span class="h">auto</span>
+						<span class="pt" style="--el-value:18px">18</span>
+						<span class="pl" style="--el-value:20px">20</span>
+						<span class="pr" style="--el-value:20px">20</span>
+						<span class="pb" style="--el-value:18px">18</span>
+						<span class="r" style="--el-value:10px">10</span>
+					</div>
+					<div class="msaeBannerWrap guide_el">
+						<p class="tit">폰트 스타일<br>F:15px/bold/#111</p>
+						<a href="javascript:;" class="linkTxt">F:13px/#666</a>
+					</div>
+				</div>
+				<ul class="guide_txt">
+					<li class="pointColor2">특정 서비스에만 사용하고 있는 배너이므로 공통으로 사용하는 것을 지양함</li>
+					<li>세부 스타일은 이중 클래스에서 지정함.</li>
+				</ul>
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="msaeBannerWrap"> <!-- [D] ty** : 스타일 변경 -->
+										<p class="tit">배너문구</p>
+										<a href="javascript:;" class="linkTxt">바로가기</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+				
+				<div class="msaeBannerWrap">
+					<p class="tit">투자고수는 어떻게<br>투자하는지 살펴볼까요?</p>
+					<a href="javascript:;" class="linkTxt">투자고수 보러가기</a>
+				</div>
+
+				<div class="msaeBannerWrap ty01">
+					<p class="tit">은퇴 후 나의 예상<br>연금 수령액은 얼마지?</p>
+					<a href="javascript:;" class="linkTxt">연금진단 하러 가기</a>
+				</div>
+
+				<h3 class="guide_title4 mt40 t1">활용 : msaeBannerWrap02</h3>
+				<a href="javascript:;" role="button" class="msaeBannerWrap02">
+					<p class="tit">IRP 고수 따라 잡기</p>
+					<p class="addTxt">수익률 상위 20% IRP고수는?</p>
+				</a>
+
+				<h3 class="guide_title4 mt40 t1">활용 : msaeBannerWrap03</h3>
+				<div class="msaeBannerWrap03">
+					<p class="tit">행복한 미래를 위한 시니어 꿀팁</p>
+					<p class="addTxt">은퇴설계에 도움이 되는 금융정보</p>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] 기타 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : 기타</h3>
+				<ul class="guide_txt">
+					<li class="pointColor2">특정 서비스에만 사용하고 있는 배너이므로 공통으로 사용하는 것을 지양함</li>
+				</ul>
+
+				<div class="guide_area2">
+					<h4 class="guide_title4">.maybeBanner</h4>
+					<div class="maybeBanner">
+						<a href="javascript:;" role="button">
+							<div class="title">만약 그 때 그랬다면?</div>
+							<p class="para">시뮬레이션 시작하기</p>
+						</a>
+					</div>
+				</div>
+
+				<div class="guide_area2">
+					<h4 class="guide_title4">.foreignBannerWrap</h4>
+					<div class="foreignBannerWrap">
+						<a href="javascript:;" role="button">
+							<div>외화를 효율적으로</div>
+							<strong>관리하기를 원한다면?</strong>
+						</a>
+					</div>
+				</div>
+
+				<div class="guide_area2">
+					<h4 class="guide_title4">.ObMainBanner</h4>
+					<div class="boxTypeWrap">
+						<div class="ObMainBanner" role="button" tabindex="0">
+							<h2>목표 연결이 가능한<br />신규 계좌가 <span class="pointColor">2</span>개 있어요</h2>
+							<p>목표에 계좌 연결하고 자산관리 시작하기!</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="guide_area2">
+					<h4 class="guide_title4">.cardChangeWrap</h4>
+					<div class="boxTypeWrap" role="button" tabindex="0" title="카드 서브메인 페이지 이동">
+						<div class="cardChangeWrap">
+							<div>
+								<span class="changeimg"><img src="../../images/img_consum_message_change.png" alt="카드이미지"></span>
+							</div>
+							<div class="w100p ml10">
+								<h2 class="txtt2 mb0"><strong class="csLink">다가오는 카드 결제예정금액은?</strong></h2>
+								<div><strong class="txtt2 fwB pointColor">4,000,000원</strong></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="boxTypeWrap" role="button" tabindex="0" title="카드혜택비교 페이지 이동">
+						<div class="accTopInfo mt0">
+							<h5 class="txtt2"><strong class="csLink">나에게 맞는 추천카드는?</strong></h5>
+						</div>
+						<div class="cardChangeWrap mt10">
+							<div>
+								<span class="imgWrap">
+									<img src="../../images/logos/AAHJ0000.png" alt="카카오뱅크 로고" class="imgLogo">
+								</span>
+							</div>
+							<div class="cs cardComparedTitle">
+								<span class="inner smallTxt">내가 쓰는 <button type="button" title="카드 선택">
+									<span>카카오뱅크 *텍스트긴경우</span></button> 를<br>NH농협카드로 바꾸면?
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="areaBodyBtnFlex">
+						<a href="../../pub/cs/MSCSM100.html" target="_blank" class="btnBodyGray">적용된 페이지 보기</a>
+					</div>
+				</div>
+
+				<div class="guide_area2">
+					<h4 class="guide_title4">.boxTypeWrap + .cardBgType**</h4>
+
+					<div class="boxTypeWrap cardBgType01">
+						<div class="cardBGcont">지금 사용중인 카드를 등록하면<br>혜택 많이 받는 카드를 <br>알려드려요.</div>
+						<div class="areaBodyBtnFull mt25">
+							<a href="javascript:;" class="btnBodyLine green" role="button">카드등록 바로가기</a>
+						</div>
+					</div>
+
+					<div class="boxTypeWrap cardBgType02">
+						<div class="cardBGcont">지금 사용중인 카드를 등록하면 <br>혜택 많이 받는 카드를 <br>알려드릴게요.</div>
+						<div class="areaBodyBtnFull mt25">
+							<a href="javascript:;" class="btnBodyLine green" role="button">카드등록 바로가기</a>
+						</div>
+					</div>
+
+					<div class="boxTypeWrap cardBgType03">
+						<div class="cardBGcont">지금 가맹점정보를 불러오면<br>혜택 많이 받는 카드를 <br>알려드릴게요. </div>
+						<div class="areaBodyBtnFull mt25">
+							<a href="javascript:;" class="btnBodyLine green" role="button">가맹점정보 불러오기</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="guide_area2">
+					<h4 class="guide_title4">.planBannerArea</h4>
+					<div class="planBannerArea">
+						<a href="javascript:;" role="button"><p>NH청약플래너에서<br>청약가점과 일정을 확인해보세요!</p></a>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 슬라이드형 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT2">
+			<h2 class="guide_title">슬라이드형</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .areaBanner1 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .areaBanner1</h3>
+				<ul class="guide_txt">
+					<li>공통 슬라이드 스크립트 적용 : [data-swiper-type="list1"]</li>
+					<li>기본 높이값 정의 : min-height:366px</li>
+					<li>배너이미지 : 전경이미지(관리자등록)</li>
+				</ul>
+				<div class="guide_sample" style="--el-background:var(--point2);">
+					<div class="guide">
+						<span class="h">366</span>
+						<span class="pt" style="--el-value:24px">24</span>
+						<span class="pl" style="--el-value:20px">20</span>
+						<span class="pr" style="--el-value:20px">20</span>
+						<span class="pb" style="--el-value:24px">24</span>
+						<span class="r" style="--el-value:10px">10</span>
+					</div>
+					<div class="areaBanner1 guide_el">
+						<ul>
+							<li>
+								<div class="tit">
+									<span>폰트사이즈 : 20px</span>
+									<span>폰트굵기 : 900</span>
+									<span>폰트색상 : #111</span>
+								</div>
+								<div class="img"><img src="../../images/temp/@img_banner01.png" alt=""></div>
+								<div class="con1">
+									<span>폰트사이즈 : 14px</span>
+									<span>폰트굵기 : 900</span>
+								</div>
+								<div class="con2">
+									폰트사이즈 : 14px 폰트굵기 : 900
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="areaBanner1" data-swiper-type="list1" data-swiper-space="12" data-swiper-slidesperview="auto">
+										<ul>
+											<!-- ### [기본구조] ### -->
+											<li>
+												<!-- 문구작성 -->
+												<div class="tit">
+													<span>문구작성 첫번째 줄</span>
+													<span>문구작성 두번째 줄</span>
+													<span>문구작성 세번째 줄</span>
+												</div>
+												<!-- 관리자등록이미지 -->
+												<div class="img"><img src="../../images/temp/@img_banner01.png" alt=""></div>
+												<!-- 내 카드 결제 문구 -->
+												<div class="con1">
+													<span><span>카테고리명</span>에</span>
+													<span>월 <span class="dataValue">9,999,999,999</span><em class="won">원</em> (<span class="dataValue">99,999</span><em class="won">건</em>) 결제</span>
+												</div>
+												<!-- 또래비교 문구 -->
+												<div class="con2">
+													<strong>또래보다 <span class="dataValue">000,000,000</span><em class="won">만원</em> 더 소비</strong>
+												</div>
+												<!-- // -->
+											</li>
+										</ul>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+
+				<div class="areaBanner1" data-swiper-type="list1" data-swiper-space="12" data-swiper-slidesperview="auto">
+					<ul>
+						<li>
+							<div class="tit">
+								<span>제 월급이</span>
+								<span>다 여기로 갔군요</span>
+							</div>
+							<div class="img"><img src="../../images/temp/@img_banner02.png" alt=""></div>
+							<div class="con1">
+								<span><span>온라인쇼핑</span>에</span>
+								<span>월 <span class="dataValue">9,999,999,999</span><em class="won">원</em> (<span class="dataValue">99,999</span><em class="won">건</em>) 결제</span>
+							</div>
+							<div class="con2">
+								<strong>또래보다 <span class="dataValue">99억9,999</span><em class="won">만원</em> 더 소비</strong>
+							</div>
+						</li>
+						<li>
+							<div class="tit">
+								<span>그뤠잇!</span>
+								<span>안쓰면 100% 할인</span>
+							</div>
+							<div class="img"><img src="../../images/temp/@img_banner03.png" alt=""></div>
+							<div class="con1">
+								<span><span>의료/건강</span>에</span>
+								<span>월 <span class="dataValue">1,000</span><em class="won">원</em> (<span class="dataValue">1</span><em class="won">건</em>) 결제</span>
+							</div>
+							<div class="con2">
+								<strong>또래보다 <span class="dataValue">99억9,999</span><em class="won">만원</em> 절약</strong>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .mainBttomBannerWrap -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .mainBttomBannerWrap</h3>
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="mainBttomBannerWrap">
+										<ul>
+											<li class="report">
+												<a href="javascript:;" role="button">
+													<div class="subject">부가설명</div>
+													<div class="title">타이틀</div>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+				<div class="guide_sample" style="--el-background:var(--point2);">
+					<div class="guide">
+						<span class="h">140</span>
+						<span class="pt" style="--el-value:16px">16</span>
+						<span class="pl" style="--el-value:20px">20</span>
+						<span class="pr" style="--el-value:10px">10</span>
+						<span class="pb" style="--el-value:15px">15</span>
+						<span class="r" style="--el-value:10px">16</span>
+					</div>
+					<div class="mainBttomBannerWrap guide_el">
+						<ul style="padding:0;">
+							<li class="report" style="flex:1;">
+								<a href="javascript:;" role="button" style="width:100%">
+									<div class="subject">폰트사이즈(subject) : 12px</div>
+									<div class="title">폰트사이즈(title) <br> 14px / 900 / #111  </div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="mainBttomBannerWrap">
+					<ul>
+						<li class="report">
+							<a href="javascript:;" role="button">
+								<div class="subject">내 자산분석을 한눈에!</div>
+								<div class="title">00월 보고서</div>
+							</a>
+						</li>
+						<li class="pension">
+							<a href="javascript:;" role="button">
+								<div class="title">연금진단</div>
+								<div class="subject">내가 모은<br>연금총액을<br>확인해보세요</div>
+							</a>
+						</li>
+						<li class="card">
+							<a href="javascript:;" role="button">
+								<div class="subject">이 카드로 바꾸면</div>
+								<div class="title">혜택이 팡팡팡!</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="areaBodyBtnFlex">
+					<a href="../../pub/co/MSCO9210.html" target="_blank" class="btnBodyGray">적용된 페이지 보기</a>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .csChartWrap -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : .csChartWrap</h3>
+				<div class="csChartWrap">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<div class="boxTypeWrap">
+									<h2 class="txtt2"><strong>나의 한 달 소비 흐름</strong></h2>
+									<p class="imojiTit mt5">
+										지난 달 동일기간보다 <span class="pointColor02">40만원 더</span> 썼어요 
+										<span class="icoImg"><img src="../../images/ico_emoji04.png" alt="우는 아이콘"></span>
+									</p>
+									<div class="graphWrap mt20" style="height:190px;background:#f6f6f6;" tabindex="0" role="img" aria-label="">
+										<div class="guide_empty">차트영역</div>
+									</div>
+									<div class="ac">
+										<a href="javascript:;" class="linkTxt3 mt20">나의 한 달 설정하기</a>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide">
+								<div class="boxTypeWrap">
+									<h2 class="txtt2"><strong>나의 한 달 예산 현황</strong></h2>
+									<p class="imojiTit mt5">
+										예산 <strong>300만원</strong> 초과의 주범은? <span class="icoImg"><img src="../../images/ico_emoji06.png" alt="눈물 아이콘"></span>
+									</p>
+									<p class="pointColor03 f13">월 예산보다 <span class="pointColor09">1,400,000원 초과</span> 되었어요</p>
+									<p class="defTxt f13"><strong>월 예산 <span class="pointColor09">100.0%</span> 사용</strong></p>
+									<div class="mt50 spendChart bdNone p0">
+										<div class="graphBg" style="height:auto;">
+											<div class="graphWrap" style="height:20px;background:#f6f6f6;" tabindex="0" role="img" aria-label="설정한 예산 대비 소비 200%">
+												<!-- 말풍선 -->
+												<div class="grahpBubble type04" style="top:-36px;right:0;">
+													<p>예산초과</p>
+												</div>
+												<!-- //말풍선 -->
+												<div class="guide_empty">차트영역</div>
+												<div class="graphLimit" style="left:30%">
+													<span class="box">권장</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="ac mt30">
+										<a href="javascript:;" class="linkTxt3 mt20">카테고리별 예산 보기</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-button-prev blind"></div>
+					<div class="swiper-button-next blind"></div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] 이미지배너 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형 : 이미지배너</h3>
+				<div class="swiper-container bannerSwiperImgtype ent01">
+					<div class="swiper-wrapper ">
+						<div class="swiper-slide bannerPrd1 pr0 pl0">
+							<a href="javascript:;" title="금융상품몰 이동">
+								<img src="../../cms/images/bn_c_5.png" alt="NH 직장인월복리적금 이자에 이자를 더한 월복리적금으로 재테크도 꼼꼼하게!" class="bannerImgType" />
+							</a>
+						</div>
+						<div class="swiper-slide bannerPrd1 pr0 pl0">
+							<a href="javascript:;" title="금융상품몰 이동">
+								<img src="../../cms/images/bn_c_10.png" alt="주택청약종합저축 내집마련의 첫걸음! 국민주택과 민영주택의 청약권 부여!" class="bannerImgType" />
+							</a>
+						</div>
+						<div class="swiper-slide bannerPrd1 pr0 pl0">
+							<a href="javascript:;" title="금융상품몰 이동">
+								<img src="../../cms/images/bn_c_2.png" alt="직장인을 위한 신용대출 1분이면 한도조회 OK! 한번에 편하게 제안해드립니다." class="bannerImgType" />
+							</a>
+						</div>
+					</div>
+					<div class="auto_page_btnps mt0">
+						<div class="swiper-pagination pageCarDriveBanner"></div>
+						<div class="btnPSWrap">
+							<button type="button" class="stop"><span class="blind">자동재생 정지</span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 기티유형 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT3">
+			<h2 class="guide_title">기티유형</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형] .banAni2 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">.banAni2[data-motion-mode="scroll"]</h3>
+				<div class="areaBox1 t1">
+					<div class="banAni2" data-motion-mode="scroll" role="img">
+						<ul>
+							<li><img src="../../images/cardreport/img_report01.png" alt="???개 가맹점에서 ???번 긁고 ???만원 썼어요!"></li>
+							<li><img src="../../images/cardreport/img_report02.png" alt="제 월급이 다 여기로 갔군요"></li>
+							<li><img src="../../images/cardreport/img_report03.png" alt="그뤠잇! 안쓰면 100% 할인"></li>
+							<li><img src="../../images/cardreport/img_report04.png" alt="토요일만 되면 불타는 내 카드"></li>
+							<li><img src="../../images/cardreport/img_report05.png" alt="네카라쿠배 제 카드에도 있죠"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+		<!-- ################################# -->
+	</div>
+	<!-- ###################################### -->
+</div>
+<!-- ################################# -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ################################# -->
+<script type="text/javascript">
+	$('.moreOpenBtn01').click(function(){
+		if($(this).hasClass('active')){
+			$(this).parents('.yatoggleWarp').closest('.addType').removeClass('zin');
+		}else{
+			$(this).parents('.yatoggleWarp').closest('.addType').addClass('zin');	  
+		}
+	});
+
+	//샘플 : 소비현황 배너
+	csChartWrapSwiper();
+
+	//샘플 : 이미지 배너
+	$('.bannerSwiperImgtype.ent01').each(function(){
+		var $swiperContainer = $(this);
+		var swiperBannerImg01 = new Swiper('.bannerSwiperImgtype.ent01', {
+			slidesPerView: 1,
+			watchOverflow:true,
+			spaceBetween: 10,
+			loop: true,
+			observer:true,
+			observeParents : true,
+			autoplay: {
+				delay: 2500,
+				disableOnInteraction: true,
+				pauseOnMouseEnter: true,
+			},
+
+			pagination: {
+				el: '.swiper-pagination.pageCarDriveBanner',
+				type: 'bullets',
+				clickable: true,
+				bulletElement: 'a',
+			},
+			//달력 aria-hidden 적용
+			on: { 
+				transitionEnd: function () {
+					$('.swiper-slide').attr('aria-hidden', 'true')
+					$('.swiper-slide-active').attr('aria-hidden', 'false')
+				}
+			}
+		});
+
+		var $psbtn = $swiperContainer.find('.stop');
+		$psbtn.click(function(){
+			$(this).toggleClass('active');
+			if($(this).hasClass('active')){
+				$(this).attr('title','자동재생 시작');
+				$(this).find('.blind').text('자동재생 시작');
+				swiperBannerImg01.autoplay.stop();
+			}
+			else {
+				$(this).attr('title','자동재생 정지');
+				$(this).find('.blind').text('자동재생 정지');
+				swiperBannerImg01.autoplay.start();
+			}
+		});
+	});
+</script>
+<!-- ################################# -->
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>기간연장 연장설정 | 연결자산관리 | 설정관리</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>연결자산관리</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 기간연장 연장설정 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 상단문구 -->
+		<!-- -------------------------------------- -->
+		<h2 class="agr_title_info">자산 연결 <strong>기간을 <br> 연장해주세요</strong></h2>
+		<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 삭제 -->
+		<!-- <p class="subTxt mt15">기존 동의내역을 기반으로 기간연장에 동의합니다.<br>동의하지 않을 경우 새로운 정보 수집이 제한됩니다.</p> [MD2408_067] 문구수정 : [현행화_2024] 개발페이지에는 해당 내용이 없음(해당내용은 2022-10-25 추가된 내용임) -->
+		
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 기간연장 설정기간 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap pt0">
+			<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 텍스트 수정 -->
+			<div class="boxTitArea bgAssetConn"><h3 class="defSubTit2">기간연장 설정기간</h3></div>
+			<!-- // -->
+			<!-- <div class="boxRadio mt20">
+				<div class="boxRadioInn">
+					<span>
+						<input name="rdo13" id="rdo16" type="radio" aria-label="정기전송 유효기간(1년 범위 내 직접입력)">
+						<label for="rdo16" class="f13" aria-hidden="true">1년 범위 내 직접입력</label>
+					</span>
+				</div>
+				<div class="boxRadioInn mt25">
+					<span>
+						<input name="rdo13" id="rdo17" type="radio" aria-label="정기전송 유효기간(1년)" checked>
+						<label for="rdo17" class="f13" aria-hidden="true">1년</label>
+					</span>
+				</div>
+			</div> -->
+			<!-- <div class="stList boxType mt10">
+				<a href="javascript:;" title="유효기간 선택" aria-haspopup="true">
+					<span class="selectValue">2025.11.13</span>
+					<span class="selectBtn"></span>
+				</a>
+				<select name="" title="선택해주세요">
+					<option value=""></option>
+				</select>
+			</div> -->
+			<!-- // -->
+			<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 추가 S -->
+			<div class="baseChkType mt10">
+				<ul class="subChkList" id="periodList">
+					<li><input type="radio" id="rdo_y1" class="chekTypeOther" name="rdo_y"><label for="rdo_y1">1년</label></li>
+					<li><input type="radio" id="rdo_y2" class="chekTypeOther" name="rdo_y"><label for="rdo_y2">2년</label></li>
+					<li><input type="radio" id="rdo_y3" class="chekTypeOther" name="rdo_y"><label for="rdo_y3">3년</label></li>
+					<li><input type="radio" id="rdo_y4" class="chekTypeOther" name="rdo_y"><label for="rdo_y4">4년</label></li>
+					<li><input type="radio" id="rdo_y5" class="chekTypeOther" name="rdo_y"><label for="rdo_y5">5년</label></li>
+				</ul>
+				<p class="subTxt pb0" id="periodTxt">기존동의 내역을 기반으로 기간을 <span class="periodTxt">(선택 기간)</span> 연장함에 동의합니다. 동의하지 않을 경우 새로운 정보의 수집이 제한됩니다.</p>
+			</div>
+			<!-- //[MD2411_092_v0.09] [자산연결 동의 절차 간소화] 추가 E -->
+			<!-- // -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 기간변경 대상 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap pt0">
+			<div class="boxTitArea bgAssetConn"><h3 class="defSubTit2">기간변경 대상</h3></div>
+			<div class="assetSelectLlistWrap mt25">
+				<ul class="assetSelectLlist mgtType">
+					<!-- // -->
+					<li class="toggleWrap">
+						<div class="assetSelectGroup">
+							<a href="javascript:;" class="subject toggleBtn">
+								<span class="imgWrap"><img src="../../images/logos/AAER0000.png" class="imgLogo" alt="">신한은행</span>
+							</a>
+						</div>
+						<ul class="assetSelectSub noneSelect toggleCont" style="display:none">
+							<li>
+								<span class="accountInfo">
+									<div>
+										<div class="title">신한 주거래 미래설계통장</div>
+										<div class="subCont">2345612341234</div>
+									</div>
+								</span>
+							</li>
+						</ul>
+					</li>
+					<!-- // -->
+					<li class="toggleWrap">
+						<div class="assetSelectGroup">
+							<a href="javascript:;" class="subject toggleBtn">
+								<span class="imgWrap"><img src="../../images/logos/AAFO0000.png" class="imgLogo" alt="">현대카드</span>
+							</a>
+						</div>
+						<ul class="assetSelectSub noneSelect toggleCont" style="display:none">
+							<li>
+								<span class="accountInfo">
+									<div>
+										<div class="title">네이버 현대 카드 </div>
+										<div class="subCont">23456******1234</div>
+									</div>
+								</span>
+							</li>
+							<li>
+								<span class="accountInfo">
+									<div class="title">포인트 정보</div>
+								</span>
+							</li>
+							<li>
+								<span class="accountInfo">
+									<div class="title">청구 및 결제정보</div>
+								</span>
+							</li>
+							<li>
+								<span class="accountInfo">
+									<div class="title">대출상품정보</div>
+								</span>
+							</li>
+						</ul>
+					</li>
+					<!-- // -->
+				</ul>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">기간연장</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트  ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$('#periodList li').on('click',function(){
+		var Text_period = $(this).text();
+		$('#periodTxt').show();
+		$('#periodTxt .periodTxt').text(Text_period);
+		$('#periodTxt .periodTxt').css('color','#19a647');
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

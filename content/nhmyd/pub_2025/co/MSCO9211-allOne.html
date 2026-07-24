@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="robots" content="no-index,follow" />
+<meta name="title" content="" />
+<meta name="author" content="" />
+<meta name="content" content="" />
+<meta name="keywords" content="NH마이데이터" />
+<meta name="description" content="NH마이데이터" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<title>NH마이데이터</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<style>
+  /* 퍼블 확인용 css 실제 서비스에는 불필요 */
+  .guide_button .btn_sw03{display:none !important}
+</style>
+</head>
+<body class="nhd_allone">
+  <div class="wrapper nhasset">
+    <!-- header -->
+    <div class="header newMain bgNewMain">
+      <h1>내 자산</h1>
+      <a href="javascript:;" class="btnCalendar" role="button"><span class="blind">금융플래너</span></a>
+      <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a>
+      <a href="javascript:;" class="btnAlram" role="button"><span>알림</span></a><!-- 알림 상태 active -->
+      <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+    </div>
+    <!-- //header -->
+    <div class="container bgNewMain"><!-- 2025-10-21 배경 클래스 추가 bgNewMain (올뱅싱크)-->
+      <div class="fullyWrap pd0">
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 나만의 메뉴 영역 총소비  -->
+        <!-- -------------------------------------- -->
+        <!-- 2025-09-29 메뉴 코드명 변경으로 인한 a태그 클래스명 변경 및 p태그 추가 -->
+        <!-- [D] 메뉴 코드 = 클래스 화면설계서_메인_v0.71 참조하세요 "AA1001" ~ "AA6011" -->
+        <ul class="menuLink">
+          <li><a href="javascript:;" class="menu -add" aria-label="나만의 메뉴 설정 페이지로 이동" role="button"><p>메뉴추가</p></a></li>
+          <li><a href="javascript:;" class="menu -AA1001" aria-label="자산모아보기 페이지로 이동" role="button"><p>자산모아<br>보기</p></a></li>
+          <li><a href="javascript:;" class="menu -AA1002" aria-label="내 투자 페이지로 이동" role="button"><p>내 투자</p></a></li>
+          <li><a href="javascript:;" class="menu -AA1003" aria-label="자산진단 페이지로 이동" role="button"><p>자산진단</p></a></li>
+          <li><a href="javascript:;" class="menu -AA1004" aria-label="연금진단 페이지로 이동" role="button"><p>연금진단</p></a></li>
+          <li><a href="javascript:;" class="menu -AA1005" aria-label="조기은퇴진단 페이지로 이동" role="button"><p>조기은퇴<br>진단</p></a></li>
+          <li><a href="javascript:;" class="menu -AA1006" aria-label="밸런스진단 페이지로 이동" role="button"><p>밸런스<br>진단</p></a></li>
+        </ul>
+        <!-- // 2025-09-29 메뉴 코드명 변경으로 인한 a태그 클래스명 변경 및 p태그 추가 -->
+      </div>
+
+      <div class="fullyWrap pt12">
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 알림톡 운영 지정 메시지 노출  -->
+        <!-- -------------------------------------- -->
+        <!-- 알림톡 CASE1 -->
+        <div class="yaTopBanner trans alimTalk01">
+          <a href="javascript:;" class="link yalinkBtn" role="button">
+            <strong>8월 월간 자산 리포트가<br> 발행 되었어요!</strong>
+          </a>
+          <button type="button" class="btnClose"><span class="blind">닫기</span></button>
+        </div>
+        <!-- 알림톡 CASE2 -->
+        <div class="yaTopBanner trans alimTalk02">
+          <a href="javascript:;" class="link yalinkBtn" role="button">
+            <strong>매달 나가는 돈! 잊고 있었나요?<br> 통장의 정기지출을 확인하세요!</strong>
+          </a>
+          <button type="button" class="btnClose"><span class="blind">닫기</span></button>
+        </div>
+        <!-- 알림톡 CASE3 -->
+        <div class="yaTopBanner trans alimTalk03">
+          <a href="javascript:;" class="link yalinkBtn" role="button">
+            <strong>자산 관리는 목표 설정부터!<br> 목표를 등록하러 가볼까요?</strong>
+          </a>
+          <button type="button" class="btnClose"><span class="blind">닫기</span></button>
+        </div>
+        <!-- 알림톡 CASE4 -->
+        <div class="yaTopBanner trans alimTalk04">
+          <a href="javascript:;" class="link yalinkBtn" role="button">
+            <strong>신용점수 관리,<br> 저희가 도와드릴게요!</strong>
+          </a>
+          <button type="button" class="btnClose"><span class="blind">닫기</span></button>
+        </div>
+        <!-- 알림톡 CASE5 -->
+        <div class="yaTopBanner trans alimTalk05">
+          <a href="javascript:;" class="link yalinkBtn" role="button">
+            <strong>8월 월간 자산 리포트가<br> 발행 되었어요!</strong>
+          </a>
+          <button type="button" class="btnClose"><span class="blind">닫기</span></button>
+        </div>
+        <!-- 알림톡 CASE6 -->
+        <div class="yaTopBanner trans alimTalk06">
+          <a href="javascript:;" class="link yalinkBtn" role="button">
+            <strong>매달 나가는 돈! 잊고 있었나요?<br> 통장의 정기지출을 확인하세요!</strong>
+          </a>
+          <button type="button" class="btnClose"><span class="blind">닫기</span></button>
+        </div>
+        <!-- 알림톡 CASE7 -->
+        <div class="yaTopBanner trans alimTalk07">
+          <a href="javascript:;" class="link yalinkBtn" role="button">
+            <strong>자산 관리는 목표 설정부터!<br> 목표를 등록하러 가볼까요?</strong>
+          </a>
+          <button type="button" class="btnClose"><span class="blind">닫기</span></button>
+        </div>
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 순자산  -->
+        <!-- -------------------------------------- -->
+        <div class="boxTypeWrap posR bdNone boxPdMedium bgBlueDark">
+          <div class="defSubTit2 t1">
+            <h6 class="h5 pointColorwh">순자산</h6>
+            <span class="sub f13 pointColorwh"><span>25.08.23</span> 기준</span>
+          </div>
+          <div class="pstotalBalance">
+            <div class="asset pointColorwh"><span>999,999,000</span>원</div>
+          </div>
+          <p class="f13 pointColorwh">
+            <span>08.29</span> 보다 <span>999,999</span>원
+            <span class="pointColorwh">늘었어요.</span>
+          </p>
+          <div class="areaBodyBtnFlex mt24">
+            <button type="button">자산 추가하기</button>
+            <button type="button">전체 보기</button>
+          </div>
+        </div>
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 이번달 총소비  -->
+        <!-- -------------------------------------- -->
+        <!-- 총소비 CASE1 -->
+        <div class="boxTypeWrap posR bdNone boxPdMedium mt20">
+          <div class="defSubTit2 t1">
+            <h6 class="h5">이번달 총소비</h6>
+            <span class="sub f13 color4"><span>25.08.23</span> 기준</span>
+          </div>
+          <div class="pstotalBalance mt8">
+            <div class="asset"><span>999,999,000</span>원</div>
+          </div>
+          <p class="f13 color4">
+            지난 달 같은 기간 보다 <span>999,999</span>원 <span class="pointColor">아꼈어요.</span>
+          </p>
+          <div class="bgChick01 mt16">
+            <!-- [D] style="--offset:0px"로 이번 달 저번 달 위치 조정 -->
+            <p class="amountRow" style="--offset:50px">
+              <span class="amount"><span>999,999,000</span>원</span>
+              <span class="labelDot">
+                <span class="labelDotText">이번달</span>
+              </span>
+            </p>
+            <p class="amountRow lastMonth" style="--offset:0px">
+              <span class="amount"><span>999,999,999,000</span>원</span>
+              <span class="labelDot">
+                <span class="labelDotText">지난달</span>
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 총소비 CASE2 -->
+        <div class="boxTypeWrap posR bdNone boxPdMedium mt20">
+          <div class="defSubTit2 t1">
+            <h6 class="h5">이번달 총소비</h6>
+            <span class="sub f13 color4"><span>25.08.23</span> 기준</span>
+          </div>
+          <div class="pstotalBalance mt8">
+            <div class="asset"><span>999,999,000</span>원</div>
+          </div>
+          <p class="f13 color4">
+            지난 달 같은 기간 보다 <span>999,999</span>원 <span class="pointColor">많이 썼어요.</span>
+          </p>
+          <div class="bgChick02 mt16">
+            <!-- [D] style="--offset:0px"로 이번 달 저번 달 위치 조정 -->
+            <p class="amountRow" style="--offset:0px">
+              <span class="amount"><span>999,999,999,000</span>원</span>
+              <span class="labelDot">
+                <span class="labelDotText">이번달</span>
+              </span>
+            </p>
+            <p class="amountRow lastMonth" style="--offset:50px">
+              <span class="amount"><span>999,999,000</span>원</span>
+              <span class="labelDot">
+                <span class="labelDotText">지난달</span>
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <!-- 총소비 CASE3 -->
+        <div class="boxTypeWrap posR bdNone boxPdMedium mt20">
+          <div class="defSubTit2 t1">
+            <h6 class="h5">이번달 총소비</h6>
+            <span class="sub f13 color4"><span>25.08.23</span> 기준</span>
+          </div>
+          <div class="pstotalBalance mt8">
+            <div class="asset"><span>999,999,000</span>원</div>
+          </div>
+          <p class="f13 color4">
+            <span>08.23</span> 기준 <span>999,999,000</span>원 <span class="pointColor">그대로에요.</span>
+          </p>
+          <div class="bgChick03 mt16">
+            <p class="amountRow" style="--offset:50px">
+              <span class="amount"><span>999,999,000</span>원</span>
+              <span class="labelDot">
+                <span class="labelDotText">이번 달/지난 달</span>
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 금융일정 -->
+        <!-- -------------------------------------- -->
+        <div class="boxTypeWrap bdNone mt20">
+          <h3 class="body3 -medium">금융일정</h3>
+            <div class="mbAccListWrap mt8">
+              <a href="javascript:;" class="displayB" title="$별명$ or $계좌명$ 금융일정으로 이동하기"> <!-- 전체 영역 클릭 -->
+                <ul class="mbAccList">
+                  <li class="mbAccListItem p0 bdNone">
+                    <span class="mbCiWrap">
+                      <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                    </span>
+                    <div class="mbAccItem">
+                      <span class="mbAccLabelWrap"><!-- [D] 뱃지 있을 때 -->
+                        <span class="tagLabel have1">납부예정</span>
+                        <span class="tagLabel have2">D-Day</span>
+                        <span class="tagLabel have3">만기예정</span><!-- <span class="tagLabel have3">직접등록</span> -->
+                        <span class="tagLabel have4">출금예정</span>
+                      </span>
+                      <div class="mbAccTitWrap mt4">
+                        <span class="mbAccTit ellipsis">$별명$ or $계좌명$</span>
+                      </div>
+                      <div class="mbAccAmount w100p">
+                        <strong class="fs18"><span>999,500,000</span>원</strong>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </a>
+            </div>
+        </div>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 카드 결제 예정 금액 -->
+        <!-- -------------------------------------- -->
+        <div class="boxTypeWrap bdNone mt20">
+          <div class="mbAccListWrap">
+            <ul class="mbAccList">
+              <li class="mbAccListItem p0 bdNone">
+                <div class="mbAccItem w100p"><!-- [D] ci 로고 없을 때 w100p -->
+                  <span class="mbAccLabelWrap"><!-- [D] 뱃지 있을 때 -->
+                    <span class="tagLabel have4">출금예정</span>
+                    <span class="tagLabel have2">D-12</span>
+                  </span>
+                  <div class="mbAccTitWrap mt4">
+                    <span class="mbAccTit ellipsis">9월13일 카드 결제 예정 금액</span>
+                  </div>
+                  <div class="mbAccAmount w100p">
+                    <strong class="fs18"><span>3,500,000</span>원</strong>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 마이피드 2025-10-25 케이스 추가 -->
+        <!-- -------------------------------------- -->
+        <!-- 마이피드 (FEED_02_01) -->
+        <div class="boxTypeWrap posR bdNone iconAlert01 bgBlueDeep mt20">
+          <strong class="pointColorwh f16">예산으로 한달 살기!</strong>
+          <p class="pointColorwh mt16 f13">계획적으로 소비 예산을 설정하고<br>한 달 프로젝트에 도전해볼까요?</p>
+        </div>
+
+        <!-- 마이피드(FEED_04_03) -->
+        <div class="boxTypeWrap posR bdNone iconAlert02 bgGreenDark mt20">
+          <strong class="pointColorwh f16">푸시 설정하고 알림받기</strong>
+          <p class="pointColorwh mt16 f13">내 자산을 한 눈에 확인하고<br>관리해볼까요?</p>
+        </div>
+
+        <!-- 마이피드(FEED_06_05) -->
+        <div class="boxTypeWrap posR bdNone iconAlert03 bgBlueLight mt20">
+          <strong class="pointColorwh f16">정기지출 모아보기</strong>
+          <p class="pointColorwh mt16 f13"><span>$넷플릭스$</span>를 구독중이시네요!<br>다른 정기지출이 있는지 확인해볼까요?</p>
+        </div>
+
+        <!-- 마이피드(FEED_07_01) -->
+        <div class="boxTypeWrap posR bdNone iconAlert04 bgCobalt mt20">
+          <strong class="pointColorwh f16">내 자산은 어느 정도일까?</strong>
+          <p class="pointColorwh mt16 f13"><span>$김농협$</span>님, 잠깐이면 돼요.<br>3초만에 자산진단 받아보세요.</p>
+        </div>
+
+        <!-- 마이피드 (FEED_07_02) -->
+        <div class="boxTypeWrap posR bdNone iconAlert05 bgBlueSky mt20">
+          <strong class="pointColorwh f16">자산진단 업데이트</strong>
+          <p class="pointColorwh mt16 f13">$자산진단 결과가<br>바뀌었는지 확인해 볼까요?$</p>
+        </div>
+
+        <!-- 마이피드 (FEED_10_01) -->
+        <div class="boxTypeWrap posR bdNone iconAlert06 bgCobaltLight mt20">
+          <strong class="pointColorwh f16">신용점수올리기</strong>
+          <p class="pointColorwh mt16 f13">신용정보를 제출한지 3개월이 지났어요.<br>자산 연결하고 신용점수를 올려보세요!</p>
+        </div>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 개인화 모듈화 영역 2025-10-18 MSCO9211-2.html 참고하세요 -->
+        <!-- -------------------------------------- -->
+        <!-- 진단 알림 (SPOT_74_01/ 02/ 03) -->
+        <div class="boxTypeWrap posR bdNone boxPdLarge personalType02 mt20">
+          <strong class="h3">연금진단</strong>
+          <p class="fs14 color3 -medium mt20">지난 3개월에 비해 내가 모은 연금이<br> <span class="pointColor">3,000</span>만원 줄었어요.<br> 진단 결과 <span class="pointColor">공적연금 비중</span>이 <span class="pointColor">90%</span>로 <br class="show320">가장 높아요!<br> <span class="color5">(25.10.01 기준)</span></p>
+          <a href="javascript:;" class="fs14 chevronRight mt60 -medium">연금자산 점검하기</a>
+        </div>
+        <!-- 진단 알림 (SPOT_70_02) -->
+        <div class="boxTypeWrap posR bdNone boxPdLarge personalType01 mt20">
+          <strong class="h3">자산진단</strong>
+          <p class="fs14 color3 -medium mt20">당신은 상위 <span class="pointColor">20%</span> 투자고수!<br> 다른 고수들은 <span class="pointColor">어플라이드머티리얼즈</span>에<br> 평균 <span class="pointColor">3,000</span>만원을 투자하고 있어요!</p>
+          <a href="javascript:;" class="fs14 chevronRight mt60 -medium">자세히 보기</a>
+        </div>
+        <!-- 진단 알림 (SPOT_77_03) -->
+        <div class="boxTypeWrap posR bdNone boxPdLarge personalType03 mt20">
+          <strong class="h3">조기은퇴진단</strong>
+          <p class="fs16 body1 mt20">은퇴준비 자금, 점검해볼까요?</p>
+          <p class="fs14 color3 -medium mt8">기대수명보다 은퇴자금고갈이<br> 더 빠를 것으로 예상되네요!</p>
+          <a href="javascript:;" class="fs14 chevronRight mt60 -medium">자세히 보기</a>
+        </div>
+        <!-- 신규 진단 서비스_ 있는 사람 중 밸런스 이력 5%이상 발생한 경우 -->
+        <div class="boxTypeWrap posR bdNone boxPdLarge personalType04 mt20">
+          <strong class="h3">밸런스진단</strong>
+          <p class="fs14 color3 -medium mt20"><span class="pointColor">주식</span> 비중이 최적자산배분 대비<br> <span class="pointColor">72%</span> 높아졌어요.<br> 리스크 대비 수익을 <br> 극대화할 수 있는 방법을<br> 알아볼까요?</p>
+          <a href="javascript:;" class="fs14 chevronRight mt60 -medium">투자밸런스 점검하기</a>
+        </div>
+        <!-- 지난달 발생+추정 > 2,000 -->
+        <div class="boxTypeWrap posR bdNone boxPdLarge personalType05 mt20">
+          <strong class="h3">금융소득 모니터링</strong>
+          <p class="fs14 color3 -medium mt20">합계 금융소득 약 <span class="pointColor">3,400</span>만원!<br> 금융소득종합과세 기준 <span>2,000</span>만원 대비<br> 약 <span class="pointColor">13.9%</span> 초과했어요!</p>
+          <a href="javascript:;" class="fs14 chevronRight mt60 -medium">금융소득 확인하기</a>
+        </div>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 목표 설정 2025-10-22 디자인 수정 요청 -->
+        <!-- -------------------------------------- -->
+        <!-- 목표 0개 CASE1-->
+        <ul class="hScrollBox mt20">
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoalAdd">
+              <a href="javascript:;" class="chevronRight white">목표설정</a>
+              <p>자산 목표를 설정하고<br>차곡차곡 목돈을 마련해 보세요!</p>
+            </div>
+          </li>
+        </ul>
+        <!-- 목표 1개 CASE2 -->
+        <ul class="hScrollBox mt20">
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoal01">
+              <a href="javascript:;" class="chevronRight white">목표보기</a>
+              <h4 class="ellipsis">엄마랑 여행가기 아빠랑 여행가기 고모랑 여행가기 이모랑 여행가기</h4>
+              <p>나의 목표 달성률<br>12.8%</p>
+            </div>
+          </li>
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoalAdd">
+              <a href="javascript:;" class="chevronRight white">목표설정</a>
+              <p>자산 목표를 설정하고 차곡차곡 목돈을 마련해 보세요!</p>
+            </div>
+          </li>
+        </ul>
+        <!-- 목표 2개 이상 CASE3 -->
+        <ul class="hScrollBox mt20">
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoal01">
+              <a href="javascript:;" class="chevronRight white">목표보기</a>
+              <h4 class="ellipsis">엄마랑 여행가기 아빠랑 여행가기 고모랑 여행가기 이모랑 여행가기</h4>
+              <p>나의 목표 달성률<br>12.8%</p>
+            </div>
+          </li>
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoal02">
+              <a href="javascript:;" class="chevronRight white">목표보기</a>
+              <h4 class="ellipsis">대출줄이기</h4>
+              <p>나의 목표 달성률<br>12.8%</p>
+            </div>
+          </li>
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoal03">
+              <a href="javascript:;" class="chevronRight white">목표보기</a>
+              <h4 class="ellipsis">목돈마련</h4>
+              <p>나의 목표 달성률<br>12.8%</p>
+            </div>
+          </li>
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoal04">
+              <a href="javascript:;" class="chevronRight white">목표보기</a>
+              <h4 class="ellipsis">자동차 구매</h4>
+              <p>나의 목표 달성률<br>12.8%</p>
+            </div>
+          </li>
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoal05">
+              <a href="javascript:;" class="chevronRight white">목표보기</a>
+              <h4 class="ellipsis">내집마련</h4>
+              <p>나의 목표 달성률<br>12.8%</p>
+            </div>
+          </li>
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoal06">
+              <a href="javascript:;" class="chevronRight white">목표보기</a>
+              <h4 class="ellipsis">내가 만든 목표</h4>
+              <p>나의 목표 달성률<br>12.8%</p>
+            </div>
+          </li>
+          <li class="hScrollBoxItem">
+            <div class="boxTypeWrap bgGoalAdd">
+              <a href="javascript:;" class="chevronRight white">목표설정</a>
+              <p>자산 목표를 설정하고 차곡차곡 목돈을 마련해 보세요!</p>
+            </div>
+          </li>
+        </ul>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 서비스소개  -->
+        <!-- -------------------------------------- -->
+        <!-- 서비스소개 CASE1(버튼무) -->
+        <a href="javascript:;" class="boxTypeWrap boxPdLarge bdNone serviceVisual01 mt20">
+          <strong class="h3">나도 파이어족이 <br>될 수 있을까?</strong>
+          <p class="fs14 mt40"> 고객님의 은퇴를 현실로 만드는 첫걸음,<br> 맞춤형 연금 진단으로<br> 자유로운 미래를 준비하세요. </p>
+        </a>
+
+        <!-- 서비스소개 CASE2(버튼무) -->
+        <a href="javascript:;" class="boxTypeWrap boxPdLarge bdNone serviceVisual02 mt20">
+          <strong class="h3">미리 알고 똑똑하게<br> 준비하는 절세팁</strong>
+          <p class="fs14 mt40"> 지금 내가 납부할 세금을<br> 미리 계산하고<br> 세금을 절약할 수 있는 방법을 확인하세요. </p>
+        </a>
+
+        <!-- 서비스소개 CASE3(버튼무) -->
+        <a href="javascript:;" class="boxTypeWrap boxPdLarge bdNone serviceVisual03 mt20">
+          <strong class="pointColorwh h3">NH트렌드+</strong>
+          <p class="pointColorwh fs14 mt40"> 껍데기는 가라!<br>진짜 AI 추천이 나타났다!!</p>
+        </a>
+
+        <!-- 서비스소개 CASE4(버튼무) -->
+        <a href="javascript:;" class="boxTypeWrap boxPdLarge bdNone serviceVisual04 mt20">
+          <strong class="h3">연말정산 서비스 안내</strong>
+          <p class="fs14 mt40"> 올해 낸 세금<br> 얼마나 돌려받을 수 있을까? </p>
+        </a>
+
+        <!-- 서비스소개 CASE5(버튼무) -->
+        <a href="javascript:;" class="boxTypeWrap boxPdLarge bdNone serviceVisual05 mt20">
+          <strong class="pointColorwh h3">해외주식 거래하시나요?</strong>
+          <p class="pointColorwh fs14 mt40"> 해외주식 거래를 하신다면,<br> 해외주식 양도세를 확인해보세요! </p>
+        </a>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 배너 SIZE 3타입 (배너이미지는 2배수) -->
+        <!-- -------------------------------------- -->
+        <!-- A (스몰) → 328X120 -->
+        <a href="javascript:;" class="tempBanner mt20">
+          <img src="../../images/makebetter/banner/@banner_656_240.png" alt="A (스몰) → 328X120">
+        </a>
+        <!-- B (미듐) → 328X232 -->
+        <a href="javascript:;" class="tempBanner mt20">
+          <img src="../../images/makebetter/banner/@banner_656_464.png" alt="B (미듐) → 328X232">
+        </a>
+        <!-- C (라지) → 328X360 -->
+        <a href="javascript:;" class="tempBanner mt20">
+          <img src="../../images/makebetter/banner/@banner_656_720.png" alt=" C (라지) → 328X360">
+        </a>
+      </div>
+    </div>
+
+    <!-- footer 올원 (신앱) -->
+    <div class="linked-bottom-menu alloneFooterNew">
+      <a href="javascript:void(0);" class="linked-finance">홈</a>
+      <a href="javascript:void(0);" class="linked-mall">상품몰</a>
+      <!-- [MD2504_049] 올원뱅크 푸터메뉴 개편에 따른 대응 개발 S -->
+      <a href="javascript:void(0);" class="linked-mydata">내 자산</a>
+      <a href="javascript:void(0);" class="linked-point">포인트쌓기</a>
+      <a href="javascript:void(0);" class="linked-life">생활혜택</a>
+      <!-- //[MD2504_049] 올원뱅크 푸터메뉴 개편에 따른 대응 개발 E -->
+    </div>
+
+  </div>
+
+  <!-- ###################################### -->
+  <!-- ### [샘플] 스크립트 ### -->
+  <!-- ###################################### -->
+  <script>
+  </script>
+  <!-- ###################################### -->
+</body>
+</html>

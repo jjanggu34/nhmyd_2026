@@ -1,0 +1,973 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>서브메인 | 보고서 | 금융자산분석</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<!-- wrapper -->
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>보고서</h1>
+		<!-- [MD2502_024] 공통 헤더영역 변경 알람 추가 -->
+		<a href="javascript:;" class="btnAlram" role="button"><span>알람</span></a>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 보고서 서브메인 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [상단영역] 월 보고서 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE] 보고서가 있을 경우 -->
+		<div class="boxTypeWrap">
+			<div class="reptTopInfoTit">
+				<h2><strong>김농협</strong>님의 12월 보고서</h2>
+			</div>
+			<div class="reptTopInfo">
+				<div class="item">
+					<div class="itemTit">
+						<div class="left">
+							<span class="ico"><img src="../../images/category/icoCate100.png" alt=""></span>
+							<span class="tit">순자산 현황</span>
+						</div>
+						<span class="value">234,222,000<em class="won">원</em></span>
+					</div>
+					<div class=itemCont>
+						<span>전월보다 1,123,456원 <span class="pointUP">증가</span>했어요!</span>
+					</div>
+				</div>
+				<div class="item">
+					<div class="itemTit">
+						<div class="left">
+							<span class="ico"><img src="../../images/category/icoCate46.png" alt=""></span>
+							<span class="tit">소비 현황</span>
+						</div>
+						<span class="value">234,222,000<em class="won">원</em></span>
+					</div>
+					<div class=itemCont>
+						<span>전월보다 1,123,456원 <span class="pointDown">감소</span>했어요!</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- [CASE] 보고서 미생성 경우 -->
+		<div class="boxTypeWrap pb0">
+			<div class="taxTipMain">
+				<h2 class="defTit mt25 mb15"><strong>김농협님</strong>은 아직 월간 보고서가<br> 발행되지 않았습니다</h2>
+				<p>월간 보고서는 최초 자산연결 후 익월부터 <br> 확인할 수 있으니 조금만 기다려주세요.</p>
+				<div class="imgBg02"></div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 내 자산 최근 흐름 -->
+		<!-- -------------------------------------- -->
+		<h2 class="defTxt fs16 mt30">내 자산 최근 흐름</h2>
+		<!-- [CASE1] 데이터 부족 -->
+		<div class="boxTypeWrap">
+			<div class="reptflow">
+				<h3>자산 리포트</h3>
+				<div class="txt"><strong>김농협</strong>님의 자산 데이터가 아직 부족해요.</div>
+				<p class="addTxt">자산연결  3개월 후부터 자산 리포트를 이용하실 수 있으니 조금만 기다려주세요.</p>
+			</div>
+		</div>
+
+		<!-- [CASE2] 데이터 있음 -->
+		<div class="boxWrapShadow">
+			<div class="boxTypeWrap delShadow">
+				<div class="reptArea">
+					<h3 class="tit">자산 리포트 <span class="date">기간 2022년 4월 1일 ~ 8월 31일</span></h3>
+					<!-- [CASE1] 증가 -->
+					<p class="dsf">최근 5개월 기준 자산이 <span class="pointColor12">증가</span>하고 있어요.<span class="emojiWrap"><img src="../../images/ico_emoji13.png" alt=""></span></p>
+					<!-- [CASE2] 감소 -->
+					<p class="dsf">최근 5개월 기준 자산이 <span class="pointColor13">감소</span>하고 있어요.<span class="emojiWrap"><img src="../../images/ico_emoji12.png" alt=""></span></p>
+					<!-- [CASE3] 기타 -->
+					<p class="dsf">최근 5개월 간 자산 추이를 확인해 보세요.<span class="emojiWrap"><img src="../../images/ico_emoji14.png" alt=""></span></p>
+					<!-- // -->
+				</div>
+				<hr class="divLine" aria-hidden="true">
+				<div class="reptGraphArea">
+					<!-- // -->
+					<div class="graphItem02">
+						<h3 class="tit">자산총액 추세</h3>
+						<div class="graphWrap" role="img" aria-label="">
+							<!-- [CASE3] 3개 : 음수가 있을 경우 -->
+							<div class="graphVerWrap graphPeer type03">
+								<div class="graphTypeWrap">
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>10월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="30"></span></div>
+										<!-- <div class="graphValueData"><span class="blind">3월 또래부자평균 자산</span></div> [D] 사용하지 않아 삭제 -->
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>11월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="-50"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>12월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="100"></span></div>
+									</div>
+								</div>
+								<div class="graphBotText">
+									<span>10월</span>
+									<span>11월</span>
+									<span>12월</span>
+								</div>
+							</div>
+
+							<!-- [CASE3] 4개 : 양수일 경우 -->
+							<div class="graphVerWrap graphPeer type04">
+								<div class="graphTypeWrap">
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>9월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="30"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>10월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="0"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>11월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="80"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>12월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="100"></span></div>
+									</div>
+								</div>
+								<div class="graphBotText">
+									<span>9월</span>
+									<span>10월</span>
+									<span>11월</span>
+									<span>12월</span>
+								</div>
+							</div>
+
+							<!-- [CASE3] 5개 : 음수일 경우 -->
+							<div class="graphVerWrap graphPeer type05">
+								<div class="graphTypeWrap">
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>8월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph " data-value="-30"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>9월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph " data-value="-50"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>10월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="0"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>11월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="-80"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 normgreen">
+											<p class="graphTipBox">
+												<span>12월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="-100"></span></div>
+									</div>
+								</div>
+								<div class="graphBotText">
+									<span>8월</span>
+									<span>9월</span>
+									<span>10월</span>
+									<span>11월</span>
+									<span>12월</span>
+								</div>
+							</div>
+							<!-- // -->
+						</div>
+					</div>
+					<hr class="divLine ty01" aria-hidden="true">
+					<!-- // -->
+					<div class="graphItem01">
+						<h3 class="tit">자산 카테고리별 비중 추세</h3>
+						<div class="graphWrap" style="height:190px;background:#fff;" tabindex="0" role="img" aria-label=""><div class="guide_empty">차트영역</div></div>
+						<ul class="legendList tyrd mt5">
+							<li><span class="legendTit type41">계좌</span></li>
+							<li><span class="legendTit type42">투자</span></li>
+							<li><span class="legendTit type43">연금</span></li>
+							<li><span class="legendTit type44">가상자산</span></li>
+							<!-- [MD2509_106] 카테고리 명칭 변경 -->
+							<li><span class="legendTit type45">대출</span></li>
+							<!-- [현행화_2024] 추가케이스
+							<li><span class="legendTit type47">보험</span></li>
+							<li><span class="legendTit type10">부동산</span></li>
+							<li><span class="legendTit type11">실물자산</span></li>
+							-->
+						</ul>
+					</div>
+					<!-- // -->
+				</div>
+			</div>
+			<!-- [범례영역] -->
+			<div class="moreInfoArea reportArea">
+				<div class="moreInfoWrap toggleWrap">
+					<div class="moreInfo toggleCont" style="display:none">
+						<div class="reportGraph">
+							<h3>12월 자산 카테고리별 비중</h3>
+							<ul class="legendList">
+								<li>
+									<span class="legendTit type41"><strong>계좌</strong>25.2%</span>
+									<span class="legendAmnt"><em class="value">1,234,567</em>원</span>
+								</li>
+								<li>
+									<span class="legendTit type42"><strong>투자</strong>22.5%</span>
+									<span class="legendAmnt"><em class="value">1,234,567</em>원</span>
+								</li>
+								<li>
+									<span class="legendTit type43"><strong>연금</strong>20.5%</span>
+									<span class="legendAmnt"><em class="value">1,234,567</em>원</span>
+								</li>
+								<li>
+									<span class="legendTit type44"><strong>가상자산</strong>17.4%</span>
+									<span class="legendAmnt"><em class="value">4,500,000</em>원</span>
+								</li>
+								<li>
+									<!-- [MD2509_106] 카테고리 명칭 변경 -->
+									<span class="legendTit type45"><strong>대출</strong>17.4%</span>
+									<span class="legendAmnt"><em class="value">4,500,000</em>원</span>
+								</li>
+								<!-- [현행화_2024] 추가케이스
+								<li>
+									<span class="legendTit type47"><strong>보험</strong>17.4%</span>
+									<span class="legendAmnt"><em class="value">4,500,000</em>원</span>
+								</li>
+								<li>
+									<span class="legendTit type10"><strong>부동산</strong>17.4%</span>
+									<span class="legendAmnt"><em class="value">4,500,000</em>원</span>
+								</li>
+								<li>
+									<span class="legendTit type11"><strong>실물자산</strong>17.4%</span>
+									<span class="legendAmnt"><em class="value">4,500,000</em>원</span>
+								</li>
+								-->
+							</ul>
+						</div>
+					</div>
+					<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt11">더보기</span></button>
+				</div>
+				<!-- // 추가정보 열/닫 -->
+			</div>
+			<!-- // -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 내 소비 최근 흐름 -->
+		<!-- -------------------------------------- -->
+		<div class="defTxt ty02 fs16 mt30">
+			<h2>내 소비 최근 흐름</h2>
+			<div class="tgWarp ty01">
+				<span class="tgTxt">나의 한달로 보기</span>
+				<span class="tgBtnType2">
+					<input type="checkbox" id="toggle10" checked>
+					<label for="toggle10"><span>나의 한달로 보기</span></label>
+				</span>
+			</div>
+		</div>
+
+		<!-- [CASE1] 데이터 부족 -->
+		<div class="boxTypeWrap">
+			<div class="reptflow">
+				<h3>소비 리포트</h3>
+				<div class="txt"><strong>김농협</strong>님의 소비 데이터가 아직 부족해요.</div>
+				<p class="addTxt">아직 연결하지 않은 자산이 있는 경우 추가 연결을 하신후 이용해주세요.</p>
+			</div>
+		</div>
+
+		<!-- [CASE2] 데이터 있음 -->
+		<div class="boxWrapShadow">
+			<div class="boxTypeWrap delShadow">
+				<div class="reptArea">
+					<h3 class="tit">소비 리포트 <span class="date">기간 2022년 4월 1일 ~ 8월 31일</span></h3>
+					<p>최근 5개월 간 월 평균 <span class="point">3,120,500<em class="won">원</em></span>을 <br>
+						소비하고 있어요.</p>
+				</div>
+				<hr class="divLine" aria-hidden="true">
+				<div class="reptGraphArea">
+					<!-- // -->
+					<div class="graphItem03">
+						<h3 class="tit">소비 총액 추세</h3>
+						<div class="graphWrap" role="img" aria-label="">
+							<!-- [CASE1] 3개일 경우 -->
+							<div class="graphVerWrap graphPeer type03">
+								<div class="graphTypeWrap">
+									<div class="graphVerLine" style="bottom:100px"> <!-- [D] 위치 0px ~ 100px -->
+										<span class="title">월예산</span>
+										<div class="lineWrap">
+											<span class="dotLine"><span class="blind">도트라인</span></span>
+										</div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>10월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph " data-value="30"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>11월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph " data-value="50"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>12월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="100"></span></div>
+									</div>
+								</div>
+								<div class="graphBotText">
+									<span>10월</span>
+									<span>11월</span>
+									<span>12월</span>
+								</div>
+							</div>
+
+							<!-- [CASE2] 4개일 경우 -->
+							<div class="graphVerWrap graphPeer type04">
+								<div class="graphTypeWrap">
+									<div class="graphVerLine" style="bottom:100px"> <!-- [D] 위치 0px ~ 100px -->
+										<span class="title">월예산</span>
+										<div class="lineWrap">
+											<span class="dotLine"><span class="blind">도트라인</span></span>
+										</div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>9월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph " data-value="30"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>10월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph " data-value="50"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>11월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="80"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>12월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="100"></span></div>
+									</div>
+								</div>
+								<div class="graphBotText">
+									<span>9월</span>
+									<span>10월</span>
+									<span>11월</span>
+									<span>12월</span>
+								</div>
+							</div>
+
+							<!-- [CASE3] 5개일 경우 -->
+							<div class="graphVerWrap graphPeer type05">
+								<div class="graphTypeWrap">
+									<div class="graphVerLine" style="bottom:100px"> <!-- [D] 위치 0px ~ 100px -->
+										<span class="title">월예산</span>
+										<div class="lineWrap">
+											<span class="dotLine"><span class="blind">도트라인</span></span>
+										</div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>8월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph " data-value="30"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>9월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph " data-value="50"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>10월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="80"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>11월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="80"></span></div>
+									</div>
+									<div class="graphType">
+										<div class="graphTip02 orange">
+											<p class="graphTipBox">
+												<span>12월</span>
+												<span class="value">1,250,234<em>원</em></span>
+											</p>
+										</div>
+										<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph" data-value="100"></span></div>
+									</div>
+								</div>
+								<div class="graphBotText">
+									<span>8월</span>
+									<span>9월</span>
+									<span>10월</span>
+									<span>11월</span>
+									<span>12월</span>
+								</div>
+							</div>
+							<!-- // -->
+						</div>
+					</div>
+					<hr class="divLine ty01" aria-hidden="true">
+					<!-- // -->
+					<div class="graphItem01">
+						<h3 class="tit">소비 카테고리별 비중 추세</h3>
+						<div class="graphWrap" style="height:190px;background:#fff;" tabindex="0" role="img" aria-label=""><div class="guide_empty">차트영역</div></div>
+						<ul class="legendList tyrd mt5">
+							<li><span class="legendTit type41">외식</span></li>
+							<li><span class="legendTit type42">생활/마트</span></li>
+							<li><span class="legendTit type43">주거/통신</span></li>
+							<li><span class="legendTit type44">문화</span></li>
+							<li><span class="legendTit type45">그외</span></li>
+						</ul>
+					</div>
+					<!-- // -->
+				</div>
+			</div>
+
+			<!-- [범례영역] -->
+			<div class="moreInfoArea reportArea">
+				<div class="moreInfoWrap toggleWrap">
+					<div class="moreInfo toggleCont" style="display:none">
+						<div class="reportGraph">
+							<h3>12월 소비 카테고리별 비중</h3>
+							<ul class="legendList">
+								<li>
+									<span class="legendTit type41"><strong>외식</strong>25.2%</span>
+									<span class="legendAmnt"><em class="value">1,234,567</em>원</span>
+								</li>
+								<li>
+									<span class="legendTit type42"><strong>생활/마트</strong>22.5%</span>
+									<span class="legendAmnt"><em class="value">1,234,567</em>원</span>
+								</li>
+								<li>
+									<span class="legendTit type43"><strong>주거/통신</strong>20.5%</span>
+									<span class="legendAmnt"><em class="value">1,234,567</em>원</span>
+								</li>
+								<li>
+									<span class="legendTit type44"><strong>문화</strong>17.4%</span>
+									<span class="legendAmnt"><em class="value">4,500,000</em>원</span>
+								</li>
+								<li>
+									<span class="legendTit type45"><strong>그외</strong>17.4%</span>
+									<span class="legendAmnt"><em class="value">4,500,000</em>원</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt11">더보기</span></button>
+				</div>
+			</div>
+			<!-- // -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 자산관리 맞춤가이드 -->
+		<!-- -------------------------------------- -->
+		<div class="yabannerArea">
+			<div class="retitImgBanner ty01">
+				<button type="button" class="contBtn05">목돈마련</button>
+				<p>자산관리 맞춤가이드</p>
+			</div>
+		</div>
+		<div class="formWrap addShoow">
+			<div class="yanowWrap bdR10">
+				<!-- [자산관리] -->
+				<div>
+					<!-- ### [CASE1] 모두 미실시 ### -->
+					<div class="reptGuideArea">
+						<h3>내게 맞는 맞춤가이드 보기</h3>
+						<p>자산진단 및 연금진단을 받으시면 김농협님을 위한 맞춤가이드를 보실 수 있어요.</p>
+						<ul class="reptBtnWrap">
+							<li>
+								<a href="javascript:;" class="linkTxt"> 자산진단 받기</a>
+							</li>
+							<li>
+								<a href="javascript:;" class="linkTxt"> 연금진단 받기</a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- ### [CASE2] 자산진단 ### -->
+					<!-- [CASE2_1] 자산#1 -->
+					<div class="reptBoxArea arr">
+						<h2>자산관리는 잘 하고 계시네요</h2>
+						<p>지금처럼만 잘 관리하면 문제 없을거 같아요.</p>
+						<span> <a href="javascript:;" class="linkTxt"> 자산진단 상세보기</a></span>
+					</div>
+					<!-- [CASE2_2] 자산#2 -->
+					<div class="reptBoxArea arr">
+						<h2>안전자산 비중을 조금 높여보세요</h2>
+						<p>김농협님의 투자성향을 고려했을 때 위험자산 비중이 조금 높아요.</p>
+						<span> <a href="javascript:;" class="linkTxt"> 자산진단 상세보기</a></span>
+					</div>
+					<!-- [CASE2_3] 자산#3 -->
+					<div class="reptBoxArea arr">
+						<h2>위험자산 비중을 조금 높여보세요</h2>
+						<p>김농협님의 투자성향을 고려했을 때 위험자산 비중이 조금 높아요. </p>
+						<span> <a href="javascript:;" class="linkTxt"> 자산진단 상세보기</a></span>
+					</div>
+					<!-- [CASE2_4] 자산#4 (자산진단 미실시) -->
+					<div class="reptBoxArea arr">
+						<h2>자산진단 받고 나에게 맞춘 보고서를 매월 확인하세요</h2>
+						<span> <a href="javascript:;" class="linkTxt"> 자산진단 받기</a></span>
+					</div>
+					<!-- // -->
+
+					<!-- ### [CASE3] 연금진단 ### -->
+					<!-- [CASE3_1] 연금#1 -->
+					<div class="reptBoxArea arr">
+						<h2>연금은 조금 더 모아야 해요</h2>
+						<p>희망하는 생활비보다 연금이 모자라요. </p>
+						<span> <a href="javascript:;" class="linkTxt"> 연금진단 상세보기</a></span>
+					</div>
+					<!-- [CASE3_2] 연금#2 (연금진단 미실시) -->
+					<div class="reptBoxArea arr">
+						<h2>내 연금은 적당한지 궁금한가요?</h2>
+						<span> <a href="javascript:;" class="linkTxt"> 연금진단 받기</a></span>
+					</div>
+					<!-- // -->
+				</div>
+
+				<!-- [월 절약 가능] -->
+				<div>
+					<hr class="divLine2 mt30" aria-hidden="true">
+					<div class="reptSumBox">
+						매달 총 <span class="pointColor"><strong>302,800</strong>원</span>을<br>모을 수 있는 방법을 찾았어요
+						<img src="../../images/ico_rept01.png" alt="">
+					</div>
+
+					<!-- [항목하나] : 외식 -->
+					<div class="briefItem ty01">
+						<h3 class="briefTit rept">
+							<span class="imgWrap icoCate">
+								<span class="img"><img src="../../images/category/cs/ico_cate_cs01.png" alt=""></span>
+							</span>
+							건강한 집밥과 도시락을 적극 권장합니다.
+						</h3>
+						<div class="reptTxt">
+							<p>김농협님은 최근 5개월간 외식에 <strong class="bold">월 평균 25회, </strong>&nbsp;&nbsp;<strong class="bold">회당 평균 57,000원 </strong>을 소비했어요.</p>
+							<p>월평균 <strong class="bold">50% </strong>를 줄인다면 <span class="point">100,000원</span>을 모을 수 있어요.</p>
+						</div>
+					</div>
+					<div class="reptBox txtbg ty01">
+						<h3>요알못이라구요?</h3>
+						<p class="txt">그럼 외식할 때 혜택은 꼭 챙기세요!</p>
+					</div>
+					<!-- [MD2411_096] 마케팅 동의서 징구 정책 S -->
+					<div class="recAgreeCase">
+						<div class="agreeBlur">
+							<div class="agreeBlurTxt">
+								<p class="tit">나만 알고 싶은 추천 상품</p>
+								<p class="txt">이 추천 상품을 보시려면 추가이용동의가 필요합니다.</p>
+								<a href="javascript:;" class="link"><span>동의서 확인하기</span></a>
+							</div>
+						</div>
+						<div class="reptCardBox">
+							<div class="left">
+								<h3><span class="img"><img src="../../images/ico_chum.png" alt="채움CI"></span>올바른MYPICK 카드</h3>
+								<p>나에게 필요한 Pack 서비스를 <br>내맘대로 Pick!</p>
+							</div>
+							<div class="imgWrap"><span class="img"><img src="../../images/img_card_chu.png" alt=""></div>
+						</div>
+						<p  class="reptCardBoxSubText">준법감시인심의필 2023-1141(2023.01.16~2024.12.31.)</p>
+					</div>
+					<!-- //[MD2411_096] 마케팅 동의서 징구 정책 E -->
+					<hr class="divLine ty02" aria-hidden="true">
+
+					<!-- [항목하나] : 쇼핑 -->
+					<div class="briefItem ty01">
+						<h3 class="briefTit rept">
+							<span class="imgWrap icoCate"><span class="img"><img src="../../images/category/cs/ico_cate_cs06.png" alt=""></span></span>
+							지름신은 잠깐 멀리하는게 좋겠어요
+						</h3>
+						<div class="reptTxt">
+							<p>김농협님은 최근 5개월간 <strong class="bold">온라인쇼핑</strong>에 월 평균<strong class="bold">25회, 회당 평균 46,000원</strong>을 소비했어요.</p>
+							<p>월평균 <strong class="bold">50% </strong>를 줄인다면 <span class="point">100,000원</span>을 모을 수 있어요.</p>
+						</div>
+					</div>
+					<hr class="divLine ty02" aria-hidden="true">
+
+					<!-- [항목하나] : 정기지출 -->
+					<div class="briefItem ty01">
+						<h3 class="briefTit rept">
+							<span class="imgWrap icoCate"><span class="img"><img src="../../images/category/cs/ico_cate_cs05.png" alt=""></span></span>
+							정기 지출도 절약해볼까요?
+						</h3>
+						<div class="reptTxt">
+							<p><strong class="bold">티빙, 유투브 프리미엄, 디즈니 플러스</strong> 중 <br>잘 이용하지 않는 <strong class="bold">구독서비스</strong>는 정리해보세요.</p>
+							<p><strong class="bold">티빙</strong>만 남기고 나머지를 정리하면<br>월 평균 <span class="point">100,000원</span>을 모을 수 있어요.</p>
+						</div>
+					</div>
+					<hr class="divLine ty02" aria-hidden="true">
+					<!-- // -->
+
+					<div class="reptSumBox">
+						<span>1년 동안 모을수 있는 금액은? <img src="../../images/ico_report_coin.png" alt=""></span>
+						<p>총<span class="pointColor"><strong>100,000,000</strong>원</span>입니다.</p>
+					</div>
+				</div>
+				<!-- // -->
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] -->
+		<!-- -------------------------------------- -->
+		<div class="reptBannerBox rptBg01">
+			<a href="javascript:;" title="">
+				<div class="yabanner ty15">
+					<h3>작심삼일이 걱정이라면?</h3>
+					<p class="subTxt">월 예산 설정하고 한달 살기 도전해 보세요!</p>
+					<p><span class="link arrGreen">월 예산 설정하기</span></p>
+				</div>
+			</a>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [다운로드] -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<h2 class=reptDownTit>보고서 다운로드</h2>
+			<div class="reptDownBox mt20">
+				<p>월간 보고서를 다운로드 받으세요.</p>
+				<span><a href="javascript:;" class="linkType1 pointColor">월간 보고서 다운로드</a></span>
+			</div>
+			<hr class="divLine3" aria-hidden="true">
+			<div class="reptDownBox">
+				<p>자산현황 자료가 필요하신가요?</p>
+				<span><a href="javascript:;" class="linkType1 pointColor">자산현황 다운로드</a></span>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] -->
+		<!-- -------------------------------------- -->
+		<!-- // -->
+		<div class="reptBannerBox rptBg02">
+			<a href="javascript:;">
+				<div class="yabanner ty15">
+					<h3>데이터 정기전송에 동의하고 보고서를<br>최신데이터로 유지하세요.</h3>
+					<p><span class="linkTxt">정기전송 동의하기</span></p>
+				</div>
+			</a>
+		</div>
+		<!-- // -->
+		<div class="reptBannerBox rptBg03">
+			<a href="javascript:;">
+				<div class="yabanner ty15">
+					<h3>나에게 꼭 맞춘 월간 보고서를<br>바로 확인할 수 있도록 알려드려요.</h3>
+					<p><span class="linkTxt">알림 설정하기</span></p>
+				</div>
+			</a>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [PDF 화면 샘플용] 클래스명(none) 삭제하면 화면을 확일 할 수 있어요 -->
+		<!-- -------------------------------------- -->
+		<div class="graphVerWrap none">
+			<div class="graphVerLine" style="bottom: 86px;">
+				<span class="title">희망생활비</span>
+				<div class="lineWrap">
+					<span class="left"></span>
+					<span class="right" style="bottom:-10px"></span> <!-- bottom으로 높이조절 -->
+				</div>
+			</div>
+			<div class="graphTypeWrap">
+				<div class="graphType">
+					<span class="tipCircle01">부족</span>
+					<div class="graphTip02 mildgreen" style="bottom: 30px;display:block;">
+						<p class="graphTipBox">
+							<span>월 평균</span>
+							<span class="value">50<em>만원</em></span>
+						</p>
+					</div>
+					<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph mildgreen" data-value="30" style="height: 30px;"></span></div>
+				</div>
+				<div class="graphType">
+					<span class="tipCircle01">부족</span>
+					<div class="graphTip02 midgreen" style="bottom: 60px;display:block;">
+						<p class="graphTipBox">
+							<span>월 평균</span>
+							<span class="value">50<em>만원</em></span>
+						</p>
+					</div>
+					<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph midgreen" data-value="60" style="height: 60px;"></span></div>
+				</div>
+				<div class="graphType">
+					<span class="tipCircle02">충족</span>
+					<div class="graphTip02 darkgreen" style="bottom: 60px;display:block;">
+						<p class="graphTipBox">
+							<span>월 평균</span>
+							<span class="value">50<em>만원</em></span>
+						</p>
+					</div>
+					<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph darkgreen" data-value="60" style="height: 60px;"></span></div>
+				</div>
+			</div>
+			<div class="graphBotText">
+				<span>55~64세</span>
+				<span>64~80세</span>
+				<span>81~85세</span>
+			</div>
+		</div>
+
+		<div class="graphVerWrap none">
+			<div class="graphVerLine" style="bottom: 86px;">
+				<span class="title">희망생활비</span>
+				<div class="lineWrap">
+					<span class="left"></span>
+					<span class="right" style="bottom:-10px"></span> <!-- bottom으로 높이조절 -->
+				</div>
+			</div>
+			<div class="graphTypeWrap">
+				<div class="graphType">
+					<span class="tipCircle01">부족</span>
+					<div class="graphTip02 midgreen" style="bottom: 60px;display:block;">
+						<p class="graphTipBox">
+							<span>월 평균</span>
+							<span class="value">50<em>만원</em></span>
+						</p>
+					</div>
+					<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph midgreen" data-value="60" style="height: 60px;"></span></div>
+				</div>
+				<div class="graphType">
+					<span class="tipCircle02">충족</span>
+					<div class="graphTip02 darkgreen" style="bottom: 60px;display:block;">
+						<p class="graphTipBox">
+							<span>월 평균</span>
+							<span class="value">50<em>만원</em></span>
+						</p>
+					</div>
+					<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph darkgreen" data-value="60" style="height: 60px;"></span></div>
+				</div>
+			</div>
+			<div class="graphBotText">
+				<span>55~64세</span>
+				<span>64~80세</span>
+			</div>
+		</div>
+
+		<div class="graphVerWrap none">
+			<div class="graphVerLine" style="bottom: 86px;">
+				<span class="title">희망생활비</span>
+				<div class="lineWrap">
+					<span class="left"></span>
+					<span class="right" style="bottom:-10px"></span> <!-- bottom으로 높이조절 -->
+				</div>
+			</div>
+			<div class="graphTypeWrap">
+				<div class="graphType">
+					<span class="tipCircle01">부족</span>
+					<div class="graphTip02 midgreen" style="bottom: 60px;display:block;">
+						<p class="graphTipBox">
+							<span>월 평균</span>
+							<span class="value">50<em>만원</em></span>
+						</p>
+					</div>
+					<div class="baseGraph02 msBar" onclick="graphVerTipOpen($(this))"><span class="lineGraph midgreen" data-value="60" style="height: 60px;"></span></div>
+				</div>
+			</div>
+			<div class="graphBotText">
+				<span>64~80세</span>
+			</div>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	//샘플 : 케이스 화면 정의
+	$(document).ready(function(){
+		var a = ['보고서있음(MSAE4200)','보고서없음(MSAE4210)']; // 케이스 명
+		var b = ['MSAE4200','MSAE4210']; // 함수 명
+		var num = a.length; // 케이스 수
+		uiCaseMenu(a,b,num);
+		uiCaseMSAE4200();
+	});
+
+	//샘플 : 케이스 : 보고서있음
+	function uiCaseMSAE4200(){
+		$('.container > div').show();
+		$('.container > .boxTypeWrap:eq(1)').hide();
+	}
+
+	//샘플 : 케이스 : 보고서없음
+	function uiCaseMSAE4210(){
+		$('.container > div, .defTxt').hide();
+		$('.container > .boxTypeWrap:eq(1), .yabannerArea, .formWrap, .reptBannerBox.rptBg01, .reptBannerBox.rptBg01 + .boxTypeWrap').show();
+		$('.yanowWrap > div:last-child, .yanowWrap > div:first-child > div:not(:first-child), .reptBannerBox + .boxTypeWrap > h2:first-child + div').hide();
+	}
+
+	$('.moreOpenBtn').click(function(e){
+		if(!$(this).hasClass('active')){
+			$(this).parents('.moreInfoWrap').parents('.moreInfoArea').parents('.boxWrapShadow').find(".tyrd").addClass('disNone')
+		}else{
+			$(this).parents('.moreInfoWrap').parents('.moreInfoArea').parents('.boxWrapShadow').find(".tyrd").removeClass('disNone')
+		}
+	})
+
+	$(".graphVerWrap.graphPeer .graphType").each(function(i) {
+		var $graphValue = $(this).find(".lineGraph").attr("data-value");
+		if( $graphValue > 0 ){ //데이터 양수
+			$(this).parents('.graphVerWrap.graphPeer').addClass('ownPlus');
+			$(this).find(".lineGraph").height($graphValue);
+			$(this).find(".graphTip02").css('bottom' , $graphValue + "px");
+		} else if( $graphValue < 0 ){  //데이터 음수
+			$(this).parents('.graphVerWrap.graphPeer').addClass('ownMinus');
+			$(this).find(".lineGraph").addClass('minus').css({'height': -$graphValue  + "px", 'bottom': $graphValue  + "px"});
+			$(this).find(".graphTip02").addClass('minus').css('bottom' , $graphValue - 50 + "px");
+		} else { //데이터 0
+			$(this).find(".graphTip02").css('bottom' , $graphValue + "px");
+		}
+	});
+	var graphVerTipOpen = function(obj) {
+		var $item = $(this).find('.msBar');
+		var $tip =  $item.siblings('.graphTip02');
+		$tip = obj.closest(".graphType").find(".graphTip02");
+		$(".graphTip02").hide();
+		$(".graphPeer .lineGraph").removeClass("normgreen orange");
+		$tip.show();
+
+		if(obj.closest(".graphItem02").length){
+			obj.find(".lineGraph").addClass("normgreen");
+		}else if(obj.closest(".graphItem03").length){
+			obj.find(".lineGraph").addClass("orange");
+		}
+	};
+</script>
+<!-- ###################################### -->
+</body>
+</html>

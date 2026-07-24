@@ -1,0 +1,406 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>Global Navigation Bar</title>
+<link type="text/css" rel="stylesheet" href="../../css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="../../css/nh_base.css">
+<link rel="stylesheet" type="text/css" href="../../css/nh_layout.css">
+<link rel="stylesheet" type="text/css" href="../../css/nh_comm.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_logos.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_com.css" id="changeCom">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_cont.css" id="changeCont">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_myd.css">
+<link type="text/css" rel="stylesheet" href="../../css/ms_allone.css">
+<link type="text/css" rel="stylesheet" href="../../css/ms_pay.css">
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_myd_mb.css?20250821">
+<script src="../../js/jquery-1.9.1.min.js"></script>
+<script src="../../js/jquery-ui.min.js"></script>
+<script src="../../js/jquery.ui.touch-punch.min.js"></script>
+<script src="../../js/swiper.7.4.1.min.js"></script>
+<script src="../../js/common_ui.js"></script>
+<script src="../../js/nhasset-ui.js"></script>
+<!-- <script src="../../js/nhasset-ui-myd.js"></script> -->
+<script src="../../js/nhasset-ui-myd-mb.js"></script>
+<link type="text/css" rel="stylesheet" href="../pub-assets/css/guide.css">
+<script src="../pub-assets/js/guide.js"></script>
+<style>
+  /* 퍼블 확인용 css 실제 서비스에는 불필요 */
+  .header{position: relative;}
+  .p16{padding:16px}
+  .ptb8{padding: 8px 0 24px;}
+  .nhasset .nhd_allone .header.newMain h1{padding:0 128px 0 24px;text-align:left;}
+  .nhasset .nhd_allone .header.newMain .btnGoHome{display:none;}
+  .nhasset .nhd_allone .header.newMain .btnAlram{right:54px;}
+  .nhasset .nhd_allone .header.newMain .btnCalendar{right:90px;}
+  .nhd_sbnew .nhasset .nhpay,
+  .nhd_allone .nhasset .nhpay,
+  .nhd_pay .nhasset .sbab{display:none;}
+  .nhd_pay .nhasset .nhpay{display:block;}
+</style>
+</head>
+<body>
+  <div class="wrapper nhasset bgWhite">
+  <!-- ############################################## -->
+  <!-- ### < !-- header -- >                      ### -->
+  <!-- ### < !-- //header -- > 로 감싼 부분만 사용 ### -->
+  <!-- ############################################## -->
+    <div class="sbab"><!-- 2025-11-19 sbab 스뱅 올뱅 확인용 실제 서비스에 불필요 -->
+      <div class="ptb8"><!-- 통합메인(홈) -->
+        <h4 class="h4 p16 ac">통합메인(홈)</h4>
+        <h5 class="body3 p16 pt0 pb0">통합메인(홈) / 가입 전</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1 class="fs18 -medium">NH마이데이터</h1><!-- 2025-10-21 타이틀 이미지 변경, 2025-11-27 텍스트로 재 변경 -->
+          <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a><!-- 2025-10-27 가입 전 홈 버튼 추가 요청 -->
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pt0 pb0">통합메인(홈) / 가입 후 / 스마트뱅킹</h5>
+        <!-- header -->
+        <div class="header newMain"><!-- [D] 가입 후 -newMain 클래스 -->
+          <h1>내 자산</h1>
+          <a href="javascript:;" class="btnCalendar"><span class="blind">금융플래너</span></a>
+          <a href="javascript:;" class="btnAlram active" role="button"><span>알림</span></a><!-- 알림 상태 active -->
+          <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a>
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">통합메인(홈) / 가입 후 / 올원뱅크</h5>
+        <div class="nhd_allone"><!-- [D]퍼블 확인용 wrapper 실제 서비스에 불필요 -->
+          <!-- header -->
+          <div class="header newMain">
+            <h1>내 자산</h1>
+            <a href="javascript:;" class="btnCalendar"><span class="blind">금융플래너</span></a>
+            <a href="javascript:;" class="btnAlram" role="button"><span>알림</span></a><!-- 알림 상태 active -->
+            <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+          </div>
+          <!-- //header -->
+        </div>
+      </div><!-- // 통합메인(홈) -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 전체메뉴 -->
+        <h4 class="h4 p16 ac">전체메뉴</h4>
+        <!-- header -->
+        <div class="header newMain"><!-- [D] 전체메뉴 -newMain 클래스 -->
+          <h1 class="fs18 -medium">NH마이데이터</h1><!-- 2025-10-21 타이틀 이미지 변경, 2025-11-27 텍스트로 재 변경 -->
+          <!-- 2025-10-28 전체메뉴는 올뱅도 홈버튼 상시노출 되는것으로 변경 -both 클래스 추가 -->
+          <a href="javascript:;" class="btnGoHome -both" role="button"><span class="blind">Home</span></a>
+          <a href="javascript:;" class="btnCloseMenu" role="button"><span class="blind">이전화면으로 복귀</span></a>
+        </div>
+        <!-- //header -->
+      </div><!-- // 전체메뉴 -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 서브 메인 -->
+        <h4 class="h4 p16 ac">서브 메인</h4>
+        <h5 class="body3 p16 pt0 pb0">올원뱅크/스마트뱅킹 공통</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>자산모아보기</h1>
+          <a href="javascript:;" class="btnAlram active" role="button"><span>알림</span></a><!-- 알림 상태 active -->
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">스마트뱅킹</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>소비모아보기</h1>
+          <a href="javascript:;" class="btnAlram active" role="button"><span>알림</span></a><!-- 알림 상태 active -->
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">올원뱅크</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>내소비</h1>
+          <a href="javascript:;" class="btnAlram active" role="button"><span>알림</span></a><!-- 알림 상태 active -->
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+      </div><!-- // 서브 메인 -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 서비스 메인 -->
+        <h4 class="h4 p16 ac">서비스 메인</h4>
+        <h5 class="body3 p16 pt0 pb0">기본 페이지</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 메인화면</h1>
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">PUSH알림을 통해 진입한 페이지</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 메인화면</h1>
+          <a href="javascript:;" class="btnAlram" role="button"><span>알림</span></a><!-- 알림 상태 active -->
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">머니캘린더</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 메인화면</h1>
+          <a href="javascript:;" class="btnPlus"><span class="blind">머니캘린더</span></a>
+        </div>
+        <!-- //header -->
+      </div><!-- // 서비스 메인 -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 서비스 상세 -->
+        <h4 class="h4 p16 ac">서비스 상세</h4>
+        <h5 class="body3 p16 pt0 pb0">기본 페이지</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 상세화면</h1>
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">PUSH알림을 통해 진입한 페이지</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 상세화면</h1>
+          <a href="javascript:;" class="btnAlram active" role="button"><span>알림</span></a><!-- 알림 상태 active -->
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">관리 기능 제공</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 상세화면</h1>
+          <a href="javascript:;" class="btnAcAdmin"><span class="blind">관리</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">숨기기 기능 제공</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 상세화면</h1>
+          <a href="javascript:;" class="btnHidden"><span class="blind">숨기기</span></a>
+        </div>
+        <!-- //header -->
+      </div><!-- // 서비스 상세 -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 프로세스 -->
+        <h4 class="h4 p16 ac">프로세스</h4>
+        <h5 class="body3 p16 pt0 pb0"></h5>
+        <!-- 2025-10-27 이전 타이틀 취소 구조 하나로 통일-->
+        <!-- header -->
+        <!-- <div class="header">
+          <h1>서비스명</h1>
+          <a href="javascript:;" class="btnCancle"><span class="blind">취소</span></a>
+        </div> -->
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">시작 / 진행중</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스명</h1>
+          <a href="javascript:;" class="btnCancle"><span class="blind">취소</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">완료</h5>
+        <!-- header -->
+        <div class="header">
+          <h1>서비스명</h1>
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+      </div><!-- // 프로세스 -->      
+    </div><!-- // 2025-11-19 sbab 스뱅 올뱅 확인용 실제 서비스에 불필요 -->
+    <div class="nhpay"><!-- 2025-11-19nhpay NHpay 확인용 실제 서비스에 불필요 -->
+      <div class="ptb8"><!-- 통합메인(홈) -->
+        <h4 class="h4 p16 ac">통합메인(홈)</h4>
+        <h5 class="body3 p16 pt0 pb0">통합메인(홈) / 가입 전</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1 class="fs18 -medium">NH마이데이터</h1><!-- 2025-10-21 타이틀 이미지 변경, 2025-11-27 텍스트로 재 변경 -->
+          <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pt0 pb0">통합메인(홈) / 가입 후</h5>
+        <!-- header -->
+        <div class="header newMain"><!-- [D] 가입 후 -newMain 클래스 -->
+          <h1>내 자산</h1>
+          <a href="javascript:;" class="btnCalendar"><span class="blind">금융플래너</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+          <a href="javascript:;" class="btnAlram active" role="button"><span>알림</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+          <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+        </div>
+        <!-- //header -->
+      </div><!-- // 통합메인(홈) -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 전체메뉴 -->
+        <h4 class="h4 p16 ac">전체메뉴</h4>
+        <!-- header -->
+        <div class="header newMain"><!-- [D] 전체메뉴 -newMain 클래스 -->
+          <h1 class="fs18 -medium">NH마이데이터</h1><!-- 2025-11-27 텍스트로 재 변경 -->
+          <a href="javascript:;" class="btnGoHome -both" role="button"><span class="blind">Home</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+          <a href="javascript:;" class="btnCloseMenu" role="button"><span class="blind">이전화면으로 복귀</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+        </div>
+        <!-- //header -->
+      </div><!-- // 전체메뉴 -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 서브 메인 -->
+        <h4 class="h4 p16 ac">서브 메인</h4>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>자산모아보기</h1>
+          <a href="javascript:;" class="btnAlram active" role="button"><span>알림</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+        </div>
+        <!-- //header -->
+      </div><!-- // 서브 메인 -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 서비스 메인 -->
+        <h4 class="h4 p16 ac">서비스 메인</h4>
+        <h5 class="body3 p16 pt0 pb0">기본 페이지</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 메인화면</h1>
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+        </div>
+        <!-- //header -->
+  
+        <!-- <h5 class="body3 p16 pb0">PUSH알림을 통해 진입한 페이지</h5> 추가 확인 필요 -->
+        <!-- header -->
+        <!-- <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 메인화면</h1>
+          <a href="javascript:;" class="btnAlram" role="button"><span>알림</span></a>
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div> -->
+        <!-- //header -->
+  
+        <!-- <h5 class="body3 p16 pb0">머니캘린더</h5> 추가 확인 필요 -->
+        <!-- header -->
+        <!-- <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 메인화면</h1>
+          <a href="javascript:;" class="btnPlus"><span class="blind">머니캘린더</span></a>
+        </div> -->
+        <!-- //header -->
+      </div><!-- // 서비스 메인 -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 서비스 상세 -->
+        <h4 class="h4 p16 ac">서비스 상세</h4>
+        <h5 class="body3 p16 pt0 pb0">기본 페이지</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 상세화면</h1>
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div>
+        <!-- //header -->
+  
+        <!-- <h5 class="body3 p16 pb0">PUSH알림을 통해 진입한 페이지</h5> 추가 확인 필요 -->
+        <!-- header -->
+        <!-- <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 상세화면</h1>
+          <a href="javascript:;" class="btnAlram active" role="button"><span>알림</span></a>
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+        </div> -->
+        <!-- //header -->
+  
+        <!-- <h5 class="body3 p16 pb0">관리 기능 제공</h5> 추가 확인 필요 -->
+        <!-- header -->
+        <!-- <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 상세화면</h1>
+          <a href="javascript:;" class="btnAcAdmin"><span class="blind">관리</span></a>
+        </div> -->
+        <!-- //header -->
+  
+        <!-- <h5 class="body3 p16 pb0">숨기기 기능 제공</h5> 추가 확인 필요 -->
+        <!-- header -->
+        <!-- <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스 상세화면</h1>
+          <a href="javascript:;" class="btnHidden"><span class="blind">숨기기</span></a>
+        </div> -->
+        <!-- //header -->
+      </div><!-- // 서비스 상세 -->
+  
+      <div class="divLine mt0 mb0"></div>
+  
+      <div class="ptb8"><!-- 프로세스 -->
+        <h4 class="h4 p16 ac">프로세스</h4>
+        <h5 class="body3 p16 pt0 pb0"></h5> 
+        <h5 class="body3 p16 pb0">시작 / 진행중</h5>
+        <!-- header -->
+        <div class="header">
+          <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+          <h1>서비스명</h1>
+          <a href="javascript:;" class="btnCancle"><span class="blind">취소</span></a>
+        </div>
+        <!-- //header -->
+  
+        <h5 class="body3 p16 pb0">완료</h5>
+        <!-- header -->
+        <div class="header">
+          <h1>서비스명</h1>
+          <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a><!-- 스뱅 올뱅과 같은 구조 테스트 -->
+        </div>
+        <!-- //header -->
+      </div><!-- // 프로세스 -->      
+    </div><!-- // 2025-11-19 nhpay NHpay 확인용 실제 서비스에 불필요 -->
+  </div>
+<script>
+</script>
+</body>
+</html>

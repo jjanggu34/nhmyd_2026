@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 서비스 가입 현황 조회(제3자 제공 동의서)</title>
+<script src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+	fullLayerPop()
+});
+</script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 서비스 가입 현황 조회(제3자 제공 동의서) ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1>서비스 가입 현황 조회</h1>
+		<div class="popCont">
+			<!-- -------------------------------------- -->
+			<!-- [SECTION] 상단문구 -->
+			<!-- -------------------------------------- -->
+			<h2 class="agr_title_info">
+				<span class="text-highlight-y"><strong>개인(신용)정보 제공에</strong></span>
+				<strong>동의</strong>해 주세요
+			</h2>
+			<div class="noticeWrap mt20">
+				<p>귀하는 개인(신용)정보 제공에 관한 동의를 거부하실 수 있습니다. 다만, 개인(신용) 정보의 제공에 관한 동의는 <strong class="pointColor">마이데이터 서비스 가입 현황 안내</strong>를 위한 필수적 사항이므로 아래의 사항에 동의하셔야만 <strong class="pointColor">마이데이터 서비스 가입 현황 안내</strong>가 가능합니다.</p> <!-- [M-2024-11-27] v2.00 : 문구 수정 -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [SECTION] NH농협은행 → 한국신용정보원  -->
+			<!-- -------------------------------------- -->
+			<div class="assSetList t1">
+				<div class="listTop">
+					<h3 class="tit">1. NH농협은행 → 한국신용정보원</h3> <!-- [M-2024-10-21] v1.06 : 문구 수정 -->
+				</div>
+				<div class="listType_table type5">
+					<dl class="listbox">
+						<dt class="list_title">제공하는 자</dt>
+						<dd class="list_item">NH농협은행</dd> <!-- [M-2024-10-21] v1.06 :클래스명 pointColor 삭제 -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">제공받는 자</dt>
+						<dd class="list_item pointColor">한국신용정보원</dd> <!-- [M-2024-10-21] v1.06 :클래스명 pointColor 추가 -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">제공 &middot; 이용목적</dt>
+						<dd class="list_item pointColor">마이데이터 서비스 가입 여부 제공 요청</dd> <!-- [M-2024-10-21] v1.06 :클래스명 pointColor 추가 / 문구 수정  -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">보유 &middot; 이용기간</dt>
+						<dd class="list_item pointColor">마이데이터 서비스 가입 여부 제공 요청 전달 시까지</dd> <!-- [M-2024-10-21] v1.06 :클래스명 pointColor 추가 / 문구 수정  -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">제공항목</dt>
+						<dd class="list_item">
+							 <!-- [M-2024-11-27] v2.00 : 내용변경 -->
+							 <div class="wrapTblDefault">
+								<table>
+									<caption>제공항목(개인신용정보)</caption>
+									<colgroup>
+										<col style="width:35%">
+										<col style="width:65%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" colspan="2">개인(신용)정보</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">일반개인정보</th>
+											<td>CI</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="formArea1">
+								<div class="formArray">
+									<span class="chkRadio">
+										<input type="radio" id="MSPS7420P0101" name="MSPS7420P01">
+										<label for="MSPS7420P0101">동의하지 않음</label>
+									</span>
+									<span class="chkRadio">
+										<input type="radio" id="MSPS7420P0102" name="MSPS7420P01">
+										<label for="MSPS7420P0102">동의함</label>
+									</span>
+								</div>
+							</div>
+							<!-- // [M-2024-11-27] v2.00 : 내용변경 -->
+						</dd>
+					</dl>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [SECTION] 한국신용정보원 → 마이데이터 사업자  -->
+			<!-- -------------------------------------- -->
+			<div class="assSetList t1">
+				<div class="listTop">
+					<h3 class="tit">2. 한국신용정보원 → 마이데이터 사업자</h3> <!-- [M-2024-10-21] v1.06 : 문구 수정 -->
+				</div>
+				<div class="listType_table type5">
+					<dl class="listbox">
+						<dt class="list_title">제공하는 자</dt>
+						<dd class="list_item">한국신용정보원</dd>
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">제공받는 자</dt>
+
+						<!-- [M-2024-10-21] v1.06 : 기능 추가로 인해 전체 변경 : 내용을 동적으로 불러올 경우 : uiSetToggle() 함수 호출 -->
+						<dd class="list_item pointColor areaToggle4" data-toggle="wrap" data-toggle-mode="more">
+							<div data-toggle="con">농협중앙회, NH투자증권, 광주은행, 교보생명보험, 교보증권, 나이스평가정보, 네이버파이낸셜, 아이엠뱅크, 동양저축은행, 디셈버앤컴퍼니, 롯데카드, 미래에셋증권, 헥토이노베이션, 뱅큐, 뱅크샐러드, 보맵, 비바리퍼블리카, 비씨카드, 삼성카드.신한투자증권, 신한라이프, 신한은행, 신한카드</div>
+							<button type="button" data-toggle="btn" aria-expanded="false" aria-label="제공받는자 전체보기">더보기</button>
+						</dd>
+						<!-- // -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">제공 &middot; 이용목적</dt>
+						<dd class="list_item pointColor">마이데이터 서비스 가입 여부 제공</dd> <!-- [M-2024-10-21] v1.06 : 클래스명 pointColor 추가 / 문구 수정 -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">보유 &middot; 이용기간</dt>
+						<dd class="list_item pointColor">마이데이터 서비스 가입 여부 제공 시까지</dd> <!-- [M-2024-10-21] v1.06 : 클래스명 pointColor 추가 / 문구 수정 -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">제공항목</dt>
+						<dd class="list_item">
+							 <!-- [M-2024-11-27] v2.00 : 내용변경 -->
+							 <div class="wrapTblDefault">
+								<table>
+									<caption>제공항목(개인신용정보)</caption>
+									<colgroup>
+										<col style="width:35%">
+										<col style="width:65%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" colspan="2">개인(신용)정보</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">일반개인정보</th>
+											<td>CI</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="formArea1">
+								<div class="formArray">
+									<span class="chkRadio">
+										<input type="radio" id="MSPS7420P0201" name="MSPS7420P02">
+										<label for="MSPS7420P0201">동의하지 않음</label>
+									</span>
+									<span class="chkRadio">
+										<input type="radio" id="MSPS7420P0202" name="MSPS7420P02">
+										<label for="MSPS7420P0202">동의함</label>
+									</span>
+								</div>
+							</div>
+							<!-- // [M-2024-11-27] v2.00 : 내용변경 -->
+						</dd>
+					</dl>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [SECTION] 한국신용정보원 → NH농협은행  -->
+			<!-- -------------------------------------- -->
+			<div class="assSetList t1">
+				<div class="listTop">
+					<h3 class="tit">3. 한국신용정보원 → NH농협은행</h3> <!-- [M-2024-10-21] v1.06 : 문구 수정 -->
+				</div>
+				<div class="listType_table type5">
+					<dl class="listbox">
+						<dt class="list_title">제공하는 자</dt>
+						<dd class="list_item">한국신용정보원</dd>
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">제공받는 자</dt>
+						<dd class="list_item pointColor">NH농협은행</dd> <!-- [M-2024-10-21] v1.06 : 클래스명 pointColor 추가 -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">제공 &middot; 이용목적</dt>
+						<dd class="list_item pointColor">마이데이터 가입 현황 안내 서비스 제공</dd> <!-- [M-2024-10-21] v1.06 : 클래스명 pointColor 추가 / 문구 수정 -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">보유 &middot; 이용기간</dt>
+						<dd class="list_item pointColor">조회일로부터 7일</dd> <!-- [M-2024-10-21] v1.06 : 클래스명 pointColor 추가 / 문구 수정 -->
+					</dl>
+					<dl class="listbox">
+						<dt class="list_title">제공항목</dt>
+						<dd class="list_item">
+							 <!-- [M-2024-11-27] v2.00 : 내용변경 -->
+							 <div class="wrapTblDefault">
+								<table>
+									<caption>제공항목(개인신용정보)</caption>
+									<colgroup>
+										<col style="width:35%">
+										<col style="width:65%">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" colspan="2">개인(신용)정보</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th scope="row">일반개인정보</th>
+											<td>마이데이터 서비스 가입 여부</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="formArea1">
+								<div class="formArray">
+									<span class="chkRadio">
+										<input type="radio" id="MSPS7420P0301" name="MSPS7420P03">
+										<label for="MSPS7420P0301">동의하지 않음</label>
+									</span>
+									<span class="chkRadio">
+										<input type="radio" id="MSPS7420P0302" name="MSPS7420P03">
+										<label for="MSPS7420P0302">동의함</label>
+									</span>
+								</div>
+							</div>
+							<!-- // [M-2024-11-27] v2.00 : 내용변경 -->
+						</dd>
+					</dl>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [SECTION] 모두 동의 : [M-2024-11-27] v2.00 : 내용추가  -->
+			<!-- -------------------------------------- -->
+			<div class="formArea2">
+				<div class="check">
+					<input type="checkbox" id="MSPS7520PALL" class="chekTypeOther">
+					<label class="check" for="MSPS7520PALL">모두 동의하기</label>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">아래로 내려보기</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		//[샘플] 페이지 진입 시 버튼명 셋팅
+		uiPopScrollEvt();
+	});
+
+	//[샘플] 스크롤 이벤트
+	$('.popCont').scroll(uiPopScrollEvt);
+
+	//[샘플] 클릭 이벤트
+	$('.confirmBtn').on('click',function(){
+		if($(this).text() == '아래로 내려보기'){
+			var $conH = $('.popCont').height();
+			var $contSH = $('.popCont')[0].scrollHeight;
+			var $scrollTop = $('.popCont').scrollTop();
+			$('.popCont').animate({scrollTop: $scrollTop + $conH}, 300);
+		}else{
+			if(!$(this).hasClass('disabled')){//비활성화가 아닐 경우 클릭됨
+				alert('동의서 팝업 닫히고, 제3자 제공 동의 내역 조회 [MSPS7500] 화면에서 조회중 쿠션페이지[MSPS7531P] 팝업이 열림');
+			};
+		};
+	});
+
+	//[샘플] 버튼명 셋팅
+	function uiPopScrollEvt(){
+		var $conH = $('.popCont').height();
+		var $contSH = $('.popCont')[0].scrollHeight;
+		var $scrollH = $('.popCont').scrollTop();
+		var $scrollB = $contSH - $conH - $scrollH;
+		if ($scrollB < 50 ) {
+			$('.confirmBtn').text('다음 계속하기').addClass('disabled').attr('aria-disabled','true');
+		}else{
+			$('.confirmBtn').text('아래로 내려보기').removeClass('disabled').removeAttr('aria-disabled');
+		}
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

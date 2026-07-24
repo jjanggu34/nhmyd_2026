@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 신용거래정보 상세</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+	fullLayerPop()
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 신용거래정보 상세  ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop" role="dialog">
+	<div class="popInner">
+		<h1>신용거래정보 상세</h1>
+		<div class="popCont">
+			<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 목록/상세 한 팝업으로 통합 수정 S -->
+			<h2 class="defSubTit2 mt20">은행</h2>
+			<div class="listwarp">
+				<ul class="disc">
+					<li>
+						<strong>계좌목록</strong>
+						<p>고객정보 최초 생성일시, 계좌번호, 회차번호, 상품명, 외화계좌여부, 마이너스약정 여부, 계좌번호 별 구분 코드, 계좌번호 별 상태코드</p>
+					</li>
+					<li>
+						<strong>DC형 퇴직연금 목록</strong>
+						<p>상품관리번호, 상품명</p>
+					</li>
+					<li>
+						<strong>개인형IRP 목록</strong>
+						<p>상품명, 계좌번호</p>
+					</li>
+					<li>
+						<strong>선불카드 목록</strong>
+						<p>선불카드식별자, 선불카드상품명, 발급일자, 액면한도 또는 최대충전한도</p>
+					</li>
+					<!-- [MD2408_068_v0.09] 숨은 자산(휴면예금, 휴면보험금) 조회 관리자에서 입력 사항 수정 및 추가  -->
+					<li>
+						<strong>숨은금융자산 목록</strong>
+						<p>상품명, 계좌번호, 회차번호</p>
+					</li>
+					<li>
+						<strong>수신상품정보</strong>
+						<p>기본정보(통화코드, 저축방법, 계좌개설일자, 만기일, 약정액, 월 납입액), 추가정보(통화코드,현재잔액, 출금 가능액, 계약금리, 최종납입회차), 거래내역(거래일시, 거래번호, 거래유형, 거래구분, 통화코드, 거래금액, 거래 후 잔액, 납입회차),계좌지정 자동이체 등록정보(자동이체기관, 자동이체계좌번호, 자동이체금액,자동이체주기상세, 적요)</p>
+					</li>
+					<li>
+						<strong>펀드상품정보</strong>
+						<p>기본정보(표준펀드코드,납입유형, 개설일, 만기일), 추가정보(콩화코드, 잔액, 평가금액, 투자원금, 보유좌수), 거래내역(거래일시, 거래번호, 거래유형, 통화코드, 기준가, 거래좌수, 거래금액, 거래 후 잔고평가금액)</p>
+					</li>
+				</ul>
+			</div>
+			<h2 class="defSubTit2">카드</h2>
+			<div class="listwarp">
+				<ul class="disc">
+					<li>
+						<strong class="tit">카드목록</strong>
+						<p>보유카드수, 카드식별자, 카드번호, 전송요구여부, 카드상품명, 보인/가족구분, 카드 구분</p>
+					</li>
+					<li>
+						<strong class="tit">선불카드목록</strong>
+						<p>선불카드수, 선불카드식별자, 선불카드상품명, 전송요구여부, 발급일자 또는 기명일자, 액면한도 또는 최대충전한도</p>
+					</li>
+					<li>
+						<strong class="tit">카드정보</strong>
+						<p>카드기본정보(교통기능(여부), 현금카드기능(여부), 결제은행, 결제계좌번호, 카드브랜드, 상품 연회비, 발급일자)</p>
+					</li>
+					<li>
+						<strong class="tit">포인트정보</strong>
+						<p>포인트명, 잔여포인트 M+2월 소멸예정 포인트</p>
+					</li>
+					<li>
+						<strong class="tit">월별 카드 이용정보</strong>
+						<p>월별청구정보(결제순번, 월별 청구금액, 결제일, 청구년월, 결제년월일), 청구상세정보(사용일시, 카드식별자, 거래번호, 이용금액, 통화코드, 가맹점명, [국내승인]가맹점 사업자등록번호, 신용판매 수수료, 전체 할부회차, 현재 할부회차, 할부 결제 후 잔액, 상품구분)</p>
+					</li>
+					<li>
+						<strong class="tit">일별 카드 이용정보</strong>
+						<p>결제 기본정보(리볼빙 약정 여부, 결제순번, 결제예정일, 결제예정금액, 일시불, 할부, 단기대출(현금서비스), 리볼빙, 장기대출(카드론), 연회비 및 기타), 리볼빙 정보(리볼빙약정시작일, 리볼빙약정종료일, 리볼빙해지일자, 최소결제비율, 최소결제금액, 약정결제비율, 약정결제금액, 리볼빙 이월잔액)</p>
+					</li>
+				</ul>
+			</div>
+			<!-- //[MD2411_092_v0.09] [자산연결 동의 절차 간소화] 목록/상세 한 팝업으로 통합 수정 E -->
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

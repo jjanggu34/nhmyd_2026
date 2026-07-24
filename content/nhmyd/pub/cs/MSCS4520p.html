@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NH Bank">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="#">
+<title>[P] 등록된 카드 없음</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 등록된 카드 없음 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1 class="ac">앗, 등록된 타사카드가 없어요!</h1>
+		<div class="popCont">
+			<div class="cardBenefitNone type01">
+				<p>지금 등록하면 혜택 많이 받는<br> NH농협카드를 알려 드릴게요.</p>
+			</div>
+			<p class="mt20 ac">※ 타사카드 등록은 신용카드만 가능합니다.</p> <!-- [추가 260424] [MD2604_039] 카드혜택비교 카드등록안내 팝업 내 안내문구 추가 -->
+		</div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">취소</a>
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">카드 등록 바로가기</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

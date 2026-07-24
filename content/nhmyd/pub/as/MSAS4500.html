@@ -1,0 +1,177 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>연금 상세(DC형) | 자산현황(연금) | 자산</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>연금 상세</h1>
+		<a href="javascript:;" class="btnAcAdmin"><span class="blind">관리</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 연금 상세(DC형) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [레이어팝업] 메세지 : 순자산 포함 안된 자산일 경우 노출 -->
+		<!-- -------------------------------------- -->
+		<div class="layerMsgWrap">
+			<p>순자산 금액에 포함되지 않은 자산이에요.</p>
+			<button type="button" class="layerMsgClose"><span class="blind">닫기</span></button>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [상단영역] 연금정보 -->
+		<!-- -------------------------------------- -->
+		<div class="boxWrapShadow">
+			<!-- [연금기본내용] -->
+			<div class="boxTypeWrap pb0">
+				<!-- // -->
+				<div class="accTopInfo">
+					<h2 class="accName">
+						별명 또는 상품명
+						<img src="../../images/logos/AABG0000.png" alt="기업은행 로고" class="imgLogo">
+					</h2>
+					<dl class="totalBalance">
+						<dt>평가금액
+							<div class="tooltipWrap">
+								<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가금액 안내 툴팁 열기</span></button>
+								<div class="tooltipCont">
+									<p>투자내역이 없는 경우, 평가금액이 0원으로 표시됩니다.</p>
+									<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+								</div>
+							</div>
+						</dt>
+						<dd><strong>1,000,000</strong>원</dd>
+					</dl>
+					<div class="etcInfo compare">
+						평가손익
+						<div class="tooltipWrap">
+							<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">평가손익 툴팁 열기</span></button>
+							<div class="tooltipCont">
+								<p>평가손익과 수익률은 예상 수익으로 실제와 상이할 수 있습니다.</p>
+								<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+							</div>
+						</div>
+
+						<!-- [CASE1] 증가 -->
+						<span class="arrowUp" role="img" aria-label="증가"><em class="blind">증가</em></span>
+						<span class="amount"><strong>000</strong>원 (+<strong class="dataValue">0.00</strong><em class="won">%</em>)</span>
+						<!-- [CASE2] 감소 -->
+						<span class="arrowDown" role="img" aria-label="감소"><em class="blind">감소</em></span>
+						<span class="amount"><strong>000</strong>원 (-<strong class="dataValue">0.00</strong><em class="won">%</em>)</span>
+						<!-- [CASE3] 변동 없음 -->
+						<span class="arrowNone"><em class="blind">없음</em></span>
+						<span class="amount"><strong>0</strong>원</span>
+						<!-- // -->
+					</div>
+				</div>
+				<!-- // -->
+
+				<hr class="divLine">
+
+				<!-- // -->
+				<div class="accInfoDetail">
+					<ul class="detailList">
+						<li>
+							<span class="tit">유형</span>
+							<span class="value">개인연금&gt;DC형</span>
+						</li>
+						<li>
+							<span class="tit">상품명</span>
+							<span class="value">DC형 퇴직연금 상품명</span>
+						</li>
+						<li>
+							<span class="tit">계좌잔액</span>
+							<span class="value"><strong class="dataValue">96,000</strong><em class="won">원</em></span>
+						</li>
+						<li>
+							<span class="tit">개설일</span>
+							<span class="value">2020.07.21</span>
+						</li>
+						<li>
+							<span class="tit">운용상품 현황</span>
+							<span class="value">N개
+								<button type="button" class="contBtnArrow" title="운용상품 더보기">더보기</button><!--09.26 수정-->
+							</span>
+						</li>
+					</ul>
+				</div>
+				<!-- // -->
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [목록영역] 거래내역 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap pt0">
+			<!-- [CASE1] 내역이 있는 경우 -->
+			<div class="inoutListWrap longTit">
+				<!-- [날짜별 반복] -->
+				<div class="inoutListInn">
+					<p class="date bdtNone">2020년 10월 31일</p>
+					<ul class="inoutList">
+						<li>
+							<label class="inoutChkWrap" for="chk04">
+								<p class="inoutTit">$거래구분 출력$</p>
+								<div class="inoutCont">
+									<div class="timeWrap">
+										<span class="time">00:00</span>
+									</div>
+									<span class="amount outColor"><strong class="dataValue">100,000</strong><em class="won">원</em></span>
+								</div>
+							</label>
+						</li>
+					</ul>
+				</div>
+				<!-- // -->
+			</div>
+			<!-- // -->
+			<div class="listMoreBtn">
+				<a href="javascript:;" title="항목 더보기">더보기</a>
+			</div>
+
+			<!-- [CASE2] 내역이 없는 경우 -->
+			<div class="noResultWrap">
+				<p>거래내역이 없습니다.</p>
+			</div>
+			<!-- // -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//[샘플] 레이어팝업 닫기 클릭 이벤트
+	$('.layerMsgClose').click(function(){
+		$(this).closest('.layerMsgWrap').hide();
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

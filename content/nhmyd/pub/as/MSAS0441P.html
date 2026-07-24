@@ -1,0 +1,67 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 자산연결</title>
+<script src="../pub-assets/js/head.js"></script>
+<!-- [MD2410_086_v0.20] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) slidePopConfirm();로 수정 -->
+<script>
+	$(document).ready(function(){
+		slidePopConfirm();
+	})
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 휴대폰 본인인증 ### -->
+<!-- ###################################### -->
+<!-- [MD2410_086_v0.20] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) slidePopConfirm 클래스로 수정 -->
+<div class="nhasset popWrap slidePopConfirm" id="auto_logout_info" role="dialog">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>휴대폰번호가 일치하지 않아요!</h1>
+		<div class="popCont">
+			<!-- [MD2410_086_v0.20] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 마크업 수정 S -->
+			<div class="formWrap msaeType">
+				<!-- [MD2410_086_v0.19] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 문구 변경 S -->
+				<p>은행에 등록된 휴대폰번호와 일치하지 않아<br />해지 및 잔고이전 서비스를 이용할 수 없습니다.</p>
+				<p class="mt10">* 변경방법(본인명의 휴대전화로만 변경 가능)<br />
+					1. ARS 고객행복센터(1661-3000)<br />
+					2. 영업점 내방(신분증 지참)<br />
+					3. (NH스마트뱅킹앱) 홈 > 좌측상단 "고객님 이름" 선택 > 내 정보 수정 > 'NH농협은행' 선택 > 휴대폰번호 변경<br />
+					4. (개인인터넷뱅킹) 뱅킹관리 > 고객정보관리 > 고객정보변경
+				</p>
+				<!-- //[MD2410_086_v0.19] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 문구 변경 E -->
+			</div>
+			<!-- //[MD2410_086_v0.20] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 마크업 수정 E -->
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<!-- [MD2410_086_v0.17] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 확인 > 닫기 텍스트 수정 -->
+				<!-- [MD2410_086_v0.19] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 팝업을 Alert으로 변경. 버튼 2개 >1개 변경. 문구 변경 -->
+				<!-- <a href="javascript:;" role="button">닫기</a> -->
+				<a href="javascript:;" class="confirmBtn" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>청구내역 | 카드이용내역 | 소비A</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>청구 내역</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 리볼빙내역 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<div class="boxTypeWrap e1 overUnset">
+			<!-- -------------------------------------- -->
+			<!-- [상단영역] 카드 정보 -->
+			<!-- -------------------------------------- -->
+			<div class="accTopInfo">
+				<h2 class="accName">
+					NH카드
+					<img src="../../images/logos/AABG0000.png" alt="" class="imgLogo">
+				</h2>
+				<dl class="totalBalance bigSize2">
+					<dt>MM월 DD일 청구금액
+						<div class="tooltipWrap">
+							<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">청구금액 안내 툴팁 열기</span></button>
+							<div class="tooltipCont">
+								<ul class="popBul">
+									<li>청구금액은 카드사에서 청구서가 발행되어 출금이 예정된 금액입니다.</li>
+									<li>청구서 발행 이후 선결제 및 매출취소 등의 사유가 발생하면 실제 출금액과 다를 수 있습니다.</li>
+									<li>카드사에 따라 청구 총 합계 금액에는 가족카드 사용금액 및 리볼빙 사용금액이 포함되지만 해당 상세내역은 보이지 않을 수 있습니다.</li>
+									<li>또한 카드사에 따라 청구 총 합계금액에 카드론 이용금액이 포함되지 않을 수 있습니다.</li>
+									<li>청구금액 및 상세내역에 대한 자세한 내용은 각 카드사 고객센터에 문의 바랍니다.</li>
+								</ul>
+								<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+							</div>
+						</div>
+					</dt>
+					<dd><strong class="dataValue">2,098,694</strong><em class="won">원</em></dd>
+				</dl>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 청구내역 -->
+			<!-- -------------------------------------- -->
+			<div class="billListWrap">
+				<!-- ### [바로가기] : 운영에서 sticky 스크립트 사용하고 있지 않음 ### -->
+				<div class="billLisMenu">
+					<ul>
+						<li><a href="javascript:;" anchor-title="dem01" class="btnBillMenu active" data-bill-menu="dbm01">일시불</a></li>
+						<li><a href="javascript:;" anchor-title="dem02" class="btnBillMenu" data-bill-menu="dbm02">할부</a></li>
+						<li><a href="javascript:;" anchor-title="dem03" class="btnBillMenu" data-bill-menu="dbm03">현금서비스</a></li>
+						<li><a href="javascript:;" anchor-title="dem04" class="btnBillMenu" data-bill-menu="dbm04">리볼빙</a></li>
+						<li><a href="javascript:;" anchor-title="dem05" class="btnBillMenu" data-bill-menu="dbm05">카드론</a></li>
+						<li><a href="javascript:;" anchor-title="dem06" class="btnBillMenu" data-bill-menu="dbm06">연회비&middot;기타</a></li>
+					</ul>
+				</div>
+
+				<!-- ### [목록] ### -->
+				<div class="billListCont">
+					<!-- [목록] 일시불 -->
+					<div class="inoutListWrap" anchor-cont="dem01">
+						<div class="totalBox greenBg">
+							<span class="totalTit">일시불</span>
+							<span class="totalVal"><span class="dataValue">1,000,000</span>원</span>
+						</div>
+						<div class="inoutListInn">
+							<ul class="inoutList">
+								<!-- [CASE] 미동의 -->
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use noConnData">거래내역이 궁금하다면</span>
+												<span class="amount"><em class="won pr5">USD</em><strong class="dataValue">140,000</strong></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.31 20:00</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<!-- // -->
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use">가맹점명 길면 말줄임 처리합니다.</span>
+												<span class="amount outColor"><strong class="dataValue">49,900</strong><em class="won">원</em></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.31 20:00</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use">알리익스프레스</span>
+												<span class="amount"><em class="won pr5">USD</em><strong class="dataValue">140,000</strong></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.31 20:00</span>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- [목록] 할부 -->
+					<div class="inoutListWrap pt0" anchor-cont="dem02">
+						<div class="totalBox greenBg">
+							<span class="totalTit">할부</span>
+							<span class="totalVal"><span class="dataValue">1,000,000</span>원</span>
+						</div>
+						<div class="inoutListInn">
+							<ul class="inoutList">
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use">현대백화점</span>
+												<span class="amount outColor"><strong class="dataValue">15,000</strong><em class="won">원</em></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.31 20:00</span>
+												<span class="dataSubInfo">할부 12개월(10회차)</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use">11번가</span>
+												<span class="amount outColor"><strong class="dataValue">49,900</strong><em class="won">원</em></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.31 20:00</span>
+												<span class="dataSubInfo">할부 12개월(10회차)</span>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- [목록] 현금서비스 -->
+					<div class="inoutListWrap pt0" anchor-cont="dem03">
+						<div class="totalBox greenBg">
+							<span class="totalTit">현금서비스</span>
+							<span class="totalVal"><span class="dataValue">1,000,000</span>원</span>
+						</div>
+						<div class="inoutListInn">
+							<ul class="inoutList">
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use">현금서비스</span>
+												<span class="amount outColor"><strong class="dataValue">15,000</strong><em class="won">원</em></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.31 20:00</span>
+											</div>
+										</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use">현금서비스</span>
+												<span class="amount outColor"><strong class="dataValue">49,900</strong><em class="won">원</em></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.31 20:00</span>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- [목록] 리볼빙 -->
+					<div class="inoutListWrap pt0" anchor-cont="dem04">
+						<div class="totalBox greenBg">
+							<span class="totalTit">리볼빙</span>
+							<span class="totalVal"><span class="dataValue">1,000,000</span>원</span>
+						</div>
+						<div class="inoutListInn">
+							<ul class="inoutList">
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use">현대백화점</span>
+												<span class="amount outColor"><strong class="dataValue">15,000</strong><em class="won">원</em></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.31 20:00</span>
+												<span class="dataSubInfo">일시불결제이월(리볼빙)</span>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- [목록] 카드론 -->
+					<div class="inoutListWrap pt0" anchor-cont="dem05">
+						<div class="totalBox greenBg">
+							<span class="totalTit">카드론</span>
+							<span class="totalVal"><span class="dataValue">1,000,000</span>원</span>
+						</div>
+						<div class="inoutListInn">
+							<ul class="inoutList">
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use">카드론</span>
+												<span class="amount outColor"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.26 20:00</span>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- [목록] 연회비/기타 -->
+					<div class="inoutListWrap pt0" anchor-cont="dem06">
+						<div class="totalBox greenBg">
+							<span class="totalTit">연회비&middot;기타</span>
+							<span class="totalVal"><span class="dataValue">1,000,000</span>원</span>
+						</div>
+						<div class="inoutListInn">
+							<ul class="inoutList">
+								<li>
+									<a href="javascript:;" class="link">
+										<div class="inoutChkWrap">
+											<div class="inoutTit">
+												<span class="use">연회비</span>
+												<span class="amount outColor"><strong class="dataValue">15,000</strong><em class="won">원</em></span>
+											</div>
+											<div class="inoutDate">
+												<span class="date bdtNone">2022.07.31 20:00</span>
+											</div>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- // -->
+				</div>
+				<!-- ### // ### -->
+			</div>
+			<!-- -------------------------------------- -->
+		</div>
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	var $headerHeight = $('.header').outerHeight();
+	var $thisTop = $('.billLisMenu').offset().top;
+
+	$(window).on('scroll',function(){
+		var scrollTop = $('html,body').scrollTop();
+		var $scrollMoveTop = $thisTop - $headerHeight;
+		if (scrollTop > $scrollMoveTop) {
+			$('.billLisMenu').addClass('likeSticky');
+		}else{$('.billLisMenu').removeClass('likeSticky');}
+	});
+
+	$('.btnBillMenu').each(function(){
+		if ($(this).hasClass('active')) {
+			$(this).attr('aria-selected','true')
+		}else{
+			$(this).attr('aria-selected','false')
+		}
+	});
+
+	$('.btnBillMenu').click(function(){
+		var $thisBtn = $(this);
+		var $thisAttrMenu = $thisBtn.attr('data-bill-menu');
+		$('.billListCont .statusTit').each(function(){
+			var $this = $(this);
+			var $thisOffSet = $this.offset().top;
+			var $thisAttrCont = $this.attr('data-bill-cont')
+			if ($thisAttrCont == $thisAttrMenu) {
+				$('.billLisMenu a').removeClass('active').attr('aria-selected','false');
+				$thisBtn.addClass('active').attr('aria-selected','true');
+				$('html, body').stop().animate({scrollTop:$thisOffSet - 51 - 36},400,function(){
+					$this.focus()
+				});
+			}
+		});
+	});
+
+	$('.btnBillMenu').focus(function(){
+		var $this = $(this);
+		var $thisPosLeft = $this.position().left;
+		$('.billLisMenu').stop().animate({scrollLeft:$thisPosLeft},400,function(){});
+	});
+
+	anchorWrap();
+
+	//앵커이동
+	function anchorWrap() {
+		$('.billLisMenu a').click(function(){
+			var $this = $(this);
+			var $thisAttr = $this.attr('anchor-title');
+			$('.inoutListWrap').each(function(){
+				var $thisTarget = $(this);
+				var $targetPo = $(this).offset().top;
+				var $heightHeader = $('.header').outerHeight();
+				var $heightTab = $('.billLisMenu').outerHeight();
+				var $hightM = $heightHeader + $heightTab;
+				if ($(this).attr('anchor-cont') == $thisAttr ) {
+					$(this).addClass('active');
+					$('html, body').stop().animate({scrollTop:$targetPo - $hightM -10},400,function(){
+						$('.billLisMenu a').removeClass('active').attr('aria-selected','false');
+						$this.addClass('active').attr('aria-selected','true');
+						$thisTarget.find('h3.tit').focus();
+					});
+				}
+			});
+		});
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

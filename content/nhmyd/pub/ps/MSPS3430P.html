@@ -1,0 +1,60 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 상품구매 카테고리정보</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 상품구매 카테고리정보 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>상품구매 카테고리정보</h1>
+		<div class="popCont">
+			<div class="assetConnectInfo">
+				<h2 class="title">구매한 상품내역을 활용하여<br>자세한 소비패턴을 볼까요? </h2>
+				<div class="mt15"><span class="tag bgGreen">예시</span></div>
+				<div class="exImage" style="height:88px" role="img" aria-label="수집 동의 : 이번 달 소비 패턴 생활마트 62% 표시 / 수집 미동의 : 이번 달 소비 패턴 미제공 73% 표시">
+					<div class="card">
+						<div class="face front"><img src="../../images/img_asset_conn_31.png"></div>
+						<div class="face back"><img src="../../images/img_asset_conn_32.png"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn newBtn half"> <!-- [수정 260625] [MD2606_069] 마이데이터 서비스 전송요구 동의 선택 방식 개선 : class="newBtn half" 추가 -->
+				<a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">안볼래요</a>
+				<a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">네, 좋아요</a> <!-- [수정 260625] [MD2606_069] 마이데이터 서비스 전송요구 동의 선택 방식 개선 : class="confirmBtn" 삭제 -->
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

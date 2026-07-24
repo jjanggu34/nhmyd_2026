@@ -1,0 +1,158 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>서비스해지(현황확인및해지) | 가입정보관리 | 설정/관리</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset bgWhite">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack" role="button"><span class="blind">이전화면으로</span></a>
+		<h1>서비스 해지</h1>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 서비스해지(해지사유입력)  ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 상단문구 -->
+		<!-- -------------------------------------- -->
+		<h2 class="defTit">김농협님의<br><strong>등록된 자산 현황</strong>입니다</h2>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 기관목록 -->
+		<!-- -------------------------------------- -->
+		<div class="myAssetList_wrap">
+			<div>
+				<ul>
+					<li>
+						<div>계좌</div>
+						<div>N개</div>
+					</li>
+					<li>
+						<div>투자</div>
+						<div>N개</div>
+					</li>
+					<li>
+						<!-- [MD2509_106] 카테고리 명칭 변경 -->
+						<div>대출</div>
+						<div>N개</div>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<ul>
+					<li>
+						<div>연금</div>
+						<div>N개</div>
+					</li>
+					<li>
+						<div>카드</div>
+						<div>N개</div>
+					</li>
+					<li>
+						<div>선불페이</div>
+						<div>N개</div>
+					</li>
+				</ul>
+			</div>
+			<div>
+				<ul>
+					<li>
+						<div>보험</div>
+						<div>0개</div>
+					</li>
+					<li>
+						<div>부동산</div>
+						<div>11개</div>
+					</li>
+					<li>
+						<div>통신</div>
+						<div>0개</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 안내문구 -->
+		<!-- -------------------------------------- -->
+		<div class="mt30">
+			<h3 class="tit">주의사항</h3>
+			<ul class="listBul disc mt20">
+				<li>마이데이터서비스를 해지하면 자산연결 해제(철회)와 그동안 수집된 자산정보가 모두 삭제됩니다. (단, 관계법령에 의해 수집이력 등 제외)</li>
+				<li>올원뱅크, 스마트뱅킹, NH pay에서 마이데이터서비스를 모두 이용하시는 고객님의 경우, 한 곳의 마이데이터 서비스가 해지되면 다른 곳도 동시에 해지됩니다.</li>
+				<!-- [추가 260121] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 주의사항 추가 -->
+				<li>AI대출금리케어 서비스를 신청하신 경우 마이데이터서비스를 해지하면 AI대출금리케어 서비스도 철회됩니다.</li>
+				<!-- // [추가 260121] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 주의사항 추가 -->
+				<li>서비스 해지 후 해지 철회(해지 취소)는 불가합니다.</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 주의사항 동의 -->
+		<!-- -------------------------------------- -->
+		<div class="assetSelectLlistWrap">
+			<div class="assetSelectLlistAll">
+				<span role="button" aria-haspopup="true" aria-label="주의사항을 확인하였으며, 이에 동의합니다. (자산연결 내역 확인하기)">
+					<input type="checkbox" id="listAll" class="chekTypeOther" name="">
+					<label>주의사항을 확인하였으며, 이에 동의합니다.</label>
+				</span>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressDefault" role="button">취소</a>
+			<a href="javascript:;" class="btnPressPoint disabled" aria-disabled="true" role="button">다음</a> <!-- [D] 활성화 시 클래스 disabled / aria-disabled="true" 삭제 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		//[샘플] 동의 버튼 클릭이벤트
+		$('.assetSelectLlistAll [role="button"]').on('click',function(){
+			if($(this).attr('title') == '선택됨') {
+				$(this).attr('title','').find('input').prop('checked',false);
+				$('.areaBtnDefault .btnPressPoint').addClass('disabled').attr('aria-disabled','true');
+			}else{
+				if(confirm('자산연결 내역 확인하기 팝업이 오픈되며, 안내메세지 노출됩니다.')){
+					$(this).attr('title','선택됨').find('input').prop('checked',true);
+					$('.areaBtnDefault .btnPressPoint').removeClass('disabled').removeAttr('aria-disabled');
+				}else{
+					$(this).attr('title','').find('input').prop('checked',false);
+				}
+			}
+		});
+	});
+</script>
+<!-- ###################################### -->
+
+</body>
+</html>

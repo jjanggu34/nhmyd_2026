@@ -1,0 +1,102 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 조회조건 설정</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+	slidePopConfirm();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 조회조건 설정 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>조회설정</h1>
+		<div class="popCont">
+			<div class="transfer">
+				<div class="formWrap">
+					<ul class="searchFormWrap">
+						<li>
+							<strong class="formTit">조회기간</strong>
+							<div class="calendarForm">
+								<div class="cal">
+									<div class="inputList">
+										<input type="tel" value="2024-08-14" title="조회 시작일" placeholder="시작일선택" readonly="readonly">
+										<a href="javascript:;" class="btnCalendar" title="시작일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+									</div>
+								</div>
+								<span class="symbol">-</span>
+								<div class="cal">
+									<div class="inputList">
+										<input type="tel" value="2024-11-14" title="조회 종료일" placeholder="종료일선택" readonly="readonly">
+										<a href="javascript:;" class="btnCalendar" title="종료일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="roundChkWrap mt15">
+								<ul>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample20" id="sample21" aria-label="조회기간(1주일)">
+											<label for="sample21" aria-hidden="true">1주일</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample20" id="sample22" aria-label="조회기간(1개월)">
+											<label for="sample22" aria-hidden="true">1개월</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample20" id="sample23" aria-label="조회기간(2개월)">
+											<label for="sample23" aria-hidden="true">2개월</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample20" id="sample23"  aria-label="조회기간(3개월)" checked>
+											<label for="sample23" aria-hidden="true">3개월</label>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+					<p class="subTxt2">※ 조회기간은 최대 3개월까지만 설정 가능합니다.</p>
+				</div>
+			</div>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn">조회</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

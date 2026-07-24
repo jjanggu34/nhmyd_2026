@@ -1,0 +1,271 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자가 | 부동산 등록(아파트,오피스텔) | 자산현황(부동산)</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+</script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>부동산 등록</h1>
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 부동산 등록(아파트,오피스텔)_자가 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [상단영역] 부동산 정보 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap pt0 pb0">
+			<div class="infoBox bgNone">
+				<p class="tit">강남 파라곤</p>
+				<div class="divingTxt pointColor9 mt0"><span>서울특별시 강남구 논현동 241-7</span></div>
+				<div class="divingTxt pointColor9 mt10"><span>아파트</span><span>143.68㎡</span></div>
+				<hr class="divLine">
+				<ul class="detailList">
+					<li>
+						<span class="tit">소유구분</span>
+						<span class="value"><strong class="pointColor">자가</strong></span>
+					</li>
+					<li>
+						<span class="tit">매매가 시세</span>
+						<span class="value"><strong class="pointColor">13억 5천만원</strong></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [입력영역] -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap pt0">
+			<div class="formWrap estWrap">
+				<ul>
+					<li>
+						<strong class="formTit">매수금
+							<em class="inputVal">(7억 5천만원)</em>
+						</strong>
+						<div class="inputList unitMan">
+							<input type="tel" title="매수금 금액" name="" id="" value="" placeholder="금액을 입력해주세요.">
+							<span class="unit">만원</span>
+							<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+						</div>
+						<div class="roundBtnWrap">
+							<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+							<a href="javascript:;" role="button" title="1,000만원 추가">+1,000만</a>
+							<a href="javascript:;" role="button" title="1억 추가">+1억</a>
+							<a href="javascript:;" role="button" title="10억 추가">+10억</a>
+						</div>
+						<p class="errorTxt" style="display:none;">1부터 9,999,999만원까지 입력 가능합니다.</p>
+					</li>
+					<li>
+						<strong class="formTit">매수일(선택)</strong>
+						<div class="stList">
+							<a href="javascript:;" title="매수일 선택" aria-haspopup="true">
+								<span class="selectValue placeholder">날짜를 선택해주세요.</span>
+								<span class="selectBtn"></span>
+							</a>
+							<select name="" title="선택해주세요">
+								<option value=""></option>
+							</select>
+						</div>
+					</li>
+					<li>
+						<strong class="formTit">나의 지분율(선택)</strong>
+						<div class="inputList">
+							<input type="tel" title="나의 지분율(선택)" name="" id="QTART" value="" placeholder="공동명의일 경우 지분율을 입력해주세요.">
+							<span class="unit">%</span>
+							<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+						</div>
+						<p class="infoTxt" id="myAsAm">나의 자산금액 : 675,000,000원 (매매가 시세)</p>
+					</li>
+					<li>
+						<strong class="formTit mt20">관련대출(선택)<button type="button" class="contBtn01 green" title="관련대출 추가">추가</button></strong>
+						<!-- [CASE] 관련대출 선택 했을 경우 노출 -->
+						<div class="inputBoth01 div8_2">
+							<div class="inputList inputB01">
+								<input type="text" title="대출자산" value="[신한]마이너스대출" name="" id="" placeholder="" readonly>
+								<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+							</div>
+							<div class="inputB02">
+								<button type="button" class="contBtn01" title="[신한]마이너스대출">삭제</button>
+							</div>
+						</div>
+						<div class="inputBoth01 div8_2">
+							<div class="inputList inputB01">
+								<input type="text" title="대출자산" value="[NH농협]마이너스대출" name="" id="" placeholder="" readonly>
+								<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+							</div>
+							<div class="inputB02">
+								<button type="button" class="contBtn01" title="[NH농협]마이너스대출">삭제</button>
+							</div>
+						</div>
+						<!-- // -->
+					</li>
+					<li>
+						<strong class="formTit mt15">거주구분</strong>
+						<div class="boxRadio">
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo01" id="rdo01" type="radio" data-select="01" aria-label="거주구분(실거주)" checked>
+									<label for="rdo01" aria-hidden="true">실거주</label>
+								</span>
+							</div>
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo01" id="rdo02" type="radio" data-select="02" aria-label="거주구분(전세임대)">
+									<label for="rdo02" aria-hidden="true">전세임대</label>
+								</span>
+							</div>
+							<div class="boxRadioInn">
+								<span>
+									<input name="rdo01" id="rdo03" type="radio" data-select="03" aria-label="거주구분(월세임대)">
+									<label for="rdo03" aria-hidden="true">월세임대</label>
+								</span>
+							</div>
+						</div>
+					</li>
+
+					<!-- [CASE] 거주구분 : 전세 -->
+					<li data-cont="02">
+						<strong class="formTit">전세 보증금
+							<em class="inputVal">(7억 5천만원)</em>
+						</strong>
+						<div class="inputList unitMan">
+							<input type="tel" title="전세 보증금(최소 1만원 이상)" name="" id="" value="" placeholder="최소 1만원 이상">
+							<span class="unit">만원</span>
+							<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+						</div>
+						<div class="roundBtnWrap">
+							<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+							<a href="javascript:;" role="button" title="1,000만원 추가">+1,000만</a>
+							<a href="javascript:;" role="button" title="1억 추가">+1억</a>
+							<a href="javascript:;" role="button" title="10억 추가">+10억</a>
+						</div>
+						<p class="errorTxt" style="display:none;">1부터 9,999,999까지 입력 가능합니다.</p>
+					</li>
+					
+					<!-- [CASE] 거주구분 : 월세 -->
+					<li data-cont="03">
+						<strong class="formTit">월세 보증금(선택)
+							<em class="inputVal">(7억 5천만원)</em>
+						</strong>
+						<div class="inputList unitMan">
+							<input type="tel" title="월세 보증금(필수아님, 최소 1만원 이상)" name="" id="" value="" placeholder="최소 1만원 이상">
+							<span class="unit">만원</span>
+							<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+						</div>
+						<div class="roundBtnWrap">
+							<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+							<a href="javascript:;" role="button" title="1,000만원 추가">+1,000만</a>
+							<a href="javascript:;" role="button" title="1억 추가">+1억</a>
+							<a href="javascript:;" role="button" title="10억 추가">+10억</a>
+						</div>
+						<p class="errorTxt" style="display:none;">1부터 9,999,999까지 입력 가능합니다.</p>
+					</li>
+					<li data-cont="03">
+						<strong class="formTit ">월세
+							<em class="inputVal">(7억 5천만원)</em>
+						</strong>
+						<div class="inputList unitMan">
+							<input type="tel" title="월세(최소 1만원 이상)" name="" id="" value="" placeholder="최소 1만원 이상">
+							<span class="unit">만원</span>
+							<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+						</div>
+						<div class="roundBtnWrap">
+							<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+							<a href="javascript:;" role="button" title="1,000만원 추가">+1,000만</a>
+							<a href="javascript:;" role="button" title="1억 추가">+1억</a>
+							<a href="javascript:;" role="button" title="10억 추가">+10억</a>
+						</div>
+						<p class="errorTxt" style="display:none;">1부터 9,999,999까지 입력 가능합니다.</p>
+					</li>
+
+					<!-- [CASE] 거주구분 : 전세+월세 -->
+					<li data-cont="0203">
+						<strong class="formTit">계약기간(선택)<button type="button" class="contBtn01">초기화</button></strong>
+						<div class="calendarForm">
+							<div class="cal">
+								<div class="inputList">
+									<input type="text" value="" title="계약 시작일" placeholder="시작일선택" readonly="readonly">
+									<a href="javascript:;" class="btnCalendar" role="button"><span class="blind">계약 시작일 선택</span></a>
+								</div>
+							</div>
+							<span class="symbol">-</span>
+							<div class="cal">
+								<div class="inputList">
+									<input type="text" value="" title="계약 종료일" placeholder="종료일선택" readonly="readonly">
+									<a href="javascript:;" class="btnCalendar" role="button"><span class="blind">계약 종료일 선택</span></a>
+								</div>
+							</div>
+						</div>
+						<p class="errorTxt" style="display:none;">시작일을 선택시 종료일을 선택해주세요.</p>
+					</li>
+					<!-- // -->
+					
+					<li>
+						<strong class="formTit">메모(선택)</strong>
+						<textarea placeholder="메모를 입력해주세요. (최대30자)" maxlength="30"></textarea>
+						<div class="grayBgLine addType mt20">
+							KB부동산 매매시세금액을 자산현황에서<br />확인하실 수 있습니다.
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [하단영역] 액션버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">등록하기</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//샘플 : 나의 지분율 하단 텍스트 노출
+	$('#myAsAm').hide();
+	$("#QTART").on("propertychange change keyup paste input focus", function() {
+		$('#myAsAm').show();
+	});
+
+	//샘플 : 실거주 선택
+	$('[data-cont]').hide();
+	$('[data-select]').on('change',function(){
+		var _sel = $(this).data('select');
+		$('[data-cont]').hide();
+		$('[data-cont*="'+_sel+'"]').show();
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

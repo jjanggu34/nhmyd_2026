@@ -1,0 +1,477 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>정산결과 리뷰 | 연말정산 | 금융자산분석</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>정산결과 리뷰</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 정산결과 리뷰 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 상단 안내문구 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE] 추가 절세가능액 > 0 -->
+		<div class="yasimulWrap_review">
+			<p>훌륭해요 2021년<br>충분히 절세 하셨어요~</p>
+		</div>
+
+		<!-- [CASE] 그 외 -->
+		<div class="yasimulWrap_review addType">
+			<p>2021년 추가로 100만원<br>더 절세할 수 있었어요!~</p>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 환급액 산출 -->
+		<!-- -------------------------------------- -->
+		<div class="yanowWrap ty01 pb20">
+			<div clsss="cont">
+				<div class="yagraphArea ty01">
+					<span class="tit fwbold">2024년 환급액</span>
+					<span class="pointColor fo16"><span class="dataValue">1,000,000원</span></span>
+				</div>
+				<ul class="yalistBox">
+					<li>
+						<span class="list_title">최대환급가능액</span>
+						<span class="list_item"><span class="dataValue">8,589,055</span>원</span>
+					</li>
+					<li class="widthTootip">
+						<span class="list_title">추가환급가능액</span>
+						<div class="tooltipWrap w96">
+							<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">추가환급가능액 툴팁 열기</span></button>
+							<div class="tooltipCont lf20">
+								<p>- 정산결과 리뷰는 소비(신용,체크,현금영수증), 추가소비(전통시장), 추가소비(대중교통), 추가소비(도서/문화), 퇴직연금/연금저축, 주택청약, 보장성보험이 대상입니다.</p>
+								<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+							</div>
+						</div>
+						<span class="list_item"><span class="dataValue">8,589,055</span>원</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정산결과 : 소비 -->
+		<!-- -------------------------------------- -->
+		<div class="yatopArea">
+			<!-- // -->
+			<div class="yabannerArea">
+				<div class="titWrap">
+					<strong class="tit">소비</strong>
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">소비 툴팁 열기</span></button>
+						<div class="tooltipCont">
+							<p>소비 : 신용카드,체크카드,현금</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</div>
+				<div class="yabanner ty13">
+					<p>20,000,000원 더 사용 했으면<br>최대공제를 받을 수 있었어요!</p>
+				</div>
+			</div>
+			<!-- // -->
+			<div class="formWrap addShoow addType">
+				<div class="yatoggleWarp">
+					<div class="yaInfoWrap toggleWrap">
+						<div class="yamoreInfo  toggleCont bdtNone" style="display: none;">
+							<div class="yanowWrap">
+								<div clsss="cont">
+									<ul class="yalistTitleBox">
+										<li>
+											<span class="list_title">공제금액</span>
+											<span class="list_item"><span class="dataValue">3,690,055</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제 한도액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제시작 사용금액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">사용금액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+									</ul>
+									<ul class="yalistBox">
+										<li>
+											<span class="list_title">신용카드</span>
+											<span class="list_item"><span class="dataValue">3,690,055</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">체크카드</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">현금영수증</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="moreOpenBtn01 toggleBtn" role="button" aria-expanded="false"><span class="toggleTxt08">자세히 보기</span></button>
+					</div>
+				</div>
+			</div>
+			<!-- // -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정산결과 : 추가 소비(전통시장) -->
+		<!-- -------------------------------------- -->
+		<div class="yatopArea">
+			<!-- // -->
+			<div class="yabannerArea">
+				<div class="titWrap">
+					<strong class="tit">추가 소비(전통시장)</strong>
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">추가 소비(전통시장) 툴팁 열기</span></button>
+						<div class="tooltipCont">
+							<p>- 신용카드, 체크카드, 현금영수증의 전통시장 사용금액</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</div>
+				<div class="yabanner ty14">
+					<p>20,000,000원 더 사용 했으면<br>최대공제를 받을 수 있었어요!</p>
+				</div>
+			</div>
+			<!-- // -->
+			<div class="formWrap addShoow addType">
+				<div class="yatoggleWarp">
+					<div class="yaInfoWrap toggleWrap">
+						<div class="yamoreInfo  toggleCont bdtNone" style="display: none;">
+							<div class="yanowWrap">
+								<div clsss="cont">
+									<ul class="yalistTitleBox bdbNone">
+										<li>
+											<span class="list_title">공제금액</span>
+											<span class="list_item"><span class="dataValue">3,690,055</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제 한도액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">사용금액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="moreOpenBtn01 toggleBtn" role="button" aria-expanded="false"><span class="toggleTxt08">자세히 보기</span></button>
+					</div>
+				</div>
+			</div>
+			<!-- // -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정산결과 : 추가 소비(대중교통) -->
+		<!-- -------------------------------------- -->
+		<div class="yatopArea">
+			<div class="yabannerArea">
+				<div class="titWrap">
+					<strong class="tit">추가 소비(대중교통)</strong>
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">추가 소비(대중교통) 툴팁 열기</span></button>
+						<div class="tooltipCont">
+							<p>신용카드, 체크카드, 현금영수증의 대중교통 사용금액</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</div>
+				<div class="yabanner ty15">
+					<p>20,000,000원 더 사용 했으면<br>최대공제를 받을 수 있었어요!</p>
+				</div>
+			</div>
+			<div class="formWrap addShoow addType">
+				<div class="yatoggleWarp">
+					<div class="yaInfoWrap toggleWrap">
+						<div class="yamoreInfo  toggleCont bdtNone" style="display: none;">
+							<div class="yanowWrap">
+								<div clsss="cont">
+									<ul class="yalistTitleBox bdbNone">
+										<li>
+											<span class="list_title">공제금액</span>
+											<span class="list_item"><span class="dataValue">3,690,055</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제 한도액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">사용금액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="moreOpenBtn01 toggleBtn" role="button" aria-expanded="false"><span class="toggleTxt08">자세히 보기</span> </button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정산결과 : 추가 소비(도서/문화) -->
+		<!-- -------------------------------------- -->
+		<div class="yatopArea">
+			<div class="yabannerArea">
+				<div class="titWrap">
+					<strong class="tit">추가 소비(도서/문화)</strong>
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">추가 소비(도서/문화) 툴팁 열기</span></button>
+						<div class="tooltipCont">
+							<p>신용카드, 체크카드, 현금영수증의 도서/문화 사용금액</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</div>
+				<div class="yabanner ty16">
+					<p>20,000,000원 더 사용 했으면<br>최대공제를 받을 수 있었어요!</p>
+				</div>
+			</div>
+			<div class="formWrap addShoow addType">
+				<div class="yatoggleWarp">
+					<div class="yaInfoWrap toggleWrap">
+						<div class="yamoreInfo  toggleCont bdtNone" style="display: none;">
+							<div class="yanowWrap">
+								<div clsss="cont">
+									<ul class="yalistTitleBox bdbNone">
+										<li>
+											<span class="list_title">공제금액</span>
+											<span class="list_item"><span class="dataValue">3,690,055</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제 한도액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">사용금액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="moreOpenBtn01 toggleBtn" role="button" aria-expanded="false"><span class="toggleTxt08">자세히 보기</span> </button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정산결과 : 주택청약 -->
+		<!-- -------------------------------------- -->
+		<div class="yatopArea">
+			<div class="yabannerArea">
+				<div class="titWrap">
+					<strong class="tit">주택청약</strong>
+				</div>
+				<div class="yabanner ty17">
+					<p>20,000,000원 더 납입했으면<br>최대공제를 받을 수 있었어요!</p>
+				</div>
+			</div>
+			<div class="formWrap addShoow addType">
+				<div class="yatoggleWarp">
+					<div class="yaInfoWrap toggleWrap">
+						<div class="yamoreInfo  toggleCont bdtNone" style="display: none;">
+							<div class="yanowWrap">
+								<div clsss="cont">
+									<ul class="yalistTitleBox bdbNone">
+										<li>
+											<span class="list_title">공제받은 금액</span>
+											<span class="list_item"><span class="dataValue">3,690,055</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제 한도액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제대상 납입한도액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">납입금액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="moreOpenBtn01 toggleBtn" role="button" aria-expanded="false"><span class="toggleTxt08">자세히보기</span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정산결과 : IRP/연금저축 -->
+		<!-- -------------------------------------- -->
+		<div class="yatopArea">
+			<div class="yabannerArea">
+				<div class="titWrap">
+					<strong class="tit">IRP/연금저축</strong>
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">IRP/연금저축 툴팁 열기</span></button>
+						<div class="tooltipCont">
+							<p>- 두개 모두 보유 시 에는 연금저축은 400만원 + 퇴직연금(IRP)로 300만원까지 납입 최대 금액으로 공제 가능하며, <br />두개 중 한 개만 보유시에는 퇴직연금(IRP) : 최대 700만원까지, 연금저축 : 최대 400만원 까지 한도인정.</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</div>
+				<div class="yabanner ty18">
+					<p>20,000,000원 더 납입했으면<br>최대공제를 받을 수 있었어요!</p>
+				</div>
+			</div>
+			<div class="formWrap addShoow addType">
+				<div class="yatoggleWarp">
+					<div class="yaInfoWrap toggleWrap">
+						<div class="yamoreInfo  toggleCont bdtNone" style="display: none;">
+							<div class="yanowWrap">
+								<div clsss="cont">
+									<ul class="yalistTitleBox">
+										<li>
+											<span class="list_title">공제금액</span>
+											<span class="list_item"><span class="dataValue">3,690,055</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제 한도액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제대상 납입한도액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">납입금액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+									</ul>
+									<ul class="yalistBox">
+										<li>
+											<span class="list_title">IRP</span>
+											<span class="list_item pointColor03"><span class="dataValue">0</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">연금저축</span>
+											<span class="list_item pointColor03"><span class="dataValue">0</span>원</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="moreOpenBtn01 toggleBtn" role="button" aria-expanded="false"><span class="toggleTxt08">자세히 보기</span> </button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정산결과 : 보장성보험 -->
+		<!-- -------------------------------------- -->
+		<div class="yatopArea">
+			<div class="yabannerArea">
+				<div class="titWrap">
+					<strong class="tit">보장성보험</strong>
+				</div>
+				<div class="yabanner ty19">
+					<p>20,000,000원 더 납입했으면<br>최대공제를 받을 수 있었어요!</p>
+				</div>
+			</div>
+			<div class="formWrap addShoow addType">
+				<div class="yatoggleWarp">
+					<div class="yaInfoWrap toggleWrap">
+						<div class="yamoreInfo  toggleCont bdtNone" style="display: none;">
+							<div class="yanowWrap">
+								<div clsss="cont">
+									<ul class="yalistTitleBox bdbNone">
+										<li>
+											<span class="list_title">공제받은 금액</span>
+											<span class="list_item"><span class="dataValue">3,690,055</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">공제 한도액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">최대공제 납입금액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+										<li>
+											<span class="list_title">납입금액</span>
+											<span class="list_item"><span class="dataValue">23,162,745</span>원</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="moreOpenBtn01 toggleBtn" role="button" aria-expanded="false"><span class="toggleTxt08">자세히 보기</span> </button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 배너영역 -->
+		<!-- -------------------------------------- -->
+		<div class="yabannerArea mt30">
+			<div class="yabanner ty08">
+				<p>지난 결과에 아쉬워 마세요!</p>
+				<a href="javascript:;" class="link">
+					모의계산하고 더 환급 받기!
+				</a>
+			</div>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$('.moreOpenBtn01').click(function(){
+		if($(this).hasClass('active')){
+			$(this).parents('.yatoggleWarp').closest('.addType').removeClass('zin');
+		}else{
+			$(this).parents('.yatoggleWarp').closest('.addType').addClass('zin');
+		}
+	})
+</script>
+<!-- ###################################### -->
+</body>
+</html>

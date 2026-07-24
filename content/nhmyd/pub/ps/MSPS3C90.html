@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>수집이용동의 | 자산연결 | 설정/관리</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack" role="button"><span>이전화면으로</span></a>
+		<h1>수집이용동의</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 수집이용동의  ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 상단문구 -->
+		<!-- -------------------------------------- -->
+		<h2 class="defTit"><strong>개인(신용) 정보</strong><br><strong>전송 및 수집·이용에 동의</strong>해 주세요</h2>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 기관목록 : 토글형식 -->
+		<!-- -------------------------------------- -->
+		<div class="assetSelectLlistWrap">
+			<ul class="assetSelectLlist shadowType">
+				<!-- // -->
+				<!-- [MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) 서민금융진흥원 노출시 정의 추가 -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" id="listSub03" class="chekTypeOther">
+							<label for="listSub03">
+								<span class="imgWrap"><img src="../../images/logos/AAOW0000.png" alt="" class="imgLogo"></span>
+								서민금융진흥원
+							</label>
+						</span>
+						<a href="javascript:;" class="toggleBtn" role="button" aria-expanded="false"><span class="blind">서민금융진흥원 상세내용</span></a>
+					</div>
+					<div class="toggleCont" style="display:none">
+						<ul class="assetSelectSub">
+							<li>
+								<div class="accountInfo">
+									<div>
+										<div class="title">기관명</div>
+										<div class="subCont">123456******1234</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="wrapTblDefault mt12 pdWidth mb20">
+							<table class="thCenter">
+								<caption>전송요구 설정 정보</caption>
+								<colgroup>
+									<col width="28%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">연결구분</th>
+										<td>정기(주 1회)</td>
+									</tr>
+									<tr>
+										<th scope="row">연결종료<br />(예정)일자</th>
+										<td>YYYY.MM.DD</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<!-- // -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" id="listSub01" class="chekTypeOther">
+							<label for="listSub01">
+								<span class="imgWrap"><img src="../../images/logos/AAEO0000.png" alt="" class="imgLogo"></span>
+								국민은행
+							</label>
+						</span>
+						<a href="javascript:;" class="toggleBtn" role="button" aria-expanded="false"><span class="blind">국민은행 상세내용</span></a>
+					</div>
+					<div class="toggleCont" style="display:none">
+						<ul class="assetSelectSub">
+							<li>
+								<div class="accountInfo">
+									<div>
+										<div class="title">상품명</div>
+										<div class="subCont">계좌번호(회차),상태</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="accountInfo">
+									<div>
+										<div class="title">포인트 정보</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="accountInfo">
+									<div>
+										<div class="title">청구 및 결제정보</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="accountInfo">
+									<div>
+										<div class="title">대출상품 정보</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="wrapTblDefault mt12 pdWidth mb20">
+							<table class="thCenter">
+								<caption>전송요구 설정 정보</caption>
+								<colgroup>
+									<col width="28%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">연결구분</th>
+										<td>정기(주 1회)</td>
+									</tr>
+									<tr>
+										<th scope="row">유효기간</th>
+										<td>YYYY.MM.DD</td>
+									</tr>
+									<tr>
+										<th scope="row">연결정보</th>
+										<td>
+											<ul class="listDash">
+												<li>적요 또는 거래메모</li>
+												<li>가맹점명 및 사업자등록번호</li>
+												<li>상품구매 카테고리</li>
+											</ul>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<!-- // -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" id="listSub02" class="chekTypeOther">
+							<label for="listSub02">
+								<span class="imgWrap"><img src="../../images/logos/AAFO0000.png" alt="" class="imgLogo"></span>
+								현대카드
+							</label>
+						</span>
+						<a href="javascript:;" class="toggleBtn" role="button" aria-expanded="false"><span class="blind">현대카드 자산목록</span></a>
+					</div>
+					<div class="toggleCont" style="display:none">
+						<ul class="assetSelectSub">
+							<li>
+								<div class="accountInfo">
+									<div>
+										<div class="title">네이버 현대카드</div>
+										<div class="subCont">123456******1234</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="accountInfo">
+									<div>
+										<div class="title">포인트 정보</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="accountInfo">
+									<div>
+										<div class="title">청구 및 결제정보</div>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="accountInfo">
+									<div>
+										<div class="title">대출상품 정보</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<div class="wrapTblDefault mt12 pdWidth mb20">
+							<table class="thCenter">
+								<caption>개인신용정보 표</caption>
+								<colgroup>
+									<col width="28%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">연결구분</th>
+										<td>정기(주 1회)</td>
+									</tr>
+									<tr>
+										<th scope="row">유효기간</th>
+										<td>YYYY.MM.DD</td>
+									</tr>
+									<tr>
+										<th scope="row">연절정보</th>
+										<td>
+											<ul class="listDash">
+												<li>적요 또는 거래메모</li>
+												<li>가맹점명 및 사업자등록번호</li>
+												<li>상품구매 카테고리</li>
+											</ul>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<!-- // -->
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 안내문구 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE] 정기전송 여부 동의 -->
+		<!-- [MD2411_092_v0.20] [자산연결 동의 절차 간소화] 자산정보 주 선택시 상단문구 수정 S -->
+		<div class="boxTypeWrap">
+			<dl class="dlType01">
+				<dt>자산정보를 정기적으로 가져올까요?</dt>
+				<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 텍스트 수정 -->
+				<dd id="periodTxt">금융정보는 <span class="periodTxt pointColor">1주</span> 1회(변경가능), 정기전송합니다.</dd>
+			</dl>
+			<div class="baseChkType">
+				<ul class="subChkList" id="periodList">
+					<li><input type="radio" id="rdo_w1" class="chekTypeOther" name="rdo_w" checked><label for="rdo_w1">1주</label></li>
+					<li><input type="radio" id="rdo_w2" class="chekTypeOther" name="rdo_w"><label for="rdo_w2">2주</label></li>
+					<li><input type="radio" id="rdo_w3" class="chekTypeOther" name="rdo_w"><label for="rdo_w3">3주</label></li>
+					<li><input type="radio" id="rdo_w4" class="chekTypeOther" name="rdo_w"><label for="rdo_w4">4주</label></li>
+				</ul>
+				<p class="infoTxtGray pb0">※ 6개월동안 로그인하지 않을 경우 정기적 전송은 자동 중단됩니다.</p>
+			</div>
+		</div>
+		<!-- //[MD2411_092_v0.20] [자산연결 동의 절차 간소화] 자산정보 주 선택시 상단문구 E -->
+		<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 수정 S -->
+		<div class="boxTypeWrap">
+			<!-- [CASE] 적요 또는 거래메모 -->
+			<dl class="dlType01">
+				<dt>계좌정보의 적요 또는 거래메모를 가져올까요?</dt>
+				<dd>적요와 거래메모에는 송금인/수취인의 이름과 거래정보가 포함되어 있습니다.</dd>
+			</dl>
+		</div>
+		<div class="boxTypeWrap">
+			<!-- [CASE] 가맹점명 정보 수집/이용 -->
+			<dl class="dlType01">
+				<dt>결제 내역의 가맹점명 및 사업자등록번호를 가져올까요?</dt>
+				<dd>가맹점명 및 사업자등록번호에는 소비습관을 알 수 있는 정보가 포함되어 있습니다.</dd>
+			</dl>
+		</div>
+		<div class="boxTypeWrap">
+			<!-- [CASE] 카테고리 정보 수집/이용 -->
+			<dl class="dlType01">
+				<dt>상품구매 카테고리 정보를 가져올까요?</dt>
+				<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 텍스트 수정 -->
+				<dd>
+					[선불전자지급수단의 상품구매정보 항목]에는 실제 구매한 상품이 아닌 해당 상품의 카테고리가 포함되어 있습니다. 정보전송은 본인의 책임과 판단하에 신중하게 결정하여 주시기 바랍니다.
+					<div class="addinfoBox">
+						<p class="tit">가져오는 카테고리 정보</p>
+						<!-- [MD2411_092_v0.09] [자산연결 동의 절차 간소화] 텍스트 수정 -->
+						가전 및 전자/도서 및 문구/패션 및 의류/스포츠/화장품/아동 및 유아/식품/생활 및 가구/여행 및 교통/문화 및 레저/음식/E쿠폰 및 기타서비스 카테고리 정보
+					</div>
+				</dd>
+			</dl>
+		</div>
+		<!-- //[MD2411_092_v0.09] [자산연결 동의 절차 간소화] 수정 E -->
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">동의</a> <!-- [D] 비활성화시 disabled 클래스 및 aria-disabled="true" 추가  -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트  ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	// [MD2411_092_v0.20] [자산연결 동의 절차 간소화] 자산정보 주 선택시 상단문구 수정
+	$('#periodList li').on('click',function(){
+		var Text_period = $(this).text();
+		$('#periodTxt').show();
+		$('#periodTxt .periodTxt').text(Text_period);
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

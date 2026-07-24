@@ -1,0 +1,242 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>목표수정 | 목표리스트(일반) | 목표 | 자산</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack" role="button"><span class="blind">이전화면으로</span></a>
+		<h1>목표수정</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 목표수정(일반) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<div class="boxTypeWrap addchallType">
+			<!-- -------------------------------------- -->
+			<!-- [상단영역] -->
+			<!-- -------------------------------------- -->
+			<div class="toptourText">
+				<p><strong>나 홀로 유럽일주<span><span class="pointColor">7</span>일남음</span></strong></p>
+				<span class="toptourImg">
+					<img src="../../images/category/ob/ico_cate_ob02_02.png" alt="">
+				</span>
+			</div><hr class="divLine" aria-hidden="true">
+
+			<!-- -------------------------------------- -->
+			<!-- [입력영역] -->
+			<!-- -------------------------------------- -->
+			<div class="formWrap">
+				<ul>
+					<li class="pt0">
+						<strong class="formTit">목표명</strong>
+						<div class="inputList"> <!-- [D] error일때 클래스 error 추가 -->
+							<input type="text" title="목표명" value="여행가기" placeholder="ex) 나 홀로 YOLO 여행!">
+							<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+						</div>
+						<p class="errorTxt" style="display:none;">특수문자는 !@#$*()-=|;:,./ 만 입력 가능합니다.</p>
+					</li>
+					<li>
+						<strong class="formTit">목표 금액</strong>
+						<div class="inputList unitMan">
+							<input type="tel" title="목표 금액" value="240" placeholder="1만원 이상 입력해 주세요.">
+							<span class="unit">만원</span>
+							<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+						</div>
+						<div class="roundBtnWrap">
+							<a href="javascript:;" role="button" title="1만원 추가">+1만</a>
+							<a href="javascript:;" role="button" title="10만원 추가">+10만</a>
+							<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+							<a href="javascript:;" role="button" title="1000만원 추가">+1,000만</a>
+							<a href="javascript:;" role="button" title="1억원 추가">+1억</a>
+						</div>
+						<p class="errorTxt" style="display:none;">1부터 9,999,999만원까지 입력 가능합니다.</p>
+					</li>
+					<li class="pb0">
+						<div class="formTit">목표 기간
+							<div class="tooltipWrap">
+								<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">목표 기간 안내툴팁</span></button>
+								<div class="tooltipCont">
+									<p>	
+										목표 설정 기간은 1개월~10년입니다.
+										종료일자는 특정 일자로 지정이 가능합니다.
+									</p>
+									<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+								</div>
+							</div>
+						</div>
+
+						<!-- [CASE] 기본 -->
+						<div class="inputList unitMan" data-input="1">
+							<input type="tel" title="목표 기간" value="12" placeholder="목표기간을 입력해주세요">
+							<span class="unit">개월</span>
+							<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+						</div>
+
+						<!-- [CASE] 목표달성일 지정하기에서 선택 후 -->
+						<div class="inputList unitMan inputSm2  readonly readonlyWhite" data-input="2">
+							<input type="tel" title="목표 기간" value="12" placeholder="개월" readonly>
+							<span class="unit">개월</span>
+							<input type="tel" title="목표 기간" value="30" placeholder="일" readonly>
+							<span class="unit">일</span>
+							<a href="javascript:" class="btnReset" role="button" style="display: inline-block;">입력내용삭제</a>
+						</div>
+						<!-- // -->
+
+						<div class="roundBtnWrap">
+							<a href="javascript:;" role="button" title="1개월 추가">+1개월</a>
+							<a href="javascript:;" role="button" title="3개월 추가">+3개월</a>
+							<a href="javascript:;" role="button" title="6개월 추가">+6개월</a>
+							<a href="javascript:;" role="button" title="1년 추가">+1년</a>
+							<a href="javascript:;" role="button" title="3년 추가">+3년</a>
+						</div>
+						<div class="obChk mt20 fr" role="button" tabindex="0" aria-label="목표달성일 지정하기"> <!-- [D] 팝업호출하므로 role="button" 추가 : 선택시 상태정보 추가 (title="선택됨") -->
+							<input type="checkbox" id="listAll" class="chekTypeOther" name=""><label>목표달성일 지정하기</label>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!-- -------------------------------------- -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [목록영역] 연결계좌 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap pt0 pb28">
+			<div class="totalTitWrap typeob visualSubWrap dsfWrap">
+				<h2 class="visualSub type01">연결계좌</h2>
+			</div>
+			<div class="formWrap btndelType mt0">
+				<ul>
+					<li>
+						<!-- [CASE] 계좌연결이 았는 경우 -->
+						<div class="listIs" data-page="2">
+							<ul class="accList">
+								<li class="ob posR">
+									<span class="imgWrap">
+										<img src="../../images/logos/AABG0000.png" alt="농협은행 로고" class="imgLogo">
+									</span>
+									<div class="accInfoWrap">
+										<div class="accTit pr17">올원외화포켓적립예금</div>
+										<div class="accInfo mt0">
+											<span class="accNum">1234567890000</span>
+										</div>
+										<span class="accValue fr"><strong>1,000,000</strong><em class="won">원</em></span>
+										<div class="accDate">만기일 2025.07.16</div>
+									</div>
+									<button type="button" class="ob btnAccDel"><span class="blind">해당 계좌 삭제하기</span></button>
+								</li>
+								<li class="ob posR">
+									<span class="imgWrap">
+										<img src="../../images/logos/AABG0000.png" alt="농협은행 로고" class="imgLogo">
+									</span>
+									<div class="accInfoWrap">
+										<div class="accTit pr17">BNK공모주플러스 10증권투자</div>
+										<div class="accInfo mt0">
+											<span class="accNum">1234567890000</span>
+										</div>
+										<span class="accValue fr"><strong>1,000,000</strong><em class="won">원</em></span>
+									</div>
+									<button type="button" class="ob btnAccDel"><span class="blind">해당 계좌 삭제하기</span></button>
+								</li>
+							</ul>
+						</div>
+
+						<!-- [CASE] 계좌연결이 없는 경우 -->
+						<div class="noResultWrap" data-page="1"><p>연결된 계좌가 없습니다.</p></div>
+						<!-- // -->
+					</li>
+				</ul>
+			</div>
+			<div class="areaBodyBtnFull">
+				<a href="javascript:;" class="btnBodyLine" role="button">연결계좌 관리하기</a>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [하단영역] 액션버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressDefault" role="button">취소</a>
+			<a href="javascript:;" class="btnPressPoint" role="button">저장</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	//샘플 : 케이스 화면 정의
+	var a = ['연결계좌있음(MSOB6110)', '연결계좌없음(MSOB6110_1)']; // 케이스 명
+	var b = ['MSOB6110', 'MSOB61101']; // 함수 명
+	var num = a.length; // 케이스 수
+	uiCaseMenu(a,b,num);
+	uiCaseMSOB6110();
+
+	//[샘플] 목표기간 초기화 : 목표달성일 지정하기 체크에 따라 노출 유무
+	if(!$('#listAll').prop('checked')) $('[data-input="2"]').hide();
+	else $('[data-input="1"]').hide();
+
+	//[샘플] 목표달성일 지정하기 클릭 이벤트
+	$('.obChk').off('click.ob').on('click.ob',function(){
+		var _input = $('#listAll');
+		if(!$(this).attr('title')){
+			$(this).attr('title','선택됨');
+			if(confirm('날짜선택 팝업이 열리고 날짜선택을 합니다.')){
+				$('[data-input="1"]').hide();
+				$('[data-input="2"]').show();
+				$(this).attr('title','선택됨');
+				_input.prop('checked','checked');
+			}else{
+				_input.prop('checked','');
+			}
+		}else{
+			$(this).removeAttr('title');
+			_input.prop('checked','');
+			$('[data-input="1"]').show();
+			$('[data-input="2"]').hide();
+		}
+	});
+
+	//샘플 : 케이스 : 연결계좌있음
+	function uiCaseMSOB6110(){
+		$('[data-page="1"]').hide();
+		$('[data-page="2"]').show();
+		$('.areaBodyBtnFull').removeClass('mt50').find('a').text('연결계좌 관리하기');
+	}
+
+	//샘플 : 케이스 : 연결계좌없음
+	function uiCaseMSOB61101(){
+		$('[data-page="1"]').show();
+		$('[data-page="2"]').hide();
+		$('.areaBodyBtnFull').addClass('mt50').find('a').text('계좌 연결하기');
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

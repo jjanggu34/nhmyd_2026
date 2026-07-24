@@ -1,0 +1,79 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 범칙금/과태료/세금 고지내역</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+	fullLayerPop();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 범칙금/과태료/세금 고지내역 ### -->
+<!-- ### [현행화_2024] 기획/개발 존재/ 퍼블 파일 없음 : 개발 소스 적용  ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1>범칙금/과태료/세금 고지내역</h1>
+		<div class="popCont grayPop">
+			<!-- [CASE] 내역이 있는 경우 -->
+			<p class="defTit">현재 총 <strong>N건의</strong><strong> 고지 내역</strong>이 있습니다</p>
+			<ul class="carRecallList">
+				<li>
+					<a href="javascript:;" role="button">
+						<span class="carRecallSubject"><span class="title">속도위반(20km/h 이하)</span></span>
+						<span class="value">40,000원</span>
+					</a>
+					<div class="carInfo">
+						ㆍ 등록일자 : <span class="date">2024.10.10</span><br/>
+						ㆍ 납부기한일자 : <span class="date">2024.10.10</span>
+					</div>
+				</li>
+				<li>
+					<a href="javascript:;" role="button">
+						<span class="carRecallSubject"><span class="title">속도위반(20km/h 이하)</span></span>
+						<span class="value">40,000원</span>
+					</a>
+					<div class="carInfo">
+						ㆍ 등록일자 : <span class="date">2024.10.10</span><br/>
+						ㆍ 납부기한일자 : <span class="date">2024.10.10</span>
+					</div>
+				</li>
+			</ul>
+
+			<!-- [CASE] 내역이 없는 경우 -->
+			<div class="nolistBox">
+				<div class="noResultWrap"><p>고지 내역이 없습니다.</p></div>
+			</div>
+			<!-- // -->
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

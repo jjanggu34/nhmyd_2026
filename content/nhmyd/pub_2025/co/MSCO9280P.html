@@ -1,0 +1,267 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 전체메뉴</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script>
+	$(document).ready(function() {
+		fullLayerPop();
+	});
+</script>
+</head>
+<body>
+  <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+  <!-- ###################################### -->
+  <!-- ### [팝업] 전체메뉴                 ### -->
+  <!-- ###################################### -->
+  <div class="nhasset popWrap fullLayerPop">
+    <div class="popInner">
+      <h1 class="newMain"><img src="../../images/makebetter/logo_tit_mydata.svg" class="mt0" alt="NH마이데이터"></h1>
+      <div class="popCont">
+        <!-- 상단 고정 영역 -->
+        <div class="allMenuNav">
+          <ul class="csIconLlist">
+            <li class="item -home">
+              <a href="javascript:;" role="button" title="메인홈"><span>메인</span></a>
+            </li>
+            <li class="item -set">
+              <a href="javascript:;" role="button" title="자산"><span>자산</span></a>
+            </li>
+            <li class="item -account">
+              <a href="javascript:;" role="button" title="소비"><span>소비</span></a>
+            </li>
+            <li class="item -configuration">
+              <a href="javascript:;" role="button" title="환경설정"><span>설정</span></a>
+            </li>
+          </ul>
+          <div class="link horizontal">
+            <a href="javascript:;" class="ico_link ico-assets-link" role="button">자산연결하기</a>
+          </div>			
+        </div>
+        <!-- // 상단 고정 영역 -->
+
+        <!-- 하단 메뉴 영역 -->
+        <div class="allMenuWrap">
+          <ul role="tablist" class="tabsNav">
+              <li><a href="javascript:;" role="tab" class="tabLink active" data-target="content-1">최근 이용</a></li>
+              <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-2">추천</a></li>
+              <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-3">자산관리</a></li>
+              <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-4">지출관리</a></li>
+              <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-5">대출/신용관리</a></li>
+              <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-6">목표/계획</a></li>
+              <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-7">세금/절세</a></li>
+              <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-8">라이프</a></li>
+              <li><a href="javascript:;" role="tab" class="tabLink" data-target="content-9">관리센터</a></li>
+          </ul> 
+          <div class="contentArea">
+            <div id="content-1" role="tabpanel"  class="contentSec">
+              <h3 class="tit">최근 이용</h3>
+              <ul>
+                <li><a href="javascript:;" role="button">금융플래너</a></li>
+                <li><a href="javascript:;" role="button">세금계산기</a></li>
+              </ul>	
+            </div>
+            <div id="content-2" role="tabpanel"  class="contentSec">
+              <h3 class="tit">추천</h3>
+              <ul>
+                <li><a href="javascript:;" role="button">내 자산 안심 알림</a></li>
+                <li><a href="javascript:;" role="button">밸런스진단</a></li>
+              </ul>
+            </div>
+            <div id="content-3" role="tabpanel"  class="contentSec">
+              <h3 class="tit">자산관리</h3>
+              <ul>
+                <li><a href="javascript:;" role="button">자산모아보기</a><span class="badges -new">NEW</span></li>
+                <li><a href="javascript:;" role="button">자산진단</a></li>
+                <li><a href="javascript:;" role="button">연금 진단</a></li>                
+                <li><a href="javascript:;" role="button">조기은퇴진단</a></li>
+                <li><a href="javascript:;" role="button">밸런스진단</a></li>
+                <li><a href="javascript:;" role="button">내 자산 안심 알림</a></li>                
+                <li><a href="javascript:;" role="button">월간 자산 보고서</a></li>
+                <li><a href="javascript:;" role="button">상품모아보기</a></li>
+              </ul>	
+            </div>
+            <div id="content-4" role="tabpanel"  class="contentSec">
+              <h3 class="tit">지출관리</h3>
+              <ul>
+                <li><a href="javascript:;" role="button">소비모아보기</a></li>
+                <li><a href="javascript:;" role="button">예산관리</a></li>
+                <li><a href="javascript:;" role="button">머니캘린더</a></li>
+                <li><a href="javascript:;" role="button">소비패턴</a></li>
+                <li><a href="javascript:;" role="button">정기지출관리</a></li>
+                <li><a href="javascript:;" role="button">카드이용내역</a></li>
+                <li><a href="javascript:;" role="button">카드리포트</a></li>
+                <li><a href="javascript:;" role="button">카드 헤택비교</a></li>
+              </ul>		
+            </div>
+            <div id="content-5" role="tabpanel"  class="contentSec">
+              <h3 class="tit">대출/신용관리</h3>
+              <ul>
+                <li><a href="javascript:;" role="button">신용관리</a></li>
+                <li><a href="javascript:;" role="button">신용점수올리기</a></li>
+                <li><a href="javascript:;" role="button">DSR 계산기</a></li>
+              </ul>
+            </div>
+            <div id="content-6" role="tabpanel"  class="contentSec">
+              <h3 class="tit">목표/계획</h3>
+              <ul>
+                <li><a href="javascript:;" role="button">목표 설정/관리/계획1</a></li>
+                <li><a href="javascript:;" role="button">그때 그랬다면/계획2</a></li>
+                <li><a href="javascript:;" role="button">금융플래너/계획3</a></li>
+                <li><a href="javascript:;" role="button">주택청약플래너/계획4</a></li>
+              </ul>
+
+            </div>
+            <div id="content-7" role="tabpanel"  class="contentSec">
+              <h3 class="tit">세금/절세</h3>
+              <ul>
+                <li><a href="javascript:;" role="button">금융소득 모니터링/절세1</a></li>
+                <li><a href="javascript:;" role="button">세금계산기/절세2</a></li>
+                <li><a href="javascript:;" role="button">연말정산/절세3</a></li>
+              </ul>	
+            </div>
+            <div id="content-8" role="tabpanel"  class="contentSec">
+              <h3 class="tit">라이프</h3>
+              <ul>
+                <li><a href="javascript:;" role="button">내차관리</a></li>
+                <li><a href="javascript:;" role="button">나의 건강관리</a></li>
+                <li><a href="javascript:;" role="button">건강검진결과조회</a></li>
+                <li><a href="javascript:;" role="button">병원방문 관리</a></li>
+                <li><a href="javascript:;" role="button">실손보험청구</a></li>
+                <li><a href="javascript:;" role="button">건강카드뉴스</a></li>
+                <li><a href="javascript:;" role="button">요양병원찾기</a></li>
+                <li><a href="javascript:;" role="button">주말약국찾기</a></li>
+                <li><a href="javascript:;" role="button">맞춤정부혜택</a></li>
+                <li><a href="javascript:;" role="button">혜택알리미</a></li>
+                <li><a href="javascript:;" role="button">혜택플러스</a></li>
+                <li><a href="javascript:;" role="button">NH트렌드+</a></li>
+              </ul>		
+            </div>
+            <div id="content-9" role="tabpanel"  class="contentSec">
+              <h3 class="tit">관리센터</h3>
+              <ul>
+                <li><a href="javascript:;" role="button">마이데이터 공지사항</a></li>
+                <li><a href="javascript:;" role="button">마이데이터 이벤트</a></li>
+                <li><a href="javascript:;" role="button">서비스 환경설정</a></li>
+              </ul>	
+            </div>
+          </div>
+        </div>			
+        <!-- // 하단 메뉴 영역 -->
+      </div><!-- // popCont -->
+
+      <!-- -------------------------------------- -->
+      <!-- [SECTION] 버튼영역 -->
+      <!-- -------------------------------------- -->
+      <div class="popBtnWrap">
+        <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a>
+        <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"></a>
+      </div>
+      <!-- -------------------------------------- -->      
+    </div><!--// popInner -->
+  </div><!-- // fullLayerPop -->
+
+  <!-- ###################################### -->
+  <!-- ### [샘플] 스크립트 ### -->
+  <!-- ###################################### -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  /* css 재정의 */
+  document.querySelector('.popCont').style.overflow = 'hidden';
+  document.querySelector('.popCont').style.paddingBottom = '0';
+  const elementHeight = document.querySelector('.allMenuNav').offsetHeight;
+  document.querySelector('.allMenuWrap').style.paddingTop = `${elementHeight}px`;
+  /* // css 재정의 */
+  
+  const tabsNav = document.querySelector('.tabsNav');
+  const tabLinks = document.querySelectorAll('.tabLink');
+  const contentArea = document.querySelector('.contentArea');
+  const contentSections = document.querySelectorAll('.contentSec');
+  const lastContentSection = document.querySelector('.contentSec:last-child');
+  let isTabClick = false;
+
+  function adjustPadding() {
+      if (!contentArea || !lastContentSection) return;
+      const containerHeight = contentArea.clientHeight;
+      const lastElementHeight = lastContentSection.offsetHeight;
+      const paddingNeeded = containerHeight - lastElementHeight - 20;
+      contentArea.style.paddingBottom = (paddingNeeded > 0) ? paddingNeeded + 'px' : '20px';
+
+  }
+  adjustPadding();
+  window.addEventListener('resize', adjustPadding);
+
+  tabsNav.addEventListener('click', function(event) {
+      event.preventDefault();
+      const target = event.target.closest('.tabLink');
+      if (!target) return;
+
+      // 클릭 즉시 active 클래스 적용
+      tabLinks.forEach(link => link.classList.remove('active'));
+      target.classList.add('active');
+
+      isTabClick = true;
+      const targetId = target.dataset.target;
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+          // const scrollPosition = targetElement.offsetTop - 20;
+          const scrollPosition = targetElement.offsetTop - 5;
+          contentArea.scrollTo({
+              top: scrollPosition,
+              behavior: 'smooth'
+          });
+
+          setTimeout(() => {
+              isTabClick = false;
+          }, 600); // 애니메이션 시간 이후 플래그 초기화
+      }
+  });
+  // 옵져버 스크롤
+  const observerOptions = {
+      root: contentArea,
+      rootMargin: '-50px 0px -50% 0px', 
+      threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+      if (isTabClick) return;
+
+      // 보이는(isIntersecting) 첫 번째 요소를 찾습니다.
+      const firstVisibleEntry = entries.find(entry => entry.isIntersecting);
+
+      // 만약 보이는 요소가 있다면
+      if (firstVisibleEntry) {
+        // 그 요소에 해당하는 탭만 활성화합니다.
+          const targetId = firstVisibleEntry.target.id;
+          tabLinks.forEach(link => {
+              link.classList.toggle('active', link.dataset.target === targetId);
+          });
+      }
+    }, observerOptions);
+
+  contentSections.forEach(section => {
+      observer.observe(section);
+  });
+});  
+</script>
+  <!-- ###################################### -->
+</body>
+</html>

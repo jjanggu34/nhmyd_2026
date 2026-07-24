@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 이용 동의</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 이용 동의  ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 10번 dim에 aria-hidden="true" 수정-->
+	<div class="dim" aria-hidden="true"></div>
+	<!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 10번 dim에 aria-hidden="true" 수정-->
+	<div class="popInner">
+		<h1>이용 동의</h1>
+		<div class="popCont">
+			<!-- [CASE] 공동/금융 인증서 선택한 경우 -->
+			<div class="formWrap selectAll mt0 pt0">
+				<div class="total">
+					<div class="formHolder check">
+						<input type="checkbox" id="type_all01" checked class="chekTypeOther">
+						<label class="check" for="type_all01">전체동의</label>
+					</div>
+				</div>
+				<div class="cont" >
+					<div class="formHolder check ">
+						<input type="checkbox" id="type01" checked="checked">
+						<label class="check" for="type01"><em>[필수]</em>인증서 본인확인서비스 이용약관</label>
+						<a href="javascript:;" class="btnView" role="button" title="[필수]인증서 본인확인서비스 이용약관">
+							<!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 8번 대체 텍스트 수정-->
+							<span class="blind">[필수]인증서 본인확인서비스 이용 약관보기</span>
+							<!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 8번 대체 텍스트 수정-->
+						</a>
+					</div>
+					<div class="formHolder check">
+						<input type="checkbox" id="type02" checked="checked">
+						<label class="check" for="type02"><em>[필수]</em>개인정보 처리 동의</label>
+						<a href="javascript:;" class="btnView" role="button" title="[필수]개인정보 처리 동의">
+							<!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 8번 대체 텍스트 수정-->
+							<span class="blind">[필수]개인정보 처리 동의 약관보기</span>
+							<!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 8번 대체 텍스트 수정-->
+						</a>
+					</div>
+					<div class="formHolder check">
+						<input type="checkbox" id="type03" checked="checked">
+						<label class="check" for="type03"><em>[필수]</em>고유식별정보 수집·이용 및 위탁 동의</label>
+						<a href="javascript:;" class="btnView" role="button" title="[필수]고유식별정보 수집·이용 및 위탁 동의">
+							<!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 8번 대체 텍스트 수정-->
+							<span class="blind">[필수]고유식별정보 수집·이용 및 위탁 동의 약관보기</span>
+							<!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 8번 대체 텍스트 수정-->
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- [CASE] 네이버 인증서 선택한 경우 -->
+			<div class="formWrap selectAll">
+				<div class="total">
+					<div class="formHolder check">
+						<input type="checkbox" id="type_all02" checked class="chekTypeOther">
+						<label class="check" for="type_all02"><em>[필수]</em>개인(신용)정보 제3자 제공 동의서</label>
+						<a href="javascript:;" class="btnView" role="button" title="[필수]개인(신용)정보 제3자 제공 동의서">
+							<!-- [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 8번 대체 텍스트 수정-->
+							<span class="blind">[필수]개인(신용)정보 제3자 제공 동의서 약관보기</span>
+							<!-- // [수정 260115] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 8번 대체 텍스트 수정-->
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- // -->
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

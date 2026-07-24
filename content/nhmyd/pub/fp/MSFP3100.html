@@ -1,0 +1,339 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>금융일정등록 | 금융캘린더 | 금융플래너 | 플래너</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>금융일정등록</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 금융일정등록 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<div class="boxTypeWrap">
+			<!-- -------------------------------------- -->
+			<!-- [탭버튼] -->
+			<!-- -------------------------------------- -->
+			<div class="tabWrap type08">
+				<ul role="tablist">
+					<li role="presentation"><a href="javascript:;" class="active on" >직접등록</a></li>
+					<li role="presentation"><a href="javascript:;">공과금</a></li>
+				</ul>
+			</div>
+			<!-- -------------------------------------- -->
+
+			<div class="tabContWrap type08">
+				<!-- -------------------------------------- -->
+				<!-- [탭컨텐츠] 직접등록 -->
+				<!-- -------------------------------------- -->
+				<div class="tabCont01" style="display: block;">
+					<h2 class="defTit">금융일정을 직접 등록해보세요.</h2>
+					<div class="formWrap">
+						<div class="titListBox">
+							<ul class="lineType">
+								<li>
+									<div class="defSubTit2">
+										<strong>날짜</strong>
+									</div>
+									<div class="calendarForm">
+										<div class="cal">
+											<div class="inputList">
+												<input type="text" value="2020.09.03" title="금융일정 등록 날짜선택" placeholder="" readonly="readonly">
+												<a href="javascript:;" class="btnCalendar" title="금융일정 등록 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="defSubTit2">
+										<strong>내용</strong>
+									</div>
+									<div class="inputList"> <!-- [D] 에러인 경우 .error 추가-->
+										<input type="text" title="일정내용(최대 25자)" placeholder="내용을 입력하세요 (최대 25자)">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+									<div class="roundBtnWrap">
+										<a href="javascript:;" role="button">모임회비</a>
+										<a href="javascript:;" role="button">학원비</a>
+										<a href="javascript:;" role="button">용돈</a>
+										<a href="javascript:;" role="button">월세</a>
+										<a href="javascript:;" role="button">공과금</a>
+									</div>
+								</li>
+								<li>
+									<div class="defSubTit2">
+										<strong>금액</strong>
+									</div>
+									<div class="inputList unitMan"> <!-- [D] 에러인 경우 .error 추가-->
+										<input type="tel" title="금액(1~ 999,999,999원)" placeholder="1~ 999,999,999원">
+										<span class="unit">원</span>
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+									<div class="roundBtnWrap">
+										<a href="javascript:;" role="button" title="10만원 추가">+1만</a>
+										<a href="javascript:;" role="button" title="50만원 추가">+5만</a>
+										<a href="javascript:;" role="button" title="100만원 추가">+10만</a>
+										<a href="javascript:;" role="button" title="100만원 추가">+50만</a>
+										<a href="javascript:;" role="button" title="300만원 추가">+100만</a>
+									</div>
+								</li>
+								<li>
+									<div class="defSubTit2">
+										<strong>반복설정</strong>
+									</div>
+									<div class="boxRadio">
+										<div class="boxRadioInn">
+											<span>
+												<input name="rdo00" id="rdo001" type="radio" aria-label="반복설정(반복안함)" checked>
+												<label for="rdo001" aria-hidden="true">반복안함</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input name="rdo00" id="rdo002" type="radio" aria-label="반복설정(매주)">
+												<label for="rdo002" aria-hidden="true">매주</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input name="rdo00" id="rdo003" type="radio" aria-label="반복설정(매월)">
+												<label for="rdo003" aria-hidden="true">매월</label>
+											</span>
+										</div>
+									</div>
+								</li>
+								<li>
+									<!-- [CASE] 매주/매월 선택 시 -->
+									<div id="checkArea1">
+										<div class="defSubTit2">
+											<strong>일정종료일</strong>
+										</div>
+										<div class="inputList">
+											<a href="javascript:;" title="반복설정 날짜선택" aria-haspopup="true">
+												<span class="selectValue">계속반복</span>
+												<span class="selectBtn"></span>
+											</a>
+											<select name="" title="선택해주세요">
+												<option value=""></option>
+											</select>
+										</div>
+										<p class="listDash">일정은 최대 5년까지 등록됩니다.</p>
+									</div>
+									<!-- // -->
+
+									<div class="wrapFormTooltip mt25">
+										<div class="formHolder check">
+											<input type="checkbox" id="type_all01" class="chekTypeOther">
+											<label class="check" for="type_all01">출금계좌 연결</label>
+										</div>
+										<!-- tootip -->
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">출금계좌 연결 툴팁 열기</span></button>
+											<div class="tooltipCont">
+												<p>출금계좌를 연결하시면 금융일정 전에 잔액 부족 여부를 안내해 드립니다.</p>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+										<!-- //tootip -->
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- -------------------------------------- -->
+				<!-- [탭컨텐츠] 공과금 -->
+				<!-- -------------------------------------- -->
+				<div class="tabCont02" style="display:none">
+					<div class="formWrap">
+						<div class="titListBox">
+							<ul class="lineType">
+								<li>
+									<div class="defSubTit2">
+										<strong>공과금 종류</strong>
+									</div>
+									<div class="inputList">
+										<a href="javascript:;" title="공과금 종류 선택" id="schdTxs" onclick="slidePopOption();" aria-haspopup="true">
+											<span class="selectValue">지로</span>
+											<span class="selectBtn"></span>
+										</a>
+										<select name="" title="선택해주세요">
+											<option value=""></option>
+										</select>
+									</div>
+								</li>
+								<!-- [CASE] 공과금 종류 : 지로 -->
+								<li id="tabCon32Type1">
+									<div class="defSubTit2">
+										<strong>지로번호</strong>
+										<!-- tootip -->
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">지로번호 안내 툴팁 열기</span></button>
+											<div class="tooltipCont">
+												<div class="imgWrap"><img src="../../images/contents/giro_sample.png" alt="지로통지서의 상단 지로 번호 7자리 확인 후 입력"></div>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+										<!-- //tootip -->
+									</div>
+									<div class="inputList">
+										<input type="tel" class="al" title="지로번호 7자리 입력" placeholder="지로번호 7자리를 입력하세요">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+								</li>
+								<!-- [CASE] 공과금 종류 : 지로 / 전기요금 -->
+								<li id="tabCon32Type2">
+									<div class="defSubTit2">
+										<strong>전자납부번호</strong>
+										<!-- tootip -->
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">전자납부번호 안내 툴팁 열기</span></button>
+											<div class="tooltipCont">
+												<div class="imgWrap"><img src="../../images/contents/giro_sample2.png" alt="지로통지서의 하단 전자납부번호 7~10자리 확인 후 입력"></div>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+										<!-- //tootip -->
+									</div>
+									<div class="inputList"> <!-- [D] 에러인 경우 .error 추가-->
+										<input type="tel" class="al" title="전자납부번호 7~10자리 입력" placeholder="전자납부번호 7~10자리를 입력하세요">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+								</li>
+								<!-- [CASE] 공과금 종류 : 상하수도요금 -->
+								<li id="tabCon32Type3" style="display:none;">
+									<div class="defSubTit2">
+										<strong>전자수용가번호</strong>
+									</div>
+									<div class="inputList"> <!-- [D] 에러인 경우 .error 추가-->
+										<input type="tel" class="al" title="전자수용가번호 15자리 입력" placeholder="전자수용가번호 15자리를 입력하세요">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+								</li>
+								<!-- [CASE] 공과금 종류 : 통합사회보험료 -->
+								<li id="tabCon32Type4" style="display:none;">
+									<div class="defSubTit2">
+										<strong>납부자번호</strong>
+									</div>
+									<div class="inputList"> <!-- [D] 에러인 경우 .error 추가-->
+										<input type="tel" class="al" title="납부자번호 13자리 입력" placeholder="납부자번호 13자리를 입력하세요">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+								</li>
+								<!-- // -->
+								<li class="listBtnArea">
+									<div class="areaBodyBtnFull mt20">
+										<a href="javascript:;" class="btnBodyLine" role="button">조회</a>
+									</div>
+								</li>
+								<li>
+									<div class="defSubTit2">
+										<strong>공과금 내용</strong>
+									</div>
+									<div class="inputList"> <!-- [D] 에러인 경우 .error 추가-->
+										<input type="text" title="공과금 내용 (최대 25자리)" placeholder="내용을 입력하세요 (최대 25자리)">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+									<div class="wrapFormTooltip mt25">
+										<div class="formHolder check">
+											<input type="checkbox" id="type_all01" checked class="chekTypeOther">
+											<label class="check" for="type_all01">출금계좌 연결</label>
+										</div>
+										<!-- tootip -->
+										<div class="tooltipWrap">
+											<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">출금계좌 연결 툴팁 열기</span></button><!-- [접근성_2024]  대체텍스트가 부적절하게 제공된 컨트롤 : 텍스트 변경 -->
+											<div class="tooltipCont">
+												<p>출금계좌를 연결하시면 금융일정 전에 잔액 부족 여부를 안내해 드립니다.</p>
+												<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+											</div>
+										</div>
+										<!-- //tootip -->
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- -------------------------------------- -->
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [하단영역] 액션버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressDefault" role="button">취소</a>
+			<a href="javascript:;" class="btnPressPoint" role="button">저장</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<div id="popupLayer_div"></div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		//셈플 : 반복설정
+		$('#checkArea1').hide();
+		$('[name="rdo00"]').on('change',function(){
+			if($(this).attr('id') != 'rdo001') $('#checkArea1').show();
+			else $('#checkArea1').hide();
+		});
+
+		//샘플 : 공과금종류 팝업 가져오기
+		$('#popupLayer_div').load('MSFP3110P.html #MSFP3110POP',function(e){
+			$('.selectList a').click(function(){
+				var _val = $(this).text();
+				
+				//선택된 버튼 활성화
+				$('.selectList li').removeClass('active').find('a').attr('title','');
+				$(this).attr('title','선택됨').parent('li').addClass('active');
+
+				//해당 내용에 맞는 입력폼 노출
+				$('[id^="tabCon32Type"]').hide();
+				if(_val == '전기요금') $('#tabCon32Type2').show();
+				else if (_val == '상하수도요금') $('#tabCon32Type3').show();
+				else if (_val == '통합사회보험료(4대보험)') $('#tabCon32Type4').show();
+				else $('#tabCon32Type1, #tabCon32Type2').show();
+
+				//팝업 닫힘
+				$('.popClose').trigger('click');
+
+				//바닥페이지에 value값 추출
+				$('#schdTxs .selectValue').text(_val);
+			});
+		});
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

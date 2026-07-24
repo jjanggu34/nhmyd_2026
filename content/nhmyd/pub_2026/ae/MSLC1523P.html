@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>대출/신용관리 | AI대출금리케어 | 처리결과</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script>
+  $(document).ready(function () {
+    fullLayerPop();
+  });
+</script>
+</head>
+<body>
+  <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+  <div class="nhasset popWrap fullLayerPop">
+    <div class="popInner">
+      <h1>금리인하요구권 처리결과</h1>
+
+      <div class="popCont interestBox pb40">
+        <div class="boxTypeWrap -line finList"> <!-- [추가 260506] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : class="finList" 추가 -->
+          <div class="interestBox_result">
+            <div class="accDate">
+              <p class="date">
+                심사결과 회신일자 :
+                <span>2026.11.10</span>
+              </p>
+              <span class="bedge02">불수용</span>
+              <!-- 
+                <span class="bedge01">수용</span>
+                <span class="bedge02">불수용</span>
+                <span class="bedge02">신청불가</span>
+                <span class="bedge02">처리불가</span>
+                <span class="bedge02">미응답</span>
+              -->
+            </div>
+  
+            <div class="accTit">
+              <span class="imgWrap"><img src="../../images/makebetter/logos/AABG0000.svg" alt="" class="imgLogo"></span>
+              <div class="accInfoWrap">
+                <p class="accTit">
+                  NH주택담보대출
+                </p>
+                <div class="accInfo">
+                  <span class="accName">NH농협은행</span>
+                  <span class="accNum">1112222333344</span>
+                  <!-- [수정 260127] [MD2601_001] (기존) 111-2222-3333-44 → (수정) 1112222333344  *'-' 표시 생략 -->
+                </div>
+              </div>
+            </div>
+  
+            <!-- [S] [삭제 260429] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 대출잔액 영역 삭제 -->
+            <!--
+            <div class="accWon">
+              <span class="tit">대출잔액</span>
+              <span class="value">1억5,000만<em class="won">원</em></span>
+            </div>
+            -->
+            <!-- [E] [삭제 260429] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 대출잔액 영역 삭제 -->
+          </div>
+          
+          <div class="interestBox_info">
+            <p class="error-tit">
+              이 상품은 금리인하를 할 수 없어요.
+            </p>
+            <div class="accTit flex-start">
+              <span class="imgWrap"><img src="../../images/makebetter/interest/ico_interest_result_02.png" alt="" class="imgLogo"></span>
+              <div class="accInfoWrap">
+                <ul>
+                  <li>
+                    <div class="dot">
+                      불수용 사유 : <em class="rise">신용등급 변동 없음</em>
+                    </div>
+                  </li>
+
+                  <!-- case : 신상정보 -->
+                  <li>
+                    <div class="hipen">
+                      <span class="tit">불수용 시 개선항목 :</span> <em class="rise">신상 정보</em><!-- [수정 260127] [MD2601_001] 한줄처리 수정 span class="tit" -->
+                      
+                      <button class="acco_btn" role="button" aria-expanded="false">
+                        <span class="blind">펼침</span>
+                      </button>
+                    </div>
+
+                    <div class="accoTxt">
+                      신용등급 개선 참고사항<br>
+                      <em class="rise">
+                        [가계] 연소득 증가, 보유자산 확대, 전월세에서 자가로 전환, 취업 및 직위 상승, 대기업 등 우량기업으로의 이직, 전문자격증 취득 등은 신용등급 산정 및 금리인하요구권 심사에 긍정적 영향을 줄 수 있습니다. <br>
+                        참고사항이 반영되어 추가적인 개선이 있는 경우 신용등급 상승에 도움이 될 수 있습니다.
+                      </em>
+                    </div>
+                  </li>
+                  <!-- // case : 신상정보 -->
+
+                  <!-- case : 당행 거래정보 -->
+                  <li>
+                    <div class="hipen">
+                      <span class="tit">불수용 시 개선항목 :</span> <em class="rise">당행 거래정보</em><!-- [수정 260127] [MD2601_001] 한줄처리 수정 span class="tit" -->
+                      
+                      <button class="acco_btn" role="button" aria-expanded="false">
+                        <span class="blind">펼침</span>
+                      </button>
+                    </div>
+
+                    <div class="accoTxt">
+                      신용등급 개선 참고사항<br>
+                      <em class="rise">
+                        당행과의 수신거래실적 확대(예금·적금·펀드 등 상품 가입, 수신평잔 증가), 급여이체·공과금납부·자동이체 등 부수거래 확대, 금융그룹 내 전반적인 거래 확대 등은 신용등급 산정 및 금리인하요구권 심사에 긍정적 영향을 줄 수 있습니다. <br>
+                        참고사항이 반영되어 추가적인 개선이 있는 경우 신용등급 상승에 도움이 될 수 있습니다.
+                      </em>
+                    </div>
+                  </li>
+                  <!-- // case : 당행 거래정보 -->
+
+                  <!-- case : 대출 거래정보 -->
+                  <li>
+                    <div class="hipen">
+                      <span class="tit">불수용 시 개선항목 :</span> <em class="rise">대출 거래정보</em><!-- [수정 260127] [MD2601_001] 한줄처리 수정 span class="tit" -->
+                      
+                      <button class="acco_btn" role="button" aria-expanded="false">
+                        <span class="blind">펼침</span>
+                      </button>
+                    </div>
+
+                    <div class="accoTxt">
+                      신용등급 개선 참고사항<br>
+                      <em class="rise">
+                        보유 대출 및 보증채무의 금액·건수 증가, 원리금 상환액의 과도한 증가, 대부업 대출 이용 증가는 신용등급 산정 및 금리인하요구권 심사에 부정적 영향을 줄 수 있습니다. 반면, 보유한 대출의 일부 또는 전액상환을 통한 향후 원리금 상환부담 경감, 대부업 등 고위험대출 축소 등은 신용등급 산정 및 금리인하요구권 심사에 긍정적 영향을 줄 수 있습니다. <br>
+                        참고사항이 반영되어 추가적인 개선이 있는 경우 신용등급 상승에 도움이 될 수 있습니다.
+                      </em>
+                    </div>
+                  </li>
+                  <!-- // case : 대출 거래정보 -->
+
+                  <!-- case : 카드 거래정보 -->
+                  <li>
+                    <div class="hipen">
+                      <span class="tit">불수용 시 개선항목 :</span> <em class="rise">카드 거래정보</em><!-- [수정 260127] [MD2601_001] 한줄처리 수정 span class="tit" -->
+                      
+                      <button class="acco_btn" role="button" aria-expanded="false">
+                        <span class="blind">펼침</span>
+                      </button>
+                    </div>
+
+                    <div class="accoTxt">
+                      신용등급 개선 참고사항<br>
+                      <em class="rise">
+                        적정한 수준의 금액으로 장기간 안정적인 신용·체크카드 이용 등은 신용등급 산정 및 금리인하요구권 심사에 긍정적 영향을 줄 수 있습니다. 반면, 연소득 대비 과도한 카드 이용, 빈번한 할부거래 이용,  현금서비스 이용 등은 신용등급 산정 및 금리인하요구권 심사에 부정적 영향을 줄 수 있습니다. <br>
+                        참고사항이 반영되어 추가적인 개선이 있는 경우 신용등급 상승에 도움이 될 수 있습니다.
+                      </em>
+                    </div>
+                  </li>
+                  <!-- // case : 카드 거래정보 -->
+
+                  <!-- case : 연체정보 -->
+                  <li>
+                    <div class="hipen">
+                      <span class="tit">불수용 시 개선항목 :</span> <em class="rise">연체정보</em><!-- [수정 260127] [MD2601_001] 한줄처리 수정 span class="tit" -->
+                      
+                      <button class="acco_btn" role="button" aria-expanded="false">
+                        <span class="blind">펼침</span>
+                      </button>
+                    </div>
+
+                    <div class="accoTxt">
+                      신용등급 개선 참고사항<br>
+                      <em class="rise">
+                        연체일수·연체건수·연체금액의 증가 등은 신용등급 산정 및 금리인하요구권 심사에 부정적 영향을 줄 수 있습니다. 반면, 연체를 정리한 후 추가 연체없이 장기간 정상적인 신용활동을 지속하는 경우에는 신용등급 산정 및 금리인하요구권 심사에 긍정적 영향을 줄 수 있습니다.<br>
+                        참고사항이 반영되어 추가적인 개선이 있는 경우 신용등급 상승에 도움이 될 수 있습니다.
+                      </em>
+                    </div>
+                  </li>
+                  <!-- case : 연체정보 -->
+
+                  <!-- case : CB 개인신용평점 -->
+                  <li>
+                    <div class="hipen">
+                      <span class="tit">불수용 시 개선항목 :</span> <em class="rise">CB 개인신용평점</em><!-- [수정 260127] [MD2601_001] 한줄처리 수정 span class="tit" -->
+                      
+                      <button class="acco_btn" role="button" aria-expanded="false">
+                        <span class="blind">펼침</span>
+                      </button>
+                    </div>
+
+                    <div class="accoTxt">
+                      신용등급 개선 참고사항<br>
+                      <em class="rise">
+                        신용정보회사의 신용평가점수의 상승 등은 금리인하요구권 심사에 긍정적 영향을 줄 수 있습니다. 신용평가점수를 높이기 위한 방법은 개별 신용정보회사별로 상이할 수 있습니다. <br>
+                        참고사항이 반영되어 추가적인 개선이 있는 경우 신용등급 상승에 도움이 될 수 있습니다.
+                      </em>
+                    </div>
+                  </li>
+                  <!-- // case : CB 개인신용평점 -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="guide-txt ac mt16 pb40">
+          * 자세한 사항은 해당 금융기관에 문의해 주세요.
+        </p>
+
+        <!-- -------------------------------------- -->
+        <hr class="divLine mt0 mb0">
+        <!-- -------------------------------------- -->
+
+        <!-- -------------------------------------- -->
+        <div class="fullyWrap bgWhite pt0 pb0">
+          <!-- -------------------------------------- -->
+          <!-- [SECTION] 알아두세요 -->
+          <!-- -------------------------------------- -->
+          <div class="info_area">
+            <a href="javascript:;" class="noticeBtn" data-target="#MSLC1220" aria-expanded="false" aria-controls="MSLC1220" id="MSLC1220_label">
+            <strong class="info_area_title decline">차주 안내사항<span style="display:none">펼치기</span></strong>
+            </a>
+            <ul class="listBul disc noticeCont" aria-labelledby="MSLC1220_label" role="region" id="MSLC1220" style="display:none">
+              <li>위 주요 평가항목, 개선필요 여부, 신용등급 개선 참고사항은 차주님의 이해를 돕기 위해 <em class="decline">참고용으로 제공된 정보</em>입니다.</li>
+              <li>
+                개선필요 여부는 각 평가항목과 관련한 긍정적인 요인의 증가와 부정적인 요인의 감소에 따라 차주님의 신용등급이 개선될 가능성이 있다고 판단되는 경우 안내드리는 사항입니다. 
+              </li>
+              <li>
+                그러나, 실제 금리인하요구권 수용 여부를 결정하는 신용등급은 위 주요 평가항목을 비롯하여 다양한 요인들이 종합적으로 반영된 결과임에 따라, <em class="decline">위 주요 평가항목의 개선이 있더라도 신용등급이 상승하지 않아 금리인하요구권 신청이 수용되지 않을 수 있는 점 유의하시기 바랍니다.</em>
+              </li>
+            </ul>
+          </div>
+          <!-- -------------------------------------- -->
+        </div>
+        <!-- -------------------------------------- -->
+      </div>
+
+      <div class="popBtnWrap">
+        <div class="popBtn">
+          <a href="javascript:;" class="confirmBtn" role="button">확인</a>
+        </div>
+        <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button" >
+          <img src="../../images/common/btn_popClose.png" alt="닫기">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ###################################### -->
+  <!-- ### [샘플] 스크립트 ### -->
+  <!-- ###################################### -->
+  <script>
+    const accBtns = document.querySelectorAll('.acco_btn');
+
+    accBtns.forEach((btn) => {
+      btn.addEventListener('click', function() {
+        const accSpan = this.querySelector('.acco_btn span');
+        const hipen = this.parentElement;
+        const accoTxt = hipen.nextElementSibling;
+
+        if(accSpan.textContent === '펼침') {
+          accSpan.textContent = '닫힘';
+          this.setAttribute('aria-expanded', 'true');
+          accoTxt.classList.add('on');
+        }
+        else {
+          accSpan.textContent = '펼침';
+          this.setAttribute('aria-expanded', 'false');
+          accoTxt.classList.remove('on');
+        }
+        this.classList.toggle('active');
+      })
+    })
+  </script>
+  <!-- ###################################### -->
+</body>
+</html>

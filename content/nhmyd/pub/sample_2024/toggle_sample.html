@@ -1,0 +1,774 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [토글]</title>
+<script src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>토글</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="product_sample.html">상품</a>
+				<a href="form_sample.html">폼</a>
+				<a href="toggle_sample.html" aria-current="page">토글</a>
+			</div>
+		</nav>
+	</header>
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">토글 스크립트</a>
+			<a href="#GCONTENT2">목록형</a>
+			<a href="#GCONTENT3">컨텐츠형</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 토글 스크립트 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">토글 스크립트</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : .toggleWrap</h3>
+				<ul class="guide_txt">
+					<li>스크립트 경로 : /content/nhmyd/js/common_ui.js</li>
+					<li>일반적으로 사용하고 있는 토글 구조이며, 각 컴포넌트에 따라 개별 스타일 적용함</li>
+				</ul>
+
+				<!-- ### 기본구조 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title4">기본구조</h4>
+
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle active" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="true">HTML CODE</button>
+						<div data-toggle="con" style="display:block">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="toggleWrap">
+											<button type="button" class="toggleBtn">토글버튼</button>
+											<div class="toggleCont" style="display:none">토글컨텐츠</div>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+
+					<div class="guide_empty">
+						<div class="toggleWrap">
+							<button type="button" class="toggleBtn">토글버튼</button>
+							<div class="toggleCont" style="display:none;">토글컨텐츠</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 활용) .moreInfoArea ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">활용) .moreInfoArea</h4>
+
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle active" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="true">HTML CODE</button>
+						<div data-toggle="con" style="display:block">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="moreInfoArea">
+											<div class="toggleWrap moreInfoWrap">
+												<div class="toggleCont moreInfo pb20" style="display:none;">
+													<hr class="divLine3 mt0" aria-hidden="true">
+													토글 컨텐츠 영역
+												</div>
+												<button type="button" class="moreOpenBtn toggleBtn toggleTxt**"><span>보기</span></button>
+											</div>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="moreInfoArea">
+						<div class="toggleWrap moreInfoWrap">
+							<div class="toggleCont moreInfo pb20" style="display:none;">
+								<hr class="divLine3 mt0" aria-hidden="true">
+								<div class="guide_empty t1">토글 컨텐츠 영역</div>
+							</div>
+							<button type="button" class="moreOpenBtn toggleBtn toggleTxt"><span>보기</span></button>
+						</div>
+					</div>
+					<!-- | // | -->
+					<h5 class="guide_title4">.toggleTxt** 버튼명 정의</h5>
+					<div class="guide_tbl">
+						<table>
+							<caption>토글 버튼 정의</caption>
+							<colgroup>
+								<col style="width:40%">
+								<col style="width:30%">
+								<col style="width:30%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">클래스명</th>
+									<th scope="col">열기</th>
+									<th scope="col">닫기</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>.toggleTxt</td>
+									<td>보기</td>
+									<td>닫기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt02</td>
+									<td>기관별 보기</td>
+									<td>접기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt03</td>
+									<td>더 보기</td>
+									<td>접기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt04</td>
+									<td>청구서 더보기</td>
+									<td>접기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt05</td>
+									<td>추가정보 보기</td>
+									<td>추가정보 닫기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt06</td>
+									<td>전체보기</td>
+									<td>접기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt07</td>
+									<td>상세정보 보기</td>
+									<td>접기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt08</td>
+									<td>자세히 보기</td>
+									<td>접기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt09</td>
+									<td>상세 보기</td>
+									<td>닫기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt12</td>
+									<td>지난 카드 청구서 보기</td>
+									<td>지난 카드 청구서 닫기</td>
+								</tr>
+								<tr>
+									<td>.toggleTxt13</td>
+									<td>펼치기</td>
+									<td>접기</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- | // | -->
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2 : [data-toggle]</h3>
+				<ul class="guide_txt">
+					<li>스크립트 경로 : /content/nhmyd/js/nhasset-ui-myd.js</li>
+					<li>2023 고도화에서 새로 추가된 UI에 사용되었으며, 각 컴포넌트에 따라 개별 스타일 적용함</li>
+					<li>각 내용에 맞는 태그에 사용 가능하며, 새로운 UI에 적용 권장함.</li>
+				</ul>
+
+				<!-- ### 버튼구조 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title4">버튼구조</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle active" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="true">HTML CODE</button>
+						<div data-toggle="con" style="display:block">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="className" data-toggle="wrap">
+											<button type="button" data-toggle="btn" aria-expanded="false">토글버튼</button>
+											<div data-toggle="con" style="display:none;">토글컨텐츠</div>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="guide_empty">
+						<div data-toggle="wrap">
+							<button type="button" data-toggle="btn" aria-expanded="false">토글버튼</button>
+							<div data-toggle="con" style="display:none">토글컨텐츠</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### DL구조 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title4">DL구조</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle active" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="true">HTML CODE</button>
+						<div data-toggle="con" style="display:block">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div data-toggle="wrap">
+											<dl>
+												<dt role="button" data-toggle="btn" aria-expanded="false">토글버튼</dt>
+												<dd data-toggle="con" style="display:none">토글컨텐츠</dd>
+											</dl>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="guide_empty">
+						<div data-toggle="wrap">
+							<dl>
+								<dt role="button" data-toggle="btn" aria-expanded="false">토글버튼</dt>
+								<dd data-toggle="con" style="display:none">토글컨텐츠</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### UL구조 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title4">UL구조</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle active" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="true">HTML CODE</button>
+						<div data-toggle="con" style="display:block">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div data-toggle="wrap">
+											<ul>
+												<li>
+													<button type="button" data-toggle="btn" aria-expanded="false">토글버튼</button>
+													<div data-toggle="con" style="display:none">토글컨텐츠</div>
+												</li>
+											</ul>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="guide_empty">
+						<div data-toggle="wrap">
+							<ul>
+								<li>
+									<button type="button" data-toggle="btn" aria-expanded="false">토글버튼</button>
+									<div data-toggle="con" style="display:none">토글컨텐츠</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### 그룹형 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title4">그룹형 : [data-toggle-mode="group"]</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle active" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="true">HTML CODE</button>
+						<div data-toggle="con" style="display:block">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div data-toggle="wrap" data-toggle-mode="group">
+											<ul>
+												<li>
+													<button type="button" data-toggle="btn" aria-expanded="false">토글버튼</button>
+													<div data-toggle="con" style="display:none">토글컨텐츠</div>
+												</li>
+												<li>
+													<button type="button" data-toggle="btn" aria-expanded="false">토글버튼</button>
+													<div data-toggle="con" style="display:none">토글컨텐츠</div>
+												</li>
+											</ul>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="guide_empty">
+						<div data-toggle="wrap" data-toggle-mode="group">
+							<ul>
+								<li>
+									<button type="button" data-toggle="btn" aria-expanded="false">토글버튼</button>
+									<div data-toggle="con" style="display:none"><p class="guide_empty">토글컨텐츠</p></div>
+								</li>
+								<li>
+									<button type="button" data-toggle="btn" aria-expanded="false">토글버튼</button>
+									<div data-toggle="con" style="display:none"><p class="guide_empty">토글컨텐츠</p></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<ul class="guide_txt">
+						<li>목록에서 1개만 오픈되어야 할 경우 해당함.</li>
+						<li>그룹의 기준은 data-toggle="wrap" 영역 안에서만 해당함.</li>
+					</ul>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 목록형 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT2">
+			<h2 class="guide_title">목록형</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : 서브메인 [.subMain.assetTotalList.toggleWrap.boxTypeWrap]</h3>
+
+				<!-- ### 자산현황 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">자산현황</h4>
+
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+											<div class="totalTitWrap">
+												<a href="javascript:;" role="button" class="toggleBtn">
+													<h5 class="totalTit">계좌 <strong class="cnt pointColor">N개</strong></h5>
+													<span class="totalAmnt"><strong class="dataValue">100,000,000,000</strong><em class="won">원</em></span>
+												</a>
+											</div>
+											<div class="toggleCont">
+												내용이 들어갑니다.
+											</div>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+
+					<!-- [반복] -->
+					<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+						<div class="totalTitWrap">
+							<a href="javascript:;" role="button" class="toggleBtn">
+								<h5 class="totalTit">계좌 <strong class="cnt pointColor">N개</strong></h5>
+								<span class="totalAmnt"><strong class="dataValue">100,000,000,000</strong><em class="won">원</em></span>
+							</a>
+						</div>
+						<div class="toggleCont">
+							<div class="guide_empty">내용이 들어갑니다.</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+						<div class="totalTitWrap">
+							<a href="javascript:;" role="button" class="toggleBtn">
+								<h5 class="totalTit">투자 <strong class="cnt pointColor">N개</strong></h5>
+								<span class="totalAmnt"><strong class="dataValue">100,000,000,000</strong><em class="won">원</em></span>
+							</a>
+						</div>
+						<div class="toggleCont">
+							<div class="guide_empty">내용이 들어갑니다.</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+						<div class="totalTitWrap">					
+							<h5 class="totalTit">계좌 <span class="cnt">0개</span></h5>
+							<button type="button" class="btnAdd">추가하기</button>
+						</div>
+					</div>
+					<!-- // -->
+				</div>
+
+				<!-- ### 연금진단 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">연금진단</h4>
+
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+											<div class="totalTitWrap">
+												<span class="psValue">100,000,000<em class="won">원</em></span>
+												<a href="javascript:;" class="toggleBtn">
+													<h2 class="totalTit">개인연금 </h2>
+													<span class="blind">개인연금을 확인해보세요 열기</span>
+												</a>
+											</div>
+											<div class="toggleCont">
+												<div class="psMainBoxLine">
+													<hr class="divLine2" aria-hidden="true">
+													내용이 들어갑니다.
+												</div>
+											</div>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+
+					<!-- [반복] -->
+					<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+						<div class="totalTitWrap">
+							<button type="button"  class="linkType1 pointColor msassetBtn">연결하기</button>
+							<a href="javascript:;" class="toggleBtn less">
+								<h5 class="totalTit">개인연금 </h5>
+								<span class="blind">개인연금을 확인해보세요 열기</span>
+							</a>
+						</div>
+						<div class="toggleCont">
+							<div class="psMainBoxLine">
+								<hr class="divLine2" aria-hidden="true">
+								<div class="guide_empty">내용이 들어갑니다.</div>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+						<div class="totalTitWrap">
+							<span class="psValue">100,000,000<em class="won">원</em></span>
+							<a href="javascript:;" class="toggleBtn">
+								<h5 class="totalTit">개인연금 </h5>
+								<span class="blind">개인연금을 확인해보세요 열기</span>
+							</a>
+						</div>
+						<div class="toggleCont">
+							<div class="psMainBoxLine">
+								<hr class="divLine2" aria-hidden="true">
+								<div class="guide_empty">내용이 들어갑니다.</div>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2</h3>
+
+				<!-- ### [운용상품] ### -->
+				<div class="guide_area">
+					<h4 class="guide_title3">운용상품 [.popIRP.tithAuto &gt; .toggleWrap]</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<div class="boxTypeWrap line pt0 pb0">
+											<div class="popIRP tithAuto">
+												<!-- // -->
+												<div class="toggleWrap">
+													<div class="agreeTit">
+														<a href="javascript:;" class="toggleBtn" role="button" aria-expanded="false">
+															<p class="tit">{$ 개별운용 상품명 출력 $} </p>
+															<p class="val">평가금액 <strong class="dataValue">1,000,000</strong><em class="won">원</em></p>
+														</a>
+													</div>
+													<div class="toggleCont" style="display:none">
+														<div class="guide_empty">내용이 들어갑니다.</div>
+													</div>
+												</div>
+												<!-- // -->
+											</div>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+
+
+					<div class="boxTypeWrap line pt0 pb0">
+						<div class="popIRP tithAuto">
+							<!-- // -->
+							<div class="toggleWrap">
+								<div class="agreeTit">
+									<a href="javascript:;" class="toggleBtn" role="button" aria-expanded="false">
+										<p class="tit">{$ 개별운용 상품명 출력 $} </p>
+										<p class="val">평가금액 <strong class="dataValue">1,000,000</strong><em class="won">원</em></p>
+									</a>
+								</div>
+								<div class="toggleCont" style="display:none">
+									<div class="guide_empty">내용이 들어갑니다.</div>
+								</div>
+							</div>
+							<!-- // -->
+							<div class="toggleWrap">
+								<div class="agreeTit">
+									<a href="javascript:;" class="toggleBtn" role="button" aria-expanded="false">
+										<p class="tit">한국투자e단기채ESG증권투자신탁(채권)C-Re </p>
+										<p class="val">평가금액 <strong class="dataValue">1,000,000</strong><em class="won">원</em></p>
+									</a>
+								</div>
+								<div class="toggleCont" style="display:none">
+									<div class="guide_empty">내용이 들어갑니다.</div>
+								</div>
+							</div>
+							<!-- // -->
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [박스유형] ### -->
+				<div class="guide_area">
+					<h4 class="guide_title3">박스유형 [.areaToggle3]</h4>
+					<h5 class="guide_title4">기본구조</h5>
+					<div class="areaToggle3" data-toggle="wrap">
+						<h5 class="summary" role="button" data-toggle="btn" aria-expanded="false">
+							타이틀
+						</h5>
+						<div data-toggle="con">
+							<div class="guide_empty">내용이 들어갑니다.</div>
+						</div>
+					</div>
+					<div class="areaToggle3" data-toggle="wrap">
+						<ul>
+							<li>
+								<div class="summary" role="button" data-toggle="btn" aria-expanded="false">
+									<strong>타이틀</strong>
+								</div>
+								<div data-toggle="con">
+									<div class="guide_empty">내용이 들어갑니다.</div>
+								</div>
+							</li>
+							<li>
+								<div class="summary" role="button" data-toggle="btn" aria-expanded="false">
+									<strong>타이틀</strong>
+								</div>
+								<div data-toggle="con">
+									<div class="guide_empty">내용이 들어갑니다.</div>
+								</div>
+							</li>
+							<li>
+								<div class="summary" role="button" data-toggle="btn" aria-expanded="false">
+									<strong>타이틀</strong>
+								</div>
+								<div data-toggle="con">
+									<div class="guide_empty">내용이 들어갑니다.</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="areaToggle3" data-toggle="wrap">
+						<dl>
+							<dt class="summary" role="button" data-toggle="btn" aria-expanded="false">
+								타이틀
+							</dt>
+							<dd data-toggle="con">
+								<div class="guide_empty">내용이 들어갑니다.</div>
+							</dd>
+						</dl>
+						<dl>
+							<dt class="summary" role="button" data-toggle="btn" aria-expanded="false">
+								타이틀
+							</dt>
+							<dd data-toggle="con">
+								<div class="guide_empty">내용이 들어갑니다.</div>
+							</dd>
+						</dl>
+					</div>
+
+					<h5 class="guide_title4 t1">활용) 제공내역 조회</h5>
+					<div class="areaToggle3" data-toggle="wrap">
+						<ul>
+							<li>
+								<div class="summary info" role="button" data-toggle="btn" aria-expanded="false">
+									<dl>
+										<dt>제공일시</dt>
+										<dd>YYYY.MM.DD HH:MM</dd>
+									</dl>
+									<dl>
+										<dt>제공받는자</dt>
+										<dd>국민은행</dd>
+									</dl>
+									<dl>
+										<dt>지급대가</dt>
+										<dd>정보</dd>
+									</dl>
+								</div>
+								<div data-toggle="con">
+									<div class="guide_empty">내용이 들어갑니다.</div>
+								</div>
+							</li>
+							<li>
+								<div class="summary info" role="button" data-toggle="btn" aria-expanded="false">
+									<dl>
+										<dt>제공일시</dt>
+										<dd>YYYY.MM.DD HH:MM</dd>
+									</dl>
+									<dl>
+										<dt>제공받는자</dt>
+										<dd>국민은행</dd>
+									</dl>
+									<dl>
+										<dt>지급대가</dt>
+										<dd>정보</dd>
+									</dl>
+								</div>
+								<div data-toggle="con">
+									<div class="guide_empty">내용이 들어갑니다.</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 컨텐츠형 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT3">
+			<h2 class="guide_title">컨텐츠형</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : .boxWrapShadow &gt; .moreInfoArea</h3>
+				<div class="guide_area2">
+					<h4 class="guide_title3">상세정보</h4>
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="guide_empty">기본내용</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="moreInfo toggleCont" style="display:none">
+									<hr class="divLine2" aria-hidden="true">
+									<div class="guide_empty t1 mb20">상세내용</div>
+								</div>
+								<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button>
+							</div>
+						</div>
+					</div>
+
+					<h4 class="guide_title3">소비패턴(전체보기)</h4>
+					<div class="boxWrapShadow">
+						<div class="boxTypeWrap delShadow">
+							<div class="guide_empty">목록 4개 노출</div>
+						</div>
+						<div class="moreInfoArea">
+							<div class="moreInfoWrap toggleWrap">
+								<div class="cs moreInfo toggleCont" style="display:none">
+									<hr class="divLine3 mt0 mb0">
+									<div class="guide_empty t1">나머지 목록 노출</div>
+								</div>
+								<button type="button" class="cs moreOpenBtn toggleBtn"><span class="toggleTxt06">전체보기</span></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2 : .tourGuide.bgNone &gt; .toggleWrap</h3>
+
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="tourGuide bgNone">
+										<div class="toggleWrap">
+											<button type="button" class="toggleBtn" aria-expanded="false">어떤 기준으로 계산된 건가요?</button>
+											<div class="toggleCont" style="display:none">내용이 들어갑니다.</div>
+										</div>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+
+				<div class="guide_area">
+					<div class="tourGuide bgNone">
+						<div class="toggleWrap">
+							<button type="button" class="toggleBtn" aria-expanded="false">어떤 기준으로 계산된 건가요?</button>
+							<div class="toggleCont" style="display:none">
+								<div class="guide_empty">내용이 들어갑니다.</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+</body>
+</html>

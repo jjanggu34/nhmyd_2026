@@ -1,0 +1,259 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자산현황(서브메인) | 자산</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset hasGnb" id="wrap">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack" role="button"><span>이전화면으로</span></a>
+		<h1><a href="javascript:;" role="text"><img src="../../images/logoMydata2.png" alt="금융과 일상을 연결하다 NH마이데이터"></a></h1>
+		<!-- [MD2502_024] 공통 헤더영역 변경 알람 추가 -->
+		<a href="javascript:;" class="btnAlram" role="button"><span>알람</span></a>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav" role="button"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 자산현황(서브메인) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [GNB] -->
+		<!-- -------------------------------------- -->
+		<div class="gnb">
+			<ul>
+				<li><a href="javascript:;" class="active" title="선택됨">자산</a></li>
+				<li><a href="javascript:;">소비</a></li>
+				<li class="menuStar"><a href="javascript:;"><span class="menuStarInner"><span class="blind">별별서비스</span></span></a></li> <!-- [접근성_2024] 메뉴명 변경 -->
+				<li><a href="javascript:;">전체</a></li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 업데이트바 -->
+		<!-- -------------------------------------- -->
+		<div class="pageRefreshWrap">
+			<div class="pageRefresInner">
+				<span>
+					<span class="date">수집이력없음</span>
+					<button type="button" class="btnUpdate"><span class="blind">업데이트</span></button>
+				</span>
+				<button type="button" class="btnAlrt" aria-expanded="false"><span class="blind">알림</span></button>
+			</div>
+			<div class="pageAlertWrap">
+				<div class="pageAlertNoData">
+					<p>업데이트 알림 내역이 없습니다.</p>
+				</div>
+				<button type="button" aria-expanded="true" class="pageAlertClose"><span>닫기</span></button>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [개인화영역] -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap mt0">
+			<div class="mainTopInfo">
+				<dl class="totalBalance">
+					<dt><strong>김농협님의 순자산</strong>
+						<button type="button" class="assetSet" ><span class="blind">나의 자산 설정하기</span></button>
+					</dt>
+					<dd class="totalBalanceNow addType">
+						<!-- [CASE] 금액 노출 했을 했을때 -->
+						<a href="javascript:;" title="나의 보유자산으로 이동" class="asset-show" role="button">
+							<div class="asset show">
+								<strong>0</strong>원
+								<span  class="btnArrow"><span class="blind">분석</span></span>
+							</div>
+						</a>
+
+						<!-- [CASE] 금액 숨김처리 했을때 -->
+						<a href="javascript:;" title="나의 보유자산으로 이동" style="display:none;" class="asset-hide" role="button">
+							<div class="asset hide">
+								<strong class="noneHover"> 쉿! 비밀이에요</strong>
+							</div>
+						</a>
+
+						<!-- [금액숨기기컨트롤] -->
+						<span>
+							<span class="tgBtn3 s24">
+								<input type="checkbox" id="toggleUI01" aria-label="보유순자산 보이기(금액노출)" checked>
+								<label for="toggleUI01" aria-hidden="true">금액</label>
+							</span>
+						</span>
+						<!-- // -->
+					</dd>
+				</dl>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] 연결된 자산 없어요 -->
+		<!-- -------------------------------------- -->
+		<div class="assetConnEmpty">
+			<a href="javascript:;" role="button">
+				<strong>연결된 자산을 확인 할 수 없어요.</strong>
+				<p>지금 자산을 연결해보세요.</p>
+			</a>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [플로팅배너] -->
+		<!-- -------------------------------------- -->
+		<div class="registBtn">
+			<a href="javascript:;" role="button">자산연결</a> 
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [목록영역] 자산연결전 -->
+		<!-- -------------------------------------- -->
+		<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+			<div class="totalTitWrap">					
+				<h2 class="totalTit">계좌 <span class="cnt">0개</span></h2>
+				<button type="button" class="btnAdd">추가하기</button>
+			</div>
+		</div>
+
+		<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+			<div class="totalTitWrap">					
+				<h2 class="totalTit">투자 <span class="cnt">0개</span></h2>
+				<button type="button" class="btnAdd">추가하기</button>
+			</div>
+		</div>
+
+		<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+			<div class="totalTitWrap">
+				<!-- [MD2509_106] 카테고리 명칭 변경 -->				
+				<h2 class="totalTit">대출 <span class="cnt">0개</span></h2>
+				<button type="button" class="btnAdd">추가하기</button>
+			</div>
+		</div>
+
+		<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+			<div class="totalTitWrap">					
+				<h2 class="totalTit">연금 <span class="cnt">0개</span></h2>
+				<button type="button" class="btnAdd">추가하기</button>
+			</div>
+		</div>
+
+		<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+			<div class="totalTitWrap">
+				<!-- [MD2509_106] 카테고리 명칭 변경 -->				
+				<h2 class="totalTit">선불카드&middot;페이 <span class="cnt">0개</span></h2>
+				<button type="button" class="btnAdd">추가하기</button>
+			</div>
+		</div>
+
+		<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+			<div class="totalTitWrap">					
+				<h2 class="totalTit">부동산 <span class="cnt">0개</span></h2>
+				<button type="button" class="btnAdd">추가하기</button>
+			</div>
+		</div>
+
+		<!-- [MD2502_011] 실물자산 영역 개선 및 현금 수기 자산 등록 기능 추가 순서 변경 S -->
+		<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+			<div class="totalTitWrap">					
+				<h2 class="totalTit">보험 <span class="cnt">0개</span></h2>
+				<button type="button" class="btnAdd">추가하기</button>
+			</div>
+		</div>
+
+		<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+			<div class="totalTitWrap">					
+				<h2 class="totalTit">기타 <span class="cnt">0개</span></h2>
+				<button type="button" class="btnAdd">추가하기</button>
+			</div>
+		</div>
+		<!-- //[MD2502_011] 실물자산 영역 개선 및 현금 수기 자산 등록 기능 추가 순서 변경 E -->
+
+		<!-- [MD2408_068_v0.09] [숨은자산(휴면예금·휴먼보험금)조회] 추가 -->
+		<div class="subMain assetTotalList toggleWrap boxTypeWrap">
+			<div class="totalTitWrap">					
+				<h2 class="totalTit">숨은자산 <span class="cnt">0개</span></h2>
+				<button type="button" class="btnAdd">추가하기</button>
+			</div>
+		</div>
+		<!-- // -->
+		
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] DSR 계산기 -->
+		<!-- -------------------------------------- -->
+		<div class="asMainBannerTy01 bgTy02">
+			<a href="javascript:;">
+				<div>
+					<p class="addTxt">내 DSR은 얼마?</p>
+					<span class="tit02"><span>DSR계산기</span>로 손쉽게 확인해보세요</span>
+				</div>
+			</a>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] 자산/연금 진단 -->
+		<!-- -------------------------------------- -->
+		<ul class="subMainFootBannerWrap">
+			<li>
+				<a href="javascript:;" class="type01" role="button" title="자산진단으로 이동">
+					<div class="inner">
+						<span>자산진단하기</span>
+					</div>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;" class="type02" role="button" title="연금진단으로 이동">
+					<div class="inner">
+						<span>연금진단하기</span>
+					</div>
+				</a>
+			</li>
+		</ul>
+
+		<!-- -------------------------------------- -->
+		<!-- [바로가기] -->
+		<!-- -------------------------------------- -->
+		<ul class="btnBoxWrap mt20">
+			<li><button type="button"><span class="iconBookmark">즐겨찾기&middot;가리기</span></button></li> <!-- [MD2408_068] 버튼명 수정 -->
+			<li><button type="button"><span class="iconDataAdmin">순자산 설정하기</span></button></li> <!-- [MD2408_068] 버튼명 수정 -->
+		</ul>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	$(function(){
+		$('[id^="toggleUI"]').change(function() {
+			if($(this).prop('checked')){
+				$('.asset-show').show();
+				$('.asset-hide').hide();
+			}else{
+				$('.asset-show').hide();
+				$('.asset-hide').show();
+			}
+		});
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

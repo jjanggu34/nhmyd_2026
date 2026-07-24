@@ -1,0 +1,159 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 단일 약관</title>
+<script src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		fullLayerPop()
+	});
+</script>
+
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 단일 약관 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1 aria-hidden="true">
+			<!-- 약관 타이틀 영역 -->
+			<!-- <div thumbsSlider="" class="swiper termTitleArea">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="termMainTitle">필수약관 상세 단일</div>
+					</div>
+				</div>
+			</div> -->
+			<!-- //약관 타이틀 영역 -->
+		</h1>
+		<!-- [MD2507_086] 동의서 내 하단 여백 수정 약관 공통  class="popCont termPop p0" -->
+		<div class="popCont termPop p0">
+			<div class="selectDivisionFlex">
+				<div class="inner" id="termsHistorySelection">
+					<ul>
+						<li>
+							<div class="stList">
+								<a href="javascript:;" title="서비스이용약관 선택팝업"> 
+									<span class="selectValue">2022.06.01 시행</span>
+									<span class="selectBtn">버튼</span>
+								</a>
+								<select name="" title="선택해주세요">
+									<option value=""></option>
+								</select>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="termsWrap swiper-container prevNext swiper termContentsArea">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<!-- [MD2507_086] 동의서 내 하단 여백 수정 약관 공통  class="termLayout" class="term_box_wrap" 상단내용있을때 class="termInfo" -->
+						<div class="termLayout">
+							<div class="termInfo">
+								<div class="term_cont pt20" style="display:none;">
+									<p class="popTermsTxt">본 약관은 ‘요약동의서’와 ‘전체동의서’를 제공합니다.<br>동의서 하나를 선택 후 동의해주세요.</p>
+								</div>
+								<div class="term_cont" style="display:none;">
+									<button type="button" class="accConnect">전체동의서 보기</button>
+								</div>
+							</div>
+							<div class="term_box_wrap">
+								<iframe src="../../terms/3052_ms_agreement.html" width="100%" height="100%" frameborder="0"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+				<a class="swiper-button-next" href="javascript:;" tabindex="0" role="button" aria-label="다음" aria-disabled="false">다음</a>
+				<a class="swiper-button-prev" href="javascript:;" tabindex="0" role="button" aria-label="이전" aria-disabled="false">이전</a>
+			</div>
+		</div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">동의</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	var swiper2 = new Swiper(".termContentsArea", {
+		initialSlide :2, //시작슬라이드 번호 0부터 시작
+		spaceBetween: 10,
+		observer: true,
+		observeParents: true,
+		pagination: {
+			el: ".swiper-pagination",
+		},
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
+	});
+
+	$(function() {
+		termIframeH(); // ios iframe 스크롤 안되는 버그
+	});
+	// [MD2507_086] 동의서 내 하단 여백 수정 높이 수정
+	$(document).ready(function(){
+		var $termHederBtnHeight = $('.fullLayerPop .popInner h1').outerHeight() +  $('.fullLayerPop .popBtnWrap').outerHeight() + 10; // 헤더 + 하단버튼 높이
+		var $termSelnHeight = $('.fullLayerPop .selectDivisionFlex').outerHeight() + $termHederBtnHeight; //셀렉트박스, + 헤더 + 하단버튼 높이
+		var $termInfoHeightSel = $('.termInfo').outerHeight() + $termSelnHeight; //상단정보 높이 + 상단셀렉트박스 + 헤더 + 하단버튼  높이
+		var $termInfoHeight = $('.termInfo').outerHeight() + $termHederBtnHeight;//상단정보 높이
+		console.log('헤더,하단버튼 높이 ==>'+ $termHederBtnHeight);
+		console.log('셀렉트박스, + 헤더 + 하단버튼 높이 ==>'+ $termSelnHeight);
+		console.log('상단정보 높이 + 상단셀렉트박스 + 헤더 + 하단버튼  높이 ==>'+ $termInfoHeightSel);
+		console.log('상단정보 높이 + 헤더 + 하단버튼  높이 ==>'+ $termInfoHeight);
+
+		// 셀렉트박스 있는경우
+		if($('#termsHistorySelection').css('display') !== 'none'){
+			// 셀렉트박스 + 상단정보 높이 있을때 
+			if($('.termInfo > .term_cont').css('display') !== 'none'){
+				$('.nhasset.popWrap.fullLayerPop .popInner .popCont .termsWrap .term_box_wrap').css('height','calc(100vh - ' + $termInfoHeightSel + 'px'); //셀렉트박스 높이 + 상단정보 높이 있을때
+				
+			}
+			// 상단정보 높이 없을때 
+			else{
+				$('.nhasset.popWrap.fullLayerPop .popInner .popCont .termsWrap .term_box_wrap').css('height','calc(100vh - ' + $termSelnHeight + 'px'); //셀렉트박스 높이 있을때
+			}
+		}
+		// 셀렉트박스 없는경우
+		else{
+			// 셀렉트박스 없고 상단정보 높이 있을때
+			if($('.termInfo > .term_cont').css('display') !== 'none'){
+				$('.nhasset.popWrap.fullLayerPop .popInner .popCont .termsWrap .term_box_wrap').css('height','calc(100vh - ' + $termInfoHeight + 'px'); // 셀렉트박스 없고 상단정보 높이 있을때
+			}
+			// 셀렉트박스 + 상단정보 높이 없을때 
+			else {
+				$('.nhasset.popWrap.fullLayerPop .popInner .popCont .termsWrap .term_box_wrap').css('height','calc(100vh - ' + $termHederBtnHeight + 'px'); //셀렉트박스 + 상단정보 높이 없을때(기본)
+			}
+		}
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

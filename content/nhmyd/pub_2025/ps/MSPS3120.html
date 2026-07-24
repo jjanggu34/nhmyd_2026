@@ -1,0 +1,575 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>연결기관 직접선택 | 자산연결 | 설정/관리</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(document).ready(function () {
+		tostpop();//토스트 팝업 호출 샘플
+	})
+
+	//토스트 팝업 샘플
+	function tostpop(){
+		var $tostCont = '<div class="tostpopupWrap" aria-live="assertive"><div class="tostMsg">재연결이 필요한 기관을 선택하였습니다.</div></div>'
+		$('.container').after($tostCont);
+		setTimeout(function(){
+			$('.tostpopupWrap').remove();
+		},4000)
+	}
+</script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset bgWhite">
+	<!-- header -->
+	<div class="header">
+		<h1>자산연결</h1>
+		<a href="javascript:;" class="btnEtc">나가기</a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 연결기관 직접선택 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [STEP] -->
+		<!-- -------------------------------------- -->
+		<div class="stepWrap">
+			<!-- [MD2411_092] [자산연결 동의 절차 간소화] 4단계에서 3단계로 수정 -->
+			<ol role="img" aria-label="총 3단계 중 1번째 단계 : 기관선택">
+				<li class="active"><span>1</span></li>
+				<li><span>2</span></li>
+				<li><span>3</span></li>
+				<!-- <li><span>4</span></li> -->
+			</ol>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [NAVI] 이동버튼 -->
+		<!-- [D] 탭버튼으로 되어 있지만, 운영에서는 페이지 이동이므로, 링크 형태로 변경함 -->
+		<!-- -------------------------------------- -->
+		<div class="tabWrap type01 mt10">
+			<ul>
+				<li><a href="MSPS3110.html">추천기관으로 연결</a></li>
+				<li><a href="MSPS3120.html" title="현재페이지" class="active on">연결기관 직접선택</a></li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [CONTENT] 연결기관 직접선택 -->
+		<!-- -------------------------------------- -->
+		<div class="tabContWrap type01">
+			<div class="tabCont02">
+				<!-- ### [버튼영역] ### -->
+				<div class="joinGroup"><button type="button">가입기관 불러오기</button></div>
+
+				<!-- ### [기관검색] ### -->
+				<div class="anchorSearchArea formWrap">
+					<ul>
+						<li class="addrSrch">
+							<div class="inputList">
+								<input type="text" title="기관명을 입력" placeholder="기관명 검색(기관명을 입력하세요)">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+								<button class="btnSearch"><span class="blind">찾기</span></button>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="noResultWrap">
+					<p>검색 결과가 없습니다.</p>
+				</div>
+
+				<!-- ### [기관목록] ### -->
+				<div class="anchorListdWrap">
+					<!-- [앵커메뉴] 업권 -->
+					<div class="anchorSubjectWrap">
+						<ul class="anchorSubject">
+							<li class="selected"><a href="javascript:;" role="button" title="건너뛰기 링크" anchor-title="dem01" aria-selected="true">은행<span class="count"></span></a></li>
+							<li><a href="javascript:;" role="button" title="건너뛰기 링크" anchor-title="dem02" aria-selected="false">카드<span class="count"></span></a></li>
+							<li><a href="javascript:;" role="button" title="건너뛰기 링크" anchor-title="dem03" aria-selected="false">증권<span class="count"></span></a></li>
+							<li><a href="javascript:;" role="button" title="건너뛰기 링크" anchor-title="dem04" aria-selected="false">보험<span class="count"></span></a></li>
+							<li><a href="javascript:;" role="button" title="건너뛰기 링크" anchor-title="dem05" aria-selected="false">할부금융<span class="count"></span></a></li>
+							<li><a href="javascript:;" role="button" title="건너뛰기 링크" anchor-title="dem06" aria-selected="false">전자금융<span class="count"></span></a></li>
+							<!-- NH농협은행 비대면 마이데이터 고객여정 개선(2025) 통신업권 삭제 -->
+							<!-- <li><a href="javascript:;" role="button" title="건너뛰기 링크" anchor-title="dem07" aria-selected="false">통신<span class="count"></span></a></li> -->
+							<li><a href="javascript:;" role="button" title="건너뛰기 링크" anchor-title="dem08" aria-selected="false">공공<span class="count"></span></a></li>
+							<!-- [MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) [기타] 업권 추가 -->
+							<!-- [MD2504_052_v0.04] (서금원)휴면예금조회·지급서비스(2.0반영) [서민금융진흥원] 업권 추가 -->
+							<li><a href="javascript:;" role="button" title="건너뛰기 링크" anchor-title="dem09" aria-selected="false">서민금융진흥원<span class="count"></span></a></li>
+						</ul>
+					</div>
+					<!-- // -->
+
+					<div class="anchorContWrap">
+						<!-- [은행] -->
+						<div class="wrap_bank_check" anchor-cont="dem01">
+							<div class="anchorTitleWrap">
+								<h3 class="tit"><span class="check"><input type="checkbox" id="check_01" class="chekTypeOther"><label for="check_01">은행</label></span></h3>
+							</div>
+							<ul>
+								<!-- [CASE] 로고 없는 경우 : 은행 -->
+								<li><input type="checkbox" id="logo_null_01_bank"><label for="logo_null_01_bank"><img src="../../images/logos/logo_null_01_bank.png" alt=""><span class="bank_name">은행</span></label></li>
+								<!-- [CASE] 연결됨 : .connnecting title="연결됨" -->
+								<li class="connnecting"><input type="checkbox" id="A1AAAZ0000" title="연결됨"><label for="A1AAAZ0000"><img src="../../images/logos/AAAZ0000.png" alt=""><span class="bank_name">농축협</span></label></li>
+								<!-- [CASE] 점검중 -->
+								<li><input type="checkbox" id="A1AAEO0000" disabled><label for="A1AAEO0000"><img src="../../images/logos/AAEO0000.png" alt=""><span class="bank_name">국민은행</span></label><span class="checkLabel">점검중</span></li>
+								<!-- [CASE] 만료 -->
+								<li><input type="checkbox" id="A1AAER0000"><label for="A1AAER0000"><img src="../../images/logos/AAER0000.png" alt=""><span class="bank_name">신한은행</span></label><span class="checkLabel">만료</span></li>
+								<li><input type="checkbox" id="A1AAEM0000"><label for="A1AAEM0000"><img src="../../images/logos/AAEM0000.png" alt=""><span class="bank_name">우리은행</span></label></li>
+								<li><input type="checkbox" id="A1AAES0000"><label for="A1AAES0000"><img src="../../images/logos/AAES0000.png" alt=""><span class="bank_name">하나은행</span></label></li>
+								<li><input type="checkbox" id="A1AAEQ0000"><label for="A1AAEQ0000"><img src="../../images/logos/AAEQ0000.png" alt=""><span class="bank_name">기업은행</span></label></li>
+								<li><input type="checkbox" id="A1AAHJ0000"><label for="A1AAHJ0000"><img src="../../images/logos/AAHJ0000.png" alt=""><span class="bank_name">카카오뱅크</span></label></li>
+								<li><input type="checkbox" id="A1AAJB0000"><label for="A1AAJB0000"><img src="../../images/logos/AAJB0000.png" alt=""><span class="bank_name">케이뱅크</span></label></li>
+								<li><input type="checkbox" id="A1AAPF0000"><label for="A1AAPF0000"><img src="../../images/logos/AAPF0000.png" alt=""><span class="bank_name">토스뱅크</span></label></li>
+								<li><input type="checkbox" id="A1AAAK0000"><label for="A1AAAK0000"><img src="../../images/logos/AAAK0000.png" alt=""><span class="bank_name">SC제일은행</span></label></li>
+								<li><input type="checkbox" id="A1AAIM0000"><label for="A1AAIM0000"><img src="../../images/logos/AAIM0000.png" alt=""><span class="bank_name">경남은행</span></label></li>
+								<li><input type="checkbox" id="A1AAMW0000"><label for="A1AAMW0000"><img src="../../images/logos/AAMW0000.png" alt=""><span class="bank_name">광주은행</span></label></li>
+								<li><input type="checkbox" id="A1AAHS0000"><label for="A1AAHS0000"><img src="../../images/logos/AAHS0000.png" alt=""><span class="bank_name">아이엠뱅크</span></label></li>
+								<li><input type="checkbox" id="A1AAII0000"><label for="A1AAII0000"><img src="../../images/logos/AAII0000.png" alt=""><span class="bank_name">부산은행</span></label></li>
+								<li><input type="checkbox" id="A1AAAD0000"><label for="A1AAAD0000"><img src="../../images/logos/AAAD0000.png" alt=""><span class="bank_name">산업은행</span></label></li>
+								<li><input type="checkbox" id="A1AAHX0000"><label for="A1AAHX0000"><img src="../../images/logos/AAHX0000.png" alt=""><span class="bank_name">수협은행</span></label></li>
+								<li><input type="checkbox" id="A1AAQE0000"><label for="A1AAQE0000"><img src="../../images/logos/AAQE0000.png" alt=""><span class="bank_name">씨티은행</span></label></li>
+								<li><input type="checkbox" id="A1AAHP0000"><label for="A1AAHP0000"><img src="../../images/logos/AAHP0000.png" alt=""><span class="bank_name">전북은행</span></label></li>
+								<li><input type="checkbox" id="A1AAIP0000"><label for="A1AAIP0000"><img src="../../images/logos/AAIP0000.png" alt=""><span class="bank_name">제주은행</span></label></li>
+								<li><input type="checkbox" id="A1AAPA0000"><label for="A1AAPA0000"><img src="../../images/logos/AAPA0000.png" alt=""><span class="bank_name">새마을금고</span></label></li>
+								<li><input type="checkbox" id="A1AAGD0000"><label for="A1AAGD0000"><img src="../../images/logos/AAGD0000.png" alt=""><span class="bank_name">수협</span></label></li>
+								<li><input type="checkbox" id="A1AAKM0000"><label for="A1AAKM0000"><img src="../../images/logos/AAKM0000.png" alt=""><span class="bank_name">신협</span></label></li>
+								<li><input type="checkbox" id="A1AAKA0000"><label for="A1AAKA0000"><img src="../../images/logos/AAKA0000.png" alt=""><span class="bank_name">우체국</span></label></li>
+								<li><input type="checkbox" id="A1AAOV0000"><label for="A1AAOV0000"><img src="../../images/logos/AAOV0000.png" alt=""><span class="bank_name">한국장학재단</span></label></li>
+								<li><input type="checkbox" id="A1AAOU0000"><label for="A1AAOU0000"><img src="../../images/logos/AAOU0000.png" alt=""><span class="bank_name">한국주택금융공사</span></label></li>
+								<li><input type="checkbox" id="A1AAKR0000"><label for="A1AAKR0000"><img src="../../images/logos/AAKR0000.png" alt=""><span class="bank_name">NH저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AALD0000"><label for="A1AALD0000"><img src="../../images/logos/AALD0000.png" alt=""><span class="bank_name">상상인저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAKT0000"><label for="A1AAKT0000"><img src="../../images/logos/AAKT0000.png" alt=""><span class="bank_name">신한저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AALT0000"><label for="A1AALT0000"><img src="../../images/logos/AALT0000.png" alt=""><span class="bank_name">애큐온저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAMK0000"><label for="A1AAMK0000"><img src="../../images/logos/AAMK0000.png" alt=""><span class="bank_name">우리금융저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAKU0000"><label for="A1AAKU0000"><img src="../../images/logos/AAKU0000.png" alt=""><span class="bank_name">웰컴저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAME0000"><label for="A1AAME0000"><img src="../../images/logos/AAME0000.png" alt=""><span class="bank_name">키움예스저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAKX0000"><label for="A1AAKX0000"><img src="../../images/logos/AAKX0000.png" alt=""><span class="bank_name">페퍼저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAMY0000"><label for="A1AAMY0000"><img src="../../images/logos/AAMY0000.png" alt=""><span class="bank_name">한국투자저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAKB0000"><label for="A1AAKB0000"><img src="../../images/logos/AAKB0000.png" alt=""><span class="bank_name">하나저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AANP0000"><label for="A1AANP0000"><img src="../../images/logos/AANP0000.png" alt=""><span class="bank_name">IBK저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAKS0000"><label for="A1AAKS0000"><img src="../../images/logos/AAKS0000.png" alt=""><span class="bank_name">JT친애저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAMC0000"><label for="A1AAMC0000"><img src="../../images/logos/AAMC0000.png" alt=""><span class="bank_name">KB저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AALX0000"><label for="A1AALX0000"><img src="../../images/logos/AALX0000.png" alt=""><span class="bank_name">OK저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAJZ0000"><label for="A1AAJZ0000"><img src="../../images/logos/AAJZ0000.png" alt=""><span class="bank_name">SBI저축은행</span></label></li>
+								<li><input type="checkbox" id="A1AAMN0000"><label for="A1AAMN0000"><img src="../../images/logos/AAMN0000.png" alt=""><span class="bank_name">상상인플러스저축은행</span></label></li>
+							</ul>
+						</div>
+
+						<!-- [카드] -->
+						<div class="wrap_bank_check" anchor-cont="dem02">
+							<div class="anchorTitleWrap">
+								<h3 class="tit"><span class="check"><input type="checkbox" id="check_02" class="chekTypeOther"><label for="check_02">카드</label></span></h3>
+							</div>
+							<ul>
+								<li><input type="checkbox" id="logo_null_02_card"><label for="logo_null_02_card"><img src="../../images/logos/logo_null_02_card.png" alt=""><span class="bank_name">카드</span></label></li>
+								<li><input type="checkbox" id="D1AAEX0000"><label for="D1AAEX0000"><img src="../../images/logos/AAEX0000.png" alt=""><span class="bank_name">신한카드</span></label></li>
+								<li><input type="checkbox" id="D1AAEV0000"><label for="D1AAEV0000"><img src="../../images/logos/AAEV0000.png" alt=""><span class="bank_name">삼성카드</span></label></li>
+								<li><input type="checkbox" id="D1AAEV0000"><label for="D1AAEV0000"><img src="../../images/logos/AAAF0000.png" alt=""><span class="bank_name">국민카드</span></label></li>
+								<li><input type="checkbox" id="D1AAFO0000"><label for="D1AAFO0000"><img src="../../images/logos/AAFO0000.png" alt=""><span class="bank_name">현대카드</span></label></li>
+								<li><input type="checkbox" id="D1AADO0000"><label for="D1AADO0000"><img src="../../images/logos/AADO0000.png" alt=""><span class="bank_name">롯데카드</span></label></li>
+								<li><input type="checkbox" id="D1AAAH0000"><label for="D1AAAH0000"><img src="../../images/logos/AAAH0000.png" alt=""><span class="bank_name">우리카드</span></label></li>
+								<li><input type="checkbox" id="D1AABJ0000"><label for="D1AABJ0000"><img src="../../images/logos/AABJ0000.png" alt=""><span class="bank_name">하나카드</span></label></li>
+								<li><input type="checkbox" id="D1AAHJ0000"><label for="D1AAHJ0000"><img src="../../images/logos/AAHJ0000.png" alt=""><span class="bank_name">카카오뱅크(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAJB0000"><label for="D1AAJB0000"><img src="../../images/logos/AAJB0000.png" alt=""><span class="bank_name">케이뱅크(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAPF0000"><label for="D1AAPF0000"><img src="../../images/logos/AAPF0000.png" alt=""><span class="bank_name">토스뱅크(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAIM0000"><label for="D1AAIM0000"><img src="../../images/logos/AAIM0000.png" alt=""><span class="bank_name">경남은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAMW0000"><label for="D1AAMW0000"><img src="../../images/logos/AAMW0000.png" alt=""><span class="bank_name">광주은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAEQ0000"><label for="D1AAEQ0000"><img src="../../images/logos/AAEQ0000.png" alt=""><span class="bank_name">기업은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAHS0000"><label for="D1AAHS0000"><img src="../../images/logos/AAHS0000.png" alt=""><span class="bank_name">아이엠뱅크(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAII0000"><label for="D1AAII0000"><img src="../../images/logos/AAII0000.png" alt=""><span class="bank_name">부산은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAAD0000"><label for="D1AAAD0000"><img src="../../images/logos/AAAD0000.png" alt=""><span class="bank_name">산업은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAHX0000"><label for="D1AAHX0000"><img src="../../images/logos/AAHX0000.png" alt=""><span class="bank_name">수협은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAIP0000"><label for="D1AAIP0000"><img src="../../images/logos/AAIP0000.png" alt=""><span class="bank_name">제주은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAQE0000"><label for="D1AAQE0000"><img src="../../images/logos/AAQE0000.png" alt=""><span class="bank_name">씨티은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAHP0000"><label for="D1AAHP0000"><img src="../../images/logos/AAHP0000.png" alt=""><span class="bank_name">전북은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAAK0000"><label for="D1AAAK0000"><img src="../../images/logos/AAAK0000.png" alt=""><span class="bank_name">SC제일은행(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAPA0000"><label for="D1AAPA0000"><img src="../../images/logos/AAPA0000.png" alt=""><span class="bank_name">새마을금고(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAKM0000"><label for="D1AAKM0000"><img src="../../images/logos/AAKM0000.png" alt=""><span class="bank_name">신협(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAKA0000"><label for="D1AAKA0000"><img src="../../images/logos/AAKA0000.png" alt=""><span class="bank_name">우체국(카드)</span></label></li>
+								<li><input type="checkbox" id="D1AAFQ0000"><label for="D1AAFQ0000"><img src="../../images/logos/AAFQ0000.png" alt=""><span class="bank_name">비씨카드</span></label></li>
+								<li><input type="checkbox" id="D1AAOD0000"><label for="D1AAOD0000"><img src="../../images/logos/AAOD0000.png" alt=""><span class="bank_name">갤러리아백화점</span></label></li>
+								<li><input type="checkbox" id="D1AAPG0000"><label for="D1AAPG0000"><img src="../../images/logos/AAPG0000.png" alt=""><span class="bank_name">현대백화점</span></label></li>
+							</ul>
+						</div>
+
+						<!-- [증권] -->
+						<div class="wrap_bank_check" anchor-cont="dem03">
+							<div class="anchorTitleWrap">
+								<h3 class="tit"><span class="check"><input type="checkbox" id="check_03" class="chekTypeOther"><label for="check_03">증권</label></span></h3>
+							</div>
+							<ul>
+								<li><input type="checkbox" id="logo_null_03_invest"><label for="logo_null_03_invest"><img src="../../images/logos/logo_null_03_invest.png" alt=""><span class="bank_name">증권</span></label></li>
+								<li><input type="checkbox" id="C1AACQ0000"><label for="C1AACQ0000"><img src="../../images/logos/AACQ0000.png" alt=""><span class="bank_name">NH투자증권</span></label></li>
+								<li><input type="checkbox" id="C1AACS0000"><label for="C1AACS0000"><img src="../../images/logos/AACS0000.png" alt=""><span class="bank_name">교보증권</span></label></li>
+								<li><input type="checkbox" id="C1AAKO0000"><label for="C1AAKO0000"><img src="../../images/logos/AAKO0000.png" alt=""><span class="bank_name">대신증권</span></label></li>
+								<li><input type="checkbox" id="C1AACZ0000"><label for="C1AACZ0000"><img src="../../images/logos/AACZ0000.png" alt=""><span class="bank_name">메리츠증권</span></label></li>
+								<li><input type="checkbox" id="C1AACU0000"><label for="C1AACU0000"><img src="../../images/logos/AACU0000.png" alt=""><span class="bank_name">미래에셋증권</span></label></li>
+								<li><input type="checkbox" id="C1AAEY0000"><label for="C1AAEY0000"><img src="../../images/logos/AAEY0000.png" alt=""><span class="bank_name">삼성증권</span></label></li>
+								<li><input type="checkbox" id="C1AAJE0000"><label for="C1AAJE0000"><img src="../../images/logos/AAJE0000.png" alt=""><span class="bank_name">신영증권</span></label></li>
+								<li><input type="checkbox" id="C1AADF0000"><label for="C1AADF0000"><img src="../../images/logos/AADF0000.png" alt=""><span class="bank_name">신한투자증권</span></label></li>
+								<li><input type="checkbox" id="C1AAPD0000"><label for="C1AAPD0000"><img src="../../images/logos/AAPD0000.png" alt=""><span class="bank_name">우리종합금융</span></label></li>
+								<li><input type="checkbox" id="C1AADC0000"><label for="C1AADC0000"><img src="../../images/logos/AADC0000.png" alt=""><span class="bank_name">유안타증권</span></label></li>
+								<li><input type="checkbox" id="C1AADB0000"><label for="C1AADB0000"><img src="../../images/logos/AADB0000.png" alt=""><span class="bank_name">유진투자증권</span></label></li>
+								<li><input type="checkbox" id="C1AABQ0000"><label for="C1AABQ0000"><img src="../../images/logos/AABQ0000.png" alt=""><span class="bank_name">이베스트투자증권</span></label></li>
+								<li><input type="checkbox" id="C1AAGU0000"><label for="C1AAGU0000"><img src="../../images/logos/AAGU0000.png" alt=""><span class="bank_name">카카오페이증권</span></label></li>
+								<li><input type="checkbox" id="C1AAPV0000"><label for="C1AAPV0000"><img src="../../images/logos/AAPV0000.png" alt=""><span class="bank_name">다올투자증권</span></label></li>
+								<li><input type="checkbox" id="C1AABR0000"><label for="C1AABR0000"><img src="../../images/logos/AABR0000.png" alt=""><span class="bank_name">키움증권</span></label></li>
+								<li><input type="checkbox" id="C1AAHW0000"><label for="C1AAHW0000"><img src="../../images/logos/AAHW0000.png" alt=""><span class="bank_name">토스증권</span></label></li>
+								<li><input type="checkbox" id="C1AAKN0000"><label for="C1AAKN0000"><img src="../../images/logos/AAKN0000.png" alt=""><span class="bank_name">하나증권</span></label></li>
+								<li><input type="checkbox" id="C1AAIJ0000"><label for="C1AAIJ0000"><img src="../../images/logos/AAIJ0000.png" alt=""><span class="bank_name">하이투자증권</span></label></li>
+								<li><input type="checkbox" id="C1AACT0000"><label for="C1AACT0000"><img src="../../images/logos/AACT0000.png" alt=""><span class="bank_name">한국투자증권</span></label></li>
+								<li><input type="checkbox" id="C1AACY0000"><label for="C1AACY0000"><img src="../../images/logos/AACY0000.png" alt=""><span class="bank_name">한화투자증권</span></label></li>
+								<li><input type="checkbox" id="C1AADD0000"><label for="C1AADD0000"><img src="../../images/logos/AADD0000.png" alt=""><span class="bank_name">현대차증권</span></label></li>
+								<li><input type="checkbox" id="C1AADI0000"><label for="C1AADI0000"><img src="../../images/logos/AADI0000.png" alt=""><span class="bank_name">DB금융투자</span></label></li>
+								<li><input type="checkbox" id="C1AABU0000"><label for="C1AABU0000"><img src="../../images/logos/AABU0000.png" alt=""><span class="bank_name">IBK투자증권</span></label></li>
+								<li><input type="checkbox" id="C1AADA0000"><label for="C1AADA0000"><img src="../../images/logos/AADA0000.png" alt=""><span class="bank_name">KB증권</span></label></li>
+								<li><input type="checkbox" id="C1AAPW0000"><label for="C1AAPW0000"><img src="../../images/logos/AAPW0000.png" alt=""><span class="bank_name">SK증권</span></label></li>
+							</ul>
+						</div>
+
+						<!-- [보험] -->
+						<div class="wrap_bank_check" anchor-cont="dem04">
+							<div class="anchorTitleWrap">
+								<h3 class="tit"><span class="check"><input type="checkbox" id="check_04" class="chekTypeOther"><label for="check_04">보험</label></span></h3>
+							</div>
+							<ul>
+								<li><input type="checkbox" id="logo_null_04_insure"><label for="logo_null_04_insure"><img src="../../images/logos/logo_null_04_insure.png" alt=""><span class="bank_name">보험</span></label></li>
+								<li><input type="checkbox" id="B1AABF0000"><label for="B1AABF0000"><img src="../../images/logos/AABF0000.png" alt=""><span class="bank_name">농협생명보험</span></label></li>
+								<li><input type="checkbox" id="B2AAOC0000"><label for="B2AAOC0000"><img src="../../images/logos/AAOC0000.png" alt=""><span class="bank_name">농협손해보험</span></label></li>
+								<li><input type="checkbox" id="B1AAJH0000"><label for="B1AAJH0000"><img src="../../images/logos/AAJH0000.png" alt=""><span class="bank_name">교보라이프플래닛생명</span></label></li>
+								<li><input type="checkbox" id="B1AAAI0000"><label for="B1AAAI0000"><img src="../../images/logos/AAAI0000.png" alt=""><span class="bank_name">교보생명보험</span></label></li>
+								<li><input type="checkbox" id="B1AAEU0000"><label for="B1AAEU0000"><img src="../../images/logos/AAEU0000.png" alt=""><span class="bank_name">동양생명보험</span></label></li>
+								<li><input type="checkbox" id="B1AAAY0000"><label for="B1AAAY0000"><img src="../../images/logos/AAAY0000.png" alt=""><span class="bank_name">라이나생명보험</span></label></li>
+								<li><input type="checkbox" id="B2AAAT0000"><label for="B2AAAT0000"><img src="../../images/logos/AAAT0000.png" alt=""><span class="bank_name">롯데손해보험</span></label></li>
+								<li><input type="checkbox" id="B2AACR0000"><label for="B2AACR0000"><img src="../../images/logos/AACR0000.png" alt=""><span class="bank_name">메리츠화재해상보험</span></label></li>
+								<li><input type="checkbox" id="B1AADN0000"><label for="B1AADN0000"><img src="../../images/logos/AADN0000.png" alt=""><span class="bank_name">매트라이프생명</span></label></li>
+								<li><input type="checkbox" id="B1AAHE0000"><label for="B1AAHE0000"><img src="../../images/logos/AAHE0000.png" alt=""><span class="bank_name">미래에셋생명보험</span></label></li>
+								<li><input type="checkbox" id="B1AAAR0000"><label for="B1AAAR0000"><img src="../../images/logos/AAAR0000.png" alt=""><span class="bank_name">삼성생명보험</span></label></li>
+								<li><input type="checkbox" id="B2AAEW0000"><label for="B2AAEW0000"><img src="../../images/logos/AAEW0000.png" alt=""><span class="bank_name">삼성화재</span></label></li>
+								<li><input type="checkbox" id="B1AAAS0000"><label for="B1AAAS0000"><img src="../../images/logos/AAAS0000.png" alt=""><span class="bank_name">신한라이프생명보험</span></label></li>
+								<li><input type="checkbox" id="B1AAFP0000"><label for="B1AAFP0000"><img src="../../images/logos/AAFP0000.png" alt=""><span class="bank_name">에이비엘생명보험</span></label></li>
+								<li><input type="checkbox" id="B2AAGZ0000"><label for="B2AAGZ0000"><img src="../../images/logos/AAGZ0000.png" alt=""><span class="bank_name">엠지손해보험</span></label></li>
+								<li><input type="checkbox" id="B1AAKA0000"><label for="B1AAKA0000"><img src="../../images/logos/AAKA0000.png" alt=""><span class="bank_name">우체국보험</span></label></li>
+								<li><input type="checkbox" id="B2AAIF0000"><label for="B2AAIF0000"><img src="../../images/logos/AAIF0000.png" alt=""><span class="bank_name">캐롯손해보험</span></label></li>
+								<li><input type="checkbox" id="B1AANZ0000"><label for="B1AANZ0000"><img src="../../images/logos/AANZ0000.png" alt=""><span class="bank_name">KB라이프생명</span></label></li>
+								<li><input type="checkbox" id="B1AAQA0000"><label for="B1AAQA0000"><img src="../../images/logos/AAQA0000.png" alt=""><span class="bank_name">푸본현대생명보험</span></label></li>
+								<li><input type="checkbox" id="B2AABT0000"><label for="B2AABT0000"><img src="../../images/logos/AABT0000.png" alt=""><span class="bank_name">하나손해보험</span></label></li>
+								<li><input type="checkbox" id="B1AAQI0000"><label for="B1AAQI0000"><img src="../../images/logos/AAQI0000.png" alt=""><span class="bank_name">한화생명보험</span></label></li>
+								<li><input type="checkbox" id="B2AADH0000"><label for="B2AADH0000"><img src="../../images/logos/AADH0000.png" alt=""><span class="bank_name">한화손해보험</span></label></li>
+								<li><input type="checkbox" id="B1AAAO0000"><label for="B1AAAO0000"><img src="../../images/logos/AAAO0000.png" alt=""><span class="bank_name">흥국생명보험</span></label></li>
+								<li><input type="checkbox" id="B2AANY0000"><label for="B2AANY0000"><img src="../../images/logos/AANY0000.png" alt=""><span class="bank_name">흥국화재해상보험</span></label></li>
+								<li><input type="checkbox" id="B1AAIX0000"><label for="B1AAIX0000"><img src="../../images/logos/AAIX0000.png" alt=""><span class="bank_name">AIA생명보험</span></label></li>
+								<li><input type="checkbox" id="B2AACL0000"><label for="B2AACL0000"><img src="../../images/logos/AACL0000.png" alt=""><span class="bank_name">AXA손해보험</span></label></li>
+								<li><input type="checkbox" id="B1AAET0000"><label for="B1AAET0000"><img src="../../images/logos/AAET0000.png" alt=""><span class="bank_name">DB생명보험</span></label></li>
+								<li><input type="checkbox" id="B2AAEN0000"><label for="B2AAEN0000"><img src="../../images/logos/AAEN0000.png" alt=""><span class="bank_name">DB손해보험</span></label></li>
+								<li><input type="checkbox" id="B1AABD0000"><label for="B1AABD0000"><img src="../../images/logos/AABD0000.png" alt=""><span class="bank_name">IBK연금보험</span></label></li>
+								<li><input type="checkbox" id="B2AALR0000"><label for="B2AALR0000"><img src="../../images/logos/AALR0000.png" alt=""><span class="bank_name">KB손해보험</span></label></li>
+								<li><input type="checkbox" id="B1AAMU0000"><label for="B1AAMU0000"><img src="../../images/logos/AAMU0000.png" alt=""><span class="bank_name">KDB생명보험</span></label></li>
+							</ul>
+						</div>
+
+						<!-- [할부금융] -->
+						<div class="wrap_bank_check" anchor-cont="dem05">
+							<div class="anchorTitleWrap">
+								<h3 class="tit"><span class="check"><input type="checkbox" id="check_05" class="chekTypeOther"><label for="check_05">할부금융</label></span></h3>
+							</div>
+							<ul>
+								<li><input type="checkbox" id="logo_null_06_capital"><label for="logo_null_06_capital"><img src="../../images/logos/logo_null_06_capital.png" alt="할부금융 로고"><span class="bank_name">할부금융</span></label></li>
+								<li><input type="checkbox" id="D3AAOB0000"><label for="D3AAOB0000"><img src="../../images/logos/AAOB0000.png" alt=""><span class="bank_name">NH농협캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AAAF0000"><label for="D3AAAF0000"><img src="../../images/logos/AAAF0000.png" alt=""><span class="bank_name">국민카드(할부)</span></label></li>
+								<li><input type="checkbox" id="D3AAQO0000"><label for="D3AAQO0000"><img src="../../images/logos/AAQO0000.png" alt=""><span class="bank_name">롯데캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AAEV0000"><label for="D3AAEV0000"><img src="../../images/logos/AAEV0000.png" alt=""><span class="bank_name">삼성카드(할부)</span></label></li>
+								<li><input type="checkbox" id="D3AAEX0000"><label for="D3AAEX0000"><img src="../../images/logos/AAEX0000.png" alt=""><span class="bank_name">신한카드(할부)</span></label></li>
+								<li><input type="checkbox" id="D3AAEZ0000"><label for="D3AAEZ0000"><img src="../../images/logos/AAEZ0000.png" alt=""><span class="bank_name">산은캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AAAH0000"><label for="D3AAAH0000"><img src="../../images/logos/AAAH0000.png" alt=""><span class="bank_name">우리카드(할부)</span></label></li>
+								<li><input type="checkbox" id="D3AABJ0000"><label for="D3AABJ0000"><img src="../../images/logos/AABJ0000.png" alt=""><span class="bank_name">하나카드(할부)</span></label></li>
+								<li><input type="checkbox" id="D3AAGE0000"><label for="D3AAGE0000"><img src="../../images/logos/AAGE0000.png" alt=""><span class="bank_name">하나캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AADE0000"><label for="D3AADE0000"><img src="../../images/logos/AADE0000.png" alt=""><span class="bank_name">현대캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AAJX0000"><label for="D3AAJX0000"><img src="../../images/logos/AAJX0000.png" alt=""><span class="bank_name">BMW파이낸셜</span></label></li>
+								<li><input type="checkbox" id="D3AABW0000"><label for="D3AABW0000"><img src="../../images/logos/AABW0000.png" alt=""><span class="bank_name">메리츠캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AAMG0000"><label for="D3AAMG0000"><img src="../../images/logos/AAMG0000.png" alt=""><span class="bank_name">IBK캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AADZ0000"><label for="D3AADZ0000"><img src="../../images/logos/AADZ0000.png" alt=""><span class="bank_name">KB캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AAIL0000"><label for="D3AAIL0000"><img src="../../images/logos/AAIL0000.png" alt=""><span class="bank_name">비엔케이캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AAMM0000"><label for="D3AAMM0000"><img src="../../images/logos/AAMM0000.png" alt=""><span class="bank_name">우리금융캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AAHR0000"><label for="D3AAHR0000"><img src="../../images/logos/AAHR0000.png" alt=""><span class="bank_name">제이비우리캐피탈</span></label></li>
+								<li><input type="checkbox" id="D3AAER0000"><label for="D3AAER0000"><img src="../../images/logos/AAER0000.png" alt=""><span class="bank_name">신한캐피탈</span></label></li>
+							</ul>
+						</div>
+
+						<!-- [전자금융] -->
+						<div class="wrap_bank_check" anchor-cont="dem06">
+							<div class="anchorTitleWrap">
+								<h3 class="tit"><span class="check"><input type="checkbox" id="check_06" class="chekTypeOther"><label for="check_06">전자금융</label></span></h3>
+							</div>
+							<ul>
+								<li><input type="checkbox" id="logo_null_05_electric"><label for="logo_null_05_electric"><img src="../../images/logos/logo_null_05_electric.png" alt="전자금융 로고"><span class="bank_name">전자금융</span></label></li>
+								<li><input type="checkbox" id="E1AAHY0000"><label for="E1AAHY0000"><img src="../../images/logos/AAHY0000.png" alt=""><span class="bank_name">네이버파이낸셜</span></label></li>
+								<li><input type="checkbox" id="E1AAPC0000"><label for="E1AAPC0000"><img src="../../images/logos/AAPC0000.png" alt=""><span class="bank_name">카카오</span></label></li>
+								<li><input type="checkbox" id="E1AAPN0000"><label for="E1AAPN0000"><img src="../../images/logos/AAPN0000.png" alt=""><span class="bank_name">쿠팡페이</span></label></li>
+								<li><input type="checkbox" id="E1AAPM0000"><label for="E1AAPM0000"><img src="../../images/logos/AAPM0000.png" alt=""><span class="bank_name">SSG닷컴</span></label></li>
+								<li><input type="checkbox" id="E1AABK0000"><label for="E1AABK0000"><img src="../../images/logos/AABK0000.png" alt=""><span class="bank_name">롯데멤버스</span></label></li>
+								<li><input type="checkbox" id="E1AAPU0000"><label for="E1AAPU0000"><img src="../../images/logos/AAPU0000.png" alt=""><span class="bank_name">구글페이먼트</span></label></li>
+								<li><input type="checkbox" id="E1AAGP0000"><label for="E1AAGP0000"><img src="../../images/logos/AAGP0000.png" alt=""><span class="bank_name">지마켓</span></label></li>
+								<li><input type="checkbox" id="E1AAQK0000"><label for="E1AAQK0000"><img src="../../images/logos/AAQK0000.png" alt=""><span class="bank_name">배달의민족</span></label></li>
+								<li><input type="checkbox" id="E1AAGK0000"><label for="E1AAGK0000"><img src="../../images/logos/AAGK0000.png" alt=""><span class="bank_name">인터파크</span></label></li>
+								<li><input type="checkbox" id="E1AABZ0000"><label for="E1AABZ0000"><img src="../../images/logos/AABZ0000.png" alt=""><span class="bank_name">코나아이</span></label></li>
+								<li><input type="checkbox" id="E1AADV0000"><label for="E1AADV0000"><img src="../../images/logos/AADV0000.png" alt=""><span class="bank_name">토스</span></label></li>
+								<li><input type="checkbox" id="E1AAAX0000"><label for="E1AAAX0000"><img src="../../images/logos/AAAX0000.png" alt=""><span class="bank_name">티머니</span></label></li>
+								<li><input type="checkbox" id="E1AAJI0000"><label for="E1AAJI0000"><img src="../../images/logos/AAJI0000.png" alt=""><span class="bank_name">핀크</span></label></li>
+								<li><input type="checkbox" id="E1AABJ0000"><label for="E1AABJ0000"><img src="../../images/logos/AABJ0000.png" alt=""><span class="bank_name">하나머니</span></label></li>
+								<li><input type="checkbox" id="E1AAJA0000"><label for="E1AAJA0000"><img src="../../images/logos/AAJA0000.png" alt=""><span class="bank_name">11번가</span></label></li>
+								<li><input type="checkbox" id="E1AAIA0000"><label for="E1AAIA0000"><img src="../../images/logos/AAIA0000.png" alt=""><span class="bank_name">카카오페이</span></label></li>
+								<li><input type="checkbox" id="E1AAIE0000"><label for="E1AAIE0000"><img src="../../images/logos/AAIE0000.png" alt=""><span class="bank_name">NHN페이코</span></label></li>
+								<li><input type="checkbox" id="E1AABE0000"><label for="E1AABE0000"><img src="../../images/logos/AABE0000.png" alt=""><span class="bank_name">SK플래닛</span></label></li>
+								<li><input type="checkbox" id="E1AAOF0000"><label for="E1AAOF0000"><img src="../../images/logos/AAOF0000.png" alt=""><span class="bank_name">한국선불카드</span></label></li>
+								<li><input type="checkbox" id="E1AABN0000"><label for="E1AABN0000"><img src="../../images/logos/AABN0000.png" alt=""><span class="bank_name">뱅크샐러드</span></label></li>
+								<li><input type="checkbox" id="E1AAIV0000"><label for="E1AAIV0000"><img src="../../images/logos/AAIV0000.png" alt=""><span class="bank_name">트래블월렛</span></label></li>
+								<li><input type="checkbox" id="E1AAYE0000"><label for="E1AAYE0000"><img src="../../images/logos/AAYE0000.png" alt=""><span class="bank_name">당근페이</span></label></li>
+							</ul>
+						</div>
+
+						<!-- [통신] -->
+						<!-- NH농협은행 비대면 마이데이터 고객여정 개선(2025) 통신업권 삭제 -->
+						<!-- <div class="wrap_bank_check" anchor-cont="dem07">
+							<div class="anchorTitleWrap">
+								<h3 class="tit"><span class="check"><input type="checkbox" id="check_07" class="chekTypeOther"><label for="check_07">통신</label></span></h3>
+							</div>
+							<ul>
+								<li><input type="checkbox" id="logo_null_08_telecom"><label for="logo_null_08_telecom"><img src="../../images/logos/logo_null_08_telecom.png" alt=""><span class="bank_name">통신</span></label></li>
+								<li><input type="checkbox" id="F1AAAU0000"><label for="F1AAAU0000"><img src="../../images/logos/AAAU0000.png" alt=""><span class="bank_name">SK텔레콤</span></label></li>
+								<li><input type="checkbox" id="F1AAAN0000"><label for="F1AAAN0000"><img src="../../images/logos/AAAN0000.png" alt=""><span class="bank_name">KT</span></label></li>
+								<li><input type="checkbox" id="F1AAGI0000"><label for="F1AAGI0000"><img src="../../images/logos/AAGI0000.png" alt=""><span class="bank_name">LG유플러스</span></label></li>
+								<li><input type="checkbox" id="F1AAFT0000"><label for="F1AAFT0000"><img src="../../images/logos/AAFT0000.png" alt=""><span class="bank_name">SK브로드밴드</span></label></li>
+								<li><input type="checkbox" id="F1AAEO0000"><label for="F1AAEO0000"><img src="../../images/logos/AAEO0000.png" alt=""><span class="bank_name">리브모바일</span></label></li>
+								<li><input type="checkbox" id="F1AAFZ0000"><label for="F1AAFZ0000"><img src="../../images/logos/AAFZ0000.png" alt=""><span class="bank_name">프리텔레콤</span></label></li>
+							</ul>
+						</div> -->
+
+						<!-- [공공] -->
+						<div class="wrap_bank_check" anchor-cont="dem08">
+							<div class="anchorTitleWrap">
+								<h3 class="tit"><span class="check"><input type="checkbox" id="check_08" class="chekTypeOther"><label for="check_08">공공</label></span></h3>
+							</div>
+							<ul>
+								<li><input type="checkbox" id="logo_null"><label for="logo_null"><img src="../../images/logos/logo_null.png" alt=""><span class="bank_name">공공</span></label></li>
+								<li><input type="checkbox" id="PBAAVN0000"><label for="PBAAVN0000"><img src="../../images/logos/PBAAVN0000.png" alt=""><span class="bank_name">국민건강보험공단</span></label></li>
+								<li><input type="checkbox" id="PBAAVM0000"><label for="PBAAVM0000"><img src="../../images/logos/PBAAVM0000.png" alt=""><span class="bank_name">국민연금공단</span></label></li>
+								<li><input type="checkbox" id="PBAAVO0000"><label for="PBAAVO0000"><img src="../../images/logos/PBAAVO0000.png" alt=""><span class="bank_name">공무원연금공단</span></label></li>
+							</ul>
+						</div>
+						<!-- // -->
+						<!-- [MD2504_052_v0.04] (서금원)휴면예금조회·지급서비스(2.0반영) [서민금융진흥원] 업권 추가 -->
+						<!-- [서민금융진흥원] -->
+						<div class="wrap_bank_check" anchor-cont="dem09">
+							<div class="anchorTitleWrap">
+								<h3 class="tit"><span class="check"><input type="checkbox" id="check_09" class="chekTypeOther"><label for="check_09">서민금융진흥원</label></span></h3>
+							</div>
+							<ul>
+								<li><input type="checkbox" id="AAOW0000"><label for="AAOW0000"><img src="../../images/logos/AAOW0000.png" alt=""><span class="bank_name">서민금융진흥원</span></label></li>
+							</ul>
+						</div>
+						<!-- // -->
+					</div>
+				</div>
+
+				<!-- ### [하단버튼] 기관 선택 버튼 ### -->
+				<div class="areaBtnDefault statNormal">
+					<a href="javascript:;" class="btnPressPoint disabled" role="button" aria-disabled="true">선택한 기관이 없습니다</a>
+					<!-- <a href="javascript:;" class="btnPressPoint" role="button">선택한 기관 50개 연결하기</a> [D] 선택한 기관이 있을 경우 -->
+				</div>
+
+				<!-- ### [하단버튼] 검색 결과 버튼 ### -->
+				<div class="areaBtnDefault statSearch" style="display:none">
+					<a href="javascript:;" class="btnPressDefault" role="button" onclick="anchorSearch_return()">취소</a>
+					<a href="javascript:;" class="btnPressPoint" role="button">선택완료</a>
+				</div>
+				<!-- // -->
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [플로팅버튼] -->
+		<!-- -------------------------------------- -->
+		<button type="button" class="goTopBtn2"><span class="blind">최상단으로 이동</span></button>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//샘플 : 상단으로 이동 업권선택 화면만 재정의
+	//업권 탭메뉴 첫번째인 상태에서 탑버튼 선택 시 : 페이지 상단 이동
+	//업권 탭메뉴 두번째 이상인 상태에서 탑버튼 선택 시 : 첫번째메뉴로 이동
+	$(document).off('click', '.goTopBtn2').on('click', '.goTopBtn2' , function(){
+		var _index = $('.anchorSubject li.selected').index();
+		if(_index == 0) $('html,body').animate({ scrollTop: '0' }, 300);
+		else $('.anchorSubject li:eq(0) a').trigger('click');
+	});
+
+	//샘플 : 업권선택 검색영역
+	function anchorSearch_return() {
+		$('.anchorListdWrap').removeClass('anchorSearch');
+		$('.areaBtnDefault.statSearch').hide();
+		$('.areaBtnDefault.statNormal').show();
+		$('html, body').scrollTop(0)
+	}
+
+	//샘플 : 업권선택 앵커이동
+	function anchorWrap() {
+		var $thisPoTop = $('.anchorSubjectWrap').offset().top;
+		var $thisPoTop2 = $('.anchorSearchArea').offset().top;
+		var $heightHeader = $('.header').outerHeight();
+
+		$('.anchorListdWrap').each(function(){
+			$('.anchorListdWrap h3.tit').attr('tabindex','-1');
+			var $winHeight = $(window).outerHeight();
+			var $heightHeader = $('.header').outerHeight();
+			var $heightTab = $('.anchorSubject').outerHeight();
+		});
+
+		$('.anchorSubject a').click(function(){
+			var $this = $(this);
+			var $thisAttr = $this.attr('anchor-title');
+			$('.wrap_bank_check').each(function(){
+				var $thisTarget = $(this);
+				var $targetPo = $(this).offset().top;
+				var $heightHeader = $('.header').outerHeight();
+				var $heightTab = $('.anchorSubjectWrap').outerHeight();
+				var $hightM = $heightHeader + $heightTab;
+				if ($(this).attr('anchor-cont') == $thisAttr ) {
+					$(this).addClass('active');
+					$('html, body').stop().animate({scrollTop:$targetPo - $hightM + 15},400,function(){
+						$('.anchorSubject > li').removeClass('selected');
+						$this.parent('li').addClass('selected');
+						$thisTarget.find('h3.tit').focus();
+					});
+				}
+			});
+		});
+
+		$('.anchorListdWrap').each(function(){
+			$(window).on('scroll',function(){
+				$('.wrap_bank_check').each(function(){
+					var $targetPo = $(this).offset().top;
+					var $heightHeader = $('.header').outerHeight();
+					var $heightTab = $('.anchorSubjectWrap').outerHeight();
+					var $hightM = $heightHeader + $heightTab;
+					var $thisCur = $targetPo - $hightM ;
+					var $scrollTop = $('html, body').scrollTop();
+					var $thisAttr = $(this).attr('anchor-cont');
+					var $targetAttr = $('anchorSubject a').attr('anchor-title');
+					var $ulListNum = $('.anchorSubject > li').length -1;
+					if ($thisCur <= $scrollTop ) {
+						$('.anchorSubject > li > a').each(function(){
+							if ($(this).attr('anchor-title') == $thisAttr ) {
+								$('.anchorSubject > li').removeClass('selected');
+								$('.anchorSubject > li a').attr('aria-selected','false');
+								$(this).parent('li').addClass('selected');
+								$(this).attr('aria-selected','true');
+								$('.anchorSubject > li.selected').each(function(){var $thisIndex = $(this).index();if ($ulListNum > $thisIndex) {var $thispo_left = $(this).position().left;$('.anchorSubjectWrap').scrollLeft($thispo_left)}else{var $thisWidth = $(this).outerWidth();var $thispo_left = $(this).position().left;$('.anchorSubjectWrap').scrollLeft($thispo_left + $thisWidth)}
+								});
+							}
+						});
+					}
+				});
+
+				$('.anchorSubjectWrap').each(function(){
+					var $this = $(this);
+					var $scTop = $('html, body').scrollTop() + $heightHeader;
+					if ($thisPoTop < $scTop) {
+						$('.anchorSubjectWrap').addClass('hasSticky');
+					}else{
+						$('.anchorSubjectWrap').removeClass('hasSticky');
+					}
+				});
+			});
+		});
+	}
+
+	$(document).ready(function(){
+		//샘플 : 탭버튼 ARIA 속성 제거
+		setTimeout(function(){
+			var _wrap = $('.tabWrap.type01');
+			_wrap.find('ul, li , a').removeAttr('role');
+			_wrap.find('a').removeAttr('aria-selected');
+		},1000);
+
+		//샘플 : 기관명 검색 영역
+		$('.noResultWrap').hide();
+		$('.anchorSearchArea input[type="text"]').click(function(){
+		}).on('focusin',function(){
+			$('.anchorListdWrap').addClass('anchorSearch');
+			$('.goTopBtn2').hide();
+		}).on('focusout',function(){
+			$('.anchorListdWrap').removeClass('anchorSearch');
+			$('.goTopBtn2').show();
+		});
+
+		//샘플 : 검색 버튼 클릭이벤트 : 데이터 없음
+		$('.btnSearch').on('click',function(){
+			$('.anchorListdWrap, .joinGroup, .areaBtnDefault.statNormal').hide();
+			$('.noResultWrap, .areaBtnDefault.statSearch').show();
+		});
+
+		//샘플 : 검색 시 노출되는 하단 고정 버튼 클릭 이벤트 : 기본 상태로 돌아옴
+		$(document).on('click','.areaBtnDefault.statSearch a', function(){
+			$('.anchorSearchArea input[type="text"]').val('')
+			$('.anchorListdWrap, .joinGroup, .areaBtnDefault.statNormal').show();
+			$('.noResultWrap, .areaBtnDefault.statSearch').hide();
+		});
+
+		//샘플 : 기관 선택 이벤트
+		$('.wrap_bank_check ul input[type="checkbox"]').each(function(){
+			$(this).on('change',function(){
+				var $count_all = $('.wrap_bank_check ul input[type="checkbox"]:checked').length;
+				var $count = $(this).closest('.wrap_bank_check').find('ul input[type="checkbox"]:checked').length;
+				var $tab_id = $(this).closest('.wrap_bank_check').attr('anchor-cont');
+				var $btn = $('.areaBtnDefault.statNormal .btnPressPoint');
+
+				//기관 수 제한
+				if ($count_all > 50) {
+					alert('연결 가능한 기관 수를 초과하였습니다.<br>기관 선택은 최대 50개 까지 입니다.');
+					$(this).prop('checked',false);
+					$chek_count = 50; 
+				}
+				
+				//기관 수 적용 : 업권탭
+				if ($count > 0) $('.anchorSubject').find('[anchor-title="'+$tab_id+'"] .count').text($count);
+				else $('.anchorSubject').find('[anchor-title="'+$tab_id+'"] .count').text('');
+
+				//기관 수 적용 : 버튼
+				if ($count_all > 0){
+					if($btn.hasClass('disabled')) $btn.removeClass('disabled').removeAttr('aria-disabled');
+					$btn.text('선택한 기관 '+$count_all+'개 연결하기');
+				}else{
+					$btn.addClass('disabled').attr('aria-disabled','true').text('선택한 기관이 없습니다');
+				}
+			});
+		});
+
+		anchorWrap();
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

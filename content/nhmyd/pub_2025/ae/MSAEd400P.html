@@ -1,0 +1,57 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 투자기준설정 다시하기</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script>
+	$(document).ready(function(){
+		slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+	})  
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 투자기준설정 다시하기 안내 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner"><!-- 2025-08-28 기획 디자인 변경 -->
+		<div class="popCont pt28 pb0 -icon -img2"><!-- 콘텐츠 아이콘 있을 때 -->
+      <div class="subTit">
+        <strong>투자성향진단 결과가<br>달라졌어요!</strong>
+      </div>
+      <p class="txtInfo">최적 포트폴리오 기준을<br>다시 설정해 보세요.</p>
+      <div class="checkWrap">
+        <input type="checkbox" id="fcheck01" class="chekTypeOther">
+        <label class="check" for="fcheck01">하루동안 보지 않기</label>
+      </div>
+    </div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn"><!-- 2025-08-28 기획 디자인 변경 -->
+				<a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">다음에</a>
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">다시하기</a>
+			</div>      
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

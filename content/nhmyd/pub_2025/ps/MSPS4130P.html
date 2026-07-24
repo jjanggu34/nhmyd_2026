@@ -1,0 +1,79 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 해제/삭제(삭제)</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+});
+</script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 해제/삭제(삭제) ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>해제/삭제</h1>
+		<div class="popCont">
+			<div class="transfer">
+				<p class="defSubTit2"><strong>자산정보를 <span class="pointColor">삭제</span> 하시겠습니까?</strong></p>
+				<p class="subTxt">등록하신 자산 정보를 모두 삭제합니다.<br />NH마이데이터 서비스에서 제공하는 혜택에 제한이 발생할 수 있으며, 삭제 완료 시 복구가 불가합니다.</p>
+				<div class="assetSelectLlistWrap">
+					<div class="assetSelectLlistAll">
+						<span>
+							<input type="checkbox" id="listAll" class="chekTypeOther">
+							<label for="listAll">개인(신용)정보 삭제에 동의합니다.</label>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="popBtnWrap">
+			<!-- [CASE] 해제 진행에서 출력된 경우 -->
+			<div class="popBtn btnHalf">
+				<a href="javascript:;" style="" class="btnPressDefault" onclick="msEvent.canDelMove('C');" id="cancelBtn" role="button">해제만 진행</a>
+				<a href="javascript:;" style="" class="" onclick="msEvent.deleteEnt1(this);" id="deleteBtn1" role="button">삭제</a><!-- [D] 활성화일 경우 : 클래스명(disabled) 및 aria-disabled="true" 삭제 -->
+				<a href="javascript:;" style="display:none;" class="" onclick="msEvent.deleteEnt2(this);" id="deleteBtn2" role="button">삭제</a><!-- 바로 삭제 팝업시 -->
+			</div>
+
+			<!-- [CASE] 삭제 버튼을 눌러 출력된 경우 -->
+			<!-- <div class="popBtn">
+				<a href="javascript:;" class="confirmBtn disabled" aria-disabled="true" role="button">삭제</a>
+			</div> -->
+			<!-- // -->
+
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- // -->
+<script>
+	const chck = document.querySelector('.chekTypeOther')
+	const confirmBtn = document.getElementById('deleteBtn1')
+	
+	chck.addEventListener('click', () => {
+		confirmBtn.classList.toggle('confirmBtn');
+	})
+</script>
+</body>
+</html>

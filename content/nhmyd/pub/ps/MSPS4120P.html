@@ -1,0 +1,68 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 해제/삭제(해제)</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 해제/삭제(해제) ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>해제/삭제</h1>
+		<div class="popCont">
+			<div class="transfer">
+				<p class="defSubTit2"><strong>자산연결을 <span class="pointColor">해제(철회)</span> 하시겠습니까?</strong></p>
+				<!-- [추가 260121] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 문구 추가 -->
+				<p class="subTxt">
+					자산연결을 해제(철회)하면 즉시 해당 자산정보의 수집이 중지됩니다.<br />
+					현재까지 가져온 데이터는 보관되지만 더 이상 새로운 정보를 가져오지 않아, 서비스 이용이 불편할 수 있습니다.<br>
+					AI대출금리케어 서비스를 신청하신 경우 자산연결을 해제(철회)하면 AI대출금리케어 서비스도 철회됩니다.
+				</p>
+				<!-- // [추가 260121] [MD2601_001] 마이데이터를 활용한 금리인하요구권 개발 문구 추가 -->
+				<div class="assetSelectLlistWrap">
+					<div class="assetSelectLlistAll">
+						<span>
+							<input type="checkbox" id="listAll" class="chekTypeOther">
+							<label for="listAll">전송요구 해제(철회)에 동의합니다.</label>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="btnPressDefault" role="button">취소</a>
+				<a href="javascript:;" class="confirmBtn disabled" aria-disabled="true" role="button">해제(철회)</a>  <!-- [D] 활성화일 경우 : 클래스명(disabled) 및 aria-disabled="true" 삭제 -->
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

@@ -1,0 +1,79 @@
+  <!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 단일 약관</title>
+<script src="../pub-assets/js/head.js"></script><!-- ASIS css js 참조 (실서비스 시 가이드용 css js는 삭제)-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		fullLayerPop()
+	});
+</script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 단일 약관 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1 aria-hidden="true">
+			<!-- 약관 타이틀 영역 -->
+			<!-- <div thumbsSlider="" class="swiper termTitleArea">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<div class="termMainTitle">선택약관 상세 단일</div>
+					</div>
+				</div>
+			</div> -->
+			<!-- //약관 타이틀 영역 -->
+		</h1>
+		<!-- [MD2507_086] 동의서 내 하단 여백 수정 약관 공통  class="popCont termPop p0" -->
+		<div class="popCont termPop p0">
+			<div class="termsWrap swiper-container prevNext swiper termContentsArea">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">
+						<!-- [MD2507_086] 동의서 내 하단 여백 수정 약관 공통  class="termLayout" class="term_box_wrap" 상단내용있을때 class="termInfo" -->
+						<div class="termLayout">
+							<div class="term_box_wrap">
+								<iframe frameborder="0" width="100%" height="100%" src="../../terms/3051_ms_agreement.html"></iframe> <!-- [2023-01-25] iframe height 100으로 확인 --> 
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">동의</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+</script>
+<!-- ###################################### -->
+</body>
+</html>

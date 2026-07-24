@@ -1,0 +1,323 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자산연결완료(성공) | 자산연결 | 설정/관리</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>자산연결</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 자산연결완료(성공) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 메세지영역  -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE1] 자산연결 완료 -->
+		<div class="confirmMsg connectimgBg Type02">
+			<p class="expainTxt">자산연결을 완료하였습니다</p>
+			<p class="subTxt mt20">최신 자산정보가 반영되기까지<br>최대 5분 정도의 시간이 소요될 수 있어요</p> <!-- [MD2408_067] 문구추가 -->
+		</div>
+		<!-- [CASE1] 자산연결 실패 -->
+		<div class="confirmMsg connectimgBg">
+			<p class="expainTxt">자산을 다시 연결해 보세요</p>
+			<p class="subTxt mt20">연결이 계속 실패하는 경우 <br>앱을 재실행한 후 다시 시도해주세요</p> <!-- [MD2408_067] 문구추가 -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 금융기관 목록  -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap listBoxWrap addLine">
+			 <div class="listNum">
+				 <span>성공 <em>2건</em></span>
+				 <!-- [CASE] 실패가 있을 경우 노출 -->
+				 <div class="tooltipWrap w96">
+					<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">연결실패안내 툴팁 열기</span></button>
+					<div class="tooltipCont">
+						<p>연결에 실패한 자산이 있어요. 정확한 자산 관리를 위해 아래 버튼을 눌러 다시 연결하기를 해보세요</p>
+						<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">연결실패안내 툴팁 닫기</span></button>
+					</div>
+				</div>
+				<!-- // -->
+			 </div>
+
+			<!-- [CASE] 성공 -->
+			<div class="connLine">
+				<div class="totalTitWrap">
+					<h2 class="listTitWrap noneTogg">
+						<div class="titL">
+							<span class="imgWrap">
+								<img src="../../images/logos/AAAZ0000.png" alt="" class="imgLogo">
+							</span>
+							<span class="accTit">농축협</span>
+						</div>
+						<div class="titR">
+							<span class="connectStatus sucessConn">성공</span>
+						</div>
+					</h2>
+				</div>
+			</div>
+			<!-- // -->
+			<div class="connLine">
+				<div class="totalTitWrap">
+					<h2 class="listTitWrap noneTogg">
+						<div class="titL">
+							<span class="imgWrap">
+								<img src="../../images/logos/AAMC0000.png" alt="" class="imgLogo">
+							</span>
+							<span class="accTit">국민은행</span>
+						</div>
+						<div class="titR">
+							<span class="connectStatus sucessConn">성공</span>
+						</div>
+					</h2>
+				</div>
+			</div>
+			<!-- // -->
+			<div class="connLine">
+				<div class="totalTitWrap">
+					<h2 class="listTitWrap noneTogg">
+						<div class="titL">
+							<span class="imgWrap">
+								<img src="../../images/logos/AAOW0000.png" alt="" class="imgLogo">
+							</span>
+							<span class="accTit">서민금융진흥원</span>
+						</div>
+						<div class="titR">
+							<span class="connectStatus sucessConn">성공</span>
+						</div>
+					</h2>
+				</div>
+			</div>
+			<!-- // -->
+
+			<!-- [CASE] 실패 -->
+			<div class="assetTotalList toggleWrap connLine">
+				<div class="totalTitWrap">
+					<a href="javascript:;" class="toggleBtn">
+						<h2 class="listTitWrap">
+							<div class="titL">
+								<span class="imgWrap">
+									<img src="../../images/logos/AAKT0000.png" alt="" class="imgLogo">
+								</span>
+								<span class="accTit">신한은행</span>
+							</div>
+							<div class="titR">
+								<span class="connectStatus noConn">실패</span>
+							</div>
+						</h2>
+					</a>
+				</div>
+				<div class="totalAccList toggleCont" style="display:none">
+					<p class="garyBox">응답지연(80002E10)</p>
+				</div>
+			</div>
+			<!-- // -->
+			<div class="assetTotalList toggleWrap connLine">
+				<div class="totalTitWrap">
+					<a href="javascript:;" class="toggleBtn">
+						<h2 class="listTitWrap">
+							<div class="titL">
+								<span class="imgWrap">
+									<img src="../../images/logos/AAMM0000.png" alt="" class="imgLogo">
+								</span>
+								<span class="accTit">우리은행</span>
+							</div>
+							<div class="titR">
+								<span class="connectStatus noConn">실패</span>
+							</div>
+						</h2>
+					</a>
+				</div>
+				<div class="totalAccList toggleCont" style="display:none">
+					<p class="garyBox">응답지연(80002E10)</p>
+				</div>
+			</div>
+			<!-- // -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 자산연결 권유직원  -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap formWrap">
+			<div class="titListBox">
+				<ul>
+					<li class="addrSrch">
+						<div class="formTitN">
+							<strong>자산연결 권유직원</strong>
+							<div class="tgBtnType2 small24">
+								<input type="checkbox" id="MSPS36001">
+								<label for="MSPS36001"><span class="blind">권유직원 찾기</span></label>
+							</div>
+						</div>
+						<div class="inputList" style="display:none;">
+							<!-- [CASE] 입력전 -->
+							<button type="button" class="btnSearch" data-label="검색해주세요"><span class="blind">권유직원 찾기</span></button>
+
+							<!-- [CASE] 입력후
+							<button type="button" class="btnSearch" data-label="" title="권유직원 변경"><span class="fcDark">안양남지점 김*원(11111****)</span></button>
+							-->
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 알아두세요  -->
+		<!-- -------------------------------------- -->
+		<div class="info_area">
+			<strong class="info_area_title">알아두세요</strong>
+			<ul class="listBul disc">
+				<li>
+					자산연결 내역안내 메뉴에서 다른 금융기관으로부터 전송 받은 자산내역을 확인할 수 있어요.<br>
+					(전체 &gt; MY &gt; 자산연결 내역 안내) <a href="javascript:;" title="자산연결 내역 안내 페이지 이동" class="linkTxt4">바로가기</a>
+				</li>
+			</ul>
+		</div>
+		<!-- // -->
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE] 성공 -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">확인</a>
+		</div>
+		<!-- [CASE] 실패 -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressDefault" role="button">확인</a>
+			<a href="javascript:;" class="btnPressPoint" role="button">다시 연결하기</a>
+		</div>
+		<!-- // -->
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//[샘플]
+	var _before = '<button type="button" class="btnSearch" data-label="검색해주세요"><span class="blind">권유직원 찾기</span></button>'
+
+	//[샘플] 토글버튼 컨트롤
+	$(document).on('change','#MSPS36001', function(){
+		if($(this).prop('checked')){
+			$('.inputList').show().find('.btnSearch').trigger('click');
+		}else{
+			$('.inputList').hide().html(_before);
+		};
+	});
+
+	//[샘플] 권유직원 버튼 이벤트
+	$(document).on('click','.btnSearch', function(){
+		if(confirm('권유직원 찾기 팝업(MSAR3110P)이 오픈됩니다. 샘플 : "안양남지점 김*원(11111****)"입력이 됩니다.')){
+			$('.inputList > .btnSearch')
+			.attr({'data-label':'','title':'권유직원 변경'})
+			.find('span')
+			.addClass('fcDark').removeClass('blind')
+			.text('안양남지점 김*원(11111****)');
+		};
+	});
+
+	//샘플 : 케이스 화면 정의
+	$(document).ready(function(){
+		var a = ['성공(MSPS3600)', '성공/실패(MSPS3600_1)', '실패(MSPS3600_2)']; // 케이스 명
+		var b = ['MSPS3600', 'MSPS36001', 'MSPS36002']; // 함수 명
+		var num = a.length; // 케이스 수
+		uiCaseMenu(a,b,num);
+		uiCaseMSPS3600();
+	});
+
+	//샘플 : 케이스 : 성공
+	function uiCaseMSPS3600(){
+		var txt = '<span>성공 <em>2건</em></span>';
+		//상단문구
+		$('.confirmMsg').hide().filter('.Type02').show();
+
+		//성공/실패 건수
+		$('.listNum > span').remove();
+		$('.listNum').prepend(txt);
+		$('.tooltipWrap').hide();
+
+		//자산목록
+		$('.connLine').show().filter('.assetTotalList').hide();
+
+		//권유직원
+		$('.boxTypeWrap.formWrap').show();
+
+		//하단버튼
+		$('.areaBtnDefault').hide().eq(0).show()
+	}
+
+	//샘플 : 케이스 : 성공/실패
+	function uiCaseMSPS36001(){
+		var txt = '<span>성공 <em>2건</em>/</span> <span>실패 <em>2건</em></span>';
+		//상단문구
+		$('.confirmMsg').hide().filter('.Type02').show();
+
+		//성공/실패 건수
+		$('.listNum > span').remove();
+		$('.listNum').prepend(txt);
+		$('.tooltipWrap').show();
+
+		//자산목록
+		$('.connLine').show();
+
+		//권유직원
+		$('.boxTypeWrap.formWrap').show();
+
+		//하단버튼
+		$('.areaBtnDefault').hide().eq(1).show()
+	}
+
+	//샘플 : 케이스 : 실패
+	function uiCaseMSPS36002(){
+		var txt = '<span>실패 <em>2건</em></span>';
+		//상단문구
+		$('.confirmMsg').show().filter('.Type02').hide();
+
+		//성공/실패 건수
+		$('.listNum > span').remove();
+		$('.listNum').prepend(txt);
+		$('.tooltipWrap').show();
+
+		//자산목록
+		$('.connLine').hide().filter('.assetTotalList').show();
+
+		//권유직원
+		$('.boxTypeWrap.formWrap').hide();
+
+		//하단버튼
+		$('.areaBtnDefault').hide().eq(1).show()
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>STEP3) 서비스 이용동의</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>지급신청</h1>
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] STEP1) 서비스 이용동의 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 스텝 영역 -->
+		<!-- -------------------------------------- -->
+		<div class="infoStep1">
+			<ol>
+				<li> <!-- [D] 현재 스텝 li : aria-current="step" 노출 -->
+					<i aria-hidden="true">1</i>
+					<span>지급방법 선택</span>
+				</li>
+				<li>
+					<i aria-hidden="true">2</i>
+					<span>$휴면예금$ 유의사항</span>
+				</li>
+				<li  aria-current="step">
+					<i aria-hidden="true">3</i>
+					<span>서비스 이용동의</span>
+				</li>
+			</ol>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 진단정보 입력 STEP3 영역 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap t1">
+			<h2 class="agr_title_info mt0">
+				<strong>
+					<span class="text-highlight-y">지급신청하려면</span>서비스 이용 동의가 필요해요.
+				</strong>
+			</h2>
+
+			<!-- ### 추가 이용 동의(선택) ### -->
+			<div class="formWrapArea">
+				<div class="formWrap selectAll pd0">
+					<div class="total">
+						<div class="formHolder check">
+							<input type="checkbox" id="type_all01" class="chekTypeOther">
+							<label class="check" for="type_all01"> 전체동의</label>
+						</div>
+					</div>
+					<div class="cont">
+						<div class="formHolder check">
+							<input type="checkbox" id="type01" checked>
+							<label class="check" for="type01"><em>[필수]</em> 개인(신용)정보 수집·이용 동의서</label>
+							<a href="javascript:;" class="btnView"><span class="blind">[필수] 개인(신용)정보 수집·이용 동의서 이용약관보기</span></a>
+						</div>
+						<div class="formHolder check">
+							<input type="checkbox" id="type02">
+							<label class="check" for="type02"><em>[필수]</em> 개인정보 제3자 제공 동의서</label>
+							<a href="javascript:;" class="btnView"><span class="blind">[필수] 개인정보 제3자 제공 동의서 약관보기</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">다음</a> <!-- [D] 비활성화 클래스명 (disabled) 및 aria-disabled="true" 추가 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

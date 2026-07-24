@@ -1,0 +1,1561 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>금융플래너 | 플래너</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>금융플래너</h1>
+		<!-- [MD2502_024] 공통 헤더영역 변경 알람 추가 -->
+		<a href="javascript:;" class="btnAlram" role="button"><span>알람</span></a>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 금융플래너 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 업데이트바 -->
+		<!-- -------------------------------------- -->
+		<div class="pageRefreshWrap">
+			<div class="pageRefresInner">
+				<span>
+					<span class="date">08.05 10:45</span>
+					<!-- [수정 260116] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 18번 불필요한 영역에 초점이 접근되어 필요 없다면 삭제하거나 aria-hidden="true" 적용 -->
+					<a id="updateFailed" onclick="goMSCM3300R();" href="javascript:;" class="btnFail" title="수집결과화면으로 이동" style="display:none" aria-hidden="true">
+						<span class="blind">수집실패</span>
+					</a>
+					<!-- // [수정 260116] [MD2601_005] NH스마트뱅킹 마이데이터 앱접근성 대응 18번 불필요한 영역에 초점이 접근되어 필요 없다면 삭제하거나 aria-hidden="true" 적용 -->
+					<button type="button" class="btnUpdate"><span class="blind">업데이트</span></button>
+				</span>
+				<button type="button" class="btnAlrt new" aria-expanded="false"><span class="blind">알림</span></button>
+			</div>
+			<div class="pageAlertWrap">
+				<ul>
+					<li class="alertNotice">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>연결중인 자산 확인이 필요해요</dt>
+								<dd>OOO에서 전송 중단 또는 거절이 있었습니다.<br/>연결관리 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보 확인이 필요해요</dt>
+								<dd><span>$연말정산$</span> 정보수집 중 오류가 있었습니다.<br/><span>$연말정산$</span> 설정 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>업데이트한지 <span>N</span>일이 지났어요</dt>
+								<dd><span>$연말정산$</span> 정보 업데이트가 필요합니다.<br/>인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보수집이 필요해요</dt>
+								<dd><span>$연말정산$</span> 서비스 이용을 위해 정보수집이 필요합니다. 인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+
+				</ul>
+				<div class="pageAlertNoData">
+					<p>업데이트 알림 내역이 없습니다.</p>
+				</div>
+				<button type="button" aria-expanded="true" class="pageAlertClose"><span>닫기</span></button>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 공통 SPOT 배너 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE1] 신규자산 -->
+		<div class="yaTopBanner Ty01 bgTy03">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>N개 기관에 신규자산이 있어요</span>
+				<p>새롭게 가입한 상품 연결하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+		<!-- [CASE2] 기한만료 -->
+		<div class="yaTopBanner Ty01 bgTy02">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>연결 만료된 N개 기관이 있어요</span>
+				<p>재연결하고 소비현황 확인하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+		<!-- [CASE2] 만료예정 -->
+		<div class="yaTopBanner Ty01 bgTy01">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>만료예정인 N개 기관이 있어요</span>
+				<p>재연결하고 소비현황 확인하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+		<!-- -------------------------------------- -->
+
+		<div class="subMainDlWrap">
+			<!-- -------------------------------------- -->
+			<!-- [SECTION] 금융캘린더  -->
+			<!-- -------------------------------------- -->
+			<div class="wrap_dl_calender touch_cont active">
+				<div class="dlCalenderInner">
+					<!-- ### 날짜선택 ### -->
+					<!-- [MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 filter_regBtn_month 클래스 추가 -->
+					<div class="dl_calender_month filter_regBtn_month">
+						<button type="button" class="pMonth">
+							<span class="blind">이전 달</span>
+						</button>
+						<div class="swiper calenderInfoWrap">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<a href="javascript:;" class="selectMonth" role="button" title="년/월 선택">2024.08</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="javascript:;" class="selectMonth" role="button" title="년/월 선택">2024.09</a>
+								</div>
+								<div class="swiper-slide">
+									<a href="javascript:;" class="selectMonth" role="button" title="년/월 선택">2024.10</a>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="nMonth">
+							<span class="blind">다음 달</span>
+						</button>
+						<!-- [MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 필터,등록버튼 추가 -->
+						<!-- [MD2503_029_v0.07] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 필터 삭제 -->
+						<!-- <button type="button" class="sortBtn"><span class="blind">조회조건 선택 설정하기</span></button> -->
+						<button type="button" class="contBtn01 green">등록</button>
+					</div>
+
+					<!-- ### 달력 : 요일 ### -->
+					<!-- [MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 달력 월요일 시작으로 수정 S -->
+					<div class="dl_calender_week">
+						<span>월</span>
+						<span>화</span>
+						<span>수</span>
+						<span>목</span>
+						<span>금</span>
+						<span class="weekend">토</span>
+						<span class="weekend">일</span>
+					</div>
+					<!-- //[MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 달력 월요일 시작으로 수정 E -->
+					<!-- ### 달력 : 날짜 ###
+						1) 텍스트 컬러 정의
+						unerColor-o : 만기예정
+						unerColor-b : 직접등록
+						unerColor-p : 납부예정
+						unerColor-g : 출금예정
+						unerColor-admin : 주택청약
+						unerColor-stock : 공모주
+						unerColor-admin : MYDATA
+
+						2) [현행화_2024] 빈 <span class="dl_calender_subject"></span> 추가 : 운영과 동일하게 변경
+						3) [현행화_2024] 텍스트 색상 style로 지정 : 운영과 동일하게 변경
+					-->
+					<!-- [MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 달력 월요일 시작으로 수정 S -->
+					<div class="swiper dateItemWrap">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide dl_calender_day">
+								<div>
+									<!-- [WEEK] -->
+									<div class="dl_calender_row">
+										<!-- [CASE] 이전달 : #01010166 : 컬러는 개발에서 적용함  -->
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #01010166;">29</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #01010166;">30</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #01010166;">31</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<!-- [CASE] 금융일정있음 -->
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">1</span>
+												<span class="dl_calender_subject unerColor-o">납부예정</span>
+											</a>
+										</div>
+										<!-- [CASE] 금융일정있음 (동일 2건이상) -->
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">2</span>
+												<span class="dl_calender_subject unerColor-o">납부예정</span>
+												<span class="dl_calender_subject unerColor-p">외2건</span>
+											</a>
+										</div>
+										<!-- [CASE] 금융일정있음 (상이 2건) + 토요일 : #3257DF -->
+										<div>
+											<a href="javascript:;" role="button" title="툐요일">
+												<span class="dl_calender_date" style="color: #3257DF;">3</span>
+												<span class="dl_calender_subject unerColor-o">납부예정</span>
+												<span class="dl_calender_subject unerColor-p">공모주</span>
+											</a>
+										</div>
+										<!-- [CASE] 금융일정있음 (상이 2건 이상) + 일요일 : #3257DF -->
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">4</span>
+												<span class="dl_calender_subject unerColor-o">납부예정</span>
+												<span class="dl_calender_subject unerColor-p">외2건</span>
+											</a>
+										</div>
+									</div>
+									<!-- [WEEK] -->
+									<div class="dl_calender_row">
+										<!-- [CASE] 사용자 생일 -->
+										<div class="birthDay">
+											<a href="javascript:;" role="button" title="월요일 생일">
+												<span class="dl_calender_date" style="color: #111;">5</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<!-- [CASE] 오늘날짜 -->
+										<div class="thisday">
+											<a href="javascript:;" role="button" title="화요일 오늘">
+												<span class="dl_calender_date" style="color: #111;">6</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<!-- [CASE] 선택함 -->
+										<div class="today">
+											<a href="javascript:;" role="button" title="수요일 선택함">
+												<span class="dl_calender_date" style="color: #111;">7</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">8</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">9</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">10</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">11</span>
+												<span class="dl_calender_subject unerColor-p">납부예정</span>
+												<span class="dl_calender_subject unerColor-p">외2건</span>
+											</a>
+										</div>
+									</div>
+									<!-- [WEEK] -->
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">12</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">13</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">14</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">15</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">16</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">17</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">18</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<!-- [WEEK] -->
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">19</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">20</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">21</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">22</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">23</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">24</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">25</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<!-- [WEEK] -->
+									<div class="dl_calender_row">										
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">26</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">27</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">28</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">29</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">30</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">31</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<!-- [CASE] 다음달 + 일요일 : #fe4c4c66 : 컬러는 개발에서 적용함 -->
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c66;">1</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<!-- // -->
+								</div>
+							</div>
+							<div class="swiper-slide dl_calender_day">
+								<div>
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">2</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">3</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">4</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">5</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">6</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">7</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">8</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">9</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">10</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">11</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">12</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">13</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">14</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">15</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">16</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">17</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">18</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">19</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">20</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">21</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">22</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">23</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">24</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">25</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">26</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">27</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">28</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">29</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">30</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #01010166;">1</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #01010166;">2</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="목요일 휴일">
+												<span class="dl_calender_date" style="color:#01010166">3</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #01010166;">4</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257df66;">5</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c66;">6</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide dl_calender_day">
+								<div>
+									<div class="dl_calender_row">
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #01010166;">30</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">1</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">2</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">3</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">4</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">5</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">6</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">7</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">8</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">9</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">10</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">11</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">12</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">13</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">14</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">15</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">16</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">17</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">18</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">19</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">20</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">21</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">22</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">23</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">24</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #111;">25</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257DF;">26</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c;">27</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+									<div class="dl_calender_row">
+										<div>
+											<a href="javascript:;" role="button" title="월요일">
+												<span class="dl_calender_date" style="color: #111;">28</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="화요일">
+												<span class="dl_calender_date" style="color: #111;">29</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="수요일">
+												<span class="dl_calender_date" style="color: #111;">30</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div>
+											<a href="javascript:;" role="button" title="목요일">
+												<span class="dl_calender_date" style="color: #111;">31</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="금요일">
+												<span class="dl_calender_date" style="color: #01010166;">1</span>
+												<span class="dl_calender_subject unerColor-g">출금예정</span></a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="토요일">
+												<span class="dl_calender_date" style="color: #3257df66;">2</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+										<div class="hiddenDay">
+											<a href="javascript:;" role="button" title="일요일 휴일">
+												<span class="dl_calender_date" style="color: #fe4c4c66;">3</span>
+												<span class="dl_calender_subject"></span>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- //[MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 달력 월요일 시작으로 수정 E -->
+					<!-- ### // ### -->
+				</div>
+
+				<!-- ### 버튼 ### -->
+				<div class="touch_area active" role="button" title="탭 하시면 월, 주 단위로 볼 수 있습니다." aria-expanded="false">
+					<span>달력 접기</span>
+				</div>
+				<!-- ### // ### -->
+			</div>
+			<!-- -------------------------------------- -->
+
+			<div class="whiteArea lastWhite">
+				<!-- -------------------------------------- -->
+				<!-- [SECTION] 일정 리스트 : 금융일정 있음  -->
+				<!-- -------------------------------------- -->
+				<div class="financePlanWrap">
+					<!-- ### [일정] 선택한일정 ### -->
+					<div class="financePlanInfo1">
+						<div class="planInfoTitleWrap">
+							<div class="date"><strong>8.6 (화) ~ 8.12 (월)</strong></div>
+							<!-- [MD2502_024] 공통 헤더영역 변경 삭제 -->
+							<!-- <div class="rCont"><a href="javascript:;" class="alam"><span class="blind">알림모아보기</span></a></div> -->
+						</div>
+						<div class="planInfoPara">
+							<span>금융일정 총 <em class="pointColor">4</em>건 입니다.</span>
+							<!-- 툴팁 -->
+							<div class="tooltipWrap">
+								<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금융일정 툴팁 열기</span></button>
+								<div class="tooltipCont lf0">
+									<ul class="listDash">
+										<li>휴일 출금은 익영업일에 반영됩니다.</li>
+										<li>대출 중도 상환, 자동이체 휴일 출금일 지정 등 해당기관 개별 설정에 따라 플래너 내용이 변동될 수 있습니다.</li>
+										<li>타금융기관 대출상품은 원금균등, 원리금균등, 만기예정일시 상환방식에 한하여 제공하며 상환금액 및 상환일은 차이가 있을 수 있습니다.</li>
+										<li>국세, 지방세, 범칙금 등을 제외한 기타 공과금(지로, CMS 등)은 직접 금융일정등록을 해야 합니다.</li>
+										<li>공모주 안내는 청약 권유가 아닌 단순 금융 일정 안내입니다.</li>
+									</ul>
+									<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+								</div>
+							</div>
+							<!-- //툴팁 -->
+						</div>
+					</div>
+
+					<!-- ### [반복] 일정카드 ### -->
+					<div class="financePlanDay">
+						<p class="financePlanDayDate">8.6 (화)</p>
+
+						<!-- [CASE] 납부예정 : 대출 -->
+						<div class="boxTypeRound wrap_folding">
+							<div class="titWrap"><span class="planType unerColor-p">납부예정</span></div>
+							<div class="planTitleWrap">
+								<img src="../../images/logos/AABG0000.png" alt="" class="imgLogo">
+								<a href="javascript:;" class="planTitleInner btn_folding" role="button" aria-expanded="false">
+									<strong class="planTitle"><span class="category">농협은행</span>(일반자금)중소기업보증료지원대출-혁신스타트업금융지원 보증료지원</strong>
+									<p class="accountNum">0115052649812</p>
+								</a>
+							</div>
+							<dl class="listbox planList">
+								<dt class="list_title">(예상)금액</dt> <!-- [D] 리스,대출(은행), 대출(보험), 대출(할부금융)의 경우 예상금액으로 표기 : 일반은 금액으로 표기 -->
+								<dd class="list_item"><strong>10,000,000</strong><span class="unit-b">원</span></dd>
+							</dl>
+							<div class="folding_cont" aria-hidden="true">
+								<div class="widthdrowDetail">
+									<dl>
+										<dt>대출일</dt>
+										<dd>2024.03.21</dd>
+									</dl>
+									<dl>
+										<dt>만기일</dt>
+										<dd>2025.03.20</dd>
+									</dl>
+									<dl>
+										<dt>대출원금</dt>
+										<dd>10,000,000원</dd>
+									</dl>
+									<dl>
+										<dt>계좌구분</dt>
+										<dd>지급보증(보증서) 담보대출</dd>
+									</dl>
+									<dl>
+										<dt>최종적용금리</dt>
+										<dd>2.15%</dd>
+									</dl>
+									<dl>
+										<dt>상환방식</dt>
+										<dd>만기일시상환</dd>
+									</dl>
+									<dl>
+										<dt>잔액</dt>
+										<dd>19,760,000원</dd>
+									</dl>
+								</div>
+								<div class="ar mt10 mb20"><a href="javascript:;" class="linkType1" aria-haspopup="true">삭제하기</a></div>
+							</div>
+						</div>
+
+						<!-- [CASE] 납부예정 : 카드 -->
+						<div class="boxTypeRound wrap_folding">
+							<div class="titWrap">
+								<span class="planType unerColor-p">납부예정</span>
+							</div>
+							<div class="planTitleWrap">
+								<span class="imgWrap">
+									<img src="../../images/logos/AAEV0000.png" alt="" class="imgLogo">
+								</span>
+								<a href="javascript:;" class="planTitleInner btn_folding" role="button" aria-expanded="false">
+									<strong class="planTitle">$삼성카드$ 카드대금결제</strong>
+								</a>
+							</div>
+							<dl class="listbox planList">
+								<dt class="list_title">금액</dt>
+								<dd class="list_item"> <a href="javascript:;" title="금액 상세보기로 이동" class="linkTxtArrow"><strong>1,000,000</strong></a></dd>
+							</dl>
+							<div class="folding_cont" aria-hidden="true">
+								<div class="widthdrowDetail">
+									<dl>
+										<dt>H-Coin</dt>
+										<dd>0<em>P</em></dd>
+									</dl>
+								</div>
+								<div class="ar mt10 mb20"><a href="javascript:;" class="linkType1" aria-haspopup="true">삭제하기</a></div>
+							</div>
+						</div>
+
+						<!-- [CASE] 납부예정 : 공과금 -->
+						<div class="boxTypeRound wrap_folding">
+							<div class="titWrap">
+								<span class="planType unerColor-p">납부예정</span>
+							</div>
+							<div class="planTitleWrap">
+								<img src="../../images/icon_planner_01.png" alt="공과금" class="imgLogo">
+								<a href="javascript:;" class="planTitleInner btn_folding" role="button" aria-expanded="false">
+									<strong class="planTitle">지방세 주민세</strong>
+									<p class="accountNum">1234567890123456789</p>
+								</a>
+							</div>
+							<dl class="listbox planList">
+								<dt class="list_title">금액</dt>
+								<dd class="list_item"> <strong>150,000</strong></dd>
+							</dl>
+							<div class="folding_cont" aria-hidden="true">
+								<div class="widthdrowDetail">
+									<dl>
+										<dt>발행기관분류코드</dt>
+										<dd>12</dd>
+									</dl>
+									<dl>
+										<dt>지로번호</dt>
+										<dd>1100025</dd>
+									</dl>
+									<dl>
+										<dt>지방세입금구분 </dt>
+										<dd>지방세</dd>
+									</dl>
+									<dl>
+										<dt>전자수용가번호</dt>
+										<dd>1234567890123456789</dd>
+									</dl>
+									<dl>
+										<dt>세목명</dt>
+										<dd>주민세</dd>
+									</dl>
+									<dl>
+										<dt>고지구분</dt>
+										<dd>정상</dd>
+									</dl>
+									<dl>
+										<dt>납부금액</dt>
+										<dd>21,090원</dd>
+									</dl>
+									<dl>
+										<dt>납기내후구분</dt>
+										<dd>납기내 기한</dd>
+									</dl>
+									<dl>
+										<dt>납부기한</dt>
+										<dd>~ YYYY.MM.DD</dd>
+									</dl>
+								</div>
+								<div class="areaBodyBtnFull mt0">
+									<a href="javascript:;" class="btnBodyLine" role="button">납부하기</a>
+								</div>
+								<div class="ar mt10 mb20"><a href="javascript:;" class="linkType1" aria-haspopup="true">삭제하기</a></div>
+							</div>
+						</div>
+						<!-- // -->
+					</div>
+
+					<!-- ### [반복] 일정카드 ### -->
+					<div class="financePlanDay">
+						<p class="financePlanDayDate">8.7 (수)</p>
+
+						<!-- [CASE] 출금예정 -->
+						<div class="boxTypeRound wrap_folding">
+							<div class="titWrap">
+								<span class="planType unerColor-g">출금예정</span>
+							</div>
+							<div class="planTitleWrap">
+								<img src="../../images/logos/AAEM0000.png" class="imgLogo" alt="">
+								<a href="javascript:;" class="planTitleInner btn_folding" role="button" aria-expanded="false">
+									<strong class="planTitle"><span class="category">우리은행</span>위비모바일통장</strong>
+									<div class="wrap_account">
+										<p class="accountNum">1002-236748-969</p>
+										<span class="tag bgGray">만료예정</span>
+									</div>
+								</a>
+							</div>
+							<!-- 잔액 충분 -->
+							<div class="widthdrowPlanWrap safety">
+								<div class="widthdrowPlan">
+									<dl class="listbox planList">
+										<dt class="list_title">출금예정액</dt>
+										<dd class="list_item"><strong>800,000</strong></dd>
+									</dl>
+									<dl class="listbox planList">
+										<dt class="list_title">현재잔액</dt>
+										<dd class="list_item"><strong>1,800,000</strong></dd>
+									</dl>
+								</div>
+							</div>
+							<div class="folding_cont">
+								<div class="widthdrowDetail">
+									<dl>
+										<dt><div><span>[삼성카드]</span> 카드대금결제</div></dt>
+										<dd><a href="javascript:;" class="btnDetail_block" role="button" aria-haspopup="true" title="삼성카드 하나로카드 상세보기"><span>505,000</span></a></dd>
+									</dl>
+								</div>
+							</div>
+							<!-- 잔액 주의 -->
+							<!-- [MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 잔액 주의 삭제 S -->
+							<!-- <div class="widthdrowPlanWrap caution">
+								<div class="widthdrowPlan">
+									<dl class="listbox planList">
+										<dt class="list_title">출금예정액</dt>
+										<dd class="list_item"><strong>800,000</strong></dd>
+									</dl>
+									<dl class="listbox planList">
+										<dt class="list_title">현재잔액</dt>
+										<dd class="list_item"><strong>1,800,000</strong></dd>
+									</dl>
+								</div>
+							</div>
+							<div class="folding_cont" style="display:block;">
+								<div class="widthdrowDetail pb0">
+									<dl>
+										<dt><div><span>[삼성카드]</span> 카드대금결제</div></dt>
+										<dd><a href="javascript:;" class="btnDetail_block" role="button" aria-haspopup="true" title="삼성카드 하나로카드 상세보기"><span>505,000</span></a></dd>
+									</dl>
+								</div>
+							</div> -->
+							<!-- //[MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 잔액 주의 삭제 E -->
+						</div>
+
+						<div class="boxTypeRound wrap_folding">
+							<div class="titWrap">
+								<span class="planType unerColor-g">출금예정</span>
+							</div>
+							<div class="planTitleWrap">
+								<img src="../../images/logos/AAEM0000.png" class="imgLogo" alt="">
+								<a href="javascript:;" class="planTitleInner btn_folding" role="button" aria-expanded="false">
+									<strong class="planTitle"><span class="category">우리은행</span>위비모바일통장</strong>
+									<div class="wrap_account">
+										<p class="accountNum">1002-236748-969</p>
+										<span class="tag bgGray">만료예정</span>
+									</div>
+								</a>
+							</div>
+							<!-- 잔액 부족 -->
+							<div class="widthdrowPlanWrap emergency">
+								<div class="widthdrowPlan">
+									<dl class="listbox planList">
+										<dt class="list_title">출금예정액</dt>
+										<dd class="list_item"><strong>800,000</strong></dd>
+									</dl>
+									<dl class="listbox planList">
+										<dt class="list_title">현재잔액</dt>
+										<dd class="list_item"><strong>1,800,000</strong></dd>
+									</dl>
+								</div>
+							</div>
+							<!-- // -->
+							<div class="folding_cont">
+								<div class="widthdrowDetail">
+									<dl>
+										<dt><div><span>[삼성카드]</span> 카드대금결제</div></dt>
+										<dd><a href="javascript:;" class="btnDetail_block" role="button" aria-haspopup="true" title="삼성카드 하나로카드 상세보기"><span>505,000</span></a></dd>
+									</dl>
+									<dl>
+										<dt><div><span>[지방세]</span> 주민세</div></dt>
+										<dd><a href="javascript:;" class="btnDetail_block" role="button" aria-haspopup="true" title="지방세 주민세 상세보기"><span>505,000</span></a></dd>
+									</dl>
+									<dl>
+										<dt><div><span>[교보생명]</span> 무배당가족사랑보험</div></dt>
+										<dd><a href="javascript:;" class="btnDetail_block" role="button" aria-haspopup="true" title="교보생명 무배당 상세보기"><span>150,000</span></a></dd>
+									</dl>
+									<dl>
+										<dt><div><span>[직접등록]</span> 대학교 동창회비</div><a href="javascript:;" class="btnModify" title="NH농협 대학교 동창회비"><span class="blind">수정</span></a></dt>
+										<dd><a href="javascript:;" class="btnDetail_block" role="button" aria-haspopup="true" title="NH농협 대학교 동창회비 상세보기"><span>100,000</span></a></dd>
+									</dl>
+									<dl>
+										<dt><div><span>[신한은행]</span> 신한 SOL 적금</div></dt>
+										<dd><a href="javascript:;" class="btnDetail_block" role="button" aria-haspopup="true" title="신한은행 신한 SOL 적금 상세보기"><span>145,000</span></a></dd>
+									</dl>
+									<dl>
+										<dt><div><span>[SK텔레콤]</span> 010*96**1****</div></dt>
+										<dd><a href="javascript:;" class="btnDetail_block" role="button" aria-haspopup="true" title="SK텔레콤 010*96**1**** 상세보기"><span>110,000</span></a></dd>
+									</dl>
+								</div>
+								<div class="areaBodyBtnFull mt0 mb20">
+									<a href="javascript:;" class="btnBodyLine" role="button">즉시 충전</a>
+								</div>
+							</div>
+						</div>
+
+						<!-- [CASE] 만기예정 -->
+						<div class="boxTypeRound wrap_folding">
+							<div class="titWrap">
+								<span class="planType unerColor-o">만기예정</span>
+							</div>
+							<div class="planTitleWrap">
+								<img src="../../images/logos/AABG0000.png" alt="NH농협" class="imgLogo">
+								<a href="javascript:;" class="planTitleInner btn_folding" role="button" aria-expanded="false">
+									<strong class="planTitle"><span class="category">NH농협</span>자유로정기예금 (만기일치형)</strong>
+									<p class="accountNum">3330010138031</p>
+								</a>
+							</div>
+							<dl class="listbox planList">
+								<dt class="list_title">잔액</dt>
+								<dd class="list_item"><strong>10,000,000</strong><span class="unit-b">원</span></dd>
+							</dl>
+							<div class="folding_cont" aria-hidden="true">
+								<div class="widthdrowDetail">
+									<dl>
+										<dt>개설일</dt>
+										<dd>2024.06.14</dd>
+									</dl>
+									<dl>
+										<dt>만기일</dt>
+										<dd>2024.09.14</dd>
+									</dl>
+									<dl>
+										<dt>계좌구분</dt>
+										<dd>예금</dd>
+									</dl>
+									<dl>
+										<dt>저축방법</dt>
+										<dd>거치식</dd>
+									</dl>
+									<dl>
+										<dt>(기본)금리</dt>
+										<dd>2.8%</dd>
+									</dl>
+								</div>
+								<div class="ar mt10 mb20"><a href="javascript:;" class="linkType1" aria-haspopup="true">삭제하기</a></div>
+							</div>
+						</div>
+
+						<!-- [CASE] 공모주 -->
+						<div class="boxTypeRound wrap_folding">
+							<div class="titWrap">
+								<span class="planType unerColor-stock">공모주</span>
+							</div>
+							<div class="planTitleWrap">
+								<img src="../../images/icon_planner_03.png" alt="" class="imgLogo">
+								<a href="javascript:;" class="planTitleInner btn_folding" role="button" aria-expanded="false">
+									<strong class="planTitle">쏘카</strong>
+								</a>
+							</div>
+							<dl class="listbox planList">
+								<dt class="list_title">공모가</dt>
+								<dd class="list_item"><strong>10,000,000</strong><span class="unit-b">원</span></dd>
+							</dl>
+							<div class="folding_cont" aria-hidden="true">
+								<div class="widthdrowDetail">
+									<dl>
+										<dt>청약일</dt>
+										<dd>2021.03.10 ~ 2021.03.13</dd>
+									</dl>
+									<dl class="wrap_lead_manager">
+										<dt>주관사</dt>
+										<dd>
+											<div class="lead_manager">
+												<span>키움증권</span>
+												<span>NH투자증권</span>
+											</div>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+
+						<!-- [CASE] 주택청약 -->
+						<div class="boxTypeRound">
+							<div class="titWrap">
+								<span class="planType unerColor-h">주택청약</span>
+							</div>
+							<div class="planTitleWrap">
+								<img src="../../images/icon_planner_04.png" alt="주택청약" class="imgLogo">
+								<div class="planTitleInner" >
+									<strong class="planTitle">김해 내덕지구 중흥S-클래스 더퍼스트</strong>
+								</div>
+							</div>
+							<div class="widthdrowDetail mt20">
+								<dl>
+									<dt>분양가</dt>
+									<dd>2억9천만 ~ 3억7천만</dd>
+								</dl>
+								<dl>
+									<dt>순위 구분</dt>
+									<dd>1순위</dd>
+								</dl>
+							</div>
+							<div class="areaBodyBtnFull mt0 mb20">
+								<a href="javascript:;" class="btnBodyLine" role="button">청약 신청하러 가기</a>
+							</div>
+						</div>
+						<!-- // -->
+					</div>
+					<!-- ### // ### -->
+				</div>
+
+				<!-- -------------------------------------- -->
+				<!-- [SECTION] 지난 일정  -->
+				<!-- -------------------------------------- -->
+				<div class="grayArea">
+					<h3 class="titleSub2">지난일정</h3>
+					<div class="financePlanDay">
+						<p class="financePlanDayDate">8.1 (목)</p>
+
+						<!-- [CASE] 직접등록 -->
+						<div class="boxTypeRound wrap_folding">
+							<div class="titWrap">
+								<span class="planType unerColor-b">직접등록</span>
+							</div>
+							<div class="planTitleWrap">
+								<img src="../../images/icon_planner_02.png" alt="" class="imgLogo">
+								<div class="planTitleInner">
+									<strong class="planTitle withMod">동창회비<a href="javascript:;" class="btnModify" title="NH농협 대학교 동창회비"><span class="blind">수정</span></a></strong>
+									<!-- 툴팁 -->
+									<div class="tooltipWrap w96">
+										<button type="button" class="toolTipBtn mt0" onclick="tooltipOpen($(this))"><span class="blind">월세 툴팁 열기</span></button>
+										<div class="tooltipCont">
+											<p>월세 일정의 변경 및 삭제는 자산메뉴의 부동산 정보 수정을 통해 가능합니다.</p>
+											<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+										</div>
+									</div>
+									<!-- // -->
+								</div>
+								<span class="btnArea"><a href="javascript:;" class="btnDetail btn_folding" title="동창회비" aria-expanded="false"><span class="blind">상세내용보기</span></a></span>
+							</div>
+							<dl class="listbox planList">
+								<dt class="list_title">금액</dt>
+								<dd class="list_item"><strong>100,000</strong></dd>
+							</dl>
+							<div class="folding_cont" aria-hidden="true">
+								<div class="widthdrowDetail">
+									<dl>
+										<dt>등록(수정)일</dt>
+										<dd>2001.01.31</dd>
+									</dl>
+									<dl>
+										<dt>반복설정</dt>
+										<dd>31(말일)</dd>
+									</dl>
+									<dl>
+										<dt>종료일</dt>
+										<dd>2020.01.31</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+
+						<!-- [CASE] MYDATA -->
+						<div class="boxTypeRound">
+							<div class="titWrap">
+								<span class="flagSchelule unerColor-admin">MYDATA</span>
+							</div>
+							<div class="planTitleWrap mb20">
+								<img src="../../images/icon_planner_05.png" alt="" class="imgLogo">
+								<div class="planTitleInner">
+									<strong class="planTitle">메리크리스마스</strong>
+									<p class="planAdiminCont">신나고 즐거운 성탄 보내세요!</p>
+								</div>
+							</div>
+						</div>
+						<!-- // -->
+					</div>
+				</div>
+
+				<!-- -------------------------------------- -->
+				<!-- [배너영역] 추천상품  -->
+				<!-- -------------------------------------- -->
+				<div class="swiper-container bannerSwiperImgtype ent01">
+					<div class="swiper-wrapper ">
+						<div class="swiper-slide bannerPrd1 pr0 pl0">
+							<a href="javascript:;" title="금융상품몰 이동">
+								<img src="../../cms/images/bn_c_5.png" alt="NH 직장인월복리적금 이자에 이자를 더한 월복리적금으로 재테크도 꼼꼼하게!" class="bannerImgType" />
+							</a>
+						</div>
+						<div class="swiper-slide bannerPrd1 pr0 pl0">
+							<a href="javascript:;" title="금융상품몰 이동">
+								<img src="../../cms/images/bn_c_10.png" alt="주택청약종합저축 내집마련의 첫걸음! 국민주택과 민영주택의 청약권 부여!" class="bannerImgType" />
+							</a>
+						</div>
+						<div class="swiper-slide bannerPrd1 pr0 pl0">
+							<a href="javascript:;" title="금융상품몰 이동">
+								<img src="../../cms/images/bn_c_2.png" alt="직장인을 위한 신용대출 1분이면 한도조회 OK! 한번에 편하게 제안해드립니다." class="bannerImgType" />
+							</a>
+						</div>
+					</div>
+					<div class="auto_page_btnps mt0">
+						<div class="swiper-pagination pageCarDriveBanner"></div>
+						<div class="btnPSWrap">
+							<button type="button" class="stop"><span class="blind">자동재생 정지</span></button>
+						</div>
+					</div>
+				</div>
+
+				<!-- -------------------------------------- -->
+				<!-- [배너영역] NH청약플래너  -->
+				<!-- -------------------------------------- -->
+				<div class="planBannerArea">
+					<a href="javascript:;" role="button"><p>NH청약플래너에서<br>청약가점과 일정을 확인해보세요!</p></a>
+				</div>
+
+				<!-- -------------------------------------- -->
+				<!-- [바로가기]  -->
+				<!-- -------------------------------------- -->
+				<ul class="btnBoxWrap mt20">
+					<!-- [MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 텍스트 수정 -->
+					<li><button type="button"><span class="iconOutAdmin">납부계좌 연결·해제</span></button></li>
+					<li><button type="button"><span class="iconSetAlarm">PUSH 관리</span></button></li>
+				</ul>
+				<!-- -------------------------------------- -->
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [플로팅 버튼] 최상단으로 -->
+		<!-- -------------------------------------- -->
+		<button type="button" class="goTopBtn"><span class="blind">최상단으로 이동</span></button>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//달력 스와이프
+	var swiper = new Swiper(".calenderInfoWrap", {
+		spaceBetween: 10,
+		slidesPerView: 1,
+		observer: true,
+		observeParents: true,
+		a11y : false,
+		effect: "fade",
+		touchRatio: 0,	//touch move 비활성
+		freeMode: true,
+		watchSlidesProgress: true,
+		on: {
+			init: function(){
+				$('.calenderInfoWrap .swiper-slide').attr('aria-hidden', 'true')
+				$('.calenderInfoWrap .swiper-slide-active').attr('aria-hidden', 'false')
+			},
+			transitionEnd: function () {
+				$('.calenderInfoWrap .swiper-slide').attr('aria-hidden', 'true')
+				$('.calenderInfoWrap .swiper-slide-active').attr('aria-hidden', 'false')
+			}
+		}
+	});
+
+	var swiper2 = new Swiper(".dateItemWrap", {
+		initialSlide :0, //시작슬라이드 번호 0부터 시작
+		spaceBetween: 10,
+		observer: true,
+		observeParents: true,
+		autoHeight : true,
+		a11y : false,
+		pagination: {
+			el: ".swiper-pagination",
+		},
+
+		//pagination:false,
+		navigation: {
+			nextEl: ".nMonth",
+			prevEl: ".pMonth",
+		},
+		thumbs: {
+			swiper: swiper,
+		},
+	});
+
+	//달력 폴딩
+	$('.touch_area').click(function(){
+		var  $this = $(this);
+		if ($this.hasClass('active')) {
+			$this.removeClass('active');
+			$this.children('span').text('달력 열기');
+			$this.attr('aria-expanded','false');
+			$('.wrap_dl_calender').addClass('active');
+			$(".wrap_dl_calender").find('.pMonth span').text('이전주');
+			$(".wrap_dl_calender").find('.nMonth span').text('다음주');
+		}else{
+			$this.addClass('active');
+			$this.children('span').text('달력 접기');
+			$this.attr('aria-expanded','true');
+			$('.wrap_dl_calender').removeClass('active');
+			$(".wrap_dl_calender").find('.pMonth span').text('이전달');
+			$(".wrap_dl_calender").find('.nMonth span').text('다음달');
+		}
+	});
+
+
+	//상세 내역 폴딩
+	$('.btn_folding').click(function(){
+		var $this = $(this);
+		var $wrap = $(this).parents('.wrap_folding');
+		$wrap.toggleClass('active');
+		if ($wrap.hasClass('active')) {
+			$wrap.children('.folding_cont').attr('aria-hidden','false');
+			$wrap.children('.folding_cont').slideDown(200);
+			$this.attr('aria-expanded','true')
+		}else{
+			$wrap.children('.folding_cont').attr('aria-hidden','true');
+			$wrap.children('.folding_cont').slideUp(200);
+			$this.attr('aria-expanded','false');
+		}
+	});
+
+	//배너 스와이프
+	$('.bannerSwiperImgtype.ent01').each(function(){
+	var $swiperContainer = $(this);
+	var swiperBannerImg01 = new Swiper('.bannerSwiperImgtype.ent01', {
+		slidesPerView: 1,
+		watchOverflow:true,
+		spaceBetween: 10,
+		loop: true,
+		observer:true,
+		observeParents : true,
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: true,
+			pauseOnMouseEnter: true,
+		},
+
+		pagination: {
+			el: '.swiper-pagination.pageCarDriveBanner',
+			type: 'bullets',
+			clickable: true,
+			bulletElement: 'a',
+		},
+		on: {
+			transitionEnd: function () {
+				$('.swiper-slide').attr('aria-hidden', 'true')
+				$('.swiper-slide-active').attr('aria-hidden', 'false')
+			}
+		}
+	});
+
+	var $psbtn = $swiperContainer.find('.stop');
+	$psbtn.click(function(){
+		$(this).toggleClass('active');
+		if($(this).hasClass('active')){
+			$(this).attr('title','자동재생 시작');
+			$(this).find('.blind').text('자동재생 시작');
+			swiperBannerImg01.autoplay.stop();
+		}
+		else {
+			$(this).attr('title','자동재생 정지');
+			$(this).find('.blind').text('자동재생 정지');
+			swiperBannerImg01.autoplay.start();
+		}
+	});
+});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

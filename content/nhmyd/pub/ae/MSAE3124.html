@@ -1,0 +1,107 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>가까운 영업점 찾기(지도로보기) | 영업점방문상담신청 | VIP금융컨설팅 | 금융자산분석</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>가까운 영업점 찾기</h1>
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 가까운 영업점 찾기(지도로보기) ### -->
+	<!-- ###################################### -->
+	<div class="container bgWhite">
+		<div class="branchArea">
+			<h2 class="defTit">현위치 영업점</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [지도영역] -->
+			<!-- -------------------------------------- -->
+			<div class="branchOfficeWrap h100p">
+				<!-- ### [버튼영역] 위치선택 ### -->
+				<ul class="tabDistance">
+					<li><a href="javascript:;" title="영업점 위치 거리 선택" role="button">500m</a></li>
+					<li class="active"><a href="javascript:;" title="영업점 위치 거리 선택" role="button">1km</a></li>
+					<li><a href="javascript:;" title="영업점 위치 거리 선택" role="button">2km</a></li>
+				</ul>
+
+				<!-- ### [버튼영역] 로딩/리셋 ### -->
+				<div class="branchReset">
+					<a href="javascript:;" class="postBtn active" role="checkbox" aria-checked="true"><span>현재위치 표시</span></a> <!-- [D] 현재위치 표시일 경우 : active(디폴트) / 헌재위치 표시가 아닐 경우 : active삭제 -->
+					<a href="javascript:;" class="postReset"  role="button"><span>새로고침</span></a>
+				</div>
+
+				<!-- [현행화_2024] 해당 내용 삭제 : 카카오 지도 API에서 영업점표시
+				<div class="branchBarbox">
+					<span class="branchbarBlue"><em class="nhLogo">NH</em></span>
+					<span class="branchbarBlue"><em>ATM</em></span>
+					<span class="branchbarGreen"><em>ATM</em></span>
+					<span class="branchbarGreen"><em class="nhLogo">NH</em></span>
+				</div>
+				-->
+
+				<div class="branchMap">
+					<!-- 지도 영역 들어가는곳 -->
+					<div id="map" style="width:100%;height:100%;background-color:#eee" alt="지도"></div>
+					<!-- 지도 영역 들어가는곳 -->
+					<div class="loadingArea">영업점 접근 지점</div>
+					<div class="currentPos"><span>현재 위치</span></div>
+					<div class="mapQucik">
+						<a href="#" class="btnAddon btnbgGray">목록으로 보기</a>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</div>
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	uiMapHere();
+	$(window).resize(uiMapHere)
+	function uiMapHere(){
+		//[샘플] 현재위치표시 : 퍼블확인용
+		var _top = (($('.branchMap').height())/2) - $('.currentPos').height();
+		var _left = (($('.branchMap').width())/2) - ($('.currentPos').width())/2;
+		$('.currentPos').css({top:_top,left:_left});
+		$('.postBtn').on('click',function(){
+			if($(this).attr('aria-checked') == 'false'){
+				$(this).attr('aria-checked',"true").addClass('active');
+				$('.currentPos').show();
+			}else{
+				$(this).attr('aria-checked',"false").removeClass('active');
+				$('.currentPos').hide();
+			}
+		});
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

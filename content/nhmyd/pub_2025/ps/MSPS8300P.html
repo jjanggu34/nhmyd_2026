@@ -1,0 +1,53 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 내 자산 안심 알림서비스 해지확인</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script>
+	$(document).ready(function(){
+		slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+	})  
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 알림 서비스 해지 확인 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>내 자산 안심 알림서비스를<br>해지 하시겠습니까?</h1>
+		<div class="popCont">
+      <p class="txtInfo">
+        해지 시 관련 서비스 설정이 모두 삭제돼요.<br>
+        다시 이용하려면 이용 동의를 새로 진행해 주셔야 해요.        
+      </p>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn half"><!-- 버튼 사이즈 50% 일 때 -->
+				<a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">취소</a>
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">해지하기</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

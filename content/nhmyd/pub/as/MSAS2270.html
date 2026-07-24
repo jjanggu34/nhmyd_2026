@@ -1,0 +1,162 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>담보대출 | 계좌 상세(기타상품) | 자산현황(투자) | 자산</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>계좌 상세</h1>
+		<a href="javascript:;" class="btnAcAdmin"><span class="blind">관리</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 계좌 상세(기타상품_담보대출) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [레이어팝업] 메세지 : 순자산 포함 안된 자산일 경우 노출 -->
+		<!-- -------------------------------------- -->
+		<div class="layerMsgWrap ty01">
+			<p>순자산 금액에 포함되지 않은 자산이에요.</p>
+			<button type="button" class="layerMsgClose"><span class="blind">닫기</span></button>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [상단영역] 계좌정보 -->
+		<!-- -------------------------------------- -->
+		<div class="boxWrapShadow">
+			<!-- [계좌기본내용] -->
+			<div class="boxTypeWrap delShadow">
+				<!-- // -->
+				<div class="accTopInfo">
+					<h2 class="accName">
+						$담보대출 계좌명$
+						<img src="../../images/logos/AABG0000.png" alt="농협은행 로고" class="imgLogo">
+					</h2>
+					<dl class="totalBalance">
+						<dt>
+							담보대출
+							<!-- // -->
+							<div class="tooltipWrap">
+								<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">담보대출 안내 툴팁 열기</span></button>
+								<div class="tooltipCont">
+									<p>담보대출이 외화인 경우, 전일 매매기준율로 환산합니다.</p>
+									<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+								</div>
+							</div>
+							<!-- // -->
+						</dt>
+						<dd><strong>1,000,000</strong>원</dd>
+					</dl>
+
+				</div>
+				<!-- // -->
+
+				<hr class="divLine">
+
+				<!-- // -->
+				<div class="accInfoDetail">
+					<ul class="detailList">
+						<li>
+							<span class="tit">유형</span>
+							<span class="value">기타상품 &gt; 담보대출</span>
+						</li>
+						<li>
+							<span class="tit">상품명</span>
+							<span class="value">$담보대출 계좌명$</span>
+						</li>
+					</ul>
+				</div>
+				<!-- // -->
+			</div>
+
+			<!-- [계좌상세정보] -->
+			<div class="moreInfoArea">
+				<div class="moreInfoWrap toggleWrap">
+					<div class="moreInfo toggleCont" style="display: none;">
+						<hr class="divLine2" aria-hidden="true">
+						<ul class="detailList">
+							<li>
+								<span class="tit">계좌번호</span>
+								<span class="value">3021417655471 <button type="button" class="contBtn01" title="계좌번호 복사">복사</button></span>
+							</li>
+							<li>
+								<span class="tit">신규일자</span>
+								<span class="value">2020.04.20</span>
+							</li>
+							<!--//-->
+							<li>
+								<span class="tit">담보대출(KRW) </span>
+								<span class="value"><strong class="dataValue">-1,000,000</strong><em class="won">원</em></span>
+							</li>
+							<!--//-->
+							<li>
+								<span class="tit">담보대출(USD) </span>
+								<span class="value"><strong class="dataValue">-1,540</strong></span>
+							</li>
+							<li>
+								<span class="tit">적용환율</span>
+								<span class="value">1USD=<strong class="dataValue">1234.12</strong><em class="won">원</em></span>
+							</li>
+							<li>
+								<span class="tit">원화 환산금액</span>
+								<span class="value"><strong class="dataValue">-100,000</strong><em class="won">원</em></span>
+							</li>
+							<!--//-->
+							<li>
+								<span class="tit">담보대출(EUR) </span>
+								<span class="value"><strong class="dataValue">-1,540</strong></span>
+							</li>
+							<li>
+								<span class="tit">적용환율</span>
+								<span class="value">1USD=<strong class="dataValue">1234.12</strong><em class="won">원</em></span>
+							</li>
+							<li>
+								<span class="tit">원화 환산금액</span>
+								<span class="value"><strong class="dataValue">-100,000</strong><em class="won">원</em></span>
+							</li>
+							<!--//-->
+						</ul>
+					</div>
+					<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button> <!--09.21 toggleTxt07 수정-->
+				</div>
+			</div>
+			<!-- // -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//[샘플] 레이어팝업 닫기 클릭 이벤트
+	$('.layerMsgClose').click(function(){
+		$(this).closest('.layerMsgWrap').hide();
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

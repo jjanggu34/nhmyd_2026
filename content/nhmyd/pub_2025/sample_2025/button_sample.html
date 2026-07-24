@@ -1,0 +1,311 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [버튼]</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>버튼</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="definition.html">기본정보</a>
+				<a href="layout_sample.html">레이아웃</a>
+				<a href="txt_sample.html">타이틀/텍스트</a>
+				<a href="button_sample.html" aria-current="page">버튼</a>
+				<a href="form_sample.html">폼</a>
+				<a href="table_sample.html">테이블</a>	
+			</div>
+		</nav>
+	</header>
+
+	<!-- ###################################### -->
+	<!-- ### UI Guide [버튼] ### -->
+	<!-- ###################################### -->
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">Solid</a>
+			<a href="#GCONTENT2">Line</a>
+			<a href="#GCONTENT3">Text</a>
+			<a href="#GCONTENT5">Tab</a>
+			<a href="#GCONTENT6">ETC.</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### Solid Button ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">Solid Button</h2>
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : .areaBtnDefault</h3>
+				<ul class="guide_txt">
+					<li>페이지 하단 고정 버튼에 사용함</li>
+					<li>폰트스타일 : 15px / 400 / #FFF</li>
+				</ul>
+				<!-- | HTML CODE | -->
+				<pre>
+					<code class="language-markup">
+						<script type="prism-html-markup">
+							<div class="areaBtnDefault">
+								<a href="javascript:;" class="btnPressDefault" role="button">버튼명</a>
+								<a href="javascript:;" class="btnPressPoint disabled" aria-disabled="true" role="button">버튼명</a><!-- [CASE] 비활성화 -->
+								<a href="javascript:;" class="btnPressPoint" role="button">버튼명</a><!-- [CASE] 활성화 -->
+							</div>
+						</script>
+					</code>
+				</pre>
+				<!-- | // | -->
+				<div class="guide_section2">
+					<div class="guide_area" style="transform:translateZ(0);height:200px">
+						<h4 class="guide_title4">긍정버튼 : .btnPressPoint</h4>
+						<p class="guide_txt">박스스타일 : H:55px / #19973c(포인트색상)</p>
+						<div class="areaBtnDefault">
+							<a href="javascript:;" class="btnPressPoint" role="button">버튼명</a>
+						</div>
+					</div>
+					<div class="guide_area" style="transform:translateZ(0);height:200px">
+						<h4 class="guide_title4">부정버튼 : .btnPressDefault</h4>
+						<p class="guide_txt">박스스타일 : H:55px / #6a7707(채널별색상다름)</p>
+						<div class="areaBtnDefault">
+							<a href="javascript:;" class="btnPressDefault" role="button">버튼명</a>
+						</div>
+					</div>
+				</div>
+				<div class="guide_section2">
+					<div class="guide_area" style="transform:translateZ(0);height:200px">
+						<h4 class="guide_title4">활용1 : 비활성화 포함</h4>
+						<p class="guide_txt">비활성화 : 클래스명(disabled) / aria-disabled="true" 추가</p>
+						<div class="areaBtnDefault">
+							<a href="javascript:;" class="btnPressDefault" role="button">버튼명</a>
+							<a href="javascript:;" class="btnPressPoint disabled" aria-disabled="true" role="button">버튼명</a>
+						</div>
+					</div>
+					<div class="guide_area" style="transform:translateZ(0);height:200px">
+						<h4 class="guide_title4">활용2 : 모두 활성화</h4>
+						<div class="areaBtnDefault">
+							<a href="javascript:;" class="btnPressDefault" role="button">버튼명</a>
+							<a href="javascript:;" class="btnPressPoint" role="button">버튼명</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="guide_section2">
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-markup">
+							<script type="prism-html-markup">
+								<div class="areaBtnDefault half">
+									<a href="javascript:;" class="btnPressDefault" role="button">버튼명</a>
+									<a href="javascript:;" class="btnPressPoint" role="button">버튼명</a>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_area" style="transform:translateZ(0);height:200px">
+						<h4 class="guide_title4">활용3 : 1:1 비율 : .areaBtnDefault.half</h4>
+						<div class="areaBtnDefault half">
+							<a href="javascript:;" class="btnPressDefault" role="button">버튼명</a>
+							<a href="javascript:;" class="btnPressPoint" role="button">버튼명</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### Line Button ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT2">
+			<h2 class="guide_title">Line Button</h2>
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : .btnBodyLine</h3>
+				<p class="guide_txt">컨텐츠와 컨텐츠 사이에 사용됨</p>
+				<!-- | HTML CODE | -->
+				<pre>
+					<code class="language-markup">
+						<script type="prism-html-markup">
+							<div class="areaBodyBtnFull">
+								<button type="button" class="btnBodyLine">버튼명</button>
+								<button type="button" class="btnBodyLine green">버튼명</button>
+								<!-- [CASE] 비활성화 -->
+								<button type="button" class="btnBodyLine" disabled>버튼명</button>
+								<a href="javascript:;" role="button" class="btnBodyLine disabled" aria-disabled="true">버튼명</a>
+							</div>
+						</script>
+					</code>
+				</pre>
+				<!-- | // | -->
+				<div class="guide_section2">
+					<div class="guide_area">
+						<h4 class="guide_title4">기본 : .btnBodyLine</h4>
+						<ul class="guide_txt">
+							<li>박스스타일 : H:44px / #999 / border-radius:6px</li>
+							<li>폰트스타일 : 14px / 400 / #111</li>
+						</ul>
+						<button type="button" class="btnBodyLine">버튼명</button>
+					</div>
+					<div class="guide_area">
+						<h4 class="guide_title4">포인트색상 : .btnBodyLine.green</h4>
+						<ul class="guide_txt">
+							<li>박스스타일 : H:44px / #19973c(포인트색상) / border-radius:6px</li>
+							<li>폰트스타일 : 14px / 400 / #19973c(포인트색상)</li>
+						</ul>
+						<button type="button" class="btnBodyLine green">버튼명</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### Text Button ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT3">
+			<h2 class="guide_title">Text Button</h2>
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : .linkTxt</h3>
+				<p class="guide_txt">화살표 있는 링크 타입</p>
+				<!-- | HTML CODE | -->
+				<pre>
+					<code class="language-markup">
+						<script type="prism-html-markup">
+							<a href="javascript:;" class="linkTxt">버튼명</a>
+							<a href="javascript:;" class="linkTxt2">버튼명</a>
+							<a href="javascript:;" class="linkTxt3">버튼명</a>
+							<a href="javascript:;" class="linkTxt4">버튼명</a>
+						</script>
+					</code>
+				</pre>
+				<!-- | // | -->
+				<div class="guide_section2">
+					<div class="guide_area">
+						<h4 class="guide_title4">폰트크기/아이콘 변경1 : .linkTxt2</h4>
+						<ul class="guide_txt">
+							<li>아이콘 : arr_right02.png</li>
+							<li>폰트스타일 : 14px / 400 / #666</li>
+						</ul>
+						<a href="javascript:;" class="linkTxt2">버튼명</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### Tab ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT5">
+			<h2 class="guide_title">Tab</h2>
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : .tabWrap</h3>
+				<!-- ### 라인형 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">라인형 : .tabWrap.type01</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="tabWrap type01">
+										<ul>
+											<li><a href="javascript:;" class="on">메뉴명1</a></li>
+											<li><a href="javascript:;">메뉴명2</a></li>
+										</ul>
+									</div>
+									<div class="tabContWrap type01">
+										<div class="tabCont01" aria-labelled="메뉴명1">메뉴명1 컨텐츠</div>
+										<div class="tabCont02" aria-labelled="메뉴명2" style="display:none;">메뉴명2 컨텐츠</div>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<div class="tabWrap type01">
+								<ul>
+									<li><a href="javascript:;" class="on" style="color:#121212;border-bottom-color:#121212">메뉴명1</a></li>
+									<li><a href="javascript:;">메뉴명2</a></li>
+								</ul>
+							</div>
+							<div class="tabContWrap type01">
+								<div class="tabCont01" aria-labelled="메뉴명1"><div class="guide_empty">메뉴명1 컨텐츠</div></div>
+								<div class="tabCont02" aria-labelled="메뉴명2" style="display:none;"><div class="guide_empty">메뉴명2 컨텐츠</div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### ETC. ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT6">
+			<h2 class="guide_title">ETC.</h2>
+			<!-- -------------------------------------- -->
+			<!-- [더보기 버튼] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">더보기 버튼 : .listMoreBtn</h3>
+				<ul class="guide_txt">
+					<li>아이콘 : ico_arr_down.png</li>
+					<li>폰트스타일 : 14px / 400 / #111</li>
+					<li>박스스타일 : BG:#fff / border-color:#ebebeb / border-radius:5px</li>
+				</ul>
+				<!-- | HTML CODE | -->
+				<pre>
+					<code class="language-markup">
+						<script type="prism-html-markup">
+							<div class="listMoreBtn">
+								<a href="javascript:;" title="항목 더보기">더보기</a>
+							</div>
+						</script>
+					</code>
+				</pre>
+				<!-- | // | -->
+				<div class="guide_section2">
+					<div class="guide_area">
+						<h4 class="guide_title4">기본</h4>
+						<div class="listMoreBtn">
+							<a href="javascript:;" title="항목 더보기">더보기</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ################################# -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

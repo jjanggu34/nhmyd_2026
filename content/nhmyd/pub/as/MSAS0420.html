@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>STEP2) 계좌해지방법 선택 | 계좌해지 잔고이전 | 자산현황(숨은자산) | 자산</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+        <a href="javascript:;" class="btnBack" role="button"><span class="blind">이전화면으로</span></a>
+		<h1>계좌해지/잔고이전</h1>
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] STEP2) 계좌해지방법 선택 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 스텝 영역 -->
+		<!-- -------------------------------------- -->
+		<div class="infoStep1">
+			<ol>
+				<li> <!-- [D] 현재 스텝 li : aria-current="step" 노출 -->
+					<i aria-hidden="true">1</i>
+					<span>서비스 이용동의</span>
+				</li>
+				<li aria-current="step">
+					<i aria-hidden="true">2</i>
+					<span>계좌해지방법 선택</span>
+				</li>
+				<li>
+					<i aria-hidden="true">3</i>
+					<span>해지예상금액조회</span>
+				</li>
+				<!-- [MD2410_086_v0.15] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 4step 삭제 -->
+				<!-- <li>
+					<i aria-hidden="true">4</i>
+					<span>휴대폰 본인인증</span>
+				</li> -->
+			</ol>
+		</div>
+		<div class="boxTypeWrap t1">
+			<h2 class="defTit">
+				<!-- [MD2410_086] 해지계좌 상품여, 금액부분 마크업 수정 S -->
+				<strong>
+					<span>$국민은행$</span> 계좌 해지 시<br />
+					받을 수 있는 금액은<br /> 
+					<span class="value"><strong class="dataValue">$1,000,000$</strong><em class="won">원</em></span>으로 확인돼요.
+				</strong>
+				<!-- //[MD2410_086] 해지계좌 상품여, 금액부분 마크업 수정 E -->
+			</h2>
+			<h3 class="formTitN mt30">해지방법선택</h3>
+			<!-- [MD2410_086] 숨은자산 해지·잔고이전 수정 S -->
+			<div class="tabWrap">
+				<ul class="selectList accList isBorder cancelSelList">
+					<li>
+						<a href="javascript:;">
+							<div>
+								<img src="../../images/ico_cancelsel_01.png" alt="내 계좌로 옮기기 아이콘" />
+							</div>
+							<div class="accInfoWrap">
+								<p class="accTit">내 계좌로 옮기기</p>
+							</div>
+						</a>
+					</li>
+					<li>
+						<div class="toggleWrap">
+							<a href="javascript:;" class="active">
+								<div>
+									<img src="../../images/ico_cancelsel_02.png" alt="서민금융진흥원에 기부하기 아이콘" />
+								</div>
+								<div class="accInfoWrap">
+									<p class="accTit">서민금융진흥원에 기부하기</p>
+								</div>
+							</a>
+							<div class="toggleCont" style="display:none;">
+								<div>
+									<input type="radio" id="chk01" name="chk01" checked>
+									<label for="chk01">
+										<p>기부 영수증 발급</p>
+										<p>발급 후 연말정산에 자동 반영됩니다.</p>
+									</label>
+								</div>
+								<div>
+									<input type="radio" id="chk02" name="chk01">
+									<label for="chk02">
+										<p>기부 영수증 미발급</p>
+										<p>기부영수증을 발급하지 않습니다.</p>
+									</label>
+								</div>
+							</div>
+						</div>
+						
+					</li>
+				</ul>
+			</div>
+			<!-- //[MD2410_086] 숨은자산 해지·잔고이전 수정 E -->
+		</div>
+		<div class="info_area">
+			<strong class="info_area_title">알아두세요</strong>
+			<ul class="listBul disc">
+				<li>신청 후 취소 불가능합니다.</li>
+				<li>계좌해지 시 해당 계좌에 등록되어있는 자동이체 해지 처리됩니다.</li>
+				<li>계좌 잔고 전액을 이전시에만 계좌해지가 가능합니다.</li>
+				<li>잔고 이전 시 이체 수수료가 발생할 수 있습니다.</li>
+			</ul>
+		</div>
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">다음</a> <!-- [D] 비활성화 클래스명 (disabled) 및 aria-disabled="true" 추가 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

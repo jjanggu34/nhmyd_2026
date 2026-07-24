@@ -1,0 +1,88 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 부동산 검색</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(document).ready(function() {
+		fullLayerPop();
+	});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 부동산 검색 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1>부동산 검색</h1>
+		<div class="popCont">
+			<h2 class="defSubTit2 mt25">시세조회를 위해 부동산을 검색해 주세요.</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [검색전] 검색영역 -->
+			<!-- -------------------------------------- -->
+			<div class="addrSrch">
+				<div class="formWrap mt15">
+					<ul>
+						<li>
+							<div class="inputList">
+								<input type="text" title="아파트명" value="" placeholder="포일동 푸르지오">
+								<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+								<button class="btnSearch"><span class="blind">찾기</span></button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="infoBox2 fontSmall mt15">
+				아파트/오피스텔명 또는 동을 2자 이상 입력해 주세요.
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [검색후] 검색결과 -->
+			<!-- -------------------------------------- -->
+			<!-- [CASE1] 검색 결과 있음 -->
+			<p class="totalCnt fs15">검색결과 <strong>3</strong>건</p>
+			<div class="srchResult ty01">
+				<ul>
+					<li><a href="javascript:;" role="button">의왕시 포일동 동부새롬</a></li>
+					<li><a href="javascript:;" role="button">의왕시 포일동 동아에코빌</a></li>
+					<li><a href="javascript:;" role="button">의왕시 포일동 두산위브호수마을 1단지</a></li>
+				</ul>
+			</div>
+
+			<!-- [CASE2] 검색 결과 없음 -->
+			<p class="totalCnt fs15">검색결과 <strong>0</strong>건</p>
+			<div class="noResultWrap">
+				<p>검색결과가 없습니다.</p>
+				<a href="javascript:;" class="contBtn02 mt20">기타 부동산 등록하기</a>
+			</div>
+			<!-- // -->
+		</div>
+
+		<div class="popBtnWrap">
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NH Bank">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="#">
+<title>[P] 자산연결</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 자산연결 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>해지신청 안내</h1>
+		<div class="popCont">
+			<!-- [MD2410_086_v0.23] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 마크업 수정 S -->
+			<div class="transfer">
+				<p class="defSubTit2"><strong>계좌해지 및 잔고이전 신청을 위해서는<br />금융인증서가 필요해요!</strong></p>
+				<div class="bgGrayBox mt5">
+					<p>①+② 조건에 모두 해당되어야 해지할 수 있는 계좌입니다. </p>
+					<ul class="ml10 mt5">
+						<li>① 100만원 이하의 소액 계좌</li>
+						<li>② 최종 입출금일로부터 1년 이상 거래가 없는 계좌</li>
+					</ul>
+				</div>
+			</div>
+			<!-- //[MD2410_086_v0.23] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 마크업 수정 E -->
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

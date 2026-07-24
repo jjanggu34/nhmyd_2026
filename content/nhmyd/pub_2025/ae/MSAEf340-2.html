@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>발생 금융소득 간편수정(예금)-외화 case | 금융소득확인 | 금융소득 모니터링</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+  <!-- header -->
+  <div class="header">
+    <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+    <h1>금융소득 확인</h1>
+    <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+  </div>
+  <!-- //header -->
+
+  <div class="container bgWhite">
+    <!-- ############################################ -->
+    <!-- ### [내용] 발생 금융소득 간편수정(예금) - 외화 case ### -->
+    <!-- ############################################ -->
+    <!-- ### 탭 버튼 (모양만 탭)### -->
+    <div class="incomeMonHeader">
+      <div class="sortTabs">
+        <div class="sortlist col2">
+          <button class="sortItem" title="상세수정">상세수정</button>
+          <button class="sortItem active" title="간편수정(현재)">간편수정</button><!-- [D] 선택된 값 active 클래스 추가 -->
+        </div>
+      </div>
+    </div>
+    <!-- ### // 탭 버튼 ### -->
+
+    <div class="financeIncomeWrap">
+      <!--  마이데이터에서 불러온 상품명-->
+      <ul class="mbAccList">
+        <li class="mbAccListItem pd0 pt12 bdNone">
+          <span class="mbCiWrap">
+            <img src="../../images/makebetter/logos/AABG0000.svg" class="mbCi" alt="NH농협은행 Ci">
+          </span>
+          <dl class="mbAccItem">
+            <dt class="mbAccTitWrap">
+              <span class="mbAccTit ellipsis">나의 예금 통장</span><!-- <em class="iconNew"><span class="blind">New</span></em>[D] New일 때" -->
+            </dt>
+            <dd class="mbAccNum -regular">3021234123412</dd>
+          </dl>
+        </li>
+      </ul>
+      <!--  마이데이터에서 불러온 상품명-->
+      <!-- 예상 이자소득 -->
+      <div class="boxTypeWrap -line mt16">
+        <dl class="mbCiBox gridMainSide mt0">
+          <dt class="h5">예상 이자소득</dt>
+          <dd class="h5 pointColor"><span>450,000</span>원</dd>
+          <dd class="balanceSub">USD <span>743.24</span></dd>
+        </dl>
+        <hr class="divLine mt12 mb12">
+        <dl class="mbCiBox gridMainSide">
+          <dt>현재 잔액(원금)</dt>
+          <dd class="ar">USD <span>743.24</span></dd>
+          <dd class="balanceSub"><span>11,000,000</span>원</dd>
+          <dt>계좌 개설일</dt>
+          <dd class="ar">2022.12.29</dd>
+          <dt>계좌 만기일</dt>
+          <dd class="ar">2025.12.28</dd>
+        </dl>
+        <!--  펼치기 토글 -->
+        <div class="moreInfoWrap toggleWrap">
+          <div class="moreInfo toggleCont" style="display: none">
+            <dl class="mbCiBox gridMainSide">
+              <dt>금리</dt>
+              <dd class="ar"><span>4.31</span>%</dd>
+              <dt>계좌해지 추정일</dt><!-- 2025-12-15 계좌해지 추정일로 수정 -->
+              <dd class="ar">2022.12.28</dd>
+            </dl>
+            <!-- 환율정보 -->
+            <dl class="bgAsis balanceItem mt16">
+              <dt class="balanceItemTitle">환율정보</dt>
+              <dd class="balanceItemValue">1USD(미국달러) = <span>1,480</span>원</dd>
+              <dd class="balanceItemSub">기준일 <span class="ml8">2025.07.03</span></dd>
+            </dl>
+            <!-- // 환율정보 -->
+          </div>
+          <hr class="divLine mt24 mb0">
+          <button type="button" class="cs moreOpenBtn toggleBtn bdNone mt16" aria-expanded="false" role="button">
+            <span class="toggleTxt13">펼치기</span>
+          </button>
+        </div>
+        <!-- // 펼치기 토글 -->
+      </div>
+      <!-- //예상 이자소득 -->
+
+      <div class="formWrap mt24">
+        <!-- 소득발생 예상일 2025-11-17 추가 요청 -->
+        <h3 class="fs14 -medium color3">소득발생 예상일</h3> <!-- // [D] 소득발생일과 소득발생예정일이 동시에 나오는 경우는 없습니다 case 주의 -->
+        <div class="calendarForm mt12">
+          <div class="inputList">
+            <input type="text" value="2025.12.28" title="소득발생 예상일" placeholder="소득발생 예상일">
+            <a href="javascript:;" class="btnCalendar" role="button"><span class="blind">소득발생 예상일 선택</span></a>
+          </div>
+        </div>
+        <!-- // 소득발생 예상일 -->        
+         <!-- 이자소득 -->
+        <h3 class="fs14 -medium color3 mt32">이자소득</h3><!-- 소득발생 예상일 2025-11-17 추가로 인한 mt32 추가 -->       
+        <div class="inputList unitMan mt12">
+          <input type="text" title="이자소득 입력" value="" placeholder="이자소득을 입력해 주세요"><!-- 2025-10-14 type="tel"→"text" 변경 요청 -->
+          <span class="unit">USD</span><!-- 2025-11-07 올원가이드에 따른 위치 변경 -->
+          <a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+        </div>
+        <!-- // 이자소득 -->
+        <!-- 이자소득 에러일 때 -->
+        <div class="inputList unitMan mt12 error"><!-- [D] 에러 시 error 클래스 추가  -->
+          <input type="text" title="이자소득 입력" value="11,000" placeholder="이자소득을 입력해 주세요"><!-- 2025-10-14 type="tel"→"text" 변경 요청 -->
+          <span class="unit">USD</span><!-- 2025-11-07 올원가이드에 따른 위치 변경 -->
+          <a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+        </div>
+        <p class="errorTxt mt12">USD(미국달러) 100~100만 사이의 금액을 입력해 주세요</p><!-- 에러 시 메세지 추가 -->
+        <!-- //이자소득 에러일 때 -->
+      </div>
+    </div>
+
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 버튼영역 -->
+    <!-- -------------------------------------- -->
+    <div class="areaBtnDefault">
+      <!-- [D] 첫번째로 수정 시 나오는 버튼이 다름 주의 -->
+      <a href="javascript:;" class="btnPressDefault" role="button">다음에</a>
+      <a href="javascript:;" class="btnPressPoint" role="button">확인</a>
+      <!-- // [D] 첫번째로 수정 시 나오는 버튼이 다름 주의 -->
+
+      <!-- [D] 두번째 이후 수정 시 -->
+      <!-- 이자소득 계산 전 (비활성) -->
+      <!-- <a href="javascript:;" class="btnPressPoint disabled" role="button" aria-disabled="true">나의 금융소득 저장</a> --><!-- [D] 활성화 시 aria-disabled="false" / disabled 클래스 제거 -->
+      <!-- // 이자소득 계산 전 (비활성) -->
+      <!-- 이자소득 계산 후 (활성) -->
+      <!-- <a href="javascript:;" class="btnPressPoint" role="button" aria-disabled="false">나의 금융소득 저장</a> -->
+      <!-- // 이자소득 계산 후 (활성) -->
+      <!-- // [D] 두번째 이후 수정 시 -->
+    </div>
+    <!-- -------------------------------------- -->
+    <!-- ###################################### -->
+  </div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script></script>
+<!-- ###################################### -->
+</body>
+</html>

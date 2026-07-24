@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>공과금(상하수도요금) | 금융일정 수정 | 금융캘린더 | 금융플래너</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>금융일정수정</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 금융일정수정_공과금(상하수도요금) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [입력영역] -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<h2 class="defTit mt8">직접 등록한 일정을<br> 수정할 수 있어요. </h2>
+			<div class="formWrap">
+				<div class="titListBox">
+					<ul class="lineType">
+						<li>
+							<div class="defSubTit2">
+								<strong>공과금 종류</strong>
+							</div>
+							<div class="inputList disabled">
+								<input type="tel" class="al" title="공과금 입력" value="상하수도요금" readonly>
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</li>
+						<li>
+							<div class="defSubTit2">
+								<strong>전자수용가번호</strong>
+							</div>
+							<div class="inputList">
+								<input type="tel" class="al" title="전자수용가번호 15자리 입력"  value="12345678901234"placeholder="전자수용가번호 15자리를 입력하세요">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</li>
+						<li>
+							<div class="defSubTit2">
+								<strong>공과금 내용</strong>
+							</div>
+							<div class="inputList"> <!-- [D] 에러인 경우 .error 추가-->
+								<input type="text" title="공과금 내용 (최대 25자리)" value="우리집 8월 수도세" placeholder="내용을 입력하세요 (최대 25자리)">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+							<div class="wrapFormTooltip mt25">
+								<div class="formHolder check">
+									<input type="checkbox" id="type_all01" checked class="chekTypeOther">
+									<label class="check" for="type_all01">출금계좌 연결</label>
+								</div>
+								<!-- tootip -->
+								<div class="tooltipWrap">
+									<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">출금계좌 연결 툴팁 열기</span></button><!-- [접근성_2024]  대체텍스트가 부적절하게 제공된 컨트롤 : 텍스트 변경 -->
+									<div class="tooltipCont">
+										<p>출금계좌를 연결하시면 금융일정 전에 잔액 부족 여부를 안내해 드립니다.</p>
+										<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+									</div>
+								</div>
+								<!-- //tootip -->
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [하단영역] 액션버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressDefault" role="button">삭제</a>
+			<a href="javascript:;" class="btnPressPoint" role="button">저장</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

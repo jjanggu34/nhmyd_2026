@@ -1,0 +1,663 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 순자산 금액 설정</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(document).ready(function() {
+		fullLayerPop();
+	});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 순자산 금액 설정 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1>순자산 금액 설정</h1>
+		<div class="popCont grayPop">
+			<!-- -------------------------------------- -->
+			<!-- [개인화영역] -->
+			<!-- -------------------------------------- -->
+			<div class="boxTypeWrap mt20">
+				<div class="mainTopInfo popAsset">
+					<dl class="totalBalance">
+						<dt><strong>김농협님의 순자산</strong></dt>
+						<dd class="totalBalanceNow">
+							<div class="asset"><strong>1,000,000,000</strong>원</div>
+						</dd>
+					</dl>
+					<div class="popAssetTxt">순자산 금액에 포함할지 선택할 수 있어요.</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 계좌 -->
+			<!-- 22.12.06에 마크업 변경이 있었으나, JSP은 마크업 변경이 되지 않아 개발 페이지에 맞춤 -->
+			<!-- -------------------------------------- -->
+			<div class="subMain assetTotalList boxTypeWrap">
+				<!-- ### [계좌_총금액] ### -->
+				<div class="totalTitWrap asTitWrap">
+					<span class="chkWrap">
+						<input type="checkbox" id="listAll01" class="chekTypeOther">
+						<label class="check" for="listAll01"><span class="blind">계좌 전체 선택</span></label>
+					</span>
+					<h2 class="totalTit">계좌 <strong class="cnt pointColor">N개</strong></h2>
+					<span class="totalAmnt"><strong class="dataValue">1,000,000,000,000</strong><em class="won">원</em></span>
+				</div>
+
+				<!-- ### [계좌_상세] ### -->
+				<ul class="totalAccList asListWrap">
+					<!-- 계좌유형 : 입출금 -->
+					<li>
+						<div class="totalAcc"><span class="tit">입출금</span></div>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option"> <!-- [D] 버튼의 역할을 삭제함 -->
+									<span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">별명 또는 계좌명</span>
+											<span class="accValue"><strong class="dataValue">10,000,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_A01" checked>
+												<label for="MSASM300P_A01"><span class="blind">농협은행 별명 또는 계좌명 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">NH X 카카오페이통장</span>
+											<span class="accValue"><strong class="dataValue">663,375</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_A02" checked>
+												<label for="MSASM300P_A02"><span class="blind">농협은행 NH X 카카오페이통장 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- 계좌유형 : 예적금 -->
+					<li>
+						<div class="totalAcc"><span class="tit">예적금</span></div>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">주택청약종합저축</span>
+											<span class="accValue"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_A03">
+												<label for="MSASM300P_A03"><span class="blind">농협은행 주택청약종합저축 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- 계좌유형 : 외화 -->
+					<li>
+						<div class="totalAcc"><span class="tit">외화</span></div>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">외화보통예금(다통화)</span>
+											<span class="accValue"><strong class="dataValue">1,570,856</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_A04">
+												<label for="MSASM300P_A04"><span class="blind">농협은행 외화보통예금(다통화) 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- 계좌유형 : 기타계좌 -->
+					<li>
+						<div class="totalAcc"><span class="tit">기타계좌</span></div>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">기타계좌</span>
+											<span class="accValue"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_A05">
+												<label for="MSASM300P_A05"><span class="blind">농협은행 기타계좌 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<!-- // -->
+				</ul>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 투자 -->
+			<!-- -------------------------------------- -->
+			<div class="subMain assetTotalList ty02 boxTypeWrap">
+				<!-- ### [투자_총금액] ### -->
+				<div class="totalTitWrap asTitWrap">
+					<span class="chkWrap">
+						<input type="checkbox" id="listAll02" class="chekTypeOther" checked>
+						<label class="check" for="listAll02"><span class="blind">투자 전체 선택</span></label>
+					</span>
+					<h2 class="totalTit">투자 <strong class="cnt pointColor">N개</strong></h2>
+					<span class="totalAmnt"><strong class="dataValue">1,000,000,000,000</strong><em class="won">원</em></span>
+				</div>
+
+				<!-- ### [투자_상세] ### -->
+				<ul class="totalAccList asListWrap">
+					<li>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AAEY0000.png" alt="삼성증권" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">별명 또는 종목명</span>
+											<span class="accValue"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_B01" checked>
+												<label for="MSASM300P_B01"><span class="blind">삼성증권 별명 또는 종목명 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AAJL0000.png" alt="NH선물" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">삼성전자</span>
+											<span class="accValue"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_B02" checked>
+												<label for="MSASM300P_B02"><span class="blind">NH선물 삼성전자 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AAKN0000.png" alt="하나금융투자" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">신한 SOL AI반도체소부장증권상징지수투자신탁[주식]</span>
+											<span class="accValue"><strong class="dataValue">752,415</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_B02" checked>
+												<label for="MSASM300P_B02"><span class="blind">하나금융투자 신한 SOL AI반도체소부장증권상징지수투자신탁[주식] 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 대출 -->
+			<!-- -------------------------------------- -->
+			<div class="subMain assetTotalList boxTypeWrap">
+				<!-- ### [대출_총금액] ### -->
+				<div class="totalTitWrap asTitWrap">
+					<span class="chkWrap">
+						<input type="checkbox" id="listAll03" class="chekTypeOther" checked>
+						<!-- [MD2509_106] 카테고리 명칭 변경 -->
+						<label class="check" for="listAll03"><span class="blind">대출 전체 선택</span></label>
+					</span>
+					<!-- [MD2509_106] 카테고리 명칭 변경 -->
+					<h2 class="totalTit">대출 <strong class="cnt pointColor">N개</strong></h2>
+					<span class="totalAmnt"><strong class="dataValue">1,000,000,000,000</strong><em class="won">원</em></span>
+				</div>
+
+				<!-- ### [대출_상세] ### -->
+				<ul class="totalAccList asListWrap">
+					<li>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">별명 및 계좌명</span>
+											<span class="accValue"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_C01" checked>
+												<label for="MSASM300P_C01"><span class="blind">농협은행 별명 및 계좌명 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">(주택자금)NH주택담보대출_5년주기형</span>
+											<span class="accValue"><strong class="dataValue">500,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_C02" checked>
+												<label for="MSASM300P_C02"><span class="blind">농협은행 (주택자금)NH주택담보대출_5년주기형 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 연금 -->
+			<!-- -------------------------------------- -->
+			<div class="subMain assetTotalList boxTypeWrap">
+				<!-- ### [연금_총금액] ### -->
+				<div class="totalTitWrap asTitWrap">
+					<span class="chkWrap">
+						<input type="checkbox" id="listAll04" class="chekTypeOther" checked>
+						<label class="check" for="listAll04"><span class="blind">연금 전체 선택</span></label>
+					</span>
+					<h2 class="totalTit">연금 <strong class="cnt pointColor">N개</strong></h2>
+					<span class="totalAmnt"><strong class="dataValue">1,000,000,000,000</strong><em class="won">원</em></span>
+				</div>
+
+				<!-- ### [연금_상세] ### -->
+				<ul class="totalAccList asListWrap">
+					<li>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">별명 또는 상품명</span>
+											<span class="accValue"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_D01" checked>
+												<label for="MSASM300P_D01"><span class="blind">농협은행 별명 또는 상품명 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">NH-Amundi4차산업혁명연금증권전환형자투자신탁[주식]ClassC-P1</span>
+											<span class="accValue"><strong class="dataValue">25,409,264</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_D02" checked>
+												<label for="MSASM300P_D02"><span class="blind">농협은행 NH-Amundi4차산업혁명연금증권전환형자투자신탁[주식]ClassC-P1 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 가상자산 -->
+			<!-- -------------------------------------- -->
+			<div class="subMain assetTotalList boxTypeWrap">
+				<!-- ### [가상자산_총금액] ### -->
+				<div class="totalTitWrap asTitWrap">
+					<span class="chkWrap">
+						<input type="checkbox" id="listAll05" class="chekTypeOther" checked>
+						<label class="check" for="listAll05"><span class="blind">가상자산 전체 선택</span></label>
+					</span>
+					<h2 class="totalTit">가상자산 <strong class="cnt pointColor">N개</strong></h2>
+					<span class="totalAmnt"><strong class="dataValue">1,000,000,000,000</strong><em class="won">원</em></span>
+				</div>
+
+				<!-- ### [가상자산_상세] ### -->
+				<ul class="totalAccList asListWrap">
+					<li>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/ABAA0000.png" alt="빗썸" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">별명 또는 가상자산명</span>
+											<span class="accValue"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_E01" checked>
+												<label for="MSASM300P_E01"><span class="blind">빗썸 별명 또는 가상자산명 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/ABAA0000.png" alt="빗썸" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">이더리움클래식</span>
+											<span class="accValue"><strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_E02" checked>
+												<label for="MSASM300P_E02"><span class="blind">빗썸 이더리움클래식 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 선불페이 -->
+			<!-- -------------------------------------- -->
+			<div class="subMain assetTotalList boxTypeWrap">
+				<!-- ### [선불페이_총금액] ### -->
+				<div class="totalTitWrap asTitWrap">
+					<span class="chkWrap">
+						<input type="checkbox" id="listAll06" class="chekTypeOther">
+						<label class="check" for="listAll06"><span class="blind">선불페이 전체 선택</span></label>
+					</span>
+					<h2 class="totalTit">선불페이 <strong class="cnt pointColor">N개</strong></h2>
+					<span class="totalAmnt"><strong class="dataValue">1,000,000,000,000</strong><em class="won">원</em></span>
+				</div>
+
+				<!-- ### [선불페이_상세] ### -->
+				<ul class="totalAccList asListWrap">
+					<li>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AAHY0000.png" alt="" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">기관명</span>
+											<span class="accValue">
+												<strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_F01">
+												<label for="MSASM300P_F01"><span class="blind">기관명 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/logos/AAHY0000.png" alt="" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">네이버파이낸셜</span>
+											<span class="accValue">
+												<strong class="dataValue">1,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_F02">
+												<label for="MSASM300P_F02"><span class="blind">네이버파이낸셜 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 부동산 -->
+			<!-- -------------------------------------- -->
+			<div class="subMain assetTotalList boxTypeWrap">
+				<!-- ### [부동산_총금액] ### -->
+				<div class="totalTitWrap asTitWrap">
+					<span class="chkWrap">
+						<input type="checkbox" id="listAll07" class="chekTypeOther">
+						<label class="check" for="listAll07"><span class="blind">부동산 전체 선택</span></label>
+					</span>
+					<h2 class="totalTit">부동산 <strong class="cnt pointColor">N개</strong></h2>
+					<span class="totalAmnt"><strong class="dataValue">1,000,000,000,000</strong><em class="won">원</em></span>
+				</div>
+
+				<!-- ### [부동산_상세] ### -->
+				<ul class="totalAccList asListWrap">
+					<li>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/category/icoCate96.png" alt="" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">건물명</span>
+											<span class="accValue">
+												<!-- <em class="tag blue">소유구분</em> [D] 개발에서 노출 안됨 -->
+												<strong class="dataValue">100,000,000</strong><em class="won">억원</em>
+											</span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_G01">
+												<label for="MSASM300P_G01"><span class="blind">부동산 건물명 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/category/icoCate96.png" alt="" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">강릉홍제푸르지오</span>
+											<span class="accValue">
+												<strong class="dataValue">100,000,000</strong><em class="won">억원</em>
+											</span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_G02">
+												<label for="MSASM300P_G02"><span class="blind">부동산 강릉홍제푸르지오 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 기타 -->
+			<!-- -------------------------------------- -->
+			<!-- [MD2502_011] 실물자산 영역 개선 및 현금 수기 자산 등록 기능 추가 S -->
+			<div class="subMain assetTotalList boxTypeWrap">
+				<!-- ### [기타_총금액] ### -->
+				<div class="totalTitWrap asTitWrap">
+					<span class="chkWrap">
+						<input type="checkbox" id="listAll08" class="chekTypeOther" checked>
+						<label class="check" for="listAll08"><span class="blind">기타 전체 선택 </span></label>
+					</span>
+					<h2 class="totalTit">기타 <strong class="cnt pointColor">N개</strong></h2>
+					<span class="totalAmnt"><strong class="dataValue">1,000,000,000,000</strong><em class="won">원</em></span>
+				</div>
+
+				<!-- ### [기타_상세] ### -->
+				<ul class="totalAccList asListWrap">
+					<li>
+						<ul class="accList">
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/category/icoCate95.png" alt="" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">기타명칭</span>
+											<span class="accValue"><strong class="dataValue">100,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_H01" checked>
+												<label for="MSASM300P_H01"><span class="blind">기타명칭 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/category/icoCate95.png" alt="" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">여행 후 남은 달러</span>
+											<span class="accValue"><strong class="dataValue">1,234,567</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_H02" checked>
+												<label for="MSASM300P_H02"><span class="blind">여행 후 남은 달러 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/category/icoCate95.png" alt="" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">김농협에게 빌린돈</span>
+											<span class="accValue"><strong class="dataValue">-100,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_H03" checked>
+												<label for="MSASM300P_H03"><span class="blind">김농협에게 빌린돈 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" role="option">
+									<span class="imgWrap"><img src="../../images/category/icoCate95.png" alt="" class="imgLogo"></span>
+									<div class="AssInfoWrap">
+										<div class="AssTitWrap">
+											<span class="accTit">비상금</span>
+											<span class="accValue"><strong class="dataValue">5,000,000</strong><em class="won">원</em></span>
+										</div>
+										<div class="AssBtnWrap">
+											<span class="tgBtnType2">
+												<input type="checkbox" id="MSASM300P_H04" checked>
+												<label for="MSASM300P_H04"><span class="blind">비상금 순자산 포함 여부</span></label>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- ### // ### -->
+			</div>
+			<!-- //[MD2502_011] 실물자산 영역 개선 및 현금 수기 자산 등록 기능 추가 E -->
+			<!-- -------------------------------------- -->
+		</div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">저장</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

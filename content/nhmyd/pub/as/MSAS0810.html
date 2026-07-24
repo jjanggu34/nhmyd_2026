@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>STEP1) 지급신청</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+        <a href="javascript:;" class="btnBack" role="button"><span class="blind">이전화면으로</span></a>
+		<h1>지급신청</h1>
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] Step1. 지급방법 선택 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 스텝 영역 -->
+		<!-- -------------------------------------- -->
+		<div class="infoStep1">
+			<ol>
+				<li aria-current="step"> <!-- [D] 현재 스텝 li : aria-current="step" 노출 -->
+					<i aria-hidden="true">1</i>
+					<span>지급방법 선택</span>
+				</li>
+				<li>
+					<i aria-hidden="true">2</i>
+					<span>$휴면예금$ 유의사항</span>
+				</li>
+				<li>
+					<i aria-hidden="true">3</i>
+					<span>서비스 이용동의</span>
+				</li>
+			</ol>
+		</div>
+		<div class="boxTypeWrap t1">
+			<h2 class="defTit">
+				<strong>
+					<span>$국민은행$</span> 지급 신청 시<br />
+					받을 수 있는 금액은<br /> 
+					<span class="value"><strong class="dataValue">$1,000,000$</strong><em class="won">원</em></span>으로 확인돼요.
+				</strong>
+			</h2>
+			
+			<div class="formWrap">
+				<div class="titListBox">
+					<ul>
+						<li>
+							<div class="formTitN"><strong>지급방법선택</strong></div>
+							<div class="tabWrap">
+								<ul class="selectList accList isBorder cancelSelList tabPopupList">
+									<li class="addSel">
+										<a href="javascript:;">
+											<div>
+												<img src="../../images/ico_cancelsel_01.png" alt="내 계좌로 옮기기 아이콘" />
+											</div>
+											<div class="accInfoWrap">
+												<p class="accTit">지급 신청</p>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;" class="active">
+											<div>
+												<img src="../../images/ico_cancelsel_02.png" alt="서민금융진흥원에 기부하기 아이콘" />
+											</div>
+											<div class="accInfoWrap">
+												<p class="accTit">기부하기</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<div class="formTitN"><strong>휴대전화번호</strong></div>
+							<div class="inputList">
+								<input type="tel" class="al" title="휴대전화 번호 입력" placeholder="010-1234-5678" maxlength="11" />
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">다음</a> <!-- [D] 비활성화 클래스명 (disabled) 및 aria-disabled="true" 추가 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

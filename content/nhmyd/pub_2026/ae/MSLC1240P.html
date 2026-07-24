@@ -1,0 +1,84 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>대출/신용관리 | AI대출금리케어 | 서비스 신청 | 신청사유 선택</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] NH인증서 이용동의  ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>
+			<div class="relative">
+				최근에 달라진 금융 상황을 <br> 선택해 주세요.
+				<!-- [툴팁영역] -->
+				<div class="tooltipWrap">
+					<button type="button" class="toolTipBtn -small" onclick="tooltipOpen($(this))"><span class="blind">유형 툴팁 열기</span></button>
+					<div class="tooltipCont">
+						<p>
+							금리인하요구권 신청사유는 최초 1회 고객님이 선택하고, 2회차 이후에는 마이데이터 사업자가 차주의 금융 상태에 맞춰 선택하여 신청하게 됩니다. 
+						</p>
+						<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+					</div>
+				</div>
+				<!-- // -->
+			</div>
+		</h1>
+		<div class="popCont">
+			<div class="formWrap selectAll mt0 pt0">
+				<div class="cont" >
+					<div class="formHolder check ">
+						<input type="radio" id="type01" name="type01" class="chkstyle">
+						<label class="check" for="type01">소득이 많아졌어요</label>
+					</div>
+					<div class="formHolder check">
+						<input type="radio" id="type02" name="type01" class="chkstyle">
+						<label class="check" for="type02">신용점수가 올랐어요</label>
+					</div>
+					<div class="formHolder check ">
+						<input type="radio" id="type03" name="type01" class="chkstyle">
+						<label class="check" for="type03">거래실적에 변동이 있어요</label>
+					</div>
+					<div class="formHolder check">
+						<input type="radio" id="type04" name="type01" class="chkstyle">
+						<label class="check" for="type04">부채가 감소되었어요</label>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/makebetter/icon/ico_close16_24.svg" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

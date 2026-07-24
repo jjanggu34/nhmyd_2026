@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 데이터로딩</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 데이터로딩 ### -->
+<!-- ###################################### -->
+<div class="dataLoadingWrap">
+	<div class="dataLoading">
+		<div class="inner cardBenefit"><p>잠시만 기다려주세요!<br>열심히 카드혜택을 확인하고 있어요</p></div>
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//로딩 영역 보이기
+	function dataLoadingShow(){
+		$('.dataLoadingWrap').show();
+		$('body').addClass('hasLoading');
+		$('.container').attr('aria-hidden','true');
+	}
+
+	//로딩 영역 감추기
+	function dataLoadingHide(){
+		$('.dataLoadingWrap').hide();
+		$('body').removeClass('hasLoading');
+		$('.container').attr('aria-hidden','false');
+	}
+
+	dataLoadingShow();
+</script>
+<!-- ###################################### -->
+</body>
+</html>

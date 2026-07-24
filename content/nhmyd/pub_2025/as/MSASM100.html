@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"   >
+<meta name="apple-mobile-web-app-title" content="NH마이데이터">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>자산모아보기(empty case)</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+  <!-- header -->
+  <div class="header">
+    <a href="javascript:;" class="btnBack" role="button"><span>이전화면으로</span></a>
+    <h1>자산모아보기</h1>
+    <a href="javascript:;" class="btnAlram" role="button"><span>알람</span></a>
+    <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+  </div>
+  <!-- //header -->
+  <div class="container bgWhite pb40 fontFixed"><!-- 2025-12-12 자산모아모기 폰트고정용 fontFixed -->
+    <div class="fullyWrap bgNewMain2"><!-- 2025-10-01 배경색 변경 -->
+      <!-- ###################################### -->
+      <!-- ### 업데이트 및 알림 ### -->
+      <!-- ###################################### -->
+      <div class="pageRefreshWrap">
+        <div class="pageRefresInner mt0">
+          <span>
+            <span class="date">07.18 00:00</span>
+            <button type="button" class="btnUpdate" title="업데이트하기"><span class="blind">07.18 00:00 업데이트 완료</span></button>
+          </span>
+          <button type="button" class="btnAlrt new" aria-expanded="false"><!-- 알림 있을 때 new 클래스 -->
+            <span class="blind">알림</span>
+          </button>
+        </div>
+        <div class="pageAlertWrap">
+          <ul>
+            <li class="alertNotice">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>연결중인 자산 확인이 필요해요</dt>
+                  <dd>OOO에서 전송 중단 또는 거절이 있었습니다.<br/>연결관리 화면에서 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertNotice">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>만료예정기관이 있어요</dt>
+                  <dd>만료예정인 {n}개 기관을 재연결해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertNotice">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>신규자산이 있어요</dt>
+                  <dd>{n}개 기관에 신규자산을 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertNotice">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>연결만료된 기관이 있어요</dt>
+                  <dd>연결만료된 [n]개 기관을 재연결해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertError">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>정보 확인이 필요해요</dt>
+                  <dd><span>$연말정산$</span> 정보수집 중 오류가 있었습니다.<br/><span>$연말정산$</span> 설정 화면에서 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertError">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>업데이트한지 <span>N</span>일이 지났어요</dt>
+                  <dd><span>$연말정산$</span> 정보 업데이트가 필요합니다.<br/>인증관리 화면에서 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+            <li class="alertError">
+              <a href="javascript:;" role="button">
+                <dl>
+                  <dt>정보수집이 필요해요</dt>
+                  <dd><span>$연말정산$</span> 서비스 이용을 위해 정보수집이 필요합니다. 인증관리 화면에서 확인해주세요.</dd>
+                </dl>
+              </a>
+            </li>
+          </ul>
+          <!-- 알림 없을 때 -->
+          <div class="pageAlertNoData">
+            <p>업데이트 알림 내역이 없습니다.</p>
+          </div>
+          <!-- // 알림 없을 때 -->
+          <button type="button" aria-expanded="true" class="pageAlertClose"><span>접기</span></button>
+        </div>
+      </div>
+      <!-- ###################################### -->
+      <div class="mbAccListWrap mainAsset empty">
+        <strong>아직 연결된 자산이 없어요</strong>
+        <p>자산을 연결하고 한눈에 확인해보세요.</p>
+      </div>
+    </div>
+
+    <!-- ### [바로가기] : 운영에서 sticky 스크립트 사용하고 있지 않음 ### -->
+    <div class="billListWrap assetView fog mt8">
+      <!-- ###################################### -->
+      <!-- ### 바로가기 링크 ### -->
+      <!-- ###################################### -->
+      <div class="billLisMenu">
+        <ul class="billMenu">
+          <li class="selected"><a href="javascript:;" anchor-title="dem01" class="btnBillMenu" data-bill-menu="dbm01">계좌</a ></li>
+          <li><a href="javascript:;" anchor-title="dem02" class="btnBillMenu" data-bill-menu="dbm02" >대출</a ></li>
+          <li><a href="javascript:;" anchor-title="dem03" class="btnBillMenu" data-bill-menu="dbm03" >투자</a ></li>
+          <li><a href="javascript:;" anchor-title="dem04" class="btnBillMenu" data-bill-menu="dbm04" >연금</a ></li>
+          <li><a href="javascript:;" anchor-title="dem05" class="btnBillMenu" data-bill-menu="dbm05" >보험</a ></li>
+          <li><a href="javascript:;" anchor-title="dem06" class="btnBillMenu" data-bill-menu="dbm06" >선불카드 &middot; 페이</a ></li>
+          <li><a href="javascript:;" anchor-title="dem07" class="btnBillMenu" data-bill-menu="dbm07" >부동산</a ></li>
+          <li><a href="javascript:;" anchor-title="dem08" class="btnBillMenu" data-bill-menu="dbm08" >기타</a ></li>
+          <li><a href="javascript:;" anchor-title="dem09" class="btnBillMenu" data-bill-menu="dbm09" >숨은자산</a ></li>
+        </ul>
+      </div>
+      <div class="fogOverlay"></div><!-- 목록 오른쪽 끝 화이트 딤처리 -->
+      <!-- ###################################### -->
+
+      <!-- ###################################### -->
+      <!-- ### 바로가기 목록 ### -->
+      <!-- ###################################### -->
+      <div class="billListCont">
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 계좌 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem01">
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">계좌</h2><!-- 2025-10-01 컬러 변경 -->
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">계좌를 연결해보세요!</strong><!-- 2025-10-01 텍스트 크기  변경 -->
+                </div>
+              </a>
+            </div>
+            <!-- 2025-11-19 추가 요청 -->
+            <hr class="divLine">
+            <!-- ### 숨긴 계좌 있을 때 ### -->
+            <div class="prodListWrap -hide">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <em class="prodTit">숨긴 계좌 <span>3</span>개</em> 
+                </div>
+              </a>
+            </div>
+            <!-- // ### 숨긴 계좌 있을 때 ### -->
+            <!-- 2025-11-19 추가 요청 -->
+          </div>
+        </div>
+        <!-- // 계좌 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 대출 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem02">
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">대출</h2><!-- 2025-10-01 컬러 변경 -->
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">대출 계좌를 연결해보세요!</strong><!-- 2025-10-01 텍스트 크기  변경 -->
+                </div>
+              </a>
+            </div>
+            <!-- 2025-11-19 추가 요청 -->
+            <hr class="divLine">
+            <!-- ### 숨긴 대출 있을 때 ### -->
+            <div class="prodListWrap -hide">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <em class="prodTit">숨긴 대출 <span>3</span>개</em> 
+                </div>
+              </a>
+            </div>
+            <!-- // ### 숨긴 대출 있을 때 ### -->
+            <!-- 2025-11-19 추가 요청 -->
+          </div>
+        </div>
+        <!-- // 대출 -->
+
+        <hr class="divLine">
+        
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 투자 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem03">
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">투자</h2><!-- 2025-10-01 컬러 변경 -->
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">투자 자산을 연결해보세요!</strong><!-- 2025-10-01 텍스트 크기  변경 -->
+                </div>
+              </a>
+            </div>
+            <!-- 2025-11-19 추가 요청 -->
+            <hr class="divLine">
+            <!-- ### 숨긴 투자 있을 때 ### -->
+            <div class="prodListWrap -hide">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <em class="prodTit">숨긴 증권계좌 <span>3</span>개</em> 
+                </div>
+              </a>
+            </div>
+            <!-- // ### 숨긴 투자 있을 때 ### -->
+            <!-- // 2025-11-19 추가 요청 -->
+          </div>
+        </div>
+        <!-- // 투자 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 연금 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem04">
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">연금</h2><!-- 2025-10-01 컬러 변경 -->
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">연금 자산을 연결해보세요!</strong><!-- 2025-10-01 텍스트 크기  변경 -->
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- // 연금 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 보험 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem05">
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">보험</h2><!-- 2025-10-01 컬러 변경 -->
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">보험을 연결해보세요!</strong><!-- 2025-10-01 텍스트 크기  변경 -->
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- // 보험 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 선불카드 &middot; 페이 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem06">
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">선불카드 &middot; 페이</h2><!-- 2025-10-01 컬러 변경 -->
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">선불카드&middot;페이를 연결해보세요!</strong><!-- 2025-10-01 텍스트 크기  변경 -->
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- // 선불카드 &middot; 페이 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 부동산 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem07">
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">부동산</h2><!-- 2025-10-01 컬러 변경 -->
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">부동산을 추가해보세요!</strong><!-- 2025-10-01 텍스트 크기  변경 -->
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- // 부동산 -->
+
+        <hr class="divLine">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 기타 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem08">
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3"><!-- 2025-10-01 컬러 변경 -->
+              기타
+              <div class="tooltipWrap">
+                <button type="button" class="toolTipBtn -small" onclick="tooltipOpen($(this))">
+                  <span class="blind">기타 자산으로 등록 가능한 항목 안내 툴팁 열기</span>
+                </button>
+                <div class="tooltipCont">
+                  <h3>기타 자산으로 등록 가능한 항목</h3>
+                  <ul class="listBul nodisc noticeCont" tabindex="-1">
+                    <li> 자동차, 금, 외화, 현금(보유현금, 빌린현금) 등</li>
+                  </ul>
+                  <button type="button" class="close" onclick="tooltipClose($(this))">
+                    <span class="blind">툴팁 닫기</span>
+                  </button>
+                </div>
+              </div>
+            </h2>
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit fs18">다양한 자산을 추가해보세요!</strong><!-- 2025-10-01 텍스트 크기  변경 -->
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- // 기타 -->
+
+        <!-- [SECTION] 띠배너 2025-10-01 수정 -->
+        <div class="mt24">
+          <a href="javascript:;" class="accountBanner04 bg24" role="button">세금포인트 확인하기</a>
+        </div>
+        <!-- // 띠배너 -->
+
+        <hr class="divLine mt32">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 숨은자산 -->
+        <!-- -------------------------------------- -->
+        <div class="inoutListWrap" anchor-cont="dem09">
+          <div class="mbSelectLlistWrap">
+            <h2 class="h4 togTit color3">내가 몰랐던 숨은자산</h2><!-- 2025-10-01 컬러 변경, 2025-10-24 텍스트 현행화 -->
+            <div class="prodListWrap">
+              <a href="javascript:;" role="button">
+                <div class="prodRecomWrap">
+                  <strong class="prodTit">숨은 자산을 찾아보세요!</strong><!-- 2025-10-01 텍스트 크기  변경 -->
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- // 숨은자산 -->
+
+        <hr class="divLine mb32">
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 스와이퍼 배너 2025-10-01 수정 -->
+        <!-- -------------------------------------- -->
+        <div class="swiper-container bannerSwiperImgtype ent01">
+          <div class="swiper-wrapper ">
+            <div class="swiper-slide">
+              <div class="mbBanner">
+                <a href="javascript:;" class="swiperLayer01 bg01">
+                  <span>제휴사 대출상품 쉽고 빠르게 비교하기!</span>
+                  <strong>나에게 딱 맞는 대출한도와 금리는?</strong>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="mbBanner">
+                <a href="javascript:;" class="swiperLayer02 bg02">
+                  <span>DSR 계산기로 손쉽게 확인해보세요</span>
+                  <strong>내 DSR은 얼마?</strong>
+                </a>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="mbBanner">
+                <a href="javascript:;" class="swiperLayer03 bg03">
+                  <span>나의 세금포인트, 얼마나 쌓였을까?</span>
+                  <strong>세금포인트 확인하기</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="auto_page_btnps mt12">
+            <div class="swiper-pagination assetView pageCarDriveBanner"></div>
+            <div class="btnPSWrap">
+              <button type="button" class="stop"><span class="blind">자동재생 정지</span></button>
+            </div>
+          </div>
+        </div>
+        <!-- // 스와이퍼 배너 -->
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 즐겨찾기 &middot; 숨기기 순자산 설정하기 -->
+        <!-- -------------------------------------- -->
+        <div class="prodListWrap assetView mt32">
+          <a href="javascript:;" role="button">
+            <div class="prodRecomWrap favorite" >
+              <strong class="prodTit">즐겨찾기 &middot; 숨기기</strong>
+            </div>
+          </a>
+          <a href="javascript:;" role="button">
+            <div class="prodRecomWrap netAssetSetting">
+              <strong class="prodTit">순자산 설정하기</strong>
+            </div>
+          </a>
+        </div>
+      <!-- // 즐겨찾기 &middot; 숨기기 순자산 설정하기 -->
+
+      </div>
+      <!-- ###################################### -->
+    </div>
+
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 버튼영역(하단버튼 플로팅X) -->
+    <!-- -------------------------------------- -->
+    <div class="areaBtnStatic mt32">
+      <a href="javascript:;" class="btnPressPoint" role="button">자산 추가하기</a>
+    </div>
+    <!-- -------------------------------------- -->
+  </div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+// 2025-09-26 앵커 스크롤 JS 분리
+initializeAnchorScroll();
+
+//샘플 : 이미지 배너
+$('.bannerSwiperImgtype.ent01').each(function(){
+  var $swiperContainer = $(this);
+  var swiperBannerImg01 = new Swiper('.bannerSwiperImgtype.ent01', {
+    slidesPerView: 1,
+    watchOverflow:true,
+    spaceBetween: 10,
+    loop: true,
+    observer:true,
+    observeParents : true,
+    autoplay: {
+      delay: 6000,
+      disableOnInteraction: true,
+      pauseOnMouseEnter: true,
+    },
+
+    pagination: {
+      el: '.swiper-pagination.pageCarDriveBanner',
+      type: 'bullets',
+      clickable: true,
+      bulletElement: 'a',
+    },
+    //달력 aria-hidden 적용
+    on: {
+      transitionEnd: function () {
+        $('.swiper-slide').attr('aria-hidden', 'true')
+        $('.swiper-slide-active').attr('aria-hidden', 'false')
+      }
+    }
+  });
+
+  var $psbtn = $swiperContainer.find('.stop');
+  $psbtn.click(function(){
+    $(this).toggleClass('active');
+    if($(this).hasClass('active')){
+      $(this).attr('title','자동재생 시작');
+      $(this).find('.blind').text('자동재생 시작');
+      swiperBannerImg01.autoplay.stop();
+    }
+    else {
+      $(this).attr('title','자동재생 정지');
+      $(this).find('.blind').text('자동재생 정지');
+      swiperBannerImg01.autoplay.start();
+    }
+  });
+});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

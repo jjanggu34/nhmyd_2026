@@ -1,0 +1,616 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Guide [기본정보]</title>
+    <meta name="publisher" content="[NURIER] FrontEnd Dev Team">
+    <link rel="icon" href="/content/nhmyd/pub_2025/worklist/images/favicon.ico" type="image/x-icon">
+    <script src="../pub-assets/js/head-mb.js"></script>
+    <style>
+        .tag.muBlue {color:#3d9bff;border:1px solid #3d9bff;background-color:#edfafe}
+				.guide_button{display:none !important;}
+    </style>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>기본정보</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="definition.html" aria-current="page">기본정보</a>
+				<a href="layout_sample.html">레이아웃</a>
+				<a href="txt_sample.html">타이틀/텍스트</a>
+				<a href="button_sample.html">버튼</a>
+				<a href="form_sample.html">폼</a>
+				<a href="table_sample.html">테이블</a>				
+			</div>
+		</nav>
+	</header>
+
+	<!-- ###################################### -->
+	<!-- ### UI Guide [기본정보] ### -->
+	<!-- ###################################### -->
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">퍼블리싱 기본 규칙</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 퍼블리싱 기본 규칙 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">퍼블리싱 기본 규칙</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [폴더 및 파일 규칙] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">폴더 및 파일 규칙</h3>
+				<ul class="guide_txt">
+					<li>NH농협은행 비대면 마이데이터 고객여정 개선(2025) 작업 영역 : <span  style="background:yellow;">노란색 영역</span></li>
+					<li>마이데이터 고도화(2023) 작업 영역 : <span  style="background:#e0fee4;">녹색 영역</span></li>
+                    <li>마이데이터(2022) 작업 영역 : <span  style="background:#eee;">회색 영역</span></li>
+					
+				</ul>
+				<div class="guide_tbl">
+					<table>
+						<thead>
+							<tr>
+								<th colspan="3" scope="col">폴더구조</th>
+								<th scope="col">파일명</th>
+								<th scope="col">내용</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td rowspan="35">./content/nhmyd/</td>
+								<td colspan="2">cms/</td>
+								<td>*</td>
+								<td>CMS 등록 자료</td>
+							</tr>
+							<tr>
+								<td rowspan="11" colspan="2">css/</td>
+								<td>swiper.min.css</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>nh_base.css</td>
+								<td>NH공통 (초기화)</td>
+							</tr>
+							<tr>
+								<td>nh_layout.css</td>
+								<td>NH공통 (레이아웃)</td>
+							</tr>
+							<tr>
+								<td>nh_comm.css</td>
+								<td>NH공통 (콘텐츠)</td>
+							</tr>
+							<tr>
+								<td class="bg">nhasset_logos.css</td>
+								<td class="bg">NH자산 (기관 로고)</td>
+							</tr>
+							<tr>
+								<td class="bg">nhasset_com.css</td>
+								<td class="bg">NH자산 (레이아웃 및 공통 컴포넌트)</td>
+							</tr>
+							<tr>
+								<td class="bg">nhasset_cont.css</td>
+								<td class="bg">NH자산 (콘텐츠)</td>
+							</tr>
+							<tr>
+								<td class="bg2">nhasset_myd.css</td>
+								<td class="bg2">NH자산 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td>ms_allone.css</td>
+								<td>올원뱅크 재정의</td>
+							</tr>
+							<tr>
+								<td>ms_pay.css</td>
+								<td>NHpay 재정의</td>
+							</tr>
+							<tr>
+								<td class="bg3">nhasset_myd_mb.css</td>
+								<td class="bg3">NH농협은행 비대면 마이데이터 고객여정 개선(2025)</td>
+							</tr>							
+							<tr>
+								<td rowspan="16" class="bg">images/</td>
+								<td class="bg2"></td>
+								<td class="bg2">img_set1.png</td>
+								<td class="bg2">공통이미지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg2"></td>
+								<td class="bg2">img_set2.png</td>
+								<td class="bg2">메세지 이미지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg2"></td>
+								<td class="bg2">img_set3.png</td>
+								<td class="bg2">배너 이미지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg2"></td>
+								<td class="bg2">img_set4.png</td>
+								<td class="bg2">사람 이미지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td rowspan="2" class="bg">category/</td>
+								<td class="bg">*</td>
+								<td class="bg">NH자산+ 카테고리 이미지</td>
+							</tr>
+							<tr>
+								<td class="bg2">cs2/</td>
+								<td class="bg2">소비 카테고리 이미지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg">notice/</td>
+								<td class="bg">*</td>
+								<td class="bg">NH자산+ 공지사항상세 이미지</td>
+							</tr>
+							<tr>
+								<td class="bg">terms/</td>
+								<td class="bg">*</td>
+								<td class="bg">NH자산+ 약관 이미지</td>
+							</tr>
+							<tr>
+								<td class="bg" rowspan="2">event/</td>
+								<td class="bg">*</td>
+								<td class="bg">NH자산+ 이벤트 이미지</td>
+							</tr>
+							<tr>
+								<td class="bg2">findally/</td>
+								<td class="bg2">올리찾기 이미지(2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg2">emoji/</td>
+								<td class="bg2">*</td>
+								<td class="bg2">이모지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg2">earlyretire/</td>
+								<td class="bg2">*</td>
+								<td class="bg2">조기은퇴 이미지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg2">creditscore/</td>
+								<td class="bg2">*</td>
+								<td class="bg2">신용점수 이미지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg2">cardreport/</td>
+								<td class="bg2">*</td>
+								<td class="bg2">카드리포트 이미지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg2">trend/</td>
+								<td class="bg2">*</td>
+								<td class="bg2">트렌드+ 이미지 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg3">makebetter/</td>
+								<td class="bg3">*</td>
+								<td class="bg3">NH농협은행 비대면 마이데이터 고객여정 개선(2025)</td>
+							</tr>
+							<tr>
+								<td rowspan="4" class="bg">js/</td>
+								<td class="bg2">lottie/</td>
+								<td class="bg2">*</td>
+								<td class="bg2">로티애니메이션(2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg"></td>
+								<td class="bg">nhasset-ui.js</td>
+								<td class="bg">NH자산 +js</td>
+							</tr>
+							<tr>
+								<td class="bg2"></td>
+								<td class="bg2">nhasset-ui-myd.js</td>
+								<td class="bg2">NH자산 (2023 고도화)</td>
+							</tr>
+							<tr>
+								<td class="bg3"></td>
+								<td class="bg3">nhasset-ui-myd-mb.js</td>
+								<td class="bg3">NH농협은행 비대면 마이데이터 고객여정 개선(2025)</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="bg">pub/</td>
+								<td class="bg">*</td>
+								<td class="bg">NH자산+ 퍼블리싱 작업파일</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="bg3">pub_2025/</td>
+								<td class="bg3">*</td>
+								<td class="bg3">NH농협은행 비대면 마이데이터 고객여정 개선(2025) 퍼블리싱 작업파일</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="bg">terms/</td>
+								<td class="bg">*</td>
+								<td class="bg">NH자산+ 약관파일</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [HTML 규칙] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">HTML 규칙</h3>
+				<h4 class="guide_title3">마크업 기본구조</h4>
+<div class="guide_code">
+<pre>
+&lt;!DOCTYPE html &gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta http-equiv="Content-Script-Type" content="text/javascript"&gt;
+&lt;meta http-equiv="Content-Style-Type" content="text/css"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"&gt;
+&lt;meta name="apple-mobile-web-app-title" content="NH마이데이터" /&gt;
+&lt;meta http-equiv="imagetoolbar" content="no"&gt;
+&lt;meta name="robots" content="no-index,follow"&gt;
+&lt;meta name="title" content=""&gt;
+&lt;meta name="author" content=""&gt;
+&lt;meta name="content" content=""&gt;
+&lt;meta name="keywords" content="NH마이데이터"&gt;
+&lt;meta name="description" content="NH마이데이터"&gt;
+&lt;meta http-equiv="Pragma" content="no-cache"&gt;
+&lt;meta http-equiv="Expires" content="-1"&gt;
+&lt;title&gt;타이틀&lt;/title&gt;
+&lt;link type="text/css" rel="stylesheet" href="../../css/swiper.min.css"&gt;
+&lt;link type="text/css" rel="stylesheet" href="../../css/nh_base.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../css/nh_layout.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../css/nh_comm.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../css/nhasset_logos.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../css/nhasset_com.css" id="changeCom"&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../css/nhasset_cont.css" id="changeCont"&gt;
+&lt;link rel="stylesheet" type="text/css" href="../../css/nhasset_myd.css"&gt; &lt;!-- [2023 고도화] --&gt;
+&lt;link type="text/css" rel="stylesheet" href="../../css/ms_allone.css"&gt;
+&lt;link type="text/css" rel="stylesheet" href="../../css/ms_pay.css"&gt;
+<span style="background-color: yellow;">&lt;link rel="stylesheet" type="text/css" href="../../css/nhasset_myd-mb.css"&gt; &lt;!-- NH농협은행 비대면 마이데이터 고객여정 개선(2025) --&gt;</span>
+&lt;script src="../../js/jquery-1.9.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="../../js/jquery-ui.min.js"&gt;&lt;/script&gt;
+&lt;script src="../../js/jquery.ui.touch-punch.min.js"&gt;&lt;/script&gt;
+&lt;script src="../../js/swiper.7.4.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="../../js/common_ui.js"&gt;&lt;/script&gt;
+&lt;script src="../../js/nhasset-ui.js"&gt;&lt;/script&gt;
+&lt;script src="../../js/nhasset-ui-myd.js"&gt;&lt;/script&gt; &lt;!-- [2023 고도화] --&gt;
+<span style="background-color: yellow;">&lt;script src="../../js/nhasset-ui-myd-mb.js"&gt;&lt;/script&gt; &lt;!-- NH농협은행 비대면 마이데이터 고객여정 개선(2025) --&gt;</span>
+&lt;/head&gt;
+&lt;body&gt;
+	&lt;div class="wrapper nhasset"&gt;
+		&lt;!-- header --&gt;
+		&lt;div class="header"&gt;
+			&lt;a href="javascript:;" class="btnBack" role="button"&gt;&lt;span class="blind"&gt;이전화면으로&lt;/span&gt;&lt;/a&gt;
+			&lt;h1&gt;타이틀&lt;/h1&gt;
+			&lt;a href="javascript:;" class="btnGoHome" role="button"&gt;&lt;span&gt;Home&lt;/span&gt;&lt;/a&gt;
+			&lt;a href="javascript:;" class="btnNav" role="button"&gt;&lt;span&gt;전체메뉴&lt;/span&gt;&lt;/a&gt;
+		&lt;/div&gt;
+		&lt;!-- //header --&gt;
+
+		&lt;!-- container --&gt;
+		&lt;div class="container"&gt;콘텐츠 영역&lt;/div&gt;
+		&lt;!-- //container --&gt;
+	&lt;/div&gt;
+
+	&lt;!-- 팝업시작 : 개발구조 참고 (2023) --&gt;
+	&lt;div class="nhasset popWrap"&gt;팝업 영역&lt;/div&gt;
+	&lt;!-- //팝업끝 --&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [CSS 규칙] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">CSS 규칙</h3>
+				<div class="guide_area2">
+					<h4 class="guide_title3">클래스명 정의</h4>
+					<ul class="guide_txt">
+						<li><strong>카멜 케이스</strong>(시작이름은 영문 소문자로 시작하되, 두번째 단어부터 첫문자를 대문자로 처리)기법을 사용함</li>
+						<li>카멜기법을 사용할 경우 단독으로 사용할 수 있어야 함.</li>
+					</ul>
+				</div>
+
+				<div class="guide_area2">
+					<h4 class="guide_title3">폰트 정의</h4>
+<div class="guide_code">
+<pre>
+<span class="bg3">
+|-- NH농협은행 비대면 마이데이터 고객여정 개선(2025)에서는 Pretendard로 변경되며 점차 모든 콘텐츠 전환예정 --|
+|-- nhasset_myd_mb.css --|
+@font-face {
+	font-family:"Pretendard";
+	src: local("Pretendard-Light"),
+		url('../fonts/Pretendard-Light.woff2') format('woff2'),
+		url('../fonts/Pretendard-Light.woff') format('woff');
+	font-weight: 400;
+}
+@font-face {
+	font-family:"Pretendard";
+	src: local("Pretendard-Medium"),
+		url('../fonts/Pretendard-Medium.woff2') format('woff2'),
+		url('../fonts/Pretendard-Medium.woff') format('woff');
+	font-weight: 500;
+}
+@font-face {
+	font-family:"Pretendard";
+	src: local("Pretendard-SemiBold"),
+		url('../fonts/Pretendard-SemiBold.woff2') format('woff2'),
+		url('../fonts/Pretendard-SemiBold.woff') format('woff');
+	font-weight: 600;
+}
+</span>
+</pre>
+</div>
+
+					<div class="guide_tbl">
+						<table>
+							<caption>폰트 굵기 정의</caption>
+							<colgroup>
+								<col style="width:20%">
+								<col style="width:40%">
+								<col />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">폰트</th>
+									<th scope="col">폰트 굵기</th>
+									<th scope="col">내용</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="bg3">
+									<td rowspan="3">Pretendard</td>
+									<td>400</td>
+									<td>
+										<div style="font-weight:400;font-size:14px">가나다라마바사</div>
+										<div style="font-weight:400;font-size:14px">123456789</div>
+									</td>
+								</tr>
+								<tr class="bg3">
+									<td>500</td>
+									<td>
+										<div style="font-weight:500;font-size:14px;">가나다라마바사</div>
+										<div style="font-weight:500;font-size:14px;">123456789</div>
+									</td>
+								</tr>
+								<tr class="bg3">
+									<td>600</td>
+									<td>
+										<div style="font-weight:600;font-size:14px;">가나다라마바사</div>
+										<div style="font-weight:600;font-size:14px;">123456789</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<h5 class="guide_title4">폰트 사이즈 정의</h5>
+					<ul class="guide_txt">
+						<li>폰트 사이즈 clamp()를 사용</li>
+						<li><strong>clamp(최솟값, 선호값, 최댓값)</strong> 형식으로 요소의 최소, 선호, 최댓값지정</li>
+					</ul>
+					<div class="guide_tbl">
+						<table>
+							<caption>폰트 사이즈 정의</caption>
+							<colgroup>
+								<col style="width:30%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">폰트 사이즈</th>
+									<th scope="col">변수</th>
+									<th scope="col">내용</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>clamp(10px, 1rem, 12px)</td>
+									<td>var(--fontSize10)</td>
+									<td><div style="font-size:clamp(10px, 1rem, 12px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(11px, 1.1rem, 13px)</td>
+									<td>var(--fontSize11)</td>
+									<td><div style="font-size:clamp(11px, 1.1rem, 13px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(12px, 1.2rem, 14px)</td>
+									<td>var(--fontSize12)</td>
+									<td><div style="font-size:clamp(12px, 1.2rem, 14px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(13px, 1.3rem, 15px)</td>
+									<td>var(--fontSize13)</td>
+									<td><div style="font-size:clamp(13px, 1.3rem, 15px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(14px, 1.4rem, 16px)</td>
+									<td>var(--fontSize14)</td>
+									<td><div style="font-size:clamp(14px, 1.4rem, 16px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(15px, 1.5rem, 17px)</td>
+									<td>var(--fontSize15)</td>
+									<td><div style="font-size:clamp(15px, 1.5rem, 17px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(16px, 1.6rem, 18px)</td>
+									<td>var(--fontSize16)</td>
+									<td><div style="font-size:clamp(16px, 1.6rem, 18px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(17px, 1.7rem, 19px)</td>
+									<td>var(--fontSize17)</td>
+									<td><div style="font-size:clamp(17px, 1.7rem, 19px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(18px, 1.8rem, 20px)</td>
+									<td>var(--fontSize18)</td>
+									<td><div style="font-size:clamp(18px, 1.8rem, 20px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(19px, 1.9rem, 21px)</td>
+									<td>var(--fontSize19)</td>
+									<td><div style="font-size:clamp(19px, 1.9rem, 21px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(20px, 2rem, 22px)</td>
+									<td>var(--fontSize20)</td>
+									<td><div style="font-size:clamp(20px, 2rem, 22px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(21px, 2.1rem, 23px)</td>
+									<td>var(--fontSize21)</td>
+									<td><div style="font-size:clamp(21px, 2.1rem, 23px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(22px, 2.2rem, 24px)</td>
+									<td>var(--fontSize22)</td>
+									<td><div style="font-size:clamp(22px, 2.2rem, 24px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(24px, 2.4rem, 26px)</td>
+									<td>var(--fontSize24)</td>
+									<td><div style="font-size:clamp(24px, 2.4rem, 26px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(26px, 2.6rem, 28px)</td>
+									<td>var(--fontSize26)</td>
+									<td><div style="font-size:clamp(26px, 2.6rem, 28px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(34px, 3.4rem, 36px)</td>
+									<td>var(--fontSize34)</td>
+									<td><div style="font-size:clamp(34px, 3.4rem, 36px)">가나다라마바사</div></td>
+								</tr>
+								<tr>
+									<td>clamp(38px, 3.8rem, 40px)</td>
+									<td>var(--fontSize38)</td>
+									<td><div style="font-size:clamp(38px, 3.8rem, 40px)">가나다라마바사</div></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="guide_area2">
+					<h4 class="guide_title3">변수 정의</h4>
+					<ul class="guide_txt">
+						<li>공통으로 사용하는 부분에 한하여 사용함</li>
+						<li>사용방법 : <strong>var(--변수값)</strong></li>
+					</ul>
+<div class="guide_code">
+<pre>
+<span class="bg3">
+|-- NH농협은행 비대면 마이데이터 고객여정 개선(2025) 디자인 변경에 따른 변수 재정의 --|
+|-- nhasset_myd_mb.css --|
+:root{
+	/* 올원 */
+	--container-space:16px;
+	--container-space-1:calc(var(--container-space) * -1);
+	/* 백그라운드 컬러 */
+	--background:#fff;
+	--background-asis:#f3f5f8;/* AS-IS 스타일 :사용시 bgWhite 클래스 삭제 */
+	--background-newMain:#f3f6f8;/* newMain */
+	--background-newMain2:#f3f4f8;/* 자산메인 */
+	/* 포인트 컬러 */
+	--point1:#19973c;
+	--error:#e24949;
+	--rise:#ec0c0c;
+	--decline:#2c6fd4;
+	/* 비활성화 */
+	--color-disabled:#bfbfbf;
+	--color-disabled2:#909090;
+	--border-disabled:#e1e1e1;
+	--bg-disabled:#f0f0f0;
+	/* 박스라인 */
+	--border-color:#d3d3d3;
+	/* 폰트색상 */
+	--color0:#000;
+	--color1:#121212;
+	--color2:#343434;
+	--color3:#505050;
+	--color4:#767676;
+	--color5:#929292;
+	--color6:#a6a6a6;
+	--color-disabled:#a6a6a6;
+	/* 칼라 셋 */
+	--gray-100:#f6f6f6;
+	--gray-200:#f0f0f0;
+	--gray-300:#e1e1e1;
+	--gray-400:#d3d3d3;
+	--gray-500:#b3b3b3;
+	--gray-600:#707070;
+	--gray-700:#555;
+	--gray-800:#333;
+	--gray-900:#111;
+	--green-50:#ddf2e4;
+	--blue-400:#66a1ff;
+	--blue-700:#003b99;
+	--info-2:#f6efe6;
+	/* 필터 #19973c*/
+	--filter:invert(44%) sepia(55%) saturate(715%) hue-rotate(84deg) brightness(93%) contrast(86%);
+	/* 등급색상 */
+	--grade1:#d10f0f;/* 공격투자형 */
+	--grade2:#da6f11;/* 적극투자형 */
+	--grade3:#12a396;/* 위험중립형 */
+	--grade4:#2b9ac9;/* 안정추구형 */
+	--grade5:#015aac;/* 안정형 */
+	/* 위험도 */
+	--warning1:#d10f0f;/* 매우높은위험 */
+	--warning2:#d44b10;/* 높은위험 */
+	--warning3:#da6f11;/* 다소높은위험 */
+	--warning4:#12a396;/* 보통위험 */
+	--warning5:#2b9ac9;/* 낮은위험 */
+	--warning6:#015aac;/* 매우낮은위험 */
+	/* 폰트사이즈 2025-12-12 */
+	--fontSize10:clamp(10px, 1rem, 12px);
+	--fontSize11:clamp(11px, 1.1rem, 13px);
+	--fontSize12:clamp(12px, 1.2rem, 14px);
+	--fontSize13:clamp(13px, 1.3rem, 15px);
+	--fontSize14:clamp(14px, 1.4rem, 16px);
+	--fontSize15:clamp(15px, 1.5rem, 17px);
+	--fontSize16:clamp(16px, 1.6rem, 18px);
+	--fontSize17:clamp(17px, 1.7rem, 19px);
+	--fontSize18:clamp(18px, 1.8rem, 20px);
+	--fontSize19:clamp(19px, 1.9rem, 21px);
+	--fontSize20:clamp(20px, 2rem, 22px);
+	--fontSize21:clamp(21px, 2.1rem, 23px);
+	--fontSize22:clamp(22px, 2.2rem, 24px);
+	--fontSize24:clamp(24px, 2.4rem, 26px);
+	--fontSize26:clamp(26px, 2.6rem, 28px);
+	--fontSize34:clamp(34px, 3.4rem, 36px);
+	--fontSize38:clamp(38px, 3.8rem, 40px);  
+}
+</span>
+</pre>
+</div>
+				</div>
+
+			</div>
+		</section>
+	</div>
+	<!-- ###################################### -->
+</div>
+<script src="../worklist/js/jquery.nicescroll.min.js"></script>
+<script>
+$(function () {
+  $("body").niceScroll({
+	cursorcolor: "#19973c",
+    cursorwidth: "7px" 
+	});
+});
+</script>
+</body>
+</html>

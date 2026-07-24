@@ -1,0 +1,122 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>추천기관선택 | 자산연결 | 설정/관리</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset bgWhite">
+	<!-- header -->
+	<div class="header">
+		<h1>자산연결</h1>
+		<a href="javascript:;" class="btnEtc">나가기</a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 추천기관선택 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [STEP] -->
+		<!-- -------------------------------------- -->
+		<div class="stepWrap">
+			<!-- [MD2411_092] [자산연결 동의 절차 간소화] 4단계에서 3단계로 수정 -->
+			<ol role="img" aria-label="총 3단계 중 1번째 단계 : 기관선택">
+				<li class="active"><span>1</span></li>
+				<li><span>2</span></li>
+				<li><span>3</span></li>
+				<!-- <li><span>4</span></li> -->
+			</ol>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [NAVI] 이동버튼 -->
+		<!-- [D] 탭버튼으로 되어 있지만, 운영에서는 페이지 이동이므로, 링크 형태로 변경함 -->
+		<!-- -------------------------------------- -->
+		<div class="tabWrap type01 mt10">
+			<ul>
+				<li><a href="MSPS3110.html" title="현재페이지" class="active on">추천기관으로 연결</a></li>
+				<li><a href="MSPS3120.html">연결기관 직접선택</a></li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [CONTENT] 추천기관으로 연결 -->
+		<!-- -------------------------------------- -->
+		<div class="tabContWrap type01">
+			<div class="tabCont01">
+				<div class="recommendGroupWrap">
+					<ul>
+						<li>
+							<span class="title">은행 (16개)</span>
+							<div class="recommendGroup">농축협, 카카오뱅크, 신한은행, 국민은행, 하나은행, 우리은행, 케이뱅크, 기업은행, 신협, 토스뱅크, 새마을금고, SC제일은행, 우체국, 부산은행, 대구은행, 광주은행</div>
+						</li>
+						<li>
+							<span class="title">카드 (8개)</span>
+							<div class="recommendGroup">신한카드, 삼성카드, 현대카드, 국민카드, 카카오뱅크, 롯데카드, 하나카드, 우리카드</div>
+						</li>
+						<li>
+							<span class="title">보험 (10개)</span>
+							<div class="recommendGroup">삼성화재, 농협생명보험, DB손해보험, KB손해보험, 현대해상화재보험, 농협손해보험, 삼성생명보험, 메리츠화재해상보험, 신한라이프생명보험, 한화생명보험</div>
+						</li>
+						<li>
+							<span class="title">전자금융 (3개)</span>
+							<div class="recommendGroup">카카오페이, 카카오, 네이버파이낸셜</div>
+						</li>
+						<li>
+							<span class="title">증권 (7개)</span>
+							<div class="recommendGroup">NH투자증권, 한국투자증권, 미래에셋증권, 키움증권, 삼성증권, KB증권, 신한금융투자</div>
+						</li>
+						<!-- NH농협은행 비대면 마이데이터 고객여정 개선(2025) 통신업권 삭제 -->
+						<!-- <li>
+							<span class="title">통신 (3개)</span>
+							<div class="recommendGroup">SK텔레콤, KT, LG유플러스</div>
+						</li> -->
+						<li>
+							<span class="title">공공기관 (3개)</span>
+							<div class="recommendGroup">국민건강보험공단, 국민연금공단, 공무원연금공단</div>
+						</li>
+					</ul>
+				</div>
+				<div class="areaBtnDefault">
+					<a href="javascript:;" class="btnPressPoint" role="button">추천기관 50개 연결하기</a>
+				</div>
+			</div>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+$(window).on('load',function(){
+	//샘플 : 탭버튼 ARIA 속성 제거
+	setTimeout(function(){
+		var _wrap = $('.tabWrap.type01');
+		_wrap.find('ul, li , a').removeAttr('role');
+		_wrap.find('a').removeAttr('aria-selected');
+	},1000);
+});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

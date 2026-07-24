@@ -1,0 +1,94 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NH Bank">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="#">
+<title>[P] 내차관리 서비스</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+    fullLayerPop();
+	//popCenter();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+ 
+<!-- [팝업] 내차관리 서비스 -->
+<div class="nhasset popWrap fullLayerPop" role="dialog">
+	<div class="popInner">
+		<h1>내차관리 서비스</h1>
+		<div class="popCont grayPop">
+			<h2 class="defTit">서비스 이용 동의를 통해 <br>내차관리 서비스를 이용이 가능합니다.</h2> <!-- [운영현행화 260512] [MD2605_051] 내차관리 서비스 제휴사 변경 및 내차팔기 서비스 종료 : 텍스트 수정 -->
+
+			 <!-- [S] [운영현행화 260512] [MD2605_051] 내차관리 서비스 제휴사 변경 및 내차팔기 서비스 종료 :  boxTypeWrap 순서 변경 / 약관명 텍스트 수정 / 타이틀추가 -->
+			<div class="boxTypeWrap">
+				<div class="formWrap selectAll mt0 pd0">
+	                <div class="total">
+	                    <div class="formHolder check">
+	                        <input type="checkbox" id="type_all01" class="chekTypeOther">
+	                        <label class="check" for="type_all01">전체동의</label>
+	                    </div>
+	                </div>
+	                <div class="cont">
+	                    <div class="formHolder check">
+	                        <input type="checkbox" id="type01">
+	                        <label class="check" for="type01">[필수]개인(신용)정보 수집·이용 동의서(NH마이데이터 서비스&lt;내차관리&gt;)</label>
+	                        <a href="javascript:;" class="btnView" role="button" title="[필수]개인(신용)정보 수집·이용 동의서(NH마이데이터 서비스<내차관리>)"><span class="blind">약관보기</span></a>
+	                    </div>
+	                    <div class="formHolder check">
+	                        <input type="checkbox" id="type02">
+	                        <label class="check" for="type02"><em>[필수]개인(신용)정보 제3자 제공 동의서(NH마이데이터 서비스&lt;내차관리&gt;)</label>
+	                        <a href="javascript:;" class="btnView" role="button" title="[필수]개인(신용)정보 제3자 제공 동의서(NH마이데이터 서비스<내차관리>)"><span class="blind">약관보기</span></a>
+	                    </div>
+	                </div>
+	            </div>
+            </div>
+
+			<h2 class="defTit">차량시세 제공업체 변경 안내</h2>
+			<div class="boxTypeWrap pt10 pb10">
+                <div class="ast_listViewWrap">
+                    <ul class="ast_listView">
+                        <li>
+                            <span clss="subtext">변경일</span>
+                            <div class="context">2026.05.27(수)</div> <!-- [수정 260512] [MD2605_051] 내차관리 서비스 제휴사 변경 및 내차팔기 서비스 종료 : 텍스트수정 -->
+                        </li>
+                        <li>
+                            <span clss="subtext">서비스 제공업체</span>
+                            <div class="context">주식회사 핸들 → 나이스디앤알㈜</div> <!-- [수정 260512] [MD2605_051] 내차관리 서비스 제휴사 변경 및 내차팔기 서비스 종료 : 텍스트수정 -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+			<!-- [E] [운영현행화 260512] [MD2605_051] 내차관리 서비스 제휴사 변경 및 내차팔기 서비스 종료 :  boxTypeWrap 순서 변경 / 약관명 텍스트 수정 / 타이틀추가 -->
+			
+            <div class="boxTypeWrap">
+                <div class="info_area mt0">
+                    <strong class="info_area_title">알아두세요</strong>
+                    <ul class="listBul disc">
+                        <li>기존 고객도 서비스 이용 동의를 통해 이전과 동일하게 내차관리 서비스를 이용할 수 있습니다.</li><!-- [운영현행화 260512] [MD2605_051] 내차관리 서비스 제휴사 변경 및 내차팔기 서비스 종료 :  텍스트 변경 -->
+                        <li>미동의 시 등록 차량의 최신 시세정보 확인이 어렵습니다.</li>
+						<li>내차관리 서비스에는 본인명의 차량만 등록이 가능합니다.</li> <!-- [운영현행화 260512] [MD2605_051] 내차관리 서비스 제휴사 변경 및 내차팔기 서비스 종료 :  텍스트 추가 -->
+                    </ul>
+                </div>
+            </div>
+			
+        </div>
+
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">내차시세 보러가기</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- // -->
+</body>
+</html>

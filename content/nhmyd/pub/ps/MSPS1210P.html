@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 간편인증 요청(네이버)</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(document).ready(function () {
+		fullLayerPop();
+	})
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 간편인증 요청(네이버) ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1>간편인증 요청</h1>
+		<div class="popCont">
+			<h2 class="defTit"><span>네이버로</span><br><strong>간편인증 요청을 보냈습니다.</strong></h2>
+			<div class="certiTimeWrap"><span class="certiTime" aria-live="assertive" title="인증 남은 시간">05:00</span></div>
+			<div class="certiTimeWrap"><span class="certiTime count" aria-live="assertive" title="인증 남은 시간">00:10</span></div> <!-- [CASE] 10초 남은 시간부터 클래스명(count) 추가 -->
+			<ol class="certStep">
+				<!-- [CASE] 네이버 -->
+				<li>
+					<strong class="certStepTitle"><span class="num">1</span> 네이버 앱에서</strong>
+					<p class="certStepPara">화면상단 종 모양 아이콘을 선택하세요.</p>
+					<div class="certStepImg"><img src="../../images/img_certi_naver01.png" alt=""></div>
+					<p class="certStepPara">네이버 인증서 메시지에서 ‘지금 인증하기 (모바일앱)’을 선택합니다.</p>
+					<div class="certStepImg"><img src="../../images/img_certi_naver02.png" alt=""></div>
+				</li>
+				<!-- [CASE] 카카오 -->
+				<li>
+					<strong class="certStepTitle"><span class="num">1</span> 카카오톡 앱에서</strong>
+					<p class="certStepPara">채팅 목록에서 ‘카카오톡 지갑’을 선택하세요.</p>
+					<div class="certStepImg"><img src="../../images/img_certi_kakao01.png" alt="채팅 목록에서 ‘카카오톡 지갑’을 선택하세요."></div>
+					<p class="certStepPara">카카오톡 지갑 인증 요청 안내 메시지에서 ‘인증하기’를 선택합니다.</p>
+					<div class="certStepImg"><img src="../../images/img_certi_kakao02.png" alt="카카오톡 지갑 인증 요청 안내 메시지에서 ‘인증하기’를 선택합니다."></div>
+				</li>
+				<!-- [CASE] 페이코 -->
+				<li>
+					<strong class="certStepTitle"><span class="num">1</span> 페이코 앱에서</strong>
+					<p class="certStepPara">화면상단 종 모양 아이콘을 선택하세요.</p>
+					<div class="certStepImg"><img src="../../images/img_certi_payco01.png" alt="화면상단 알림 아이콘을 선택하세요."></div>
+					<p class="certStepPara">페이코 인증서 메시지에서 ‘인증 요청 보기’를 선택합니다.</p>
+					<div class="certStepImg"><img src="../../images/img_certi_payco02.png" alt="페이코 인증서 메시지에서 ‘인증 요청 보기’를 선택합니다."></div>
+				</li>
+				<!-- [CASE] PASS -->
+				<li>
+					<strong class="certStepTitle"><span class="num">1</span> PASS 앱에서</strong>
+					<p class="certStepPara">화면상단 알람 메시지를 선택하세요.</p>
+					<div class="certStepImg"><img src="../../images/img_certi_pass01.png" alt="화면상단 알람 메시지를 선택하세요."></div>
+					<p class="certStepPara">서비스 이용을 위한 동의 후 ‘다음’을 선택합니다.</p>
+					<div class="certStepImg"><img src="../../images/img_certi_pass02.png" alt="서비스 이용을 위한 동의 후 ‘다음’을 선택합니다."></div>
+				</li>
+				<!-- [CASE] 삼성PASS -->
+				<li>
+					<strong class="certStepTitle"><span class="num">1</span> 삼성PASS 앱에서</strong>
+					<p class="certStepPara">화면상단 ‘전자서명 인증서’를 선택 합니다.</p>
+					<div class="certStepImg"><img src="../../images/img_certi_samsung01.png" alt="화면상단 ‘전자서명 인증서’를 선택 합니다."></div>
+					<p class="certStepPara">인증서 확인 후 ‘인증’을 선택합니다</p>
+					<div class="certStepImg"><img src="../../images/img_certi_samsung02.png" alt="인증서 확인 후 ‘인증’을 선택합니다"></div>
+				</li>
+				<!-- // -->
+				<li>
+					<strong class="certStepTitle"><span class="num">2</span> NH스마트뱅킹 앱에서</strong>
+					<!-- [MD2502_019] 간편인증 시 인증 완료 전 대고객 노출 화면 일부 수정 -->
+					<p class="certStepPara">인증 완료 후 아래 ‘인증완료 확인’ 버튼을 선택하세요.</p>
+				</li>
+			</ol>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<!-- [MD2502_019] 간편인증 시 인증 완료 전 대고객 노출 화면 일부 수정 -->
+				<a href="javascript:;" class="confirmBtn disabled" role="button">$인증기관$앱으로 이동해주세요</a>
+				<!-- <a href="javascript:;" class="confirmBtn" role="button">인증완료 확인</a> -->
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//샘플 : 케이스 화면 정의
+	$(document).ready(function(){
+		var a = ['네이버(MSPS1210P)', '카카오(MSPS1210P1)', '페이코(MSPS1210P2)', 'PASS(MSPS1210P3)', '삼성PASS(MSPS1210P4)']; // 케이스 명
+		var b = ['MSPS1210P', 'MSPS1210P1', 'MSPS1210P2', 'MSPS1210P3', 'MSPS1210P4']; // 함수 명
+		var num = a.length; // 케이스 수
+		uiCaseMenu(a,b,num);
+		uiCaseMSPS1210P();
+	});
+
+	//샘플 : 케이스 : 네이버
+	function uiCaseMSPS1210P(){uiCase(1,'네이버')}
+
+	//샘플 : 케이스 : 카카오
+	function uiCaseMSPS1210P1(){uiCase(2,'카카오')}
+
+	//샘플 : 케이스 : 페이코
+	function uiCaseMSPS1210P2(){uiCase(3,'페이코')}
+
+	//샘플 : 케이스 : PASS
+	function uiCaseMSPS1210P3(){uiCase(4,'PASS')}
+
+	//샘플 : 케이스 : 삼성PASS
+	function uiCaseMSPS1210P4(){uiCase(5,'삼성PASS')}
+
+	//샘플 : 케이스
+	function uiCase(e,name){
+		$('.certStep li:not(:last-child)').hide().filter(':nth-child('+e+')').show();
+		$('.defTit > span').text(name);
+	}
+
+	// [MD2502_019] 간편인증 시 인증 완료 전 대고객 노출 화면 일부 수정
+	function changeText(){
+		var changeText = $('.confirmBtn.disabled').text();
+		changeText = '인증완료 확인';
+		setTimeout(function () {
+			$('.confirmBtn.disabled').removeClass('disabled');
+			$('.confirmBtn').text(changeText);
+		}, 5000)
+	}
+	changeText();
+</script>
+<!-- ###################################### -->
+</body>
+</html>

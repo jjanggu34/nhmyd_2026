@@ -1,0 +1,342 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 조회설정</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 조회설정 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>조회설정</h1>
+		<div class="popCont">
+			<!-- -------------------------------------- -->
+			<!-- [CASE] 조회설정 (공통) -->
+			<!-- -------------------------------------- -->
+			<div class="transfer">
+				<div class="formWrap">
+					<ul class="searchFormWrap">
+						<li>
+							<strong class="formTit">조회기간</strong>
+							<div class="calendarForm">
+								<div class="cal">
+									<div class="inputList">
+										<input type="tel" value="2024-08-14" title="조회 시작일" placeholder="시작일선택" readonly>
+										<a href="javascript:;" class="btnCalendar" title="시작일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+									</div>
+								</div>
+								<span class="symbol">-</span>
+								<div class="cal">
+									<div class="inputList">
+										<input type="tel" value="2024-11-14" title="조회 종료일" placeholder="종료일선택" readonly>
+										<a href="javascript:;" class="btnCalendar" title="종료일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+									</div>
+								</div>
+							</div>
+							<div class="roundChkWrap mt15">
+								<ul>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample20" id="sample21" aria-label="조회기간(1주일)">
+											<label for="sample21" aria-hidden="true">1주일</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample20" id="sample22" aria-label="조회기간(1개월)">
+											<label for="sample22" aria-hidden="true">1개월</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample20" id="sample23" aria-label="조회기간(3개월)">
+											<label for="sample23" aria-hidden="true">3개월</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample20" id="sample23"  aria-label="조회기간(6개월)">
+											<label for="sample23" aria-hidden="true">6개월</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample20" id="sample24"  aria-label="조회기간(1년)">
+											<label for="sample24" aria-hidden="true">1년</label>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<!-- [CASE] 자산 조회조건 설정 _ 은행업권 -->
+						<li>
+							<strong class="formTit">입출금 유형</strong>
+							<div class="boxRadio ">
+								<div class="boxRadioInn">
+									<span>
+										<input name="rdo00" id="rdo01" type="radio" aria-label="입출금 유형(전체)" checked>
+										<label for="rdo01" aria-hidden="true">전체</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="rdo00" id="rdo02" type="radio" aria-label="입출금 유형(입금)">
+										<label for="rdo02" aria-hidden="true">입금</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="rdo00" id="rdo03" type="radio" aria-label="입출금 유형(출금)">
+										<label for="rdo03" aria-hidden="true">출금</label>
+									</span>
+								</div>
+							</div>
+						</li>
+						<!-- [CASE] 자산 조회조건 설정 _ 전금업권 -->
+						<li>
+							<strong class="formTit">거래 유형</strong>
+							<div class="roundChkWrap mt15">
+								<ul>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample30" id="sample31" aria-label="거래 유형(전체)" checked>
+											<label for="sample31" aria-hidden="true">전체</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample30" id="sample32" aria-label="거래 유형(충전)">
+											<label for="sample32" aria-hidden="true">충전</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample30" id="sample33" aria-label="거래 유형(적립)">
+											<label for="sample33" aria-hidden="true">적립</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample30" id="sample34" aria-label="거래 유형(결제)">
+											<label for="sample34" aria-hidden="true">결제</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample30" id="sample35" aria-label="거래 유형(송금)">
+											<label for="sample35" aria-hidden="true">송금</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="sample30" id="sample36" aria-label="거래 유형(기타)">
+											<label for="sample36" aria-hidden="true">기타</label>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<!-- [CASE] 자산 조회조건 설정 _ 은행/전금업권 -->
+						<li>
+							<strong class="formTit">정렬기준</strong>
+							<div class="boxRadio ">
+								<div class="boxRadioInn">
+									<span>
+										<input name="rdo10" id="rdo11" type="radio" aria-label="정렬기준(최근 거래순)" checked> 
+										<label for="rdo11" aria-hidden="true">최근 거래순</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="rdo10" id="rdo12" type="radio" aria-label="정렬기준(과거 거래순)">
+										<label for="rdo12" aria-hidden="true">과거 거래순</label>
+									</span>
+								</div>
+							</div>
+						</li>
+						<!-- // -->
+					</ul>
+					<p class="subTxt2">※ 조회기간은 최대 3개월까지만 설정 가능합니다.</p>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [CASE] 거래구분 (머니캘린더) -->
+			<!-- -------------------------------------- -->
+			<div class="popSelWrap">
+				<strong class="formTit bdNone mt0 ">거래구분</strong>
+				<div class="addrSelectWrap">
+					<div class="boxCheck">
+						<div class="boxChkInn">
+							<input name="chksel" id="MSCS2500P1" type="checkbox" aria-label="거래구분(신용카드)" checked>
+							<label for="MSCS2500P1" aria-hidden="true">신용카드</label> 
+						</div>
+						<div class="boxChkInn">
+							<input name="chksel" id="MSCS2500P2" type="checkbox" aria-label="거래구분(체크카드)" checked>
+							<label for="MSCS2500P2" aria-hidden="true">체크카드</label>
+						</div>
+						<div class="boxChkInn">
+							<input name="chksel" id="MSCS2500P3" type="checkbox" aria-label="거래구분(페이결제)" checked>
+							<label for="MSCS2500P3" aria-hidden="true">페이결제</label>
+						</div>
+						<div class="boxChkInn">
+							<input name="chksel" id="MSCS2500P4" type="checkbox" aria-label="거래구분(선불카드)" checked>
+							<label for="MSCS2500P4" aria-hidden="true">선불카드</label>
+						</div>
+						<div class="boxChkInn">
+							<input name="chksel" id="MSCS2500P5" type="checkbox" aria-label="거래구분(계좌)" checked>
+							<label for="MSCS2500P5" aria-hidden="true">계좌</label> 
+						</div>
+						<div class="boxChkInn">
+							<input name="chksel" id="MSCS2500P6" type="checkbox" aria-label="거래구분(현금)" checked>
+							<label for="MSCS2500P6" aria-hidden="true">현금</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn">조회</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	//샘플 : 케이스 화면 정의
+	var _parameter = new URL(window.location.href).searchParams.get('pageID');
+	$(document).ready(function(){
+		var a = [
+			'공통(MSCO1600P)', 
+			'조회조건설정_은행업권(MSASC231P)', 
+			'조회조건설정_전금업권(MSASC232P)', 
+			'검색기간설정(MSCS2410P)',
+			'데이터전송관리(MSPS5111P)',
+			'자산연결내역안내(MSPS6000P)',
+			'머니캘린더(MSCS2500P)'
+		]; // 케이스 명
+		var b = [
+			'MSCO1600P', 
+			'MSASC231P',
+			'MSASC232P',
+			'MSCS2410P',
+			'MSPS5111P',
+			'MSPS6000P',
+			'MSCS2500P'
+		]; // 함수 명
+		var num = a.length; // 케이스 수
+		uiCaseMenu(a,b,num);
+		if(_parameter) $('.guide_select > .option > button[data-val="uiCase'+_parameter+'"]').trigger('click');
+		else uiCaseMSCO1600P();
+		slidePopConfirm();
+	});
+
+	//샘플 : 케이스 : 공통
+	function uiCaseMSCO1600P(){uiCase(1,'조회설정')}
+
+	//샘플 : 케이스 : 조회조건설정_은행업권
+	function uiCaseMSASC231P(){uiCase(2, '조회조건 설정')}
+
+	//샘플 : 케이스 : 조회조건설정_전금업권
+	function uiCaseMSASC232P(){uiCase(3, '조회조건 설정')}
+
+	//샘플 : 케이스 : 검색기간설정
+	function uiCaseMSCS2410P(){uiCase(4, '검색기간 설정')}
+
+	//샘플 : 케이스 : 데이터전송관리
+	function uiCaseMSPS5111P(){uiCase(5,'조회설정')}
+
+	//샘플 : 케이스 : 자산연결내역안내
+	function uiCaseMSPS6000P(){uiCase(6,'조회기간 설정')}
+
+	//샘플 : 케이스 : 머니캘린더
+	function uiCaseMSCS2500P(){uiCase(7,'조회조건 설정')}
+
+	//샘플 : 케이스
+	function uiCase(a, b){
+		var _txt = ['1주일', '1개월', '3개월', '6개월', '1년'];
+		$('.popInner > h1').text(b);
+		$('.transfer').show(); //조회설정(전체)
+		$('.popSelWrap').hide();  //거래구분(머니캘린더)
+		$('[name="sample20"]').closest('.roundChkWrap').find('li:last-child').show();
+		$('.searchFormWrap > li:nth-child(1) ~ li').hide();
+		$('.searchFormWrap > li:nth-child(1) > .formTit').show();
+		$('.subTxt2').show().text('※ 조회기간은 최대 3개월까지만 설정 가능합니다.');
+
+		if(a == 1){
+			_txt = ['1주일', '1개월', '2개월', '3개월'];
+			$('[name="sample20"]').closest('.roundChkWrap').find('li:last-child').hide();
+		}
+
+		if(a == 2 || a == 3){
+			$('.searchFormWrap > li:last-child').show();
+			$('.subTxt2').hide();
+			if(a == 2) $('.searchFormWrap > li:nth-child(2)').show().next().hide();
+			else $('.searchFormWrap > li:nth-child(3)').show().prev().hide();
+		}
+
+		if(a == 4){
+			$('.searchFormWrap > li:nth-child(1) > .formTit').hide();
+			$('.subTxt2').hide();
+		}
+
+		if(a == 5){
+			_txt = ['1개월', '3개월', '6개월', '1년'];
+			$('[name="sample20"]').closest('.roundChkWrap').find('li:last-child').hide();
+			$('.searchFormWrap > li:nth-child(1) > .formTit').hide();
+			$('.subTxt2').text('※ 조회기간은 최대 1년까지만 설정 가능합니다.');
+		}
+
+		if(a == 6){
+			_txt = ['3개월', '6개월', '1년', '2년'];
+			$('[name="sample20"]').closest('.roundChkWrap').find('li:last-child').hide();
+			$('.searchFormWrap > li:nth-child(1) > .formTit').hide();
+			$('.subTxt2').hide();
+		}
+
+		if(a == 7){
+			$('.transfer').hide();
+			$('.popSelWrap').show();
+		}
+
+		//조회기간 셋팅
+		$('[name="sample20"]').each(function(i, obj){
+			$(obj).attr('aria-label','조회기간('+_txt[i]+')').next().text(_txt[i]);
+			if(_txt[i] == '3개월') $(obj).prop('checked',true);
+			else $(obj).prop('checked',false);
+		})
+
+		//팝업 높이값 재정의
+		var _height = $('.popWrap:visible .popInner h1, .popWrap:visible .popInner h2').outerHeight() + $('.popWrap:visible .popInner .popCont').outerHeight() + $('.popWrap:visible .popInner .popBtnWrap').height();
+		$('.popWrap:visible .popInner').height(_height);
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

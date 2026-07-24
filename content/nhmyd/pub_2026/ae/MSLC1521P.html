@@ -1,0 +1,109 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>대출/신용관리 | AI대출금리케어 | 처리결과</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script>
+	$(document).ready(function(){
+		slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+	})  
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 밸런스진단 다시하기 안내 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>금리인하요구권 처리결과</h1>	
+
+		<div class="popCont interestBox">
+			<div class="boxTypeWrap -line finList"> <!-- [추가 260506] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : class="finList" 추가 -->
+				<div class="interestBox_result">
+					<div class="accDate">
+						<p class="date">
+							심사결과 회신일자 :
+							<span>2026.11.10</span>
+						</p>
+						<span class="bedge01">수용</span>
+						<!-- 
+							<span class="bedge02">불수용</span>
+							<span class="bedge02">신청불가</span>
+							<span class="bedge02">처리불가</span>
+							<span class="bedge02">미응답</span>
+						-->
+					</div>
+
+					<div class="accTit">
+						<span class="imgWrap"><img src="../../images/makebetter/logos/AABG0000.svg" alt="" class="imgLogo"></span>
+						<div class="accInfoWrap">
+							<p class="accTit">
+								NH주택담보대출
+							</p>
+							<div class="accInfo">
+								<span class="accName">NH농협은행</span>
+								<span class="accNum">1112222333344</span>
+								<!-- [수정 260127] [MD2601_001] (기존) 111-2222-3333-44 → (수정) 1112222333344  *'-' 표시 생략 -->
+							</div>
+						</div>
+					</div>
+
+					<!-- [S] [삭제 260429] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 대출잔액 영역 삭제 -->
+					<!--
+					<div class="accWon">
+						<span class="tit">대출잔액</span>
+						<span class="value">1억5,000만<em class="won">원</em></span>
+					</div>
+					-->
+					<!-- [E] [삭제 260429] [MD2603_031] 금리인하요구권 신청 시 계좌 전체선택 기능 개발 : 대출잔액 영역 삭제 -->
+				</div>
+
+				<div class="interestBox_info">
+					<div class="accTit">
+						<span class="imgWrap"><img src="../../images/makebetter/interest/ico_interest_result_01.png" alt="" class="imgLogo"></span>
+						<div class="accInfoWrap">
+							<ul>
+							  <li class="dot">변경 전 적용금리 : 5.00%</li>
+							  <li class="dot decline">변경 후 적용금리 : 4.50%</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<p class="guide-txt ac mt12">
+				* 이 대출계좌는 변경 후 적용금리로 반영되었으며 <br> 자동으로 재약정이 체결됩니다.
+			</p>
+		</div>
+
+		<!-- 하단 버튼 -->
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+		<!-- // 하단 버튼 -->
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

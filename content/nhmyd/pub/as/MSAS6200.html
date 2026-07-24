@@ -1,0 +1,228 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>선불카드 상세 | 자산현황(선불페이)</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>선불카드 상세</h1>
+		<a href="javascript:;" class="btnAcAdmin"><span class="blind">관리</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 선불카드 상세 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [레이어팝업] 메세지 : 순자산 포함 안된 자산일 경우 노출 -->
+		<!-- -------------------------------------- -->
+		<div class="layerMsgWrap">
+			<p>순자산 금액에 포함되지 않은 자산이에요.</p>
+			<button type="button" class="layerMsgClose"><span class="blind">닫기</span></button>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [상단영역] 선불카드정보 -->
+		<!-- -------------------------------------- -->
+		<div class="boxWrapShadow">
+			<!-- [선불카드기본내용] -->
+			<div class="boxTypeWrap delShadow">
+				<!-- // -->
+				<div class="accTopInfo mt0">
+					<h2 class="accName">
+						우리카드
+						<img src="../../images/logos/AAAH0000.png" alt="" class="imgLogo">
+					</h2>
+					<dl class="totalBalance">
+						<dt>총 잔액</dt>
+						<dd><strong>1,000,000</strong>원</dd>
+					</dl>
+				</div>
+				<!-- // -->
+
+				<hr class="divLine">
+
+				<!-- // -->
+				<div class="accInfoDetail mt10">
+					<ul class="detailList">
+						<li>
+							<span class="tit">유형</span>
+							<span class="value">선불카드</span>
+						</li>
+						<!-- [CASE] 권명정보가 단일일 경우 -->
+						<li>
+							<span class="tit">카드정보</span>
+							<span class="value">1234****</span>
+						</li>
+						<!-- // -->
+					</ul>
+				</div>
+				<!-- [CASE] 권명정보가 다수일 경우 -->
+				<div class="inputListArea">
+					<span class="tit">카드정보</span>
+					<div class="inputList">
+						<a href="javascript:;" title="카드정보선택" aria-haspopup="true">
+							<span class="selectValue">1234****</span>
+							<span class="selectBtn"></span>
+						</a>
+						<select name="" title="선택해주세요">
+							<option value=""></option>
+						</select>
+					</div>
+				</div>
+				<!-- // -->
+			</div>
+
+			<!-- [선불카드상세내용] -->
+			<div class="moreInfoArea">
+				<div class="moreInfoWrap toggleWrap">
+					<div class="moreInfo toggleCont" style="display:none">
+						<hr class="divLine2" aria-hidden="true">
+						<ul class="detailList">
+							<li>
+								<span class="tit">선불카드 상품명</span>
+								<span class="value">선불카드 상품명</span>
+							</li>
+							<li>
+								<span class="tit">발급일자</span>
+								<span class="value">2022.07.17 </span>
+							</li>
+							<li>
+								<span class="tit">최대충전한도 </span>
+								<span class="value"><strong class="dataValue">50</strong><em class="won">만원</em></span>
+							</li>
+							<li>
+								<span class="tit">카드잔액 </span>
+								<span class="value"><strong class="dataValue">402,000</strong><em class="won">원</em></span>
+							</li>
+							<li>
+								<span class="tit">충전잔액 </span>
+								<span class="value"><strong class="dataValue">390,000</strong><em class="won">원</em></span>
+							</li>
+							<li>
+								<span class="tit">적립잔액</span>
+								<span class="value"><strong class="dataValue">9,000</strong><em class="won">원</em></span>
+							</li>
+							<li>
+								<span class="tit">적립예정</span>
+								<span class="value"><strong class="dataValue">1,392</strong><em class="won">원</em></span>
+							</li>
+							<li>
+								<span class="tit">소멸예정</span>
+								<span class="value"><strong class="dataValue">3,000</strong><em class="won">원</em></span>
+							</li>
+						</ul>
+					</div>
+					<button type="button" class="moreOpenBtn toggleBtn"><span class="toggleTxt07">상세정보 보기</span></button> <!--09.26 toggleTxt07 추가-->
+				</div>
+			</div>
+			<!-- // -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [목록영역] 거래내역 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap pt0">
+			<!-- [CASE1] 내역이 있는 경우 -->
+			<div class="inoutListWrap longTit">
+				<!-- [날짜별 반복] -->
+				<div class="inoutListInn">
+					<p class="date bdtNone">2020년 10월 31일</p>
+					<ul class="inoutList">
+						<li>
+							<p class="inoutTit">충전</p>
+							<div class="inoutCont">
+								<div class="timeWrap">
+									<span class="time">00:00</span>
+								</div>
+								<span class="amount inColor"><strong class="dataValue">+100,000</strong><em class="won">원</em></span>
+							</div>
+							<div class="totalAmount"><span class="txt">잔액</span> <strong class="dataValue">100,000</strong><em class="won">원</em></div>
+						</li>
+						<li>
+							<p class="inoutTit">결제</p>
+							<div class="inoutCont">
+								<div class="timeWrap">
+									<span class="time">00:00</span>
+								</div>
+								<span class="amount outColor"><strong class="dataValue">-100,000</strong><em class="won">원</em></span>
+							</div>
+							<div class="totalAmount"><span class="txt">잔액</span> <strong class="dataValue">100,000</strong><em class="won">원</em></div>
+						</li>
+					</ul>
+				</div>
+				<!-- // -->
+				<div class="inoutListInn">
+					<p class="date bdtNone">2020년 10월 31일</p>
+					<ul class="inoutList">
+						<li>
+							<p class="inoutTit noAgree"><a href='javascript:;' role='button' class='linkTxt2'>거래내용이 궁금하다면?</a></p>
+							<div class="inoutCont">
+								<div class="timeWrap">
+									<span class="time">00:00</span>
+								</div>
+								<span class="amount inColor"><strong class="dataValue">+100,000</strong><em class="won">원</em></span>
+							</div>
+							<div class="totalAmount"><span class="txt">잔액</span> <strong class="dataValue">100,000</strong><em class="won">원</em></div>
+						</li>
+						<li>
+							<p class="inoutTit noAgree"><a href='javascript:;' role='button' class='linkTxt2'>거래내용이 궁금하다면?</a></p>
+							<div class="inoutCont">
+								<div class="timeWrap">
+									<span class="time">00:00</span>
+								</div>
+								<span class="amount outColor"><strong class="dataValue">-100,000</strong><em class="won">원</em></span>
+							</div>
+							<div class="totalAmount"><span class="txt">잔액</span> <strong class="dataValue">100,000</strong><em class="won">원</em></div>
+						</li>
+					</ul>
+				</div>
+				<!-- // -->
+			</div>
+			<!-- // -->
+			<div class="listMoreBtn">
+				<a href="javascript:;" title="항목 더보기">더보기</a>
+			</div>
+
+			<!-- [CASE2] 내역이 없는 경우 -->
+			<div class="noResultWrap">
+				<p>거래내역이 없습니다.</p>
+			</div>
+			<!-- // -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$('.layerMsgClose').click(function(){
+		$(this).closest('.layerMsgWrap').hide();
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

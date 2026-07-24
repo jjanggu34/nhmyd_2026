@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>통합인증 별도동의 | 자산연결 | 설정/관리</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body class="nhd_pay"><!-- NH Pay일 경우 nhd_pay 클래스 -->
+<div class="wrapper nhasset bgWhite">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>자산연결</h1>
+		<a href="javascript:;" class="btnEtc">나가기</a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 별도동의  ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] STEP -->
+		<!-- -------------------------------------- -->
+		<div class="stepWrap">
+			<ol role="img" aria-label="총 3단계 중 2번째 단계">
+				<li><span>1</span></li>
+				<li class="active"><span>2</span></li>
+				<li><span>3</span></li>
+			</ol>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 동의영역 -->
+		<!-- -------------------------------------- -->
+		<div class="assSetList">
+			<h2 class="agr_title_info"><strong><span class="text-highlight-y">개인(신용) 정보 전송 및 수집·이용에</span> 동의</strong><span>해주세요</span></h2>
+			
+			<!-- ### 추가 이용 동의(선택) ### -->
+			<div class="formWrapArea">
+				<h3 class="tit">추가 이용 동의(선택)</h3>
+				<div class="formWrap selectAll pd0">
+					<div class="total">
+						<div class="formHolder check">
+							<input type="checkbox" id="type_all01" class="chekTypeOther">
+							<label class="check" for="type_all01"> 전체동의</label>
+						</div>
+					</div>
+					<div class="cont">
+						<div class="formHolder check">
+							<input type="checkbox" id="type01" checked>
+							<label class="check" for="type01"><em>[선택]</em> 개인(신용) 정보수집·이용·제공동의서 (상품서비스 안내 등)</label>
+							<a href="javascript:;" class="btnView"><span class="blind">[선택] 개인(신용) 정보수집·이용·제공동의서 (상품서비스 안내 등)약관보기</span></a>
+						</div>
+						<div class="agreeSubcont">
+							<div class="agreeSubTitle">
+								<strong>상품 서비스 안내 방법</strong>
+								<span class="formHolder check">
+									<input type="checkbox" id="type_all001" class="chekTypeOther">
+									<label class="check" for="type_all001"> 전체</label>
+								</span>
+							</div>
+							<div class="boxRadio ">
+								<div class="boxRadioInn">
+									<span>
+										<input id="productInfo01" type="checkbox" aria-label="상품 서비스 안내 방법(전화)">
+										<label class="radio" for="productInfo01" aria-hidden="true">전화</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input id="productInfo02" type="checkbox" aria-label="상품 서비스 안내 방법(문자메시지)">
+										<label class="radio" for="productInfo02" aria-hidden="true">문자메시지</label>
+									</span>
+								</div>
+							</div>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input id="productInfo03" type="checkbox" aria-label="상품 서비스 안내 방법(우편물)">
+										<label class="radio" for="productInfo03" aria-hidden="true">우편물</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input id="productInfo04" type="checkbox" aria-label="상품 서비스 안내 방법(이메일)">
+										<label class="radio" for="productInfo04" aria-hidden="true">이메일</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="formHolder check otherDisabled">
+							<input type="checkbox" id="type02" disabled>
+							<label class="check" for="type02"><em>[선택]</em> 개인(신용)정보 수집·이용 동의서 (상품서비스 안내 등)(NH마이데이터)</label>
+							<a href="javascript:;" class="btnView"><span class="blind">[선택] 개인(신용)정보 수집·이용 동의서 (상품서비스 안내 등)(NH마이데이터) 약관보기</span></a>
+						</div>
+						<!-- [MD2411_092_v0.16] [자산연결 동의 절차 간소화] 약관 삭제  -->
+						<!-- <div class="formHolder check">
+							<input type="checkbox" id="type03">
+							<label class="check" for="type03"><em>[선택]</em> 개인(신용)정보 제3자 제공동의서</label>
+							<a href="javascript:;" class="btnView"><span class="blind">[선택] 개인(신용)정보 제3자 제공동의서 약관보기</span></a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+
+			<!-- ### 정보 수집·이용 동의(선택) ### -->
+			<div class="formWrapArea">
+				<h3 class="tit lev2">정보 수집·이용 동의(선택)</h3>
+				<div class="listType_table type5">
+					<!-- // -->
+					<div class="item">
+						<div class="topArea">
+							<p class="underPara">계좌정보의 적요 또는 거래메모를 가져올까요?</p>
+							<span><a href="javascript:;" class="linkType1" title="적요 또는 거래 메모 동의 여부 버튼"> <span id="result1"></span></a></span>
+						</div>
+						<div class="listCont used10">
+							<p class="boxSelect">적요와 거래메모에는 송금인/수취인의 이름과 거래정보가 포함되어 있습니다.</p>
+							<div class="boxRadio rdoType">
+								<div class="boxRadioInn">
+									<span>
+										<input name="used10" id="usedBtn01" type="radio" aria-label="계좌정보의 적요 또는 거래메모를 가져올까요(아니요)"  onclick='getRadioText(event, "result1")'>
+										<label class="radio" for="usedBtn01" aria-hidden="true">아니요</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="used10" id="usedBtn02" type="radio" aria-label="계좌정보의 적요 또는 거래메모를 가져올까요(예)"  onclick='getRadioText(event, "result1")'>
+										<label class="radio" for="usedBtn02" aria-hidden="true">예</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="item">
+						<div class="topArea">
+							<p class="underPara">결제 내역의 <br>가맹점명 및 사업자등록번호를 가져올까요?</p>
+							<span><a href="javascript:;" class="linkType1" title="가맹점명 및 사업자등록번호 동의 여부 버튼"><span id="result2"></span></a></span>
+						</div>
+						<div class="listCont used20">
+							 <p class="boxSelect">가맹점명 및 사업자등록번호에는 소비습관 등을 알 수 있는 정보가 포함되어 있습니다.</p>
+							<div class="boxRadio rdoType">
+								<div class="boxRadioInn">
+									<span>
+										<input name="used20" id="usedBtn03" type="radio" aria-label="결제 내역의 가맹점명 및 사업자등록번호를 가져올까요(아니요)" onclick='getRadioText(event, "result2")'>
+										<label class="radio" for="usedBtn03" aria-hidden="true">아니요</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="used20" id="usedBtn04" type="radio" aria-label="결제 내역의 가맹점명 및 사업자등록번호를 가져올까요(예)" onclick='getRadioText(event,"result2")'>
+										<label class="radio" for="usedBtn04" aria-hidden="true">예</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- // -->
+					<div class="item">
+						<div class="topArea">
+							<p class="underPara">상품구매 카테고리 정보를 가져올까요?</p>
+							<span><a href="javascript:;" class="linkType1" title="상품구매 카테고리 정보 동의 여부 버튼"><span id="result3"></span></a></span>
+						</div>
+						<div class="listCont used30">
+							<p class="boxSelect">선불전자지급수단의 상품구매정보 항목에는 실제 구매한 상품이 아닌 해당 상품의 카테고리 정보가 포함되어 있습니다. 정보전송은 본인의 책임과 판단하에 신중하게 결정하여 주시기 바랍니다.</p>
+							<div class="boxRadio rdoType">
+								<div class="boxRadioInn">
+									<span>
+										<input name="used30" id="usedBtn05" type="radio" aria-label="상품구매 카테고리 정보를 가져올까요(아니요)" onclick='getRadioText(event, "result3")'>
+										<label class="radio" for="usedBtn05" aria-hidden="true">아니요</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input name="used30" id="usedBtn06" type="radio" aria-label="상품구매 카테고리 정보를 가져올까요(예)" onclick='getRadioText(event, "result3")'>
+										<label class="radio" for="usedBtn06" aria-hidden="true">예</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="addinfoBox">
+							<p class="tit">가져오는 카테고리 정보</p>
+							가전 및 전자/도서 및 문구/패션 및 의류/스포츠/화장품/아동 및 유아/식품/생활 및 가구/여행 및 교통/문화 및 레저/음식/E쿠폰 및 기타서비스 카테고리 정보
+						</div>
+						<!-- // -->
+					</div>
+					<!-- // -->
+				</div>
+			</div>
+
+			<!-- ### 안내문구 ### -->
+			<p class="tblbottomTxt">위 항목 중 전송요구시 선택한 개인신용정보 항목에 한함</p>
+			<!-- ### // ### -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint disabled" role="button" aria-disabled="true">확인</a> <!-- [D] 활성화 : 클래스명(disabled) 삭제 / aria-disabled="true" 삭제 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+    var rdochk = $('.rdoType input[type="radio"]');
+    rdochk.click(function(){
+        var iptname = $(this).attr("name");
+        var targetBox = $("." + iptname);
+        $(targetBox).hide();
+
+    });
+    function getRadioText(event, e)  {
+		const radioId = event.target.id;
+		const query = 'label[for="'+ radioId + '"]'
+		const txt = document.querySelector(query).innerText;
+		document.getElementById(e).innerText = txt;
+		$('#'+e).parent('a').focus();
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

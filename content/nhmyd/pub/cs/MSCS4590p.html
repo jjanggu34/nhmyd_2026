@@ -1,0 +1,74 @@
+<DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 내 카드 선택</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(function() {
+		slidePopOption();
+	});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 내 카드 선택 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopOption">
+	<div class="dim"></div>
+	<div class="popInner">
+		<h1>내 카드 선택</h1>
+		<div class="popCont">
+			<div class="popInnerCont mb15">
+				<a href="javascript:;" class="linkTypeBlock">카드연결바로가기</a>
+			</div>
+			<ul class="selectList accList isBorder">
+				<li class="active">
+					<a href="javascript:;" role="button" title="카드선택(선택됨)">
+						<span class="imgWrap">
+							<img src="../../images/logos/AABJ0000.png" alt="하나카드" class="imgLogo">
+						</span>
+						<div class="accInfoWrap">
+							<p class="accTit">하나 클럽SK카드</p>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:;" role="button" title="카드선택">
+						<span class="imgWrap">
+							<img src="../../images/logos/AAAF0000.png" alt="국민카드" class="imgLogo">
+						</span>
+						<div class="accInfoWrap">
+							<p class="accTit">KB국민 굿데이올림</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">취소</a>
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">확인</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

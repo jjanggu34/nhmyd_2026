@@ -1,0 +1,524 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>PUSH 관리 | 설정/관리</title>
+<script src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_myd_mb.css">
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>PUSH 관리</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] PUSH 관리 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] PUSH알림 설정 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap pt0">
+			<div class="pushSet">
+				<div class="totalTitWrap pushTitWrap">
+					<h2>PUSH알림 설정</h2>
+					</div>
+				<ul>
+					<li>
+						<div class="flex">
+							<span class="tit">알림수신 APP</span>
+							<span class="value">$상위채널명$</span>
+						</div>
+						<div class="flex">
+							<span class="tit">$상위채널명$ 알림수신</span>
+							<span class="value pointColor">동의</span>
+						</div>
+						<div class="flex">
+							<span class="tit">NH마이데이터 수신 알림</span>
+							<span class="chkBox">
+								<span class="tgBtnType2 small24">
+									<input type="checkbox" id="toggle0" checked="checked" title="NH마이데이터 수신 알림">
+									<label for="toggle0"></label>
+								</span>
+							</span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 자산 알림 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<ul class="pushSelList">
+				<li>
+					<span class="title">자산<a href="javascript:;" class="linkTxt3" role="button">지난알림보기</a></span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle10" title="자산">
+							<label for="toggle10"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">자산현황 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle11" title="자산현황 알림">
+							<label for="toggle11"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">목표 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle12" title="목표 알림">
+							<label for="toggle12"></label>
+						</span>
+					</span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 소비 알림 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<ul class="pushSelList">
+				<li>
+					<span class="title">소비<a href="javascript:;" class="linkTxt3" role="button">지난알림보기</a></span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle10" title="소비">
+							<label for="toggle10"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">소비현황 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle11" title="소비현황 알림">
+							<label for="toggle11"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">카드 혜택 비교 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle12" title="카드 혜택 비교 알림">
+							<label for="toggle12"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">예산관리 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle12" title="예산관리 알림">
+							<label for="toggle12"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">카드리포트 생성 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle131" title="카드리포트 생성 알림">
+							<label for="toggle131"></label>
+						</span>
+					</span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 금융플래너 알림 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<ul class="pushSelList">
+				<li>
+					<span class="title">금융플래너<a href="javascript:;" class="linkTxt3" role="button">지난알림보기</a></span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle10" title="금융플래너">
+							<label for="toggle10"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">만기예정</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle11" title="만기예정">
+							<label for="toggle11"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">납부예정</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle12" title="납부예정">
+							<label for="toggle12"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">출금예정</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle13"  title="출금예정">
+							<label for="toggle13"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">공모주</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle14" title="공모주">
+							<label for="toggle14"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">주택청약</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle15" title="주택청약">
+							<label for="toggle15"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">직접등록 일정</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle16" title="직접등록 일정">
+							<label for="toggle16"></label>
+						</span>
+					</span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 내차관리 알림 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<ul class="pushSelList">
+				<li>
+					<span class="title">내차관리<a href="javascript:;" class="linkTxt3" role="button">지난알림보기</a></span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle21" title="내차관리">
+							<label for="toggle21"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">자동차보험 만기</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle22" title="자동차보험 만기">
+							<label for="toggle22"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">운전자보험만기일</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle23" title="운전자보험만기일">
+							<label for="toggle23"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">신규 리콜 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle24" title="신규 리콜 알림">
+							<label for="toggle24"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">고속도로 통행료 미납 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle25" title="고속도로 통행료 미납 알림">
+							<label for="toggle25"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">자동차 검사일 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle26" title="자동차 검사일 알림">
+							<label for="toggle26"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">운전면허 갱신일 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle27" title="운전면허 갱신일 알림">
+							<label for="toggle27"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">범칙금(과태료) 고지 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle28" title="범칙금(과태료) 고지 알림">
+							<label for="toggle28"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">자동차세 고지 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle29" title="자동차세 고지 알림">
+							<label for="toggle29"></label>
+						</span>
+					</span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 금융자산분석 알림 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<ul class="pushSelList">
+				<li>
+					<span class="title">금융자산분석<a href="javascript:;" class="linkTxt3" role="button">지난알림보기</a></span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle31" title="금융자산분석">
+							<label for="toggle31"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">월간 보고서 발행 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle32" title="월간 보고서 발행 알림">
+							<label for="toggle32"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">세금계산서 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle33" title="세금계산서 알림">
+							<label for="toggle33"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">자산진단 변경 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle34" title="자산진단 변경 알림">
+							<label for="toggle34"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">연금진단 변경 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle35" title="연금진단 변경 알림">
+							<label for="toggle35"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">조기은퇴진단 변경 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle36" title="조기은퇴진단 변경 알림">
+							<label for="toggle36"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">신용관리 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle37" title="신용관리 알림">
+							<label for="toggle37"></label>
+						</span>
+					</span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 헬스케어 알림 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<ul class="pushSelList">
+				<li>
+					<span class="title">헬스케어<a href="javascript:;" class="linkTxt3" role="button">지난알림보기</a></span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle31" title="헬스케어">
+							<label for="toggle31"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">실손 보험 청구 안내</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle32" title="실손 보험 청구 안내">
+							<label for="toggle32"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">주말약국 찾기</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle33" title="주말약국 찾기">
+							<label for="toggle33"></label>
+						</span>
+					</span>
+				</li>
+			</ul>
+		</div>
+		<!-- [MD2507_087_v0.04] 혜택 알리미 서비스 신규 개발 추가 -->
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 혜택알리미+ -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<ul class="pushSelList">
+				<li>
+					<span class="title">혜택알리미<a href="javascript:;" class="linkTxt3" role="button">지난알림보기</a></span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle43" title="혜택알리미+">
+							<label for="toggle43"></label>
+						</span>
+					</span>
+				</li>
+				<!-- [MD2507_087_v0.05] 혜택 알리미 서비스 신규 개발 추가 리스트 수정  S -->
+				<li>
+					<span class="title">맞춤혜택</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle44" title="맞춤혜택">
+							<label for="toggle44"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">신청현황</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle45" title="신청현황">
+							<label for="toggle45"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">이용안내</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle46" title="이용안내">
+							<label for="toggle46"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">가족정보</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle47" title="가족정보">
+							<label for="toggle47"></label>
+						</span>
+					</span>
+				</li>
+				<!-- //[MD2507_087_v0.05] 혜택 알리미 서비스 신규 개발 추가 리스트 수정 E -->
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] NH트렌드+ -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<ul class="pushSelList">
+				<li>
+					<span class="title">NH트렌드+<a href="javascript:;" class="linkTxt3" role="button">지난알림보기</a></span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle41" title="NH트렌드+">
+							<label for="toggle41"></label>
+						</span>
+					</span>
+				</li>
+				<li>
+					<span class="title">신규 콘텐츠 알림</span>
+					<span class="chkBox">
+						<span class="tgBtnType2 small24">
+							<input type="checkbox" id="toggle42" title="신규 콘텐츠 알림">
+							<label for="toggle42"></label>
+						</span>
+					</span>
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 바로가기 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBodyBtnFull mt20">
+			<a href="javascript:;" class="btnBodyLine h54" role="button">지난 알림 전체보기</a>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 액션버튼 -->
+		<!-- -------------------------------------- -->
+		<!-- [MD2503_029_v0.03] 금융플래너 공모주 설정 및 출금예정관련 UX 개선 삭제 -->
+		<!-- <div class="areaBtnDefault half">
+			<a href="javascript:;" class="btnPressPoint" role="button">확인</a>
+		</div> -->
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

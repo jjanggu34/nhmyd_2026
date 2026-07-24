@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="robots" content="no-index,follow" />
+<meta name="title" content="" />
+<meta name="author" content="" />
+<meta name="content" content="" />
+<meta name="keywords" content="NH마이데이터" />
+<meta name="description" content="NH마이데이터" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<title>[P] 숨긴 자산 관리(은행계좌)</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script>
+  $(document).ready(function () {
+    fullLayerPop();
+  });
+</script>
+</head>
+<body>
+  <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+  <!-- ###################################### -->
+  <!-- ### [팝업] [P] 숨긴 자산 관리 ### -->
+  <!-- ###################################### -->
+  <div class="nhasset popWrap fullLayerPop">
+    <div class="popInner">
+      <h1>숨긴 자산 관리</h1>
+      <div class="popCont fontFixed"><!-- 2025-12-15 폰트 고정 요청 -->
+        <div class="infoBanner">
+          <div class="cash">
+            <span>연결된 자산에서 <br> 숨긴 자산을 모아봤어요</span>
+            <p class="mt4">다시 보고 싶으시면 꺼내기 버튼을 눌러주세요.<br> (숨긴 자산은 자산 목록 및 합계에서 제외됩니다.)</p>
+          </div>
+        </div>
+        <hr class="divLine mt24 mb24" aria-hidden="true" />
+        <!-- ### 입출금, 예적금, 외화, 기타 계좌 목록 ### 2025-11-05 li 내용 및 hr 추가, 수정-->
+        <div class="mbAccListWrap mainAsset -button">
+          <!-- 은행계좌 -->
+          <ul class="mbAccList -mb"><!-- 2025-11-05 "-mb" 클래스 추가 -->
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AABG0000.svg" class="mbCi" alt="NH농협은행 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">입출금통장</span>
+                </dt>
+                <dd class="mbAccAmount"><span>1,500,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AAHJ0000.svg" class="mbCi" alt="카카오뱅크 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">마이너스 통장</span>
+                </dt>
+                <dd class="mbAccAmount -mediumPlus al"><span>53,000,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+          </ul>
+          <hr class="divLine mt24 mb24">
+          <!-- // 은행계좌 -->
+          <!-- 증권계좌 -->
+          <ul class="mbAccList -mb"><!-- 2025-11-05 "-mb" 클래스 추가 -->
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AABG0000.svg" class="mbCi" alt="NH농협은행 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">종합위탁</span>
+                </dt>
+                <dd class="mbAccAmount"><span>70,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AAES0000.svg" class="mbCi" alt="하나은행 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">종합위탁</span>
+                </dt>
+                <dd class="mbAccAmount -mediumPlus al"><span>10,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+          </ul>
+          <hr class="divLine mt24 mb24">
+          <!-- // 증권계좌 -->
+          <!-- 대출계좌 -->
+          <ul class="mbAccList -mb"><!-- 2025-11-05 "-mb" 클래스 추가 -->
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AABG0000.svg" class="mbCi" alt="NH농협은행 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">디딤돌 첫 생에 대출</span>
+                </dt>
+                <dd class="mbAccAmount">-<span>1,000,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AAES0000.svg" class="mbCi" alt="하나은행 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">NH 마이너스 통장 or 별명</span>
+                </dt>
+                <dd class="mbAccAmount -mediumPlus al">-<span>1,000,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+          </ul>
+          <hr class="divLine mt24 mb24">
+          <!-- // 대출계좌 -->
+          <!-- 연금계좌 -->
+          <ul class="mbAccList -mb"><!-- 2025-11-05 "-mb" 클래스 추가 -->
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AABG0000.svg" class="mbCi" alt="NH농협은행 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">디딤돌 첫 생에 대출</span>
+                </dt>
+                <dd class="mbAccAmount">-<span>1,000,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AAES0000.svg" class="mbCi" alt="하나은행 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">NH 마이너스 통장 or 별명</span>
+                </dt>
+                <dd class="mbAccAmount -mediumPlus al">-<span>1,000,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+          </ul>
+          <hr class="divLine mt24 mb24">
+          <!-- //연금계좌 -->
+          <!-- 선불카드 페이 -->
+          <ul class="mbAccList -mb"><!-- 2025-11-05 "-mb" 클래스 추가 -->
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AABG0000.svg" class="mbCi" alt="NH농협은행 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">디딤돌 첫 생에 대출</span>
+                </dt>
+                <dd class="mbAccAmount">-<span>1,000,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AAES0000.svg" class="mbCi" alt="하나은행 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap">
+                  <span class="mbAccTit">NH 마이너스 통장 or 별명</span>
+                </dt>
+                <dd class="mbAccAmount -mediumPlus al">-<span>1,000,000</span>원</dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+          </ul>
+          <hr class="divLine mt24 mb24">
+          <!-- // 선불카드 페이 -->
+          <!-- 보험 -->
+          <ul class="mbAccList -mb"><!-- 2025-11-05 "-mb" 클래스 추가 -->
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AAET0000.svg" class="mbCi" alt="DB생명보험 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap mb0">
+                  <span class="mbAccTit color2">애니카 다이렉트 자동차 보험</span>
+                </dt>
+                <dd class="mbAccDetail mt2">123가1234 <span>랜드로버 레인지로버 스포티랜드로버 레인지로버 스포티</span></dd>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+            <li class="mbAccListItem">
+              <span class="mbCiWrap">
+                <img src="../../images/makebetter/logos/AANZ0000.svg" class="mbCi" alt="KB생명보험 Ci" />
+              </span>
+              <dl class="mbAccItem">
+                <dt class="mbAccTitWrap mb0">
+                  <span class="mbAccTit color2">우리아이건강보험</span>
+                </dt>
+              </dl>
+              <a href="javascript:;" role="button" title="숨긴 자산 꺼내기" class="btn -tertiary -xs ml12">꺼내기</a>
+            </li>
+          </ul>
+          <hr class="divLine mt24 mb24">
+          <!-- // 보험 -->
+        </div>
+        <!-- ### // ### -->
+        <!-- ### 숨긴 자산 없을 때 CASE ### -->
+        <div class="mbAccListWrap mainAsset empty">
+          <strong>숨긴 자산이 없어요.</strong>
+        </div>         
+        <!-- ### // 숨긴 자산 없을 때 ### -->
+      </div>
+      <div class="popBtnWrap">
+        <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button" >
+          <img src="../../images/common/btn_popClose.png" alt="닫기" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ###################################### -->
+  <!-- ### [샘플] 스크립트 ### -->
+  <!-- ###################################### -->
+  <script></script>
+  <!-- ###################################### -->
+</body>
+</html>

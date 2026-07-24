@@ -1,0 +1,97 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>현금 자산 등록</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(function(){
+		fullLayerPop();
+	})
+</script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>현금 자산 등록</h1>
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 현금 자산 등록 ### -->
+	<!-- ###################################### -->
+	<div class="container bgWhite">
+		<!-- -------------------------------------- -->
+		<!-- [NAVI] 이동버튼 -->
+		<!-- [D] 탭버튼으로 되어 있지만, 운영에서는 페이지 이동이므로, 링크 형태로 변경함 -->
+		<!-- -------------------------------------- -->
+		<div class="tabWrap type01 mt10">
+			<ul>
+				<li><a href="MSAS9160.html">보유 현금</a></li>
+				<li><a href="MSAS9150.html" title="현재페이지" class="active on">빌린 현금</a></li>
+			</ul>
+		</div>
+		<p class="subTxt mt20">빌린 현금은 자산 합계에서 차감돼요.</p>
+		<!-- -------------------------------------- -->
+		<!-- [입력영역] -->
+		<!-- -------------------------------------- -->
+		<div class="formWrap estWrap">
+			<ul>
+				<li>
+					<strong class="formTit">명칭</strong>
+					<div class="inputList">
+						<input type="text" title="명칭" placeholder="명칭을 입력해주세요.">
+						<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+					</div>
+					<p class="errorTxt" style="display:none;">특수문자[!@#$*()-=|;:,./]만 입력 가능합니다.</p>
+				</li>
+				<li>
+					<!-- [MD2502_011] 실물자산 영역 개선 및 현금 수기 자산 등록 기능 추가 텍스트 수정 -->
+					<strong class="formTit">금액</strong>
+					<div class="inputList unitMan">
+						<input type="tel" title="금액" value="" placeholder="금액을 입력해주세요.">
+						<span class="unit">만원</span>
+						<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+					</div>
+					<div class="roundBtnWrap">
+						<a href="javascript:;" role="button" title="10만원 추가">+10만</a>
+						<a href="javascript:;" role="button" title="50만원 추가">+50만</a>
+						<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+						<a href="javascript:;" role="button" title="300만원 추가">+300만</a>
+					</div>
+					<p class="errorTxt" style="display:none;">1부터 9,999,999만원까지 입력 가능합니다.</p>
+				</li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [하단영역] 액션버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">등록하기</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

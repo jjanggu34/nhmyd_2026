@@ -1,0 +1,130 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 미청구 보험금 상세내역</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(document).ready(function() {
+		fullLayerPop();
+	});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 미청구 보험금 상세내역 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<!--  [MD2408_068_v0.11] 텍스트 띄어쓰기 수정 -->
+		<h1>미청구보험금 상세내역</h1>
+		<div class="popCont">
+			<!-- -------------------------------------- -->
+			<!-- [상단영역] -->
+			<!-- -------------------------------------- -->
+			<div class="moreTopInfo">
+				<h2 class="moreName">상품명</h2>
+				<div class="moreTotal">미청구 보험금이 <em class="pointColor">N건</em> 있어요</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [목록영역] 미청구 보험금 -->
+			<!-- -------------------------------------- -->
+			<!-- [CASE] 원화 -->
+			<div class="boxTypeWrap line pt0 pb0">
+				<div class="moreListTit t1">
+					<h3>만기보험금</h3>
+					<p class="sub"><strong class="dataValue">1,000,000</strong> <em class="won">원</em></p>
+				</div>
+				<div class="popIRP openType">
+					<div>
+						<div class="toggleCont">
+							<ul class="detailList">
+								<li>
+									<span class="tit">원금산출기준일</span>
+									<span class="value">YYYY.MM.DD</span>
+								</li>
+								<li>
+									<span class="tit">이자산출기준일</span>
+									<span class="value">YYYY.MM.DD</span>
+								</li>
+								<li>
+									<span class="tit">계약체결일</span>
+									<span class="value">YYYY.MM.DD</span>
+								</li>
+								<li>
+									<span class="tit">부가정보</span>
+									<span class="value">$부가정보 내용$</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- [CASE] 외화 -->
+			<div class="boxTypeWrap line pt0 pb0">
+				<div class="moreListTit t1">
+					<h3>만기보험금</h3>
+					<p class="sub"><strong class="dataValue">1,000,000</strong> <em class="won">원</em></p>
+				</div>
+				<div class="popIRP openType">
+					<div>
+						<div class="toggleCont">
+							<ul class="detailList">
+								<!-- [D] 외화일 경우 노출 -->
+								<li>
+									<span class="tit">미청구보험금액</span>
+									<span class="value">USD<strong class="dataValue"> 2.099</strong></span>
+								</li>
+								<li>
+									<span class="tit">적용환율</span>
+									<span class="value">1USD=<strong class="dataValue">1234.12</strong><em class="won">원</em></span>
+								</li>
+								<li>
+									<span class="tit">원금산출기준일</span>
+									<span class="value">YYYY.MM.DD</span>
+								</li>
+								<li>
+									<span class="tit">이자산출기준일</span>
+									<span class="value">YYYY.MM.DD</span>
+								</li>
+								<li>
+									<span class="tit">계약체결일</span>
+									<span class="value">YYYY.MM.DD</span>
+								</li>
+								<li>
+									<span class="tit">부가정보</span>
+									<span class="value">$부가정보 내용$</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</div>
+
+		<div class="popBtnWrap">
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

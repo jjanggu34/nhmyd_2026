@@ -1,0 +1,491 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>소비서브메인(지난 달) | 소비A</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset hasGnb">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack" role="button"><span>이전화면으로</span></a>
+		<h1><a href="javascript:;" role="text"><img src="../../images/logoMydata2.png" alt="금융과 일상을 연결하다 NH마이데이터"></a></h1>
+		<!-- [MD2502_024] 공통 헤더영역 변경 알람 추가 -->
+		<a href="javascript:;" class="btnAlram" role="button"><span>알람</span></a>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav" role="button"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 소비서브메인(지난 달) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [GNB] -->
+		<!-- -------------------------------------- -->
+		<div class="gnb">
+			<ul>
+				<li><a href="javascript:;">자산</a></li>
+				<li><a href="javascript:;" class="active" title="선택됨">소비</a></li>
+				<li class="menuStar"><a href="javascript:;"><span class="menuStarInner"><span class="blind">별별서비스</span></span></a></li> <!-- [접근성_2024] 메뉴명 변경 -->
+				<li><a href="javascript:;">전체</a></li>
+			</ul>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 업데이트바 -->
+		<!-- -------------------------------------- -->
+		<div class="pageRefreshWrap">
+			<div class="pageRefresInner">
+				<span>
+					<span class="date">08.05 10:45</span>
+					<button type="button" class="btnUpdate"><span class="blind">업데이트</span></button>
+				</span>
+				<button type="button" class="btnAlrt new" aria-expanded="false"><span class="blind">알림</span></button>
+			</div>
+			<div class="pageAlertWrap">
+				<ul>
+					<li class="alertNotice">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>연결중인 자산 확인이 필요해요</dt>
+								<dd>OOO에서 전송 중단 또는 거절이 있었습니다.<br/>연결관리 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보 확인이 필요해요</dt>
+								<dd><span>$연말정산$</span> 정보수집 중 오류가 있었습니다.<br/><span>$연말정산$</span> 설정 화면에서 확인해주세요. </dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>업데이트한지 <span>N</span>일이 지났어요</dt>
+								<dd><span>$연말정산$</span> 정보 업데이트가 필요합니다.<br/>인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+					<li class="alertError">
+						<a href="javascript:;" role="button">
+							<dl>
+								<dt>정보수집이 필요해요</dt>
+								<dd><span>$연말정산$</span> 서비스 이용을 위해 정보수집이 필요합니다. 인증관리 화면에서 확인해주세요.</dd>
+							</dl>
+						</a>
+					</li>
+
+				</ul>
+				<div class="pageAlertNoData">
+					<p>업데이트 알림 내역이 없습니다.</p>
+				</div>
+				<button type="button" aria-expanded="true" class="pageAlertClose"><span>닫기</span></button>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 공통 SPOT 배너 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE1] 신규자산 -->
+		<div class="yaTopBanner Ty01 bgTy03">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>N개 기관에 신규자산이 있어요</span>
+				<p>새롭게 가입한 상품 연결하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+		<!-- [CASE2] 기한만료 -->
+		<div class="yaTopBanner Ty01 bgTy02">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>연결 만료된 N개 기관이 있어요</span>
+				<p>재연결하고 소비현황 확인하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+		<!-- [CASE2] 만료예정 -->
+		<div class="yaTopBanner Ty01 bgTy01">
+			<a href="javascript:;" class="link yalinkBtn" role="button">
+				<span>만료예정인 N개 기관이 있어요</span>
+				<p>재연결하고 소비현황 확인하기</p>
+			</a>
+			<button type="button" class="btnClose"><span class="blind">닫기</span></button>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 지난 달 총 소비 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<div class="filterArea mt0">
+				<div>
+					<span class="txtt2 mb0">
+						6월 총 소비
+						<button type="button" class="assetSet" onclick="slidePopOption();"><span class="blind">총 자산 설정하기</span></button>
+					</span>
+				</div>
+				<div class="filterSelect"><button type="button" title="월 선택 팝업열기"><strong>6월</strong><span class="pointColor9">(06.05~07.04)</span></button></div>
+			</div>
+			<div>
+				<dl class="totalBalance bigSize2">
+					<dd><strong class="dataValue">2,098,694</strong><strong class="won">원</strong></dd>
+					<dt class="mt10">총 수입 7,234,567 원</dt>
+				</dl>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너추가] 연결 배너 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBanner2 t4">
+			<a href="javascript:;" class="img13" role="button" tabindex="0" title="카드리포트 페이지 이동">
+				<span>내 카드 분석</span>
+				<span>나는 얼마나 쓰고 내 또래는 얼마나 쓰고 있을까?</span>
+			</a>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] 슬라이드 배너 -->
+		<!-- -------------------------------------- -->
+		<div class="csChartWrap">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<!-- ### 나의 한 달 소비 흐름 ### -->
+					<div class="swiper-slide">
+						<div class="boxTypeWrap">
+							<h2 class="txtt2"><strong>나의 한 달 소비 흐름</strong></h2>
+							<!-- [CASE] 소비
+							<p class="imojiTit mt5">
+								지난 달 동일기간보다 <span class="pointColor02">40만원 더</span> 썼어요
+								<span class="icoImg"><img src="../../images/ico_emoji04.png" alt="우는 아이콘"></span>
+							</p>
+							-->
+							<!-- [CASE] 절약 -->
+							<p class="imojiTit mt5">
+								지난 달 동일기간보다 <span class="pointColor05">40만원 덜</span> 썼어요
+								<span class="icoImg"><img src="../../images/ico_emoji05.png" alt="윙크 아이콘"></span>
+							</p>
+							<!-- [CASE] 비슷
+							<p class="imojiTit mt5">
+								지난 달과 비슷하게 소비하고 있어요
+								<span class="icoImg"><img src="../../images/ico_emoji14.png" alt="무표정 아이콘"></span>
+							</p>
+							-->
+							<!-- [CASE] 지지난 달 소비Y, 지난 달 소비N
+							<p class="imojiTit mt5">
+								6월에는 소비가 없었어요
+								<span class="icoImg"><img src="../../images/ico_emoji15.png" alt="우수에 찬 아이콘"></span>
+							</p> 
+							-->
+							<div class="graphWrap mt20" style="height:190px;background:#f6f6f6;" tabindex="0" role="img" aria-label="">
+								<div class="guide_empty">차트영역</div>
+							</div>
+							<div class="ac">
+								<a href="javascript:;" class="linkTxt3 mt20">나의 한 달 설정하기</a>
+							</div>
+						</div>
+					</div>
+
+					<!-- ### 나의 한 달 예산 현황 : [CASE1] 실퍄 ### -->
+					<div class="swiper-slide">
+						<div class="boxTypeWrap">
+							<div class="myBudgetWrap">
+								<h2 class="wrapTit"><strong>나의 한 달 예산 현황</strong></h2>
+								<div class="myTitWrap allfail01">
+									<p class="bigTit">예산 <strong>300만원</strong>으로<br>한 달 살기 실패!</p>
+									<p class="myTxt">예산 초과 <span class="pointColor09">1,400,000원</span> <img src="../../images/ico_emoji06.png" alt="눈물 아이콘"></p>
+								</div>
+								<p class="defTxt"><strong>월 예산 <span class="pointColor09">100.0%</span> 사용</strong></p>
+								<div class="mt20">
+									<div class="graphBg" style="height:auto;">
+										<div class="graphWrap" style="height:20px;background:#f6f6f6;" tabindex="0" role="img" aria-label="설정한 예산 대비 소비 200%">
+											<div class="guide_empty">차트영역</div>
+										</div>
+									</div>
+								</div>
+								<div class="ac mt30">
+									<a href="javascript:;" class="linkTxt3 mt10">카테고리별 예산 보기</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- ### 나의 한 달 예산 현황 : [CASE1] 성공 ### -->
+					<div class="swiper-slide">
+						<div class="boxTypeWrap">
+							<div class="myBudgetWrap">
+								<h2 class="wrapTit"><strong>나의 한 달 예산 현황</strong></h2>
+								<div class="myTitWrap success01">
+									<p class="bigTit">예산 <strong>300만원</strong>으로<br>한 달 살기 성공!</p>
+									<p class="myTxt">남은 예산 <span class="pointColor14">1,400,000원</span> <img src="../../images/ico_emoji05.png" alt="스마일 아이콘"></p>
+								</div>
+								<p class="defTxt"><strong>월 예산 <span class="pointColor14">100.0%</span> 사용</strong></p>
+								<div class="mt20">
+									<div class="graphBg" style="height:auto;">
+										<div class="graphWrap" style="height:20px;background:#f6f6f6;" tabindex="0" role="img" aria-label="설정한 예산 대비 소비 200%">
+											<div class="guide_empty">차트영역</div>
+										</div>
+									</div>
+								</div>
+								<div class="ac mt30">
+									<a href="javascript:;" class="linkTxt3 mt10">카테고리별 예산 보기</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- ### // ### -->
+				</div>
+			</div>
+			<div class="swiper-button-prev blind"></div>
+			<div class="swiper-button-next blind"></div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTIOM3] 언제 썼을까? -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<div class="cs_MonthImgWrap mb15" role="button" tabindex="0" title="머니캘린더 페이지 이동">
+				<h2 class="txtt2"><strong>언제 썼을까?</strong></h2>
+				<strong class="txtb1">가장 많이 소비한 날은 <span class="pointColor">14일</span> 이에요</strong>
+			</div>
+
+			<!-- ### 지난달 캘린더 ### -->
+			<div class="cms calenderArea">
+				<div class="weekItem">
+					<span>월</span>
+					<span>화</span>
+					<span>수</span>
+					<span>목</span>
+					<span>금</span>
+					<span>토</span>
+					<span>일</span>
+				</div>
+
+				<div class="dateItem">
+					<div class="date bgNone"></div>
+					<div class="date bgNone"></div>
+					<div class="date bgNone"></div>
+					<div class="date bgNone"></div>
+					<div class="date bgNone"></div>
+					<div class="date bgNone">1</div>
+					<div class="date bgNone">2</div>
+					<!-- [CASE] 지출이 있는 날 -->
+					<div class="date num">
+						3
+						<div>
+							<span>-110,000</span>
+						</div>
+					</div>
+					<!-- [CASE] 수입이 있는 날 -->
+					<div class="date num">
+						4
+						<div>
+							<span class="pointColor">+79,450</span>
+						</div>
+					</div>
+					<div class="date">5</div>
+					<div class="date">6</div>
+					<!-- [CASE] 지출+수입+가장 많이 소비한 날 -->
+					<div class="date num active">
+						7
+						<div>
+							<span>-220,000</span>
+							<span class="pointColor">+79,450</span>
+						</div>
+					</div>
+					<div class="date">8</div>
+					<div class="date">9</div>
+
+					<div class="date" >10</div>
+					<div class="date" >11</div>
+					<div class="date" >12</div>
+					<div class="date" >13</div>
+					<!-- [CASE] 지출+수입+가장 많이 소비한 날 -->
+					<div class="date num active">
+						14
+						<div>
+							<span>-220,000</span>
+							<span class="pointColor">+79,450</span>
+						</div>
+					</div>
+					<div class="date" >15</div>
+					<div class="date" >16</div>
+					<div class="date" >17</div>
+					<div class="date" >18</div>
+					<div class="date" >19</div>
+					<div class="date" >20</div>
+					<div class="date" >21</div>
+					<div class="date" >22</div>
+					<div class="date" >23</div>
+					<div class="date" >24</div>
+					<div class="date" >25</div>
+					<div class="date" >26</div>
+					<div class="date" >27</div>
+					<div class="date bgNone">28</div>
+					<div class="date bgNone">29</div>
+					<div class="date bgNone">30</div>
+					<div class="date bgNone">31</div>
+					<div class="date bgNone"></div>
+					<div class="date bgNone"></div>
+					<div class="date bgNone"></div>
+					<div class="date bgNone"></div>
+					<div class="date bgNone"></div>
+				</div>
+			</div>
+			<div class="ac">
+				<a href="javascript:;" class="linkTxt3">지난 달 전체내역 보기</a>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTIOM5] 어디에 많이 썼을까? -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap" role="button" tabindex="0" title="소비패턴 페이지이동">
+			<div class="accTopInfo mt0">
+				<h2 class="txtt2"><strong class="csLink">어디에 많이 썼을까?</strong></h2>
+				<p class="txtb1"><strong class="pointColor">외식</strong>에 가장 많이 소비하고 있어요</p>
+			</div>
+			<div class="csTopsellWrap">
+				<div class="label">1위</div>
+				<div class="ico"><img src="../../images/category/cs/ico_cate_cs31.gif" alt=""></div>
+				<div class="price">외식 <span class="dataValue">1,400,000원</span></div>
+			</div>
+			<div class="csSubsellWrap">
+				<div>
+					<div class="tag green">2위</div>
+					<div class="csSubsellImgWrap mt5">
+						<div>
+							<span class="imgWrap icoCate">
+								<span class="img bdNone">
+									<img src="../../images/category/cs/ico_cate_cs02.png" alt="">
+								</span>
+							</span>
+						</div>
+						<div>
+							<span class="datatit">카페/간식</span>
+							<span class="dataValue">60,000원</span>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="tag green">3위</div>
+					<div class="csSubsellImgWrap mt5">
+						<div>
+							<span class="imgWrap icoCate">
+								<span class="img bdNone">
+									<img src="../../images/category/cs/ico_cate_cs03.png" alt="">
+								</span>
+							</span>
+						</div>
+						<div>
+							<span class="datatit">술/유흥</span>
+							<span class="dataValue">60,000원</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] 추천카드 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<div class="accTopInfo mt0">
+				<h2 class="txtt2"><strong><a href="javascript:;" class="csLink">나에게 맞는 추천카드는?</a></strong></h2>
+			</div>
+			<div class="cardChangeWrap mt10">
+				<div>
+					<span class="imgWrap">
+						<img src="../../images/logos/AAAF0000.png" alt="국민카드 로고" class="imgLogo">
+					</span>
+				</div>
+				<div class="cs cardComparedTitle">
+					<span class="inner smallTxt">내가 쓰는
+						<button type="button" title="카드 선택"><span>KB국민 가온 플래티늄바우처카드</span></button> 를<br /> 
+						NH농협카드로 바꾸면?
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [배너영역] 카드결제예정금액 -->
+		<!-- -------------------------------------- -->
+		<!-- [CASE] 카드 연결된 경우 -->
+		<div class="boxTypeWrap" role="button" tabindex="0" title="내 카드 서브메인 페이지 이동">
+			<div class="cardChangeWrap">
+				<div>
+					<span class="changeimg"><img src="../../images/img_consum_pocket_change.png" alt="돈주머니 이미지" /></span>
+				</div>
+				<div class="w100p ml10">
+					<h2 class="txtt2 mb0">
+						<strong class="csLink">카드 사용금액과 결제금액<br> 알아보러 가기</strong>
+					</h2>
+				</div>
+			</div>
+		</div>
+
+		<!-- [CASE] 카드 연결 안된 경우 -->
+		<div class="boxTypeWrap" role="button" tabindex="0" title="자산연결 추천기관선택 페이지 이동">
+			<div class="cardChangeWrap">
+				<div>
+					<span class="changeimg"><img src="../../images/img_consum_passbook_change.png" alt="통장과 동전이미지" /></span>
+				</div>
+				<div class="w100p ml10">
+					<h2 class="txtt2 mb0">
+						<strong class="csLink">
+							카드를 연결하고 <span class="pointColor">결제예정금액,</span><br>
+							<span class="pointColor">사용금액, 보유 포인트</span> 확인하기
+						</strong>
+					</h2>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [바로가기영역] -->
+		<!-- -------------------------------------- -->
+		<div class="yatexbtnWrap mt20">
+			<a href="javascript:;" title="자산 가리기" aria-haspopup="true" class="setHide">자산 가리기</a> <!-- [MD2408_068] 버튼명 수정 -->
+			<a href="javascript:;" title="나의 한달 설정하기" aria-haspopup="true" class="setBtn">나의 한달 설정하기</a> <!-- [MD2408_068] 버튼명 수정 -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [플로팅버튼] -->
+		<!-- -------------------------------------- -->
+		<div class="cs registBtn" style="display: block;">
+			<a href="javascript:;" role="button">자산연결</a>
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	$(function () {
+		csChartWrapSwiper();
+	})
+</script>
+<!-- ###################################### -->
+</body>
+</html>

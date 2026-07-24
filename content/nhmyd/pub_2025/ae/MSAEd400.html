@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>밸런스진단 결과 | 밸런스진단 | 자산관리</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+  <!-- header -->
+  <div class="header">
+    <a href="javascript:;" class="btnBack" role="button"><span>이전화면으로</span></a>
+    <h1>밸런스진단 결과</h1>
+    <a href="javascript:;" class="btnAlram" role="button"><span>알람</span></a>
+    <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+  </div>
+  <!-- //header -->
+  <div class="container bgWhite">
+    <div class="fullyWrap bgAsis -analysis">
+      <!-- 업데이트 새로고침-->
+      <div class="pageRefreshWrap">
+        <div class="pageRefresInner mt0">
+          <span><!-- 업데이트 중-->
+            <span class="date">업데이트 중</span>
+            <button type="button" class="btnUpdate active"><span class="blind">업데이트 중 입니다</span></button>
+          </span>
+          <span><!-- 해당정보 없을 때 -->
+            <span class="date">수집이력 없음</span>
+            <button type="button" class="btnUpdate"><span class="blind">수집이력이 없습니다</span></button>
+          </span>
+          <span><!-- 업데이트 완료 시-->
+            <span class="date">07.18 00:00</span>
+            <button type="button" class="btnUpdate"><span class="blind">07.18 00:00 업데이트 완료</span></button>
+          </span>
+        </div>
+      </div>
+      <!--// 업데이트 새로고침-->
+      <h2 class="defTit mt16 mb24"> 내 자산과 최적 포트폴리오 사이 <br /> 밸런스를 균형있게 맞춰보세요! </h2>
+      <!-- ###################################### -->
+      <!-- ### 분석 대상 자산 ### -->
+      <!-- ###################################### -->
+      <div class="boxTypeWrap mb8">
+        <div class="valanceTitWrap mb24">
+          <h3 class="h5">분석 대상 자산</h3>
+          <a href="javascript:;" class="valueAsset"> <span>999,000,000</span>원 </a>
+        </div>
+
+        <div class="flexTitWrap">
+          <h3 class="h5">내 포트폴리오</h3>
+          <a href="javascript:;" class="reTry -refresh" role="button">다시 진단하기</a>
+          <!-- popOver -->
+          <div class="popOverBox -static show" role="tooltip" aria-live="polite">
+            <p class="popOverTxt">최신금액으로 새롭게 진단해 보세요</p>
+            <button class="popOverClose" aria-label="말풍선 닫기"></button>
+            <div class="popOverArrow"></div>
+          </div>
+          <!-- // popOver -->
+        </div>
+
+        <div class="chartWrap -bar">
+          <div class="chartGraph">
+            <!-- 차트 영역 -->
+            <canvas id="stackedBarChart" role="img" tabindex="0" aria-labelledby="내 포트폴리오 가로막대바 그래프"></canvas>
+            <div class="tooltip" role="tooltip" aria-live="polite" aria-hidden="true"></div>
+            <!-- // 차트 영역 -->
+          </div>
+        </div>
+        <!-- [D] WMS 통신 실패 시 메세지 선택 노출 -->
+        <!-- <div class="expectedWrap ar">
+          <span class="expected">기대수익 범위(최저 -5.7% ~ 최고 +19.7%)</span>
+        </div> -->
+        <!-- [D] 2025-11-12 WMS 통신 실패 시 메세지 추가 요청 -->
+        <div class="expectedWrap ac">
+          <span class="expected">잠시 후 [다시 진단하기]로 업데이트 해주세요</span>
+        </div>
+
+        <h3 class="h5">최적 포트폴리오</h3>
+        <div class="chartWrap -bar">
+          <div class="chartGraph">
+            <!-- 차트 영역 -->
+            <canvas id="stackedBarChart2" role="img" tabindex="0" aria-labelledby="최적 포트폴리오 가로막대바 그래프"></canvas>
+            <div class="tooltip" role="tooltip" aria-live="polite" aria-hidden="true"></div>
+            <!-- // 차트 영역 -->
+          </div>
+        </div>
+        <div class="expectedWrap ar">
+          <span class="expected">기대수익 범위(최저 -5.7% ~ 최고 +19.7%)</span>
+        </div>
+        <!-- ### #################### ### -->
+        <div class="mbToggleWrap">
+          <!-- 토글 영역 -->
+          <div class="noticeCont" role="region" id="portfolio0" aria-labelledby="showBtn1" style="display: none" tabindex="-1">
+            <div class="wrapTblDefault -label mt24">
+              <table><!-- 2025-09-12 샘플 데이터 현행화 -->
+                <caption>최적 포트폴리오와 내 포트폴리오 비교(자산종류, MY, 최적, 차이)</caption><!--2025-11-13 수정-->
+                <colgroup>
+                  <col style="width:auto">
+                  <col style="width:20%">
+                  <col style="width:20%">
+                  <col style="width:22%">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col"><span class="blind">자산종류</span></th>
+                    <th scope="col" class="ar">MY</th>
+                    <th scope="col" class="ar">최적</th><!-- 2025-11-13 수정 요청-->
+                    <th scope="col" class="ar">차이</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>현금</td>
+                    <td class="ar">1.9%</td>
+                    <td class="ar">3.0%</td>
+                    <td class="rise ar">+1.1%</td>
+                  </tr>
+                  <tr class="brNone">
+                    <td>국내주식</td>
+                    <td class="ar">2.1%</td>
+                    <td class="ar">27.0%</td>
+                    <td class="rise ar">+24.9%</td>
+                  </tr>
+                  <tr class="brNone">
+                    <td>해외선진국주식</td>
+                    <td class="ar">25.0%</td>
+                    <td class="ar">25.0%</td>
+                    <td class="zero ar">0%</td>
+                  </tr>
+                  <tr>
+                    <td>해외신흥국주식</td><!-- 2025-09-26 0% 적용 예제(해외신흥국주식)-->
+                    <td class="ar">0.0%</td>
+                    <td class="ar">4.0%</td>
+                    <td class="rise ar">4.0%</td>
+                  </tr>
+                  <tr class="brNone">
+                    <td>국내채권</td>
+                    <td class="ar">14.0%</td>
+                    <td class="ar">21.0%</td>
+                    <td class="rise ar">+7.0%</td>
+                  </tr>
+                  <tr class="brNone">
+                    <td>해외채권</td>
+                    <td class="ar">32.0%</td>
+                    <td class="ar">20.0%</td>
+                    <td class="decline ar">-12.0%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="grayBox -mb mb24">
+                <strong class="body3 -medium decline"> 기대수익 범위 안내 </strong>
+                <ul class="listBul disc descList mt8">
+                  <li>
+                    [내 포트폴리오] 기대수익률 <span class="color1">7%</span>, 변동성
+                    <span class="color1">12.7%</span>
+                  </li>
+                  <li class="mt4">
+                    [최적 포트폴리오] 기대수익률 <span class="color1">7%</span>, 변동성 <!-- 2025-11-03 문구수정-->
+                    <span class="color1">12.7%</span>
+                  </li>
+                </ul>
+                <hr class="divLine mt8 mb8" aria-hidden="true" />
+                <p class="caption1 -medium color4">
+                  현재, 고객님의 포트폴리오는 연 <span class="color1">4%</span>의 수익률을
+                  기대할 수 있으며, 약 <span class="color1">68%</span> 확률로
+                  <span class="color1">-13.2%</span>에서
+                  <span class="color1">+21.2%</span> 사이의 수익을 기록할 수 있어요.
+                </p>
+              </div>
+            </div>
+          </div>
+          <hr class="divLine mt24 mb16" aria-hidden="true" />
+          <button type="button" class="showBtn noticeBtn" role="button" id="showBtn0" aria-expanded="false" data-target="#portfolio0" aria-controls="portfolio0">
+            <span>펼치기</span>
+          </button>
+        </div>
+        <!-- // 토글 영역 -->
+        <!-- ### #################### ### -->
+      </div>
+      <!-- ###################################### -->
+      <!-- ### 진단유형 ### -->
+      <!-- ###################################### -->
+      <div class="boxTypeWrap -border">
+        <div class="riskNeutral">
+          <p class="body3 color3">$김농협$님 진단유형</p>
+          <h4 class="h4 mt2">해외자산 미포함, 위험중립형</h4>
+        </div>
+        <p class="body3 mt24">최적 포트폴리오에 비해</p>
+        <div class="grayBox -mb mt8">
+          <div class="metricList -border">
+            <dl class="metricItem">
+              <dt class="metricLabel">기대수익률</dt>
+              <dd class="metricValue decline">낮아요!</dd><!-- 낮을 때 decline 칼라 -->
+            </dl>
+            <dl class="metricItem">
+              <dt class="metricLabel color3">투자위험</dt>
+              <dd class="metricValue rise">높아요!</dd><!-- 높을 때 rise 칼라 -->
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fullyWrap bgWhite pt32 pb40">
+      <h2 class="defTit mt0">밸런스진단 결과에요!</h2>
+      <!-- -------------------------------------- -->
+      <!-- [SECTION] 주식 / Stock  -->
+      <!-- -------------------------------------- -->
+      <div class="boxTypeWrap balanceResult">
+        <div class="valanceTitWrap">
+          <div class="connLine">
+            <div class="totalTitWrap">
+              <h2 class="listTitWrap noneTogg">
+                <div class="titL">
+                  <span class="accTi barIconCategory01">주식 / Stock</span>
+                </div>
+                <!-- [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+                <!-- <div class="titR">
+                  <div class="balanceDiff">
+                    <span class="arrowUp" role="img" aria-label="증가"></span>
+                    <span class="amount"><span>14</span>%p</span>
+                  </div>
+                </div> -->
+                <!-- // [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+              </h2>
+            </div>
+          </div>
+          <p class="defSubTit6 txtC mt16">
+            <strong><span>17,980,900</span>원 (<span>14</span>%p ) 늘려요!</strong> <!-- 2025-10-31 문구 수정 -->
+          </p>
+        </div>
+        <div class="mbToggleWrap">
+          <!-- 토글 영역 -->
+          <div class="noticeCont" role="region" id="portfolio1" aria-labelledby="showBtn1" style="display: none">
+            <div class="grayBox mt24">
+              <p>권장수준 보다 주식 비중이 낮아 자산 성장이 제한적이에요. 가이드에 맞춰 투자 지역별 비중을 조절해 보세요. </p>
+            </div>
+            <div class="assetRow">
+              <span class="assetLabel">주식 보유자산</span>
+              <a href="javascript:;" class="linkTxt4"><span>23,000,000</span>원</a>
+            </div>
+            <!-- 국내주식 -->
+            <div class="hBarGroup">
+              <div class="hBarGroupTitle">
+                <span class="hBarGroupTitleLeft" id="pair1-title">
+                  국내주식
+                  <div class="balanceDiff">
+                    <!-- [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+                    <span class="arrowNone" role="img" aria-label="없음"></span>
+                    <span class="rise fs13"><span>23</span>%p 늘려요</span>
+                    <!-- // [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+                  </div>
+                </span>
+              <button type="button" class="btn -tertiary -xs">관련 상품 보기</button><!-- 2025-09-12 버튼 공통 디자인 변경-->
+              </div>
+              <div class="hBarPair mt12" role="group" aria-labelledby="pair1-title" aria-describedby="pair1-desc">
+                <p id="pair1-desc" class="blind">국내주식 자산 비중 그래프입니다. 내 비중은 50%, 최적 비중은 73%입니다.</p><!-- 2025-11-17 수정-->
+                <div class="hbarLabels" aria-hidden="true">
+                  <div class="hbarLabel">MY</div>
+                  <div class="hbarLabel">최적</div><!-- 2025-11-17 수정 요청 -->
+                </div>
+                <!-- ------------------------------------------------------ -->
+                <!-- [CASE1] 최적 포트폴리오에 맞춰 내 자산 비중을 늘려야 할 때 -->
+                <!-- ------------------------------------------------------ -->
+                <div id="pairAsset" class="hbarBars"><!-- 2025-11-24 테스트용 임의 아이디 추가-->
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$50$" 값을 aria-valuenow="$50$" aria-valuetext="MY $50$%" 맞춰주세요 -->
+                    <!-- [CASE1] 일 때 style="--len: 80%" 고정 -->
+                    <div class="hbarBar hbarBarMy" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="MY 50%" style="--len: 50%" data-value="50" data-label="MY">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$73$" 값을 aria-valuenow="$73$", aria-valuetext="권장 $73$%" 맞춰주세요 -->
+                    <!-- [CASE1] 일 때 style="--len: 100%" 고정 -->
+                    <div class="hbarBar hbarBarRec" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="73" aria-valuetext="권장 73%" style="--len: 73%" data-value="73" data-label="권장">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                </div>
+                <!-- // [CASE1] // ------------------------------------------------------ -->
+              </div>
+            </div>
+            <!-- // 국내 주식  -->
+            <!-- 해외 선진국 주식 2025-09-26 위치변경 -->
+            <div class="hBarGroup">
+              <div class="hBarGroupTitle">
+                <span id="pair3-title" class="hBarGroupTitleLeft">
+                  해외 선진국 주식
+                  <div class="balanceDiff">
+                    <!-- [CASE3] 변동없음 -->
+                    <span class="arrowNone" role="img" aria-label="변동없음"></span>
+                    <span class="point">Good!<span></span></span>
+                  </div>
+                </span>
+              </div>
+              <div class="hBarPair mt12" role="group" aria-labelledby="pair3-title" aria-describedby="pair3-desc">
+                <p id="pair3-desc" class="blind">해외 선진국 주식 비중 그래프입니다. 내 비중은 50%, 최적 비중은 50%입니다. </p><!-- 2025-11-17 수정 요청-->
+                <div class="hbarLabels" aria-hidden="true">
+                  <div class="hbarLabel">MY</div>
+                  <div class="hbarLabel">최적</div><!-- 2025-11-17 수정 요청 -->
+                </div>
+                <!-- ------------------------------------------------------ -->
+                <!-- [CASE3] 내 자산이 적정 비중일때 -->
+                <!-- ------------------------------------------------------ -->
+                <div class="hbarBars">
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$50$" 값을 aria-valuenow="$50$" aria-valuetext="MY $50$%" 맞춰주세요 -->
+                    <!-- [CASE3] 일 때 style="--len: 50%" 고정 -->
+                    <div class="hbarBar hbarBarMy" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="MY 50%" style="--len: 50%" data-value="50" data-label="MY">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$50$" 값을 aria-valuenow="$50$", aria-valuetext="권장 $50$%" 맞춰주세요 -->
+                    <!-- [CASE2] 일 때 style="--len: 50%" 고정 -->
+                    <div class="hbarBar hbarBarRec" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="권장 50%" style="--len: 50%" data-value="50" data-label="권장">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                </div>
+                <!-- // [CASE3] // ------------------------------------------------------ -->
+              </div>
+            </div>
+            <!--// 해외 선진국 주식 -->
+            <!-- 해외 신흥국 주식  -->
+            <div class="hBarGroup">
+              <div class="hBarGroupTitle">
+                <span id="pair2-title" class="hBarGroupTitleLeft">
+                  해외 신흥국 주식
+                  <div class="balanceDiff">
+                    <!-- [CASE1] 감소 삭제 수정 요청 2025-10-31 -->
+                    <span class="arrowNone" role="img" aria-label="없음"></span>
+                    <span class="decline fs13"><span>45</span>%p 줄여요</span>
+                    <!-- // [CASE1] 감소 삭제 수정 요청 2025-10-31 -->
+                  </div>
+                </span>
+              </div>
+              <div class="hBarPair mt12" role="group" aria-labelledby="pair2-title" aria-describedby="pair2-desc">
+                <p id="pair2-desc" class="blind"> 해외 신흥국 주식 자산 비중 그래프입니다. 내 비중은 75%, 최적 비중은 30%입니다. </p><!-- 2025-11-17 수정 요청-->
+                <div class="hbarLabels" aria-hidden="true">
+                  <div class="hbarLabel">MY</div>
+                  <div class="hbarLabel">최적</div><!-- 2025-11-17 수정 요청 -->
+                </div>
+                <!-- ------------------------------------------------------ -->
+                <!-- [CASE2] 최적 포트폴리오에 맞춰 내 자산 비중을 줄여야 할 때 -->
+                <!-- ------------------------------------------------------ -->
+                <div class="hbarBars">
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$75$" 값을 aria-valuenow="$75$" aria-valuetext="MY $75$%" 맞춰주세요 -->
+                    <!-- [CASE2] 일 때 style="--len: 100%" 고정 -->
+                    <div class="hbarBar hbarBarMy" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-valuetext="MY 75%" style="--len: 75%" data-value="75" data-label="MY">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$30$" 값을 aria-valuenow="$30$", aria-valuetext="권장 $30$%" 맞춰주세요 -->
+                    <!-- [CASE2] 일 때 style="--len: 80%" 고정 -->
+                    <div class="hbarBar hbarBarRec" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" aria-valuetext="권장 30%" style="--len: 30%" data-value="30" data-label="권장">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                </div>
+                <!-- // [CASE2] // ------------------------------------------------------ -->
+              </div>
+            </div>
+            <!--// 해외 신흥국 주식  -->
+            <ul class="listBul disc mt32">
+              <li> 주식 비중을 지금처럼 유지하려면 투자위험을 낮출 필요가 있어요. 자신에게 맞는 위험수준을 다시 조정해 보세요. </li>
+            </ul>
+            <button type="button" class="btnBodyLine mt16">투자기준 다시 설정</button><!-- 2025-11-25 문구 변경 요청-->
+          </div>
+          <hr class="divLine mt24 mb16" />
+          <button type="button" class="showBtn noticeBtn" role="button" id="showBtn1" aria-expanded="false" data-target="#portfolio1" aria-controls="portfolio1">
+            <span>펼치기</span>
+          </button>
+        </div>
+        <!-- // 토글 영역 -->
+      </div>
+      <!-- -------------------------------------- -->
+      <!-- [SECTION]  채권 / Bond -->
+      <!-- -------------------------------------- -->
+      <div class="boxTypeWrap balanceResult">
+        <div class="valanceTitWrap">
+          <div class="connLine">
+            <div class="totalTitWrap">
+              <h2 class="listTitWrap noneTogg">
+                <div class="titL">
+                  <span class="accTi barIconCategory02">채권 / Bond</span>
+                </div>
+                <!-- [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+                <!-- <div class="titR">
+                  <div class="balanceDiff">
+                    <span class="arrowUp" role="img" aria-label="증가"></span>
+                    <span class="amount"><span>14</span>%p</span>
+                  </div>
+                </div> -->
+                <!-- // [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+              </h2>
+            </div>
+          </div>
+          <p class="defSubTit6 txtC mt16">
+            <strong><span>2,186,200</span>원 (<span>14</span>%p ) 늘려요!</strong> <!-- 2025-10-31 문구 수정 -->
+          </p>
+        </div>
+        <div class="mbToggleWrap">
+          <!-- 토글 영역 -->
+          <div class="noticeCont" role="region" id="portfolio2" aria-labelledby="showBtn2" style="display: none">
+            <div class="grayBox mt24">
+              <p>안정성은 높지만 수익률이 낮아 장기적으로 자산증가 속도가 느려질 수 있어요. 최적자산배분 가이드에 맞게 비중을 조절해 보세요.</p>
+            </div>
+            <div class="assetRow">
+              <span class="assetLabel">채권 보유자산</span>
+              <a href="javascript:;" class="linkTxt4"><span>23,000,000</span>원</a>
+            </div>
+            <!-- 국내채권 -->
+            <div class="hBarGroup">
+              <div class="hBarGroupTitle">
+                <span id="pair4-title" class="hBarGroupTitleLeft">
+                  국내채권
+                  <div class="balanceDiff">
+                    <!-- [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+                    <span class="arrowNone" role="img" aria-label="없음"></span>
+                    <span class="rise fs13"><span>25</span>%p 늘려요</span>
+                    <!-- [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+                  </div>
+                </span>
+                <button type="button" class="btn -tertiary -xs">관련 상품 보기</button><!-- 2025-09-12 버튼 공통 디자인 변경-->
+              </div>
+              <div class="hBarPair mt12" role="group" aria-labelledby="pair4-title" aria-describedby="pair4-desc">
+                <p id="pair4-desc" class="blind">국내채권 비중 그래프입니다. 내 비중은 50%, 최적 비중은 75%입니다. </p><!-- 2025-11-17 수정 요청-->
+                <div class="hbarLabels" aria-hidden="true">
+                  <div class="hbarLabel">MY</div>
+                  <div class="hbarLabel">최적</div><!-- 2025-11-17 수정 요청 -->
+                </div>
+                <!-- ------------------------------------------------------ -->
+                <!-- [CASE1] 최적 포트폴리오에 맞춰 내 자산 비중을 늘려야 할 때 -->
+                <!-- ------------------------------------------------------ -->
+                <div class="hbarBars">
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$50$" 값을 aria-valuenow="$50$" aria-valuetext="MY $50$%" 맞춰주세요 -->
+                    <!-- [CASE1] 일 때 style="--len: 80%" 고정 -->
+                    <div class="hbarBar hbarBarMy" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="MY 50%" style="--len: 80%" data-value="50" data-label="MY">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$75$" 값을 aria-valuenow="$75$" aria-valuetext="권장 $75$%" 맞춰주세요 -->
+                    <!-- [CASE1] 일 때 style="--len: 100%" 고정 -->
+                    <div class="hbarBar hbarBarRec" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-valuetext="권장 75%" style="--len: 100%" data-value="75" data-label="권장">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                </div>
+                <!-- // [CASE1] // ------------------------------------------------------ -->
+              </div>
+            </div>
+            <!-- // 국내채권  -->
+            <!-- 해외채권  -->
+            <div class="hBarGroup">
+              <div class="hBarGroupTitle">
+                <span class="hBarGroupTitleLeft">
+                  해외채권
+                  <!-- [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+                  <span class="arrowNone" role="img" aria-label="없음"></span>
+                  <span class="rise fs13"><span>9</span>%p 늘려요</span>
+                  <!-- [CASE1] 증가 삭제 수정 요청 2025-10-31 -->
+                </span>
+              <button type="button" class="btn -tertiary -xs">관련 상품 보기</button><!-- 2025-11-03 버튼 추가-->
+              </div>
+              <div class="hBarPair mt12" role="group" aria-labelledby="pair5-title" aria-describedby="pair5-desc">
+                  <p id="pair5-desc" class="blind">해외 채권 그래프입니다. 내 비중은 5%, 최적 비중은 75%입니다. </p><!-- 2025-11-17 수정 요청-->
+                <div class="hbarLabels" aria-hidden="true">
+                  <div class="hbarLabel">MY</div>
+                  <div class="hbarLabel">최적</div><!-- 2025-11-17 수정 요청 -->
+                </div>
+                <!-- ------------------------------------------------------ -->
+                <!-- [CASE4] 최적 포트폴리오는 있지만 내 자산은 아예 없을 때 -->
+                <!-- ------------------------------------------------------ -->
+                <div class="hbarBars">
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$0$" 값을 aria-valuenow="$0$" aria-valuetext="MY $0$%" 맞춰주세요 -->
+                    <!-- [CASE4] 일 때 style="--len: 0%" 고정 -->
+                      <!--[CASE4] 일 때 "-zero" 클래스 추가 주의 -->
+                    <div class="hbarBar hbarBarMy -zero" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="MY 0%" style="--len: 5%" data-value="0" data-label="MY"><!-- 2025-11-24 0% 기본 값 수정 요청 추가 -->
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$75$" 값을 aria-valuenow="$75$" aria-valuetext="권장 $75$%" 맞춰주세요 -->
+                    <!-- [CASE4] 일 때 style="--len: 100%" 고정 -->
+                    <div class="hbarBar hbarBarRec" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-valuetext="권장 75%" style="--len: 100%" data-value="75" data-label="권장">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                </div>
+                <!-- // [CASE4] // ------------------------------------------------------ -->
+              </div>
+            </div>
+            <!--// 해외채권  -->
+            <!-- 해외채권  -->
+            <div class="hBarGroup">
+              <div class="hBarGroupTitle">
+                <span class="hBarGroupTitleLeft">
+                  해외채권
+                </span>
+              </div>
+              <div class="hBarPair mt12" role="group" aria-labelledby="pair5-title" aria-describedby="pair5-desc">
+                  <p id="pair5-desc" class="blind">해외 채권 그래프입니다. 내 비중은 5%, 최적 비중은 75%입니다. </p><!-- 2025-11-17 수정 요청-->
+                <div class="hbarLabels" aria-hidden="true">
+                  <div class="hbarLabel">MY</div>
+                  <div class="hbarLabel">최적</div><!-- 2025-11-17 수정 요청 -->
+                </div>
+                <!-- ------------------------------------------------------ -->
+                <!-- [CASE5] 2025-10-28 그냥 0 일 때 디자인 -->
+                <!-- ------------------------------------------------------ -->
+                <div class="hbarBars">
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$0$" 값을 aria-valuenow="$0$" aria-valuetext="MY $0$%" 맞춰주세요 -->
+                    <!-- [CASE5] 일 때 style="--len: 0%" 고정 -->
+                    <!-- [CASE5] 일 때 "-zero" 클래스 추가 주의 -->
+                    <div class="hbarBar hbarBarMy -zero" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="MY 0%" style="--len: 5%" data-value="0" data-label="MY"><!-- 2025-11-24 0% 기본 값 수정 요청 추가-->
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$75$" 값을 aria-valuenow="$0$" aria-valuetext="권장 $0$%" 맞춰주세요 -->
+                    <!-- [CASE5] 일 때 style="--len: 0%" 고정 -->
+                    <!-- [CASE5] 일 때 "-zero" 클래스 추가 주의 -->
+                    <div class="hbarBar hbarBarRec -zero" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="권장 0%" style="--len: 5%" data-value="0" data-label="권장"><!-- 2025-11-24 0% 기본 값 수정 요청 추가-->
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                </div>
+                <!-- // [CASE4] // ------------------------------------------------------ -->
+              </div>
+            </div>
+            <!--// 해외채권  -->
+          </div>
+          <hr class="divLine mt24 mb16" />
+          <button type="button" class="showBtn noticeBtn" role="button" id="showBtn2" aria-expanded="false" data-target="#portfolio2" aria-controls="portfolio2">
+            <span>펼치기</span>
+          </button>
+        </div>
+        <!-- // 토글 영역 -->
+      </div>
+      <!-- -------------------------------------- -->
+      <!-- [SECTION]  현금 / Cash -->
+      <!-- -------------------------------------- -->
+      <div class="boxTypeWrap balanceResult">
+        <div class="valanceTitWrap">
+          <div class="connLine">
+            <div class="totalTitWrap">
+              <h2 class="listTitWrap noneTogg">
+                <div class="titL">
+                  <span class="accTi barIconCategory03">현금 / Cash</span>
+                </div>
+                <!-- [CASE2] 감소 삭제 수정 요청 2025-10-31 -->
+                <!-- <div class="titR">
+                  <div class="balanceDiff">
+                    <span class="arrowDown" role="img" aria-label="감소"></span>
+                    <span class="amount"><span>9</span>%p</span>
+                  </div>
+                </div> -->
+                <!-- // [CASE2] 감소 삭제 수정 요청 2025-10-31 -->
+              </h2>
+            </div>
+          </div>
+          <p class="defSubTit6 txtC mt16">
+            <strong><span>2,186,200</span>원 (<span>4</span>%p ) 줄여요!</strong> <!-- 2025-10-31 문구 수정 -->
+          </p>
+        </div>
+        <div class="mbToggleWrap">
+          <!-- 토글 영역 -->
+          <div class="noticeCont" role="region" id="portfolio3" aria-labelledby="showBtn3" style="display: none">
+            <div class="grayBox mt24">
+              <p>비상시 유동성 확보에는 유리하지만 장기적으로 수익 기회가 제한됩니다. 필요 이상으로 정체되어 있는 자금이 있다면 목표지향적인 투자로 일부 옮겨보세요. </p>
+            </div>
+            <div class="assetRow">
+              <span class="assetLabel">현금 보유자산</span>
+              <a href="javascript:;" class="linkTxt4"><span>23,000,000</span>원</a>
+            </div>
+            <!-- 현금  -->
+            <div class="hBarGroup">
+              <div class="hBarGroupTitle">
+                <span id="pair6-title" class="hBarGroupTitleLeft">
+                  현금
+                    <!-- [CASE2] 감소 삭제 수정 요청 2025-10-31 -->
+                    <span class="arrowNone" role="img" aria-label="없음"></span>
+                    <span class="decline fs13"><span>7</span>%p 줄여요</span>
+                    <!-- [CASE2] 다운 삭제 수정 요청 2025-10-31 -->
+                </span>
+              </div>
+              <div class="hBarPair mt12" role="group" aria-labelledby="pair6-title" aria-describedby="pair6-desc">
+                  <p id="pair6-desc" class="blind">현금 보유자산 그래프입니다. 내 비중은 75%, 최적 비중은 50%입니다. </p><!-- 2025-11-17 수정 요청-->
+                <div class="hbarLabels" aria-hidden="true">
+                  <div class="hbarLabel">MY</div>
+                  <div class="hbarLabel">최적</div><!-- 2025-11-17 수정 요청 -->
+                </div>
+                <!-- ------------------------------------------------------ -->
+                <!-- [CASE2] 최적 포트폴리오에 맞춰 내 자산 비중을 줄여야 할 때 -->
+                <!-- ------------------------------------------------------ -->
+                <div class="hbarBars">
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$75$" 값을 aria-valuenow="$75$" aria-valuetext="MY $75$%" 맞춰주세요 -->
+                    <!-- [CASE2] 일 때 style="--len: 100%" 고정 -->
+                    <div class="hbarBar hbarBarMy" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75" aria-valuetext="MY 75%" style="--len: 100%" data-value="75" data-label="MY">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$50$" 값을 aria-valuenow="$50$" aria-valuetext="권장 $50$%" 맞춰주세요 -->
+                    <!-- [CASE2] 일 때 style="--len: 80%" 고정 -->
+                    <div class="hbarBar hbarBarRec" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="권장 50%" style="--len: 80%" data-value="50" data-label="권장">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                </div>
+                <!-- // [CASE2] --------------------------------------------- -->
+              </div>
+            </div>
+            <!--// 현금  -->
+          </div>
+          <hr class="divLine mt24 mb16" />
+          <button type="button" class="showBtn noticeBtn" role="button" id="showBtn3" aria-expanded="false" data-target="#portfolio3" aria-controls="portfolio3">
+            <span>펼치기</span>
+          </button>
+        </div>
+        <!-- // 토글 영역 -->
+      </div>
+      <!-- -------------------------------------- -->
+      <!-- [SECTION]  자산명 / 자산영문명 -->
+      <!-- -------------------------------------- -->
+      <div class="boxTypeWrap balanceResult">
+        <div class="valanceTitWrap">
+          <div class="connLine">
+            <div class="totalTitWrap">
+              <h2 class="listTitWrap noneTogg">
+                <div class="titL">
+                  <span class="accTi barIconCategory03">현금 / Cash</span>
+                </div>
+                <!-- [CASE3] 내 자산이 적정 비중일 때 증감율 표시 없음 삭제 수정 요청 2025-10-31 -->
+                <!-- <div class="titR">
+                  <div class="balanceDiff"></div>
+                </div> -->
+                <!-- [CASE3] 내 자산이 적정 비중일 때 증감율 표시 없음 삭제 수정 요청 2025-10-31 -->
+              </h2>
+            </div>
+          </div>
+          <p class="defSubTit6 txtC mt16">
+            <strong>지금도 잘하고 있지만 <br /> 권장 가이드를 확인하세요! <span></span> </strong>
+          </p>
+        </div>
+        <div class="mbToggleWrap">
+          <!-- 토글 영역 -->
+          <div class="noticeCont" role="region" id="portfolio4" aria-labelledby="showBtn4" style="display: none">
+            <div class="grayBox mt24">
+              <p>권장 수준과 유사하게 투자하고 있어요! 정기적인 진단을 통해 지속적으로 균형있는 투자를 해 보세요. </p>
+            </div>
+            <div class="assetRow">
+              <span class="assetLabel">현금 보유자산</span>
+              <a href="javascript:;" class="linkTxt4"><span>23,000,000</span>원</a>
+            </div>
+            <!-- 현금  -->
+            <div class="hBarGroup">
+              <div class="hBarGroupTitle">
+                <span id="pair7-title" class="hBarGroupTitleLeft">
+                  현금
+                  <div class="balanceDiff">
+                    <!-- [CASE3] 변동없음 -->
+                    <span class="arrowNone" role="img" aria-label="변동없음"></span>
+                    <span class="point">Good!<span></span></span>
+                  </div>
+                </span>
+              </div>
+              <div class="hBarPair mt12" role="group" aria-labelledby="pair7-title" aria-describedby="pair7-desc">
+                 <p id="pair7-desc" class="blind">현금 보유자산 그래프입니다. 내 비중은 50%, 최적 비중은 50%입니다. </p><!-- 2025-11-17 수정 요청-->
+                <div class="hbarLabels" aria-hidden="true">
+                  <div class="hbarLabel">MY</div>
+                  <div class="hbarLabel">최적</div><!-- 2025-11-17 수정 요청 -->
+                </div>
+                <!-- ------------------------------------------------------ -->
+                <!-- [CASE3] 내 자산이 적정 비중일때 -->
+                <!-- ------------------------------------------------------ -->
+                <div class="hbarBars">
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$50$" 값을 aria-valuenow="$50$" aria-valuetext="MY $50$%" 맞춰주세요 -->
+                    <!-- [CASE3] 일 때 style="--len: 50%" 고정 -->
+                    <div class="hbarBar hbarBarMy" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="MY 50%" style="--len: 50%" data-value="50" data-label="MY">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                  <div class="hbarTrack">
+                    <!-- [D] 접근성 고려 - 실데이터 data-value="$50$" 값을 aria-valuenow="$50$", aria-valuetext="권장 $50$%" 맞춰주세요 -->
+                    <!-- [CASE3] 일 때 style="--len: 50%" 고정 -->
+                    <div class="hbarBar hbarBarRec" role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="권장 50%" style="--len: 50%" data-value="50" data-label="권장">
+                      <span class="hbarVal">0</span><!-- 에니메이션 초기값 고정 -->
+                    </div>
+                  </div>
+                </div>
+                <!-- // [CASE3] // ------------------------------------------------------ -->
+              </div>
+            </div>
+            <!--// 현금  -->
+          </div>
+          <hr class="divLine mt24 mb16" aria-hidden="true">
+          <button type="button" class="showBtn noticeBtn" role="button" id="showBtn4" aria-expanded="false" data-target="#portfolio4" aria-controls="portfolio4">
+            <span>펼치기</span>
+          </button>
+        </div>
+        <!-- // 토글 영역 -->
+      </div>
+      <!-- 자산진단 배너 2025-10-31 배너 타입 수정-->
+      <ul class="hScrollBox h218 mt24">
+        <li class="hScrollBoxItem">
+          <div class="boxTypeWrap bgGoal07">
+            <a href="javascript:;">
+              <strong class="caption2 color3">자산진단</strong>
+              <p class="fs16 color1 mt12">나와 투자고수는 어떻게 다를까?</p>
+            </a>
+          </div>
+        </li>
+        <li class="hScrollBoxItem">
+          <div class="boxTypeWrap bgGoal08">
+            <a href="javascript:;">
+              <strong class="caption2 color3">자산 연결</strong>
+              <p class="fs16 color1 mt12">더 정확한 결과를 원하시나요?</p>
+            </a>
+          </div>
+        </li>
+      </ul>
+     <!-- // 자산진단 배너 2025-10-31 배너 타입 수정-->
+    </div>
+
+    <hr class="divLine mt0 mb0" aria-hidden="true">
+
+    <div class="fullyWrap bgWhite pt0 pb0">
+      <!-- -------------------------------------- -->
+      <!-- [SECTION] 알아두세요 -->
+      <!-- -------------------------------------- -->
+      <div class="info_area"><!-- 2025-10-02 중복id로 인한 오류 수정(id변경) -->
+        <a href="javascript:;" class="noticeBtn" data-target="#MSAEd400" aria-expanded="false" aria-controls="MSAEd400" id="MSAEd400_label">
+          <strong class="info_area_title">알아두세요<span style="display:none">펼치기</span></strong>
+        </a>
+        <ul class="listBul disc noticeCont" aria-labelledby="MSAEd400_label" role="region" id="MSAEd400" style="display:none" tabindex="-1">
+          <li>NH농협은행 밸런스진단에서 사용하는 기대수익률, 투자위험(변동성) 등의 정보는 과거 데이터를 기초하여 제시된 것으로 미래의 수익률을 보장하는 것은 아니며, 향후 수익률은 변동될 수 있습니다.</li>   <!-- 2025-11-13 문구 수정 요청 -->
+          <li>미래 투자 환경의 예측도 다른 경제 변수에 의하여 사실과 다르게 나타날 수 있으므로 투자 의사 결정은 고객 스스로 판단하셔야 하며 당행은 투자에 따른 결과를 보장하거나 책임지지 않습니다. </li>
+          <li>실제 투자 운영 시 시뮬레이션 결과와 다를 수 있으며, 투자판단을 돕는 참고 자료로만 활용하시기 바랍니다.</li>   <!-- 2025-11-13 문구 수정 요청 -->
+        </ul>
+      </div>
+      <!-- -------------------------------------- -->
+    </div>
+    <div class="areaBtnDefault">
+      <a href="javascript:;" class="btnPressPoint" role="button">밸런스진단 다시하기</a> <!-- [D] 비활성화 클래스명 (disabled) 및 aria-disabled="true" 추가 -->
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+   // 업데이트 완료 시 토스트팝업
+   tostpop();//토스트 팝업 호출
+
+  //차트 호출 //////////////////////////////////////////////////////////////
+  // 내 포트폴리오 // 2025-09-26 0% 적용 예제(해외신흥국주식)
+  const percentageData = [
+    { label: "현금", percent: 1.9 }, { label: "국내주식", percent: 2.1 }, { label: "해외선진국주식", percent: 50 },
+    { label: "해외신흥국주식", percent: 0 }, { label: "국내채권", percent: 14 }, { label: "해외채권", percent: 32 }
+  ];
+  // 최적 포트폴리오
+  const percentageData2 = [
+    { label: "현금", percent: 3 }, { label: "국내주식", percent: 27 }, { label: "해외선진국주식", percent: 25 },
+    { label: "해외신흥국주식", percent: 4 }, { label: "국내채권", percent: 21 }, { label: "해외채권", percent: 20 }
+  ];
+
+  const convertedData = createChartData(percentageData);
+  const convertedData2 = createChartData(percentageData2);
+
+  // 내 포트폴리오
+  stackedBarChartInstance = new StackedBarChart("stackedBarChart", convertedData, {
+    colorType: 'type1', minimumSlicePercent: 5, totalFrames: 60, padding: 0
+  });
+
+  // 최적 포트폴리오
+  stackedBarChartInstance2 = new StackedBarChart("stackedBarChart2", convertedData2, {
+    colorType: 'type1', minimumSlicePercent: 5, totalFrames: 60, padding: 0
+  });
+
+});
+// 2025-11-24 프로그래스바 예시
+// 국내 / 주식(예시)
+// 자세한 설명은 nhasset-ui-myd-mb.js
+// (사용 예시)
+//    hbarSetPair('#pairAsset', {
+//      values: [10, 20, 30],
+//      lens:   [15, 25, 60], // len 수동: 15%,25%,60%
+//      unit: '%',
+//      replay: true,
+//      updateAria: true
+//    });
+
+// document.addEventListener('DOMContentLoaded',function(){
+//   hbarSetPair('#pairAsset', {
+//       values: [0, 0.9],
+//        // lens 생략 시:[50,50] 강제로 크기 지정
+//        //   len은 normalizeLen(value) 기준으로 자동 설정
+//         replay: true,
+//        updateAria: true
+//       });
+// })
+</script>
+</body>
+</html>

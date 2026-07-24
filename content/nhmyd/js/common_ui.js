@@ -1314,6 +1314,8 @@ popClose = function(e) {
 	}
 	scrollUnlock(scrollPosY);
 	$("#popupLayer_div").children(".fullLayerPop").children(".fullLayerPop").attr("aria-hidden",false).removeAttr('inert');
+	$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",false).removeAttr('inert');
+	
 };
 
 /* 화면 back scroll 고정/해제 */

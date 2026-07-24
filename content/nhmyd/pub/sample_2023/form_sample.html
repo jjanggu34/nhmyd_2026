@@ -1,0 +1,2872 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [폼]</title>
+<script src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>폼</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="txt_sample.html">타이틀/텍스트</a>
+				<a href="button_sample.html">버튼</a>
+				<a href="form_sample.html" aria-current="page">폼</a>
+				<a href="list_sample.html">목록</a>
+				<a href="product_sample.html">상품</a>
+				<a href="info_sample.html">정보</a>
+				<a href="table_sample.html">테이블</a>
+				<a href="bbs_sample.html">게시판</a>
+				<a href="banner_sample.html">배너</a>
+				<a href="chart_sample.html">차트</a>
+				<a href="etc_sample.html">기타</a>
+			</div>
+		</nav>
+	</header>
+
+	<!-- ###################################### -->
+	<!-- ### UI Guide [버튼] ### -->
+	<!-- ###################################### -->
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">폼영역</a>
+			<a href="#GCONTENT2">검색영역</a>
+			<a href="#GCONTENT3">조회영역</a>
+			<a href="#GCONTENT4">약관동의</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 폼영역 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">폼영역</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [INPUT] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">INPUT</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .inputList</h4>
+					<div class="guide_section2 formWrap">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="inputList">
+										<input type="text" title="대체텍스트" placeholder="대체텍스트">
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<div class="inputList">
+								<input type="text" title="대체텍스트" placeholder="텍스트">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">입력중 : .on</h5>
+							<div class="inputList on">
+								<input type="text" title="대체텍스트" placeholder="대체텍스트" value="텍스트입력중">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">입력후</h5>
+							<div class="inputList">
+								<input type="text" title="대체텍스트" placeholder="대체텍스트" value="텍스트입력">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+							<hr class="guide_line">
+							<div class="inputList">
+								<input type="tel" title="대체텍스트" placeholder="숫자" value="123">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">오류 : .error</h5>
+							<div class="inputList error">
+								<input type="text" title="대체텍스트" placeholder="대체텍스트" value="텍스트오류">
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">비활성화 : readonly / disabled</h5>
+							<div class="inputList">
+								<input type="text" title="대체텍스트" placeholder="대체텍스트" value="비활성화" disabled>
+							</div>
+							<hr class="guide_line">
+							<div class="inputList readonlyWhite">
+								<input type="text" title="대체텍스트" placeholder="대체텍스트" value="비활성화(BG변경)" readonly>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">읽기전용 : &lt;data&gt;</h5>
+							<div class="inputList">
+								<data><span>안양남지점</span><span>김*원(11111****)</span></data>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2 formWrap">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="inputList unitMan">
+										<input type="tel" title="대체텍스트" value="000,000" placeholder="숫자만 입력">
+										<span class="unit">원</span>
+										<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h4 class="guide_title4">.inputList.unitMan / .inputList.unitMan2</h4>
+							<div class="inputList unitMan">
+								<input type="tel" title="대체텍스트" value="000,000" placeholder="숫자만 입력">
+								<span class="unit">원</span>
+								<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2 formWrap">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="inputList unitMan2 standUse">
+										<span class="stand">텍스트</span>
+										<input type="tel" title="대체텍스트" value="000,000" placeholder="숫자만 입력">
+										<span class="unit">원</span>
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h4 class="guide_title4">.inputList.unitMan2.standUse</h4>
+							<div class="inputList unitMan2 standUse">
+								<span class="stand">텍스트</span>
+								<input type="tel" title="대체텍스트" value="000,000" placeholder="숫자만 입력">
+								<span class="unit">원</span>
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2 formWrap">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="inputList unitMan3">
+										<span class="unitType02">텍스트</span>
+										<input type="tel" title="대체텍스트" value="000,000" placeholder="숫자만 입력">
+										<span class="unit">원</span>
+										<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h4 class="guide_title4">text + input + text : .inputList.unitMan3</h4>
+							<div class="inputList unitMan3">
+								<span class="unitType02">텍스트</span>
+								<input type="tel" title="대체텍스트" value="000,000" placeholder="숫자만 입력">
+								<span class="unit">원</span>
+								<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : .inputText1</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<input type="text" class="inputText1" title="대체텍스트" placeholder="텍스트">
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<input type="text" class="inputText1" title="대체텍스트" placeholder="텍스트">
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">입력중</h5>
+							<input type="text" class="inputText1" title="대체텍스트" placeholder="텍스트" value="입력중">
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">비활성화 : disabled</h5>
+							<input type="text" class="inputText1" title="대체텍스트" placeholder="텍스트"  value="비활성화" disabled>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">오류 : .error</h5>
+							<input type="text" class="inputText1 error" title="대체텍스트" placeholder="텍스트" value="텍스트 오류">
+						</div>
+					</div>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<!-- 입력폼 + 텍스트 + 삭제버튼 -->
+									<div class="inputText1">
+										<input type="tel" title="대체텍스트" placeholder="텍스트" value="123">
+										<span class="unit">원</span>
+										<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h5 class="guide_title4">삭제버튼 추가</h5>
+							<div class="inputText1">
+								<input type="tel" title="대체텍스트" placeholder="텍스트" value="123">
+								<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">텍스트 추가</h5>
+							<div class="inputText1">
+								<input type="tel" title="대체텍스트" placeholder="텍스트" value="123">
+								<span class="unit">원</span>
+								<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">스타일 변경 : .inputText1.t1</h5>
+							<div class="inputText1 t1">
+								<input type="tel" title="대체텍스트" placeholder="텍스트" value="123">
+								<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [SELECT] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">SELECT</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .inputList</h4>
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="inputList">
+									<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+										<span class="selectValue">placeholder</span>
+										<span class="selectBtn"></span>
+									</a>
+									<select name="" title="선택해주세요">
+										<option value=""></option>
+									</select>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_section2 formWrap">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<div class="inputList">
+								<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+									<span class="selectValue">선택된 값</span>
+									<span class="selectBtn"></span>
+								</a>
+								<select name="" title="선택해주세요">
+									<option value=""></option>
+								</select>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">오류 : .error</h5>
+							<div class="inputList error">
+								<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+									<span class="selectValue">오류 값</span>
+									<span class="selectBtn"></span>
+								</a>
+								<select name="" title="선택해주세요">
+									<option value=""></option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : .stList</h4>
+					<p class="guide_txt">서비스 이용약관 팝업 페이지(MSPS8100P)에서만 라인의 형태로 사용되고 있으며, 그 외 모든 페이지에서는 박스형으로 재 가공 하고 있음.</p>
+					<div class="guide_section2 formWrap">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="stList">
+										<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+											<span class="selectValue">placeholder</span>
+											<span class="selectBtn"></span>
+										</a>
+										<select name="" title="선택해주세요">
+											<option value=""></option>
+										</select>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<div class="stList">
+								<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+									<span class="selectValue">선택된 값</span>
+									<span class="selectBtn"></span>
+								</a>
+								<select name="" title="선택해주세요">
+									<option value=""></option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [활용] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">활용(2단구조) : .selectDivision_5_5</h4>
+					<div class="guide_section2 formWrap">
+						<div class="guide_area">
+							<h5 class="guide_title4">.stList.boxType</h5>
+							<ul class="selectDivision_5_5">
+								<li class="pr5">
+									<div class="stList boxType">
+										<a href="javascript:;" title="소비날짜 선택" aria-haspopup="true">
+											<span class="selectValue">2020.08.01</span>
+											<span class="selectBtn"></span>
+										</a>
+										<select name="" title="선택해주세요">
+											<option value=""></option>
+										</select>
+									</div>
+								</li>
+								<li class="pl5">
+									<div class="stList boxType">
+										<a href="javascript:;" title="소비시간 선택" aria-haspopup="true">
+											<span class="selectValue">오전 10:50</span>
+											<span class="selectBtn"></span>
+										</a>
+										<select name="" title="선택해주세요">
+											<option value=""></option>
+										</select>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">.inputList</h5>
+							<ul class="selectDivision_5_5">
+								<li>
+									<div class="inputList">
+										<a href="javascript:;" title="시/도 선택" aria-haspopup="true">
+											<span class="selectValue">시/도 선택</span>
+											<span class="selectBtn"></span>
+										</a>
+										<select name="" title="선택해주세요">
+											<option value=""></option>
+										</select>
+									</div>
+								</li>
+								<li>
+									<div class="inputList">
+										<a href="javascript:;" title="시/군/구 선택" aria-haspopup="true">
+											<span class="selectValue">시/군/구 선택</span>
+											<span class="selectBtn"></span>
+										</a>
+										<select name="" title="선택해주세요">
+											<option value=""></option>
+										</select>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [CHECK BOX] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">CHECK BOX</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .check</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="check">
+										<input type="checkbox" id="ID">
+										<label class="check" for="ID">항목명</label>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<div class="check">
+								<input type="checkbox" id="Fcheck0101">
+								<label class="check" for="Fcheck0101">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0102" checked>
+								<label class="check" for="Fcheck0102">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0103" disabled>
+								<label class="check" for="Fcheck0103">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0104" checked disabled>
+								<label class="check" for="Fcheck0104">항목명</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : input.chekTypeOther</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="check">
+										<input type="checkbox" id="ID">
+										<label class="check" for="ID">항목명</label>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<div class="check">
+								<input type="checkbox" id="Fcheck0201" class="chekTypeOther">
+								<label class="check" for="Fcheck0201">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0202" class="chekTypeOther" checked>
+								<label class="check" for="Fcheck0202">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0203" class="chekTypeOther" disabled>
+								<label class="check" for="Fcheck0203">항목명</label>
+							</div>
+							<div class="check">
+								<input type="checkbox" id="Fcheck0204" class="chekTypeOther" checked disabled>
+								<label class="check" for="Fcheck0204">항목명</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형3] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형3 : .chkBox</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="chkBox">
+										<input type="checkbox" id="FchkBox0101" name="FchkBox01" class="desgChk" aria-label="구분자(항목명)">
+										<label for="FchkBox0101" aria-hidden="true">항목명</label>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area formWrap">
+							<div class="chkBox">
+								<input type="checkbox" id="FchkBox0101" name="FchkBox01" class="desgChk" aria-label="구분자(항목명)">
+								<label for="FchkBox0101" aria-hidden="true">항목명</label>
+							</div>
+							<div class="chkBox">
+								<input type="checkbox" id="FchkBox0101" name="FchkBox01" class="desgChk" aria-label="구분자(항목명)" checked>
+								<label for="FchkBox0101" aria-hidden="true">항목명</label>
+							</div>
+							<div class="chkBox">
+								<input type="checkbox" id="FchkBox0101" name="FchkBox01" class="desgChk" aria-label="구분자(항목명)" disabled>
+								<label for="FchkBox0101" aria-hidden="true">항목명</label>
+							</div>
+							<div class="chkBox">
+								<input type="checkbox" id="FchkBox0101" name="FchkBox01" class="desgChk" aria-label="구분자(항목명)" checked disabled>
+								<label for="FchkBox0101" aria-hidden="true">항목명</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [RADIO BUTTON] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">RADIO BUTTON</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .chkRadio</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="formArray">
+										<span class="chkRadio">
+											<input type="radio" name="NAME" id="ID">
+											<label for="ID">항목명</label>
+										</span>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<div class="formArray">
+								<span class="chkRadio">
+									<input type="radio" id="FchkRadio0101" name="FchkRadio01" checked>
+									<label for="FchkRadio0101">항목명</label>
+								</span>
+								<span class="chkRadio">
+									<input type="radio" id="FchkRadio0102" name="FchkRadio01">
+									<label for="FchkRadio0102">항목명</label>
+								</span>
+							</div>
+							<div class="formArray">
+								<span class="chkRadio">
+									<input type="radio" id="FchkRadio0103" name="FchkRadio02" checked disabled>
+									<label for="FchkRadio0103">항목명</label>
+								</span>
+								<span class="chkRadio">
+									<input type="radio" id="FchkRadio0104" name="FchkRadio02" disabled>
+									<label for="FchkRadio0104">항목명</label>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : .boxRadio</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="boxRadio">
+										<div class="boxRadioInn">
+											<span>
+												<input type="radio" name="NAME" id="ID" aria-label="구분자(항목명)">
+												<label for="ID" aria-hidden="true">항목명</label>
+											</span>
+										</div>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<div class="boxRadio">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio01" id="FboxRadio0101" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0101" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio01" id="FboxRadio0102" aria-label="구분자(항목명)">
+										<label for="FboxRadio0102" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio01" id="FboxRadio0103" aria-label="구분자(항목명)">
+										<label for="FboxRadio0103" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">2단구조 : .wrapType</h5>
+							<p class="guide_txt">.formWrap &gt; .titListBox 안에 사용할 경우에는 .wrapType는 하단 여백이 삭제되므로 .wrapType2 사용을 권장함.</p>
+							<div class="boxRadio wrapType">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio02" id="FboxRadio0201" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0201" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio02" id="FboxRadio0202" aria-label="구분자(항목명)">
+										<label for="FboxRadio0202" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio02" id="FboxRadio0203" aria-label="구분자(항목명)">
+										<label for="FboxRadio0203" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio02" id="FboxRadio0204" aria-label="구분자(항목명)">
+										<label for="FboxRadio0204" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">2단구조 : .wrapType2</h5>
+							<p class="guide_txt">.formWrap &gt; .titListBox 안에 사용할 경우에는 .wrapType는 하단 여백이 삭제되므로 .wrapType2 사용을 권장함.</p>
+							<div class="boxRadio wrapType2">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio03" id="FboxRadio0301" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0301" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio03" id="FboxRadio0302" aria-label="구분자(항목명)">
+										<label for="FboxRadio0302" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio03" id="FboxRadio0303" aria-label="구분자(항목명)">
+										<label for="FboxRadio0303" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio03" id="FboxRadio0304" aria-label="구분자(항목명)">
+										<label for="FboxRadio0304" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">3단구조 : .wrapType3</h5>
+							<div class="boxRadio wrapType3">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0401" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0401" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0402" aria-label="구분자(항목명)">
+										<label for="FboxRadio0402" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0403" aria-label="구분자(항목명)">
+										<label for="FboxRadio0403" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0404" aria-label="구분자(항목명)">
+										<label for="FboxRadio0404" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0405" aria-label="구분자(항목명)">
+										<label for="FboxRadio0405" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio04" id="FboxRadio0406" aria-label="구분자(항목명)">
+										<label for="FboxRadio0406" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">1단구조 : .rowType</h5>
+							<div class="boxRadio rowType">
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio05" id="FboxRadio0501" aria-label="구분자(항목명)" checked>
+										<label for="FboxRadio0501" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+								<div class="boxRadioInn">
+									<span>
+										<input type="radio" name="FboxRadio05" id="FboxRadio0502" aria-label="구분자(항목명)">
+										<label for="FboxRadio0502" aria-hidden="true">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형3] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형3 : .roundChk</h4>
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<!-- 개별 -->
+								<span class="roundChk">
+									<input type="radio" name="NAME" id="ID">
+									<label for="ID">항목명</label>
+								</span>
+
+								<!-- 그룹형 -->
+								<div class="roundChkWrap">
+									<ul>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="NAME" id="ID">
+												<label for="ID">항목명</label>
+											</span>
+										</li>
+										<li>
+											<span class="roundChk">
+												<input type="radio" name="NAME" id="ID">
+												<label for="ID">항목명</label>
+											</span>
+										</li>
+									</ul>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_section2">
+						<div class="guide_area formWrap">
+							<h5 class="guide_title4">기본</h5>
+							<span class="roundChk">
+								<input type="radio" name="FroundChk01" id="FroundChk0101" aria-label="구분자(항목명)">
+								<label for="FroundChk0101" aria-hidden="true">항목명</label>
+							</span>
+							<span class="roundChk">
+								<input type="radio" name="FroundChk01" id="FroundChk0102" aria-label="구분자(항목명)" checked>
+								<label for="FroundChk0102" aria-hidden="true">항목명</label>
+							</span>
+							<span class="roundChk">
+								<input type="radio" name="FroundChk01" id="FroundChk0103" aria-label="구분자(항목명)" disabled>
+								<label for="FroundChk0103" aria-hidden="true">항목명</label>
+							</span>
+						</div>
+						<div class="guide_area formWrap">
+							<h5 class="guide_title4">색상변경 : .t1</h5>
+							<span class="roundChk t1">
+								<input type="radio" name="FroundChk02" id="FroundChk0201" aria-label="구분자(항목명)">
+								<label for="FroundChk0201" aria-hidden="true">항목명</label>
+							</span>
+							<span class="roundChk t1">
+								<input type="radio" name="FroundChk02" id="FroundChk0202" aria-label="구분자(항목명)" checked>
+								<label for="FroundChk0202" aria-hidden="true">항목명</label>
+							</span>
+							<span class="roundChk t1">
+								<input type="radio" name="FroundChk02" id="FroundChk0203" aria-label="구분자(항목명)" disabled>
+								<label for="FroundChk0203" aria-hidden="true">항목명</label>
+							</span>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area formWrap">
+							<h5 class="guide_title4">.roundChkWrap &gt; .roundChk</h5>
+							<div class="roundChkWrap">
+								<ul>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="FroundChk03" id="FroundChk0301" aria-label="구분자(항목명)">
+											<label for="FroundChk0301" aria-hidden="true">항목명</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="FroundChk03" id="FroundChk0302" aria-label="구분자(항목명)" checked>
+											<label for="FroundChk0302" aria-hidden="true">항목명</label>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area formWrap">
+							<h5 class="guide_title4">.roundChkWrap.t1 &gt; .roundChk</h5>
+							<div class="roundChkWrap t1">
+								<ul>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="FroundChk04" id="FroundChk0401" aria-label="구분자(항목명)">
+											<label for="FroundChk0401" aria-hidden="true">항목명</label>
+										</span>
+									</li>
+									<li>
+										<span class="roundChk">
+											<input type="radio" name="FroundChk04" id="FroundChk0402" aria-label="구분자(항목명)" checked>
+											<label for="FroundChk0402" aria-hidden="true">항목명</label>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [SELECT LIST] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">SELECT LIST</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .pickList</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="formWrap msaeType">
+										<div class="boxRadio rowType msaeType">
+											<ul class="pickList"> <!-- [D] 직접입력 추가시 : 클래스명(psHopeRdo) 추가 -->
+												<!-- 기본 -->
+												<li>
+													<input type="checkbox" name="NAME" id="ID" aria-label="구분자 (항목명1)" checked>
+													<label for="ID" class="rdoCheck" aria-hidden="true">항목명1</label>
+												</li>
+												<!-- 계좌선택 -->
+												<li>
+													<input type="checkbox" name="NAME" id="ID" aria-label="구분자 (항목명1)" checked>
+													<label for="ID" class="rdoCheck" aria-hidden="true">
+														<span class="withdrawList">
+															<span class="title">[농협생명보험] 실속만점</span>
+															<span class="accNum al">1234567890123</span>
+														</span>
+													</label>
+												</li>
+												<!-- 직접입력 유형1 -->
+												<li class="inptType">
+													<div class="inputList unitMan">
+														<input type="tel" title="대체텍스트" placeholder="직접입력">
+														<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+													</div>
+												</li>
+												<!-- 직접입력 유형2 -->
+												<li class="inptType">
+													<div class="inputList unitMan3">
+														<span class="unitType02">직접입력</span>
+														<input type="tel" title="대체텍스트" placeholder="직접입력">
+														<span class="unit">만원</span>
+														<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+													</div>
+												</li>
+												<!-- // -->
+											</ul>
+										</div>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h5 class="guide_title4">기본 항목명 선택</h5>
+							<div class="formWrap msaeType">
+								<div class="boxRadio rowType msaeType">
+									<ul class="pickList">
+										<li>
+											<input type="checkbox" name="MSAE1241P" id="MSAE1241P1" aria-label="구분자 (항목명1)" checked>
+											<label for="MSAE1241P1" class="rdoCheck" aria-hidden="true">항목명1</label>
+										</li>
+										<li>
+											<input type="checkbox" name="MSAE1241P" id="MSAE1241P2" aria-label="구분자 (항목명2)" checked>
+											<label for="MSAE1241P2" class="rdoCheck" aria-hidden="true"> 항목명2 </label>
+										</li>
+										<li>
+											<input type="checkbox" name="MSAE1241P" id="MSAE1241P3" aria-label="구분자 (항목명3)">
+											<label for="MSAE1241P3" class="rdoCheck" aria-hidden="true"> 항목명3 </label>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">계좌선택</h5>
+							<div class="formWrap msaeType">
+								<div class="boxRadio rowType msaeType">
+									<ul class="pickList">
+										<li>
+											<input type="checkbox" name="MSFP4120P01" id="MSFP4120P0101" aria-label="[직접등록] 학원비" checked>
+											<label for="MSFP4120P0101" class="rdoCheck" aria-hidden="true">
+												<span class="withdrawList">
+													<span class="title">[직접등록] 학원비</span>
+												</span>
+											</label>
+										</li>
+										<li>
+											<input type="checkbox" name="MSFP4120P01" id="MSFP4120P0102" aria-label="[농협생명보험] 실속만점 1234567890123">
+											<label for="MSFP4120P0102" class="rdoCheck" aria-hidden="true">
+												<span class="withdrawList">
+													<span class="title">[농협생명보험] 실속만점</span>
+													<span class="accNum al">1234567890123</span>
+												</span>
+											</label>
+										</li>
+										<li>
+											<input type="checkbox" name="MSFP4120P01" id="MSFP4120P0103" checked aria-label="[지방세] 주민세 7979352222">
+											<label for="MSFP4120P0103" class="rdoCheck" aria-hidden="true">
+												<span class="withdrawList">
+													<span class="title">[지방세] 주민세</span>
+													<span class="accNum al">7979352222</span>
+												</span>
+											</label>
+										</li>
+										<li>	
+											<input type="checkbox" name="MSFP4120P01" id="MSFP4120P0104" aria-label="[SK텔레콤] 휴대폰 010*95**1****">	
+											<label for="MSFP4120P0104" class="rdoCheck" aria-hidden="true">
+												<span class="withdrawList">
+													<span class="title">[SK텔레콤] 휴대폰</span>
+													<span class="accNum al">010*95**1****</span>
+												</span>
+											</label>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">선택 + 직접입력 : .pickList.psHopeRdo</h5>
+							<div class="formWrap msaeType">
+								<div class="boxRadio rowType msaeType">
+									<ul class="pickList psHopeRdo">
+										<li>
+											<input type="radio" name="MSAE2351P" id="MSAE2351P1" aria-label="절약하며 118만원" checked>
+											<label for="MSAE2351P1" class="rdoCheck" aria-hidden="true"><span>절약하며 </span><span class="value">118만원</span></label>
+										</li>
+										<li>
+											<input type="radio" name="MSAE2351P" id="MSAE2351P2" aria-label="적정하게 167만원">
+											<label for="MSAE2351P2" class="rdoCheck" aria-hidden="true"><span>적정하게 </span><span class="value">167만원</span></label>
+										</li>
+										<li>
+											<input type="radio" name="MSAE2351P" id="MSAE2351P3" aria-label="여유롭게">
+											<label for="MSAE2351P3" class="rdoCheck" aria-hidden="true"> <span>여유롭게 </span><span class="value">329만원</span> </label>
+										</li>
+										<li class="inptType">
+											<div class="inputList unitMan">
+												<input type="tel" title="대체텍스트" placeholder="직접입력">
+												<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											</div>
+										</li>
+										<li class="inptType">
+											<div class="inputList unitMan3">
+												<span class="unitType02">직접입력</span>
+												<input type="tel" title="대체텍스트" placeholder="직접입력">
+												<span class="unit">만원</span>
+												<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<ul class="icohc pickList">
+										<li>
+											<input type="checkbox" name="rdo01" id="rdo011" checked="checked" aria-label="타이틀 : 부가설명">
+											<label for="rdo011" class="rdoCheck" aria-hidden="true">
+												<span class="imgWrap"><span class="img"><img src="../../images/category/hc/ico_cate_hc01.png" alt=""></span></span>
+												<span>
+													<strong class="pickTit">타이틀</strong>
+													<span class="pickTxt">부가설명</span>
+												</span>
+											</label>
+										</li>
+									</ul>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h5 class="guide_title4">아이콘 유형 : .pickList.icohc</h5>
+							<ul class="icohc pickList">
+								<li>
+									<input type="checkbox" name="rdo01" id="rdo011" checked="checked" aria-label="타이틀 : 부가설명">
+									<label for="rdo011" class="rdoCheck" aria-hidden="true">
+										<span class="imgWrap"><span class="img"><img src="../../images/category/hc/ico_cate_hc01.png" alt=""></span></span>
+										<span>
+											<strong class="pickTit">타이틀</strong>
+											<span class="pickTxt">부가설명</span>
+										</span>
+									</label>
+								</li>
+								<li>
+									<input type="checkbox" name="rdo01" id="rdo012" checked="checked" aria-label="타이틀 : 부가설명">
+									<label for="rdo012" class="rdoCheck" aria-hidden="true">
+										<span class="imgWrap"><span class="img"><img src="../../images/category/hc/ico_cate_hc02.png" alt=""></span></span>
+										<span>
+											<strong class="pickTit">타이틀</strong>
+											<span class="pickTxt">부가설명</span>
+										</span>
+									</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : .selectList</h4>
+					<p class="guide_txt">슬라이드 팝업에서만 사용됨.</p>
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<!-- 기본구조 -->
+								<div class="popCont">
+									<ul class="selectList">
+										<!-- A태그 -->
+										<li class="active"><a href="javascript:;" title="선택됨">항목명1</a></li>
+										<!-- BUTTON태그 -->
+										<li><button type="button">항목명2</button></li>
+									</ul>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">A 태그</h5>
+							<div class="popCont">
+								<ul class="selectList">
+									<li class="active"><a href="javascript:;" title="선택됨">항목명1</a></li>
+									<li><a href="javascript:;">항목명2</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">BUTTON 태그</h5>
+							<div class="popCont">
+								<ul class="selectList">
+									<li class="active"><button type="button" title="선택됨">항목명1</button></li>
+									<li><button type="button">항목명2</button></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">대출선택1</h5>
+							<div class="popCont">
+								<ul class="selectList">
+									<li class="active">
+										<a href="javascript:;" title="선택됨">
+											[기관명] 상품명
+											<ul class="listItem">
+												<li>
+													<span class="tit">잔액 : </span>
+													<span class="value">1,000,000<em class="won">원</em></span>
+													<span class="tit ml10">신규일 : </span>
+													<span class="value date"> 2022.09.01</span>
+												</li>
+											</ul>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;">
+											[농협은행] 직장인대출
+											<ul class="listItem">
+												<li>
+													<span class="tit">잔액 : </span>
+													<span class="value">1,000,000<em class="won">원</em></span>
+													<span class="tit ml10">신규일 : </span>
+													<span class="value date"> 2022.09.01</span>
+												</li>
+											</ul>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">대출선택2</h5>
+							<div class="popCont">
+								<ul class="selectList">
+									<li>
+										<a href="javascript:;">
+											<strong class="fwN">[기관명] 대출상품명</strong>
+											<div class="ob divingTxt fcGray"><span>만기일 0000.00.00</span></div>
+											<div class="accInfo">
+												<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+											</div>
+										</a>
+									</li>
+									<li class="active">
+										<a href="javascript:;" role="button" title="선택됨">
+											<strong class="fwN">[삼성화재] 보험계약대출</strong>
+											<div class="ob divingTxt fcGray"><span>만기일 2020.07.31</span></div>
+											<div class="accInfo">
+												<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+											</div>
+										</a>
+									</li>
+									<li class="select">
+										<a href="javascript:;">
+											<strong class="fwN">[한국장학재단] 대출상품명</strong>
+											<div class="ob divingTxt fcGray"><span>만기일 9999.12.31</span></div>
+											<div class="accInfo">
+												<div class="wrapTag"><span class="type02">연결중</span></div>
+												<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+											</div>
+										</a>
+									</li>
+									<li class="disabled">
+										<a href="javascript:;" aria-disabled="true">
+											<strong class="fwN">[하나은행] 마이너스 대출</strong>
+											<div class="ob divingTxt fcGray"><span>만기일 2020.07.31</span></div>
+											<div class="accInfo">
+												<div class="wrapTag"><span class="type05">1개월 미만</span></div>
+												<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">계좌선택 : CI 노출</h5>
+							<div class="popCont">
+								<ul class="selectList">
+									<li>
+										<span class="imgWrap">
+											<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+										</span>
+										<a href="javascript:;" role="button">
+											<strong class="fwN">[별명]계좌명 또는 상품명</strong>
+											<div class="ob divingTxt fcGray"><span>계좌번호</span></div>
+											<div class="accInfo">
+												<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+											</div>
+										</a>
+									</li>
+									<li class="active">
+										<span class="imgWrap">
+											<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+										</span>
+										<a href="javascript:;" role="button" title="선택됨">
+											<strong class="fwN">[매직트리] 매직트리</strong>
+											<div class="ob divingTxt fcGray"><span>3021037336171</span></div>
+											<div class="accInfo">
+												<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+											</div>
+										</a>
+									</li>
+									<li class="select">
+										<span class="imgWrap">
+											<img src="../../images/logos/AABG0000.png" alt="농협은행" class="imgLogo">
+										</span>
+										<a href="javascript:;" role="button">
+											<strong class="fwN">NH올원e예금</strong>
+											<div class="ob divingTxt fcGray">
+												<span>3030000116632</span>
+												<div class="accDate">만기일 2024.10.16</div>
+											</div>
+											<div class="accInfo">
+												<div class="wrapTag"><span class="type02">연결중</span></div>
+												<span class="accValue"><strong class="dataValue">1,000,000,000</strong><em class="won">원</em></span>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">카드선택</h5>
+							<div class="popCont">
+								<ul class="selectList">
+									<li class="active" role="button" tabindex="0" title="선택됨"> <!-- [D] 선택됨 -->
+										<span class="imgWrap">
+											<img src="../../images/logos/AABG0000.png" alt="농협카드" class="imgLogo">
+										</span>
+										<a href="javascript:;">NH농협 Asiana Club(아시아나클럽)적립형 카드</a>
+									</li>
+									<li role="button" tabindex="0" >
+										<span class="imgWrap">
+											<img src="../../images/logos/AAFO0000.png" alt="현대카드" class="imgLogo">
+										</span>
+										<a href="javascript:;">현대카드 ZERO MOBILE Edition2 (할인형)</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">계좌목록 : .selectList.accList.isBorder</h5>
+							<div class="popCont">
+								<ul class="selectList accList isBorder">
+									<li class="dsfNone">
+										<a href="javascript:;" role="option"> <!-- [D] 클릭이벤트 없으므로 a태그 무효화 시킴 -->
+											<div class="accTit">
+												<span class="imgWrap"><img src="../../images/logos/AAAZ0000.png" alt="" class="imgLogo"></span>
+												<div class="accInfoWrap">
+													<p class="accTit">기관명</p>
+													<div class="accInfo">
+														<span class="accNum">301******</span>
+													</div>
+												</div>
+											</div>
+											<ul class="detailList">
+												<li>
+													<span class="tit">충전조건</span>
+													<span class="value">매월 15일</span>
+												</li>
+												<li>
+													<span class="tit">충전금액</span>
+													<span class="value">100,000<em class="won">원</em></span>
+												</li>
+											</ul>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">카드선택 : .selectList.accList.isBorder</h5>
+							<div class="popCont">
+								<ul class="selectList accList isBorder">
+									<li class="active">
+										<a href="javascript:;" role="button" title="카드선택(선택됨)">
+											<span class="imgWrap">
+												<img src="../../images/logos/AABJ0000.png" alt="하나카드" class="imgLogo">
+											</span>
+											<div class="accInfoWrap">
+												<p class="accTit">하나 클럽SK카드</p>
+											</div>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;" role="button" title="카드선택">
+											<span class="imgWrap">
+												<img src="../../images/logos/AAAF0000.png" alt="국민카드" class="imgLogo">
+											</span>
+											<div class="accInfoWrap">
+												<p class="accTit">KB국민 굿데이올림</p>
+											</div>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">월 선택 : .selectList.selMonth</h5>
+							<div class="popCont">
+								<ul class="selectList selMonth">
+									<li><a href="javascript:;" role="button"><em class="year">2022년</em>5월<span class="titT">(05.05~06.04)</span></a></li>
+									<li class="active"><a href="javascript:;" role="button" title="선택됨"><em class="year">2022년</em>4월<span class="titT">(05.05~06.04)</span></a></li>
+									<li><a href="javascript:;" role="button"><em class="year">2022년</em>3월<span class="titT">(03.05~04.04)</span></a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">월 시작일 선택 : .selectList.selMonth</h5>
+							<div class="popCont">
+								<ul class="selectList selMonth">
+									<li><a href="javascript:;" role="button"><em class="year">4일</em></a></li>
+									<li class="active"><a href="javascript:;" role="button" title="선택됨"><em class="year">5일</em></a></li>
+									<li><a href="javascript:;" role="button"><em class="year">6일</em></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형3] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형3 : .listPsion</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<ul class="listPsion">
+										<li>
+											<button type="button">
+												<strong class="title">항목명</strong>
+											</button>
+										</li>
+										<li>
+											<button type="button" title="선택됨" class="active">
+												<strong class="title">항목명<span>(부가설명)</span></strong>
+												<span class="sub">서브텍스트</span>
+											</button>
+										</li>
+									</ul>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<ul class="listPsion">
+								<li>
+									<button type="button">
+										<strong class="title">항목명</strong>
+									</button>
+								</li>
+								<li>
+									<button type="button" title="선택됨" class="active">
+										<strong class="title">항목명<span>(부가설명)</span></strong>
+										<span class="sub">서브텍스트</span>
+									</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [TOGGLE TYPE] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">TOGGLE TYPE</h3>
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .tgBtn3.s24</h4>
+					<ul class="guide_txt">
+						<li>박스스타일 : 24px / box-radius:24px</li>
+						<li>폰트스타일 : 12px / 400 / #fff</li>
+					</ul>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<span class="tgBtn3 s24">
+										<input type="checkbox" id="ID" aria-label="항목명" checked>
+										<label for="ID" aria-hidden="true">항목명</label>
+									</span>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<span class="tgBtn3 s24">
+								<input type="checkbox" id="FtgBtn301" aria-label="항목명">
+								<label for="FtgBtn301" aria-hidden="true">항목명</label>
+							</span>
+
+							<span class="tgBtn3 s24">
+								<input type="checkbox" id="FtgBtn302" aria-label="항목명" checked>
+								<label for="FtgBtn302" aria-hidden="true">항목명</label>
+							</span>
+
+							<span class="tgBtn3 s24">
+								<input type="checkbox" id="FtgBtn303" aria-label="항목명" disabled>
+								<label for="FtgBtn303" aria-hidden="true">항목명</label>
+							</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : .tgBtnType2</h4>
+					<ul class="guide_txt">
+						<li>박스스타일 : 24px / box-radius:24px</li>
+						<li>폰트스타일 : 12px / 400 / #fff</li>
+					</ul>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<!-- 기본 -->
+									<span class="tgBtnType2">
+										<input type="checkbox" id="ID" checked>
+										<label for="ID">항목명</label>
+									</span>
+
+									<!-- 텍스트노출(좌우배치) -->
+									<span class="tgBtnType2 small t1">
+										<input type="checkbox" id="FtgBtnType20101" checked>
+										<label for="FtgBtnType20101"><span>항목명</span></label>
+									</span>
+
+									<!-- 텍스트노출(왼쪽정렬) -->
+									<div class="tgWarp ty01">
+										<span class="tgTxt">항목명</span>
+										<span class="tgBtnType2">
+											<input type="checkbox" id="toggle10" checked>
+											<label for="toggle10"><span>항목명</span></label>
+										</span>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area">
+							<h5 class="guide_title4">기본 (H:32px)</h5>
+							<span class="tgBtnType2">
+								<input type="checkbox" id="FtgBtnType20101">
+								<label for="FtgBtnType20101"><span>항목명</span></label>
+							</span>
+							<hr class="guide_line">
+							<span class="tgBtnType2">
+								<input type="checkbox" id="FtgBtnType20102" checked>
+								<label for="FtgBtnType20102"><span>항목명</span></label>
+							</span>
+							<hr class="guide_line">
+							<span class="tgBtnType2">
+								<input type="checkbox" id="FtgBtnType20103" disabled>
+								<label for="FtgBtnType20103"><span>항목명</span></label>
+							</span>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">사이즈변경 (H:24px) : .tgBtnType2.small24</h5>
+							<span class="tgBtnType2 small24">
+								<input type="checkbox" id="FtgBtnType20102" checked>
+								<label for="FtgBtnType20102"><span>항목명</span></label>
+							</span>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">사이즈변경 (H:19px) : .tgBtnType2.small</h5>
+							<span class="tgBtnType2 small">
+								<input type="checkbox" id="FtgBtnType20103" checked>
+								<label for="FtgBtnType20103"><span>항목명</span></label>
+							</span>
+						</div>
+					</div>
+					<!-- | // | -->
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">텍스트노출(왼쪽정렬) : .tgWarp.ty01 &gt; .tgBtnType2</h5>
+							<div class="tgWarp ty01">
+								<span class="tgTxt">항목명</span>
+								<span class="tgBtnType2">
+									<input type="checkbox" id="FtgBtnType20201" checked>
+									<label for="FtgBtnType20201"><span>항목명</span></label>
+								</span>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">텍스트노출(오른쪽정렬) : .tgWarp.ty01 &gt; .cs.tgBtnType2</h5>
+							<p class="guide_txt">.cs 클래스 중복 사용으로 소비에서만 사용 가능함.</p>
+							<div class="tgBtnWrap">
+								<span class="cs tgTxt">항목명</span>
+								<span class="cs tgBtnType2">
+									<input type="checkbox" id="FtgBtnType20202" checked>
+									<label for="FtgBtnType20202"><span class="blind">항목명</span></label>
+								</span>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">텍스트노출(좌우배치) : .tgBtnType2.small.t1</h5>
+							<span class="tgBtnType2 small t1">
+								<input type="checkbox" id="FtgBtnType20101" checked>
+								<label for="FtgBtnType20101"><span>항목명</span></label>
+							</span>
+						</div>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [CATEGORY] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">CATEGORY</h3>
+
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .selectCerti</h4>
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<ul class="selectCerti">
+									<li>
+										<input type="checkbox" id="ID" name="NAME" aria-label="항목명">
+										<label for="ID" aria-hidden="true">
+											<div class="logoArea"><img src="../../images/이미지명" alt=""></div>
+											<div class="title">항목명</div>
+										</label>
+									</li>
+								</ul>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">3단 구조(기본)</h5>
+							<ul class="selectCerti">
+								<li>
+									<input type="checkbox" id="FselCerti01" name="FselCerti00" aria-label="건강">
+									<label for="FselCerti01" aria-hidden="true">
+										<div class="logoArea"><img src="../../images/category/ob/ico_cate_ob01_01.png" alt=""></div>
+										<div class="title">건강</div>
+									</label>
+								</li>
+								<li>
+									<input type="checkbox" id="FselCerti02" name="FselCerti00" aria-label="결혼">
+									<label for="FselCerti02" aria-hidden="true">
+										<div class="logoArea"><img src="../../images/category/ob/ico_cate_ob01_02.png"alt=""></div>
+										<div class="title">결혼</div>
+									</label>
+								</li>
+								<li>
+									<input type="checkbox" id="FselCerti03" name="FselCerti00" aria-label="공연">
+									<label for="FselCerti03" aria-hidden="true">
+										<div class="logoArea"><img src="../../images/category/ob/ico_cate_ob01_03.png" alt=""></div>
+										<div class="title">공연</div>
+									</label>
+								</li>
+							</ul>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">2단 구조 : .selectCerti.flex</h5>
+							<ul class="selectCerti flex">
+								<li class="selectCerti01">
+									<input type="radio" id="FselCerti0201" name="FselCerti02" aria-label="신청 대출구분(신용대출)" checked>
+									<label for="FselCerti0201" aria-hidden="true">신용대출</label>
+								</li>
+								<li class="selectCerti02">
+									<input type="radio" id="FselCerti0202" name="FselCerti02" aria-label="신청 대출구분(주택담보대출)">
+									<label for="FselCerti0202" aria-hidden="true">주택담보대출</label>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : .categoryWrap</h4>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="cateSubList categoryWrap">
+										<ul class="roundChkWrap flexType">
+											<li>
+												<div class="item">
+													<input type="radio" name="NAME" id="ID" aria-label="항목명" checked>
+													<label for="ID" aria-hidden="true">
+														<img src="../../images/이미지명" alt=""> 항목명
+													</label>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area t2"  style="overflow:hidden;">
+							<h5 class="guide_title4">.cateSubList.categoryWrap</h5>
+							<div class="boxTypeWrap">
+								<div class="cateSubList categoryWrap">
+									<ul class="roundChkWrap flexType">
+										<li>
+											<div class="item">
+												<input type="radio" name="Fcate01" id="Fcate0101" aria-label="코로나" checked>
+												<label for="Fcate0101" aria-hidden="true">
+													<img src="../../images/category/icoCate63.png" alt="">
+													코로나
+												</label>
+												<div class="lco_star"><img src="../../images/ico_lf_star.png" alt="" /></div>
+											</div>
+										</li>
+										<li>
+											<div class="item">
+												<input type="radio" name="Fcate01" id="Fcate0102" aria-label="교육">
+												<label for="Fcate0102" aria-hidden="true">
+													<img src="../../images/category/icoCate64.png" alt="">
+													교육
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="item">
+												<input type="radio" name="Fcate01" id="Fcate0103" aria-label="고용안전">
+												<label for="Fcate0103" aria-hidden="true">
+													<img src="../../images/category/icoCate65.png" alt="">
+													고용안전
+												</label>
+											</div>
+										</li>
+										<li>
+											<div class="item">
+												<input type="radio" name="Fcate01" id="Fcate0104" aria-label="청년">
+												<label for="Fcate0104" aria-hidden="true">
+													<img src="../../images/category/icoCate56.png" alt="">
+													청년
+												</label>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="cateListHori">
+										<div class="categoryWrap">
+											<ul>
+												<li>
+													<div class="item">
+														<input type="radio" name="NAME" id="ID" aria-label="항목명" checked>
+														<label for="ID">
+															<img src="../../images/이미지명" alt="">항목명
+														</label>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area t2" style="overflow:hidden;">
+							<h5 class="guide_title4">.cateListHori &gt; .categoryWrap</h5>
+							<div class="boxTypeWrap">
+								<div class="cateListHori">
+									<div class="categoryWrap">
+										<ul>
+											<li>
+												<div class="item">
+													<input type="radio" name="FcategoryWrap01" id="FcategoryWrap0101" aria-label="소비의 카테고리(외식)" checked>
+													<label for="FcategoryWrap0101">
+														<img src="../../images/category/cs/ico_cate_cs01.png" alt="">
+														외식
+													</label>
+												</div>
+											</li>
+											<li>
+												<div class="item">
+													<input type="radio" name="FcategoryWrap01" id="FcategoryWrap0102" aria-label="소비의 카테고리(카페/간식)">
+													<label for="FcategoryWrap0102">
+														<img src="../../images/category/cs/ico_cate_cs02.png" alt="">
+														카페/간식
+													</label>
+												</div>
+											</li>
+											<li>
+												<div class="item">
+													<input type="radio" name="FcategoryWrap01" id="FcategoryWrap0103" aria-label="소비의 카테고리(술/유흥)">
+													<label for="FcategoryWrap0103">
+														<img src="../../images/category/cs/ico_cate_cs03.png" alt="">
+														술/유흥
+													</label>
+												</div>
+											</li>
+											<li>
+												<div class="item">
+													<input type="radio" name="FcategoryWrap01" id="FcategoryWrap0104" aria-label="소비의 카테고리(쇼핑)">
+													<label for="FcategoryWrap0104">
+														<img src="../../images/category/cs/ico_cate_cs04.png" alt="">
+														쇼핑
+													</label>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [FORM WRAPPER] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">FORM WRAPPER</h3>
+
+				<!-- ### [유형1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : .formWrap</h4>
+					<ul class="guide_txt">
+						<li>타이틀의 폰트 사이즈가 15px일 경우 사용함.</li>
+						<li>기본적으로 라인이 없으며, 라인이 필요한 경우 <strong>&lt;hr class="divLine"&gt;</strong> 사용함.</li>
+					</ul>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="formWrap boxTypeWrap"> <!-- [D] 박스형일 경우 boxTypeWrap 추가 -->
+										<ul>
+											<li>
+												<div class="formTit">
+													<strong>타이틀</strong>
+													<span class="supExp">(부가설명)</span>
+													<div class="tooltipWrap w96">
+														<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">{대체텍스트}툴팁 열기</span></button>
+														<div class="tooltipCont">
+															<p>내용이 노출됩니다.</p>
+															<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+														</div>
+													</div>
+												</div>
+												<div class="inputList">
+													<input type="text" title="대체텍스트" placeholder="대체텍스트">
+													<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+												</div>
+											</li>
+											<li>
+												<hr class="divLine">
+												<div class="formTit">
+													<strong>타이틀</strong>
+												</div>
+												<div class="inputList">
+													<input type="text" title="대체텍스트" placeholder="대체텍스트">
+													<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area t2">
+							<h5 class="guide_title4">기본구조</h5>
+							<div class="formWrap boxTypeWrap">
+								<ul>
+									<li>
+										<div class="formTit">
+											<strong>타이틀</strong>
+										</div>
+										<div class="inputList">
+											<input type="text" title="대체텍스트" placeholder="대체텍스트">
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+									</li>
+									<li>
+										<hr class="divLine">
+										<div class="formTit">
+											<strong>타이틀</strong>
+											<span class="supExp">(부가설명)</span>
+										</div>
+										<div class="inputList error">
+											<input type="text" title="대체텍스트" placeholder="대체텍스트" value="ㄱㅇ">
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+										<p class="errorTxt">오류메세지 노출</p>
+									</li>
+									<li>
+										<div class="formTit">
+											<strong>타이틀</strong>
+											<div class="tooltipWrap w96">
+												<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">{대체텍스트}툴팁 열기</span></button>
+												<div class="tooltipCont">
+													<p>내용이 노출됩니다.</p>
+													<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+												</div>
+											</div>
+										</div>
+										<div class="inputList">
+											<input type="text" title="대체텍스트" placeholder="대체텍스트">
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area t2">
+							<h5 class="guide_title4">금액</h5>
+							<div class="formWrap boxTypeWrap">
+								<ul>
+									<li>
+										<div class="formTit">
+											<strong>금액</strong>
+											<em class="inputVal" aria-live="assertive">(7억 5천만원)</em>
+										</div>
+										<div class="inputList unitMan">
+											<input type="tel" title="대체텍스트" value="" placeholder="대체텍스트">
+											<span class="unit">만원</span>
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+										<div class="roundBtnWrap">
+											<a href="javascript:;" role="button" title="10만원 추가">+10만</a>
+											<a href="javascript:;" role="button" title="50만원 추가">+50만</a>
+											<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+											<a href="javascript:;" role="button" title="300만원 추가">+300만</a>
+										</div>
+										<div class="mes2">부가설명</div>
+									</li>
+									<li>
+										<div class="formTit">
+											<strong>금액</strong>
+											<button type="button" class="contBtn02">불러오기</button>
+										</div>
+										<p class="inputVal" aria-live="assertive">(1억원)</p>
+										<div class="inputList unitMan">
+											<input type="tel" title="대체텍스트" value="" placeholder="대체텍스트">
+											<span class="unit">만원</span>
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+										<div class="roundBtnWrap">
+											<a href="javascript:;" role="button" title="10만원 추가">+10만</a>
+											<a href="javascript:;" role="button" title="50만원 추가">+50만</a>
+											<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+											<a href="javascript:;" role="button" title="300만원 추가">+300만</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area t2">
+							<h5 class="guide_title4">날짜선택</h5>
+							<div class="formWrap boxTypeWrap">
+								<ul>
+									<li>
+										<div class="formTit">
+											<strong>날짜선택</strong>
+										</div>
+										<div class="cal">
+											<div class="inputList  disabled">
+												<input type="text" title="대체텍스트" placeholder="대체텍스트" readonly>
+												<a href="javascript:;" class="btnCalendar" title="날짜선택" role="button"><span class="blind">날짜선택</span></a>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="formTit"><strong>날짜선택</strong></div>
+										<div class="cal">
+											<div class="inputList disabled">
+												<input type="text" value="2023.12.01" title="대체텍스트" placeholder="대체텍스트" readonly>
+												<a href="javascript:;" class="btnCalendar" title="날짜선택" role="button"><span class="blind">날짜선택</span></a>
+											</div>
+										</div>
+										<p class="subTxt2">상담은 3영업일 이후 부터 15영업일 까지 가능합니다.</p>
+									</li>
+									<li>
+										<strong class="formTit">월세 납입일(선택)</strong>
+										<div class="iptDayWrap">
+											<div class="inputList unitMan2 standUse">
+												<span class="stand">매월</span>
+												<input type="tel" title="대체텍스트" placeholder="납입일">
+												<span class="unit">일</span>
+												<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											</div>
+											<button type="button" class="btnDay">말일</button>
+										</div>
+										<div class="mt10">
+											<input type="checkbox" id="listAll" class="chekTypeOther"><label for="listAll">금융플래너에서 월세 납입일을 알려드려요.</label>
+										</div>
+									</li>
+									<li>
+										<div class="formTit">
+											<strong>계약기간(선택)</strong>
+											<button type="button" class="contBtn01">초기화</button>
+										</div>
+										<div class="calendarForm">
+											<div class="cal">
+												<div class="inputList disabled">
+													<input type="text" value="2020.09.03" title="조회 시작일" placeholder="시작일선택" readonly>
+													<a href="javascript:;" class="btnCalendar" title="시작일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+												</div>
+											</div>
+											<span class="symbol">-</span>
+											<div class="cal">
+												<div class="inputList disabled">
+													<input type="text" title="조회 종료일" placeholder="종료일선택" readonly>
+													<a href="javascript:;" class="btnCalendar" title="종료일 날짜선택" role="button"><span class="blind">날짜선택</span></a>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="formTit">
+											<strong>목표 기간</strong>
+											<div class="tooltipWrap">
+												<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">목표 기간 안내툴팁</span></button>
+												<div class="tooltipCont" style="display: none;">
+													<p>목표 설정 기간은 1개월~10년입니다.</p>
+													<p>추천목표의 기간은 6개월 이며, 수정 가능합니다. (1개월~10년)</p>
+													<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+												</div>
+											</div>
+										</div>
+										<div class="inputList unitMan readonly readonlyWhite disabled">
+											<input type="tel" title="목표 기간" value="6" placeholder="목표기간을 입력해주세요" readonly>
+											<span class="unit">개월</span>
+										</div>
+										<div class="inputList unitMan">
+											<input type="tel" title="목표 기간" placeholder="목표기간을 입력해주세요">
+											<span class="unit">개월</span>
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+										<div class="inputList unitMan inputSm2  readonly readonlyWhite disabled">
+											<input type="tel" title="목표 기간" value="1" placeholder="개월" readonly>
+											<span class="unit">개월</span>
+											<input type="tel" title="목표 기간" value="30" placeholder="일" readonly>
+											<span class="unit">일</span>
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+										<div class="roundBtnWrap">
+											<a href="javascript:;" role="button" title="1개월 추가">+1개월</a>
+											<a href="javascript:;" role="button" title="3개월 추가">+3개월</a>
+											<a href="javascript:;" role="button" title="6개월 추가">+6개월</a>
+											<a href="javascript:;" role="button" title="1년 추가">+1년</a>
+											<a href="javascript:;" role="button" title="3년 추가">+3년</a>
+										</div>
+										<p class="infoTxt pointColor11">입력 가능한 기간은 최대 <span>120</span> 개월 입니다.</p>
+										<div class="obChk mt20 fr">
+											<input type="checkbox" id="listAll" class="chekTypeOther" name=""><label for="listAll">목표달성일 지정하기</label>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area t2">
+							<h5 class="guide_title4">인증</h5>
+							<div class="formWrap boxTypeWrap">
+								<ul>
+									<li>
+										<div class="formTit"><strong>주민등록번호</strong></div>
+										<div class="inputList juminNum error"> <!-- 에러일 경우 class="error" 추가 -->
+											<input type="tel" title="주민등록번호" placeholder="생년월일 6자리 ">
+											<span class="daesh">-</span>
+											<input type="tel" title="주민등록 뒷 첫째자리" maxlength="1" placeholder="&nbsp;">
+										</div>
+										<p class="errorTxt">주민등록번호를 다시 입력하세요.</p> <!-- 에러일 경우 추가 -->
+									</li>
+									<li>
+										<strong class="formTit">생년월일(8자리)</strong>
+										<div class="inputList">
+											<input type="tel" class="al" title="생년월일(8자리) 입력" placeholder="19800101">
+											<a href="javascript:" class="btnReset" role="button" >입력내용삭제</a>
+										</div>
+									</li>
+									<li>
+										<div class="formTit"><strong>휴대폰번호</strong></div>
+										<div class="inputList">
+											<input type="tel" title="휴대폰번호(번호만 입력)" placeholder="'-' 없이 번호만 입력해 주세요.">
+											<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+										</div>
+									</li>
+									<li>
+										<div class="formTit"><strong>휴대전화번호</strong></div>
+										<div class="inputList">
+											<a href="javascript:;" title="통신사 선택" aria-haspopup="true">
+												<span class="selectValue">통신사 선택</span>
+												<span class="selectBtn"></span>
+											</a>
+											<select name="" title="선택해주세요">
+												<option></option>
+											</select>
+										</div>
+										<div class="inputList">
+											<input type="tel" class="al" title="휴대전화 번호 입력" placeholder="‘-’없이 숫자만 입력하세요.">
+											<a href="javascript:" class="btnReset" role="button" >입력내용삭제</a>
+										</div>
+									</li>
+									<li>
+										<div class="formTit"><strong>휴대전화번호</strong></div>
+										<div class="inputList">
+											<input type="tel" class="al" title="휴대전화 번호 입력" placeholder="‘-’없이 숫자만 입력하세요.">
+											<a href="javascript:" class="btnReset" role="button" >입력내용삭제</a>
+										</div>
+										<div class="areaBodyBtnFull mt20">
+											<a href="javascript:;" class="btnBodyLine" role="button">인증번호 요청</a>
+										</div>
+										<ul class="listBul disc mt10">
+											<li>통신사 확인 후 본인 명의가 아닌 경우에는 인증번호가 전송되지 않습니다.</li>
+										</ul>
+									</li>
+									<li>
+										<div class="formTit"><strong>인증번호</strong></div>
+										<div class="cerNumBox">
+											<div class="inputList"> <!-- 에러일 경우 class="error" 추가 -->
+												<input type="text" title="인증번호 입력" placeholder="인증번호 입력">
+												<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+												<span class="time">05:00</span>
+											</div>
+											<a href="javascript:;" class="btnCerti" role="button">인증</a>
+										</div>
+										<!-- <p class="errorTxt">인증번호를 다시 입력하세요.</p> --> <!-- 에러일 경우 추가 -->
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : .formWrap.formListBox</h4>
+					<p class="guide_txt">li을 박스 형태로 구분이 될 경우 사용함.</p>
+					<div class="guide_section2">
+						<!-- | HTML CODE | -->
+						<pre>
+							<code class="language-html">
+								<script type="prism-html-markup">
+									<div class="formWrap formListBox">
+										<ul>
+											<li>
+												<div class="formTit">
+													<strong>타이틀</strong>
+												</div>
+												<div class="inputList">
+													<input type="text" title="대체텍스트" placeholder="대체텍스트">
+													<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+												</div>
+											</li>
+											<li>
+												<div class="formTit">
+													<strong>타이틀</strong>
+													<span class="supExp">(부가설명)</span>
+													<div class="tooltipWrap w96">
+														<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">{대체텍스트}툴팁 열기</span></button>
+														<div class="tooltipCont">
+															<p>내용이 노출됩니다.</p>
+															<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+														</div>
+													</div>
+												</div>
+												<div class="inputList">
+													<input type="tel" title="대체텍스트" placeholder="대체텍스트">
+													<span class="unit">원</span>
+													<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</script>
+							</code>
+						</pre>
+						<!-- | // | -->
+						<div class="guide_area t2">
+							<h5 class="guide_title4">기본구조</h5>
+							<div class="formWrap formListBox">
+								<ul>
+									<li>
+										<div class="formTit">
+											<strong>타이틀</strong>
+										</div>
+										<div class="inputList">
+											<input type="text" title="대체텍스트" placeholder="대체텍스트">
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+									</li>
+									<li>
+										<div class="formTit">
+											<strong>타이틀</strong>
+											<span class="supExp">(부가설명)</span>
+											<div class="tooltipWrap w96">
+												<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">{대체텍스트}툴팁 열기</span></button>
+												<div class="tooltipCont">
+													<p>내용이 노출됩니다.</p>
+													<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+												</div>
+											</div>
+										</div>
+										<div class="inputList">
+											<input type="tel" title="대체텍스트" placeholder="대체텍스트" value="123">
+											<span class="unit">원</span>
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형3] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형3 : .formWrap &gt; div.titListBox</h4>
+					<ul class="guide_txt">
+						<li>타이틀의 폰트사이즈가 16px일 경우에 사용함.</li>
+						<li>기본적으로 라인이 없으며, 모든 항목별 라인이 필요한 경우 <strong>&lt;ul class="lineType"&gt;</strong> 클래스를 추가함.</li>
+					</ul>
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="formWrap boxTypeWrap">
+									<div class="titListBox">
+										<ul> <!-- [D] 라인이 필요한 경우 : 클래스명(titListBox) 추가 -->
+											<li>
+												<div class="formTitN">
+													<strong>타이틀</strong>
+												</div>
+												<div class="inputList">
+													<input type="text" title="대체텍스트" placeholder="대체텍스트">
+													<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_section2">
+						<div class="guide_area t2">
+							<h5 class="guide_title4">라인없음</h5>
+							<div class="formWrap boxTypeWrap">
+								<div class="titListBox">
+									<ul>
+										<li>
+											<div class="formTitN">
+												<strong>타이틀</strong>
+											</div>
+											<div class="inputList">
+												<input type="text" title="대체텍스트" placeholder="대체텍스트">
+												<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											</div>
+										</li>
+										<li>
+											<div class="formTitN">
+												<strong>타이틀</strong>
+												<div class="tooltipWrap w96">
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">{대체텍스트}툴팁 열기</span></button>
+													<div class="tooltipCont">
+														<p>내용이 노출됩니다.</p>
+														<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+													</div>
+												</div>
+											</div>
+											<div class="inputList">
+												<input type="tel" title="대체텍스트" placeholder="대체텍스트" value="123">
+												<span class="unit">원</span>
+												<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											</div>
+										</li>
+										<li>
+											<hr class="divLine3">
+											<div class="formTitN">
+												<strong>증가/감소</strong>
+												<span class="supExp">(부가설명)</span>
+											</div>
+											<div class="flexRBox">
+												<div class="deductBtnWrap">
+													<button type="button" class="minusBtn"><span class="blind">부모님 공제(70세 이상 부양가족 수) 빼기</span></button>
+													<span class="deductNum"><em>0</em></span>
+													<button type="button" class="plusBtn"><span class="blind">부모님 공제(70세 이상 부양가족 수) 더하기</span></button>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="formTit"><strong>주소</strong></div>
+											<div class="boxRadio">
+												<div class="boxRadioInn">
+													<span>
+														<input name="rdo2" id="rdo21" type="radio" checked>
+														<label for="rdo21">자택</label>
+													</span>
+												</div>
+												<div class="boxRadioInn">
+													<span>
+														<input name="rdo2" id="rdo22" type="radio">
+														<label for="rdo22">직장</label>
+													</span>
+												</div>
+											</div>
+											<div class="inputBoth01 addWrap">
+												<div class="inputB01 inputList disabled">
+													<input type="text" title="우편번호" readonly>
+													<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+												</div>
+												<div class="areaInpBtn">
+													<button class="btnInpLine">주소검색</button>
+												</div>
+											</div>
+											<div class="inputList disabled">
+												<input type="text" title="주소" readonly>
+											</div>
+											<div class="inputList">
+												<input type="text" title="상세 주소" placeholder="상세 주소 입력">
+											</div>
+										</li>
+										<li>
+											<div class="formTitN"><strong>서브 영역 : .grayBox</strong></div>
+											<div class="grayBox mb0">
+												<ul>
+													<li>
+														<div class="formTitN"><strong>항목명</strong></div>
+														<div class="inputList">
+															<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+																<span class="selectValue">선택</span>
+																<span class="selectBtn"></span>
+															</a>
+															<select name="" title="선택해주세요">
+																<option></option>
+															</select>
+														</div>
+													</li>
+													<li class="mt20">
+														<div class="formTitN"><strong>항목명</strong></div>
+														<div class="inputList">
+															<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+																<span class="selectValue">선택</span>
+																<span class="selectBtn"></span>
+															</a>
+															<select name="" title="선택해주세요">
+																<option></option>
+															</select>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="guide_area t2">
+							<h5 class="guide_title4">라인있음 : ul.lineType</h5>
+							<div class="formWrap boxTypeWrap">
+								<div class="titListBox">
+									<ul class="lineType">
+										<li>
+											<div class="formTitN">
+												<strong>타이틀</strong>
+											</div>
+											<div class="inputList">
+												<input type="text" title="대체텍스트" placeholder="대체텍스트">
+												<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											</div>
+										</li>
+										<li>
+											<div class="formTitN">
+												<strong>타이틀</strong>
+												<div class="tooltipWrap w96">
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">{대체텍스트}툴팁 열기</span></button>
+													<div class="tooltipCont">
+														<p>내용이 노출됩니다.</p>
+														<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+													</div>
+												</div>
+											</div>
+											<div class="inputList">
+												<input type="tel" title="대체텍스트" placeholder="대체텍스트" value="123">
+												<span class="unit">원</span>
+												<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											</div>
+										</li>
+										<li>
+											<hr class="divLine3">
+											<div class="formTitN">
+												<strong>증가/감소</strong>
+												<span class="supExp">(부가설명)</span>
+											</div>
+											<div class="flexRBox">
+												<div class="deductBtnWrap">
+													<button type="button" class="minusBtn"><span class="blind">부모님 공제(70세 이상 부양가족 수) 빼기</span></button>
+													<span class="deductNum"><em>0</em></span>
+													<button type="button" class="plusBtn"><span class="blind">부모님 공제(70세 이상 부양가족 수) 더하기</span></button>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="formTitN">
+												<strong>공적연금</strong>
+												<button type="button" class="contBtn02">불러오기</button>
+											</div>
+											<div class="formTxt">연결된 자산에서 가져온 공적연금 정보입니다.<br>금액이 조회되지 않거나, 차이가 있는 경우 직접 입력해주세요.</div>
+											<div class="inputList">
+												<a href="javascript:;" title="대체텍스트" aria-haspopup="true">
+													<span class="selectValue">선택</span>
+													<span class="selectBtn"></span>
+												</a>
+												<select name="" title="선택해주세요">
+													<option></option>
+												</select>
+											</div>
+											<div class="inputVal mt10" aria-live="assertive">(1억원)</div>
+											<div class="inputList unitMan">
+												<input type="tel" title="대체텍스트" placeholder="대체텍스트">
+												<span class="unit">원</span>
+												<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											</div>
+										</li>
+										<li>
+											<div class="formTitN">
+												<strong>실물자산</strong>
+											</div>
+											<div class="formTxt">등록한 실물자산이 있어요. <br>은퇴준비자금에 포함할까요?</div>
+											<div class="boxRadio">
+												<div class="boxRadioInn">
+													<span>
+														<input type="radio" name="formRadio99" id="formRadio991" checked>
+														<label for="formRadio991">항목명1</label>
+													</span>
+												</div>
+												<div class="boxRadioInn">
+													<span>
+														<input type="radio" name="formRadio99" id="formRadio992">
+														<label for="formRadio992">항목명2</label>
+													</span>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형4] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형4 : .formArea1</h4>
+					<p class="guide_txt">오른쪽 정렬이 기본입니다.</p>
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="formArea1">
+									<p class="side">텍스트 노출</p> <!-- [D] 왼쪽정렬 : 위치는 어디에 있든 항상 왼쪽 정렬임 -->
+
+									<!-- [D] 오른쪽 정렬 영역 -->
+									<!-- // -->
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본구조</h5>
+							<div class="formArea1">
+								<span>
+									<input type="checkbox" id="formChk11" class="chekTypeOther">
+									<label for="formChk11">항목명</label>
+								</span>
+								<span>
+									<input type="checkbox" id="formChk12" class="chekTypeOther" checked>
+									<label for="formChk12">항목명</label>
+								</span>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">좌우배치 : .formArea1 &gt; .side</h5>
+							<div class="formArea1">
+								<p class="side">텍스트 노출</p>
+								<div class="formArray">
+									<span class="chkRadio">
+										<input type="radio" id="sample001" name="sample01">
+										<label for="sample001">항목명</label>
+									</span>
+									<span class="chkRadio">
+										<input type="radio" id="sample002" name="sample01" checked>
+										<label for="sample002">항목명</label>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [유형5] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형5 : .formArea2</h4>
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="formArea2">
+									<dl class="form">
+										<dt>항목명</dt>
+										<dd><input type="tel" class="inputText1 t1" value="123" title="@대체텍스트" placeholder="DEFUALT"></dd>
+									</dl>
+									<dl class="form">
+										<dt>항목명</dt>
+										<dd><input type="tel" class="inputText1 t1" value="123" title="@대체텍스트" placeholder="DEFUALT" disabled></dd>
+									</dl>
+									<!-- <p class="errorTxt">에러메세지</p> -->
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본구조</h5>
+							<div class="formArea2">
+								<dl class="form">
+									<dt>항목명</dt>
+									<dd><input type="tel" class="inputText1 t1" value="123" title="@대체텍스트" placeholder="DEFUALT"></dd>
+								</dl>
+								<dl class="form">
+									<dt>항목명</dt>
+									<dd><input type="tel" class="inputText1 t1" value="123" title="@대체텍스트" placeholder="DEFUALT" disabled></dd>
+								</dl>
+								<!-- <p class="errorTxt">에러메세지</p> -->
+							</div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">오류 : .form.error</h5>
+							<div class="formArea2">
+								<dl class="form error">
+									<dt>항목명</dt>
+									<dd><input type="tel" class="inputText1 t1" value="123" title="@대체텍스트" placeholder="DEFUALT"></dd>
+								</dl>
+								<dl class="form">
+									<dt>항목명</dt>
+									<dd><input type="tel" class="inputText1 t1" value="123" title="@대체텍스트" placeholder="DEFUALT"></dd>
+								</dl>
+								<p class="errorTxt">오류 메세지 영역</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 검색영역 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT2">
+			<h2 class="guide_title">검색영역</h2>
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1</h3>
+				<div class="guide_area2">
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h4 class="guide_title4">영업점 검색</h4>
+							<div class="formWrap">
+								<ul class="bdt_none">
+									<li>
+										<div class="inputList">
+											<a href="javascript:;" title="찾기 카테고리 선택" aria-haspopup="true">
+												<span class="selectValue">영업점명</span>
+												<span class="selectBtn"></span>
+											</a>
+											<select name="" title="선택해주세요">
+												<option value=""></option>
+											</select>
+										</div>
+									</li>
+									<li class="addrSrch">
+										<div class="inputList">
+											<input type="text" title="검색어 2자 이상 입력" placeholder="2자 이상 입력해 주세요.">
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											<button class="btnSearch"><span class="blind">찾기</span></button>
+										</div>
+										<div class="inputList error">
+											<input type="text" title="검색어" value="가" placeholder="2자 이상 입력해 주세요.">
+											<a href="javascript:" class="btnReset" role="button" style="display: inline;">입력내용삭제</a>
+											<button class="btnSearch"><span class="blind">찾기</span></button>
+										</div>
+										<p class="errorTxt">검색어를 2자이상 입력해 주세요.</p>
+										<p class="infoTxt mt5">영업점명, 지하철역명을 선택하고 검색어를 입력하시고 검색버튼을 선택하면 검색할 수 있습니다.</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h4 class="guide_title4">주소 검색</h4>
+							<div class="formWrap">
+								<ul>
+									<li class="addrSrch">
+										<div class="formTit"><strong>주소를 검색해주세요.</strong></div>
+										<div class="inputList">
+											<input type="text" title="지역명+단지명 또는 지번주소 입력" placeholder="지역명+단지명 또는 지번주소 입력">
+											<a href="javascript:" class="btnReset" role="button" style="display: none;">입력내용삭제</a>
+											<button class="btnSearch"><span class="blind">찾기</span></button>
+										</div>
+										<div class="infoGrayBox">
+											오피스텔은 주택분 재산세 과세대상으로 가정하여 재산세 및 종합부동산세가 계산됩니다.
+										</div>
+										<hr class="divLine3" aria-hidden="true">
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="guide_area">
+							<h4 class="guide_title4">도로명 주소 찾기</h4>
+							<div class="formWrap">
+								<ul>
+									<li class="addrSrch">
+										<div class="txtt2 mb15"><strong>도로명 주소 찾기</strong></div>
+										<div class="inputList">
+											<input type="text" title="도로명 주소 찾기" value="" placeholder="">
+											<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+											<button class="btnSearch"><span class="blind">찾기</span></button>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2</h3>
+				<div class="guide_area2">
+					<div class="guide_section2">
+						<div class="guide_area t2">
+							<h4 class="guide_title4">적요검색 : .filterSearchWrap</h4>
+							<div class="boxTypeWrap">
+								<div class="filterSearchWrap">
+									<!-- // -->
+									<div class="filterWrap">
+										<button type="button" class="btnSearch2"><span class="blind">적요검색 열기</span></button>
+										<span class="sortValue">2020.09.01 ~ 2020.09.30</span>
+										<span class="sortValue">전체</span>
+										<button type="button" class="sortBtn"><span class="blind">조회조건 선택 설정하기</span></button>
+									</div>
+									<!-- // -->
+									<div class="filterSearch" aria-label="적요검색" style="display:none">
+										<div class="inputList ty01">
+											<input type="text" title="적요 검색 (2자 이상)" value="" placeholder="적요 검색 (2자 이상)">
+											<button class="btnSearch"><span class="blind">검색</span></button>
+											<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+										</div>
+										<button class="btnSearDel"><span class="blind">적요검색 닫기</span></button>
+										<div class="filterSearchRes" style="display:none">‘길동’ 검색결과 총 1건</div>
+									</div>
+									<!-- // -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 조회영역 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT3">
+			<h2 class="guide_title">조회영역</h2>
+			<div class="guide_cont">
+				<p class="guide_txt">조회설정 공통 페이지 이동</p>
+				<div class="guide_section2">
+					<div class="guide_area">
+						<a href="../co/MSCO1600P.html" class="linkTypeBlock" target="_blank">조회설정(공통)</a>
+						<a href="../co/MSCO1600P.html?pageID=MSASC231P" class="linkTypeBlock" target="_blank">조회조건설정(은행업권)</a>
+						<a href="../co/MSCO1600P.html?pageID=MSASC232P" class="linkTypeBlock" target="_blank">조회조건설정(전금업권)</a>
+						<a href="../co/MSCO1600P.html?pageID=MSCS2500P" class="linkTypeBlock" target="_blank">거래구분</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 약관동의 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT4">
+			<h2 class="guide_title">약관동의</h2>
+			<div class="guide_cont">
+				<div class="guide_section2">
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="formWrap selectAll">
+									<div class="total">
+										<div class="formHolder check">
+											<input type="checkbox" id="ID" class="chekTypeOther">
+											<label class="check" for="ID">전체동의</label>
+										</div>
+									</div>
+									<div class="cont">
+										<div class="formHolder check">
+											<input type="checkbox" id="ID">
+											<label class="check" for="ID">[필수] 항목명</label>
+											<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+										</div>
+										<div class="formHolder check">
+											<input type="checkbox" id="ID" checked>
+											<label class="check" for="ID">[필수] 항목명
+												<span class="subTxt2">동의서명</span>
+											</label>
+											<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+										</div>
+									</div>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_area">
+						<h3 class="guide_title4">기본구조</h3>
+						<div class="formWrap selectAll">
+							<div class="total">
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0101" class="chekTypeOther">
+									<label class="check" for="FselectAll0101">전체동의</label>
+								</div>
+							</div>
+							<div class="cont">
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0102">
+									<label class="check" for="FselectAll0102">[필수] 항목명</label>
+									<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+								</div>
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0103">
+									<label class="check" for="FselectAll0103">[필수] 항목명</label>
+									<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+								</div>
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0104" checked>
+									<label class="check" for="FselectAll0104">[필수] 항목명
+										<span class="subTxt2">동의서명</span>
+										<span class="subTxt2">동의서명</span>
+									</label>
+									<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="guide_section2">
+					<!-- | HTML CODE | -->
+					<pre>
+						<code class="language-html">
+							<script type="prism-html-markup">
+								<div class="formWrap selectAll">
+									<div class="total">
+										<div class="formHolder check">
+											<input type="checkbox" id="FselectAll0201" class="chekTypeOther">
+											<label class="check" for="FselectAll0201">전체동의</label>
+										</div>
+									</div>
+									<div class="cont">
+										<div class="formHolder check">
+											<input type="checkbox" id="FselectAll0202">
+											<label class="check" for="FselectAll0202">[필수] 항목명</label>
+											<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+										</div>
+										<div class="agreeSubcont">
+											<div class="agreeSubTitle">
+												<strong>상품 서비스 안내 방법</strong>
+												<span class="formHolder check">
+													<input type="checkbox" id="type_all001" class="chekTypeOther">
+													<label class="check" for="type_all001"> 전체</label>
+												</span>
+											</div>
+											<div class="boxRadio">
+												<div class="boxRadioInn">
+													<span>
+														<input id="productInfo01" type="checkbox" aria-label="구분자(항목명)">
+														<label class="radio" for="productInfo01" aria-hidden="true">구분자(항목명)</label>
+													</span>
+												</div>
+												<div class="boxRadioInn">
+													<span>
+														<input id="productInfo02" type="checkbox" aria-label="구분자(항목명)">
+														<label class="radio" for="productInfo02" aria-hidden="true">구분자(항목명)</label>
+													</span>
+												</div>
+											</div>
+											<div class="boxRadio">
+												<div class="boxRadioInn">
+													<span>
+														<input id="productInfo03" type="checkbox" aria-label="구분자(항목명)">
+														<label class="radio" for="productInfo03" aria-hidden="true">구분자(항목명)</label>
+													</span>
+												</div>
+												<div class="boxRadioInn">
+													<span>
+														<input id="productInfo04" type="checkbox" aria-label="구분자(항목명)">
+														<label class="radio" for="productInfo04" aria-hidden="true">구분자(항목명)</label>
+													</span>
+												</div>
+											</div>
+										</div>
+										<div class="formHolder check otherDisabled">
+											<input type="checkbox" id="FselectAll0203" disabled>
+											<label class="check" for="FselectAll0203">[필수] 항목명</label>
+											<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+										</div>
+									</div>
+								</div>
+							</script>
+						</code>
+					</pre>
+					<!-- | // | -->
+					<div class="guide_area">
+						<h3 class="guide_title4">상세동의 추가 : .agreeSubcont</h3>
+						<div class="formWrap selectAll">
+							<div class="total">
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0201" class="chekTypeOther">
+									<label class="check" for="FselectAll0201">전체동의</label>
+								</div>
+							</div>
+							<div class="cont">
+								<div class="formHolder check">
+									<input type="checkbox" id="FselectAll0202">
+									<label class="check" for="FselectAll0202">[필수] 항목명</label>
+									<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+								</div>
+								<div class="agreeSubcont">
+									<div class="agreeSubTitle">
+										<strong>상품 서비스 안내 방법</strong>
+										<span class="formHolder check">
+											<input type="checkbox" id="type_all001" class="chekTypeOther">
+											<label class="check" for="type_all001"> 전체</label>
+										</span>
+									</div>
+									<div class="boxRadio">
+										<div class="boxRadioInn">
+											<span>
+												<input id="productInfo01" type="checkbox" aria-label="구분자(항목명)">
+												<label class="radio" for="productInfo01" aria-hidden="true">구분자(항목명)</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input id="productInfo02" type="checkbox" aria-label="구분자(항목명)">
+												<label class="radio" for="productInfo02" aria-hidden="true">구분자(항목명)</label>
+											</span>
+										</div>
+									</div>
+									<div class="boxRadio">
+										<div class="boxRadioInn">
+											<span>
+												<input id="productInfo03" type="checkbox" aria-label="구분자(항목명)">
+												<label class="radio" for="productInfo03" aria-hidden="true">구분자(항목명)</label>
+											</span>
+										</div>
+										<div class="boxRadioInn">
+											<span>
+												<input id="productInfo04" type="checkbox" aria-label="구분자(항목명)">
+												<label class="radio" for="productInfo04" aria-hidden="true">구분자(항목명)</label>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="formHolder check otherDisabled">
+									<input type="checkbox" id="FselectAll0203" disabled>
+									<label class="check" for="FselectAll0203">[필수] 항목명</label>
+									<a href="javascript:;" class="btnView" role="button"><span class="blind">약관보기</span></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ################################# -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$('.filterSearchWrap .btnSearch2').click(function(){
+		var $this = $(this);
+		var $parent = $this.closest('.filterSearchWrap');
+		if (!$this.hasClass('searchAfter')){
+			$parent.find('.filterSearch').show().find('.inputList').show().find('input:text').focus();
+			$parent.find('.filterSearchRes').hide();
+			$parent.find('.filterSearch').find('.btnSearDel').show().removeClass('mt0');
+		}else{
+			$parent.find('.filterSearch').hide();
+			$this.removeClass('searchAfter').find('.blind').text('적요검색 열기');
+		}
+	});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

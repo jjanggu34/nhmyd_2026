@@ -1,0 +1,437 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>STEP2 투자 기준 설정 | 밸런스진단 | 자산관리</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+    <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>밸런스진단</h1>
+		<a href="javascript:;" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] STEP2) 투자 기준 설정 ### -->
+	<!-- ###################################### -->
+	<div class="container bgWhite">
+    <div class="fullyWrap bgAsis pt0">
+      <!-- -------------------------------------- -->
+      <!-- [SECTION] 스텝 영역 -->
+      <!-- -------------------------------------- -->
+      <div class="infoStep"><!-- [D] AS-IS 타입 "infoStep" ::: "infoStep1"은 TO-BE 디자인으로 수정됨 -->
+        <ol>
+          <li>
+            <i aria-hidden="true">1</i>
+            <span>현황 확인</span>
+          </li>
+          <li aria-current="step"> <!-- [D] 현재 스텝 li : aria-current="step" 노출 -->
+            <i aria-hidden="true">2</i>
+            <span>투자 기준 설정</span>
+          </li>
+        </ol>
+      </div>
+
+      <!-- -------------------------------------- -->
+      <!-- [SECTION] 투자 기준 설정 STEP2  -->
+      <!-- -------------------------------------- -->
+      <h2 class="defTit mt16 mb24">
+        위험 성향에 맞춰<br>투자 기준을 설정해 보세요
+        <div class="tooltipWrap">
+          <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))">
+            <span class="blind">투자 기준을 설정 안내 툴팁 열기</span>
+          </button>
+          <div class="tooltipCont">
+            <h3>최적투자기준</h3>
+            <ul class="listBul nodisc noticeCont" tabindex="-1">
+              <li>NH농협은행은 투자자가 원하는 수준의 위험에서 최대 수익률을 제공하는 최적 포트폴리오를 제시해 드립니다.투자목적과 위험 성향에 맞는 나만의 투자기준을 구성해 보세요</li>
+            </ul>
+            <button type="button" class="close" onclick="tooltipClose($(this))">
+              <span class="blind">툴팁 닫기</span>
+            </button>
+          </div>
+        </div>
+      </h2>
+      <div class="boxTypeWrap">
+        <h3 class="h5 -icon -pie">권장 포트폴리오에<br>해외 자산을 포함하여 구성할까요?</h3><!-- 2025-11-17 수정 요청-->
+        <div class="boxRadio wrapType2 mt24">
+          <div class="boxRadioInn">
+            <span>
+              <input type="radio" name="FboxRadio01" id="FboxRadio0101" aria-label="해외 자산 포함(아니요)">
+              <label for="FboxRadio0101" aria-hidden="true">아니요</label>
+            </span>
+          </div>
+          <div class="boxRadioInn">
+            <span>
+              <input type="radio" name="FboxRadio01" id="FboxRadio0102" aria-label="해외 자산 포함(예)">
+              <label for="FboxRadio0102" aria-hidden="true">예</label>
+            </span>
+          </div>
+        </div>
+        <hr class="divLine mt24">
+        <ul class="listBul disc">
+          <li>해외자산은 해외선진국주식, 해외신흥국주식, 해외채권을 말해요.</li>
+        </ul>
+      </div>
+
+      <!-- -------------------------------------- -->
+      <!-- [SECTION] 투자 기준 설정  STEP2  -->
+      <!-- -------------------------------------- -->
+      <div class="boxTypeWrap mb8">
+        <h3 class="h5">
+          투자스타일과 투자성향을 참고하여<br>내 투자위험 범위를 선택해볼까요?
+          <div class="tooltipWrap">
+            <button type="button" class="toolTipBtn -small" onclick="tooltipOpen($(this))">
+              <span class="blind">투자위험범위 설정 안내 툴팁 열기</span>
+            </button>
+            <div class="tooltipCont">
+              <h3>투자위험범위 설정</h3>
+              <dl class="mt12" tabindex="-1">
+                <dt class="mb12">투자성향</dt>
+                <dd class="mb16">개인의 위험 감수 성향, 투자 기간, 투자 경험, 지식 수준 등을 설문을 통해 도출한 결과에요</dd>
+                <dt class="mb12">투자스타일</dt>
+                <dd>현재 보유하고 있는 자산상태를 기준으로 진단하며 연결자산이 많을수록 정확히 진단할 수 있어요. 본인이 감내할 수 있는 위험수준을 선택할 때 참고할 수 있어요</dd>
+              </dl>
+              <button type="button" class="close" onclick="tooltipClose($(this))">
+                <span class="blind">툴팁 닫기</span>
+              </button>
+            </div>
+          </div>
+        </h3>
+        <!-- 투자스타일, 투자성향 있을 때 -->
+        <div class="rangeWrap">
+          <div class="styleWrap">
+            <dl class="dl">
+              <dt class="dt">투자스타일</dt>
+              <dd class="dd">천진난만한 활동가</dd>
+            </dl>
+            <ul class="ul listBul disc noticeCont mt0">
+              <li>위험/수익 목표가 낮아요!</li>
+              <li>+a의 수익을 원해요!</li>
+            </ul>
+          </div>
+          <div class="trendWrap">
+            <dl class="dl">
+              <dt class="dt">투자성향</dt>
+              <dd class="dd grade1">공격투자형</dd><!-- grade1 공격투자형, grade2 적극투자형, grade3 위험중립형, grade4 안정추구형, grade5 안정형 -->
+            </dl>
+            <ul class="ul listBul disc noticeCont mt0">
+              <li>시장평균 보다 높은 수익률을 추구해요</li>
+              <li>대부분을 주식, 주식형펀드, 파생상품에 투자할 의향이 있어요</li>
+            </ul>
+          </div>
+        </div>
+        <!-- ----------------------------------- -->
+
+        <!-- [D] 투자위험 다시 설정 눌렀을 때 -->
+        <a href="javascript:;" class="reTry" role="button">투자성향 진단 다시 하기</a>
+        <!-- ------------------------------ -->
+
+        <!-- ### [D] 진단 결과 있을 때 ### -->
+        <!-- [D] 투자위험 수준 선택 -->
+        <div class="gaugeContainer">
+          <div class="gaugeBar" role="radiogroup" aria-labelledby="gauge-label-desc">
+              <input type="radio" id="gauge-1" name="gaugeRadio" value="5" aria-label="안정형" aria-describedby="gauge-description">
+              <label for="gauge-1" class="barItem bar-1"></label>
+
+              <input type="radio" id="gauge-2" name="gaugeRadio" value="4" aria-label="안정추구형" aria-describedby="gauge-description">
+              <label for="gauge-2" class="barItem bar-2"></label>
+
+              <input type="radio" id="gauge-3" name="gaugeRadio" value="3" aria-label="위험중립형" aria-describedby="gauge-description" checked="checked">
+              <label for="gauge-3" class="barItem bar-3"></label>
+
+              <input type="radio" id="gauge-4" name="gaugeRadio" value="2" aria-label="적극투자형" aria-describedby="gauge-description">
+              <label for="gauge-4" class="barItem bar-4"></label>
+
+              <input type="radio" id="gauge-5" name="gaugeRadio" value="1" aria-label="공격투자형" aria-describedby="gauge-description">
+              <label for="gauge-5" class="barItem bar-5"></label>
+          </div>
+          <!-- 접근성 -->
+          <p id="gauge-description" class="gauge-description">
+              왼쪽부터 낮은 위험도로 수익이 낮지만 손실 위험이 적어요. 오른쪽으로 갈수록 높은 위험도로 수익이 높지만 손실 위험이 있어요.
+          </p>
+          <!-- // 접근성 -->
+          <!-- popOver -->
+          <div class="popOverBox" role="status" aria-live="polite">
+            <p class="popOverTxt">위험수준을 선택해 보세요</p>
+            <button class="popOverClose" aria-label="말풍선 닫기"></button>
+            <div class="popOverArrow"></div>
+          </div>
+          <!-- // popOver -->
+        </div>
+
+        <div class="descWrap">
+          <dl class="dl">
+            <dt class="dt grade5">낮은 위험</dt>
+            <dd class="dd">수익이 낮지만<br>손실 위험이 적어요</dd>
+          </dl>
+          <dl class="dl">
+            <dt class="dt grade1">높은 위험</dt>
+            <dd class="dd">수익이 높지만<br>손실 위험이 있어요</dd>
+          </dl>
+        </div>
+        <!-- // [D] 투자위험 수준 선택 -->
+        <!-- ### #################### ### -->
+        <hr class="divLine mt24 mb24">
+
+        <!-- ### 권장 포트폴리오 vs 내 포트폴리오 ### -->
+        <h3 class="h5">권장 포트폴리오</h3><!-- 2025-11-13 수정 요청 -->
+        <div class="expectedWrap mt3 mb3">
+          <span class="expected">기대수익 범위(최저 -5.7% ~ 최고 +19.7%)</span>
+          <div class="tooltipWrap">
+            <button type="button" class="toolTipBtn -small" onclick="tooltipOpen($(this))">
+              <span class="blind">기대수익 안내 툴팁 열기</span>
+            </button>
+            <div class="tooltipCont">
+              <h3>기대수익 범위</h3>
+              <dl class="mt12" tabindex="-1">
+                <dt class="mb12">기대수익률 : 8% /  변동성 : 15.4%</dt>
+                <dd>현재 선택하신 자산배분안은 연 8% 수익률을 기대할 수 있으며, 약 68% 확률로 -7.4%에서 +23.4%사이의 수익을 기록할 수 있어요.</dd><!-- 2025-11-19 수정 요청-->
+              </dl>
+              <button type="button" class="close" onclick="tooltipClose($(this))">
+                <span class="blind">툴팁 닫기</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="chartWrap -flex">
+          <!-- 차트 영역 -->
+          <div class="chartGraph">
+            <canvas id="doughnutChart" role="img" tabindex="0" aria-labelledby="분석 대상 자산 도넛 그래프"></canvas>
+            <div class="tooltip" role="tooltip" aria-live="polite" aria-hidden="true"></div>
+          </div>
+          <!-- // 차트 영역 -->
+          <div class="chartLegend type1">
+            <ul>
+              <li class="item"><span class="itemTit">현금</span></li>
+              <li class="item"><span class="itemTit">국내주식</span></li>
+              <li class="item"><span class="itemTit">해외선진국주식</span></li>
+              <li class="item"><span class="itemTit">해외신흥국주식</span></li>
+              <li class="item"><span class="itemTit">국내채권</span></li>
+              <li class="item"><span class="itemTit">해외채권</span></li>
+            </ulid=>
+          </div>
+        </div>
+
+        <div class="mbToggleWrap"><!-- 토글 영역 -->
+          <div class="noticeCont" role="region" id="portfolio1" aria-labelledby="showBtn1" style="display:none">
+            <hr class="divLine mt24 mb24">
+            <h3 class="h5">내 포트폴리오</h3>
+            <div class="chartWrap -bar">
+              <div class="chartGraph">
+                <!-- 차트 영역 -->
+                <canvas id="stackedBarChart" role="img" tabindex="0" aria-labelledby="내 포트폴리오 가로막대바 그래프"></canvas>
+                <div class="tooltip" role="tooltip" aria-live="polite" aria-hidden="true"></div>
+                <!-- // 차트 영역 -->
+              </div>
+            </div>
+            <div class="expectedWrap ar">
+              <span class="expected">기대수익 범위(최저 -5.7% ~ 최고 +19.7%)</span>
+            </div>
+
+            <h3 class="h5">권장 포트폴리오</h3><!-- 2025-11-13 수정 요청-->
+            <div class="chartWrap -bar">
+              <div class="chartGraph">
+                <!-- 차트 영역 -->
+                <canvas id="stackedBarChart2" role="img" tabindex="0" aria-labelledby="권장 포트폴리오 가로막대바 그래프"></canvas><!--2025-11-17 수정 요청-->
+                <div class="tooltip" role="tooltip" aria-live="polite" aria-hidden="true"></div>
+                <!-- // 차트 영역 -->
+              </div>
+            </div>
+            <div class="expectedWrap ar">
+              <span class="expected">기대수익 범위(최저 -5.7% ~ 최고 +19.7%)</span>
+            </div>
+
+            <div class="wrapTblDefault -label mt24">
+              <table>
+                <caption>권장 포트폴리오와 내 포트폴리오 비교(자산종류, MY, 권장, 차이)</caption><!-- 2025-11-13 수정 요청 -->
+                <colgroup>
+                  <col style="width:auto">
+                  <col style="width:20%">
+                  <col style="width:20%">
+                  <col style="width:22%">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col"><span class="blind">자산종류</span></th>
+                    <th scope="col" class="ar">MY</th>
+                    <th scope="col" class="ar">권장</th>
+                    <th scope="col" class="ar">차이</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>현금</td>
+                    <td class="ar">1.9%</td>
+                    <td class="ar">3.0%</td>
+                    <td class="rise ar">+1.1%</td>
+                  </tr>
+                  <tr class="brNone">
+                    <td>국내주식</td>
+                    <td class="ar">2.1%</td>
+                    <td class="ar">27.0%</td>
+                    <td class="rise ar">+24.9%</td>
+                  </tr>
+                  <tr class="brNone">
+                    <td>해외선진국주식</td>
+                    <td class="ar">25.0%</td>
+                    <td class="ar">25.0%</td>
+                    <td class="zero ar">0%</td>
+                  </tr>
+                  <tr>
+                    <td>해외신흥국주식</td>
+                    <td class="ar">0.0%</td><!-- 2025-09-26 0% 적용 예제(해외신흥국주식)-->
+                    <td class="ar">4.0%</td>
+                    <td class="rise ar">+4.0%</td>
+                  </tr>
+                  <tr class="brNone">
+                    <td>국내채권</td>
+                    <td class="ar">14.0%</td>
+                    <td class="ar">21.0%</td>
+                    <td class="rise ar">+7.0%</td>
+                  </tr>
+                  <tr class="brNone">
+                    <td>해외채권</td>
+                    <td class="ar">32.0%</td>
+                    <td class="ar">20.0%</td>
+                    <td class="decline ar">-12.0%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <hr class="divLine mt24 mb16">
+          <button type="button" class="showBtn noticeBtn" role="button" id="showBtn1" aria-expanded="false" data-target="#portfolio1" aria-controls="portfolio1">
+            <span>펼치기</span>
+          </button>
+        </div><!-- // 토글 영역 -->
+        <!-- ### #################### ### -->
+      </div><!-- // boxTypeWrap -->
+    </div><!-- // fullyWrap -->
+
+    <hr class="divLine mt0 mb0">
+
+    <div class="fullyWrap bgWhite pt0 pb0">
+      <!-- -------------------------------------- -->
+      <!-- [SECTION] 알아두세요 -->
+      <!-- -------------------------------------- -->
+      <div class="info_area"><!-- 2025-10-02 중복id로 인한 오류 수정(id변경) -->
+        <a href="javascript:;" class="noticeBtn" data-target="#MSAEd300" aria-expanded="false" aria-controls="MSAEd300" id="MSAEd300_label">
+          <strong class="info_area_title">알아두세요<span style="display:none">펼치기</span></strong>
+        </a>
+        <ul class="listBul disc noticeCont" aria-labelledby="MSAEd300_label" role="region" id="MSAEd300" style="display:none">
+          <li>내 자산 및 권장 포트폴리오에서 제시된 기대수익률 범위는 NH농협은행 WM시스템의 기대수익률과 투자위험 정보를 바탕으로 재구성 되었습니다.</li><!-- 2025-11-13 수정 요청 -->
+          <li>NH농협은행은 현금, 국내주식, 국내채권, 해외선진국주식, 해외신흥국주식, 해외채권 등 6개의 기초자산에 대해 최적자산배분을 제시하며 대체투자, 실물투자, 보험 등은 최적자산배분 프로세스에서 제외합니다.</li>
+        </ul>
+      </div>
+      <!-- -------------------------------------- -->
+    </div>
+
+    <!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">결과보기</a> <!-- [D] 비활성화 클래스명 (disabled) 및 aria-disabled="true" 추가 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+<!-- ###################################### -->
+<!-- ### [페이지] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  //차트 호출 //////////////////////////////////////////////////////////////
+  // 내 포트폴리오 // 2025-09-26 0% 적용 예제(해외신흥국주식)
+  const percentageData = [
+    { label: "현금", percent: 0.9 }, { label: "국내주식", percent: 2.1 }, { label: "해외선진국주식", percent: 96.3 },
+    { label: "해외신흥국주식", percent: 0 }, { label: "국내채권", percent: 0.4 }, { label: "해외채권", percent: 0.3 }
+  ];
+  // 최적 포트폴리오
+  const percentageData2 = [
+    { label: "현금", percent: 3 }, { label: "국내주식", percent: 27 }, { label: "해외선진국주식", percent: 25 },
+    { label: "해외신흥국주식", percent: 4 }, { label: "국내채권", percent: 21 }, { label: "해외채권", percent: 20 }
+  ];
+
+  const convertedData = createChartData(percentageData);
+  const convertedData2 = createChartData(percentageData2);
+
+  // 내 포트폴리오 lazyLoad 옵션 추가
+  const doughnutChartInstance = new DoughnutChart("doughnutChart", convertedData, {
+    totalFrames: 60, colorType: 'type1', minimumSlicePercent: 5, sizeFactor: 1, thicknessRatio: 0.5, width: 140, height: 140, lazyLoad: true // 이 옵션을 추가하여 바로 그리지 않도록 설정
+  });
+  // 내 포트폴리오
+  stackedBarChartInstance = new StackedBarChart("stackedBarChart", convertedData, {
+    colorType: 'type1', minimumSlicePercent: 5, totalFrames: 60, padding: 0
+  });
+  // 최적 포트폴리오
+  stackedBarChartInstance2 = new StackedBarChart("stackedBarChart2", convertedData2, {
+    colorType: 'type1', minimumSlicePercent: 5, totalFrames: 60, padding: 0
+  });
+
+  // --- 도넛 차트 보일 때 시작 ---
+  const doughnutCanvas = document.getElementById('doughnutChart');
+  if (doughnutCanvas) {
+      const doughnutObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+              // isIntersecting 속성으로 뷰포트 진입 여부 확인
+              if (entry.isIntersecting) {
+                  //console.log('도넛 차트가 화면에 보입니다. 애니메이션을 시작합니다.');
+                  // 차트 애니메이션 시작
+                  doughnutChartInstance.resizeCanvas();
+                  // 한 번만 실행하기 위해 관찰 중단
+                  observer.unobserve(doughnutCanvas);
+              }
+          });
+      }, {
+          threshold: 0.1 // 차트가 10% 보였을 때 콜백 함수 실행
+      });
+      // 도넛 캔버스 관찰 시작
+      doughnutObserver.observe(doughnutCanvas);
+  }
+  // --- 도넛 차트 보일 때 끝 ---
+  // --- MutationObserver 설정 시작 ---
+  const accordionContent = document.getElementById('portfolio1'); // 토글 ID
+  if (accordionContent) {
+      const observer = new MutationObserver((mutationsList, observer) => {
+          // 아코디언 컨테이너가 화면에 보이는지 확인
+          if (accordionContent.offsetParent !== null) {
+              //console.log('차트 컨테이너가 화면에 표시되었습니다. 모든 막대 차트를 렌더링합니다.');
+              // 두 개의 차트 인스턴스 모두에 대해 리사이즈 명령
+              if (stackedBarChartInstance) stackedBarChartInstance.resizeCanvas();
+              if (stackedBarChartInstance2) stackedBarChartInstance2.resizeCanvas();
+
+              // 모든 차트를 그렸으므로 감시 중단
+              observer.disconnect();
+          }
+      });
+      observer.observe(accordionContent, { attributes: true, attributeFilter: ['style', 'class'] });
+  }
+  // --- MutationObserver 설정 끝 ---
+//차트 호출 //////////////////////////////////////////////////////////////
+
+});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

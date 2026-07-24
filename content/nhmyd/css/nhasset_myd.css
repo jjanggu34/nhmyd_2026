@@ -81,6 +81,8 @@
 	--color6:#999;
 	--color-disabled:#999;
 
+	--gray-200: #f0f0f0; /* 260702 */
+
 	/* 폰트사이즈 */
 	--fontSize10:clamp(10px, 1rem, 15px);
 	--fontSize11:clamp(11px, 1.1rem, 16.5px);
@@ -121,6 +123,23 @@
 	--grade5:#e95353;
 
 	--border-color:#ebebeb; /* 추가 260625 */
+
+	/* [MD2605_047] 마이데이터 펀드 권유 프로세스 개선 */
+	/* 등급색상 */
+	--diag-grade1:#d10f0f; /* 공격투자형 */
+	--diag-grade2:#da6f11; /* 적극투자형 */
+	--diag-grade3:#12a396; /* 위험중립형 */
+	--diag-grade4:#2b9ac9; /* 안정추구형 */
+	--diag-grade5:#015aac; /* 안정형 */
+
+	/* 위험도 */
+	--diag-warning1:#d10f0f; /* 매우높은위험 */
+	--diag-warning2:#d44b10; /* 높은위험 */
+	--diag-warning3:#da6f11; /* 다소높은위험 */
+	--diag-warning4:#12a396; /* 보통위험 */
+	--diag-warning5:#2b9ac9; /* 낮은위험 */
+	--diag-warning6:#015aac; /* 매우낮은위험 */
+	/* [MD2605_047] 마이데이터 펀드 권유 프로세스 개선 */
 }
 
 @media screen and (min-width:641px) {
@@ -2557,6 +2576,19 @@ html {--footer-pading-top:0px}
 /* [MD2604_037] 포인트쌓기 화면 內 마이데이터 상시 자산연결 이벤트 연계 */
 .nhasset .imgWrapNor.fin {background:url('../images/data_loading001.gif')no-repeat center top; padding-top:140px; background-size:120px auto; text-align:center;}
 
+/* [MD2606_064] 자산 미연결고객 대상 자산연결 유도 팝업 노출 */
+.nhasset .diag_cont {padding:0 16px 160px 16px; text-align:center; font-size:var(--fontSize18);}
+.nhasset .diag_cont.diag_result_img01 {background:url('../images/diag_result_img01.png') no-repeat center bottom; background-size:140px auto;}
+.nhasset .diag_cont.diag_result_img02 {background:url('../images/diag_result_img02.png') no-repeat center bottom; background-size:140px auto;}
+.nhasset .diag_cont.diag_result_img03 {background:url('../images/diag_result_img03.png') no-repeat center bottom; background-size:140px auto;}
+.nhasset .diag_cont.diag_result_img04 {background:url('../images/diag_result_img04.png') no-repeat center bottom; background-size:140px auto;}
+.nhasset .diag_cont.diag_result_img05 {background:url('../images/diag_result_img05.png') no-repeat center bottom; background-size:140px auto;}
+.nhasset .diag_cont.diag_result_img06 {background:url('../images/diag_result_img06.png') no-repeat center bottom; background-size:140px auto;}
+.nhasset .diag_cont.diag_result_img07 {background:url('../images/diag_result_img07.png') no-repeat center bottom; background-size:140px auto;}
+.nhasset .diag_cont.diag_result_img08 {background:url('../images/diag_result_img08.png') no-repeat center bottom; background-size:140px auto;}
+.nhasset .diag_cont.diag_result_img09 {background:url('../images/diag_result_img09.png') no-repeat center bottom; background-size:140px auto;}
+.pt40 {padding-top: 40px !important;}
+
 /* [MD2604_036] 신용점수 올리기 서비스 內 인증프로세스 추가 */
 .mbType .posRelative{position:relative}
 .nhasset .mbType .nhassetAuthWrap{text-align:center}
@@ -2589,3 +2621,31 @@ html {--footer-pading-top:0px}
 .nhasset .mbType .authSelectList{padding:12px 24px}
 .nhasset .mbType .authSelectList li a{display:flex;align-items:center;justify-content:space-between;width:100%;padding:16px 0 16px 52px;font-size:var(--fontSize16);font-weight:500}
 .nhasset .mbType .authSelectList li a > div{display:flex;align-items:center;justify-content:flex-end;gap:0 4px}
+
+/* [MD2605_047] 마이데이터 펀드 권유 프로세스 개선 */
+.nhasset .investBox {padding:20px;}
+.nhasset .investBox + .investBox {margin-top:12px;}
+.nhasset .investBox .investCard {display: flex; justify-content: space-between; align-items: center;}
+.nhasset .investBox .linkTxt2 {font-size: var(--fontSize13); white-space: nowrap;}
+.nhasset .investBox .investbtnWrap {display:flex; justify-content:space-between; align-items:center; margin-bottom:2px;}
+
+.nhasset .grade1.-diag {color:var(--diag-grade1);}
+.nhasset .grade2.-diag {color:var(--diag-grade2);}
+.nhasset .grade3.-diag {color:var(--diag-grade3);}
+.nhasset .grade4.-diag {color:var(--diag-grade4);}
+.nhasset .grade5.-diag {color:var(--diag-grade5);}
+
+.nhasset .recAgreeCase {position:relative;}
+.nhasset .recAgreeCase .agreeBlur {position:absolute;left:0;top:0;display:flex;align-items:center; width:100%;height:100%;z-index:10;}
+.nhasset .recAgreeCase .agreeBlur ~ h3,.nhasset .recAgreeCase .agreeBlur ~ ul,.nhasset .recAgreeCase .agreeBlur ~ div,.nhasset .recAgreeCase .agreeBlur ~ strong,.nhasset .recAgreeCase .agreeBlur ~ span,.nhasset .recAgreeCase .agreeBlur ~ p,.nhasset .recAgreeCase .agreeBlur ~ a {filter: blur(6px);opacity: 0.5;}
+.nhasset .recAgreeCase .agreeBlur .agreeBlurTxt { margin:0 auto;text-align:center;padding-inline:10px;}
+.nhasset .recAgreeCase .agreeBlur .agreeBlurTxt img {display:none;width:32px;margin-bottom:5px;}
+.nhasset .recAgreeCase .tit {font-size:var(--fontSize13);color:var(--color1);word-break:keep-all;font-weight:bold;}
+.nhasset .recAgreeCase .txt {font-size:var(--fontSize12);color:var(--color4);margin-top:5px;word-break:keep-all;}
+.nhasset .recAgreeCase .link {display:inline-block;padding:0 10px;margin-top:7px;font-size:var(--fontSize12);color:#fff;background:var(--point1);font-weight:400;border-radius:var(--size24);height:var(--size24);line-height:var(--size24);}
+.nhasset .recAgreeCase .link.-multi {height:auto; line-height:inherit; padding:8px 15px;}
+
+/* [MD2607_074] 청년 재무상담 영업점 안내 화면 개발 */
+.nhasset .defTit.icoFin {margin-top: 0; background: url('../images/contents/bg_tit_cal01.png') center right/57px 47px no-repeat;}
+.nhasset .adrContWrap.-fin .adrList {margin-top:0;}
+.nhasset .adrContWrap.-fin li:first-child {border-top:none; margin-top:0;}

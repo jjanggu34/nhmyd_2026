@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>STEP1) 서비스 이용동의 | 계좌해지 잔고이전 | 자산현황(숨은자산) | 자산</title>
+<script src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>계좌해지/잔고이전</h1>
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] STEP1) 서비스 이용동의 ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 스텝 영역 -->
+		<!-- -------------------------------------- -->
+		<div class="infoStep1">
+			<ol>
+				<li aria-current="step"> <!-- [D] 현재 스텝 li : aria-current="step" 노출 -->
+					<i aria-hidden="true">1</i>
+					<span>서비스 이용동의</span>
+				</li>
+				<li>
+					<i aria-hidden="true">2</i>
+					<span>계좌해지방법 선택</span>
+				</li>
+				<li>
+					<i aria-hidden="true">3</i>
+					<span>해지예상금액조회</span>
+				</li>
+				<!-- [MD2410_086_v0.15] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 4step 삭제 -->
+				<!-- <li>
+					<i aria-hidden="true">4</i>
+					<span>휴대폰 본인인증</span>
+				</li> -->
+			</ol>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 진단정보 입력 STEP1 영역 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap t1">
+			<h2 class="agr_title_info mt0">
+				<strong>
+					<span class="text-highlight-y">계좌를 해지하려면</span> 서비스 이용 동의가 필요해요.
+				</strong>
+			</h2>
+			<hr class="divLine">
+			<!-- ### 추가 이용 동의(선택) ### -->
+			<div class="formWrapArea">
+				<div class="formWrap selectAll pd0">
+					<div class="total">
+						<div class="formHolder check">
+							<input type="checkbox" id="type_all01" class="chekTypeOther">
+							<label class="check" for="type_all01"> 전체동의</label>
+						</div>
+					</div>
+					<div class="cont">
+						<div class="formHolder check">
+							<input type="checkbox" id="type01" checked>
+							<label class="check" for="type01"><em>[필수]</em> 계좌통합관리서비스 이용약관</label>
+							<a href="javascript:;" class="btnView"><span class="blind">[필수] 계좌통합관리서비스 이용약관보기</span></a>
+						</div>
+						<div class="formHolder check">
+							<input type="checkbox" id="type02" disabled>
+							<label class="check" for="type02"><em>[필수]</em> 개인정보 수집·이용 동의서</label>
+							<a href="javascript:;" class="btnView"><span class="blind">[필수] 개인정보 수집·이용 동의서 약관보기</span></a>
+						</div>
+						<!-- [MD2410_086_v0.20] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 서비스 이용 동의 약관보기 삭제 -->
+						<!-- [MD2410_086_v0.24] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 삭제 -->
+						<!-- <div class="formHolder check">
+							<input type="checkbox" id="type03">
+							<label class="check" for="type03"><em>[필수]</em> 서비스 이용 동의</label>
+						</div> -->
+					</div>
+				</div>
+			</div>
+			<!-- [MD2410_086_v0.24] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 유의사항 안내 마크업 수정 S -->
+			<div class="grayBox pt0">
+				<div class="formWrap selectAll mt0 pd0 bgNone">
+					<div class="cont">
+						<div class="formHolder check">
+							<input type="checkbox" id="type03">
+							<label class="check" for="type03"><em>[필수]</em> 서비스 이용 동의</label>
+						</div>
+					</div>
+				</div>
+				
+				<div class="info_area mt10">
+					<ul class="listBul disc pl20 ml10">
+						<li>계좌 해지는 처리가 완료된 이후 취소가 불가능합니다.</li>
+						<li>계좌정보 및 해지예상금액 관련 세부사항은 해당 금융회사에 문의하시기 바랍니다.</li>
+						<li>다른 금융회사로 잔고 이전 시 이체수수료가 발생할 수 있습니다.</li>
+						<li>계좌를 해지하는 경우 해당 계좌에 등록되어있는 자동이체(신용·체크카드 포함)가 해지됩니다.</li>
+						<li>압류 및 가압류 계좌로 잔고를 이전하실 경우 해당 계좌로 입금된 잔고는 되찾으실 수 없습니다.</li>
+						<li>예금보험공사는 1개 금융회사에 있는 1명의 모든 예금보호 대상 금융상품의 원금과 소정의 이자를 합하여 1인당 최고 5천만원까지 보호합니다.</li>
+					</ul>
+				</div>
+			</div>
+			<!-- //[MD2410_086_v0.24] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 유의사항 안내 마크업 수정 E -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">다음</a> <!-- [D] 비활성화 클래스명 (disabled) 및 aria-disabled="true" 추가 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

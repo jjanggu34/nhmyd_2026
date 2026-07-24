@@ -1,0 +1,126 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>NH마이데이터</title>
+<script type="text/javascript" src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+  <div class="wrapper nhasset bgWhite">
+    <!-- header -->
+    <div class="header">
+      <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+      <h1><img src="../../images/makebetter/logo_tit_mydata.svg" class="mt0" alt="NH마이데이터"></h1><!-- 2025-10-21 타이틀 이미지 변경 -->
+      <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a><!-- 2025-10-27 가입 전 홈 버튼 추가 요청 -->
+    </div>
+    <!-- //header -->
+
+    <!-- ###################################### -->
+    <!-- ### NH마이데이터 ### -->
+    <!-- ###################################### -->
+    <div class="container bgWhite">
+      <div class="lookSwiper balanceReview">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <h3 class="lookTit">
+                <strong >내 모든 금융 데이터를 한곳에서!</strong >
+                  <p class="fs14 -medium color3 mt8">맞춤형 자산 관리와 생활 서비스까지!!<br> NH마이데이터!</p>
+              </h3>
+              <div class="balanceReviewAuto">
+                <img class="assetBalanceImg" src="../../images/makebetter/banner/img_banner02_01.png" alt="포트폴내 모든 금융 데이터를 한곳에서! 맞춤형 자산 관리와 생활 서비스까지!! NH마이데이터!" />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h3 class="lookTit type02">
+                <strong>은행&middot;증권&middot;카드까지 흩어진 내 자산!!</strong>
+                 <p class="fs14 -medium color3 mt8">투자와 소비를 한 곳에서 똑똑하게!</p>
+              </h3>
+              <div class="balanceReviewAuto">
+                <img class="assetBalanceImg" src="../../images/makebetter/banner/img_banner02_02.png" alt="은행&middot;증권&middot;카드까지 흩어진 내 자산!! 투자와 소비를 한 곳에서 똑똑하게!" />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <h3 class="lookTit type02">
+                <strong>자동차, 세금, 통신비, 구독까지!</strong>
+                 <p class="fs14 -medium color3 mt8">생활 속 내 금융도 한번에 편하게!</p>
+              </h3>
+              <div class="balanceReviewAuto">
+                <img class="assetBalanceImg" src="../../images/makebetter/banner/img_banner02_03.png" alt="자동차, 세금, 통신비, 구독까지! 생활 속 내 금융도 한번에 편하게!" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-control">
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <div class="areaBtnDefault">
+        <a href="javascript:;" class="btnPressPoint" role="button">서비스 가입하기</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var swiper = new Swiper('.lookSwiper .swiper-container', {
+      slidesPerView: '1',
+      // spaceBetween: 12,
+      centeredSlides: true,
+      observer: true,
+      observeParents: true,
+      loop: true,
+      autoplay: {
+        delay: 6000,
+        disableOnInteraction: false,      // 유저가 터치해도 재시작
+        pauseOnMouseEnter: true           // 마우스 올라가면 일시정지
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+        bulletElement: 'a',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      on: {
+        init: function () {
+          $('.lookSwiper .swiper-slide').attr('aria-hidden', 'true');
+          $('.lookSwiper .swiper-slide-active').attr('aria-hidden', 'false');
+        },
+        slideChangeTransitionEnd: function (index) {
+          var $shareBannerBtn = $('.lookSwiper .swiper-pagination');
+          $shareBannerBtn.find('a').attr('title', '');
+          $shareBannerBtn.find('a').eq(this.activeIndex).attr('title', '선택됨');
+          $('.lookSwiper .swiper-slide').attr('aria-hidden', 'true');
+          $('.lookSwiper .swiper-slide-active').attr('aria-hidden', 'false');
+
+          $('.swiper-slide').removeClass('active');
+          if (!$('.swiper-slide').eq(this.activeIndex).hasClass('once')) {
+            $('.swiper-slide').eq(this.activeIndex).addClass('active');
+          } else if ($('.swiper-slide').hasClass('slideR3')) {
+            $('.swiper-slide').eq(this.activeIndex).addClass('once');
+          }
+        },
+      },
+    });
+  </script>
+</body>
+</html>

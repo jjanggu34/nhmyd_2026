@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>목록조회_자산선택</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body class="nhd_sbnew">
+<div class="wrapper nhasset bgWhite">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack" role="button"><span class="blind">이전화면으로</span></a>
+		<h1>자산연결</h1>
+		<!-- [MD2411_092_v0.16] [자산연결 동의 절차 간소화] 추가 자산연결(기존 연결되어 있는 기관들만 선택시) 나가기버튼 추가  -->
+		<!-- [MD2509_104] 프로세스 진행 화면 헤더 영역 변경 -->
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+		<!-- [MD2411_092_v0.16] [자산연결 동의 절차 간소화] 자산추가/삭제화면일 경우 홈버튼 추가  -->
+		<!-- <a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a> -->
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 목록조회완료_자산선택  ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- [MD2411_092_v0.16] [자산연결 동의 절차 간소화] 추가 자산연결(기존 연결되어 있는 기관들만 선택시) 상단스탭 추가 S -->
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] STEP -->
+		<!-- -------------------------------------- -->
+		<!-- [MD2411_092_v0.16] [자산연결 동의 절차 간소화] 자산추가/삭제화면일 경우 상단스탭 삭제  -->
+		<div class="stepWrap">
+			<ol role="img" aria-label="총 3단계 중 3번째 단계">
+				<li><span>1</span></li>
+				<li class="active"><span>2</span></li>
+				<li><span>3</span></li>
+				<!-- <li><span>4</span></li> -->
+			</ol>
+		</div>
+		<!-- //[MD2411_092_v0.16] [자산연결 동의 절차 간소화] 추가 자산연결(기존 연결되어 있는 기관들만 선택시) 상단스탭 추가 E -->
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 상단문구 -->
+		<!-- -------------------------------------- -->
+		<h2 class="defTit">자산목록을 조회했습니다.<br><strong>연결할 자산을 선택</strong>해주세요</h2>
+		<p class="subTxt"><span>N개</span> 기관의 데이터를 불러왔습니다.<br> 보유한 자산이 있는 기관만 표시 됩니다. </p>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 목록영역 -->
+		<!-- -------------------------------------- -->
+		<div class="assetSelectLlistWrap">
+			<div class="assetSelectLlistAll">
+				<span><input type="checkbox" id="listAll" class="chekTypeOther" checked><label for="listAll">전체선택</label></span>
+			</div>
+			<ul class="assetSelectLlist">
+				<!-- [MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) 서민금융진흥원 노출시 정의 추가 -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<div class="subject">
+							<input type="checkbox" id="listSub000" class="chekTypeOther" checked>
+							<label for="listSub000"><span class="imgWrap"><img src="../../images/logos/AAOW0000.png" alt="" class="imgLogo"></span>서민금융진흥원</label>
+						</div>
+						<a href="javascript:;" class="toggleBtn active"><span class="blind">서민금융진흥원 자산목록</span></a>
+					</div>
+					<ul class="assetSelectSub toggleCont">
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" id="listSub101" checked>
+								<label for="listSub101">
+									<div class="title">기관명</div>
+									<!-- [MD2504_052_v0.04] (서금원)휴면예금조회·지급서비스(2.0반영) 상태 추가 -->
+									<div class="subCont">계좌번호, 상태</div>
+								</label>
+							</div>
+							<!-- [MD2504_052_v0.05] (서금원)휴면예금조회·지급서비스(2.0반영) 숨은자산 추가 -->
+							<span class="assetSelectFlag">
+								<span class="tag Green">숨은자산</span>
+							</span>
+						</li>
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" id="listSub102" checked>
+								<label for="listSub102">
+									<div class="title">기관명</div>
+									<!-- [MD2504_052_v0.04] (서금원)휴면예금조회·지급서비스(2.0반영) 상태 추가 -->
+									<div class="subCont">계좌번호, 상태</div>
+								</label>
+							</div>
+							<!-- [MD2504_052_v0.05] (서금원)휴면예금조회·지급서비스(2.0반영) 숨은자산,연결중 추가 -->
+							<span class="assetSelectFlag">
+								<span class="tag Green">숨은자산</span>
+								<span class="tag bgGray">연결중</span>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<!-- // -->
+				<!-- // -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<div class="subject">
+							<input type="checkbox" id="listSub00" class="chekTypeOther" checked>
+							<label for="listSub00"><span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="" class="imgLogo"></span>기관명</label>
+						</div>
+						<a href="javascript:;" class="toggleBtn active"><span class="blind">기관명 자산목록</span></a>
+					</div>
+					<ul class="assetSelectSub toggleCont">
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" id="listSub01" checked>
+								<label for="listSub01">
+									<div class="title">상품명 넘치는 경우 줄바꿈처리 상품명 넘치는 경우 줄바꿈처리 상품명 넘치는 경우 줄바꿈처리 </div>
+									<div class="subCont">계좌번호(회차), 상태</div>
+								</label>
+							</div>
+							<span class="assetSelectFlag">
+								<span class="tag Green">숨은자산</span>
+							</span>
+						</li>
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" id="listSub02" checked>
+								<label for="listSub02">
+									
+									<div class="title">상품명 넘치는 경우 줄바꿈처리</div>
+									<div class="subCont">계좌번호(회차), 상태</div>
+								</label>
+							</div>
+							<!-- [MD2408_068_v0.11] 숨은자산(휴면예금,휴면보험금) 조회 숨은자산 표기 추가 -->
+							<span class="assetSelectFlag">
+								<span class="tag Green">숨은자산</span>
+								<span class="tag bgGray">연결중</span>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<!-- // -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" id="listSub20" class="chekTypeOther" checked>
+							<label for="listSub10"><span class="imgWrap"><img src="../../images/logos/AABG0000.png" alt="" class="imgLogo"></span>농협은행</label>
+						</span>
+						<a href="javascript:;" class="toggleBtn active"><span class="blind">농협은행 자산목록</span></a>
+					</div>
+					<ul class="assetSelectSub toggleCont">
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" id="listSub21" checked>
+								<label for="listSub21">
+									<div class="title">상품명 넘치는 경우 줄바꿈처리 상품명 넘치는 경우 줄바꿈처리 상품명 넘치는 경우 줄바꿈처리 </div>
+									<div class="subCont">계좌번호(회차), 상태</div>
+								</label>
+							</div>
+							<span class="assetSelectFlag"><span class="tag bgGray">연결중</span></span>
+						</li>
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" id="listSub22" checked>
+								<label for="listSub22">
+									<div class="title">상품명 넘치는 경우 줄바꿈처리</div>
+									<div class="subCont">계좌번호(회차), 상태</div>
+								</label>
+							</div>
+							<span class="assetSelectFlag"><span class="tag bgGray">연결중</span></span>
+						</li>
+					</ul>
+				</li>
+				<!-- // -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" id="listSub30" class="chekTypeOther" checked>
+							<label for="listSub10"><span class="imgWrap"><img src="../../images/logos/AAFO0000.png" alt="" class="imgLogo"></span>현대카드</label>
+						</span>
+						<a href="javascript:;" class="toggleBtn active"><span class="blind">현대카드 자산목록</span></a>
+					</div>
+					<ul class="assetSelectSub toggleCont">
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" checked id="listSub31">
+								<label for="listSub31">
+									<div class="title">M3 BOOST</div>
+									<div class="subCont">123456******1234</div>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" checked id="listSub32">
+								<label for="listSub32">
+									<div class="title">M1 BOOST</div>
+									<div class="subCont">23456******1234, 가족</div>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" checked id="listSub33">
+								<label for="listSub33">
+									<div class="title">포인트 정보</div>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" checked id="listSub34">
+								<label for="listSub34">
+									<div class="title">청구 및 결제 정보</div>
+								</label>
+							</div>
+						</li>
+						<li>
+							<div class="accountInfo">
+								<input type="checkbox" checked id="listSub35">
+								<label for="listSub35">
+									<div class="title">대출상품 정보</div>
+								</label>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<!-- // -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" checked id="listSub40" class="chekTypeOther" >
+							<label for="listSub40"><span class="imgWrap"><img src="../../images/logos/PBAAVN0000.png" alt="" class="imgLogo"></span>국민건강보험공단</label>
+						</span>
+						<a href="javascript:;" class="toggleBtn active"><span class="blind">국민건강보험공단 자산목록</span></a>
+					</div>
+					<ul class="assetSelectSub toggleCont">
+						<li>
+							<span class="accountInfo">
+								<input type="checkbox" checked id="listSub41">
+								<label for="listSub41"><div class="title">건강·장기 요양보험료 납부확인서<br>(직장가입자)</div></label>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<!-- // -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" checked id="listSub50" class="chekTypeOther" >
+							<label for="listSub50"><span class="imgWrap"><img src="../../images/logos/PBAAVM0000.png" alt="" class="imgLogo"></span>국민연금공단</label>
+						</span>
+						<a href="javascript:;" class="toggleBtn active"><span class="blind">국민연금공단 자산목록</span></a>
+					</div>
+					<ul class="assetSelectSub toggleCont">
+						<li>
+							<span class="accountInfo">
+								<input type="checkbox" checked id="listSub51">
+								<label for="listSub51">
+									<div class="title">연금산정용 가입내역 확인서</div>
+								</label>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<!-- // -->
+				<li class="toggleWrap">
+					<div class="assetSelectGroup">
+						<span class="subject">
+							<input type="checkbox" id="listSub60" class="chekTypeOther" checked>
+							<label for="listSub60"><span class="imgWrap"><img src="../../images/logos/PBAAVO0000.png" alt="" class="imgLogo"></span>공무원연금공단</label>
+						</span>
+						<a href="javascript:;" class="toggleBtn active"><span class="blind">공무원연금공단 자산목록</span></a>
+					</div>
+					<ul class="assetSelectSub toggleCont">
+						<li>
+							<span class="accountInfo">
+								<input type="checkbox" checked id="listSub61">
+								<label for="listSub61">
+									<div class="title">공무원연금내역서</div>
+								</label>
+							</span>
+						</li>
+					</ul>
+				</li>
+				<!-- // -->
+			</ul>
+		</div>
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">확인</a> <!-- [D] 비활성화 : 클래스명(disabled) / aria-disabled="true" 추가  -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

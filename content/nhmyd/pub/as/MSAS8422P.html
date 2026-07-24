@@ -1,0 +1,137 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 부동산 관리</title>
+<script src="../pub-assets/js/head.js"></script>
+<script>
+	$(function(){
+		fullLayerPop();
+	})
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 부동산 관리 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1>부동산 관리</h1>
+		<div class="popCont">
+			<!-- -------------------------------------- -->
+			<!-- [상단영역] 부동산정보 -->
+			<!-- -------------------------------------- -->
+			<div class="infoBox">
+				<p class="tit">두산위브호수마을2단지</p>
+				<ul class="detailList">
+					<li>
+						<span class="tit">소유구분</span>
+						<span class="value"><strong class="pointColor">전세</strong></span>
+					</li>
+					<li>
+						<span class="tit">등록일</span>
+						<span class="value">2020.07.31</span>
+					</li>
+				</ul>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [입력영역] -->
+			<!-- -------------------------------------- -->
+			<div class="formWrap mt30 estWrap">
+				<ul>
+					<li>
+						<strong class="formTit">전세 보증금
+							<em class="inputVal">(12억 5천만원)</em>
+						</strong>
+						<div class="inputList unitMan">
+							<input type="tel" title="전세 보증금(최소 1만원 이상)" name="" id="" value="125,000" placeholder="최소 1만원 이상">
+							<span class="unit">만원</span>
+							<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+						</div>
+						<div class="roundBtnWrap">
+							<a href="javascript:;" role="button" title="100만원 추가">+100만</a>
+							<a href="javascript:;" role="button" title="1,000만원 추가">+1,000만</a>
+							<a href="javascript:;" role="button" title="1억 추가">+1억</a>
+							<a href="javascript:;" role="button" title="10억 추가">+10억</a>
+						</div>
+						<p class="errorTxt" style="display:none;">1부터 9,999,999만원까지 입력 가능합니다.</p>
+					</li>
+					<li>
+						<strong class="formTit">계약기간(선택)<button type="button" class="contBtn01">초기화</button></strong>
+						<div class="calendarForm">
+							<div class="cal">
+								<div class="inputList">
+									<input type="text" value="2018.09.04" title="계약 시작일" placeholder="시작일선택" readonly="readonly">
+									<a href="javascript:;" class="btnCalendar" role="button"><span class="blind">계약 시작일 선택</span></a>
+								</div>
+							</div>
+							<span class="symbol">-</span>
+							<div class="cal">
+								<div class="inputList">
+									<input type="text" value="2024.09.04" title="계약 종료일" placeholder="종료일선택" readonly="readonly">
+									<a href="javascript:;" class="btnCalendar" role="button"><span class="blind">계약 종료일 선택</span></a>
+								</div>
+							</div>
+						</div>
+						<p class="errorTxt" style="display:none;">시작일을 선택시 종료일을 선택해주세요.</p>
+					</li>
+					<li>
+						<strong class="formTit mt20">관련대출(선택)<button type="button" class="contBtn01 green" title="관련대출 추가">추가</button></strong>
+						<!-- [CASE] 관련대출 선택 했을 경우 노출 -->
+						<div class="inputBoth01 div8_2">
+							<div class="inputList inputB01">
+								<input type="text" title="대출자산" value="[신한]마이너스대출" name="" id="" placeholder="" readonly>
+								<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+							</div>
+							<div class="inputB02">
+								<button type="button" class="contBtn01" title="[신한]마이너스대출">삭제</button>
+							</div>
+						</div>
+						<div class="inputBoth01 div8_2">
+							<div class="inputList inputB01">
+								<input type="text" title="대출자산" value="[NH농협]마이너스대출" name="" id="" placeholder="" readonly>
+								<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+							</div>
+							<div class="inputB02">
+								<button type="button" class="contBtn01" title="[NH농협]마이너스대출">삭제</button>
+							</div>
+						</div>
+						<!-- // -->
+					</li>
+					<li>
+						<strong class="formTit">메모(선택)</strong>
+						<textarea placeholder="메모를 입력해주세요. (최대30자)" maxlength="30">입력한 메모의 내용이 노출됩니다.</textarea>
+					</li>
+				</ul>
+			</div>
+			<!-- -------------------------------------- -->
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="" role="button">삭제</a>
+				<a href="javascript:;" class="confirmBtn" role="button">확인</a>
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

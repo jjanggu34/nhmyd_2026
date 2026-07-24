@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>방문내역(EMPTY) | 병원방문관리 | 헬스케어</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>병원방문내역</h1>
+		<a href="javascript:;" class="btnGoHome" role="button"><span>Home</span></a>
+		<a href="javascript:;" class="btnNav"><span>전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 병원방문내역(EMPTY) ### -->
+	<!-- ###################################### -->
+	<div class="container">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 안내문구 -->
+		<!-- -------------------------------------- -->
+		<div class="boxTypeWrap">
+			<!-- [CASE] 수집내역 없음 -->
+			<div class="emptyMain">
+				<div class="defTit">
+					<h2><strong>김농협</strong>님의 <strong>수집 내역이 없어요</strong></h2>
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">조회 기준 안내 툴팁 열기</span></button>
+						<div class="tooltipCont">
+							<p>진료받은 내용은 조회한 날을 기준으로 최근 12개월 진료분을 확인할 수 있습니다.</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</div>
+				<p>병원방문내역을 확인하기 위해<br>국민건강보험공단 연결이 필요해요.</p>
+				<div class="imgBg01"></div>
+			</div>
+			<!-- [CASE] 진료내역없음 -->
+			<div class="emptyMain">
+				<div class="defTit">
+					<h2><strong>김농협</strong>님의 <strong>진료 내역이 없어요</strong></h2>
+					<div class="tooltipWrap">
+						<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">조회 기준 안내 툴팁 열기</span></button>
+						<div class="tooltipCont">
+							<p>진료받은 내용은 조회한 날을 기준으로 최근 12개월 진료분을 확인할 수 있습니다.</p>
+							<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+						</div>
+					</div>
+				</div>
+				<p>가족의 진료확인 서류를 소지하셨다면<br>대신 보험 청구가 가능합니다.</p>
+				<div class="imgBg02"></div>
+			</div>
+			<!-- // -->
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">확인</a> <!-- [CASE] 수집내역 없음 -->
+			<a href="javascript:;" class="btnPressPoint" role="button">피보험자 보험청구하기</a> <!-- [CASE] 진료내역없음 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		//샘플 : 케이스 화면 정의
+		var a = ['수집내역없음(MSHC3110)', '진료내역없음(MSHC3120)']; // 케이스 명
+		var b = ['MSHC3110', 'MSHC3120']; // 함수 명
+		var num = a.length; // 케이스 수
+		uiCaseMenu(a,b,num);
+		uiCaseMSHC3110();
+	});
+
+	//샘플 : 케이스 : 수집내역없음
+	function uiCaseMSHC3110(){uiCase(1)}
+
+	//샘플 : 케이스 : 진료내역없음
+	function uiCaseMSHC3120(){uiCase(2)}
+
+	//샘플 : 케이스
+	function uiCase(a){
+		$('.boxTypeWrap > .emptyMain, .areaBtnDefault > a').hide().filter(':nth-child('+a+')').show();
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

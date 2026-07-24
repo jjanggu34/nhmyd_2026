@@ -1,0 +1,418 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 보유 자산 보기(주식/채권/현금)</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<script>
+	$(document).ready(function() {
+		fullLayerPop();
+	});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] [P] 보유 자산 보기 (주식/채권/현금)  ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop">
+	<div class="popInner">
+		<h1>보유 자산 보기</h1>
+		<div class="popCont">
+      <div class="fullyWrap bgAsis pb24">
+        <!-- ### 분석 대상 자산 ### -->
+        <h2 class="h5">$주식/채권/현금$ 보유자산</h2>
+        <div class="pstotalBalance">
+          <div class="asset">
+            <span>999,000,000</span>원
+          </div>
+        </div>
+      </div>
+
+      <!-- ###################################### -->
+      <!-- ### 주식 ### -->
+      <!-- ###################################### -->
+      <div class="fullyWrap bgWhite">
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 국내주식 -->
+        <!-- -------------------------------------- -->
+        <div class="flexTitWrap">
+          <h3 class="h5 -medium">국내주식</h3>
+          <span class="h5"><span>2,000,000</span>원</span>
+        </div>
+        <div class="boxTypeWrap -line">
+          <div class="mbAccListWrap">
+            <ul class="mbAccList -analysis">
+              <li class="mbAccListItem">
+                <span class="mbCiWrap -plus">
+                  <img src="../../images/makebetter/logos/AACQ0000.svg" class="mbCi" alt="NH투자증권 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">NH투자증권</span>
+                  </dt>
+                  <dd class="mbAccAmount">
+                    <span>11,500,000</span>원
+                  </dd>
+                  <dd class="mbAccRate"><!-- [D] 주식, 채권일 때만 증감률 표시 "(+10.3%)"-->
+                    <!-- [CASE1] 증가 -->
+                    <span class="arrowUp" role="img" aria-label="증가"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(+10.3%)</span></span>
+
+                    <!-- [CASE2] 감소 -->
+                    <span class="arrowDown" role="img" aria-label="감소"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(-10.3%)</span></span>
+                    <!-- // -->
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+
+            <hr class="divLine">
+
+            <ul class="mbAccList -analysis">
+              <li class="mbAccListItem">
+                <span class="mbCiWrap">
+                  <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">테슬라</span>
+                  </dt>
+                  <dd class="mbAccAmount">
+                    <span>11,500,000</span>원
+                  </dd>
+                  <dd class="mbAccRate"><!-- [D] 주식, 채권일 때만 증감률 표시 "(+10.3%)"-->
+                    <!-- [CASE2] 감소 -->
+                    <span class="arrowDown" role="img" aria-label="감소"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(-10.3%)</span></span>
+
+                    <!-- [CASE3] 동일 -->
+                    <span class="arrowNone"></span>
+                    <span class="amount"><span>0</span>원</span>
+                    <!-- // -->
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 해외 선진국 주식 -->
+        <!-- -------------------------------------- -->
+        <div class="flexTitWrap mt32">
+          <h3 class="h5 -medium">해외 선진국 주식</h3>
+          <span class="h5"><span>2,000,000</span>원</span>
+        </div>
+        <div class="boxTypeWrap -line">
+          <div class="mbAccListWrap">
+            <ul class="mbAccList -analysis">
+              <li class="mbAccListItem">
+                <span class="mbCiWrap -plus">
+                  <img src="../../images/makebetter/logos/AACQ0000.svg" class="mbCi" alt="NH투자증권 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">NH투자증권</span>
+                  </dt>
+                  <dd class="mbAccAmount">
+                    <span>11,500,000</span>원
+                  </dd>
+                  <dd class="mbAccRate"><!-- [D] 주식, 채권일 때만 증감률 표시 "(+10.3%)"-->
+                    <!-- [CASE1] 증가 -->
+                    <span class="arrowUp" role="img" aria-label="증가"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(+10.3%)</span></span>
+
+                    <!-- [CASE2] 감소 -->
+                    <span class="arrowDown" role="img" aria-label="감소"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(-10.3%)</span></span>
+                    <!-- // -->
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 해외 선진국 주식  Empty Case 2025-11-11 추가 요청 -->
+        <!-- -------------------------------------- -->
+        <div class="flexTitWrap mt32">
+          <h3 class="h5 -medium">해외 선진국 주식</h3>
+          <span class="h5"><span>0</span>원</span>
+        </div>
+        <div class="boxTypeWrap -line pb24">
+          <div class="emptyMsg mt12">
+            <p class="f15 -medium mt16">보유 자산이 없습니다.</p>
+            <p class="f14 color4 mt12 ">
+              자산을 추가 연결하여 더 정확한 결과를 확인하세요!
+            </p>
+            <a href="javascript:;" class="linkTxt5 mt16">자산 추가하기</a><!-- 2025-12-03 문구 수정 요청-->
+          </div>
+        </div>
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 해외 신흥국 주식 -->
+        <!-- -------------------------------------- -->
+        <div class="flexTitWrap mt32">
+          <h3 class="h5 -medium">해외 신흥국 주식</h3>
+          <span class="h5"><span>2,000,000</span>원</span>
+        </div>
+        <div class="boxTypeWrap -line">
+          <div class="mbAccListWrap">
+            <ul class="mbAccList -analysis">
+              <li class="mbAccListItem">
+                <span class="mbCiWrap -plus">
+                  <img src="../../images/makebetter/logos/AACQ0000.svg" class="mbCi" alt="NH투자증권 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">NH투자증권</span>
+                  </dt>
+                  <dd class="mbAccAmount">
+                    <span>11,500,000</span>원
+                  </dd>
+                  <dd class="mbAccRate"><!-- [D] 주식, 채권일 때만 증감률 표시 "(+10.3%)"-->
+                    <!-- [CASE2] 감소 -->
+                    <span class="arrowDown" role="img" aria-label="감소"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(-10.3%)</span></span>
+
+                    <!-- [CASE3] 동일 -->
+                    <span class="arrowNone"></span>
+                    <span class="amount"><span>0</span>원</span>
+                    <!-- // -->
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- ###################################### -->
+
+      <!-- ###################################### -->
+      <!-- ### 채권 ### -->
+      <!-- ###################################### -->
+      <div class="fullyWrap bgWhite">
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 국내채권 -->
+        <!-- -------------------------------------- -->
+        <div class="flexTitWrap">
+          <h3 class="h5 -medium">국내채권</h3>
+          <span class="h5"><span>2,000,000</span>원</span>
+        </div>
+        <div class="boxTypeWrap -line">
+          <div class="mbAccListWrap">
+            <ul class="mbAccList -analysis">
+              <li class="mbAccListItem">
+                <span class="mbCiWrap -plus">
+                  <img src="../../images/makebetter/logos/AACQ0000.svg" class="mbCi" alt="NH투자증권 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">NH단기채권액티브증권상장지수투자신탁</span>
+                  </dt>
+                  <dd class="mbAccAmount">
+                    <span>11,500,000</span>원
+                  </dd>
+                  <dd class="mbAccRate"><!-- [D] 주식, 채권일 때만 증감률 표시 "(+10.3%)"-->
+                    <!-- [CASE1] 증가 -->
+                    <span class="arrowUp" role="img" aria-label="증가"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(+10.3%)</span></span>
+
+                    <!-- [CASE2] 감소 -->
+                    <span class="arrowDown" role="img" aria-label="감소"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(-10.3%)</span></span>
+                    <!-- // -->
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+
+            <hr class="divLine">
+
+            <ul class="mbAccList -analysis">
+              <li class="mbAccListItem">
+                <span class="mbCiWrap">
+                  <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">단기채권액티브증권상장지수투자신탁</span>
+                  </dt>
+                  <dd class="mbAccAmount">
+                    <span>11,500,000</span>원
+                  </dd>
+                  <dd class="mbAccRate"><!-- [D] 주식, 채권일 때만 증감률 표시 "(+10.3%)"-->
+                    <!-- [CASE2] 감소 -->
+                    <span class="arrowDown" role="img" aria-label="감소"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(-10.3%)</span></span>
+
+                    <!-- [CASE3] 동일 -->
+                    <span class="arrowNone"></span>
+                    <span class="amount"><span>0</span>원</span>
+                    <!-- // -->
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 해외채권 -->
+        <!-- -------------------------------------- -->
+        <div class="flexTitWrap mt32">
+          <h3 class="h5 -medium">해외채권</h3>
+          <span class="h5"><span>2,000,000</span>원</span>
+        </div>
+        <div class="boxTypeWrap -line">
+          <div class="mbAccListWrap">
+            <ul class="mbAccList -analysis">
+              <li class="mbAccListItem">
+                <span class="mbCiWrap -plus">
+                  <img src="../../images/makebetter/logos/AACQ0000.svg" class="mbCi" alt="NH투자증권 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">상품명NH-Amundi HANARO 단기채권액티브증권상장지수투자신탁(채권)</span>
+                  </dt>
+                  <dd class="mbAccAmount">
+                    <span>11,500,000</span>원
+                  </dd>
+                  <dd class="mbAccRate"><!-- [D] 주식, 채권일 때만 증감률 표시 "(+10.3%)"-->
+                    <!-- [CASE1] 증가 -->
+                    <span class="arrowUp" role="img" aria-label="증가"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(+10.3%)</span></span>
+
+                    <!-- [CASE2] 감소 -->
+                    <span class="arrowDown" role="img" aria-label="감소"></span>
+                    <span class="amount"><span>56,897</span>원 <span>(-10.3%)</span></span>
+                    <!-- // -->
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- ###################################### -->
+
+      <!-- ###################################### -->
+      <!-- ### 현금 ### -->
+      <!-- ###################################### -->
+      <div class="fullyWrap bgWhite">
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 입출금 -->
+        <!-- -------------------------------------- -->
+        <div class="flexTitWrap">
+          <h3 class="h5 -medium">입출금</h3>
+          <span class="h5"><span>2,000,000</span>원</span>
+        </div>
+        <div class="boxTypeWrap -line">
+          <div class="mbAccListWrap">
+            <ul class="mbAccList -analysis -cash"><!-- [D] 현금일 때 "-cash" class -->
+              <li class="mbAccListItem">
+                <span class="mbCiWrap">
+                  <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccNum mb0">NH All100플랜통장</dt>
+                  <dd class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">NH농협은행</span>
+                  </dd>
+                  <dd class="mbAccAmount">
+                    <span>11,500,000</span>원
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+
+            <hr class="divLine">
+
+            <ul class="mbAccList -analysis -cash"><!-- [D] 현금일 때 "-cash" class -->
+              <li class="mbAccListItem">
+                <span class="mbCiWrap">
+                  <img src="../../images/makebetter/logos/AAHJ0000.svg" class="mbCi" alt="카카오뱅크 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccNum mb0">카카오자유입출금</dt>
+                  <dd class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">카카오뱅크</span>
+                  </dd>
+                  <dd class="mbAccAmount">
+                    <span>500,000</span>원
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- -------------------------------------- -->
+        <!-- [SECTION] 예적금 -->
+        <!-- -------------------------------------- -->
+        <div class="flexTitWrap mt32">
+          <h3 class="h5 -medium">예적금</h3>
+          <span class="h5"><span>2,000,000</span>원</span>
+        </div>
+        <div class="boxTypeWrap -line">
+          <div class="mbAccListWrap">
+            <ul class="mbAccList -analysis -cash"><!-- [D] 현금일 때 "-cash" class -->
+              <li class="mbAccListItem">
+                <span class="mbCiWrap">
+                  <img src="../../images/makebetter/logos/AAAZ0000.svg" class="mbCi" alt="NH농축협 Ci">
+                </span>
+                <dl class="mbAccItem">
+                  <dt class="mbAccNum mb0">NH All100플랜통장</dt>
+                  <dd class="mbAccTitWrap">
+                    <span class="mbAccTit ellipsis">NH농협은행</span>
+                  </dd>
+                  <dd class="mbAccAmount">
+                    <span>11,500,000</span>원
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- ###################################### -->
+		</div>
+
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 버튼영역 -->
+    <!-- -------------------------------------- -->
+    <div class="popBtnWrap">
+			<div class="popBtn">
+				<a href="javascript:;" class="confirmBtn" role="button">확인</a><!-- 2025-10-10 버튼명 수정 -->
+			</div>
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+    <!-- -------------------------------------- -->
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+
+</script>
+<!-- ###################################### -->
+</body>
+</html>

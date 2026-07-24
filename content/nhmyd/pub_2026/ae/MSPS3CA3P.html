@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="NH Bank">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="#">
+<title>[팝업] 조기은퇴진단 자산연결 유도팝업 </title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+    slidePopConfirm();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 조기은퇴진단 자산연결 유도팝업  ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap slidePopConfirm">
+	<div class="dim"></div>
+	<div class="popInner">
+		<!-- <h1 class="ac">자산연결이 필요해요!</h1> --> <!-- [삭제 260703] [MD2606_064] 자산 미연결고객 대상 자산연결 유도 팝업 노출 -->
+		<div class="popCont pb20 pt40"> <!-- [수정 260703] [MD2606_064] 자산 미연결고객 대상 자산연결 유도 팝업 노출 : class="pt40" 추가 -->
+			<div class=" diag_cont diag_result_img03">
+				<p>나도 파이어족이 될 수 있을까 ? <br>남들보다 한 걸음 먼저! <br><strong>자산연결로 확인해 보세요.</strong></p>
+			</div>
+			<div class="popInnerCont mt30">
+				<input type="checkbox" id="listAll" class="chekTypeOther" name=""><label for="listAll">오늘 다시 보지 않기</label>
+			</div>
+		</div>
+		<div class="popBtnWrap">
+			<div class="popBtn newBtn half">
+				<a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">다음에 하기</a>
+				<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">자산 연결하기</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

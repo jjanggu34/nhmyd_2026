@@ -1,0 +1,1364 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [상품]</title>
+<script src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>상품</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="product_sample.html"  aria-current="page">상품</a>
+				<a href="form_sample.html">폼</a>
+				<a href="toggle_sample.html">토글</a>
+			</div>
+		</nav>
+	</header>
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">금융상품</a>
+			<a href="#GCONTENT2">추천카드</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### 금융상품 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">금융상품</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형1] prodListWrap -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : .prodListWrap</h3>
+
+				<!-- ### 공통 : 기본 마크업  ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">공통 : 기본 마크업</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<!-- [참고사항] : {BG} / {IMG} 는 하단 표를 참고해 주세요 -->
+										<div class="boxTypeWrap {BG} addShadow">
+											<div class="visualSubWrap">
+												<h* class="prodListTit {IMG}">상품 추천 타이틀</h*> <!-- [D] 해당 레벨에 맞는 h태그 사용 -->
+												<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+											</div>
+											<ul class="prodListWrap">
+												<!-- // -->
+												<li>
+													<a href="javascript:;">
+														<div class="prodRecomWrap">
+															<strong class="prodTit">상품명</strong>
+															<em class="prodRecommInfo">최고(연/세전)</em>
+															<div class="prodRecomVal dsf">
+																<span class="dataValueWrap">
+																	<strong class="dataValue">00.00</strong><em class="per">%</em>
+																</span>
+																<div class="prodVal ty01">상품설명</div>
+															</div>
+															<span class="hashWrap">
+																<em class="hastag bg01">#상품태그</em>
+																<em class="hastag bg02">#상품태그</em>
+															</span>
+														</div>
+													</a>
+												</li>
+												<!-- // -->
+												<li>
+													<a href="javascript:;">
+														<div class="prodRecomWrap">
+															<strong class="prodTit">상품명</strong>
+															<em class="prodRecommInfo">조건유지 시 나의 예상 금리</em>
+															<div class="prodRecomVal dsf">
+																<span class="dataValueWrap">
+																	<strong class="dataValue">00.00</strong><em class="per">%</em>
+																</span>
+																<div class="prodVal ty01">
+																	기본 <span class="dataValue">00.00</span><em class="per">%</em>(연/세전)
+																</div>
+															</div>
+														</div>
+														<div class="prodInfoWrap">	
+															<span class="prodValue">예상우대금리(1.8%p)</span>
+															<span class="hashWrap3">
+																<em class="hastag">해시태그,</em> <em class="hastag">해시태그,</em><em class="hastag">해시태그</em> 등
+															</span>
+														</div>
+													</a>
+												</li>
+												<!-- // -->
+											</ul>
+										</div>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!-- | // | -->
+	
+					<!-- // -->
+					<h5 class="guide_title4">{BG} 정의</h5>
+					<div class="guide_tbl">
+						<table>
+							<caption>BG 정의</caption>
+							<colgroup>
+								<col style="width:20%">
+								<col style="width:80%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">클래스명</th>
+									<th scope="col">내용</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>.bgType01</td>
+									<td><div style="padding:5px 10px;background-color:#e2f6da;">#e2f6da</div></td>
+								</tr>
+								<tr>
+									<td>.bgType02</td>
+									<td><div style="padding:5px 10px;background-color:#d6f1ea;">#d6f1ea</div></td>
+								</tr>
+								<tr>
+									<td>.bgType03</td>
+									<td><div style="padding:5px 10px;background-color:#d0f0f4;">#d0f0f4</div></td>
+								</tr>
+								<tr>
+									<td>.bgType04</td>
+									<td><div style="padding:5px 10px;background-color:#e8f6ec;">#e8f6ec</div></td>
+								</tr>
+								<tr>
+									<td>.bgType05</td>
+									<td><div style="padding:5px 10px;background-color:#d5f5e3;">#d5f5e3</div></td>
+								</tr>
+								<tr>
+									<td>.bgType06</td>
+									<td><div style="padding:5px 10px;background-color:#d9e1f5;">#d9e1f5</div></td>
+								</tr>
+								<tr>
+									<td>.bgType08</td>
+									<td><div style="padding:5px 10px;background-color:#fdf7d3;">#fdf7d3</div></td>
+								</tr>
+								<tr>
+									<td>.bgType09</td>
+									<td><div style="padding:5px 10px;background-color:#e0f8d2;">#e0f8d2</div></td>
+								</tr>
+								<tr>
+									<td>.bgType10</td>
+									<td><div style="padding:5px 10px;background-color:#d7e9ff;">#d7e9ff</div></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+	
+					<!-- // -->
+					<h5 class="guide_title4">{IMG} 정의</h5>
+					<div class="guide_tbl">
+						<table>
+							<caption>IMG 정의</caption>
+							<colgroup>
+								<col style="width:20%">
+								<col style="width:80%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">클래스명</th>
+									<th scope="col">내용</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>.img01</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img01">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img02</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img02">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img03</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img03">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img04</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img04">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img05</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img05">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img06</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img06">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img07</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img07">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img08</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img08">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img09</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img09">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img10</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img10">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img12</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img12">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img13</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img13">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img14</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img14">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img15</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img15">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img17</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img17">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+								<tr>
+									<td>.img18</td>
+									<td><div class="boxTypeWrap"><div class="prodListTit img18">상품 추천 <br>타이틀</div></div></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!--// -->
+				</div>
+
+				<!-- ### 선택약관(7-1번) 미동의한 고객의 경우 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형1 : 선택약관(7-1번) 미동의한 고객의 경우</h4>
+					<!-- | HTML CODE | -->
+					<div class="guide_toggle" data-toggle="wrap">
+						<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+						<div data-toggle="con">
+							<pre>
+								<code class="language-markup">
+									<script type="prism-html-markup">
+										<li>
+											<div class="disagree">
+												<a href="javascript:;" role="button">
+													<p class="disagreeP"><strong>나만 알고 싶은 추천상품</strong></p>
+												</a>
+											</div>
+										</li>
+									</script>
+								</code>
+							</pre>
+						</div>
+					</div>
+					<!--// -->
+					<div class="boxTypeWrap bgType04 addShadow">
+						<div class="visualSubWrap">
+							<h4 class="prodListTit img01">빅데이터로 분석한<br>우대금리 맞춤상품을 찾았어요</h4>
+							<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						</div>
+						<ul class="prodListWrap">
+							<li>
+								<div class="disagree">
+									<a href="javascript:;" role="button">
+										<p class="disagreeP"><strong>나만 알고 싶은 추천상품</strong></p>
+									</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- ### 예적금 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형2 : 예적금</h4>
+					<!-- // -->
+					<h5 class="guide_title4">우대금리 기반 빅데이터 상품추천</h5>
+					<div class="boxTypeWrap bgType04 addShadow">
+						<div class="visualSubWrap">
+							<h4 class="prodListTit img01">빅데이터로 분석한<br>우대금리 맞춤상품</h4>
+							<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						</div>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">NH왈츠회전예금II</strong>
+										<em class="prodRecommInfo">조건유지 시 나의 예상 금리</em>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">2.85</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">
+												기본 <span class="dataValue">1.05</span><em class="per">%</em>(연/세전, 12개월)
+											</div>
+										</div>
+									</div>
+									<div class="prodInfoWrap">	
+										<span class="prodValue">예상우대금리(1.8%p)</span>
+										<span class="hashWrap3">
+											<em class="hastag">급여이체,</em> <em class="hastag">마케팅동의,</em><em class="hastag">월평균 2회 비대면이체</em> 등
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<hr class="guide_line">
+					<!-- // -->
+					<h5 class="guide_title4">관리자 지정 상품추천</h5>
+					<div class="boxTypeWrap bgType04 addShadow">
+						<div class="visualSubWrap">
+							<h4 class="prodListTit img13">NH마이데이터가 대표 상품을<br> 추천드려요</h4>
+							<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						</div>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">e금리우대예금</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">온라인 전용 농협은행 대표 예금</div>
+										<span class="hashWrap">
+											<em class="hastag bg01">#상품태그</em>
+											<em class="hastag bg02">#상품태그</em>
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<hr class="guide_line">
+					<!-- // -->
+					<h5 class="guide_title4">일반 빅데이터 상품추천</h5>
+					<div class="boxTypeWrap bgType04 addShadow"> 
+						<div class="visualSubWrap">
+							<h4 class="prodListTit img07">빅데이터 분석을 통한<br> 최적의 상품</h4>
+							<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						</div>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">e금리우대예금</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">온라인 전용 농협은행 대표 예금</div>
+										<span class="hashWrap">
+											<em class="hastag bg01">#상품태그</em>
+											<em class="hastag bg02">#상품태그</em>
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- // -->
+				</div>
+
+				<!-- ### 주택청약종합저축 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형3 : 주택청약종합저축</h4>
+					<div class="boxTypeWrap bgType04 addShadow">
+						<div class="visualSubWrap"></div>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">주택청약종합저축</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">내 집 마련의 필수!<br>국민주택과 민영주택의 청약권이<br>부여되는 저축상품</div>
+										<span class="hashWrap">
+											<em class="hastag bg01">#국내거주자</em>
+											<em class="hastag bg02">#1인1계좌</em>
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- ### 선불페이 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형4 : 선불페이</h4>
+					<div class="boxTypeWrap bgType04">
+						<h4 class="prodListTit img04">선불페이를 자주 이용하는 당신 <br>꿀 혜택 상품을 추천 드려요!</h4>
+						<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">NH페이모아통장</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">간편결제 이용 고객님을 위한 입출식 특화상품</div>
+										<div class="prodInfoWrap">
+											<span class="hashWrap">
+												<em class="hastag bg01">#1인1계좌</em>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- ### 대출 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형5 : 대출</h4>
+					<div class="boxTypeWrap bgType04 addShadow"> 
+						<div class="visualSubWrap">
+							<h4 class="prodListTit img01">빅데이터로 찾은<br>우대금리 맞춤상품</h4>
+							<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						</div>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap">
+										<span class="tagLabel">신용</span>
+										<strong class="prodTit">NH로바꿈대출</strong>
+										<em class="prodRecommInfo">나의 예상우대금리</em>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<strong class="dataValue">0.31</strong><em class="per down">% p</em>
+											</span>
+											<div class="prodVal ty01">
+												최저<span class="dataValue">1.67</span><em class="per">%</em>(연)
+											</div>
+										</div>
+										<div class="prodInfoWrap">
+											<span class="prodValue">모바일 통해 최대 1.5억까지 이용 가능한 직장인 전용 대출 신용대출상품</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- ### MS세대 예금상품 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형6 : MZ세대 예금상품</h4>
+					<div class="boxTypeWrap bgType03 pt0 mt0">
+						<h4 class="prodListTit img05">만 19세 ~ 만 34세인 고객님께,<br/>혜택은 많이! 금리는 높게!</h4>
+						<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">NH1934우대통장</strong>
+										<em class="prodRecommInfo">조건유지 시 나의 예상금리</em>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">
+												기본<span class="dataValue">1.76</span><em class="per">%</em>(연/세전, 12개월)
+											</div>
+										</div>
+									</div>
+									<div class="prodInfoWrap">	
+										<span class="prodValue">예상우대금리(1.8%p)</span>
+										<span class="hashWrap3">
+											<em class="hastag">급여이체,</em> <em class="hastag">마케팅동의,</em><em class="hastag">월평균 2회 비대면이체</em> 등
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- ### 청년우대형 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형7 : 청년우대형</h4>
+					<div class="boxTypeWrap bgType04 addShadow"> 
+						<div class="visualSubWrap">
+							<h4 class="prodListTit img07">빅데이터 분석을 통한<br>최적의 상품</h4>
+							<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						</div>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;" role="button">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">청년우대형 주택청약종합저축</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">내 집 마련의 필수!<br>국민주택과 민영주택의 청약권이<br>부여되는 저축상품</div>
+										<span class="hashWrap">
+											<em class="hastag bg01">#국내거주자</em>
+											<em class="hastag bg02">#1인1계좌</em>
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- ### 외화예금 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형8 : 외화예금</h4>
+					<div class="boxTypeWrap bgType04">
+						<h4 class="prodListTit img14">해외 투자 자금, 유리한 환율로 <br>우대 받고 미리 준비해볼까요?</h4>
+						<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;" role="button">
+									<div class="prodRecomWrap">
+										<strong class="prodTit">하나로외화자유적립예금</strong>
+										<em class="prodRecommInfo">자유롭게 수시적립 가능한 목돈마련 상품</em>
+									</div>
+									<div class="prodInfoWrap">	
+										<span class="hashWrap">
+											<em class="hastag bg01">#월단위</em>
+											<em class="hastag bg02">#자유적립</em>
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- ### 개인퇴직연금(IRP) ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형9 : 개인퇴직연금(IRP)</h4>
+					<div class="boxTypeWrap bgType04">
+						<h4 class="prodListTit img15">연간 최대 700만원 세액공제 혜택!<br>노후준비, 지금 시작해보세요.</h4>
+						<p class="subTxt4">소득 및 연령에 따라 다를 수 있습니다.</p>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">NH페이모아통장</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">간편결제 이용 고객님을 위한 입출식 특화상품</div>
+										<span class="hashWrap">
+											<em class="hastag bg01">#1인1계좌</em>
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- ### 목표달성 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형10 : 목표달성</h4>
+					<!-- // -->
+					<div class="boxTypeWrap bgType04 oblistbg01 addShadow">
+						<div class="visualSubWrap">
+							<h4 class="visualSub type01">목표 달성을 위한 추천상품</h4>
+							<p class="visualSubPara">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						</div>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">NH왈츠회전예금II</strong>
+										<em class="prodRecommInfo">조건유지 시 나의 예상 금리</em>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">2.85</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">
+												기본 <span class="dataValue">1.05</span><em class="per">%</em>(연/세전, 12개월)
+											</div>
+										</div>
+									</div>
+									<div class="prodInfoWrap">	
+										<span class="prodValue">예상우대금리(1.8%p)</span>
+										<span class="hashWrap3">
+											<em class="hastag">급여이체,</em> <em class="hastag">마케팅동의,</em><em class="hastag">월평균 2회 비대면이체</em> 등
+										</span>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">e금리우대예금</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">온라인 전용 농협은행 대표 예금</div>
+										<span class="hashWrap">
+											<em class="hastag bg01">#상품태그</em>
+											<em class="hastag bg02">#상품태그</em>
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- // -->
+					<div class="boxTypeWrap bgType02 oblistbg02 addShadow">
+						<div class="visualSubWrap">
+							<h4 class="visualSub type01">챌린지 달성을 위한 추천상품
+								<div class="tooltipWrap">
+									<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">챌린지 달성을 위한 추천상품 안내툴팁</span></button>
+									<div class="tooltipCont">
+										<p>6개월 기간동안 자동으로 목표금액을 모아주는 논스톱 목표달성 기능입니다.</p>
+										<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+									</div>
+								</div>
+							</h4>
+							<p class="visualSubPara">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						</div>
+						<ul class="prodListWrap">
+							<li>
+								<a href="javascript:;" role="button">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">NH올원e 미니적금</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">목적자금 마련을 위한 단기 소액 적금</div>
+										<span class="hashWrap">
+											<em class="hastag bg03">#목돈모으기</em>
+											<em class="hastag bg01">#여행</em>
+											<em class="hastag bg02">#초단기</em>
+										</span>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- // -->
+				</div>
+
+				<!-- ### 조기은퇴 ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">유형11 : 조기은퇴</h4>
+					<div class="boxTypeWrap bgType10">
+						<div class="visualSubWrap">
+							<h4 class="prodListTit img18">조기은퇴를 위한<br>추천상품</h4>
+							<p class="subTxt4 mb0">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+						</div>
+						<ul class="prodListWrap">
+							<!-- 예금상품 -->
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">e금리우대예금</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">온라인 전용 농협은행 대표 예금</div>
+										<span class="hashWrap">
+											<em class="hastag bg01">#상품태그</em>
+											<em class="hastag bg02">#상품태그</em>
+										</span>
+									</div>
+								</a>
+							</li>
+							<!-- 적금상품 -->
+							<li>
+								<a href="javascript:;">
+									<div class="prodRecomWrap t1">
+										<strong class="prodTit">NH페이모아통장</strong>
+										<div class="prodRecomVal dsf">
+											<span class="dataValueWrap">
+												<span class="data1"><strong class="dataValue">1.80</strong><em class="per">%</em></span>
+												<span class="data1"><strong class="dataValue">3.42</strong><em class="per">%</em></span>
+											</span>
+											<div class="prodVal ty01">(연/세전, 12개월)</div>
+										</div>
+										<div class="data2">간편결제 이용 고객님을 위한 입출식 특화상품</div>
+										<div class="prodInfoWrap">
+											<span class="hashWrap">
+												<em class="hastag bg01">#1인1계좌</em>
+											</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<!-- 연금상품 : 빅데이터 상품추천 -->
+							<li>
+								<div class="disagree img1">
+									<a href="javascript:;" role="button">
+										<p class="disagreeP"><strong>개인형 퇴직연금(IRP)</strong>
+											<span class="txt">은퇴 걱정 없는 노후 월급 준비하기</span>
+										</p>
+									</a>
+								</div>
+							</li>
+							<!-- 연금상품 : 관리자 지정 상품추천 -->
+							<li>
+								<div class="disagree img2">
+									<a href="javascript:;" role="button">
+										<p class="disagreeP"><strong>연금보험</strong>
+											<span class="txt">미리미리 준비하는 은퇴준비</span>
+										</p>
+									</a>
+								</div>
+							</li>
+							<!-- // -->
+						</ul>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] msaeBoxline -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2 : .msaeBoxline</h3>
+				<div class="guide_area">
+					<h4 class="guide_title4">예금</h4>
+					<div class="msaeBoxline">
+						<h5>NH왈츠회전예금II</h5>
+						<div class="txtBox01">
+							<p>월 단위 회전주기 선택하고 회전주기마다<br>실세금리적용 상품</p>
+						</div>
+						<ul class="txtBox03">
+							<li>
+								<span>최고</span>
+								<strong>1.80%</strong>
+								<span class="small">(연/세전, 12개월)</span>
+							</li>
+							<li>
+								<span class="pl15"> &nbsp;최저</span>
+								<p>~ 1.70%</p>
+							</li>
+						</ul>
+						<div class="tagWrap mt0">
+							<span class="tag gray2">#노후준비</span>
+							<span class="tag gray3">#목돈굴리기</span>
+							<span class="tag gray1">#사회초년생</span>
+							<span class="tag gray1">#주거래우대</span>
+							<span class="tag gray2">#직장인</span>
+						</div>
+					</div>
+					<div class="msaeBoxline">
+						<h5>경남은행 정기예금 6개월</h5>
+						<div class="txtBox01">
+							<p>월 단위 회전주기 선택하고 회전주기마다<br>실세금리적용 상품</p>
+						</div>
+						<ul class="txtBox02 ar">
+							<li>
+								<p>3.80%</p>
+							</li>
+						</ul>
+					</div>
+
+					<h4 class="guide_title4">펀드</h4>
+					<div class="msaeBoxline">
+						<h5>한국투자EMP글로벌자산배분증권자투자 신탁ClassAe </h5>
+						<div class="txtBox01">
+							<p>수수료선취-온라인<br>국외[글로벌펀드]</p>
+							<em class="tag red">다소높은위험</em>
+						</div>
+						<ul class="txtBox02">
+							<li>
+								<span>3개월</span>
+								<p>2.38%</p>
+							</li>
+							<li>
+								<span>3개월</span>
+								<p>2.38%</p>
+							</li>
+							<li>
+								<span>3개월</span>
+								<p>2.38%</p>
+							</li>
+						</ul>
+					</div>
+					<div class="msaeBoxline">
+						<h5 class="logDsp">AB셀렉트미국증권투자신탁
+							[주식-재간접형] ClassAe 
+							<span class="imgWrap">
+								<img src="../../images/logos/AAAI0000.png" alt="교보생명 로고" class="imgLogo">
+							</span>
+						</h5>
+					
+						<div class="dataValueWrap">
+							<p class="valTit">평가금액</p>
+							<span class="dataValue">123,456,789<em class="won"></em>원</span>
+						</div>
+					</div>
+
+					<h4 class="guide_title4 t1">활용 : 투자스타일</h4>
+					<div class="msItemList">
+						<h5 class="title">추천상품</h5>
+						<!-- // -->
+						<div class="msItem">
+							<div>
+								<em class="tag mint02">단기</em>
+								<em class="tag purple02">국내</em>
+								<em class="tag green">예금</em>
+							</div>
+							<div class="msaeBoxline">
+								<h3>NH왈츠회전예금II</h3>
+								<div class="txtBox01">
+									<p>월 단위 회전주기 선택하고 회전주기마다<br>실세금리적용 상품</p>
+								</div>
+								<ul class="txtBox03">
+									<li>
+										<span>최고</span>
+										<strong>1.80%</strong>
+										<span class="small">(연/세전, 12개월)</span>
+									</li>
+									<li>
+										<span class="pl15"> &nbsp;최저</span>
+										<p>~ 1.70%</p>
+									</li>
+								</ul>
+								<div class="tagWrap mt0">
+									<span class="tag gray2">#노후준비</span>
+									<span class="tag gray3">#목돈굴리기</span>
+									<span class="tag gray1">#사회초년생</span>
+									<span class="tag gray1">#주거래우대</span>
+									<span class="tag gray2">#직장인</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### 추천카드 ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT2">
+			<h2 class="guide_title">추천카드</h2>
+
+			<!-- -------------------------------------- -->
+			<!-- 소비패턴 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">소비패턴</h3>
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="boxTypeWrap totalBalance">
+										<h4 class="defSubTit2 mt0"><strong>3개월 소비를 분석한 추천카드는?</strong></h4>
+										<hr class="divLine3 mt15">
+										<a href="javascript:;" title="금융상품몰 사이트로 이동" role="button" class="cardLinkBox">
+											<div class="cardImgWrap"><!-- [D] 미동의일 경우 클래스(CardBlur)명 추가 -->
+												<p class="defSubTit3">NH1961카드</p>
+												<img src="../../images/img_card_ver.png" alt="" class="cardImg">
+												<div class="hashWrap">
+													<span class="hashTag">#교육/자녀</span>
+													<span class="hashTag">#직장인</span>
+												</div>
+												<p class="subTxt2">준법감시인 심의필 제12345호/2021.00.00</p>
+											</div>
+										</a>
+
+										<!-- [CASE] 미동의 -->
+										<div class="ac">
+											<p class="defSubTit2">
+												<strong>나 빼고 다른 사람 다 보고 있는 <span class="pointColor">추천카드</span></strong>
+											</p>
+											<span class="greenLink">살짝 보기</span>
+										</div>
+										<!-- // -->
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+				<div class="boxTypeWrap totalBalance">
+					<h5 class="defSubTit2 mt0"><strong>3개월 소비를 분석한 추천카드는?</strong></h5>
+					<hr class="divLine3 mt15">
+					<a href="javascript:;" title="금융상품몰 사이트로 이동" role="button" class="cardLinkBox">
+						<div class="cardImgWrap">
+							<p class="defSubTit3">NH1961카드</p>
+							<img src="../../images/img_card_all100.png" alt="" class="cardImg">
+							<div class="hashWrap">
+								<span class="hashTag">#교육/자녀</span>
+								<span class="hashTag">#직장인</span>
+							</div>
+							<p class="subTxt2">준법감시인 심의필 제12345호/2021.00.00</p>
+						</div>
+					</a>
+				</div>
+
+
+				<h4 class="guide_title4">미동의</h4>
+				<div class="boxTypeWrap totalBalance">
+					<h5 class="defSubTit2 mt0"><strong>3개월 소비를 분석한 추천카드는?</strong></h5>
+					<hr class="divLine3 mt15">
+					<a href="javascript:;" title="금융상품몰 사이트로 이동" role="button" class="cardLinkBox">
+						<div class="CardBlur">
+							<p class="defSubTit3">NH1961카드</p>
+							<img src="../../images/img_card_all100.png" alt="" class="cardImg">
+							<div class="hashWrap">
+								<span class="hashTag">#교육/자녀</span>
+								<span class="hashTag">#직장인</span>
+							</div>
+							<p class="subTxt2">준법감시인 심의필 제12345호/2021.00.00</p>
+						</div>
+						<div class="ac">
+							<p class="defSubTit2">
+								<strong>나 빼고 다른 사람 다 보고 있는 <span class="pointColor">추천카드</span></strong>
+							</p>
+							<span class="greenLink">살짝 보기</span>
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- 정기지출관리 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">정기지출관리</h3>				
+				<!-- | HTML CODE | -->
+				<div class="guide_toggle" data-toggle="wrap">
+					<button type="button" data-toggle="btn" aria-expanded="false">HTML CODE</button>
+					<div data-toggle="con">
+						<pre>
+							<code class="language-markup">
+								<script type="prism-html-markup">
+									<div class="bannerWarpPrd swCardCompWrap">
+										<div class="msaeCardCase">
+											<div class="swiper-container bannerSwiperPrd">
+												<!-- [미동의] -->
+												<div class="msaeCardBlur">
+													<div class="msaeGraphBlurTxt">
+														<p>나 빼고 다른 사람 다 보고 있는 추천카드</p>
+														<a href="javascript:;" title="선택약관동의 팝업 열림" class="link arrGreen"><span>살짝보기</span></a>
+													</div>
+												</div>
+												<!-- // -->
+												
+												<div class="swiper-wrapper">
+													<!-- // -->
+													<div class="swiper-slide">
+														<div class="swCardComp">
+															<div class="cardInfoWrap">
+																<div class="cs cardInfoArea">
+																	<strong>기본할인, 더블할인에 생활할인까지!</strong><br />
+																	<strong>구독서비스 5% 청구 할인</strong>
+																</div>
+																<span class="cs cardImgArea"><img src="../../images/img_card_byul.png" alt="별다줄 카드"></span>
+															</div>
+															<div class="cardHashtag"><span>#별다줄 카드</span><span>#별별 혜택을 다주는</span></div>
+															<div class="cardReview">준법감시인심의필 2022-2835(2022.06.15~2023.12.31.)</div>
+														</div>
+													</div>
+													<!-- // -->
+													<div class="swiper-slide">
+														<div class="swCardComp">
+															<div class="cardInfoWrap">
+																<div class="cs cardInfoArea">
+																	<strong>조건 없는 기본 적립에</strong><br />
+																	<strong>유튜브, 넷플릭스, 티빙 추가 적립!</strong>
+																</div>
+																<span class="cs cardImgArea"><img src="../../images/img_cs_card01.png" alt="NH1961카드"></span>
+															</div>
+															<div class="cardHashtag"><span>#NH1961카드</span><span>#무제한 적립</span></div>
+															<div class="cardReview">준법감시인심의필 2022-2835(2022.06.15~2023.12.31.)</div>
+														</div>
+													</div>
+													<!-- // -->
+												</div>
+												<div class="swiper-control">
+													<div class="swiper-pagination"></div>
+													<div class="swiper-autoBtn playing">
+														<a href="javascript:;" class="stopBtn" title="자동재생중 두번 터치시 멈춤"></a>
+														<a href="javascript:;" class="playBtn" title="자동재생 멈춤 두번 터치시 자동재생시작"></a>
+													</div>
+												</div>
+												<div class="swiper-button-prev blind"></div>
+												<div class="swiper-button-next blind"></div>
+											</div>
+										</div>
+									</div>
+								</script>
+							</code>
+						</pre>
+					</div>
+				</div>
+				<!-- | // | -->
+
+				<h4 class="guide_title4">기본</h4>
+				<div class="boxTypeWrap">
+					<div class="totalBalance ciArea mt0">
+						<p class="subTxt"><strong>구독 서비스 혜택 받는 카드가 궁금하다면</strong></p>
+					</div>
+					<hr class="divLine3" style="margin:10px 0">
+					<div class="bannerWarpPrd swCardCompWrap">
+						<div class="msaeCardCase">
+							<div class="swiper-container bannerSwiperPrd">
+								<div class="swiper-wrapper">
+									<!-- // -->
+									<div class="swiper-slide">
+										<div class="swCardComp">
+											<div class="cardInfoWrap">
+												<div class="cs cardInfoArea">
+													<strong>기본할인, 더블할인에 생활할인까지!</strong><br />
+													<strong>구독서비스 5% 청구 할인</strong>
+												</div>
+												<span class="cs cardImgArea"><img src="../../images/img_card_byul.png" alt="별다줄 카드"></span>
+											</div>
+											<div class="cardHashtag"><span>#별다줄 카드</span><span>#별별 혜택을 다주는</span></div>
+											<div class="cardReview">준법감시인심의필 2022-2835(2022.06.15~2023.12.31.)</div>
+										</div>
+									</div>
+									<!-- // -->
+									<div class="swiper-slide">
+										<div class="swCardComp">
+											<div class="cardInfoWrap">
+												<div class="cs cardInfoArea">
+													<strong>조건 없는 기본 적립에</strong><br />
+													<strong>유튜브, 넷플릭스, 티빙 추가 적립!</strong>
+												</div>
+												<span class="cs cardImgArea"><img src="../../images/img_cs_card01.png" alt="NH1961카드"></span>
+											</div>
+											<div class="cardHashtag"><span>#NH1961카드</span><span>#무제한 적립</span></div>
+											<div class="cardReview">준법감시인심의필 2022-2835(2022.06.15~2023.12.31.)</div>
+										</div>
+									</div>
+									<!-- // -->
+								</div>
+								<div class="swiper-control">
+									<div class="swiper-pagination"></div>
+									<div class="swiper-autoBtn playing">
+										<a href="javascript:;" class="stopBtn" title="자동재생중 두번 터치시 멈춤"></a>
+										<a href="javascript:;" class="playBtn" title="자동재생 멈춤 두번 터치시 자동재생시작"></a>
+									</div>
+								</div>
+								<div class="swiper-button-prev blind"></div>
+								<div class="swiper-button-next blind"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h4 class="guide_title4">구독 아이콘 노출</h4>
+				<div class="boxTypeWrap">
+					<div class="totalBalance ciArea mt0">
+						<p class="subTxt"><strong>이용 중인 구독 서비스로<br />혜택 받는 카드를 찾고 있다면?</strong></p>
+						<span class="ciWrap"><img src="../../images/category/fc/ico_cate_fc03_02.png" alt="쿠팡"></span>
+					</div>
+					<hr class="divLine3" style="margin:10px 0">
+					<div class="bannerWarpPrd swCardCompWrap">
+						<div class="msaeCardCase">
+							<div class="swiper-container bannerSwiperPrd">
+								<div class="swiper-wrapper">
+									<!-- // -->
+									<div class="swiper-slide">
+										<div class="swCardComp">
+											<div class="cardInfoWrap">
+												<div class="cs cardInfoArea">
+													<strong>기본할인, 더블할인에 생활할인까지!</strong><br />
+													<strong>구독서비스 5% 청구 할인</strong>
+												</div>
+												<span class="cs cardImgArea"><img src="../../images/img_card_byul.png" alt="별다줄 카드"></span>
+											</div>
+											<div class="cardHashtag"><span>#별다줄 카드</span><span>#별별 혜택을 다주는</span></div>
+											<div class="cardReview">준법감시인심의필 2022-2835(2022.06.15~2023.12.31.)</div>
+										</div>
+									</div>
+									<!-- // -->
+									<div class="swiper-slide">
+										<div class="swCardComp">
+											<div class="cardInfoWrap">
+												<div class="cs cardInfoArea">
+													<strong>조건 없는 기본 적립에</strong><br />
+													<strong>유튜브, 넷플릭스, 티빙 추가 적립!</strong>
+												</div>
+												<span class="cs cardImgArea"><img src="../../images/img_cs_card01.png" alt="NH1961카드"></span>
+											</div>
+											<div class="cardHashtag"><span>#NH1961카드</span><span>#무제한 적립</span></div>
+											<div class="cardReview">준법감시인심의필 2022-2835(2022.06.15~2023.12.31.)</div>
+										</div>
+									</div>
+									<!-- // -->
+								</div>
+								<div class="swiper-control">
+									<div class="swiper-pagination"></div>
+									<div class="swiper-autoBtn playing">
+										<a href="javascript:;" class="stopBtn" title="자동재생중 두번 터치시 멈춤"></a>
+										<a href="javascript:;" class="playBtn" title="자동재생 멈춤 두번 터치시 자동재생시작"></a>
+									</div>
+								</div>
+								<div class="swiper-button-prev blind"></div>
+								<div class="swiper-button-next blind"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h4 class="guide_title4">미동의</h4>
+				<div class="boxTypeWrap">
+					<div class="totalBalance ciArea mt0">
+						<p class="subTxt"><strong>이용 중인 구독 서비스로<br />혜택 받는 카드를 찾고 있다면?</strong></p>
+						<span class="ciWrap"><img src="../../images/category/fc/ico_cate_fc03_02.png" alt="쿠팡"></span>
+					</div>
+					<hr class="divLine3" style="margin:10px 0">
+					<div class="bannerWarpPrd swCardCompWrap">
+						<div class="msaeCardCase">
+							<!-- // -->
+							<div class="msaeCardBlur">
+								<div class="msaeGraphBlurTxt">
+									<p>나 빼고 다른 사람 다 보고 있는 추천카드</p>
+									<a href="javascript:;" title="선택약관동의 팝업 열림" class="link arrGreen"><span>살짝보기</span></a>
+								</div>
+							</div>
+							<!-- // -->
+							<div class="swiper-container bannerSwiperPrd">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="swCardComp">
+											<div class="cardInfoWrap">
+												<div class="cs cardInfoArea">
+													<strong>기본, 더블할인에 생활할인까지!</strong><br />
+													<strong>구독서비스 5%청구 할인</strong>
+												</div>
+												<span class="cs cardImgArea" aria-hidden="true"><img src="../../images/img_cs_card01.png"></span>
+											</div>
+											<div class="cardHashtag"><span>#별다줄 카드</span><span>#별별 혜택을 다주는</span></div>
+											<div class="cardReview">준법감시인심의필 2022-2835(2022.06.15~2023.12.31.)</div>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-control">
+									<div class="swiper-pagination"></div>
+									<div class="swiper-autoBtn playing">
+										<a href="javascript:;" class="stopBtn" title="자동재생중 두번 터치시 멈춤"></a>
+										<a href="javascript:;" class="playBtn" title="자동재생 멈춤 두번 터치시 자동재생시작"></a>
+									</div>
+								</div>
+								<div class="swiper-button-prev blind"></div>
+								<div class="swiper-button-next blind"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- 카드혜택비교 -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">카드혜택비교</h3>
+
+				<h4 class="guide_title4">대표 추천카드</h4>
+				<div class="boxTypeWrap">
+					<a href="javascript:;" role="button" class="swCardComp t1">
+						<div><span class="cardBenefitFlag">김농협님을 위한 추천카드를 확인하세요.</span></div>
+						<div class="cardInfoWrap">
+							<div class="cardInfoArea">
+								<strong>
+									기본할인과 더블할인,<br>
+									생활할인까지 별별혜택<br>
+									<span class="pointColor">별다줄 카드</span>
+								</strong>
+							</div>
+							<span class="cardImgArea" aria-hidden="true"><img src="../../images/img_card_byul.png"></span>
+						</div>
+						<div class="cardHashtag"><span>#온라인할인</span><span>#생활할인</span>	</div>
+						<div class="cardReview">준법감시인 심의필<br>2024-0020(2024.01.02~2024.12.31)	</div>
+					</a>
+				</div>
+
+				<h4 class="guide_title4">슬라이드 유형</h4>
+				<div class="boxTypeWrap">
+					<div class="bannerWarpPrd swCardCompWrap">
+						<div class="swiper-container bannerSwiperPrd">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="swCardComp t1">
+										<div class="titleArea"><strong>연<span class="dataValue">33,000</span>원</strong> <span class="benepitTxt"> 혜택</span>
+											<div class="tooltipWrap">
+												<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">카드추천 툴팁 열기</span></button>
+												<div class="tooltipCont boxInTooltip" style="z-index:10">
+													<p>타사카드 최근 3개월 사용내역을 NH농협카드로 이용했을 시 받을 수 있는 할인/적립 금액으로, 타사카드와 비교해보세요.</p>
+													<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+												</div>
+											</div>
+										</div>
+										<div class="mt15"><span class="cardBenefitFlag">혜택 1위 카드</span></div>
+										<div class="cardInfoWrap">
+											<div class="cardInfoArea"><strong>조건없는 기본적립에 추가할인까지 <span class="pointColor">NH1934카드</span></strong></div>
+											<span class="cardImgArea" aria-hidden="true"><img src="../../images/temp/temp_card_img.png"></span>
+										</div>
+										<div class="cardHashtag"><span>#온라인쇼핑</span><span>#온라인쇼핑</span></div>
+										<div class="cardReview">준법감시인 심의필 정보노출</div>
+										<div class="areaBodyBtnFull mt25">
+											<a href="javascript:;" class="btnBodyLine green" role="button">카드상세 바로가기</a>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="swCardComp t1">
+										<div class="titleArea"><strong>연<span class="dataValue">33,000</span>원</strong> <span class="benepitTxt"> 혜택</span></div>
+										<div class="mt15"><span class="cardBenefitFlag">혜택 2위 카드</span></div>
+										<div class="cardInfoWrap">
+											<div class="cardInfoArea"><strong>조건없는 기본적립에 추가할인까지 <span class="pointColor">NH1934카드</span></strong></div>
+											<span class="cardImgArea" aria-hidden="true"><img src="../../images/temp/temp_card_img.png"></span>
+										</div>
+										<div class="cardHashtag"><span>#온라인쇼핑</span><span>#온라인쇼핑</span></div>
+										<div class="cardReview">준법감시인 심의필 정보노출</div>
+										<div class="areaBodyBtnFull mt25">
+											<a href="javascript:;" class="btnBodyLine green" role="button">카드상세 바로가기</a>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="swCardComp t1">
+										<div class="titleArea"><strong>연<span class="dataValue">33,000</span>원</strong> <span class="benepitTxt"> 혜택</span></div>
+										<div class="mt15"><span class="cardBenefitFlag">혜택 3위 카드</span></div>
+										<div class="cardInfoWrap">
+											<div class="cardInfoArea"><strong>조건없는 기본적립에 추가할인까지 <span class="pointColor">NH1934카드</span></strong></div>
+											<span class="cardImgArea" aria-hidden="true"><img src="../../images/temp/temp_card_img.png"></span>
+										</div>
+										<div class="cardHashtag"><span>#온라인쇼핑</span><span>#온라인쇼핑</span></div>
+										<div class="cardReview">준법감시인 심의필 정보노출</div>
+										<div class="areaBodyBtnFull mt25">
+											<a href="javascript:;" class="btnBodyLine green" role="button">카드상세 바로가기</a>
+										</div>
+									</div>
+								</div> 
+							</div>
+							<div class="swiper-control">
+								<div class="swiper-pagination"></div>
+								<div class="swiper-autoBtn playing">
+									<a href="javascript:;" class="stopBtn" title="자동재생중 두번 터치시 멈춤"></a>
+									<a href="javascript:;" class="playBtn" title="자동재생 멈춤 두번 터치시 자동재생시작"></a>
+								</div>
+							</div>
+							<div class="swiper-button-prev blind"></div>
+							<div class="swiper-button-next blind"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ################################# -->
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+	$(function () {
+		//[샘플] 추천카드 슬라이드 이벤트
+		var swiper = new Swiper('.bannerSwiperPrd', {
+			slidesPerView: 1,
+			spaceBetween: 10,
+			loop: true,
+			observer:true,
+			observeParents : true,
+			//autoplay:true,
+			pagination: {
+				el: '.swiper-pagination',
+				type: 'bullets',
+				clickable: true,
+			},
+			on: {
+				transitionEnd: function () {
+					$('.swiper-slide').attr('aria-hidden', 'true')
+					$('.swiper-slide-active').attr('aria-hidden', 'false')
+				}
+			}
+		});
+		$('.bannerSwiperPrd').find('.stopBtn').on('click', function () {
+			$(this).parent('.swiper-autoBtn').removeClass('playing').find('a').focus();
+			swiper.autoplay.stop();
+		})
+		$('.bannerSwiperPrd').find('.playBtn').on('click', function () {
+			$(this).parent('.swiper-autoBtn').addClass('playing').find('a').focus();
+			swiper.autoplay.start();
+		})
+	})
+</script>
+<!-- ###################################### -->
+</body>
+</html>

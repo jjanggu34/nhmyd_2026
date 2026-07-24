@@ -1,0 +1,331 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>내 자산 안심 알림서비스 | 금융자산분석</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>내 자산 안심 알림서비스</h1>
+		<a href="javascript:;" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ############################################ -->
+	<!-- ### [내용] 내 자산 안심 알림서비스 정보입력 ### -->
+	<!-- ############################################ -->
+	<div class="container bgWhite">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 정보입력 현재 스텝 -->
+		<!-- -------------------------------------- -->
+        <div class="infoStep1" role="img" aria-label="정보입력: 총 2단계 중 2번째 단계">
+            <ol>
+                <li>
+                    <i aria-hidden="true">1</i>
+                    <span>정보입력</span>
+                </li>
+                <li><li aria-current="step"> <!-- [D] 현재 스텝 li : aria-current="step" 노출 -->
+                    <i aria-hidden="true">2</i>
+                    <span>자산선택</span>
+                </li>
+            </ol>
+        </div>         
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 안내 배너 -->
+		<!-- -------------------------------------- -->
+		<div class="infoBanner"> <!-- [D] t* : 폰트크기 및 스타일 재정의 -->
+			<div class="img2"> <!-- [D] img* : 아이콘 및 BG 색상정의 -->
+				<span>알림받을 자산을<br>선택해주세요</span>
+        <p>이제 거의 다 왔어요!</p>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 계좌선택 -->
+		<!-- -------------------------------------- -->
+		 <div class="formWrap">
+			<div class="boxRadio wrapType2">
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio01" id="FboxRadio0101" aria-label="계좌 선택(전체 계좌 선택)" checked="checked">
+						<label for="FboxRadio0101" aria-hidden="true">전체 계좌 선택</label>
+					</span>
+				</div>
+				<div class="boxRadioInn">
+					<span>
+						<input type="radio" name="FboxRadio01" id="FboxRadio0102" aria-label="계좌 선택(특정 계좌 선택)">
+						<label for="FboxRadio0102" aria-hidden="true">특정 계좌 선택</label>
+					</span>
+				</div>
+			</div>
+		 </div>
+         <hr class="divLine mt32">
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 전체 계좌 선택 연결기관 -->
+		<!-- -------------------------------------- -->
+		<!-- ### [바로가기] : 운영에서 sticky 스크립트 사용하고 있지 않음 ### -->
+		<div class="billListWrap mt12">
+			<!-- ### 바로가기 링크 ### -->
+			<div class="billLisMenu -step">
+				<ul class="billMenu">
+					<li class="selected"><a href="javascript:;" anchor-title="dem01" class="btnBillMenu" data-bill-menu="dbm01">은행</a></li>
+					<li><a href="javascript:;" anchor-title="dem02" class="btnBillMenu" data-bill-menu="dbm02">증권</a></li>
+					<li><a href="javascript:;" anchor-title="dem03" class="btnBillMenu" data-bill-menu="dbm03">전자금융</a></li>
+				</ul>
+			</div>
+			<!-- ### 목록 ### -->
+			<div class="billListCont">
+				<!-- 은행 -->
+				<div class="inoutListWrap" anchor-cont="dem01">
+					<div class="mbSelectLlistWrap mt24">
+						<h2 class="h4 togTit">은행</h2>
+						<ul class="mbSelectLlist mt16">
+							<!-- // -->
+							<li class="toggleWrap">
+								<div class="mbSelectGroup">
+									<span class="subject pr10">
+										<p class="p">
+											<span class="imgWrap"><img src="../../images/makebetter/logos/AAAZ0000.svg" alt="" class="imgLogo"></span>
+											NH농축협
+                    </p>
+									</span>
+								</div>
+								<div class="toggleCont">
+									<ul class="mbAssetList">
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																자유입출금통장
+																<span class="acctNum">000-1234-1234-11</span>
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																자유입출금통장자유입출금통장자유입출금통장자유입출금통장자유입출금통장자유입출금통장자유입출금통장자유입출금통장자유입출금통장
+                                <span class="acctNum">000-1234-1234-11000-1234-1234-11000-1234-1234-11000-1234-1234-11000-1234-1234-11000-1234-1234-11000-1234-1234-11000-1234-1234-11000-1234-1234-11000-1234-1234-11000-1234-1234-11</span>
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																외화입출금통장
+                                <span class="acctNum">000-1234-1234-11</span>
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li class="toggleWrap">
+								<div class="mbSelectGroup">
+									<span class="subject pr10">
+										<p class="p">
+											<span class="imgWrap">
+												<img src="../../images/makebetter/logos/AAHJ0000.svg" alt="" class="imgLogo">
+											</span>
+											카카오뱅크
+										</p>
+									</span>
+								</div>
+								<div class="toggleCont">
+									<ul class="mbAssetList">
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																자유입출금통장
+                                <span class="acctNum">000-1234-1234-11</span>
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<!-- // -->
+						</ul>
+					</div>
+				</div>
+
+				<!-- 증권 -->
+				<div class="inoutListWrap" anchor-cont="dem02">
+					<div class="mbSelectLlistWrap">
+						<h2 class="h4 togTit">증권</h2>
+						<ul class="mbSelectLlist mt16">
+							<li class="toggleWrap">
+								<div class="mbSelectGroup">
+									<span class="subject pr10">
+										<p class="p">
+											<span class="imgWrap">
+												<img src="../../images/makebetter/logos/AAMY0000.svg" alt="" class="imgLogo">
+											</span>
+											한국투자증권
+										</p>
+									</span>
+								</div>
+								<div class="toggleCont">
+									<ul class="mbAssetList">
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																CMA쑥쑥통장
+                                <span class="acctNum">0001234123411</span>
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																CMA쑥쑥통장
+                                <span class="acctNum">0001234123411</span>
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 전자금융 -->
+				<div class="inoutListWrap" anchor-cont="dem03">
+					<div class="mbSelectLlistWrap">
+						<h2 class="h4 togTit">전자금융</h2>
+						<ul class="mbSelectLlist mt16">
+							<li class="toggleWrap">
+								<div class="mbSelectGroup">
+									<span class="subject pr10">
+										<p class="p">
+											<span class="imgWrap">
+												<img src="../../images/makebetter/logos/AAQH0000.svg" alt="" class="imgLogo">
+											</span>
+											네비버파이낸셜
+										</p=>
+									</span>
+								</div>
+								<div class="toggleCont">
+									<ul class="mbAssetList">
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																네이버페이 계좌 결제 및 송금
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																네이버페이 머니
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																네이버페이 포인트
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<div class="mbSelectGroup">
+												<div class="subject pr10">
+														<div class="title">
+															<div class="accName">
+																네이버페이 머니
+															</div>
+														</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 버튼영역 -->
+		<!-- -------------------------------------- -->
+        <div class="areaBtnDefault">
+            <a href="javascript:;" class="btnPressPoint" role="button">확인</a><!-- [D] 비활성화시 class="disabled" / aria-disabled="true" 추가 -->
+        </div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+// 2025-09-26 앵커 스크롤 JS 분리
+  initializeAnchorScroll({
+    customPadding: 5 // 2025-11-07 결함관련 수치 조정
+  });
+  // 기본호출
+  // initializeAnchorScroll();
+</script>
+<!-- ###################################### -->
+</body>
+</html>

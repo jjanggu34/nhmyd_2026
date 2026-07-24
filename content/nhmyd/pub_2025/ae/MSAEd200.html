@@ -1,0 +1,118 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="NH마이데이터">
+<meta name="description" content="NH마이데이터">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>STEP1 현황확인 | 밸런스진단 | 자산관리</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+    <a href="javascript:;" class="btnBack" role="button"><span>이전화면으로</span></a> <!-- 2025-10-28 이전버튼 추가-->
+		<h1>밸런스진단</h1>
+		<a href="javascript:;" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] STEP1) 현황확인 ### -->
+	<!-- ###################################### -->
+	<div class="container bgAsis"><!-- 2025-11-25 bgAsis 추가 -->
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 스텝 영역 -->
+		<!-- -------------------------------------- -->
+		<div class="infoStep"><!-- [D] AS-IS 타입 "infoStep" ::: "infoStep1"은 TO-BE 디자인으로 수정됨 -->
+			<ol>
+				<li aria-current="step"> <!-- [D] 현재 스텝 li : aria-current="step" 노출 -->
+					<i aria-hidden="true">1</i>
+					<span>현황 확인</span>
+				</li>
+				<li>
+					<i aria-hidden="true">2</i>
+					<span>투자 기준 설정</span>
+				</li>
+			</ol>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 분석 대상 자산 영역 STEP1  -->
+		<!-- -------------------------------------- -->
+    <h2 class="defTit mt16 mb24">밸런스진단을 위해<br>대상 자산 분석을 시작합니다.</h2>
+    <div class="boxTypeWrap">
+      <div class="valanceTitWrap mb24">
+        <h3 class="h5">분석 대상 자산</h3>
+        <a href="javascript:;" class="valueAsset -count"><!-- 2025-12-02 추가 -->
+					<span id="balanceTotal" class="purecounter">0</span>
+          <span class="won">원</span>
+        </a>
+      </div>
+      <div class="chartWrap mb24">
+        <!-- 챠트 영역 -->
+        <div class="chartGraph mb24">
+          <!-- <canvas id="doughnutChart" width="180" height="180" role="img" tabindex="0" aria-labelledby="분석 대상 자산 도넛 그래프"></canvas> -->
+          <canvas id="doughnutChart" role="img" tabindex="0" aria-labelledby="분석 대상 자산 도넛 그래프"></canvas>
+          <div class="tooltip" role="tooltip" aria-live="polite" aria-hidden="true"></div>
+        </div>
+        <!-- // 챠트 영역 -->
+        <div class="chartLegend type1">
+          <ul id="doughnutChartLabels" class="accessible-list">
+            <li class="item"><span class="itemTit">현금</span><span>0.9%</span></li>
+            <li class="item"><span class="itemTit">국내주식</span><span>2.1%</span></li>
+            <li class="item"><span class="itemTit">해외선진국주식</span><span>96.3%</span></li>
+            <li class="item"><span class="itemTit">해외신흥국주식</span><span>0.0%</span></li><!-- 2025-09-26 0% 적용 예제(해외신흥국주식)-->
+            <li class="item"><span class="itemTit">국내채권</span><span>0.4%</span></li>
+            <li class="item"><span class="itemTit">해외채권</span><span>0.3%</span></li>
+          </ul>
+        </div>
+      </div>
+			<div class="grayBox -mb">
+        <p>마이데이터에 연결된 고객님의 자산을 NH농협은행 포트폴리오 분류 기준에 따라 재구성했습니다.</p>
+			</div>
+		</div>
+
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 하단버튼 -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">다음</a> <!-- [D] 비활성화 클래스명 (disabled) 및 aria-disabled="true" 추가 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [페이지] 스크립트 ### -->
+<!-- ###################################### -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 내 포트폴리오 // 2025-09-26 0% 적용 예제(해외신흥국주식)
+  const percentageData = [
+    { label: "현금", percent: 0.9 }, { label: "국내주식", percent: 2.1 }, { label: "해외선진국주식", percent: 96.3 },
+    { label: "해외신흥국주식", percent: 0 }, { label: "국내채권", percent: 0.4 }, { label: "해외채권", percent: 0.3 }
+  ];
+
+  const convertedData = createChartData(percentageData);
+  const doughnutChartInstance = new DoughnutChart("doughnutChart", convertedData, {
+    totalFrames: 60, colorType: 'type1', minimumSlicePercent: 5, sizeFactor: 1, thicknessRatio: 0.5, width: 180, height: 180, lazyLoad: false // 이 옵션을 추가하여 바로 그리지 않도록 설정
+  });
+});
+</script>
+<!-- ###################################### -->
+</body>
+</html>

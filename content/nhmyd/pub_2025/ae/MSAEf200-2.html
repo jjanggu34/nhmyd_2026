@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="robots" content="no-index,follow" />
+<meta name="title" content="" />
+<meta name="author" content="" />
+<meta name="content" content="" />
+<meta name="keywords" content="NH마이데이터" />
+<meta name="description" content="NH마이데이터" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<title>금융소득 모니터링(empty case)</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+  <!-- header -->
+  <div class="header">
+    <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+    <h1>금융소득 모니터링</h1>
+    <a href="javascript:;" class="btnAlram active" role="button"><span>알림</span></a><!-- 알림 상태 active -->
+    <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+  </div>
+  <!-- //header -->
+
+  <!-- ############################################ -->
+  <!-- ### [내용] 금융소득 모니터링 (empty case) ### -->
+  <!-- ############################################ -->
+  <div class="container bgWhite pb40">
+    <!-- 2025-10-10 수정 알림안내 - 금융소득이 없을 때 -->
+    <div class="areaBanner10">
+      <a href="javascript:;" class="img1">
+        <span>7</span>월 발생한 금융소득이 없어요.
+        <span class="displayB color4 fs13"><em>2025.06.31</em> 보다 증가한 내역이 없습니다.</span>
+      </a>
+    </div>
+
+    <!-- 2025-10-10 수정 알림안내 - 금융소득이 있을 때 -->
+    <div class="areaBanner10">
+      <a href="javascript:;" class="img1">
+        <span>7</span>월 발생금융소득 <span class="pointColor"><em>4</em>건</span> 있어요.
+        <span class="displayB color4 fs13"><em>2025.06.31</em> 보다 <em>556,897</em>원 <em class="pointColor">늘었어요.</em>
+        </span>
+      </a>
+    </div>
+
+    <!-- 2025-10-10 알림안내 - 수정이 안된 금융소득이 있을 때 -->
+    <div class="areaBanner10">
+      <a href="javascript:;" class="img1">
+        확인이 필요한 소득 <span class="pointColor"><em>4</em>건</span> 있어요.
+      </a>
+    </div>
+
+    <!-- 2025-10-10 알림안내 - 배당 금융소득이 있을 때 -->
+    <div class="areaBanner10">
+      <a href="javascript:;" class="img1">
+        확인이 필요한 고액의 배당 소득 <span class="pointColor"><em>4</em>건</span> 있어요.
+      </a>
+    </div>
+
+    <!-- 2025-10-10 알림안내 - 입력한 소득발생일과 실제 발생일이 상이할 때 -->
+    <div class="areaBanner10">
+      <a href="javascript:;" class="img1">
+        금융소득 발생일을 <span class="pointColor"><em>7</em>건</span> 확인해 주세요.
+      </a>
+    </div>
+
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 2025-10-10 수정 자산연결 안내 -->
+    <!-- -------------------------------------- -->
+    <div class="boxTypeWrap mt16 -icon -monitoring">
+      <h2 class="h5">아직 자산을 연결하지 않으셨나요?</h2>
+      <p class="fs15 color3 -medium mt8">
+        은행, 증권사 등 금융기관의 자산을<br>연결하여 이자, 배당내역을<br>관리해 보세요.
+      </p>
+      <button class="btn -primary -rg mt16 w100p">자산연결하기</button>
+    </div>
+    <!-- -------------------------------------- -->
+
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 2025-10-10 수정 금융소득 없을 때 안내 -->
+    <!-- -------------------------------------- -->
+    <div class="boxTypeWrap mt16 -line bgAsset">
+      <div class="displayFx -jcBetween">
+        <div class="yearMoreBtn">
+          <a href="javascript:;" title="연도선택" role="button" class="color3 -medium">2025년</a>
+        </div>
+        <a href="javascript:;" class="undeLine color3 -medium">이용안내</a>
+      </div>
+
+      <!-- 툴팁 -->
+      <h2 class="h5 mt4">김농협님의 금융 소득
+        <div class="tooltipWrap">
+          <button type="button" class="toolTipBtn -small" onclick="tooltipOpen($(this))">
+            <span class="blind">나의 금융소득 안내 툴팁 열기</span>
+          </button>
+          <div class="tooltipCont"><!-- 2025-10-15 툴팁 수정요청 -->
+            <h3>$김농협$님의 금융소득은?</h3>
+            <ul class="listBul nodisc" tabindex="-1">
+              <li>금융기관으로부터 수령한 이자, 배당을 말합니다.<br>자산연결이 되지 않은 금융소득은 직접 등록하여 수정, 관리할 수 있습니다.</li>
+            </ul>
+            <button type="button" class="close" onclick="tooltipClose($(this))">
+              <span class="blind">툴팁 닫기</span>
+            </button>
+          </div>
+        </div>
+      </h2>
+      <!-- // 툴팁 -->
+
+      <div class="mbAccListWrap mainAsset empty mt8 ac">
+        <p class="mt16 color3">
+          아직 집계된 금융소득이 없습니다.<br>이미 발생한 소득이 있다면 등록해주세요.
+        </p>
+        <a href="javascript:;" class="displayB mt16 mb6 undeLine color3 -medium">금융소득 등록하기</a>
+      </div>
+    </div>
+    <!-- -------------------------------------- -->
+
+    <hr class="divLine mt32">
+
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 발생금융소득 일 때 -->
+    <!-- -------------------------------------- -->
+    <div class="barTabs mb12">
+      <div class="barlist col2">
+        <a href="javascript:;" class="barItem active" title="발생금융소득(현재)">발생금융소득</a><!-- [D] 활성화 시 active 클래스 -->
+        <a href="javascript:;" class="barItem" title="추정금융소득">추정금융소득</a>
+      </div>
+    </div>
+    <!-- 금융기관 분류 (발생금융소득에만 있음 주의) -->
+    <ul class="incomeMonitorList">
+      <li class="selected"><a href="javascript:;" title="전체(현재)">전체</a></li><!-- [D] 선택된 값 selected 클래스, title "(현재)" 추가 -->
+      <li><a href="javascript:;" title="NH농협은행">NH농협은행</a></li>
+      <li><a href="javascript:;" title="다른 금융기관">다른 금융기관</a></li>
+    </ul>
+    <!-- // 금융기관 분류 (발생금융소득에만 있음 주의) -->
+    <!-- 조회기간 2025-11-04 주석처리 -->
+    <!-- <div class="periodWrap">
+      <div class="items">
+        <p>
+          <span>2025.01.25</span>~<span>2025.04.25</span>
+        </p>
+        <span class="color3">조회기간</span>
+      </div>
+      <button class="iconBtn -period"><span class="blind">조회기간 선택</span></button>
+    </div> -->
+    <!-- // 조회기간 2025-11-04 주석처리 -->
+    <!-- 금융소득 합계 -->
+    <dl class="sumWrap mt12">
+      <dt class="items">금융소득 합계(<span class="color3">세전</span>)</dt>
+      <dd class="items"><span>0</span>원</dd>
+    </dl>
+    <!-- // 금융소득 합계 -->
+
+    <!-- 2025-12-11 안내문구 추가 요청 -->
+    <div class="grayBanner mt12">
+      <p>당월 발생소득은 매주 월요일에 업데이트됩니다.</p>
+    </div>
+    <!-- // 2025-12-11 안내문구 추가 요청 -->
+
+    <!-- 조회기간 내 발생금융소득 없을 때 -->
+    <div class="mbAccListWrap mainAsset empty mt24 mb32">
+      <p class="mt24 mb24 color3 ac">
+        조회기간 내 발생한 금융소득이 없습니다.
+      </p><!-- 2025-12-03 문구 수정 요청-->
+    </div>
+    <!-- -------------------------------------- -->
+
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 추정금융소득 일 때 -->
+    <!-- -------------------------------------- -->
+    <div class="barTabs mb12">
+      <div class="barlist col2">
+        <a href="javascript:;" class="barItem" title="발생금융소득">발생금융소득</a>
+        <a href="javascript:;" class="barItem active" title="추정금융소득(현재)">추정금융소득</a><!-- [D] 활성화 시 active 클래스 -->
+      </div>
+    </div>
+    <!-- 조회기간 2025-11-04 주석처리 -->
+    <!-- <div class="periodWrap">
+      <div class="items">
+        <p>
+          <span>2025.01.25</span>~<span>2025.04.25</span>
+        </p>
+        <span class="color3">조회기간</span>
+      </div>
+      <button class="iconBtn -period"><span class="blind">조회기간 선택</span></button>
+    </div> -->
+    <!-- // 조회기간 2025-11-04 주석처리 -->
+    <!-- 금융소득 합계 -->
+    <dl class="sumWrap mt12">
+      <dt class="items">금융소득 합계(<span class="color3">세전</span>)</dt>
+      <dd class="items"><span>0</span>원</dd>
+    </dl>
+    <!-- // 금융소득 합계 -->
+    <!-- 조회기간 내 추정금융소득 없을 때 -->
+    <div class="mbAccListWrap mainAsset empty mt24 mb32">
+      <p class="mt24 mb24 color3 ac">
+        조회기간내 추정되는 금융소득이 없습니다.
+      </p>
+    </div>
+    <!-- -------------------------------------- -->
+
+    <!-- 2025-10-10 수정 -->
+    <hr class="divLine mb24">
+
+    <h3 class="body3 -medium">나의 금융소득! 조금 더 꼼꼼히 준비해 볼까요?</h3>
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 배너영역 -->
+    <!-- -------------------------------------- -->
+    <div class="prodListWrap assetView mt24 pb8">
+      <a href="javascript:;" role="button">
+        <div class="prodRecomWrap linkAsset">
+          <strong class="prodTit">자산연결</strong>
+        </div>
+      </a>
+      <a href="javascript:;" role="button">
+        <div class="prodRecomWrap regAsset">
+          <strong class="prodTit">금융소득 등록</strong>
+        </div>
+      </a>
+    </div>
+    <!-- -------------------------------------- -->
+
+    <hr class="divLine mt32">
+    <!-- -------------------------------------- -->
+    <!-- [SECTION] 알아두세요 -->
+    <!-- -------------------------------------- -->
+    <div class="info_area"><!-- 2025-10-02 중복id로 인한 오류 수정(id변경) -->
+      <a href="javascript:;" class="noticeBtn" data-target="#MSAEf200-2" aria-expanded="false" aria-controls="MSAEf200-2" id="MSAEf200-2_label">
+        <strong class="info_area_title">알아두세요<span class="blind">펼치기</span></strong>
+      </a>
+      <ul class="listBul disc noticeCont" aria-labelledby="MSAEf200-2_label" role="region" id="MSAEf200-2" style="display:none">
+        <!-- 2025-12-04 문구 수정 요청 -->
+        <li>본 서비스에서 안내하는 금융소득은 당행 및 타 금융기관 수집 데이터를 기준으로 추정한 소득으로 실제 지급받은 금액과 다를 수 있으며 금융소득종합과세 여부의 판단 기준으로 활용할 수 없습니다. </li>
+        <li>이자, 배당 등 금융소득은 개인이 지급받은 소득만 대상으로 하며 비과세, 분리과세 등 세금우대 또는 조세특례 적용 받은 소득은 제외됩니다. 단, 제도 변경 및 세제 개편 등에 따라 과세당국의 금액과 다를 수 있습니다. </li>
+        <li>본 서비스는 직전 년도를 포함한 최근 2년 간의 금융소득에 한하여 제공하며, 다만 마이데이터서비스 가입 이전 타기관에서 발생한 금융소득은 제공되지 않을 수 있습니다.</li>
+        <li>고객의 동의를 기반으로 수집한 자산정보는 마이데이터서비스 이용 종료 시 또는 삭제 요청 시까지 활용됩니다.</li>
+        <li>자산 연결이 많을 수록 정확한 금융소득 금액을 안내드릴 수 있습니다. 단, 타기관 연결자산인 경우 입출식 예금의 이자, 예탁금이용료, 펀드의 매매차익에 따른 배당, 파생결합증권의 이자&middot;배당 및 단기금융상품(CD, CP, RP 등)의 이자 등 상품종류에 따라 구조적으로 금액 산출이 어려운 소득은 제외될 수 있습니다.</li>
+        <!-- // 2025-12-04 문구 수정 요청 -->
+      </ul>
+    </div>
+    <!-- -------------------------------------- -->
+  </div>
+  <!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script></script>
+<!-- ###################################### -->
+</body>
+</html>

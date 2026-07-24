@@ -1,0 +1,617 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>UI Guide [타이틀/텍스트]</title>
+<script src="../pub-assets/js/head-mb.js"></script>
+<link rel="stylesheet" href="../com/css/prism.css">
+<script src="../com/js/prism.js"></script>
+</head>
+<body>
+<div class="nhasset guide_wrapper">
+	<header class="guide_header">
+		<h1>UI GUIDE <span>타이틀/텍스트</span></h1>
+		<nav data-toggle="wrap">
+			<button type="button" class="guide_btn" data-toggle="btn" aria-expanded="false">전체메뉴</button>
+			<div data-toggle="cont">
+				<a href="definition.html">기본정보</a>
+				<a href="layout_sample.html">레이아웃</a>
+				<a href="txt_sample.html" aria-current="page">타이틀/텍스트</a>
+				<a href="button_sample.html">버튼</a>
+				<a href="form_sample.html">폼</a>
+				<a href="table_sample.html">테이블</a>	
+			</div>
+		</nav>
+	</header>
+
+	<!-- ###################################### -->
+	<!-- ### UI Guide [타이틀/텍스트] ### -->
+	<!-- ###################################### -->
+	<div class="guide_container">
+		<nav class="guide_menu">
+			<a href="#GCONTENT1" class="active">PointColor</a>
+			<a href="#GCONTENT2">Title</a>
+			<a href="#GCONTENT3">Text</a>
+		</nav>
+
+		<!-- ################################# -->
+		<!-- ### PointColor ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT1">
+			<h2 class="guide_title">Point Color</h2>
+			<!-- -------------------------------------- -->
+			<!-- [클래스 정의] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">클래스 정의</h3>
+				<div class="guide_tbl">
+					<table>
+						<caption>포인트 색상 정의</caption>
+						<colgroup>
+							<col style="width:40%">
+							<col style="width:60%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">구분</th>
+								<th scope="col">내용</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>.pointColor</td>
+								<td>
+									<!-- [MD2501_002] 올원뱅크 리브랜딩 관련 포인트컬러 CSS 변경 S -->
+									<div class="browser">
+										<span class="pointColor smartbank" style="color:#19973c !important">#19973c</span>
+										<span class="pointColor allone" style="display:none">#19973c</span>
+										<span class="pointColor pay" style="display:none">#2674e0</span>
+									</div>
+									<!-- //[MD2501_002] 올원뱅크 리브랜딩 관련 포인트컬러 CSS 변경 E -->
+								</td>
+							</tr>
+							<tr>
+								<td>.error</td>
+								<td><span class="error">#e24949</span></td>
+							</tr>
+							<tr>
+								<td>.rise</td>
+								<td><span class="rise">#ec0c0c</span></td>
+							</tr>
+							<tr>
+								<td>.decline</td>
+								<td><span class="pointColor04">#2c6fd4</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+			<!-- [변수 정의] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">변수 정의</h3>
+				<!-- | HTML CODE | -->
+				<pre>
+					<code class="language-css">
+						<script type="prism-html-markup">
+							/* [샘플] 변수선언 */
+							:root {
+								--color0 : #000;
+							}
+
+							/* [샘플] 변수사용 */
+							span {color:var(--color0);}
+						</script>
+					</code>
+				</pre>
+				<!-- | // | -->
+				<div class="guide_tbl">
+					<table>
+						<caption>포인트 색상 변수 정의</caption>
+						<colgroup>
+							<col style="width:40%">
+							<col style="width:60%">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">구분</th>
+								<th scope="col">내용</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>var(--color0)</td>
+								<td><span style="color:var(--color0);">#000</span></td>
+							</tr>
+							<tr>
+								<td>var(--color1)</td>
+								<td><span style="color:var(--color1);">#121212</span></td>
+							</tr>
+							<tr>
+								<td>var(--color2)</td>
+								<td><span style="color:var(--color2);">#343434</span></td>
+							</tr>
+							<tr>
+								<td>var(--color3)</td>
+								<td><span style="color:var(--color3);">#505050</span></td>
+							</tr>
+							<tr>
+								<td>var(--color4)</td>
+								<td><span style="color:var(--color4);">#767676</span></td>
+							</tr>
+							<tr>
+								<td>var(--color5)</td>
+								<td><span style="color:var(--color5);">#929292</span></td>
+							</tr>
+							<tr>
+								<td>var(--color6)</td>
+								<td><span style="color:var(--color6);">#a6a6a6</span></td>
+							</tr>
+							<tr>
+								<td>var(--color-disabled) [color6과 동일]</td>
+								<td><span style="color:var(--color-disabled);">#a6a6a6</span></td>
+							</tr>
+						</tbody>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### Title ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT2">
+			<h2 class="guide_title">Title</h2>
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : .defTit</h3>
+				<!-- | HTML CODE | -->
+				<pre>
+					<code class="language-markup">
+						<script type="prism-html-markup">
+							<!-- [CASE] 타이틀형(기본) -->
+							<h2 class="defTit">타이틀 <strong>강조문구</strong> 입니다.</h2>
+
+							<!-- [CASE] 문구형(부가설명노출) -->
+							<p class="defTit t1">
+								<strong>강조문구가 노출됩니다.</strong>
+								<span>부가설명이 노출됩니다.</span>
+							</p>
+
+							<!-- [CASE] 툴팁사용 -->
+							<div class="defTit">
+								<h2>타이틀</h2>
+								<div class="tooltipWrap">
+									<!-- 툴팁영역 -->
+								</div>
+							</div>
+						</script>
+					</code>
+				</pre>
+				<!-- | // | -->
+				<div class="guide_section2">
+					<div class="guide_area">
+						<h4 class="guide_title4">타이틀형</h4>
+						<ul class="guide_txt">
+							<li>폰트스타일 : 20px / bold(700) / #111</li>
+							<li>여백 : margin:35px 0 10px</li>
+						</ul>
+						<h5 class="defTit">타이틀 <strong>강조문구</strong> 입니다.</h5>
+					</div>
+					<div class="guide_area">
+						<h4 class="guide_title4">문구형 : .defTit.t1</h4>
+						<ul class="guide_txt">
+							<li>강조문구 : 20px / 900 / #111</li>
+							<li>부가설명 : 14px / 400 / #666</li>
+							<li>여백 : margin:30px 0 20px</li>
+						</ul>
+						<p class="defTit t1">
+							<strong>강조문구가 노출됩니다.</strong>
+							<span>부가설명이 노출됩니다.</span>
+						</p>
+					</div>
+				</div>
+				<div class="guide_section2">
+					<div class="guide_area">
+						<h4 class="guide_title4">센터정렬 : .defTit.txtC</h4>
+						<h5 class="defTit txtC">타이틀</h5>
+					</div>
+					<div class="guide_area">
+						<h4 class="guide_title4">툴팁사용</h4>
+						<div class="defTit">
+							<h5>타이틀</h5>
+							<div class="tooltipWrap w96">
+								<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">툴팁 열기</span></button>
+								<div class="tooltipCont">
+									<p>툴팁내용노출</p>
+									<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2 : .defSubTit*</h3>
+				<!-- | HTML CODE | -->
+				<pre>
+					<code class="language-markup">
+						<script type="prism-html-markup">
+							<h2 class="defSubTit">타이틀 <strong>강조문구</strong> 입니다.</h2>
+							<h2 class="defSubTit1">타이틀 <strong>강조문구</strong> 입니다.</h2>
+							<h2 class="defSubTit2">타이틀 <strong class="bold">강조문구</strong> 입니다.</h2>
+							<h2 class="defSubTit3">타이틀 <strong>강조문구</strong> 입니다.</h2>
+							<h2 class="defSubTit4">타이틀 <strong>강조문구</strong> 입니다.</h2>
+						</script>
+					</code>
+				</pre>
+				<!-- | // | -->
+
+				<!-- ### [.defSubTit] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">.defSubTit</h4>
+					<ul class="guide_txt">
+						<li>폰트스타일 : 15px / 400 / #000</li>
+						<li>여백 : margin:12px 0 5px</li>
+					</ul>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="defSubTit">타이틀 <strong>강조문구</strong> 입니다.</h5>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [.defSubTit1] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">.defSubTit1</h4>
+					<ul class="guide_txt">
+						<li>폰트스타일 : 16px / 900 / #000</li>
+						<li>여백 : margin:0px</li>
+					</ul>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="defSubTit1">타이틀 <strong>강조문구</strong> 입니다.</h5>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [.defSubTit2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">.defSubTit2</h4>
+					<ul class="guide_txt">
+						<li>폰트스타일 : 16px / 400 / #000</li>
+						<li>여백 : margin:0px</li>
+					</ul>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<h6 class="defSubTit2">타이틀 <strong class="bold">강조문구</strong> 입니다.</h6>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">좌우배치 : .defSubTit2.t1</h5>
+							<h6 class="defSubTit2 t1">
+								<strong>타이틀 <span class="pointColor">N</span>건</strong>
+								<span class="sub"><strong class="dataValue">000,000</strong><span class="won">원</span></span>
+							</h6>
+							<div class="defSubTit2 t1">
+								<h6><strong class="bold">타이틀(툴팁있음)</strong></h6>
+								<div class="tooltipWrap">
+									<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">툴팁 열기</span></button>
+									<div class="tooltipCont">
+										<div class="msaeTool">
+											<p>툴팁내용</p>
+										</div>
+										<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+									</div>
+								</div>
+								<span class="sub">총 <span class="pointColor">N개</span></span>
+							</div>
+						</div>
+					</div>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">풀팝업(라인있음) : .popCont &gt; .defSubTit2</h5>
+							<div class="popCont"><h6 class="defSubTit2">타이틀</h6></div>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">풀팝업(라인없음) : .popCont &gt; .defSubTit2.bdNone</h5>
+							<div class="popCont"><h6 class="defSubTit2 bdNone">타이틀</h6></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [.defSubTit3] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">.defSubTit3</h4>
+					<ul class="guide_txt">
+						<li>폰트스타일 : 14px / bold(700) / 색상지정X(#111)</li>
+						<li>여백 : margin:0px</li>
+					</ul>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<h6 class="defSubTit3">타이틀 <strong>강조문구</strong> 입니다.</h6>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">볼드처리(900) : .defSubTit3.t1</h5>
+							<h3 class="defSubTit3 t1">타이틀</h3>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">색상변경 : .defSubTit3.t2</h5>
+							<h6 class="defSubTit3 t2">타이틀</h6>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [.defSubTit4] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">.defSubTit4</h4>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<ul class="guide_txt">
+								<li>폰트스타일 : 13px / 400 / 색상지정X(#111)</li>
+								<li>여백 : margin:8px 0 0</li>
+							</ul>
+							<h6 class="defSubTit4">타이틀 <strong>강조문구</strong> 입니다.</h6>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">박스안에 타이틀 : .defSubTit4.t1</h5>
+							<ul class="guide_txt">
+								<li>툴팁 배치를 위해 display:inline으로 지정</li>
+								<li>폰트스타일 : 13px / 400 / 색상지정X(#111)</li>
+								<li>여백 : margin:12px 0</li>
+							</ul>
+							<div class="boxTypeWrap">
+								<h6 class="defSubTit4 t1">타이틀 <strong>강조문구</strong> 입니다.</h6>
+								<div class="tooltipWrap w96">
+									<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">툴팁 열기</span></button>
+									<div class="tooltipCont">
+										<p>툴팁내용</p>
+										<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">툴팁 닫기</span></button>
+									</div>
+								</div>
+							</div>	
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [.defSubTit5] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">.defSubTit5</h4>
+					<ul class="guide_txt">
+						<li>폰트스타일 : 16px / 400 / 색상지정X(#111)</li>
+						<li>여백 : margin:0 16px 20px 16px</li>
+					</ul>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="defSubTit5">타이틀 <strong>강조문구</strong> 입니다.</h5>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [.defSubTit6] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">.defSubTit6</h4>
+					<ul class="guide_txt">
+						<li>폰트스타일 : 20px / 900 / 색상지정X(#111)</li>
+						<li>여백 : margin:0</li>
+						<li>사용하고 있는 곳 없음</li>
+					</ul>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="defSubTit6">타이틀 <strong>강조문구</strong> 입니다.</h5>
+						</div>
+					</div>
+				</div>
+				<!-- ### // ### -->
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+		<!-- ################################# -->
+		<!-- ### Text ### -->
+		<!-- ################################# -->
+		<section id="GCONTENT3">
+			<h2 class="guide_title">Text</h2>
+			<!-- -------------------------------------- -->
+			<!-- [유형1] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형1 : .subTxt**</h3>
+				<!-- | HTML CODE | -->
+				<pre>
+					<code class="language-markup">
+						<script type="prism-html-markup">
+							<p class="subTxt">텍스트가 노출됩니다.</p>
+							<p class="subTxt2">텍스트가 노출됩니다.</p>
+							<p class="subTxt3">텍스트가 노출됩니다.</p>
+							<p class="subTxt4">상품가입 시 실제 금리와 다를 수 있습니다.</p>
+							<p class="subTxt5">텍스트가 노출됩니다.</p>
+						</script>
+					</code>
+				</pre>
+				<!-- | // | -->
+
+				<!-- ### [.subTxt] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">.subTxt</h4>
+					<ul class="guide_txt">
+						<li>폰트스타일 : 14px / 400 / #666</li>
+						<li>defTit 아래에 나오는 부가 타이틀 메시지</li>
+					</ul>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<p class="subTxt">텍스트가 노출됩니다.</p>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">센터정렬 : .subTxt.ac</h5>
+							<p class="subTxt ac">텍스트가 노출됩니다.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- ### [.subTxt2] ### -->
+				<div class="guide_area2">
+					<h4 class="guide_title3">.subTxt2</h4>
+					<ul class="guide_txt">
+						<li>폰트스타일 : 12px / 400 / #666</li>
+						<li>작은 서브 메세지</li>
+					</ul>
+					<div class="guide_section2">
+						<div class="guide_area">
+							<h5 class="guide_title4">기본</h5>
+							<p class="subTxt2">텍스트가 노출됩니다.</p>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">오른쪽 정렬 : .subTxt2.ar</h5>
+							<p class="subTxt2 ar">텍스트가 노출됩니다.</p>
+						</div>
+						<div class="guide_area">
+							<h5 class="guide_title4">도트형 : .subTxt2.t1</h5>
+							<p class="subTxt2 t1">텍스트가 노출됩니다.</p>
+							<hr class="guide_line">
+							<ul class="subTxt2 t1">
+								<li>텍스트가 노출됩니다.</li>
+								<li>텍스트가 노출됩니다.</li>
+							</ul>
+							<hr class="guide_line">
+							<dl class="subTxt2 t1">
+								<dt>제목</dt>
+								<dd>텍스트가 노출됩니다.</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- -------------------------------------- -->
+			<!-- [유형2] -->
+			<!-- -------------------------------------- -->
+			<div class="guide_cont">
+				<h3 class="guide_title2">유형2 : 알아두세요</h3>
+				<!-- | HTML CODE | -->
+				<pre>
+					<code class="language-markup">
+						<script type="prism-html-markup">
+							<div class="info_area">
+								<a href="javascript:;" class="noticeBtn" data-target="#MSAEd300" aria-expanded="false" aria-controls="MSAEd300" id="MSAEd300_label">
+									<strong class="info_area_title">알아두세요<span style="display:none">접기</span></strong>
+								</a>
+								<ul class="listBul disc noticeCont" aria-labelledby="MSAEd300_label" role="region" id="MSAEd300" style="display:none" tabindex="-1">
+									<li>텍스트가 노출됩니다.</li>
+									<li>텍스트가 노출됩니다.</li>
+									<li>텍스트가 노출됩니다.</li>
+								</ul>
+							</div>
+						</script>
+					</code>
+				</pre>
+				<!-- | // | -->
+				<div class="guide_section2">
+					<div class="guide_area">
+						<h4 class="guide_title4">기본 : .info_area</h4>
+						<div class="info_area">
+							<a href="javascript:;" class="noticeBtn" data-target="#MSAEd300" aria-expanded="false" aria-controls="MSAEd300" id="MSAEd300_label">
+								<strong class="info_area_title">알아두세요<span style="display:none">접기</span></strong>
+							</a>
+							<ul class="listBul disc noticeCont" aria-labelledby="MSAEd300_label" role="region" id="MSAEd300" style="display:none" tabindex="-1">
+								<li>텍스트가 노출됩니다.</li>
+								<li>텍스트가 노출됩니다.</li>
+								<li>텍스트가 노출됩니다.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- -------------------------------------- -->
+		</section>
+
+
+		<!-- ################################# -->
+	</div>
+	<!-- ###################################### -->
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		myCarCost();
+		//샘플 : 10초 초과 시 문구 변경 예시
+		setTimeout(function(){
+			$('.mesArea3.img1 strong').html('고객님의 배당내역을<br>불러오고 있어요.<br>잠시만 기다려주세요.');
+			$('.mesArea3.img1 .btns').removeClass('none');
+
+			$('.mesArea3.img2 strong').html('많은 기관들에게 조회 요청 중입니다.<br>계속 기다리시거나<br>잠시 후 본 화면에 다시 접속해서<br>조회결과를 확인할 수 있어요.');
+			$('.mesArea3.img2 .btns').removeClass('none');
+		},10000);
+
+		// 스뱅,올원,페이 구분
+		$('.guide_button > a').on('click',function(){
+			if($('body').hasClass('nhd_allone')) {
+				$('.smartbank').css('display','none');
+				$('.allone').css('display','block');
+				$('.pay').css('display','none');
+
+			} else if($('body').hasClass('nhd_pay')) {
+				$('.smartbank').css('display','none');
+				$('.allone').css('display','none');
+				$('.pay').css('display','block');
+			} else {
+				$('.smartbank').css('display','block');
+				$('.allone').css('display','none');
+				$('.pay').css('display','none');
+			}
+		});
+	});
+	function myCarCost() {
+		$('.assetLoadingWrap').each(function(i, obj){
+			var $thisCost = $(obj).find('.assetLoadingValue strong');
+			var memberCountContText = $thisCost.text()
+			$({ val : 0}).animate({ val : memberCountContText}, {
+				duration: 1500,//애니메이션 시간
+				step: function(){
+					var num = numberWithCommas(Math.floor(this.val));
+					$thisCost.text(num);
+				},
+				complete: function(){
+					var num = numberWithCommas(Math.floor(this.val));
+					$thisCost.text(num);
+				}
+			});
+		});
+		function numberWithCommas(x){
+			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

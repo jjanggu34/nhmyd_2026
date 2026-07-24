@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>인증코드 입력</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/nhasset_myd_mb.css">
+<script src="../../js/nhasset-ui-myd-mb.js"></script>
+</head>
+<body>
+<div class="wrapper nhasset">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>인증코드 입력</h1>
+		<!-- [MD2507_087_v0.11] 혜택 알리미 서비스 신규 개발 홈버튼  -> 전체메뉴 수정 -->
+		<a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+	</div>
+	<!-- //header -->
+
+	<!-- ###################################### -->
+	<!-- ### [내용] 인증코드 입력 ### -->
+	<!-- ###################################### -->
+	<div class="container bgWhite">
+		<div class="infoBanner">
+			<div>
+				가족정보 제공 동의를<br />요청 받으셨나요?
+				<p class="mt4 pb10">SNS 또는 문자메시지로 전달받은 요청자 이름과<br />인증코드 8자리를 입력해 주세요.</p>
+			</div>
+		</div>
+		
+		<!-- -------------------------------------- -->
+		<!-- [입력영역] -->
+		<!-- -------------------------------------- -->
+		<div class="formWrap mb50">
+			<div class="titListBox">
+				<strong class="formTit disInline -medium">요청자 이름 <em class="color3">(필수)</em></strong>
+				<div class="inputList">
+					<input type="text" title="이름을 입력" placeholder="이름을 입력해 주세요.">
+					<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+				</div>
+				<div class="inputList error"><!-- [D] error일때 클래스 error 추가 -->
+					<input type="text" title="이름을 입력" placeholder="이름을 입력해 주세요.">
+					<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+				</div>
+				<p class="errorTxt">요청자의 이름을 입력해 주세요.</p>
+
+				<strong class="formTit disInline -medium">인증코드 <em class="color3">(필수)</em></strong>
+				<div class="inputList">
+					<input type="text" title="인증코드 입력" placeholder="인증코드를 입력해 주세요.">
+					<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+				</div>
+				<div class="inputList error"><!-- [D] error일때 클래스 error 추가 -->
+					<input type="text" title="인증코드 입력" placeholder="인증코드를 입력해 주세요.">
+					<a href="javascript:" class="btnReset" role="button">입력내용삭제</a>
+				</div>
+				<p class="errorTxt">인증코드를 입력해 주세요.</p>
+			</div>
+		</div>
+		<!-- // -->
+		<hr class="divLine" aria-hidden="true">
+		<!-- -------------------------------------- -->
+		<!-- [SECTION] 알아두세요 -->
+		<!-- -------------------------------------- -->
+		<div class="fullyWrap bgWhite pt0 pb0">
+			<div class="info_area">
+				<a href="javascript:;" class="noticeBtn" data-target="#noticeContent1" aria-expanded="false"
+					aria-controls="noticeContent1" id="noticeBtn1">
+					<strong class="info_area_title">알아두세요<span style="display:none">펼치기</span></strong>
+				</a>
+				<ul class="listBul disc noticeCont" aria-labelledby="noticeBtn1" role="region" id="noticeContent1" style="display:none">
+					<li>가족에게 내 정보를 제공하면 요청한 가족은 나를 대신하여 나의 맞춤 서비스를 조회할 수 있습니다.</li>
+					<!-- [MD2507_087_v0.12] 혜택 알리미 서비스 신규 개발 추가 문구 추가 -->
+					<li>가족 등록은 만19세 이상 구성원에 한해 가능합니다.</li>
+				</ul>
+			</div>
+		</div>
+		<!-- -------------------------------------- -->
+
+		<!-- -------------------------------------- -->
+		<!-- [하단버튼] -->
+		<!-- -------------------------------------- -->
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint" role="button">다음</a> <!-- [D] 활성화 : 클래스명(disabled) 삭제 / aria-disabled="true" 삭제 -->
+		</div>
+		<!-- -------------------------------------- -->
+	</div>
+	<!-- ###################################### -->
+</div>
+</body>
+</html>

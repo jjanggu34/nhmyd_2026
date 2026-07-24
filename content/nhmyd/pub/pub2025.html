@@ -1,0 +1,4265 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NH자산+ || 가이드 시스템</title>
+	<!-- <meta http-equiv="Cache-Control" content="no-store"> -->
+	<meta name="publisher" content="[SEPTEM] UI Dev Team">
+	<link rel="stylesheet" href="com/css/datatables.min.css">
+	<link rel="stylesheet" href="com/css/colorbox.css">
+	<link rel="stylesheet" href="com/css/septem_pubcom.css">
+	<link rel="stylesheet" href="com/css/prism.css">
+	<script src="./com/js/prism.js"></script>
+	<script src="com/js/jquery-3.6.0.min.js"></script>
+	<!-- <script src="com/js/jquery-1.12.4.min.js"></script> -->
+</head>
+<body>
+
+<div class="skipNav">
+	<a href="#main">본문 바로가기</a>
+	<a href="#gnb">메뉴 바로가기</a>
+</div>
+
+<header>
+	<div class="title">
+		<div class="subject">
+			<img src="com/images/guide_logo_nh.svg" alt="NH Bank, NH 농협" class="nhLogo">
+			<span class="headerTit"><em class="headerYear">UI/UX Guide SYSTEM</em> <em class="prj">NH마이데이터</em></span>
+		</div>
+		<div class="menu">
+			<ul>
+				<li><a href="pubList_2026.html">퍼블리스트</a></li>
+				<li><a href="pubGuide.html">UI가이드</a></li>
+				<li><a href="pubImage.html">이미지리스트</a></li>
+				<li><a href="pubA11y.html">접근성2024</a></li>
+				<li><a class="active" href="pub2025.html" title="선택됨">접근성2025</a></li>
+				<li><a href="pub2026.html">접근성2026</a></li>
+			</ul>
+		</div>		
+	</div>
+</header>
+
+<main id="main" class="pubA11y pub2025">
+	<h1>마이데이터 모바일 애플리케이션 접근성 1차 심사 결과 조치 가이드</h1>
+	<ul>
+		<li>접근성 1차 심사 결과를 기준으로 작성된 항목입니다.</li>
+	</ul>
+	<div class="guide_progress">
+		<ul>
+			<li class="all"><button type="button">전체</button><span></span></li>
+			<li class="ing"><button type="button">개발작업</button><span></span></li>
+			<li class="wait"><button type="button">작업보류</button><span></span></li>
+			<li class="wait2"><button type="button">확인필요</button><span></span></li>
+			<li class="end"><button type="button">완료</button><span></span></li>
+		</ul>
+	</div>
+
+
+	<!-- ----------------------------------------- -->
+	<!-- [검사 항목별 평가 결과] -->
+	<!-- ----------------------------------------- -->
+	<section class="guide_section">
+		<h2>검사 항목별 평가</h2>
+		<h3>보고서 : (MA심사)_NH스마트뱅킹_마이데이터(농협은행)_for_Android_PHONE_1st.pdf</h3>
+		<div class="guide_table">
+			<table>
+				<caption>검사 항목별 평가</caption>
+				<colgroup>
+					<col style="width:40px;">
+					<col style="width:160px;">
+					<col style="width:350px;">
+					<col style="width:50px;">
+					<col style="width:300px;">
+					<col style="width:auto;min-width:300px">
+					<col style="width:100px;">
+					<col style="width:100px;">
+					<col style="width:100px;">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">지침</th>
+						<th scope="col">화면경로</th>
+						<th scope="col">페이지</th>
+						<th scope="col">오류항목</th>
+						<th scope="col">오류내용</th>
+						<th scope="col">퍼블파일</th>
+						<th scope="col">개발파일</th>
+						<th scope="col">작업내용</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- [오류1] -->
+					<tr class="del" role="button" data-tab="uiSection01_1">
+						<td><span>1</span></td>
+						<td>4 명도 대비</td>
+						<td>어플리케이션 공통 오류</td>
+						<td><span>10</span></td>
+						<td>명도대비가 기준 미만인 컨트롤</td>
+						<td>
+							- 이미지 컨트롤의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 이미지 컨트롤의 아이콘 명도대비가 3:1 이상되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./ar/MSAR3110P.html" target="_blank">MSAR3110P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_1">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_1.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류2] -->
+					<tr class="del" role="button" data-tab="uiSection01_2">
+						<td><span>2</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 서비스 가입</td>
+						<td><span>12</span></td>
+						<td>초점이 이동되지 않는 콘텐츠</td>
+						<td>
+							- 약관 상세페이지로 이동하는 버튼에 스크린리더 초점이 이동되지 않습니다.<br />
+							* 스크린리더 초점이 화면에 표시된 의미있는 콘텐츠에 모두 이동 가능하고 콘텐츠를
+							동등하게 인식 및 운용할 수 있도록 구현해야 합니다.<br />
+							또한 초점 접근 시 적절한 대체 텍스트와 '버튼' 역할정보가 인식되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./ar/MSAR3100.html" target="_blank">MSAR3100</a></td>
+						<!-- 개발파일경로 -->
+						<td>
+							<span>mssb1000r</span>
+							<span>mssb5000r</span>
+						</td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_2">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_2.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<a href="javascript:;" role="button" class="btnView" title="[필수] NH마이데이터 서비스 이용 약관">
+														<span class="blind">약관보기</span>
+													</a>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류3] -->
+					<tr class="del" role="button" data-tab="uiSection01_3">
+						<td><span>3</span></td>
+						<td>4 명도 대비</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 약관보기</td>
+						<td><span>14</span></td>
+						<td>명도대비 기준 이하 콘텐츠</td>
+						<td>
+							- 텍스트의 색상과 배경색 간의 명도 대비가 기준에 미흡합니다.<br />
+							* 명도 대비는 최소 3:1 이상으로 제공해야 합니다
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./../terms/1001_ms_agreement_v1.3.html" target="_blank">1001_ms_agreement_v1.3</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_3">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_3.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_cont.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line4376 */
+													.term_cont .pointColor{color:#577fe0 !important} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류4] -->
+					<tr class="del" role="button" data-tab="uiSection01_4">
+						<td><span>4</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 약관보기</td>
+						<td><span>15</span></td>
+						<td>초점 이동되는 보이지 않는 콘텐츠</td>
+						<td>
+							- 화면에 보이지 않는 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점은 화면에 표시된 콘텐츠로만 이동되도록 구현해야 합니다.<br />
+							보이지 않는 콘텐츠는 초점이 이동되지 않도록 제거하거나 display:none 또는 WAI-ARIA의
+							aria-hidden="true"를 적용해야 합니다.<br />
+							※ 약관 상세 페이지 공통 오류입니다. 빈 &lt;h1&gt; 요소로 추정됩니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./../terms/1001_ms_agreement_v1.3.html" target="_blank">1001_ms_agreement_v1.3</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_4">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_4.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line513~516 추가 -->
+													if(layerInner.find("h1").size() > 0){
+														layerInner.find("h1").each(function(){
+															if($(this).find("a").size() == 0){
+																$(this).html("<a href='javascript:;' role='heading' aria-level='1'>"+$(this).html()+"</a>");
+															} 
+															// [MD2503_026] 마이데이터(스뱅) 접근성 
+															else if($(this).find("a").html().length == 0) {
+																$("#termsHeader a").css('display','none');
+															}
+														});
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류5] -->
+					<tr class="del" role="button" data-tab="uiSection01_5">
+						<td><span>5</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 약관보기</td>
+						<td><span>16</span></td>
+						<td>접근성이 준수되지 않은 슬라이드</td>
+						<td>
+							- 화면에 보이지 않는 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점은 화면에 표시된 콘텐츠로만 이동되도록 구현해야 합니다.<br />
+							보이지 않는 콘텐츠는 초점이 이동되지 않도록 제거하거나 display:none 또는 WAI-ARIA의
+							aria-hidden="true"를 적용해야 합니다.<br />
+							※ 약관 상세 페이지 공통 오류입니다. 빈 &lt;h1&gt; 요소로 추정됩니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./co/MSCO1420P.html" target="_blank">MSCO1420P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_5">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_5.png" alt=""/></span>
+								<p>JSP 수정</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류6] -->
+					<tr class="del" role="button" data-tab="uiSection01_6">
+						<td><span>6</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 권유직원(선택) 찾기</td>
+						<td><span>18</span></td>
+						<td>명도 대비가 기준에 미흡한 콘텐츠</td>
+						<td>
+							- 서식의 placeholder 명도대비가 기준 3:1 미만 입니다.<br />
+							* placeholder 의 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./ar/MSAR3100.html" target="_blank">MSAR3100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_6">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_6.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line383 */
+													.nhasset .inputList input[type='text']:read-only, .nhasset .inputList input[type='tel']:read-only, .nhasset .inputList input[type='password']:read-only,
+													.nhasset .inputList input[type='text']:disabled, .nhasset .inputList input[type='tel']:disabled, .nhasset .inputList input[type='password']:disabled{color:#888;background-color:#f3f3f3;border-color:#f3f3f3} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류7] -->
+					<tr class="del" role="button" data-tab="uiSection01_7">
+						<td><span>7</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 권유직원(선택) 찾기</td>
+						<td><span>19</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ar/MSAR3110P.html">MSAR3110P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_7">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_7.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2394~2395 추가 -->
+													function alertPopupDiv(msg, type, callback, title, params, preCallback){
+														console.log("msg :: ", msg);
+														console.log("type :: ", type);
+														
+														if(typeof title != "undefined" && title != ""){
+															$("#alertPopupDiv").find("h1").html(title);
+														}
+														else {
+															if (pop_curr_service.startsWith("FM")) {
+													//			$("#alertPopupDiv").find("h1").html('<img src="../content/nhmyd/images/popTitle.png" alt="NH 마이데이터">')
+															}
+														}
+														
+														var eventTarget = common_popup.getFocus(event);
+														typeof msg == "undefined" ? msg = "" :"";
+														$("#alertPopupDiv .confirmMsg").removeClass("type01").removeClass("type02").removeClass("type03").addClass(type).html(msg);
+														common_popup.layerOpen($("#alertPopupDiv"), {}, function(){
+															if(typeof callback != "undefined") callback(params);
+														}, eventTarget, "centerLayer", preCallback);
+														// [MD2503_026] 마이데이터(스뱅) 접근성
+														$("body").find(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류8] -->
+					<tr class="del" role="button" data-tab="uiSection01_8">
+						<td><span>8</span></td>
+						<td>12 입력도움</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 권유직원(선택) 찾기</td>
+						<td><span>20</span></td>
+						<td>레이블이 부적절한 서식</td>
+						<td>
+							- 서식에 제공된 레이블이 부적절하게 제공되었습니다.<br />
+							* 서식의 용도에 맞게 레이블을 제공해야 합니다.<br />
+							※ 이름(사번)으로 찾기, 영업점으로 찾기 공통 오류입니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ar/MSAR3110P.html">MSAR3110P</a></td>
+						<!-- 개발파일경로 -->
+						<td>
+							<span>mssb1002p</span>
+						</td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_8">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_8.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<span class="chkRadio radio active">
+														<input type="radio" id="sample003" name="sample01" checked="checked" onchange="mssb1002p.checkFindType(1)">
+														<label for="sample003">이름(사번)으로 찾기</label>
+													</span>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류9] -->
+					<tr class="del" role="button" data-tab="uiSection01_9">
+						<td><span>9</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 권유직원(선택) 찾기</td>
+						<td><span>21</span></td>
+						<td>상태 정보가 제공되지 않은 컨트롤</td>
+						<td>
+							- 선택 상태가 제공되지 않아 스크린리더 사용자가 선택 여부를 인식할 수 없습니다.<br />
+							* 선택된 컨트롤에 title 속성을 이용해 선택 정보를 제공해야 합니다.<br />
+							예) &lt;button title="선택됨"&gt;...&lt;/button&gt;
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ar/MSAR3110P.html">MSAR3110P</a></td>
+						<!-- 개발파일경로 -->
+						<td>
+							<span>mssb1002p</span>
+						</td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_9">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_9.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<li id="0" class="active">
+														<a href="javascript:mssb1002p.clickWithData("00300685","백우진","000131","안양시","0");" class="link" role="button" title="선택됨">
+															<span class="title">백*진 (0030****)</span>
+															<span class="items">안양시</span>
+														</a>
+													</li>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류10] -->
+					<tr class="del" role="button" data-tab="uiSection01_10">
+						<td><span>10</span></td>
+						<td>1 대체 텍스트</td>
+						<td>마이데이터 홈</td>
+						<td><span>23</span></td>
+						<td>대체 텍스트가 미흡한 콘텐츠</td>
+						<td>
+							- 콘텐츠에 초점 이동 시 캡쳐된 이미지에 검정색 하이라이트와 같이 초점이 이동되어 내부의
+							내용이 음성피드백되나 오늘 표시, 일정 표시가 누락되었습니다.
+							* 동등한 내용의 대체 텍스트를 제공해야 합니다. 배지의 경우 배지가 표시되는 요소에 
+							role="img" aria-label을 이용하여 대체 텍스트를 제공할 수 있습니다.
+							그리고 버튼 요소 내부에 콘텐츠가 많을 경우 인식이 어렵습니다. &lt;button&gt; 요소 또는
+							role="button"은 "금융일정을 확인해 보세요>" 텍스트에만 적용되도록 마크업을 변경하고
+							다른 콘텐츠는 일반 콘텐츠처럼 인식되도록 구현하는 것을 권장합니다.
+							※ 컨트롤의 기능 동작 범위는 &lt;button&gt;요소, role="button"이 적용된 범위와 상관없이 지금과 같이
+							콘텐츠 전체 영역에서 동작하도록 구현하여도 됩니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./co/MSCO9210.html">MSCO9210</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_10">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_10.png" alt=""/></span>
+								<p>role="button" tabindex="0" 삭제</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류11] -->
+					<tr class="del" role="button" data-tab="uiSection01_11">
+						<td><span>11</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 </td>
+						<td><span>24</span></td>
+						<td>명도대비가 기준 미만인 컨트롤</td>
+						<td>
+							- 컨트롤 및 컨트롤 내부 텍스트 명도대비가 기준 미만 입니다.<br />
+							* 컨트롤의 테두리 및 텍스트 명도대비가 3:1 이상되도록 수정해야 합니다
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./co/MSCO9210.html">MSCO9210</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_11">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_11.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line468 */
+													.nhasset .tgBtn3 input[type='checkbox'] + label{display:inline-flex;align-items:center;margin-left:0;vertical-align:top;padding:2px 7px 2px 27px;width:auto;height:auto;min-height:23px;line-height:1.72;border-radius:24px;background-color:#7e848e;font-size:clamp(12px, 1.2rem, 18px);font-weight:400;color:#fff} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류12] -->
+					<tr class="del" role="button" data-tab="uiSection01_12">
+						<td><span>12</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈</td>
+						<td><span>25</span></td>
+						<td>초점 이동되는 보이지 않는 콘텐츠</td>
+						<td>
+							- 화면에 보이지 않는 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							(현재 스크린리더 초점 접근 : 이번 달 총 소비>숨겨진 버튼>나의 목표를 설정해 보세요!)
+							* 스크린리더 초점은 화면에 표시된 콘텐츠로만 이동되도록 구현해야 합니다.<br />
+							보이지 않는 콘텐츠는 초점이 이동되지 않도록 제거하거나 display:none 또는 WAI-ARIA의
+							aria-hidden="true"를 적용해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./co/MSCO9210.html">MSCO9210</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_12">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_12.png" alt=""/></span>
+								
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류13] -->
+					<tr class="del" role="button" data-tab="uiSection01_13">
+						<td><span>13</span></td>
+						<td>12 입력도움</td>
+						<td>마이데이터 홈</td>
+						<td><span>26</span></td>
+						<td>레이블이 부적절한 서식</td>
+						<td>
+							- 서식에 제공된 레이블이 '순자산 숨기기' 로 부적절하게 제공되었습니다.<br />
+							* '순자산 보이기' 등 서식의 용도와 동등한 레이블을 제공해야 합니다.<br />
+							※ 자산 탭 동일 UI 체크박스 참조
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./co/MSCO9210.html">MSCO9210</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_13">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_13.png" alt=""/></span>
+
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류14] -->
+					<tr class="del" role="button" data-tab="uiSection01_14">
+						<td><span>14</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 자산 메인</td>
+						<td><span>28</span></td>
+						<td>명도대비가 기준 미만인 컨트롤</td>
+						<td>
+							(11번과 동일함)<br />
+							- 컨트롤 및 컨트롤 내부 텍스트 명도대비가 기준 미만 입니다.<br />
+							* 컨트롤의 테두리 및 텍스트 명도대비가 3:1 이상되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM000.html">MSASM000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_14">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_14.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line468 */
+													.nhasset .tgBtn3 input[type='checkbox'] + label{display:inline-flex;align-items:center;margin-left:0;vertical-align:top;padding:2px 7px 2px 27px;width:auto;height:auto;min-height:23px;line-height:1.72;border-radius:24px;background-color:#7e848e;font-size:clamp(12px, 1.2rem, 18px);font-weight:400;color:#fff} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류15] -->
+					<tr class="del" role="button" data-tab="uiSection01_15">
+						<td><span>15</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 메인</td>
+						<td><span>29</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM200P.html">MSASM200P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>--</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_15">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_15.png" alt=""/></span>
+								<p>JSP 마크업 수정</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류16] -->
+					<tr class="del" role="button" data-tab="uiSection01_16">
+						<td><span>16</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 메인</td>
+						<td><span>29</span></td>
+						<td>초점이 이동되지 않는 콘텐츠</td>
+						<td>
+							- 의미있는 콘텐츠들에 스크린리더 초점이 이동되지 않습니다.<br />
+							* 스크린리더 초점이 화면에 표시된 의미있는 콘텐츠에 모두 이동 가능하고 콘텐츠를
+							동등하게 인식 및 운용할 수 있도록 구현해야 합니다.<br />
+							또한 초점 접근 시 적절한 대체 텍스트와 '버튼' 역할정보가 인식되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM200P.html">MSASM200P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmas0000n</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_16">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_16.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<ul class="selectList accList isBorder">
+														<li>
+															<a onclick="popClose(this); navigate('MSSB2900R')" role="button">
+																<span class="imgWrap">
+																	<img src="/content/nhmyd/images/logo_bookmark.png" class="imgLogo">
+																</span>
+																<div class="accInfoWrap">
+																	<p class="accTit">즐겨찾기·가리기</p>
+																	<div class="accInfo">
+																		<span class="accNum">자산을 즐겨찾기에 등록하거나 숨길 수 있어요.</span>
+																	</div>
+																</div>
+															</a>
+														</li>
+														<li>
+															<a onclick="popClose(this); myAssetSetPop()" role="button">
+																<span class="imgWrap">
+																	<img src="/content/nhmyd/images/logo_asset.png" alt="" class="imgLogo">
+																</span>
+																<div class="accInfoWrap">
+																	<p class="accTit">순자산 금액 설정하기</p>
+																	<div class="accInfo">
+																		<span class="accNum">순자산에 포함하고 싶은 금액을 설정해요.</span>
+																	</div>
+																</div>
+															</a>
+														</li>
+													</ul>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류17] -->
+					<tr class="del" role="button" data-tab="uiSection01_17">
+						<td><span>17</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 자산 메인</td>
+						<td><span>30</span></td>
+						<td>보조기술을 사용하여 운요할 수 없는 콘텐츠</td>
+						<td>
+							- 스크린리더 사용 시 해당 컨트롤들의 기능이 실행되지 않아 사용할 수 없습니다.<br />
+							* 스크린리더 사용자가 컨트롤들의 기능을 운용할 수 있도록 구현해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM000.html">MSASM000</a></td>
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_17">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_17.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													a 링크 삭제,role="button" 추가
+													<div class="inBanner shadowBox bg26" id="net-worth-banner" role="button">...</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류18] -->
+					<tr class="del" role="button" data-tab="uiSection01_18">
+						<td><span>18</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산분석</td>
+						<td><span>32</span></td>
+						<td>초점 이동되는 보이지 않는 콘텐츠</td>
+						<td>
+							- 화면에 보이지 않는 의미를 이해할 수 없는 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점은 화면에 표시된 콘텐츠로만 이동되도록 구현해야 합니다.<br />
+							보이지 않는 콘텐츠는 초점이 이동되지 않도록 제거하거나 display:none 또는 WAI-ARIA의
+							aria-hidden="true"를 적용해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM400P.html">MSASM400P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span></span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_18">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_18.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													style="display:none;" 추가
+													<xmp id="chart-template" style="display:none;"></xmp>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+								
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류19] -->
+					<tr class="del" role="button" data-tab="uiSection01_19">
+						<td><span>19</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산즐겨찾기 설정</td>
+						<td><span>34</span></td>
+						<td>명도대비가 기준 미만인 컨트롤</td>
+						<td>
+							- 이미지 컨트롤의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 이미지 컨트롤의 아이콘 명도대비가 3:1 이상되도록 수정해야 합니다.						   
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ps/MSST5100.html">MSST5100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_19">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_19.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류20] -->
+					<tr class="del" role="button" data-tab="uiSection01_20">
+						<td><span>20</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 자산  &gt; 자산현황 &gt; 자산연결</td>
+						<td><span>36</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>
+							(1번과 동일함)<br />
+							- 콘텐츠들의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.<br />
+							※ 동일 아이콘 공통 오류입니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ps/MSPS3120.html">MSPS3120</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_20">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_20.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류21] -->
+					<tr class="del" role="button" data-tab="uiSection01_21">
+						<td><span>21</span></td>
+						<td>12 입력도움</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산현황 &gt; 자산연결</td>
+						<td><span>37</span></td>
+						<td>레이블이 미흡한 서식</td>
+						<td>
+							- 콘텐츠에 초점 이동 시 캡쳐된 이미지에 빨간색 하이라이트와 같이 초점이 이동되어 내부의
+							내용이 음성피드백되나 연결됨 정보가 누락되었습니다.<br />
+							 * 스크린리더 사용자가 연결된 기관임을 인식할 수 있도록 연결됨 정보를 레이블에 함께 제공해야 
+							합니다.<br />
+							※ 기관 검색으로 표시되는 체크박스 서식에만 발생하는 오류입니다.							
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ps/MSPS3120.html">MSPS3120</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_21">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_21.png" alt=""/></span>
+								<p>이미지 교체,연결됨 정보 들어가 있음.</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류22] -->
+					<tr class="del" role="button" data-tab="uiSection01_22">
+						<td><span>22</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산연결</td>
+						<td><span>39</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.<br />
+							※ 페이지 내 이용 동의 바텀시트 공통 오류입니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ps/MSPS3C01P.html">MSPS3C01P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_22">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_22.png" alt=""/></span>
+								<dl>
+									<dt>popup.js, JSP수정</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2188~2196 추가 -->
+													function popup_cfLayerFullSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.useContSize = true;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류23] -->
+					<tr class="del" role="button" data-tab="uiSection01_23">
+						<td><span>23</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산현황 &gt; 자산연결 &gt; 공동인증서 인증</td>
+						<td><span>41</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><span>-</span></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_23">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_23.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2394~2395 추가 -->
+													function alertPopupDiv(msg, type, callback, title, params, preCallback){
+														console.log("msg :: ", msg);
+														console.log("type :: ", type);
+														
+														if(typeof title != "undefined" && title != ""){
+															$("#alertPopupDiv").find("h1").html(title);
+														}
+														else {
+															if (pop_curr_service.startsWith("FM")) {
+													//			$("#alertPopupDiv").find("h1").html('<img src="../content/nhmyd/images/popTitle.png" alt="NH 마이데이터">')
+															}
+														}
+														
+														var eventTarget = common_popup.getFocus(event);
+														typeof msg == "undefined" ? msg = "" :"";
+														$("#alertPopupDiv .confirmMsg").removeClass("type01").removeClass("type02").removeClass("type03").addClass(type).html(msg);
+														common_popup.layerOpen($("#alertPopupDiv"), {}, function(){
+															if(typeof callback != "undefined") callback(params);
+														}, eventTarget, "centerLayer", preCallback);
+														// [MD2503_026] 마이데이터(스뱅) 접근성
+														$("body").find(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류24] -->
+					<tr class="del" role="button" data-tab="uiSection01_24">
+						<td><span>24</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 그대 그랬다면 &gt; 가상으로 선택</td>
+						<td><span>45</span></td>
+						<td>명도 대비가 기준에 미흡한 콘텐츠</td>
+						<td>
+							- 서식의 placeholder 명도대비가 기준 3:1 미만 입니다.<br />
+							* placeholder 의 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSARb400.html">MSARb400</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_24">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_24.png" alt=""/></span>
+								<p>color:#666666 수정됨</p>
+							</div>
+						</td>
+					</tr>
+					
+					<!-- [오류25] -->
+					<tr class="del" role="button" data-tab="uiSection01_25">
+						<td><span>25</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 그대 그랬다면 &gt; 가상으로 선택</td>
+						<td><span>46</span></td>
+						<td>보조기술을 사용하여 운용하기 어려운 콘텐츠</td>
+						<td>
+							- 서식에 내용 입력 후 스크린리더로 순차탐색시, 내용삭제 버튼과 입력완료 버튼이 사라져
+							스크린리더 사용자는 해당 기능을 운용하기 어렵습니다. 임의탐색으로만 사용 가능합니다.<br />
+							* 화면에 보이는 모든 유의미한 콘텐츠는 스크린리더를 사용하여 동등하게 운용할 수 있어야
+							합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSARb400.html">MSARb400</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmas5300r</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_25">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_25.png" alt=""/></span>
+								
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류26] -->
+					<tr class="del" role="button" data-tab="uiSection01_26">
+						<td><span>26</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 그대 그랬다면 &gt; 가상으로 선택</td>
+						<td><span>48</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSARb410.html">MSARb410</a></td>
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_26">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_26.png" alt=""/></span>
+								<p>운영정상</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류27] -->
+					<tr class="del" role="button" data-tab="uiSection01_27">
+						<td><span>27</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 그대 그랬다면 &gt; 가상으로 선택</td>
+						<td><span>50</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSARb320P.html">MSARb320P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_27">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_27.png" alt=""/></span>
+								<p>JSP 마크업 수정</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류28] -->
+					<tr class="del" role="button" data-tab="uiSection01_28">
+						<td><span>28</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 상품모아보기</td>
+						<td><span>52</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>
+							- 콘텐츠의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ht/MSHT4200.html">MSHT4200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_28">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_28.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line675 */
+													.nhasset .subTxt4{margin-top:-13px;margin-bottom:15px;font-size:clamp(11px, 1.1rem, 16.5px);color:#555;} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류29] -->
+					<tr class="del" role="button" data-tab="uiSection01_29">
+						<td><span>29</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 소비 &gt; 소비현황</td>
+						<td><span>54</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							(15번 내용과 동일함)<br />
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./cs/MSCSM300P.html">MSCSM300P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_29">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_29.png" alt=""/></span>
+								<p>JSP 마크업 수정</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류30] -->
+					<tr class="del" role="button" data-tab="uiSection01_30">
+						<td><span>30</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 소비 &gt; 소비현황</td>
+						<td><span>55</span></td>
+						<td>접근성이 준수되지 않은 슬라이드 콘텐츠</td>
+						<td>
+							※ 해당 슬라이드 콘텐츠에 다음과 같은 오류가 있습니다.<br />
+							- 스크린리더 임의탐색으로 해당 버튼이 탐색되지 않습니다.<br />
+							* 스크린리더 순차, 임의탐색이 모두 가능하도록 구현해야 합니다.<br />
+							- 비활성화 상태의 버튼에 상태정보가 제공되지 않았습니다.<br />
+							* disabled 속성 등을 사용하여 비활성화 상태정보를 제공해야 합니다.<br />
+							- 슬라이드 콘텐츠를 스와이프 동작으로만 운용할 수 있어 상지장애 등의 사용자가 운용하기
+							어렵습니다.<br />
+							* 해당 제스처를 대체 할 수 있는 버튼을 제공하여 누르기 동작으로도 운용할 수 있도록 제작해야
+							합니다.<br />
+							현재 이전/다음 슬라이드 버튼이 제공되었으나 화면에 보이지 않아 스크린리더 사용자만
+							버튼을 운용할 수 있습니다. 화면에 보이도록 구현하여 상지장애 등의 사용자가 해당 버튼을
+							운용할 수 있어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./cs/MSCSM110.html">MSCSM110</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_30">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_30.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div class="swiper-container">...</div>
+													<!-- [MD2503_026] 마이데이터(스뱅) 접근성 S -->
+													<div class="swiper-control">
+														<div class="swiper-pagination"></div>
+													</div>
+													<!-- [MD2503_026] 마이데이터(스뱅) 접근성 E -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+								<dl>
+									<dt>nhasset-ui.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line974~979 추가 -->
+													// [MD2503_026] 마이데이터(스뱅) 접근성
+													var csChartWrapSwiper = function(){ //소비 공통 스와이프
+														var swiper = new Swiper('.csChartWrap .swiper-container', {
+															a11y : true,
+															slidesPerView: 'auto',
+															spaceBetween: 16,
+															observer: true,
+															pagination: {
+																el: '.swiper-pagination',
+																type: 'bullets',
+																clickable: true,
+																bulletElement: 'a',
+															},
+															navigation: {
+																nextEl: '.csChartWrap .swiper-button-next',
+																prevEl: '.csChartWrap .swiper-button-prev',
+															},
+															on: {
+																init : function(){
+																	$('.csChartWrap .swiper-button-prev').attr({'aria-label' : '이전 슬라이드', 'role' : 'button'});
+																	$('.csChartWrap .swiper-button-next').attr({'aria-label' : '다음 슬라이드', 'role' : 'button'});
+																	$(".csChartWrap .swiper-slide").attr('aria-hidden', 'true');
+																	$(".csChartWrap .swiper-slide.swiper-slide-active").attr('aria-hidden', 'false');
+																}, 
+																slideChange : function(){
+																	$('.csChartWrap .swiper-slide').removeClass('swiper-slide-active').attr('aria-hidden', 'true');
+																	$('.csChartWrap .swiper-slide').eq(this.activeIndex).addClass('swiper-slide-active').attr('aria-hidden', 'false');
+																}
+															}
+														});
+														setTimeout(function(){
+															$(".csChartWrap .swiper-slide").attr('aria-hidden', 'true');
+															$(".csChartWrap .swiper-slide.swiper-slide-active").attr('aria-hidden', 'false');
+														},3000)
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류31] -->
+					<tr class="del" role="button" data-tab="uiSection01_31">
+						<td><span>31</span></td>
+						<td>8 누르기 동작 지원</td>
+						<td>마이데이터 홈 &gt; 소비 &gt; 소비패턴</td>
+						<td><span>57</span></td>
+						<td>누르기 동작으로 운용할 수 없는 컴포넌트</td>
+						<td>
+							- 슬라이드 콘텐츠를 스와이프 동작으로만 운용할 수 있어 상지장애, 전맹 등의 사용자가 운용하기
+							어렵습니다. <br />
+							* 해당 제스처를 대체 할 수 있는 버튼을 제공하여 누르기 동작으로도 운용할 수 있도록 제작해야
+							합니다.<br />
+							※ 현재 스크린리더 순차탐색으로만 숨겨진 이전/다음 소비브리핑 컨트롤에 초점이 접근되나
+							'버튼' 등의 역할정보가 제공되지 않았으며 임의탐색 방법으로 탐색할 수 없습니다.<br />
+							해당 컨트롤들을 화면에 표시되도록 구현해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./cs/MSCS3100.html">MSCS3100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_31">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_31.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<ul class="swiper-wrapper">...</ul>
+													<!-- [MD2503_026] 마이데이터(스뱅) 접근성 S -->
+													<div class="swiper-control">
+														<div class="swiper-pagination"></div>
+													</div>
+													<!-- [MD2503_026] 마이데이터(스뱅) 접근성 E -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+								<dl>
+									<dt>nhasset-ui.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line1008~1013 추가 -->
+													// [MD2503_026] 마이데이터(스뱅) 접근성
+													var briefflexWrapSwiper = function(){ //2022-01-23 소비 패텅 브리링 스와이프(MSCS3100.html)
+														var swiper = new Swiper('.briefflexWrap.swiper-container', {
+															a11y : true,
+															slidesPerView: 'auto',
+															spaceBetween: 16,
+															pagination: {
+																el: '.swiper-pagination',
+																type: 'bullets',
+																clickable: true,
+																bulletElement: 'a',
+															},
+															navigation: {
+																nextEl: '.briefflexWrap .swiper-button-next',
+																prevEl: '.briefflexWrap .swiper-button-prev',
+															},
+															on: {
+																init : function(){
+																	$('.briefflexWrap .swiper-button-prev').attr('aria-label','이전 소비브리핑');
+																	$('.briefflexWrap .swiper-button-next').attr('aria-label','다음 소비브리핑');
+																	$(".briefflexWrap .swiper-slide").attr('aria-hidden', 'true')
+																	$(".briefflexWrap .swiper-slide.swiper-slide-active").attr('aria-hidden', 'false')
+																}, 
+																slideChangeTransitionEnd : function(){
+																	$('.briefflexWrap .swiper-slide').attr('aria-hidden', 'true')
+																	$(".briefflexWrap .swiper-slide.swiper-slide-active").attr('aria-hidden', 'false')
+																}
+															}
+														});
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류32] -->
+					<tr class="del" role="button" data-tab="uiSection01_32">
+						<td><span>32</span></td>
+						<td>1 대체 텍스트</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 플래너 &gt; 금융플래너</td>
+						<td><span>59</span></td>
+						<td>대체 텍스트가 미흡하게 제공된 이미지</td>
+						<td>
+							- 슬라이드 배너에 제공된 이미지들의 대체 텍스트가 일부 누락되어 미흡하게 제공되었습니다.<br />
+							* 이미지와 동등한 내용의 대체텍스트가 제공되어야 합니다.<br />
+							예) 'NH저축은행, NH FIC-One 보통예금 기본 연 2.2% ~ 최고 연 3.0%(세전), 저축은행중앙회 
+							심의필 2024-00293 (2024.03.12~2025.03.11)'<br />
+							※ 슬라이드 배너에 제공된 이미지들의 전반적인 점검 및 수정이 필요합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./fp/MSFP2000.html">MSFP2000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>사업부 조치</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_32">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_32.png" alt=""/></span>
+								<p>사업부 관리자 수정</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류33] -->
+					<tr class="del" role="button" data-tab="uiSection01_33">
+						<td><span>33</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 플래너 &gt; 금융플래너</td>
+						<td><span>60</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>
+							- 콘텐츠의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.<br />
+							※ 슬라이드 배너에 제공된 이미지들의 전반적인 점검 및 수정이 필요합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./fp/MSFP2000.html">MSFP2000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_33">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_33.png" alt=""/></span>
+								<p>+이미지교체,개발에서 색상수정</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류34] -->
+					<tr class="del" role="button" data-tab="uiSection01_34">
+						<td><span>34</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 자산진단 &gt; 자산진단 맞춤정보</td>
+						<td><span>64</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>
+							(1번과 동일함)<br />
+							- 입력 내용 삭제 컨트롤의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 컨트롤의 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE1100P.html">MSAE1100P</a></td>
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_34">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_34.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류35] -->
+					<tr class="del" role="button" data-tab="uiSection01_35">
+						<td><span>35</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 자산진단 &gt; 자산진단 맞춤정보</td>
+						<td><span>65</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE1110P.html">MSAE1110P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_35">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_35.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2150 추가 -->
+													function popup_cfLayerCustomSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.slidePop = common_popup.obj.mobileH *size;
+														common_popup.obj.slidePopTmp = common_popup.obj.mobileH *size;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류36] -->
+					<tr class="del" role="button" data-tab="uiSection01_36">
+						<td><span>36</span></td>
+						<td>1 대체 텍스트</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석  &gt; 자산진단 &gt; 또래비교</td>
+						<td><span>67</span></td>
+						<td>대체 텍스트가 부적절한 컨트롤</td>
+						<td>
+							- 툴팁 버튼의 대체 텍스트가 모두 '유형 툴팁 열기' 로 제공되어 부적절합니다.<br />
+							* 컨트롤의 용도 및 목적을 이해할 수 있는 적절한 내용의 대체 텍스트를 제공해야 합니다.<br />
+							예) '금융자산 도움말', '또래부자 비교 도움말', '자산유형 도움말' 등
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE1210P.html">MSAE1210P</a></td>
+						<td><span>fmmy2540p</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_36">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_36.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금융자산 도움말 툴팁 열기</span></button>
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">또래부자 비교 도움말 툴팁 열기</span></button>														
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">자산유형 도움말 툴팁 열기</span></button>														
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류37] -->
+					<tr class="del" role="button" data-tab="uiSection01_37">
+						<td><span>37</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 자산진단 &gt; 또래비교</td>
+						<td><span>68</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE1211P.html">MSAE1211P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_37">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_37.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2150 추가 -->
+													function popup_cfLayerCustomSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.slidePop = common_popup.obj.mobileH *size;
+														common_popup.obj.slidePopTmp = common_popup.obj.mobileH *size;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류38] -->
+					<tr class="del" role="button" data-tab="uiSection01_38">
+						<td><span>38</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 자산진단 &gt; 또래비교</td>
+						<td><span>69</span></td>
+						<td>초점 이동되는 보이지 않는 콘텐</td>
+						<td>
+							- 화면에 보이지 않는 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점은 화면에 표시된 콘텐츠로만 이동되도록 구현해야 합니다.<br />
+							보이지 않는 콘텐츠는 초점이 이동되지 않도록 제거하거나 display:none 또는 WAI-ARIA의
+							aria-hidden="true"를 적용해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE1210P.html">MSAE1210P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_38">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_38.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line 525 수정 -->
+													$("body").children("div").not("#popupLayer_div").attr("aria-hidden",true).attr('inert',"");
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류39] -->
+					<tr class="del" role="button" data-tab="uiSection01_39">
+						<td><span>39</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 연금진단</td>
+						<td><span>71</span></td>
+						<td>대체 텍스트가 부적절한 이미지</td>
+						<td>
+							- 그래프 이미지에 제공된 비율의 대체 텍스트가 모두 'NaN%'로 제공되어 부적절합니다.<br />
+							* 스크린리더 사용자가 그래프와 동등한 내용의 정보를 인식할 수 있도록 계좌별 비율을 수정해야 
+							합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE2300.html">MSAE2300</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_39">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_39.png" alt=""/></span>
+								<p>보험사 데이터 연동 운영정상</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류40] -->
+					<tr class="del" role="button" data-tab="uiSection01_40">
+						<td><span>40</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 연금진단 &gt; 내 연금 진단</td>
+						<td><span>73</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE2351P.html">MSAE2351P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_40">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_40.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2150 추가 -->
+													function popup_cfLayerCustomSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.slidePop = common_popup.obj.mobileH *size;
+														common_popup.obj.slidePopTmp = common_popup.obj.mobileH *size;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류41] -->
+					<tr class="del" role="button" data-tab="uiSection01_41">
+						<td><span>41</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 연금진단 &gt; 내 연금 진단</td>
+						<td><span>74</span></td>
+						<td>부적절하게 제공된 기능 정보</td>
+						<td>
+							- 기능 정보가 부적절하게 제공되어 스크린리더 사용자가 컨트롤의 기능을 이해하기 어렵습니다.<br />
+							* '희망 생활비 선택'과 같은 올바른 기능정보를 제공해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE2340P.html">MSAE2340P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmmy3518p</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_41">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_41.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<h2 class="title">매월 절약하며 <button type="button" title="희망 생활비 선택" class="psPopBtn" onclick="callFmmy3510pFn();"><span>118만원</span></button>을 생활비로 쓰고 싶은데...</h2>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류42] -->
+					<tr class="del" role="button" data-tab="uiSection01_42">
+						<td><span>42</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단</td>
+						<td><span>76</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>
+							(28번과 동일함)<br />
+							- 콘텐츠의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.s
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa600.html">MSAEa600</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_42">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_42.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line675 */
+													.nhasset .subTxt4{margin-top:-13px;margin-bottom:15px;font-size:clamp(11px, 1.1rem, 16.5px);color:#555;} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류43] -->
+					<tr class="del" role="button" data-tab="uiSection01_43">
+						<td><span>43</span></td>
+						<td>9 응답시간 조절</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단</td>
+						<td><span>77</span></td>
+						<td>일정 시간 뒤에 사라지는 시간제한 콘텐츠</td>
+						<td>
+							- 해당 알림이 일정 시간 뒤에 화면에서 사라져 전맹, 저시력자 등의 사용자는 알림을 인식할 수
+							없습니다.<br />
+							* '닫기' 버튼 등을 제공하여 툴팁 형식으로 알림을 제공하는 등 화면에 사라지지 않도록 구현하여 
+							전맹, 저시력자 등의 사용자가 알림을 인식할 수 있어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa600.html">MSAEa600</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>mser0050e</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_43">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_43.png" alt=""/></span>
+								<p>마크업 수정(퍼블,개발수정)</p>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div class="mesToast1" id="mesToast1">
+														<p>최신금액으로 새롭게 진단해 보세요</p>
+														<button type="button" class="closeBtn" onclick="mesToastClose(this);return false;"><span class="blind">닫기</span></button>
+													</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line423~428 */
+													/* [MD2503_026] 마이데이터(스뱅) 접근성 */
+													.nhasset .areaInfo1 .side .mesToast1 {right:0;bottom:calc(100% + 8px);padding-right:30px;}
+													.nhasset .areaInfo1 .side .mesToast1 .closeBtn{position:absolute;right:0;top:0;width:25px;height:25px;}
+													.nhasset .areaInfo1 .side .mesToast1 .closeBtn:before,.nhasset .areaInfo1 .side .mesToast1 .closeBtn:after {position:absolute;right:12px;top:8px;content:'';height:12px;width:1px;background-color:#fff;}
+													.nhasset .areaInfo1 .side .mesToast1 .closeBtn:before {transform:rotate(45deg);}
+													.nhasset .areaInfo1 .side .mesToast1 .closeBtn:after {transform:rotate(-45deg);}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류44] -->
+					<tr class="del" role="button" data-tab="uiSection01_44">
+						<td><span>44</span></td>
+						<td>1 대체 텍스트</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단 &gt; 조기은퇴 맞춤정보</td>
+						<td><span>79</span></td>
+						<td>대체 텍스트가 부적절한 컨트롤</td>
+						<td>
+							- 연간 기대수익률 툴팁 버튼의 대체 텍스트가 '물가상승률 툴팁 열기' 로 제공되어 부적절합니다.<br />
+							* 컨트롤의 용도 및 목적을 이해할 수 있는 적절한 대체 텍스트를 제공해야 합니다.<br />
+							예) '연간 기대수익률 툴팁 열기' 등
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa610P.html">MSAEa610P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>mser0060p</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_44">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_44.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div class="formTitN">
+														<strong>연간 기대수익률</strong>
+														<div class="tooltipWrap">
+															<!-- [MD2503_026] 마이데이터(스뱅) 접근성 수정 -->
+															<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">연간 기대수익률 툴팁 열기</span></button>
+															<div class="tooltipCont">
+																<div class="msaeTool">
+																	<ul class="popBul">
+																		<li>선택하신 기대수익률은 현재나이부터 은퇴전까지 적용됩니다.</li>
+																		<li>은퇴 이후에는 물가상승률과 동일한 수익률이 반영됩니다.</li>
+																		<li>물가상승률은 최근 3개년도 평균 값인 <span>2.7</span>%를 반영합니다.
+																			<ul class="listDash">
+																				<li><span>2022</span>년 물가상승률 <span>5.1</span>%</li>
+																				<li><span>2021</span>년 물가상승률 <span>2.5</span>%</li>
+																				<li><span>2020</span>년 물가상승률 <span>0.5</span>%<br>(자료 : 통계청 소비자물가 동향)</li>
+																			</ul>
+																		</li>
+																	</ul>
+																</div>
+																<!-- [MD2503_026] 마이데이터(스뱅) 접근성 수정 -->
+																<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">연간 기대수익률 툴팁 닫기</span></button>
+															</div>
+														</div>
+														<div class="inputVal t1" data-range-id="uiRangeInput2"></div>
+													</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류45] -->
+					<tr class="del" role="button" data-tab="uiSection01_45">
+						<td><span>45</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단 &gt; 조기은퇴 맞춤정보</td>
+						<td><span>80</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>
+							(1번과 동일함)<br />
+							- 콘텐츠의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa610P.html">MSAEa610P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_45">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_45.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류46] -->
+					<tr class="del" role="button" data-tab="uiSection01_46">
+						<td><span>46</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단 &gt; 조기은퇴 맞춤정보</td>
+						<td><span>81</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa612P.html">MSAEa612P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_46">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_46.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2150 추가 -->
+													function popup_cfLayerCustomSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.slidePop = common_popup.obj.mobileH *size;
+														common_popup.obj.slidePopTmp = common_popup.obj.mobileH *size;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류47] -->
+					<tr class="del" role="button" data-tab="uiSection01_47">
+						<td><span>47</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단 &gt; 조기은퇴 맞춤정보</td>
+						<td><span>82</span></td>
+						<td>상태 정보가 제공되지 않은 컨트롤</td>
+						<td>
+							- 선택 상태가 제공되지 않아 스크린리더 사용자가 선택 여부를 인식할 수 없습니다.<br />
+							* 네임에 title 속성을 이용해 선택 정보를 제공해야 합니다.<br />
+							예) title="선택됨"
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa610P.html">MSAEa610P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료(권고)</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_47">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_47.png" alt=""/></span>
+								<p>운영정상</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류48] -->
+					<tr class="del" role="button" data-tab="uiSection01_48">
+						<td><span>48</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 세금계산기 &gt; 종합소득세</td>
+						<td><span>84</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>
+							(1번과 동일함)<br />
+							- 입력 내용 삭제 컨트롤의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 컨트롤의 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다.<br />
+							※ 화면 내 동일 UI 공통 오류입니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE8100.html">MSAE8100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_48">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_48.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류49] -->
+					<tr class="del" role="button" data-tab="uiSection01_49">
+						<td><span>49</span></td>
+						<td>12 입력 도움</td>
+						<td>마이데이터 홈 &gt; 전체 &gt;헬스케어 &gt; 주말약국찾기</td>
+						<td><span>86</span></td>
+						<td>레이블이 제공되지 않은 서식</td>
+						<td>
+							- 서식에 레이블이 제공되지 않았습니다.<br />
+							* 서식의 용도를 이해할 수 있는 레이블을 제공해야 합니다.<br />
+							레이블은 화면에 텍스트가 있을 경우 <label>요소 또는 aria-labelledby 속성으로 연결하거나 
+							서식에 title 또는 aria-label을 이용하여 제공할 수 있습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./hc/MSHC7200.html">MSHC7200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>mshc7200e</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_49">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_49.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div class="formArea1">
+														<span>
+															<input type="checkbox" id="formChk11" class="chekTypeOther" onclick="wkClicked();">
+															<label for="formChk11">주말약국</label>
+														</span>
+														<span>
+															<input type="checkbox" id="formChk12" class="chekTypeOther" onclick="workClicked();">
+															<label for="formChk12">영업중</label>
+														</span>
+													</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류50] -->
+					<tr class="del" role="button" data-tab="uiSection01_50">
+						<td><span>50</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt;헬스케어 &gt; 주말약국찾기</td>
+						<td><span>88</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./hc/MSHC7200.html">MSHC7200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_50">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_50.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2394~2395 추가 -->
+													function alertPopupDiv(msg, type, callback, title, params, preCallback){
+														console.log("msg :: ", msg);
+														console.log("type :: ", type);
+														
+														if(typeof title != "undefined" && title != ""){
+															$("#alertPopupDiv").find("h1").html(title);
+														}
+														else {
+															if (pop_curr_service.startsWith("FM")) {
+													//			$("#alertPopupDiv").find("h1").html('<img src="../content/nhmyd/images/popTitle.png" alt="NH 마이데이터">')
+															}
+														}
+														
+														var eventTarget = common_popup.getFocus(event);
+														typeof msg == "undefined" ? msg = "" :"";
+														$("#alertPopupDiv .confirmMsg").removeClass("type01").removeClass("type02").removeClass("type03").addClass(type).html(msg);
+														common_popup.layerOpen($("#alertPopupDiv"), {}, function(){
+															if(typeof callback != "undefined") callback(params);
+														}, eventTarget, "centerLayer", preCallback);
+														// [MD2503_026] 마이데이터(스뱅) 접근성
+														$("body").find(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류51] -->
+					<tr class="del" role="button" data-tab="uiSection01_51">
+						<td><span>51</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 생활편의 &gt; 맞춤정보혜택 &gt; 정보 설정</td>
+						<td><span>91</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>
+							(1번과 동일함)<br />
+							- 입력 내용 삭제 컨트롤의 명도대비가 기준 3:1 미만 입니다.<br />
+							* 컨트롤의 전경색과 배경색 명도대비가 3:1 이상되도록 수정해야 합니다
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./lf/MSLF2190.html">MSLF2190</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_51">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_51.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류52] -->
+					<tr class="del" role="button" data-tab="uiSection01_52">
+						<td><span>52</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 생활편의 &gt; 맞춤정보혜택 &gt; 정보 설정</td>
+						<td><span>92</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>
+							- 딤드된 콘텐츠에 스크린리더 초점이 이동됩니다.<br />
+							* 스크린리더 초점이 딤드된 영역에 이동되지 않도록 구현해야 합니다.<br />
+							딤드된 콘텐츠 영역의 요소에 WAI-ARIA의 aria-hidden="true"를 적용하면 스크린리더 초점이
+							해당 영역으로 이동하지 않습니다.<br />
+							※ 바텀 시트 활성화 시 발생하는 공통 오류입니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./lf/MSLF2190.html">MSLF2190</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_52">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_52.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2150 추가 -->
+													function popup_cfLayerCustomSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.slidePop = common_popup.obj.mobileH *size;
+														common_popup.obj.slidePopTmp = common_popup.obj.mobileH *size;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+
+					<!-- [오류53] -->
+					<tr class="del" role="button" data-tab="uiSection01_53">
+						<td><span>53</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; MY &gt; MY피드</td>
+						<td><span>96</span></td>
+						<td>부적절한 역할정보</td>
+						<td>
+							- 기능이 없는 콘텐츠에 '버튼' 역할정보가 제공되었습니다.<br />
+							* 기능이 없는 콘텐츠이므로 부적절하게 제공된 '버튼' 역할정보를 제거해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./st/MSAR4100.html">MSAR4100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmmy1000r</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="uiSection01_53">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_53.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div title="NH마이데이터와 함께한 시간 링크화면 이동" class="mybanner tyCard" style="background-image:url('/content/nhmyd/images/my/img_fd05_bg.png');" onclick="clickLogging('', '', 'mymain00205'); moveDetailPage($(this), 'FEED_06_04', 'FMMY1000R', '', '');">
+														<div class="txtWrap">
+															<strong class="mainTit">NH마이데이터와 함께한 시간</strong>
+															<p class="subTxt">NH마이데이터와 만난지</p>
+															<strong class="highTit" style="display: ;">126<span>일</span></strong>
+															<p class="cardTxt" style="display: none;">#RMK_ADT_CNTN#</p>
+														</div>
+														<div class="myImgWrap" style="display: ;"><img src="/content/nhmyd/images/banner/my_obj_clock.png" alt=""></div>
+														<ol class="csSubsellWrap" style="display: none;">
+														</ol>
+													</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- // -->
+				</tbody>
+			</table>
+		</div>
+
+		<h3>보고서 : (MA심사)_NH스마트뱅킹_마이데이터(농협은행)_for_iOS_PHONE_1st.pdf</h3>
+		<div class="guide_table">
+			<table>
+				<caption>검사 항목별 평가</caption>
+				<colgroup>
+					<col style="width:40px;">
+					<col style="width:160px;">
+					<col style="width:350px;">
+					<col style="width:50px;">
+					<col style="width:300px;">
+					<col style="width:auto;min-width:300px">
+					<col style="width:100px;">
+					<col style="width:100px;">
+					<col style="width:100px;">
+				</colgroup>
+				<thead>
+					<tr>
+						<th scope="col">번호</th>
+						<th scope="col">지침</th>
+						<th scope="col">화면경로</th>
+						<th scope="col">페이지</th>
+						<th scope="col">오류항목</th>
+						<th scope="col">오류내용</th>
+						<th scope="col">퍼블파일</th>
+						<th scope="col">개발파일</th>
+						<th scope="col">작업내용</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- [오류1] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_1">
+						<td><span>1</span></td>
+						<td>4 명도 대비</td>
+						<td>애플리케이션 공통 오류</td>
+						<td><span>10</span></td>
+						<td>명도대비가 기준 미만인 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./ar/MSAR3110P.html" target="_blank">MSAR3110P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_1">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_1.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류2] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_2">
+						<td><span>2</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 서비스 가입</td>
+						<td><span>12</span></td>
+						<td>역할정보가 제공되지 않은 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./ar/MSAR3100.html" target="_blank">MSAR3100</a></td>
+						<!-- 개발파일경로 -->
+						<td>
+							<span>mssb1000r</span>
+							<span>mssb5000r</span>
+						</td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_2">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_2.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<a href="javascript:;" role="button" class="btnView" title="[필수] NH마이데이터 서비스 이용 약관">
+														<span class="blind">약관보기</span>
+													</a>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류3] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_3">
+						<td><span>3</span></td>
+						<td>4 명도 대비</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 약관보기</td>
+						<td><span>14</span></td>
+						<td>명도 대비가 기준에 미흡한 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./../terms/1001_ms_agreement_v1.3.html" target="_blank">1001_ms_agreement_v1.3</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_3">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_3.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_cont.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line4376 */
+													.term_cont .pointColor{color:#577fe0 !important} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류4] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_4">
+						<td><span>4</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 약관보기</td>
+						<td><span>15</span></td>
+						<td>초점이 접근되는 숨겨진 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./../terms/1001_ms_agreement_v1.3.html" target="_blank">1001_ms_agreement_v1.3</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_4">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_4.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line513~516 추가 -->
+													if(layerInner.find("h1").size() > 0){
+														layerInner.find("h1").each(function(){
+															if($(this).find("a").size() == 0){
+																$(this).html("<a href='javascript:;' role='heading' aria-level='1'>"+$(this).html()+"</a>");
+															} 
+															// [MD2503_026] 마이데이터(스뱅) 접근성 
+															else if($(this).find("a").html().length == 0) {
+																$("#termsHeader a").css('display','none');
+															}
+														});
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류5] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_5">
+						<td><span>5</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 약관보기</td>
+						<td><span>16</span></td>
+						<td>초점이 접근되는 숨겨진 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./co/MSCO1420P.html" target="_blank">MSCO1420P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_5">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_5.png" alt=""/></span>
+								<p>JSP 수정</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류6] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_6">
+						<td><span>6</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 권유직원(선택) 찾기</td>
+						<td><span>18</span></td>
+						<td>명도 대비가 기준에 미흡한 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a href="./ar/MSAR3100.html" target="_blank">MSAR3100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_6">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_6.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line383 */
+													.nhasset .inputList input[type='text']:read-only, .nhasset .inputList input[type='tel']:read-only, .nhasset .inputList input[type='password']:read-only,
+													.nhasset .inputList input[type='text']:disabled, .nhasset .inputList input[type='tel']:disabled, .nhasset .inputList input[type='password']:disabled{color:#888;background-color:#f3f3f3;border-color:#f3f3f3} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류7] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_7">
+						<td><span>7</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 권유직원(선택) 찾기</td>
+						<td><span>19</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ar/MSAR3110P.html">MSAR3110P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_7">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_7.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2394~2395 추가 -->
+													function alertPopupDiv(msg, type, callback, title, params, preCallback){
+														console.log("msg :: ", msg);
+														console.log("type :: ", type);
+														
+														if(typeof title != "undefined" && title != ""){
+															$("#alertPopupDiv").find("h1").html(title);
+														}
+														else {
+															if (pop_curr_service.startsWith("FM")) {
+													//			$("#alertPopupDiv").find("h1").html('<img src="../content/nhmyd/images/popTitle.png" alt="NH 마이데이터">')
+															}
+														}
+														
+														var eventTarget = common_popup.getFocus(event);
+														typeof msg == "undefined" ? msg = "" :"";
+														$("#alertPopupDiv .confirmMsg").removeClass("type01").removeClass("type02").removeClass("type03").addClass(type).html(msg);
+														common_popup.layerOpen($("#alertPopupDiv"), {}, function(){
+															if(typeof callback != "undefined") callback(params);
+														}, eventTarget, "centerLayer", preCallback);
+														// [MD2503_026] 마이데이터(스뱅) 접근성
+														$("body").find(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류8] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_8">
+						<td><span>8</span></td>
+						<td>12 입력 도움</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 권유직원(선택) 찾기</td>
+						<td><span>20</span></td>
+						<td>적절한 레이블</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ar/MSAR3110P.html">MSAR3110P</a></td>
+						<!-- 개발파일경로 -->
+						<td>
+							<span>mssb1002p</span>
+						</td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_8">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_8.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<span class="chkRadio radio active">
+														<input type="radio" id="sample003" name="sample01" checked="checked" onchange="mssb1002p.checkFindType(1)">
+														<label for="sample003">이름(사번)으로 찾기</label>
+													</span>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류9] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_9">
+						<td><span>9</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 서비스 가입 &gt; 권유직원(선택) 찾기</td>
+						<td><span>21</span></td>
+						<td>상태정보가 제공되지 않은 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ar/MSAR3110P.html">MSAR3110P</a></td>
+						<!-- 개발파일경로 -->
+						<td>
+							<span>mssb1002p</span>
+						</td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_9">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_9.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<li id="0" class="active">
+														<a href="javascript:mssb1002p.clickWithData("00300685","백우진","000131","안양시","0");" class="link" role="button" title="선택됨">
+															<span class="title">백*진 (0030****)</span>
+															<span class="items">안양시</span>
+														</a>
+													</li>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류10] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_10">
+						<td><span>10</span></td>
+						<td>1 대체텍스트</td>
+						<td>마이데이터 홈</td>
+						<td><span>23</span></td>
+						<td>대체 텍스트가 미흡한 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./co/MSCO9210.html">MSCO9210</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_10">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_10.png" alt=""/></span>
+								
+							</div>
+						</td>
+					</tr>
+					<!-- [오류11] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_11">
+						<td><span>11</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈</td>
+						<td><span>24</span></td>
+						<td>명도대비가 기준 미만인 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./co/MSCO9210.html">MSCO9210</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_11">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_11.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line468 */
+													.nhasset .tgBtn3 input[type='checkbox'] + label{display:inline-flex;align-items:center;margin-left:0;vertical-align:top;padding:2px 7px 2px 27px;width:auto;height:auto;min-height:23px;line-height:1.72;border-radius:24px;background-color:#7e848e;font-size:clamp(12px, 1.2rem, 18px);font-weight:400;color:#fff} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류12] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_12">
+						<td><span>12</span></td>
+						<td>12 입력 도움</td>
+						<td>마이데이터 홈</td>
+						<td><span>25</span></td>
+						<td>레이블이 부적절한 서식</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./co/MSCO9210.html">MSCO9210</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_12">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_13.png" alt=""/></span>
+
+							</div>
+						</td>
+					</tr>
+					<!-- [오류13] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_13">
+						<td><span>13</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 자산메인</td>
+						<td><span>27</span></td>
+						<td>명도대비가 기준 미만인 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./co/MSCO9210.html">MSCO9210</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_13">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_14.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line468 */
+													.nhasset .tgBtn3 input[type='checkbox'] + label{display:inline-flex;align-items:center;margin-left:0;vertical-align:top;padding:2px 7px 2px 27px;width:auto;height:auto;min-height:23px;line-height:1.72;border-radius:24px;background-color:#7e848e;font-size:clamp(12px, 1.2rem, 18px);font-weight:400;color:#fff} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류14] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_14">
+						<td><span>14</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 메인</td>
+						<td><span>28</span></td>
+						<td>[권고]기능이 같은 컨트롤이 나눠져 탐색되는 경우</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM000.html">MSASM000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료(권고)</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_14">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_14_ios.png" alt=""/></span>
+								
+							</div>
+						</td>
+					</tr>
+					<!-- [오류15] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_15">
+						<td><span>15</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 자산메인</td>
+						<td><span>29</span></td>
+						<td>역할 정보가 제공되지 않은 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM000.html">MSASM000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_15">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_17.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													a 링크 삭제,role="button" 추가
+													<div class="inBanner shadowBox bg26" id="net-worth-banner" role="button">...</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류16] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_16">
+						<td><span>16</span></td>
+						<td>1 대체 텍스트</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산분석</td>
+						<td><span>31</span></td>
+						<td>대체 텍스트가 제공되지 않은 이미지</td>
+						<td>
+							- 해당 그래프 이미지에 대체 텍스트가 제공되지 않았습니다.<br />
+							* iOS 스크린리더 초점 이동 시 '이미지'로만 음성피드백 됩니다. 대체 텍스트를 동등하게 
+							제공하거나 이동하지 않도록 aria-hidden="true"를 적용해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM400P.html">MSASM400P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_16">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_16_ios.png" alt=""/></span>
+								
+							</div>
+						</td>
+					</tr>
+					<!-- [오류17] -->
+					<tr class="del"  role="button" data-tab="ios_uiSection01_17">
+						<td><span>17</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산분석</td>
+						<td><span>32</span></td>
+						<td>초점 이동되는 보이지 않는 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM400P.html">MSASM400P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_17">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_18.png" alt=""/></span>
+								
+							</div>
+						</td>
+					</tr>
+					<!-- [오류18] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_18">
+						<td><span>18</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산분석</td>
+						<td><span>33</span></td>
+						<td>초점이 이동되지 않는 콘텐츠</td>
+						<td>
+							- 의미있는 콘텐츠에 스크린리더 초점이 이동되지 않습니다.<br />
+							* 스크린리더 초점이 화면에 표시된 의미있는 콘텐츠에 모두 이동 가능하고 콘텐츠를
+							동등하게 인식할 수 있도록 구현해야 합니다.<br /> 해당 콘텐츠 영역에 role="img"를
+							사용하고 aria-label로 동등한 내용의 대체 텍스트를 제공하면 됩니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSASM400P.html">MSASM400P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmas0400p</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_18">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_18_ios.png" alt=""/></span>
+								
+							</div>
+						</td>
+					</tr>
+					<!-- [오류19] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_19">
+						<td><span>19</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산즐겨찾기 설정</td>
+						<td><span>35</span></td>
+						<td>명도대비가 기준 미만인 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ps/MSST5100.html">MSST5100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_19">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_19.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류20] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_20">
+						<td><span>20</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산현황 &gt; 자산연결</td>
+						<td><span>37</span></td>
+						<td>명도대비가 기준 미만인 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ps/MSPS3120.html">MSPS3120</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_20">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_20.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류21] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_21">
+						<td><span>21</span></td>
+						<td>12 입력 도움</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산현황 &gt; 자산연결</td>
+						<td><span>38</span></td>
+						<td>레이블이 미흡한 서식</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ps/MSPS3120.html">MSPS3120</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_21">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_21.png" alt=""/></span>
+								<p>이미지 교체,연결됨 정보 들어가 있음.</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류22] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_22">
+						<td><span>22</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산현황 &gt; 자산연결</td>
+						<td><span>40</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ps/MSPS3C01P.html">MSPS3C01P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_22">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_22.png" alt=""/></span>
+								<dl>
+									<dt>popup.js, JSP수정</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2188~2196 추가 -->
+													function popup_cfLayerFullSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.useContSize = true;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류23] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_23">
+						<td><span>23</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산현황 &gt; 자산연결 &gt; 공동인증서 인증</td>
+						<td><span>42</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>안드로이드 동일오류</td>
+						<td><span>-</span></td>
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_23">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_23.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2394~2395 추가 -->
+													function alertPopupDiv(msg, type, callback, title, params, preCallback){
+														console.log("msg :: ", msg);
+														console.log("type :: ", type);
+														
+														if(typeof title != "undefined" && title != ""){
+															$("#alertPopupDiv").find("h1").html(title);
+														}
+														else {
+															if (pop_curr_service.startsWith("FM")) {
+													//			$("#alertPopupDiv").find("h1").html('<img src="../content/nhmyd/images/popTitle.png" alt="NH 마이데이터">')
+															}
+														}
+														
+														var eventTarget = common_popup.getFocus(event);
+														typeof msg == "undefined" ? msg = "" :"";
+														$("#alertPopupDiv .confirmMsg").removeClass("type01").removeClass("type02").removeClass("type03").addClass(type).html(msg);
+														common_popup.layerOpen($("#alertPopupDiv"), {}, function(){
+															if(typeof callback != "undefined") callback(params);
+														}, eventTarget, "centerLayer", preCallback);
+														// [MD2503_026] 마이데이터(스뱅) 접근성
+														$("body").find(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류24] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_24">
+						<td><span>24</span></td>
+						<td>1 대체 텍스트</td>
+						<td>마이데이터 홈 &gt; 자산 &gt; 자산현황 &gt; 자산연결</td>
+						<td><span>45</span></td>
+						<td>초점이 부적절한 컨트롤</td>
+						<td>
+							- 해당 라디오 버튼 서식에 스크린리더 초점 접근 시 초점은 머물러 있으나 화면이 최상단으로
+							스크롤되는 현상이 발생합니다.<br />
+							* 스크린리더 초점 접근 시 화면이 스크롤 되지 않도록 구현해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ps/MSPS3240.html">MSPS3240</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_24">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_24_ios.png" alt=""/></span>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류25] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_25">
+						<td><span>25</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 자산 &gt; 그때 그랬다면 &gt; 가상으로 선택</td>
+						<td><span>47</span></td>
+						<td>보조기술로 운용하기 어려운 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./as/MSARb400.html">MSARb400</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmas5300r</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_25">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_25.png" alt=""/></span>
+								
+							</div>
+						</td>
+					</tr>
+					<!-- [오류26] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_26">
+						<td><span>26</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 자산 &gt; 상품 모아보기</td>
+						<td><span>51</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ht/MSHT4200.html">MSHT4200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_26">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_28.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line675 */
+													.nhasset .subTxt4{margin-top:-13px;margin-bottom:15px;font-size:clamp(11px, 1.1rem, 16.5px);color:#555;} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류27] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_27">
+						<td><span>27</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 자산 &gt; 상품 모아보기</td>
+						<td><span>52</span></td>
+						<td>[권고] 부적절한 초점</td>
+						<td>
+							- 동일한 링크에 스크린리더로 초점 접근시, 초점이 여러 번 나뉘어 접근되며 다수의 링크가
+							인식됩니다.<br />
+							* 동일한 기능의 한 링크임을 인식할 수 있도록 구현해야 합니다.<br />
+							해당 링크 &lt;a&gt;에 role="button"을 제공하면 됩니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ht/MSHT4200.html">MSHT4200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_27">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_27_ios.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류28] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_28">
+						<td><span>28</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 소비 &gt; 소비현황</td>
+						<td><span>54</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./cs/MSCSM300P.html">MSCSM300P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>개발작업</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_28">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_29.png" alt=""/></span>
+								<p>JSP 마크업 수정</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류29] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_29">
+						<td><span>29</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 소비 &gt; 소비현황</td>
+						<td><span>55</span></td>
+						<td>접근성이 준수되지 않은 슬라이드 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./cs/MSCSM110.html">MSCSM110</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_29">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_30.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div class="swiper-container">...</div>
+													<!-- [MD2503_026] 마이데이터(스뱅) 접근성 S -->
+													<div class="swiper-control">
+														<div class="swiper-pagination"></div>
+													</div>
+													<!-- [MD2503_026] 마이데이터(스뱅) 접근성 E -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+								<dl>
+									<dt>nhasset-ui.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line974~979 추가 -->
+													// [MD2503_026] 마이데이터(스뱅) 접근성
+													var csChartWrapSwiper = function(){ //소비 공통 스와이프
+														var swiper = new Swiper('.csChartWrap .swiper-container', {
+															a11y : true,
+															slidesPerView: 'auto',
+															spaceBetween: 16,
+															observer: true,
+															pagination: {
+																el: '.swiper-pagination',
+																type: 'bullets',
+																clickable: true,
+																bulletElement: 'a',
+															},
+															navigation: {
+																nextEl: '.csChartWrap .swiper-button-next',
+																prevEl: '.csChartWrap .swiper-button-prev',
+															},
+															on: {
+																init : function(){
+																	$('.csChartWrap .swiper-button-prev').attr({'aria-label' : '이전 슬라이드', 'role' : 'button'});
+																	$('.csChartWrap .swiper-button-next').attr({'aria-label' : '다음 슬라이드', 'role' : 'button'});
+																	$(".csChartWrap .swiper-slide").attr('aria-hidden', 'true');
+																	$(".csChartWrap .swiper-slide.swiper-slide-active").attr('aria-hidden', 'false');
+																}, 
+																slideChange : function(){
+																	$('.csChartWrap .swiper-slide').removeClass('swiper-slide-active').attr('aria-hidden', 'true');
+																	$('.csChartWrap .swiper-slide').eq(this.activeIndex).addClass('swiper-slide-active').attr('aria-hidden', 'false');
+																}
+															}
+														});
+														setTimeout(function(){
+															$(".csChartWrap .swiper-slide").attr('aria-hidden', 'true');
+															$(".csChartWrap .swiper-slide.swiper-slide-active").attr('aria-hidden', 'false');
+														},3000)
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류30] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_30">
+						<td><span>30</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 소비 &gt; 소비현황</td>
+						<td><span>56</span></td>
+						<td>[권고]스크린리더로 운용하기 어려운 블록링크</td>
+						<td>
+							- 스크린리더로 탐색 시 하나의 링크가 여러개의 링크처럼 탐색되어 인식 및 운용이 어렵습니다.
+							* 하나의 링크, 컨트롤로 인식할 수 있도록 수정하는 것을 권장합니다.
+							링크 요소에 role="button"을 적용하면 됩니다.
+							&lt;a href="#" role="button"" ...&gt;...&lt;/a&gt;
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./cs/MSCSM110.html">MSCSM110</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmcd1100n</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_30">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_30_ios.png" alt=""/></span>
+								<p>JSP 수정</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류31] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_31">
+						<td><span>31</span></td>
+						<td>1 대체 텍스트</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 소비 &gt; 소비패턴</td>
+						<td><span>58</span></td>
+						<td>대체 텍스트가 미흡하게 제공된 이미지</td>
+						<td>
+							- 그래프 이미지에 대체 텍스트가 제공되었으나 일부 누락되어 미흡하게 제공되었습니다.
+							* 누락된 내용을 포함하여 그래프의 내용과 동등한 내용의 대체 텍스트를 제공해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./cs/MSCS3100.html">MSCS3100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmcp1000n</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_31">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_31_ios.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류32] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_32">
+						<td><span>32</span></td>
+						<td>1 대체 텍스트</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 소비 &gt; 소비패턴</td>
+						<td><span>59</span></td>
+						<td>누르기 동작으로 운용할 수 없는 컴포넌트</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./cs/MSCS3100.html">MSCS3100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_32">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_31.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<ul class="swiper-wrapper">...</ul>
+													<!-- [MD2503_026] 마이데이터(스뱅) 접근성 S -->
+													<div class="swiper-control">
+														<div class="swiper-pagination"></div>
+													</div>
+													<!-- [MD2503_026] 마이데이터(스뱅) 접근성 E -->
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+								<dl>
+									<dt>nhasset-ui.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line1008~1013 추가 -->
+													// [MD2503_026] 마이데이터(스뱅) 접근성
+													var briefflexWrapSwiper = function(){ //2022-01-23 소비 패텅 브리링 스와이프(MSCS3100.html)
+														var swiper = new Swiper('.briefflexWrap.swiper-container', {
+															a11y : true,
+															slidesPerView: 'auto',
+															spaceBetween: 16,
+															pagination: {
+																el: '.swiper-pagination',
+																type: 'bullets',
+																clickable: true,
+																bulletElement: 'a',
+															},
+															navigation: {
+																nextEl: '.briefflexWrap .swiper-button-next',
+																prevEl: '.briefflexWrap .swiper-button-prev',
+															},
+															on: {
+																init : function(){
+																	$('.briefflexWrap .swiper-button-prev').attr('aria-label','이전 소비브리핑');
+																	$('.briefflexWrap .swiper-button-next').attr('aria-label','다음 소비브리핑');
+																	$(".briefflexWrap .swiper-slide").attr('aria-hidden', 'true')
+																	$(".briefflexWrap .swiper-slide.swiper-slide-active").attr('aria-hidden', 'false')
+																}, 
+																slideChangeTransitionEnd : function(){
+																	$('.briefflexWrap .swiper-slide').attr('aria-hidden', 'true')
+																	$(".briefflexWrap .swiper-slide.swiper-slide-active").attr('aria-hidden', 'false')
+																}
+															}
+														});
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류33] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_33">
+						<td><span>33</span></td>
+						<td>1 대체 텍스트</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 플래너 &gt; 금융 플래너</td>
+						<td><span>61</span></td>
+						<td>부적절한 대체텍스트 제공</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./fp/MSFP2000.html">MSFP2000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>사업부 조치</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_33">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_32.png" alt=""/></span>
+								<p>사업부 관리자 수정</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류34] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_34">
+						<td><span>34</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 플래너 &gt; 금융 플래너</td>
+						<td><span>62</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./fp/MSFP2000.html">MSFP2000</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_34">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_33.png" alt=""/></span>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류35] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_35">
+						<td><span>35</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 자산진단 &gt; 자산진단 맞춤정보</td>
+						<td><span>66</span></td>
+						<td>기준 미달인 명도 대비</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE1100P.html">MSAE1100P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_35">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_34.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류36] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_36">
+						<td><span>36</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 자산진단 &gt; 자산진단 맞춤정보</td>
+						<td><span>67</span></td>
+						<td>딤드된 영역에 초점 이동</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE1110P.html">MSAE1110P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_36">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_35.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2150 추가 -->
+													function popup_cfLayerCustomSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.slidePop = common_popup.obj.mobileH *size;
+														common_popup.obj.slidePopTmp = common_popup.obj.mobileH *size;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류37] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_37">
+						<td><span>37</span></td>
+						<td>1 대체텍스트</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 자산진단 &gt; 또래비교</td>
+						<td><span>69</span></td>
+						<td>부적절한 대체텍스트 제공</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE1210P.html">MSAE1210P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmmy2540p</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_37">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_36.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">금융자산 도움말 툴팁 열기</span></button>
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">또래부자 비교 도움말 툴팁 열기</span></button>														
+													<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">자산유형 도움말 툴팁 열기</span></button>														
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류38] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_38">
+						<td><span>38</span></td>
+						<td>1 대체텍스트</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 연금진단 &gt; 내 연금 진단</td>
+						<td><span>72</span></td>
+						<td>대체 텍스트가 부적절한 이미지</td>
+						<td>
+							- 이미지에 제공된 대체 텍스트가 부적절 합니다.<br />
+							* 이미지의 내용과 동등한 내용의 대체 텍스트를 제공해야 합니다.<br />
+							단순 꾸밈용 이미지일 경우 alt=""처리하여 스크린리더 초점이 접근되지 않도록 구현해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE2340P.html">MSAE2340P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>mser0050e</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_38">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_38_ios.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류39] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_39">
+						<td><span>39</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 연금진단 &gt; 내 연금 진단</td>
+						<td><span>73</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE2351P.html">MSAE2351P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_39">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_40.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2150 추가 -->
+													function popup_cfLayerCustomSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.slidePop = common_popup.obj.mobileH *size;
+														common_popup.obj.slidePopTmp = common_popup.obj.mobileH *size;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류40] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_40">
+						<td><span>40</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 연금진단 &gt; 내 연금 진단</td>
+						<td><span>74</span></td>
+						<td>부적절하게 제공된 기능 정보</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE2340P.html">MSAE2340P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmmy3518p</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_40">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_41.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<h2 class="title">매월 절약하며 <button type="button" title="희망 생활비 선택" class="psPopBtn" onclick="callFmmy3510pFn();"><span>118만원</span></button>을 생활비로 쓰고 싶은데...</h2>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류41] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_41">
+						<td><span>41</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단</td>
+						<td><span>76</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa600.html">MSAEa600</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_41">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_42.png" alt=""/></span>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line675 */
+													.nhasset .subTxt4{margin-top:-13px;margin-bottom:15px;font-size:clamp(11px, 1.1rem, 16.5px);color:#555;} /* [MD2503_026] 마이데이터(스뱅) 접근성 수정 */
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류42] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_42">
+						<td><span>42</span></td>
+						<td>9 응단시간 조절</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단</td>
+						<td><span>77</span></td>
+						<td>일정 시간 뒤에 사라지는 시간제한 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa600.html">MSAEa600</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>mser0050e</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_42">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_43.png" alt=""/></span>
+								<p>마크업 수정(퍼블,개발수정)</p>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div class="mesToast1" id="mesToast1">
+														<p>최신금액으로 새롭게 진단해 보세요</p>
+														<button type="button" class="closeBtn" onclick="mesToastClose(this);return false;"><span class="blind">닫기</span></button>
+													</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+								<dl>
+									<dt>nhasset_com.css</dt>
+									<dd>
+										<pre>
+											<code class="language-css">
+												<script type="prism-html-markup">
+													/* line423~428 */
+													/* [MD2503_026] 마이데이터(스뱅) 접근성 */
+													.nhasset .areaInfo1 .side .mesToast1 {right:0;bottom:calc(100% + 8px);padding-right:30px;}
+													.nhasset .areaInfo1 .side .mesToast1 .closeBtn{position:absolute;right:0;top:0;width:25px;height:25px;}
+													.nhasset .areaInfo1 .side .mesToast1 .closeBtn:before,.nhasset .areaInfo1 .side .mesToast1 .closeBtn:after {position:absolute;right:12px;top:8px;content:'';height:12px;width:1px;background-color:#fff;}
+													.nhasset .areaInfo1 .side .mesToast1 .closeBtn:before {transform:rotate(45deg);}
+													.nhasset .areaInfo1 .side .mesToast1 .closeBtn:after {transform:rotate(-45deg);}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류43] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_43">
+						<td><span>43</span></td>
+						<td>1 대체텍스트</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단 &gt; 조기은퇴 맞춤정보</td>
+						<td><span>79</span></td>
+						<td>대체 텍스트가 부적절한 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa610P.html">MSAEa610P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>mser0060p</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_43">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_44.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div class="formTitN">
+														<strong>연간 기대수익률</strong>
+														<div class="tooltipWrap">
+															<!-- [MD2503_026] 마이데이터(스뱅) 접근성 수정 -->
+															<button type="button" class="toolTipBtn" onclick="tooltipOpen($(this))"><span class="blind">연간 기대수익률 툴팁 열기</span></button>
+															<div class="tooltipCont">
+																<div class="msaeTool">
+																	<ul class="popBul">
+																		<li>선택하신 기대수익률은 현재나이부터 은퇴전까지 적용됩니다.</li>
+																		<li>은퇴 이후에는 물가상승률과 동일한 수익률이 반영됩니다.</li>
+																		<li>물가상승률은 최근 3개년도 평균 값인 <span>2.7</span>%를 반영합니다.
+																			<ul class="listDash">
+																				<li><span>2022</span>년 물가상승률 <span>5.1</span>%</li>
+																				<li><span>2021</span>년 물가상승률 <span>2.5</span>%</li>
+																				<li><span>2020</span>년 물가상승률 <span>0.5</span>%<br>(자료 : 통계청 소비자물가 동향)</li>
+																			</ul>
+																		</li>
+																	</ul>
+																</div>
+																<!-- [MD2503_026] 마이데이터(스뱅) 접근성 수정 -->
+																<button type="button" class="close" onclick="tooltipClose($(this))"><span class="blind">연간 기대수익률 툴팁 닫기</span></button>
+															</div>
+														</div>
+														<div class="inputVal t1" data-range-id="uiRangeInput2"></div>
+													</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류44] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_44">
+						<td><span>44</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단 &gt; 조기은퇴 맞춤정보</td>
+						<td><span>80</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa610P.html">MSAEa610P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_44">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_45.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류45] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_45">
+						<td><span>45</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단 &gt; 조기은퇴 맞춤정보</td>
+						<td><span>81</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa611P.html">MSAEa611P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_45">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_46.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2150 추가 -->
+													function popup_cfLayerCustomSlideOpen(targetpath, param, callback, preFnc, size){
+														var eventTarget = common_popup.getFocus(event);
+														common_popup.obj.slidePop = common_popup.obj.mobileH *size;
+														common_popup.obj.slidePopTmp = common_popup.obj.mobileH *size;
+														common_popup.layerOpen(targetpath, param, callback, eventTarget, "slidePopOption", preFnc);
+														$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류46] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_46">
+						<td><span>46</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 조기은퇴진단 &gt; 조기은퇴 맞춤정보</td>
+						<td><span>82</span></td>
+						<td>상태 정보가 제공되지 않은 컨트롤</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAEa610P.html">MSAEa610P</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료(권고)</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_46">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_47.png" alt=""/></span>
+								<p>운영정상</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류47] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_47">
+						<td><span>47</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 금융자산분석 &gt; 세금계산기 &gt; 종합소득세</td>
+						<td><span>84</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>안드로이드 동일오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./ae/MSAE8100.html">MSAE8100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_47">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_48.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류48] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_48">
+						<td><span>48</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 헬스케어 &gt; 주말약국찾기</td>
+						<td><span>86</span></td>
+						<td>비논리적인 초점 이동 순서</td>
+						<td>
+							- 최상단으로 이동 버튼의 기능 실행 시 화면이 최상단으로 스크롤되나 스크린리더 초점은
+							해당 버튼에 머물러 있습니다.<br />
+							* 최상단 영역으로 스크롤될 시 스크린리더 초점도 최상단 영역으로 이동되어야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./hc/MSHC7200.html">MSHC7200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_48">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_48_ios.png" alt=""/></span>
+								<dl>
+									<dt>nhasset-ui.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line320~321 추가 -->
+													$('.goTopBtn').click(function (){ //[2023-06-23] 한은정 : iOS16.4 스크롤 대응
+														if( !$('html').hasClass('OS164') ){
+															$('html,body').animate({ scrollTop: '0' }, 300);
+														}else{
+															$('.container').animate({ scrollTop: '0' }, 300);
+														}
+														// [MD2503_026] 마이데이터(스뱅) 접근성
+														$('.header .btnBack').focus();
+													});
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류49] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_49">
+						<td><span>49</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 헬스케어 &gt; 주말약국찾기</td>
+						<td><span>87</span></td>
+						<td>[권고]스크린리더로 운용하기 어려운 블록링크</td>
+						<td>
+							- 스크린리더로 탐색 시 하나의 링크가 여러개의 링크처럼 탐색되어 인식 및 운용이 어렵습니다.<br />
+							* 하나의 링크, 컨트롤로 인식할 수 있도록 수정하는 것을 권장합니다.<br />
+							링크 요소에 role="button"을 적용하면 됩니다.<br />
+							&lt;a href="#" role="button"" ...&gt;...&lt;/a&gt;<br />
+							※ 약국 목록 링크 공통 사항입니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./hc/MSHC7200.html">MSHC7200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>mshc7200e</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_49">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_49_ios.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류50] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_50">
+						<td><span>50</span></td>
+						<td>7 초점</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 헬스케어 &gt; 주말약국찾기</td>
+						<td><span>89</span></td>
+						<td>초점 이동되는 딤드된 콘텐츠 영역</td>
+						<td>안드로이드 공통오류</td>
+						<td><span>-</span></td>
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_50">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_50.png" alt=""/></span>
+								<dl>
+									<dt>popup.js</dt>
+									<dd>
+										<pre>
+											<code class="language-javascript">
+												<script type="prism-html-markup">
+													<!-- line2394~2395 추가 -->
+													function alertPopupDiv(msg, type, callback, title, params, preCallback){
+														console.log("msg :: ", msg);
+														console.log("type :: ", type);
+														
+														if(typeof title != "undefined" && title != ""){
+															$("#alertPopupDiv").find("h1").html(title);
+														}
+														else {
+															if (pop_curr_service.startsWith("FM")) {
+													//			$("#alertPopupDiv").find("h1").html('<img src="../content/nhmyd/images/popTitle.png" alt="NH 마이데이터">')
+															}
+														}
+														
+														var eventTarget = common_popup.getFocus(event);
+														typeof msg == "undefined" ? msg = "" :"";
+														$("#alertPopupDiv .confirmMsg").removeClass("type01").removeClass("type02").removeClass("type03").addClass(type).html(msg);
+														common_popup.layerOpen($("#alertPopupDiv"), {}, function(){
+															if(typeof callback != "undefined") callback(params);
+														}, eventTarget, "centerLayer", preCallback);
+														// [MD2503_026] 마이데이터(스뱅) 접근성
+														$("body").find(".fullLayerPop").attr("aria-hidden",true).attr('inert',"");
+													}
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류51] -->
+					<tr class="wait" role="button" data-tab="ios_uiSection01_51">
+						<td><span>51</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 헬스케어 &gt; 주말약국찾기</td>
+						<td><span>90</span></td>
+						<td>부적절한 역할정보</td>
+						<td>
+							- 기능이 없는 이미지 콘텐츠에 '링크' 역할정보가 제공되었으며 새창열림 안내 문구가 제공되어
+							부적절합니다.<br />
+							* 부적절한 '링크' 역할정보와 새창열림 안내 문구를 제거해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./hc/MSHC7200.html">MSHC7200</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>보류</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_51">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_51_ios.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류52] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_52">
+						<td><span>52</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 헬스케어 &gt; 주말약국찾기</td>
+						<td><span>92</span></td>
+						<td>보조기술을 사용하여 운용하기 어려운 콘텐츠</td>
+						<td>
+							- 스크린리더 순차탐색 시 하나의 링크로 인식되나 스크린리더 임의탐색 시 링크 내 텍스트들에
+							각각 초점이 접근되며 임의탐색 후 순차, 역순차탐색 시 초점이 머물러있던 줄의 텍스트에만 
+							초점이 접근됩니다.<br />
+							* &lt;button&gt; 요소로 구현하거나 링크 요소에 role="button" 을 적용하여 하나의 컨트롤로
+							인식되도록 구현해야 합니다.<br />
+							- 슬라이드 배너가 자동재생 상태일 시 슬라이드가 변경될 때마다 '현재 항목' 문구가 음성 
+							출력되는 현상이 발생합니다.<br />
+							* aria-live 속성이 적용되어 발생하는 현상으로 추정되며, 해당 속성을 제거하여 불필요한 음성
+							피드백이 발생하지 않도록 구현해야 합니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./lf/MSLF2100.html">MSLF2100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_52">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_52_ios.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류53] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_53">
+						<td><span>53</span></td>
+						<td>4 명도대비</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; 생활편의 &gt; 맞춤정부혜택 &gt; 정보 설정</td>
+						<td><span>94</span></td>
+						<td>명도대비가 기준 미만인 콘텐츠</td>
+						<td>안드로이드 공통오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./lf/MSLF2190.html">MSLF2190</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>-</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_53">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_51.png" alt=""/></span>
+								<p>이미지 교체</p>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류54] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_54">
+						<td><span>54</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; MY &gt; MY피드</td>
+						<td><span>98</span></td>
+						<td>부적절한 역할정보</td>
+						<td>안드로이드 공통오류</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./st/MSAR4100.html">MSAR4100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmmy1000r</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_54">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_53.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<div title="NH마이데이터와 함께한 시간 링크화면 이동" class="mybanner tyCard" style="background-image:url('/content/nhmyd/images/my/img_fd05_bg.png');" onclick="clickLogging('', '', 'mymain00205'); moveDetailPage($(this), 'FEED_06_04', 'FMMY1000R', '', '');">
+														<div class="txtWrap">
+															<strong class="mainTit">NH마이데이터와 함께한 시간</strong>
+															<p class="subTxt">NH마이데이터와 만난지</p>
+															<strong class="highTit" style="display: ;">126<span>일</span></strong>
+															<p class="cardTxt" style="display: none;">#RMK_ADT_CNTN#</p>
+														</div>
+														<div class="myImgWrap" style="display: ;"><img src="/content/nhmyd/images/banner/my_obj_clock.png" alt=""></div>
+														<ol class="csSubsellWrap" style="display: none;">
+														</ol>
+													</div>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+					<!-- [오류55] -->
+					<tr class="del" role="button" data-tab="ios_uiSection01_55">
+						<td><span>55</span></td>
+						<td>18 보조기술과의 호환성</td>
+						<td>마이데이터 홈 &gt; 전체 &gt; MY &gt; MY정보</td>
+						<td><span>100</span></td>
+						<td>[권고]스크린리더로 운용하기 어려운 블록링크</td>
+						<td>
+							- 스크린리더로 탐색 시 하나의 링크가 여러개의 링크처럼 탐색되어 인식 및 운용이 어렵습니다.<br />
+							* 하나의 링크, 컨트롤로 인식할 수 있도록 수정하는 것을 권장합니다.<br />
+							링크 요소에 role="button"을 적용하면 됩니다.
+						</td>
+						<!-- 퍼블파일경로 -->
+						<td><a target="_blank" href="./st/MSAR4100.html">MSAR4100</a></td>
+						<!-- 개발파일경로 -->
+						<td><span>fmse3000r</span></td>
+						<td><span>조치완료</span></td>
+					</tr>
+					<tr data-tabcont="ios_uiSection01_55">
+						<td colspan="9">
+							<div class="guide_data">
+								<span class="img"><img src="./com/images/a11y_2025/guide_a11y_01_55_ios.png" alt=""/></span>
+								<dl>
+									<dt>JSP</dt>
+									<dd>
+										<pre>
+											<code class="language-markup">
+												<script type="prism-html-markup">
+													<a href="javascript:;" title="" role="button" onclick="navigate('FMMY6010R');">
+														<div class="yabanner mission">
+															<span class="subTxt">고객님의 NH포인트! 알고계신가요?</span>
+															<p>미션에 참여하고 포인트 획득하기</p>
+														</div>
+													</a>
+												</script>
+											</code>
+										</pre>
+									</dd>
+								</dl>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+	<!-- ----------------------------------------- -->
+</main>
+
+<footer>
+	<button class="top" title="상단으로"></button>
+	<address>Copyright © NH Bank. All Rights Reserved.</address>
+</footer>
+
+<script src="com/js/datatables.min.js"></script>
+<script src="com/js/jquery.colorbox-min.js"></script>
+<script src="com/js/septem_pubcom.js"></script>
+<script>
+$(document).ready(function(){
+	var _all = $('.guide_table > table > tbody > tr:not([data-tabcont])').length,
+		_ing = $('.guide_table > table > tbody > tr.ing').length,
+		_wait = $('.guide_table > table > tbody > tr.wait').length,
+		_wait2 = $('.guide_table > table > tbody > tr.wait2').length,
+		_end = $('.guide_table > table > tbody > tr.del').length
+	
+	$('.guide_progress .all > span').text(_all);
+	$('.guide_progress .ing > span').text(_ing);
+	$('.guide_progress .wait > span').text(_wait);
+	$('.guide_progress .wait2 > span').text(_wait2);
+	$('.guide_progress .end > span').text(_end);
+
+	$('.guide_progress button').on('click',function(){
+		
+		if($(this).parent().hasClass('all')){
+			$('.guide_table > table > tbody > tr:not([data-tabcont])').show();
+		}else{
+			$('.guide_table > table > tbody > tr:not([data-tabcont])').hide();
+			if($(this).parent().hasClass('ing')) $('.guide_table > table > tbody > tr.ing').show();
+			else if($(this).parent().hasClass('wait')) $('.guide_table > table > tbody > tr.wait').show();
+			else if($(this).parent().hasClass('end')) $('.guide_table > table > tbody > tr.del').show();
+			else if($(this).parent().hasClass('wait2')) $('.guide_table > table > tbody > tr.wait2').show();
+		}
+	})
+	/*
+	$('.guide_table > table').each(function(i, obj){
+		$('.guide_table > table > tbody > tr:not([data-tabcont]):not(.ing)').hide();
+	});
+	*/
+
+	
+	$('[data-tab]').on('click', function(){
+		var _id = $(this).attr('data-tab');
+		var _cont = $('[data-tabcont="'+_id+'"]');
+		//$('[data-tabcont]').removeClass('active');
+		if(_cont.hasClass('active')){
+			_cont.removeClass('active');
+			$(this).removeClass('active')
+		}else{
+			_cont.addClass('active');
+			$(this).addClass('active');
+		} 
+	});
+});
+</script>
+</body>
+</html>

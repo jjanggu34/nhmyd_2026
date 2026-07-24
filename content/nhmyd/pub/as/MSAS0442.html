@@ -1,0 +1,67 @@
+<!DOCTYPE html >
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-title" content="농협자산관리" />
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="robots" content="no-index,follow">
+<meta name="title" content="">
+<meta name="author" content="">
+<meta name="content" content="">
+<meta name="keywords" content="농협자산관리">
+<meta name="description" content="농협자산관리">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<title>[P] 인증방식 선택</title>
+<script type="text/javascript" src="../pub-assets/js/head.js"></script>
+<script type="text/javascript">
+$(function(){
+	fullLayerPop();
+});
+</script>
+</head>
+<body>
+<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+
+<!-- ###################################### -->
+<!-- ### [팝업] 인증방식 선택 ### -->
+<!-- ###################################### -->
+<div class="nhasset popWrap fullLayerPop" role="dialog">
+	<div class="popInner">
+		<h1>계좌해지/잔고이전</h1>
+		<!-- [MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) 텍스트 수정 -->
+		<!-- <h1>지급신청</h1> -->
+		<div class="popCont grayPop">
+
+			<!-- -------------------------------------- -->
+			<!-- [SECTION] 본인인증방식을 선택 STEP4 영역 -->
+			<!-- -------------------------------------- -->
+			<!-- [MD2410_086_v0.23] 숨은자산 해지·잔고이전(어카운트인포 연계) 신규(2.0반영) 텍스트 수정 -->
+			<h2 class="defTit">계좌해지/잔고이전을 위해<br><strong>금융인증서로</strong> 인증해주세요.</h2>
+			<!-- [MD2504_052_v0.03] (서금원)휴면예금조회·지급서비스(2.0반영) 텍스트 수정 -->
+			<!-- <h2 class="defTit">$휴면예금$ 지급신청을 위해<br />금융인증서로 인증해주세요.</h2> -->
+			<!-- -------------------------------------- -->
+			<ul class="listCerti">
+				<li>
+					<button type="button" class="financeCerti">
+						<span>
+							<strong class="title">금융인증서</strong>
+							<span class="tag bgSky">최근사용</span>
+						</span>
+					</button>
+				</li>
+			</ul>
+
+		</div>
+		<div class="popBtnWrap">
+			<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+		</div>
+	</div>
+</div>
+<!-- ###################################### -->
+</body>
+</html>

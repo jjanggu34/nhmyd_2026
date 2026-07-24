@@ -18,10 +18,16 @@
 </head>
 </head>
 <body class="nhasset">
-
 	<div class="term_cont">
 		<h2 class="popTemrsBigTit">(필수) 나이스지키미 회원 이용약관</h2>
-
+		<h2 class ="popTermsTxt"><span id='test'>기관명</span></h2>
+		<script type="text/javascript">
+			const urlParams = new URLSearchParams(window.location.search);
+			const orgName = urlParams.get('org');
+			console.log("urlParams: ", urlParams);
+			console.log("orgName: ", orgName);
+			document.getElementById('test').innerText = orgName;
+		</script>
 		<h3 class="popTemrsBigTit">제1장 총칙</h3>
 
 		<h4 class="popTemrsTit mt0">제 1조 (목적)</h4>
