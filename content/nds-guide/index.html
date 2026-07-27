@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>NDS 컴포넌트 가이드 (프로젝트 로컬)</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/nds.css?v=71">
+	<link rel="stylesheet" type="text/css" href="assets/css/nds.css?v=105">
 	<style>
 		body {
 			margin: 0;
@@ -62,11 +62,10 @@
 		}
 
 		.demo {
-			border: 1px dashed #d3d3d3;
-			border-radius: 8px;
 			padding: 16px;
 			margin-bottom: 10px;
-			background: #fafafa;
+			border-radius: 16px;
+			background: rgba(245, 247, 249, 0.50)
 		}
 
 		.row {
@@ -95,6 +94,11 @@
 		.note {
 			font-size: 12px;
 			color: #888;
+		}
+		/* nds.css의 `.nds p { margin: 0; }` 리셋이 .note(p 태그)에도 적용되므로,
+		   기존 브라우저 기본 여백(1em = 12px)과 동일하게 보이도록 .nds .note로 특이도를 높여 명시 재지정 */
+		.nds .note {
+			margin: 12px 0;
 		}
 
 		.toplinks {
@@ -431,9 +435,9 @@
 			margin: 0;
 			box-sizing: border-box;
 			border-radius: 50%;
-			border: 1px solid var(--color-comp-btn-floating-default-border);
-			background-color: var(--color-comp-btn-floating-default-bg);
-			color: var(--color-comp-btn-floating-default-fg);
+			border: 1px solid var(--primitive-green-500);
+			background-color: var(--primitive-green-500);
+			color: var(--primitive-base-0);
 			font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
 			font-size: 12px;
 			font-weight: 600;
@@ -653,7 +657,7 @@
 				<li><a href="#sec-textarea">Textarea-message</a></li>
 				<li><a href="#sec-toast">Toast</a></li>
 				<li><a href="#sec-tooltip">Tooltip</a></li>
-				<li><a href="#sec-unit">Unit (1/9)</a></li>
+				<li><a href="#sec-unit">Unit</a></li>
 			</ul>
 			<button type="button" class="side-nav__group-title" data-nav-group="foundation"><span
 					class="side-nav__chevron">▾</span>Design Foundation</button>
@@ -823,7 +827,9 @@
 			</div>
 			<pre><code>&lt;div class="accordion-notice"&gt;
   &lt;div class="accordion-notice__item"&gt;
-    &lt;button aria-expanded="false" data-acc-toggle&gt;알아두세요&lt;/button&gt;
+    &lt;button aria-expanded="false" data-acc-toggle&gt;
+      &lt;span class="accordion-notice__title"&gt;알아두세요&lt;/span&gt;
+    &lt;/button&gt;
     &lt;div class="accordion-notice__body" hidden&gt;내용&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -7492,8 +7498,20 @@
 			<h2>Unit</h2>
 			<p class="note">반복으로 사용하는 컴포넌트의 조합입니다. 상황에 맞게 상태 값을 조정하여 사용합니다. 안쪽 요소는 모두 기존에 만든
 				컴포넌트(Select/Input/Radio/Label/Button)를 그대로 재사용하고, unit- 래퍼 클래스는 바깥 간격만 담당합니다.</p>
-			<p class="note">※ Unit은 Figma에 약 46개의 조합이 있어 배치로 나눠 반영 중입니다. 이번 배치: top-product / radio-field / radio-mix /
-				phone-number / staff-search (1/9).</p>
+			<p class="note">※ Unit은 Figma에 약 47개의 조합이 있어 배치로 나눠 반영했습니다. 반영 완료(45/47, top-product ~
+				product-recommend까지 아래 순서대로 모두 포함): top-product / radio-field / radio-mix / phone-number /
+				staff-search / recommend-account / address-search / email-input / consultant-search /
+				subscription-amount / exchange-rate / type-taxation / survey-radio / survey-check / fund-info /
+				card-box-list / highlight-list / branches / combination / inquiry-period / refund-account / nh-point /
+				complete-card / complete-accordion / complete-check-left / complete-check-center / alert-center /
+				confirm-account-cancle / confirm-isa / product-detail-top-account / product-detail-top-loan /
+				product-detail-top-performance / product-detail-top-eld / product-detail-top-fund /
+				product-detail-top-etf-elt / product-detail-top-isa / product-detail-top-gold /
+				product-detail-top-foreign-currency / product-detail-top-insurance / product-detail-top-irp-dc /
+				product-detail-gray-bg / product-detail-white-bg / calculator-expiration-amount /
+				product-instruction / product-recommend. 나머지 1개("smart-match")는 Figma 원본에서
+				calculator-expiration-amount와 완전히 동일한 내용이 중복 배치된 것으로 확인되어(원본 자체의 복붙 오류), 임의로 다른 내용을
+				만들지 않고 제외했습니다.</p>
 
 			<h3>top-product — 상품명 + 계좌번호 + 금액</h3>
 			<div class="demo">
@@ -7662,6 +7680,1620 @@
     &lt;div class="input-box__field"&gt;
       &lt;input class="input-box__input" value="의왕지점" readonly&gt;
       &lt;button class="input-box__btn"&gt;관리점 변경&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>recommend-account — 타이틀+툴팁+스위치 + 계좌번호 확인</h3>
+			<div class="demo">
+				<div class="unit-recommend-account" style="width:312px;">
+					<div class="unit-recommend-account__head">
+						<span class="unit-recommend-account__title">추천 계좌번호<span class="label-text__tooltip"></span></span>
+						<label class="switch"><input type="checkbox" class="switch__input" checked><span
+								class="switch__track"></span></label>
+					</div>
+					<div class="input-box">
+						<div class="input-box__field">
+							<input class="input-box__input" value="123-456-78-90" readonly>
+							<button type="button" class="btn btn--tertiary btn--sm">계좌 확인</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">타이틀+툴팁 아이콘+스위치(switch) 헤더와, 계좌번호 표시+확인 버튼(btn btn--tertiary btn--sm) input-box 조합입니다.</p>
+			<pre><code>&lt;div class="unit-recommend-account"&gt;
+  &lt;div class="unit-recommend-account__head"&gt;
+    &lt;span class="unit-recommend-account__title"&gt;추천 계좌번호&lt;span class="label-text__tooltip"&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;label class="switch"&gt;&lt;input type="checkbox" class="switch__input" checked&gt;&lt;span class="switch__track"&gt;&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="input-box"&gt;
+    &lt;div class="input-box__field"&gt;
+      &lt;input class="input-box__input" value="123-456-78-90" readonly&gt;
+      &lt;button class="btn btn--tertiary btn--sm"&gt;계좌 확인&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>address-search — 주소 검색 + 상세주소 입력</h3>
+			<div class="demo">
+				<div class="unit-address-search" style="width:312px;">
+					<div class="input-box">
+						<span class="label-text">주민등록등본 주소지</span>
+						<div class="input-box__field">
+							<input class="input-box__input" value="12345 서울특별시 은평구 서오릉로" readonly>
+							<span class="input-box__icon input-box__icon--search"></span>
+						</div>
+					</div>
+					<div class="input-box">
+						<div class="input-box__field">
+							<input class="input-box__input" value="NH농협은행 신관 14층">
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">search-box/search(주소 검색, readonly) + input-box/basic(상세주소 직접입력) 조합입니다.</p>
+			<pre><code>&lt;div class="unit-address-search"&gt;
+  &lt;div class="input-box"&gt;
+    &lt;span class="label-text"&gt;주민등록등본 주소지&lt;/span&gt;
+    &lt;div class="input-box__field"&gt;
+      &lt;input class="input-box__input" value="주소" readonly&gt;
+      &lt;span class="input-box__icon input-box__icon--search"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="input-box"&gt;
+    &lt;div class="input-box__field"&gt;
+      &lt;input class="input-box__input" value="상세주소"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>email-input — 이메일 입력 + 없음 체크</h3>
+			<div class="demo">
+				<div class="unit-email-input" style="width:312px;">
+					<div class="unit-email-input__check">
+						<span class="check-basic__label">없음</span>
+						<label class="check-basic"><input type="checkbox" class="check-basic__input" checked><span
+								class="check-basic__icon"></span></label>
+					</div>
+					<div class="input-box">
+						<span class="label-text">이메일주소</span>
+						<div class="input-box__field">
+							<input class="input-box__input" value="abc1234@naver.com">
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">input-box/basic(이메일 입력) + 우측 상단에 절대 위치로 겹쳐지는 check-basic("없음" 체크) 조합입니다.</p>
+			<pre><code>&lt;div class="unit-email-input"&gt;
+  &lt;div class="unit-email-input__check"&gt;
+    &lt;span class="check-basic__label"&gt;없음&lt;/span&gt;
+    &lt;label class="check-basic"&gt;&lt;input type="checkbox" class="check-basic__input" checked&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="input-box"&gt;
+    &lt;span class="label-text"&gt;이메일주소&lt;/span&gt;
+    &lt;div class="input-box__field"&gt;
+      &lt;input class="input-box__input" value="abc1234@naver.com"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>consultant-search — 타이틀+스위치 + 라디오 2개 + 검색</h3>
+			<div class="demo">
+				<div class="unit-consultant-search" style="width:312px;">
+					<div class="unit-consultant-search__head">
+						<span class="unit-consultant-search__title">[선택] 대출 희망 상담자</span>
+						<label class="switch"><input type="checkbox" class="switch__input" checked><span
+								class="switch__track"></span></label>
+					</div>
+					<div class="radio-box-row">
+						<label><input type="radio" name="unitConsultantSearch1" class="radio-hidden-input radio-box-input"
+								checked><span class="radio-box radio-box--lg radio-box--center">은행직원</span></label>
+						<label><input type="radio" name="unitConsultantSearch1" class="radio-hidden-input radio-box-input"><span
+								class="radio-box radio-box--lg radio-box--center">대출상담사</span></label>
+					</div>
+					<div class="input-box">
+						<div class="input-box__field">
+							<input class="input-box__input" placeholder="은행직원 검색">
+							<span class="input-box__icon input-box__icon--search"></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">타이틀+스위치 헤더, 2단 라디오 박스(radio-box--center), search-box/search 조합입니다.</p>
+			<pre><code>&lt;div class="unit-consultant-search"&gt;
+  &lt;div class="unit-consultant-search__head"&gt;
+    &lt;span class="unit-consultant-search__title"&gt;[선택] 대출 희망 상담자&lt;/span&gt;
+    &lt;label class="switch"&gt;&lt;input type="checkbox" class="switch__input" checked&gt;&lt;span class="switch__track"&gt;&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="radio-box-row"&gt;
+    &lt;label&gt;&lt;input type="radio" name="g1" class="radio-hidden-input radio-box-input" checked&gt;&lt;span class="radio-box radio-box--lg radio-box--center"&gt;은행직원&lt;/span&gt;&lt;/label&gt;
+    &lt;label&gt;&lt;input type="radio" name="g1" class="radio-hidden-input radio-box-input"&gt;&lt;span class="radio-box radio-box--lg radio-box--center"&gt;대출상담사&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="input-box"&gt;
+    &lt;div class="input-box__field"&gt;
+      &lt;input class="input-box__input" placeholder="검색"&gt;
+      &lt;span class="input-box__icon input-box__icon--search"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>subscription-amount — 외화 가입금액 + 원화환산 + 환율조회 + 안내문구</h3>
+			<div class="demo">
+				<div class="unit-subscription-amount" style="width:312px;">
+					<div class="unit-subscription-amount__group">
+						<span class="label-text">가입금액</span>
+						<div class="input-box">
+							<div class="input-box__field">
+								<span class="input-box__unit">EUR</span>
+								<input class="input-box__input input-box__input--right" placeholder="94 이상">
+							</div>
+						</div>
+						<p class="input-box__message">최소 가입금액 EUR 85 이상</p>
+					</div>
+					<div class="unit-subscription-amount__group">
+						<div class="load-data__box">
+							<div class="load-data__row">
+								<span class="load-data__title">원화 환산금액</span>
+								<span class="load-data__data">146,278원</span>
+							</div>
+						</div>
+						<div class="unit-subscription-amount__text-row">
+							<span>현재 환율 EUR 1 = 1,462.78원</span>
+							<button type="button" class="btn btn--tertiary btn--xs">현재 환율 조회</button>
+						</div>
+						<ul class="bullet bullet--caption">
+							<li class="bullet__item">환율 변동으로 가입 시 원화 환산 금액이 변경될 수 있습니다.</li>
+							<li class="bullet__item">현재 환율은 전신환매도율 정보 제공 기준입니다.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<p class="note">input-box/dollar(외화 단위+금액) + load-data__box(원화 환산금액) + 텍스트/버튼(현재 환율 조회) + bullet--caption 안내문구 조합입니다.</p>
+
+			<h3>exchange-rate — 목표환율 선택 + 금액 + 환율조회 + 안내문구</h3>
+			<div class="demo">
+				<div class="unit-exchange-rate" style="width:312px;">
+					<div class="select-field">
+						<span class="select-field__label">목표환율<span class="label-text__tooltip"></span></span>
+						<button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false">
+							<span class="select-field__content"><span class="select-field__text">직접입력</span></span>
+							<span class="select-field__chevron" aria-hidden="true"></span>
+						</button>
+					</div>
+					<div class="input-box">
+						<div class="input-box__field">
+							<input class="input-box__input input-box__input--right" value="1400원" readonly>
+						</div>
+					</div>
+					<div class="unit-text-row">
+						<span>현재 환율 USD 1 = 1,335.35원</span>
+						<button type="button" class="btn btn--tertiary btn--xs">현재 환율 조회</button>
+					</div>
+					<p class="unit-exchange-rate__caption">모든 영업일의 2회차 환율이 목표 환율이 되면, 가입기간과 관계없이 자동으로 해지됩니다.</p>
+				</div>
+			</div>
+			<p class="note">select-field(목표환율 선택, 툴팁 포함) + input-box(우측정렬 금액) + 텍스트/버튼(현재 환율 조회) + 안내문구 조합입니다.</p>
+
+			<h3>type-taxation — 과세유형 선택 + 잔여한도 + 안내문구</h3>
+			<div class="demo">
+				<div class="unit-type-taxation" style="width:312px;">
+					<div class="unit-type-taxation__group">
+						<span class="label-text">과세유형</span>
+						<div class="radio-box-row">
+							<label><input type="radio" name="unitTypeTaxation1" class="radio-hidden-input radio-box-input"><span
+									class="radio-box radio-box--lg radio-box--center">일반과세</span></label>
+							<label><input type="radio" name="unitTypeTaxation1" class="radio-hidden-input radio-box-input"
+									checked><span class="radio-box radio-box--lg radio-box--center">비과세종합저축</span></label>
+						</div>
+					</div>
+					<div class="unit-type-taxation__group">
+						<div class="load-data__box">
+							<div class="load-data__row">
+								<span class="load-data__title">잔여한도</span>
+								<span class="load-data__data">8,400,000원</span>
+							</div>
+						</div>
+						<p class="load-data__message">2020년 1월 1일 이후 3개의 과세기간 중 하나 이상의 과세기간이 금융소득 종합과세대상자에 해당될 경우
+							비과세종합저축 가입 대상에서 제외됩니다. 이후 관련 법령에서 정하는 절차에 따라 비과세종합저축이 일반과세로 전환됩니다.</p>
+					</div>
+				</div>
+			</div>
+			<p class="note">radio-box--center 2단(과세유형) + load-data__box(잔여한도) + 안내문구 조합입니다.</p>
+
+			<h3>survey-radio — 번호+질문 + 아이콘형 라디오 설문(단일선택)</h3>
+			<div class="demo">
+				<div class="unit-survey-radio" style="width:312px;">
+					<div class="unit-survey-radio__head">
+						<span class="unit-survey-radio__num">01</span>
+						<span class="unit-survey-radio__question">텍스트를 입력해 주세요</span>
+					</div>
+					<div class="radio-survey radio-survey--icon">
+						<div class="radio-survey__options">
+							<label><input type="radio" name="unitSurveyRadio1"
+									class="radio-hidden-input radio-survey__input"><span class="radio-survey__label"><span
+										class="radio-survey__icon"></span><span
+										class="radio-survey__text">라디오-텍스트</span></span></label>
+							<label><input type="radio" name="unitSurveyRadio1"
+									class="radio-hidden-input radio-survey__input"><span class="radio-survey__label"><span
+										class="radio-survey__icon"></span><span
+										class="radio-survey__text">라디오-텍스트</span></span></label>
+							<label><input type="radio" name="unitSurveyRadio1"
+									class="radio-hidden-input radio-survey__input"><span class="radio-survey__label"><span
+										class="radio-survey__icon"></span><span
+										class="radio-survey__text">라디오-텍스트</span></span></label>
+							<label><input type="radio" name="unitSurveyRadio1"
+									class="radio-hidden-input radio-survey__input"><span class="radio-survey__label"><span
+										class="radio-survey__icon"></span><span
+										class="radio-survey__text">라디오-텍스트</span></span></label>
+							<label><input type="radio" name="unitSurveyRadio1"
+									class="radio-hidden-input radio-survey__input"><span class="radio-survey__label"><span
+										class="radio-survey__icon"></span><span
+										class="radio-survey__text">라디오-텍스트</span></span></label>
+							<label><input type="radio" name="unitSurveyRadio1"
+									class="radio-hidden-input radio-survey__input"><span class="radio-survey__label"><span
+										class="radio-survey__icon"></span><span
+										class="radio-survey__text">라디오-텍스트</span></span></label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">번호(01)+질문 헤더와, 이미 검증된 radio-survey--icon 컴포넌트(6개, 단일선택)를 그대로 재사용한 조합입니다.</p>
+
+			<h3>survey-check — 번호+질문 + 아이콘형 체크 설문(다중선택)</h3>
+			<div class="demo">
+				<div class="unit-survey-check" style="width:312px;">
+					<div class="unit-survey-check__head">
+						<span class="unit-survey-check__num">01</span>
+						<span class="unit-survey-check__question">텍스트를 입력해 주세요</span>
+					</div>
+					<div style="display:flex;flex-direction:column;gap:12px;width:100%;">
+						<label class="check-survey">
+							<div class="check-survey__box"><span class="check-survey__icon"></span><span
+									class="check-survey__text">체크-텍스트</span></div>
+						</label>
+						<label class="check-survey">
+							<div class="check-survey__box"><span class="check-survey__icon"></span><span
+									class="check-survey__text">체크-텍스트</span></div>
+						</label>
+						<label class="check-survey">
+							<div class="check-survey__box"><span class="check-survey__icon"></span><span
+									class="check-survey__text">체크-텍스트</span></div>
+						</label>
+						<label class="check-survey">
+							<div class="check-survey__box"><span class="check-survey__icon"></span><span
+									class="check-survey__text">체크-텍스트</span></div>
+						</label>
+						<label class="check-survey">
+							<div class="check-survey__box"><span class="check-survey__icon"></span><span
+									class="check-survey__text">체크-텍스트</span></div>
+						</label>
+						<label class="check-survey">
+							<div class="check-survey__box"><span class="check-survey__icon"></span><span
+									class="check-survey__text">체크-텍스트</span></div>
+						</label>
+					</div>
+				</div>
+			</div>
+			<p class="note">번호(01)+질문 헤더와, 이미 검증된 check-survey 컴포넌트(6개, 다중선택)를 그대로 재사용한 조합입니다.</p>
+
+			<h3>fund-info — 펀드 투자정보 카드 (링크 2줄 + 바로가기 2개)</h3>
+			<div class="demo">
+				<div class="unit-fund-info" style="width:312px;">
+					<span class="unit-fund-info__title">펀드 투자정보</span>
+					<button type="button" class="unit-fund-info__link"><span class="unit-fund-info__link-icon"></span><span
+							class="unit-fund-info__link-text">기준가/수익률조회</span><span
+							class="unit-fund-info__link-arrow"></span></button>
+					<button type="button" class="unit-fund-info__link"><span class="unit-fund-info__link-icon"></span><span
+							class="unit-fund-info__link-text">주요지수</span><span class="unit-fund-info__link-arrow"></span></button>
+					<div class="unit-fund-info__grid">
+						<button type="button" class="unit-fund-info__pill">펀드용어사전</button>
+						<button type="button" class="unit-fund-info__pill">펀드시황</button>
+					</div>
+				</div>
+			</div>
+			<p class="note">Figma에서 이 카드의 링크 아이콘 2종(그래프+돋보기 합성, 캔들차트 합성)이 개별 합성 이미지라 로컬에 정확히 대응하는 에셋이 없어 우선
+				ico_graph_line_24로 대체했습니다. 정확한 아이콘 필요하면 알려주세요.</p>
+
+			<h3>card-box-list — 상품 요약 카드 (그레이 박스 2줄 + 리스트 3줄)</h3>
+			<div class="demo">
+				<div class="card" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
+						<div class="card__label-row"><span class="label label--sm label--line label--gray">1개</span></div>
+						<span class="card__title">상품명</span>
+					</div>
+					<div style="display:flex; flex-direction:column; gap:24px; width:100%;">
+						<div class="card card--gray" style="max-width:none;">
+							<div class="card__list-rows">
+								<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+										class="card__list-row__data">데이터</span></div>
+								<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+										class="card__list-row__data">데이터</span></div>
+							</div>
+						</div>
+						<div class="card__list-rows">
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">이미 검증된 card/card--gray/card__list-row 컴포넌트를 그대로 재사용한 조합이라 별도 CSS 추가 없이 마크업만
+				구성했습니다.</p>
+			<pre><code>&lt;div class="card"&gt;
+  &lt;div class="card__label-row"&gt;&lt;span class="label label--sm label--line label--gray"&gt;1개&lt;/span&gt;&lt;/div&gt;
+  &lt;span class="card__title"&gt;상품명&lt;/span&gt;
+  &lt;div class="card card--gray"&gt;
+    &lt;div class="card__list-rows"&gt;
+      &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card__list-rows"&gt;
+    &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>highlight-list — 강조 요약(가격) + 상세 리스트</h3>
+			<div class="demo">
+				<div class="unit-highlight-list" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:16px; width:100%;">
+						<span class="unit-highlight-list__title">타이틀</span>
+						<div style="display:flex; flex-direction:column; gap:24px; width:100%;">
+							<div class="card card--gray">
+								<div class="card__price2-row">
+									<div class="card__price2-title">
+										<span class="card__price2-title__label">타이틀</span>
+									</div>
+									<div class="card__price2-value">
+										<span class="card__price2-value__row"><span class="card__price2-value__unit">매월</span><span
+												class="card__price2-value__amount">0원</span></span>
+										<span class="card__price2-value__sub">부가설명</span>
+									</div>
+								</div>
+							</div>
+							<div class="list-page list-page--sm" style="padding:0 4px;">
+								<div class="list-page__rows">
+									<div class="list-kv"><span class="list-kv__title">타이틀</span><span class="list-kv__data">데이터</span></div>
+									<div class="list-kv"><span class="list-kv__title">타이틀</span><span class="list-kv__data">데이터</span></div>
+									<div class="list-kv"><span class="list-kv__title">타이틀</span><span class="list-kv__data">데이터</span></div>
+								</div>
+								<div class="list-page__divider"></div>
+							</div>
+						</div>
+					</div>
+					<span class="unit-highlight-list__caption">텍스트를 입력해 주세요.</span>
+				</div>
+			</div>
+			<p class="note">타이틀·하단 캡션은 옵션(기본 on)입니다. 이미 검증된 card__price2-row(가격 요약), list-page/list-kv(상세 리스트) 컴포넌트를
+				재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-highlight-list"&gt;
+  &lt;span class="unit-highlight-list__title"&gt;타이틀&lt;/span&gt;
+  &lt;div class="card card--gray"&gt;
+    &lt;div class="card__price2-row"&gt;
+      &lt;div class="card__price2-title"&gt;&lt;span class="card__price2-title__label"&gt;타이틀&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="card__price2-value"&gt;
+        &lt;span class="card__price2-value__row"&gt;&lt;span class="card__price2-value__unit"&gt;매월&lt;/span&gt;&lt;span class="card__price2-value__amount"&gt;0원&lt;/span&gt;&lt;/span&gt;
+        &lt;span class="card__price2-value__sub"&gt;부가설명&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="list-page list-page--sm"&gt;
+    &lt;div class="list-page__rows"&gt;
+      &lt;div class="list-kv"&gt;&lt;span class="list-kv__title"&gt;타이틀&lt;/span&gt;&lt;span class="list-kv__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="list-kv"&gt;&lt;span class="list-kv__title"&gt;타이틀&lt;/span&gt;&lt;span class="list-kv__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="list-kv"&gt;&lt;span class="list-kv__title"&gt;타이틀&lt;/span&gt;&lt;span class="list-kv__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="list-page__divider"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;span class="unit-highlight-list__caption"&gt;텍스트를 입력해 주세요.&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>branches — 지점 안내(아이콘 + 텍스트 + 버튼 2개)</h3>
+			<div class="demo">
+				<div class="card" style="gap:16px;">
+					<div class="card__icon-title">
+						<span class="unit-branches__icon"></span>
+						<div class="card__icon-title__body">
+							<span class="card__title">타이틀</span>
+							<span class="card__subtitle">텍스트를 입력해 주세요.</span>
+						</div>
+					</div>
+					<div class="card__button-row">
+						<button type="button" class="btn btn--tertiary btn--sm">버튼</button>
+						<button type="button" class="btn btn--secondary btn--sm">버튼</button>
+					</div>
+				</div>
+			</div>
+			<p class="note">버튼 2개는 각각 옵션(기본 on)입니다. 아이콘(은행)·타이틀·서브텍스트는 card__icon-title/card__icon-title__body,
+				버튼은 card__button-row/btn을 재사용했습니다.</p>
+			<pre><code>&lt;div class="card" style="gap:16px;"&gt;
+  &lt;div class="card__icon-title"&gt;
+    &lt;span class="unit-branches__icon"&gt;&lt;/span&gt;
+    &lt;div class="card__icon-title__body"&gt;
+      &lt;span class="card__title"&gt;타이틀&lt;/span&gt;
+      &lt;span class="card__subtitle"&gt;텍스트를 입력해 주세요.&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card__button-row"&gt;
+    &lt;button class="btn btn--tertiary btn--sm"&gt;버튼&lt;/button&gt;
+    &lt;button class="btn btn--secondary btn--sm"&gt;버튼&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>combination — 상품리스트 + 약정서 확인 + 라디오 + 입력 + 버튼</h3>
+			<div class="demo">
+				<div class="card" style="gap:24px;">
+					<div style="display:flex; flex-direction:column; gap:20px; width:100%;">
+						<span class="card__title">타이틀</span>
+						<div class="card__list-rows">
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+						</div>
+					</div>
+					<div class="terms-card">
+						<div class="terms-card__header">
+							<div class="terms-card__check">
+								<label class="check-basic"><input type="checkbox" class="check-basic__input"><span
+										class="check-basic__icon"></span></label>
+								<span class="terms-card__title">약정서 확인</span>
+							</div>
+							<button type="button" class="terms-card__toggle" aria-label="상세보기"></button>
+						</div>
+					</div>
+					<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
+						<div class="radio-box-field">
+							<span class="label-text">대출 계약서류 받는 방법</span>
+							<div class="radio-box-row">
+								<label><input type="radio" name="unitCombination1" class="radio-hidden-input radio-box-input"
+										checked><span class="radio-box radio-box--sm radio-box--center">이메일</span></label>
+								<label><input type="radio" name="unitCombination1"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">문자메시지</span></label>
+							</div>
+						</div>
+						<div class="input-line">
+							<div class="input-line__field">
+								<input class="input-line__input" value="abc1234@gmail.com" readonly>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn--primary btn--md btn--full">다음</button>
+				</div>
+			</div>
+			<p class="note">타이틀+리스트(card__list-row) / 약정서 확인(terms-card__header) / 라디오 2개(radio-box-field) / 입력창(input-line) /
+				버튼(btn--primary)까지 모두 기존 검증된 컴포넌트를 그대로 재사용한 조합입니다.</p>
+			<pre><code>&lt;div class="card"&gt;
+  &lt;span class="card__title"&gt;타이틀&lt;/span&gt;
+  &lt;div class="card__list-rows"&gt;
+    &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="terms-card"&gt;
+    &lt;div class="terms-card__header"&gt;
+      &lt;div class="terms-card__check"&gt;
+        &lt;label class="check-basic"&gt;&lt;input type="checkbox" class="check-basic__input"&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
+        &lt;span class="terms-card__title"&gt;약정서 확인&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;button class="terms-card__toggle" aria-label="상세보기"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="radio-box-field"&gt;
+    &lt;span class="label-text"&gt;대출 계약서류 받는 방법&lt;/span&gt;
+    &lt;div class="radio-box-row"&gt;
+      &lt;label&gt;&lt;input type="radio" name="g" class="radio-hidden-input radio-box-input" checked&gt;&lt;span class="radio-box radio-box--sm radio-box--center"&gt;이메일&lt;/span&gt;&lt;/label&gt;
+      &lt;label&gt;&lt;input type="radio" name="g" class="radio-hidden-input radio-box-input"&gt;&lt;span class="radio-box radio-box--sm radio-box--center"&gt;문자메시지&lt;/span&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="input-line"&gt;
+    &lt;div class="input-line__field"&gt;&lt;input class="input-line__input" value="abc1234@gmail.com"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn--primary btn--md btn--full"&gt;다음&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>inquiry-period — 조회기간 라디오(4개) + 기간 선택 + 조회 버튼</h3>
+			<div class="demo">
+				<div class="unit-inquiry-period" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<div class="radio-box-field">
+							<span class="label-text">조회기간</span>
+							<div class="radio-box-row">
+								<label><input type="radio" name="unitInquiryPeriod1" class="radio-hidden-input radio-box-input"
+										checked><span class="radio-box radio-box--sm radio-box--center">당일</span></label>
+								<label><input type="radio" name="unitInquiryPeriod1"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">1개월</span></label>
+								<label><input type="radio" name="unitInquiryPeriod1"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">3개월</span></label>
+								<label><input type="radio" name="unitInquiryPeriod1"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">6개월</span></label>
+							</div>
+						</div>
+						<div class="calendar-period">
+							<div class="calendar-period__field">
+								<span class="calendar-period__text is-filled">2025.01.01</span><span
+									class="calendar-period__icon"></span>
+								<span class="calendar-period__sep">~</span>
+								<span class="calendar-period__text is-filled">2025.01.02</span><span
+									class="calendar-period__icon"></span>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn--secondary btn--rg btn--full">조회</button>
+				</div>
+			</div>
+			<p class="note">버튼은 옵션(기본 on)입니다. radio-box-field(라디오 4개)와 calendar-period(기간 선택) 컴포넌트를 그대로 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-inquiry-period"&gt;
+  &lt;div class="radio-box-field"&gt;
+    &lt;span class="label-text"&gt;조회기간&lt;/span&gt;
+    &lt;div class="radio-box-row"&gt;
+      &lt;label&gt;&lt;input type="radio" name="g" class="radio-hidden-input radio-box-input" checked&gt;&lt;span class="radio-box radio-box--sm radio-box--center"&gt;당일&lt;/span&gt;&lt;/label&gt;
+      &lt;label&gt;&lt;input type="radio" name="g" class="radio-hidden-input radio-box-input"&gt;&lt;span class="radio-box radio-box--sm radio-box--center"&gt;1개월&lt;/span&gt;&lt;/label&gt;
+      &lt;label&gt;&lt;input type="radio" name="g" class="radio-hidden-input radio-box-input"&gt;&lt;span class="radio-box radio-box--sm radio-box--center"&gt;3개월&lt;/span&gt;&lt;/label&gt;
+      &lt;label&gt;&lt;input type="radio" name="g" class="radio-hidden-input radio-box-input"&gt;&lt;span class="radio-box radio-box--sm radio-box--center"&gt;6개월&lt;/span&gt;&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="calendar-period"&gt;
+    &lt;div class="calendar-period__field"&gt;
+      &lt;span class="calendar-period__text is-filled"&gt;2025.01.01&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;/span&gt;
+      &lt;span class="calendar-period__sep"&gt;~&lt;/span&gt;
+      &lt;span class="calendar-period__text is-filled"&gt;2025.01.02&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn--secondary btn--rg btn--full"&gt;조회&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>refund-account — 환급계좌 은행선택 + 계좌번호 + 예금주조회 + 링크</h3>
+			<div class="demo">
+				<div class="unit-refund-account" style="width:312px;">
+					<div class="select-field">
+						<span class="select-field__label">환급계좌번호</span>
+						<button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false">
+							<span class="select-field__content"><span class="select-field__text">NH농협은행</span></span>
+							<span class="select-field__chevron" aria-hidden="true"></span>
+						</button>
+					</div>
+					<div class="input-box">
+						<div class="input-box__field">
+							<input class="input-box__input" placeholder="계좌번호 입력">
+						</div>
+					</div>
+					<div class="input-box">
+						<div class="input-box__field">
+							<input class="input-box__input" placeholder="예금주명 조회" readonly>
+							<button type="button" class="input-box__btn input-box__btn--disabled" disabled>예금주명 조회</button>
+						</div>
+					</div>
+					<button type="button" class="text-link-icon text-link-icon--full">소송등인지대 조건표</button>
+				</div>
+			</div>
+			<p class="note">select-field(은행 선택) + input-box(계좌번호) + input-box/input-box__btn(예금주명 조회, 비활성) + 하단 안내 링크
+				조합입니다. 링크 텍스트는 Figma 원본 그대로("소송등인지대 조건표")입니다.</p>
+			<pre><code>&lt;div class="unit-refund-account"&gt;
+  &lt;div class="select-field"&gt;
+    &lt;span class="select-field__label"&gt;환급계좌번호&lt;/span&gt;
+    &lt;button class="select-field__box"&gt;
+      &lt;span class="select-field__content"&gt;&lt;span class="select-field__text"&gt;NH농협은행&lt;/span&gt;&lt;/span&gt;
+      &lt;span class="select-field__chevron"&gt;&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="input-box"&gt;
+    &lt;div class="input-box__field"&gt;&lt;input class="input-box__input" placeholder="계좌번호 입력"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="input-box"&gt;
+    &lt;div class="input-box__field"&gt;
+      &lt;input class="input-box__input" placeholder="예금주명 조회" readonly&gt;
+      &lt;button class="input-box__btn input-box__btn--disabled" disabled&gt;예금주명 조회&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="text-link-icon text-link-icon--full"&gt;소송등인지대 조건표&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>nh-point — 포인트 사용 토글 + 입력 + 가용포인트 안내</h3>
+			<div class="demo">
+				<div class="unit-nh-point" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
+						<div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+							<div style="display:flex; align-items:center; gap:2px;">
+								<span class="card__title" style="width:auto;">NH포인트 사용</span>
+								<span class="label-text__tooltip"></span>
+							</div>
+							<label class="switch"><input type="checkbox" class="switch__input" checked><span
+									class="switch__track"></span></label>
+						</div>
+						<span class="unit-nh-point__desc">NH포인트를 현금처럼 사용해 보세요.</span>
+					</div>
+					<div class="input-box">
+						<div class="input-box__field">
+							<input class="input-box__input" placeholder="가용포인트 이내로 입력">
+							<button type="button" class="input-box__btn">모두사용</button>
+						</div>
+						<span class="input-box__message input-box__message--success">가용포인트 50,000,000P</span>
+					</div>
+				</div>
+			</div>
+			<p class="note">토글은 switch, 입력창은 input-box(+모두사용 버튼), 안내 문구는 input-box__message--success(포인트 색상)를
+				재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-nh-point"&gt;
+  &lt;div style="display:flex; align-items:center; justify-content:space-between;"&gt;
+    &lt;span class="card__title"&gt;NH포인트 사용&lt;/span&gt;&lt;span class="label-text__tooltip"&gt;&lt;/span&gt;
+    &lt;label class="switch"&gt;&lt;input type="checkbox" class="switch__input" checked&gt;&lt;span class="switch__track"&gt;&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;span class="unit-nh-point__desc"&gt;NH포인트를 현금처럼 사용해 보세요.&lt;/span&gt;
+  &lt;div class="input-box"&gt;
+    &lt;div class="input-box__field"&gt;
+      &lt;input class="input-box__input" placeholder="가용포인트 이내로 입력"&gt;
+      &lt;button class="input-box__btn"&gt;모두사용&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;span class="input-box__message input-box__message--success"&gt;가용포인트 50,000,000P&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>complete-card — 가입완료 화면(이미지+타이틀+서브텍스트+바디+요약박스)</h3>
+			<div class="demo">
+				<div class="unit-complete-card" style="width:312px;">
+					<img src="assets/img/visual/img_clap02.png" alt="" width="140" height="140">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<p class="unit-complete-card__title">&amp;상품명&amp;<br>가입했어요</p>
+						<p class="unit-complete-card__subtitle">서브텍스트를 입력해 주세요.</p>
+					</div>
+					<p class="unit-complete-card__body">바디텍스트를 입력해 주세요.</p>
+					<div class="card card--gray">
+						<div class="card__list-rows">
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">가입완료 계열 화면의 상단 조합입니다. 삽화는 로컬 asset(img_clap02.png, 140x140)로 대체했습니다. 하단 요약 박스는
+				card/card--gray/card__list-row를 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-complete-card"&gt;
+  &lt;img src="assets/img/visual/img_clap02.png" alt="" width="140" height="140"&gt;
+  &lt;p class="unit-complete-card__title"&gt;&amp;amp;상품명&amp;amp;&lt;br&gt;가입했어요&lt;/p&gt;
+  &lt;p class="unit-complete-card__subtitle"&gt;서브텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;p class="unit-complete-card__body"&gt;바디텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;div class="card card--gray"&gt;
+    &lt;div class="card__list-rows"&gt;
+      &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>complete-accordion — 가입완료 화면(요약박스 펼치기 버튼 포함)</h3>
+			<div class="demo">
+				<div class="unit-complete-card" style="width:312px;">
+					<img src="assets/img/visual/img_clap02.png" alt="" width="140" height="140">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<p class="unit-complete-card__title">&amp;상품명&amp;<br>가입했어요</p>
+						<p class="unit-complete-card__subtitle">서브텍스트를 입력해 주세요.</p>
+					</div>
+					<p class="unit-complete-card__body">바디텍스트를 입력해 주세요.</p>
+					<div class="card card--gray card--gap-24">
+						<div class="card__list-rows">
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+							<div class="card__list-row"><span class="card__list-row__title">타이틀</span><span
+									class="card__list-row__data">데이터</span></div>
+						</div>
+						<button type="button" class="card__toggle-btn">펼치기</button>
+					</div>
+				</div>
+			</div>
+			<p class="note">complete-card와 상단(이미지/타이틀/서브텍스트/바디)은 동일한 unit-complete-card 클래스를 재사용하고, 하단 요약박스만
+				card--gap-24 + card__toggle-btn("펼치기")로 교체한 조합입니다. 신규 CSS 없이 기존 클래스만 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-complete-card"&gt;
+  &lt;img src="assets/img/visual/img_clap02.png" alt="" width="140" height="140"&gt;
+  &lt;p class="unit-complete-card__title"&gt;&amp;amp;상품명&amp;amp;&lt;br&gt;가입했어요&lt;/p&gt;
+  &lt;p class="unit-complete-card__subtitle"&gt;서브텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;p class="unit-complete-card__body"&gt;바디텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;div class="card card--gray card--gap-24"&gt;
+    &lt;div class="card__list-rows"&gt;
+      &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="card__toggle-btn"&gt;펼치기&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>complete-check-left — 가입 권유 화면(체크 삽화 + 텍스트링크)</h3>
+			<div class="demo">
+				<div class="unit-complete-card" style="width:312px;">
+					<img src="assets/img/icon/img_check_68.svg" alt="" width="68" height="68">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<p class="unit-complete-card__title">&amp;상품명&amp;을 <br>가입시켜 주세요</p>
+						<p class="unit-complete-card__subtitle">서브텍스트를 입력해 주세요.</p>
+					</div>
+					<p class="unit-complete-card__body">바디텍스트를 입력해 주세요.</p>
+					<button type="button" class="text-link-icon">버튼</button>
+				</div>
+			</div>
+			<p class="note">이미지만 68px 체크 삽화(img_check_68.svg)로 교체하고, 나머지 타이틀/서브텍스트/바디는 unit-complete-card 클래스를
+				그대로 재사용했습니다. 하단은 text-link-icon(아이콘 오른쪽) 버튼입니다.</p>
+			<pre><code>&lt;div class="unit-complete-card"&gt;
+  &lt;img src="assets/img/icon/img_check_68.svg" alt="" width="68" height="68"&gt;
+  &lt;p class="unit-complete-card__title"&gt;&amp;amp;상품명&amp;amp;을 &lt;br&gt;가입시켜 주세요&lt;/p&gt;
+  &lt;p class="unit-complete-card__subtitle"&gt;서브텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;p class="unit-complete-card__body"&gt;바디텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;button class="text-link-icon"&gt;버튼&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>complete-check-center — 추가 완료 화면(가운데 정렬)</h3>
+			<div class="demo">
+				<div class="unit-complete-card unit-complete-card--center" style="width:312px;">
+					<img src="assets/img/icon/img_check_68.svg" alt="" width="68" height="68">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<p class="unit-complete-card__title">&amp;상품명&amp;을 추가하였습니다</p>
+						<p class="unit-complete-card__subtitle">서브텍스트를 입력해 주세요.</p>
+					</div>
+					<p class="unit-complete-card__body">바디텍스트를 입력해 주세요.</p>
+					<button type="button" class="text-link-icon">버튼</button>
+				</div>
+			</div>
+			<p class="note">complete-check-left와 동일한 클래스를 재사용하되 unit-complete-card--center 수식자로 가운데 정렬만 추가한
+				변형입니다.</p>
+			<pre><code>&lt;div class="unit-complete-card unit-complete-card--center"&gt;
+  &lt;img src="assets/img/icon/img_check_68.svg" alt="" width="68" height="68"&gt;
+  &lt;p class="unit-complete-card__title"&gt;&amp;amp;상품명&amp;amp;을 추가하였습니다&lt;/p&gt;
+  &lt;p class="unit-complete-card__subtitle"&gt;서브텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;p class="unit-complete-card__body"&gt;바디텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;button class="text-link-icon"&gt;버튼&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>alert-center — 처리 실패 화면(오류코드 안내박스)</h3>
+			<div class="demo">
+				<div class="unit-complete-card unit-complete-card--center" style="width:312px;">
+					<img src="assets/img/icon/img_error-fail_68.svg" alt="" width="68" height="68">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<p class="unit-complete-card__title">&amp;&amp;이 처리 되지 않았습니다</p>
+						<p class="unit-complete-card__subtitle">서브텍스트를 입력해 주세요.</p>
+					</div>
+					<p class="unit-complete-card__body">바디텍스트를 입력해 주세요.</p>
+					<div class="infobox">
+						<p class="infobox__title">오류코드</p>
+						<p class="infobox__body infobox__body--error">NW20003 : 10. 70-01</p>
+					</div>
+				</div>
+			</div>
+			<p class="note">삽화(img_error-fail_68.svg)와 하단 오류코드 안내는 infobox(+infobox__body--error) 컴포넌트를 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-complete-card unit-complete-card--center"&gt;
+  &lt;img src="assets/img/icon/img_error-fail_68.svg" alt="" width="68" height="68"&gt;
+  &lt;p class="unit-complete-card__title"&gt;&amp;amp;&amp;amp;이 처리 되지 않았습니다&lt;/p&gt;
+  &lt;p class="unit-complete-card__subtitle"&gt;서브텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;p class="unit-complete-card__body"&gt;바디텍스트를 입력해 주세요.&lt;/p&gt;
+  &lt;div class="infobox"&gt;
+    &lt;p class="infobox__title"&gt;오류코드&lt;/p&gt;
+    &lt;p class="infobox__body infobox__body--error"&gt;NW20003 : 10. 70-01&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>confirm-account-cancle — 해지 불가 안내(다단 문구 + 텍스트링크)</h3>
+			<div class="demo">
+				<div class="unit-complete-card unit-complete-card--center" style="width:312px;">
+					<img src="assets/img/icon/img_complete-notice_68.svg" alt="" width="68" height="68">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<p class="unit-complete-card__title">해당 증권계좌는<br>해지할 수 없습니다</p>
+						<p class="unit-complete-card__subtitle">자세한 내용은 해당 증권사 고객센터로<br>문의해 주시기 바랍니다.</p>
+					</div>
+					<p class="unit-complete-card__body">연결되어 있는 다른 증권계좌를 해지하려면 아래의<br>[다른 증권계좌
+						해지]를 눌러 해지해 주세요.</p>
+					<button type="button" class="text-link-icon">다른 증권계좌 해지</button>
+				</div>
+			</div>
+			<p class="note">여러 줄 문구는 &lt;br&gt;로 줄바꿈했습니다. 나머지는 기존 unit-complete-card/text-link-icon 클래스를 그대로
+				재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-complete-card unit-complete-card--center"&gt;
+  &lt;img src="assets/img/icon/img_complete-notice_68.svg" alt="" width="68" height="68"&gt;
+  &lt;p class="unit-complete-card__title"&gt;해당 증권계좌는&lt;br&gt;해지할 수 없습니다&lt;/p&gt;
+  &lt;p class="unit-complete-card__subtitle"&gt;자세한 내용은 해당 증권사 고객센터로&lt;br&gt;문의해 주시기 바랍니다.&lt;/p&gt;
+  &lt;p class="unit-complete-card__body"&gt;연결되어 있는 다른 증권계좌를 해지하려면 아래의&lt;br&gt;[다른 증권계좌 해지]를 눌러 해지해 주세요.&lt;/p&gt;
+  &lt;button class="text-link-icon"&gt;다른 증권계좌 해지&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>confirm-isa — 투자성향분석 안내(타이틀 + 안내박스 4문단 + 텍스트링크)</h3>
+			<div class="demo">
+				<div class="unit-confirm-isa" style="width:312px;">
+					<img src="assets/img/icon/img_complete-notice_68.svg" alt="" width="68" height="68">
+					<p class="unit-confirm-isa__title">ISA 상품은<br>투자성향분석 후 가입할 수 있습니다</p>
+					<div style="display:flex; flex-direction:column; gap:12px; align-items:flex-end; width:100%;">
+						<div class="infobox">
+							<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
+								<p class="infobox__body">투자성향분석은 고객님의 투자성향을 파악하여 적합한 상품을 안내해 드리기 위한
+									기초자료로 활용됩니다.</p>
+								<p class="infobox__body">투자성향분석은 대면, 비대면 통합하여 1일 3회(대면 1회로 제한) 가능합니다.</p>
+								<p class="infobox__body">투자성향분석 결과는 12개월 동안 사용할 수 있으며, 투자성향이 변경되지 않은 경우
+									다시 사용할 수 있습니다.</p>
+								<p class="infobox__body">고객님의 투자성향보다 높은 등급의 상품은 가입할 수 없으며, 투자성향이 변경된 경우
+									투자성향분석을 다시 진행해 주세요.</p>
+							</div>
+						</div>
+						<button type="button" class="text-link-icon">투자성향분석 상세 안내</button>
+					</div>
+				</div>
+			</div>
+			<p class="note">안내박스 4문단은 infobox(제목 없이 infobox__body만 4개), 하단은 text-link-icon을 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-confirm-isa"&gt;
+  &lt;img src="assets/img/icon/img_complete-notice_68.svg" alt="" width="68" height="68"&gt;
+  &lt;p class="unit-confirm-isa__title"&gt;ISA 상품은&lt;br&gt;투자성향분석 후 가입할 수 있습니다&lt;/p&gt;
+  &lt;div class="infobox"&gt;
+    &lt;p class="infobox__body"&gt;문단1...&lt;/p&gt;
+    &lt;p class="infobox__body"&gt;문단2...&lt;/p&gt;
+    &lt;p class="infobox__body"&gt;문단3...&lt;/p&gt;
+    &lt;p class="infobox__body"&gt;문단4...&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;button class="text-link-icon"&gt;투자성향분석 상세 안내&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-account — 상품 상세 상단(예금, 금리 2종 + 정보 2행)</h3>
+			<div class="demo">
+				<div class="unit-product-top" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:48px; width:100%;">
+						<div class="unit-product-top__head">
+							<span class="unit-product-top__title">NH고향사랑기부예금</span>
+							<span class="unit-product-top__subtitle">#농사랑/공헌</span>
+						</div>
+						<div class="unit-product-top__body">
+							<div class="unit-product-top__rate-group">
+								<div class="unit-product-top__rate-row">
+									<div>
+										<p class="unit-product-top__rate-label">최고</p>
+										<p class="unit-product-top__rate-value unit-product-top__rate-value--point">3.90%</p>
+									</div>
+									<div>
+										<p class="unit-product-top__rate-label">기본</p>
+										<p class="unit-product-top__rate-value">3.10%</p>
+									</div>
+								</div>
+								<p class="unit-product-top__rate-caption">(연/세전) 2024.01.05 기준</p>
+							</div>
+							<div class="unit-product-top__info-group">
+								<div class="unit-product-top__info-row">
+									<span class="unit-product-top__info-icon"><img
+											src="assets/img/icon/ico_period-calendar_fill_32.svg" alt="">가입기간</span>
+									<span class="unit-product-top__info-value">12개월까지</span>
+								</div>
+								<div class="unit-product-top__info-row">
+									<span class="unit-product-top__info-icon"><img
+											src="assets/img/icon/ico_amount-won_fill_32.svg" alt="">가입금액</span>
+									<span class="unit-product-top__info-value">1백만원 부터 제한없음</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn--primary btn--md btn--full">가입하기</button>
+				</div>
+			</div>
+			<p class="note">상품 상세 화면 상단 공통 셸(unit-product-top)입니다. 금리 2종(최고/기본) + 정보 2행(가입기간/가입금액) + 가입 버튼
+				조합으로, 이후 대출/펀드/ELD 등 다른 상품유형도 같은 셸에서 내용만 바뀝니다.</p>
+			<pre><code>&lt;div class="unit-product-top"&gt;
+  &lt;div class="unit-product-top__head"&gt;
+    &lt;span class="unit-product-top__title"&gt;NH고향사랑기부예금&lt;/span&gt;
+    &lt;span class="unit-product-top__subtitle"&gt;#농사랑/공헌&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="unit-product-top__rate-group"&gt;
+    &lt;div class="unit-product-top__rate-row"&gt;
+      &lt;div&gt;&lt;p class="unit-product-top__rate-label"&gt;최고&lt;/p&gt;&lt;p class="unit-product-top__rate-value unit-product-top__rate-value--point"&gt;3.90%&lt;/p&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;p class="unit-product-top__rate-label"&gt;기본&lt;/p&gt;&lt;p class="unit-product-top__rate-value"&gt;3.10%&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p class="unit-product-top__rate-caption"&gt;(연/세전) 2024.01.05 기준&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="unit-product-top__info-group"&gt;
+    &lt;div class="unit-product-top__info-row"&gt;
+      &lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_period-calendar_fill_32.svg" alt=""&gt;가입기간&lt;/span&gt;
+      &lt;span class="unit-product-top__info-value"&gt;12개월까지&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="unit-product-top__info-row"&gt;
+      &lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_amount-won_fill_32.svg" alt=""&gt;가입금액&lt;/span&gt;
+      &lt;span class="unit-product-top__info-value"&gt;1백만원 부터 제한없음&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn--primary btn--md btn--full"&gt;가입하기&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-loan — 상품 상세 상단(대출, 한도 + 금리범위 + 정보 2행)</h3>
+			<div class="demo">
+				<div class="unit-product-top" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:48px; width:100%;">
+						<div class="unit-product-top__head">
+							<span class="unit-product-top__title">NH대한민국 히어로대출</span>
+							<span class="unit-product-top__subtitle">#경찰관 #소방관 #해양경찰관</span>
+						</div>
+						<div class="unit-product-top__body">
+							<div class="unit-product-top__rate-group">
+								<p class="unit-product-top__rate-label">최대한도</p>
+								<p class="unit-product-top__rate-value unit-product-top__rate-value--point">3억원</p>
+							</div>
+							<div class="unit-product-top__rate-group">
+								<p class="unit-product-top__rate-label">대출금리(연)</p>
+								<div class="unit-product-top__rate-row" style="gap:4px;">
+									<p class="unit-product-top__rate-value">3.32%</p>
+									<p class="unit-product-top__rate-sep">~</p>
+									<p class="unit-product-top__rate-value">5.02%</p>
+								</div>
+								<p class="unit-product-top__rate-caption">2025.09.30기준(최저~최고)</p>
+							</div>
+							<div class="unit-product-top__info-group">
+								<div class="unit-product-top__info-row">
+									<span class="unit-product-top__info-icon"><img src="assets/img/icon/ico_target_fill_32.svg"
+											alt="">대상</span>
+									<span class="unit-product-top__info-value">개인</span>
+								</div>
+								<div class="unit-product-top__info-row">
+									<span class="unit-product-top__info-icon"><img src="assets/img/icon/ico_repayment_fill_32.svg"
+											alt="">상환방법</span>
+									<span class="unit-product-top__info-value">분할, 일시, 수시</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn--primary btn--md btn--full">신청하기</button>
+				</div>
+			</div>
+			<p class="note">unit-product-top 셸 재사용. 금리 범위(~)는 unit-product-top__rate-sep을 추가로 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-product-top"&gt;
+  &lt;div class="unit-product-top__head"&gt;
+    &lt;span class="unit-product-top__title"&gt;NH대한민국 히어로대출&lt;/span&gt;
+    &lt;span class="unit-product-top__subtitle"&gt;#경찰관 #소방관 #해양경찰관&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="unit-product-top__rate-group"&gt;
+    &lt;p class="unit-product-top__rate-label"&gt;최대한도&lt;/p&gt;
+    &lt;p class="unit-product-top__rate-value unit-product-top__rate-value--point"&gt;3억원&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="unit-product-top__rate-group"&gt;
+    &lt;p class="unit-product-top__rate-label"&gt;대출금리(연)&lt;/p&gt;
+    &lt;div class="unit-product-top__rate-row" style="gap:4px;"&gt;
+      &lt;p class="unit-product-top__rate-value"&gt;3.32%&lt;/p&gt;&lt;p class="unit-product-top__rate-sep"&gt;~&lt;/p&gt;&lt;p class="unit-product-top__rate-value"&gt;5.02%&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p class="unit-product-top__rate-caption"&gt;2025.09.30기준(최저~최고)&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="unit-product-top__info-group"&gt;
+    &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_target_fill_32.svg" alt=""&gt;대상&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;개인&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_repayment_fill_32.svg" alt=""&gt;상환방법&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;분할, 일시, 수시&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn--primary btn--md btn--full"&gt;신청하기&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-performance — 상품 상세 상단(가운데 정렬, 버튼 없음)</h3>
+			<div class="demo">
+				<div class="unit-product-top unit-product-top--center" style="width:312px; gap:40px;">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<p class="unit-product-top__subtitle">#추천 #확정이율 #정기예금</p>
+						<p class="unit-product-top__title unit-product-top__title--display">NH올원e예금</p>
+						<p class="unit-product-top__subtitle">복잡한 조건없이 쉽게 목돈을<br>굴릴 수 있는 비대면 전용 정기예금</p>
+					</div>
+					<div class="unit-product-top__rate-group" style="gap:8px;">
+						<div class="unit-product-top__rate-row" style="justify-content:center;">
+							<div style="width:78px; text-align:center;">
+								<p class="unit-product-top__rate-label">최고</p>
+								<p class="unit-product-top__rate-value unit-product-top__rate-value--sm unit-product-top__rate-value--point">
+									3.95%</p>
+							</div>
+							<div style="width:78px; text-align:center;">
+								<p class="unit-product-top__rate-label">기본</p>
+								<p class="unit-product-top__rate-value unit-product-top__rate-value--sm">3.95%</p>
+							</div>
+						</div>
+						<p class="unit-product-top__rate-caption">(연/세전) 2024.01.05 기준</p>
+					</div>
+				</div>
+			</div>
+			<p class="note">unit-product-top--center 수식자로 가운데 정렬, 타이틀은 --display(36px)로 확대, 금리 값은 --sm(26px) 수식자를
+				사용했습니다. 정보행/버튼이 없는 변형입니다.</p>
+			<pre><code>&lt;div class="unit-product-top unit-product-top--center"&gt;
+  &lt;p class="unit-product-top__subtitle"&gt;#추천 #확정이율 #정기예금&lt;/p&gt;
+  &lt;p class="unit-product-top__title unit-product-top__title--display"&gt;NH올원e예금&lt;/p&gt;
+  &lt;p class="unit-product-top__subtitle"&gt;복잡한 조건없이 쉽게 목돈을&lt;br&gt;굴릴 수 있는 비대면 전용 정기예금&lt;/p&gt;
+  &lt;div class="unit-product-top__rate-group"&gt;
+    &lt;div class="unit-product-top__rate-row"&gt;
+      &lt;div&gt;&lt;p class="unit-product-top__rate-label"&gt;최고&lt;/p&gt;&lt;p class="unit-product-top__rate-value unit-product-top__rate-value--sm unit-product-top__rate-value--point"&gt;3.95%&lt;/p&gt;&lt;/div&gt;
+      &lt;div&gt;&lt;p class="unit-product-top__rate-label"&gt;기본&lt;/p&gt;&lt;p class="unit-product-top__rate-value unit-product-top__rate-value--sm"&gt;3.95%&lt;/p&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p class="unit-product-top__rate-caption"&gt;(연/세전) 2024.01.05 기준&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-eld — 상품 상세 상단(ELD, 타이틀+정보 2행+버튼)</h3>
+			<div class="demo">
+				<div class="unit-product-top" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:48px; width:100%;">
+						<p class="unit-product-top__title">지수연동예금(ELD) 23-1호 【KOSPI200안정상승낙아웃 I형】</p>
+						<div class="unit-product-top__info-group">
+							<div class="unit-product-top__info-row">
+								<span class="unit-product-top__info-icon"><img
+										src="assets/img/icon/ico_period-calendar_fill_32.svg" alt="">모집기간</span>
+								<span class="unit-product-top__info-value">2025.01.01(0일) ~ 2025.01.01(0일), 0영업일</span>
+							</div>
+							<div class="unit-product-top__info-row">
+								<span class="unit-product-top__info-icon"><img
+										src="assets/img/icon/ico_period-calendar_fill_32.svg" alt="">계약기간</span>
+								<span class="unit-product-top__info-value">2025.01.01(0일) ~ 2025.01.01(0일), 0년</span>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn--primary btn--md btn--full">가입하기</button>
+				</div>
+			</div>
+			<p class="note">금리행 없이 타이틀 + 정보 2행(모집기간/계약기간) + 버튼만 있는 가장 단순한 변형입니다. 신규 CSS 없이 unit-product-top 셸을
+				그대로 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-product-top"&gt;
+  &lt;p class="unit-product-top__title"&gt;지수연동예금(ELD) 23-1호 【KOSPI200안정상승낙아웃 I형】&lt;/p&gt;
+  &lt;div class="unit-product-top__info-group"&gt;
+    &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_period-calendar_fill_32.svg" alt=""&gt;모집기간&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;2025.01.01(0일) ~ 2025.01.01(0일), 0영업일&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_period-calendar_fill_32.svg" alt=""&gt;계약기간&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;2025.01.01(0일) ~ 2025.01.01(0일), 0년&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn--primary btn--md btn--full"&gt;가입하기&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-fund — 상품 상세 상단(펀드, 라벨+타이틀+bullet+통계 3열+수익률박스)</h3>
+			<div class="demo">
+				<div class="unit-product-top" style="width:312px; gap:48px;">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
+							<div class="card__label-row">
+								<span class="label label--sm label--line label--gray">계열사</span>
+								<span class="label label--sm label--line label--red">고난도</span>
+							</div>
+							<p class="unit-product-top__category">글로벌 배당주 펀드</p>
+							<p class="unit-product-top__title">HDS 3Value 지수연계 증권투자신탁 KSE-24호 (ELS-파생형) Ae</p>
+						</div>
+						<ul class="bullet bullet--body">
+							<li class="bullet__item">수수료 선취-온라인</li>
+							<li class="bullet__item">피델리티자산운용</li>
+						</ul>
+					</div>
+					<div style="display:flex; flex-direction:column; gap:32px; width:100%;">
+						<div class="unit-product-top__stat-row">
+							<div class="unit-product-top__stat-col">
+								<p class="unit-product-top__stat-label">상품유형</p>
+								<p class="unit-product-top__stat-value">채권형채권</p>
+							</div>
+							<div class="unit-product-top__stat-col">
+								<p class="unit-product-top__stat-label">위험도</p>
+								<p class="unit-product-top__stat-value unit-product-top__stat-value--risk">매우낮은위험</p>
+							</div>
+							<div class="unit-product-top__stat-col">
+								<p class="unit-product-top__stat-label">투자지역</p>
+								<p class="unit-product-top__stat-value">국내(원화)</p>
+							</div>
+						</div>
+						<div style="display:flex; flex-direction:column; gap:12px; align-items:flex-end; width:100%;">
+							<div class="infobox">
+								<p class="infobox__title infobox__title--sm">최근 3개월 수익률 및 기준가</p>
+								<div style="display:flex; align-items:center; gap:12px; width:100%; white-space:nowrap;">
+									<span
+										style="font-size:20px; font-weight:600; line-height:28px; letter-spacing:-0.4px; color:var(--color-font-error);">+400.17%</span>
+									<span
+										style="font-size:20px; font-weight:600; line-height:28px; letter-spacing:-0.4px; color:var(--color-font-1);">1397.53</span>
+									<span style="display:flex; align-items:center; gap:4px; color:var(--color-font-error);">
+										<span style="font-size:10px; letter-spacing:-0.2px;">▲</span>
+										<span style="font-size:16px; letter-spacing:-0.32px;">0.5</span>
+									</span>
+								</div>
+							</div>
+							<button type="button" class="text-link-icon">목표시장정보안내</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">라벨(card__label-row), 리스트 문구(bullet--body), 안내박스(infobox+infobox__title--sm), 링크(text-link-icon)는
+				기존 컴포넌트를 재사용했고, 통계 3열(unit-product-top__stat-*)만 신규로 추가했습니다. 수익률 박스 내부 3종 텍스트(등락률/기준가/증감)는 재사용
+				가능성이 낮아 인라인 스타일로 처리했습니다.</p>
+			<pre><code>&lt;div class="unit-product-top"&gt;
+  &lt;div class="card__label-row"&gt;
+    &lt;span class="label label--sm label--line label--gray"&gt;계열사&lt;/span&gt;
+    &lt;span class="label label--sm label--line label--red"&gt;고난도&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;p class="unit-product-top__category"&gt;글로벌 배당주 펀드&lt;/p&gt;
+  &lt;p class="unit-product-top__title"&gt;HDS 3Value 지수연계 증권투자신탁 KSE-24호 (ELS-파생형) Ae&lt;/p&gt;
+  &lt;ul class="bullet bullet--body"&gt;
+    &lt;li class="bullet__item"&gt;수수료 선취-온라인&lt;/li&gt;
+    &lt;li class="bullet__item"&gt;피델리티자산운용&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="unit-product-top__stat-row"&gt;
+    &lt;div class="unit-product-top__stat-col"&gt;&lt;p class="unit-product-top__stat-label"&gt;상품유형&lt;/p&gt;&lt;p class="unit-product-top__stat-value"&gt;채권형채권&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="unit-product-top__stat-col"&gt;&lt;p class="unit-product-top__stat-label"&gt;위험도&lt;/p&gt;&lt;p class="unit-product-top__stat-value unit-product-top__stat-value--risk"&gt;매우낮은위험&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="unit-product-top__stat-col"&gt;&lt;p class="unit-product-top__stat-label"&gt;투자지역&lt;/p&gt;&lt;p class="unit-product-top__stat-value"&gt;국내(원화)&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="infobox"&gt;
+    &lt;p class="infobox__title infobox__title--sm"&gt;최근 3개월 수익률 및 기준가&lt;/p&gt;
+    &lt;div&gt;+400.17% / 1397.53 / ▲0.5&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="text-link-icon"&gt;목표시장정보안내&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-etf-elt — 상품 상세 상단(ETF, 타이틀+해시태그+통계 3열+경고박스)</h3>
+			<div class="demo">
+				<div class="unit-product-top" style="width:312px; gap:48px;">
+					<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
+						<p class="unit-product-top__title">ETF특정금전신탁 ACE 미국30년국채 액티브(H)_거치식(비대면)</p>
+						<div class="unit-product-top__tags">
+							<span>#선취</span><span>#거치식</span><span>#30년</span><span>#미국채권</span><span>#액티브</span>
+						</div>
+					</div>
+					<div style="display:flex; flex-direction:column; gap:32px; width:100%;">
+						<div class="unit-product-top__stat-row">
+							<div class="unit-product-top__stat-col">
+								<p class="unit-product-top__stat-label">상품유형</p>
+								<p class="unit-product-top__stat-value">국내주식형</p>
+							</div>
+							<div class="unit-product-top__stat-col">
+								<p class="unit-product-top__stat-label">위험등급</p>
+								<p class="unit-product-top__stat-value unit-product-top__stat-value--risk">낮은위험</p>
+							</div>
+							<div class="unit-product-top__stat-col">
+								<p class="unit-product-top__stat-label">3개월 수익률</p>
+								<p class="unit-product-top__stat-value unit-product-top__stat-value--visual">-9.07%</p>
+							</div>
+						</div>
+						<div class="infobox infobox--outline">
+							<p class="infobox__body">본 상품은 일반 예금상품과 달리 원금의 일부 또는 전부 손실이 발생할 수 있으며, 투자로 인한
+								손실은 투자자 본인에게 귀속됩니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">해시태그 목록은 unit-product-top__tags(신규, flex-wrap), 통계 3열은 앞선 fund 변형과 동일한
+				unit-product-top__stat-*를 재사용(--visual 색상만 추가)했고, 하단 경고박스는 infobox--outline(흰 배경+테두리) 변형을
+				추가했습니다.</p>
+			<pre><code>&lt;div class="unit-product-top"&gt;
+  &lt;p class="unit-product-top__title"&gt;ETF특정금전신탁 ACE 미국30년국채 액티브(H)_거치식(비대면)&lt;/p&gt;
+  &lt;div class="unit-product-top__tags"&gt;&lt;span&gt;#선취&lt;/span&gt;&lt;span&gt;#거치식&lt;/span&gt;&lt;span&gt;#30년&lt;/span&gt;&lt;span&gt;#미국채권&lt;/span&gt;&lt;span&gt;#액티브&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="unit-product-top__stat-row"&gt;
+    &lt;div class="unit-product-top__stat-col"&gt;&lt;p class="unit-product-top__stat-label"&gt;상품유형&lt;/p&gt;&lt;p class="unit-product-top__stat-value"&gt;국내주식형&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="unit-product-top__stat-col"&gt;&lt;p class="unit-product-top__stat-label"&gt;위험등급&lt;/p&gt;&lt;p class="unit-product-top__stat-value unit-product-top__stat-value--risk"&gt;낮은위험&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="unit-product-top__stat-col"&gt;&lt;p class="unit-product-top__stat-label"&gt;3개월 수익률&lt;/p&gt;&lt;p class="unit-product-top__stat-value unit-product-top__stat-value--visual"&gt;-9.07%&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="infobox infobox--outline"&gt;
+    &lt;p class="infobox__body"&gt;본 상품은 일반 예금상품과 달리 원금의 일부 또는 전부 손실이 발생할 수 있으며, 투자로 인한 손실은 투자자 본인에게 귀속됩니다.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-isa — 상품 상세 상단(ISA, 타이틀+해시태그+피처행+경고박스)</h3>
+			<div class="demo">
+				<div class="unit-product-top" style="width:312px; gap:48px;">
+					<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
+						<p class="unit-product-top__title">일임형<br>개인종합자산관리계좌 (ISA)</p>
+						<div class="unit-product-top__tags">
+							<span>#분산투자</span><span>#절세혜택</span>
+						</div>
+					</div>
+					<div style="display:flex; flex-direction:column; gap:24px; width:100%;">
+						<div class="unit-product-top__feature-row">
+							<img src="assets/img/icon/ico_diversified_fill_32.svg" alt="">
+							<span class="unit-product-top__info-value">분산투자와 제세혜택까지 받아보세요</span>
+						</div>
+						<div class="infobox infobox--outline">
+							<p class="infobox__body">본 상품은 일반 예금상품과 달리 원금의 일부 또는 전부 손실이 발생할 수 있으며, 투자로 인한
+								손실은 투자자 본인에게 귀속됩니다.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">피처 행(아이콘+설명)은 unit-product-top__feature-row(신규, 레이아웃만)+info-value(재사용) 조합입니다. 경고박스는
+				infobox--outline을 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-product-top"&gt;
+  &lt;p class="unit-product-top__title"&gt;일임형&lt;br&gt;개인종합자산관리계좌 (ISA)&lt;/p&gt;
+  &lt;div class="unit-product-top__tags"&gt;&lt;span&gt;#분산투자&lt;/span&gt;&lt;span&gt;#절세혜택&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="unit-product-top__feature-row"&gt;
+    &lt;img src="assets/img/icon/ico_diversified_fill_32.svg" alt=""&gt;
+    &lt;span class="unit-product-top__info-value"&gt;분산투자와 제세혜택까지 받아보세요&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="infobox infobox--outline"&gt;
+    &lt;p class="infobox__body"&gt;본 상품은 일반 예금상품과 달리 원금의 일부 또는 전부 손실이 발생할 수 있으며, 투자로 인한 손실은 투자자 본인에게 귀속됩니다.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-gold — 상품 상세 상단(골드바, 이미지+정보 2행+버튼, 가운데 정렬)</h3>
+			<div class="demo">
+				<div class="unit-product-top unit-product-top--center" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:48px; width:100%; align-items:center;">
+						<div class="unit-product-top__head">
+							<span class="unit-product-top__title">골드바</span>
+							<span class="unit-product-top__subtitle">안정성･수익성 높은 투자 포인트</span>
+						</div>
+						<div style="display:flex; flex-direction:column; gap:36px; width:100%; align-items:center;">
+							<img src="assets/img/visual/골드바.png" alt="골드바" width="190" height="160">
+							<div class="unit-product-top__info-group">
+								<div class="unit-product-top__info-row">
+									<span class="unit-product-top__info-icon"><img src="assets/img/icon/ico_target_fill_32.svg"
+											alt="">구매대상</span>
+									<span class="unit-product-top__info-value">개인</span>
+								</div>
+								<div class="unit-product-top__info-row">
+									<span class="unit-product-top__info-icon"><img
+											src="assets/img/icon/ico_transaction-time_fill_32.svg" alt="">거래시간</span>
+									<span class="unit-product-top__info-value">영업일 09:00 ~ 16:00</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn--primary btn--md btn--full">구매하기</button>
+				</div>
+			</div>
+			<p class="note">골드바 이미지(assets/img/visual/골드바.png)는 로컬 자산과 정확히 매칭되어 그대로 사용했습니다. 정보행은
+				unit-product-top__info-row/icon/value를 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-product-top unit-product-top--center"&gt;
+  &lt;div class="unit-product-top__head"&gt;
+    &lt;span class="unit-product-top__title"&gt;골드바&lt;/span&gt;
+    &lt;span class="unit-product-top__subtitle"&gt;안정성･수익성 높은 투자 포인트&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;img src="assets/img/visual/골드바.png" alt="골드바" width="190" height="160"&gt;
+  &lt;div class="unit-product-top__info-group"&gt;
+    &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_target_fill_32.svg" alt=""&gt;구매대상&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;개인&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_transaction-time_fill_32.svg" alt=""&gt;거래시간&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;영업일 09:00 ~ 16:00&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn--primary btn--md btn--full"&gt;구매하기&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-foreign-currency — 상품 상세 상단(외화예금, 통화 4개+정보 2행+버튼)</h3>
+			<div class="demo">
+				<div class="unit-product-top" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:48px; width:100%;">
+						<div class="unit-product-top__head">
+							<span class="unit-product-top__title">하나로외화자유적립예금</span>
+							<div class="unit-product-top__tags">
+								<span>#자유적립</span><span>#월단위</span><span>#환테크</span>
+							</div>
+						</div>
+						<div class="unit-product-top__info-group">
+							<div class="unit-product-top__info-row">
+								<span class="unit-product-top__info-icon"><img src="assets/img/icon/ico_global_fill_32.svg"
+										alt="">대상통화</span>
+								<div style="display:flex; flex-direction:column; gap:8px; flex:1; min-width:0;">
+									<div class="unit-product-top__currency-head">
+										<span class="unit-product-top__info-value" style="flex:none;">총 10개 통화</span>
+										<button type="button" class="btn btn--tertiary btn--xs">더 보기</button>
+									</div>
+									<div class="unit-product-top__currency-grid">
+										<div class="unit-product-top__currency-row">
+											<span class="unit-product-top__currency-item"><img
+													src="assets/img/flag/img_flag-usa_24.svg" alt="">미국 USD</span>
+											<span class="unit-product-top__currency-item"><img
+													src="assets/img/flag/img_flag-eu_24.svg" alt="">유럽 EUR</span>
+										</div>
+										<div class="unit-product-top__currency-row">
+											<span class="unit-product-top__currency-item"><img
+													src="assets/img/flag/img_flag-japan_24.svg" alt="">일본 JPY</span>
+											<span class="unit-product-top__currency-item"><img
+													src="assets/img/flag/img_flag-uk_24.svg" alt="">영국 GBP</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="unit-product-top__info-row">
+								<span class="unit-product-top__info-icon"><img
+										src="assets/img/icon/ico_period-calendar_fill_32.svg" alt="">예치기간</span>
+								<span class="unit-product-top__info-value">3개월 이상 24개월 이내(월 단위)</span>
+							</div>
+							<div class="unit-product-top__info-row">
+								<span class="unit-product-top__info-icon"><img src="assets/img/icon/ico_amount-dollar_fill_32.svg"
+										alt="">가입금액</span>
+								<span class="unit-product-top__info-value">미화 100불 상당액 이상</span>
+							</div>
+						</div>
+					</div>
+					<button type="button" class="btn btn--primary btn--md btn--full">가입하기</button>
+				</div>
+			</div>
+			<p class="note">통화 그리드(unit-product-top__currency-*)만 신규 추가했고, 국기 아이콘은 로컬 flag 폴더 자산을 그대로
+				사용했습니다. "더 보기" 버튼은 기존 btn--tertiary btn--xs를 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-product-top"&gt;
+  &lt;span class="unit-product-top__title"&gt;하나로외화자유적립예금&lt;/span&gt;
+  &lt;div class="unit-product-top__tags"&gt;&lt;span&gt;#자유적립&lt;/span&gt;&lt;span&gt;#월단위&lt;/span&gt;&lt;span&gt;#환테크&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="unit-product-top__info-row"&gt;
+    &lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_global_fill_32.svg" alt=""&gt;대상통화&lt;/span&gt;
+    &lt;div&gt;
+      &lt;div class="unit-product-top__currency-head"&gt;&lt;span&gt;총 10개 통화&lt;/span&gt;&lt;button class="btn btn--tertiary btn--xs"&gt;더 보기&lt;/button&gt;&lt;/div&gt;
+      &lt;div class="unit-product-top__currency-grid"&gt;
+        &lt;div class="unit-product-top__currency-row"&gt;
+          &lt;span class="unit-product-top__currency-item"&gt;&lt;img src="assets/img/flag/img_flag-usa_24.svg" alt=""&gt;미국 USD&lt;/span&gt;
+          &lt;span class="unit-product-top__currency-item"&gt;&lt;img src="assets/img/flag/img_flag-eu_24.svg" alt=""&gt;유럽 EUR&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class="unit-product-top__currency-row"&gt;
+          &lt;span class="unit-product-top__currency-item"&gt;&lt;img src="assets/img/flag/img_flag-japan_24.svg" alt=""&gt;일본 JPY&lt;/span&gt;
+          &lt;span class="unit-product-top__currency-item"&gt;&lt;img src="assets/img/flag/img_flag-uk_24.svg" alt=""&gt;영국 GBP&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_period-calendar_fill_32.svg" alt=""&gt;예치기간&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;3개월 이상 24개월 이내(월 단위)&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_amount-dollar_fill_32.svg" alt=""&gt;가입금액&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;미화 100불 상당액 이상&lt;/span&gt;&lt;/div&gt;
+  &lt;button class="btn btn--primary btn--md btn--full"&gt;가입하기&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-insurance — 상품 상세 상단(보험, 회사명+타이틀+공시이율+정보 2행)</h3>
+			<div class="demo">
+				<div class="unit-product-top" style="width:312px; gap:48px;">
+					<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
+						<div style="display:flex; flex-direction:column; gap:2px; width:100%;">
+							<span class="unit-product-top__info-value">IBK연금</span>
+							<p class="unit-product-top__title">무배당 IBK e-세액공제연금<br>저축보험_2404</p>
+						</div>
+						<div class="unit-product-top__tags">
+							<span>#노후준비</span><span>#직장인</span><span>#연말정산</span><span>#세태크</span>
+						</div>
+					</div>
+					<div class="unit-product-top__body">
+						<div class="unit-product-top__rate-group">
+							<p class="unit-product-top__rate-label" style="width:auto;">공시이율</p>
+							<p class="unit-product-top__rate-value unit-product-top__rate-value--point">2.77%</p>
+						</div>
+						<div class="unit-product-top__info-group">
+							<div class="unit-product-top__info-row">
+								<span class="unit-product-top__info-icon"><img src="assets/img/icon/ico_target_fill_32.svg"
+										alt="">가입나이</span>
+								<span class="unit-product-top__info-value">만 19세~80세</span>
+							</div>
+							<div class="unit-product-top__info-row">
+								<span class="unit-product-top__info-icon"><img src="assets/img/icon/ico_repayment_fill_32.svg"
+										alt="">납입방법</span>
+								<span class="unit-product-top__info-value">월납/일시납</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">신규 CSS 없이 unit-product-top 셸을 그대로 재사용했습니다. 회사명 한 줄은 info-value(16px medium)를 재사용했습니다.
+				버튼은 Figma 원본에 없어 생략했습니다.</p>
+			<pre><code>&lt;div class="unit-product-top"&gt;
+  &lt;span class="unit-product-top__info-value"&gt;IBK연금&lt;/span&gt;
+  &lt;p class="unit-product-top__title"&gt;무배당 IBK e-세액공제연금&lt;br&gt;저축보험_2404&lt;/p&gt;
+  &lt;div class="unit-product-top__tags"&gt;&lt;span&gt;#노후준비&lt;/span&gt;&lt;span&gt;#직장인&lt;/span&gt;&lt;span&gt;#연말정산&lt;/span&gt;&lt;span&gt;#세태크&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="unit-product-top__rate-group"&gt;
+    &lt;p class="unit-product-top__rate-label"&gt;공시이율&lt;/p&gt;
+    &lt;p class="unit-product-top__rate-value unit-product-top__rate-value--point"&gt;2.77%&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="unit-product-top__info-group"&gt;
+    &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_target_fill_32.svg" alt=""&gt;가입나이&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;만 19세~80세&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="unit-product-top__info-row"&gt;&lt;span class="unit-product-top__info-icon"&gt;&lt;img src="assets/img/icon/ico_repayment_fill_32.svg" alt=""&gt;납입방법&lt;/span&gt;&lt;span class="unit-product-top__info-value"&gt;월납/일시납&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-top-irp-dc — 상품 상세 상단(IRP, 좌측정렬 2단 타이틀+영상 링크행)</h3>
+			<div class="demo">
+				<div class="unit-product-top" style="width:312px;">
+					<div style="display:flex; flex-direction:column; gap:48px; width:100%;">
+						<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
+							<div style="display:flex; flex-direction:column; gap:4px; width:100%;">
+								<p class="unit-product-top__title">개인형퇴직연금(IRP)</p>
+								<p class="unit-product-top__stat-value">연말정산 세액공제 목적</p>
+							</div>
+							<div class="unit-product-top__tags">
+								<span>#추천</span><span>#세금절세</span><span>#은퇴준비</span>
+							</div>
+						</div>
+						<div class="unit-product-top__feature-row">
+							<img src="assets/img/icon/ico_play-video_fill_32.svg" alt="">
+							<span class="unit-product-top__info-value">퇴직연금 꿀팁 영상 보러 가기</span>
+							<img src="assets/img/icon/arr_right2_line_24.svg" alt="" style="width:24px; height:24px;">
+						</div>
+					</div>
+					<button type="button" class="btn btn--primary btn--md btn--full">가입하기</button>
+				</div>
+			</div>
+			<p class="note">Figma 원본은 이 변형만 가운데 정렬이 아닌 좌측 정렬입니다(unit-product-top--center 미사용). 2단 타이틀의 아래 줄은
+				unit-product-top__stat-value(20px semibold)를 재사용했습니다. 영상 링크행은 unit-product-top__feature-row + info-value
+				조합을 그대로 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-product-top"&gt;
+  &lt;p class="unit-product-top__title"&gt;개인형퇴직연금(IRP)&lt;/p&gt;
+  &lt;p class="unit-product-top__stat-value"&gt;연말정산 세액공제 목적&lt;/p&gt;
+  &lt;div class="unit-product-top__tags"&gt;&lt;span&gt;#추천&lt;/span&gt;&lt;span&gt;#세금절세&lt;/span&gt;&lt;span&gt;#은퇴준비&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="unit-product-top__feature-row"&gt;
+    &lt;img src="assets/img/icon/ico_play-video_fill_32.svg" alt=""&gt;
+    &lt;span class="unit-product-top__info-value"&gt;퇴직연금 꿀팁 영상 보러 가기&lt;/span&gt;
+    &lt;img src="assets/img/icon/arr_right2_line_24.svg" alt="" style="width:24px; height:24px;"&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn--primary btn--md btn--full"&gt;가입하기&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-gray-bg — 프로모션 배너(그레이 배경, 타이틀+서브텍스트+이미지)</h3>
+			<div class="demo">
+				<div class="unit-product-promo">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<p class="unit-product-top__title">은행계좌와 증권계좌를 <br>동시에 개설</p>
+						<p class="unit-product-top__subtitle">NH농협은행의 입출금 계좌와 NH투자증권의 <br>증권계좌를 한번에 편하게 개설할 수
+							있습니다.</p>
+					</div>
+					<img src="assets/img/visual/Asset글로벌.png" alt="" width="190" height="160">
+				</div>
+			</div>
+			<p class="note">타이틀/서브텍스트는 unit-product-top__title/subtitle을 재사용했고, 배경(그레이)·패딩만 신규
+				unit-product-promo 래퍼로 추가했습니다.</p>
+			<pre><code>&lt;div class="unit-product-promo"&gt;
+  &lt;p class="unit-product-top__title"&gt;은행계좌와 증권계좌를 &lt;br&gt;동시에 개설&lt;/p&gt;
+  &lt;p class="unit-product-top__subtitle"&gt;NH농협은행의 입출금 계좌와 NH투자증권의 &lt;br&gt;증권계좌를 한번에 편하게 개설할 수 있습니다.&lt;/p&gt;
+  &lt;img src="assets/img/visual/Asset글로벌.png" alt="" width="190" height="160"&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-detail-white-bg — 프로모션 배너(화이트 배경, 타이틀+서브텍스트+이미지)</h3>
+			<div class="demo">
+				<div class="unit-product-promo unit-product-promo--white">
+					<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+						<p class="unit-product-top__title">가입 후 NH투자증권 어플에서 <br>바로 증권거래 가능</p>
+						<p class="unit-product-top__subtitle" style="color:var(--color-font-1);">공모주 청약, 주식거래 등 다양한 증권거래
+							가능 <br>국내/해외주식 거래수수료, 환전우대 혜택제공</p>
+					</div>
+					<img src="assets/img/visual/Asset글로벌.png" alt="" width="190" height="160">
+				</div>
+			</div>
+			<p class="note">gray-bg와 동일한 unit-product-promo 셸에 --white 수식자만 추가했습니다. Figma 원본의 두번째 삽화(img_dw-asset-global2)는
+				로컬에 대응 자산이 없어 첫번째 배너와 동일한 Asset글로벌.png로 임시 대체했습니다. 정확한 이미지가 필요하면 알려주세요.</p>
+			<pre><code>&lt;div class="unit-product-promo unit-product-promo--white"&gt;
+  &lt;p class="unit-product-top__title"&gt;가입 후 NH투자증권 어플에서 &lt;br&gt;바로 증권거래 가능&lt;/p&gt;
+  &lt;p class="unit-product-top__subtitle" style="color:var(--color-font-1);"&gt;공모주 청약, 주식거래 등 다양한 증권거래 가능 &lt;br&gt;국내/해외주식 거래수수료, 환전우대 혜택제공&lt;/p&gt;
+  &lt;img src="assets/img/visual/Asset글로벌.png" alt="" width="190" height="160"&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>calculator-expiration-amount — 만기금액 계산기(입력 2개 + 버튼 + 결과)</h3>
+			<div class="demo">
+				<div class="unit-calculator" style="width:312px;">
+					<div class="unit-calculator__head">
+						<div class="unit-calculator__head-icon-text">
+							<img src="assets/img/icon/ico_rates-calculator_fill_32.svg" alt="">
+							<span class="unit-calculator__head-title">만기금액 미리 계산해보기</span>
+						</div>
+						<button type="button" class="card__arrow card__arrow--down is-open" aria-label="접기"></button>
+					</div>
+					<div style="display:flex; flex-direction:column; gap:16px; width:100%;">
+						<div style="display:flex; flex-direction:column; gap:12px; width:100%;">
+							<div class="unit-calculator__row">
+								<span class="unit-calculator__row-text">총</span>
+								<div class="input-box" style="flex:1;">
+									<div class="input-box__field">
+										<input class="input-box__input" value="1,000,000원" style="text-align:right;" readonly>
+									</div>
+								</div>
+								<span class="unit-calculator__row-text">원을</span>
+							</div>
+							<div class="unit-calculator__row">
+								<div class="input-box" style="flex:1;">
+									<div class="input-box__field">
+										<input class="input-box__input" value="12" readonly>
+									</div>
+								</div>
+								<span class="unit-calculator__row-text">개월 동안 저축한다면?</span>
+							</div>
+						</div>
+						<button type="button" class="btn btn--secondary btn--md btn--full">계산해보기</button>
+					</div>
+					<div class="unit-calculator__result">
+						<span class="unit-calculator__result-label">세전</span>
+						<span class="unit-calculator__result-value">10,000,000원</span>
+					</div>
+				</div>
+			</div>
+			<p class="note">토글 아이콘은 card__arrow--down.is-open(180도 회전, 위쪽 화살표)을 재사용해 별도 아이콘 없이 처리했습니다. 입력창은
+				input-box를 재사용했습니다.</p>
+			<pre><code>&lt;div class="unit-calculator"&gt;
+  &lt;div class="unit-calculator__head"&gt;
+    &lt;div class="unit-calculator__head-icon-text"&gt;
+      &lt;img src="assets/img/icon/ico_rates-calculator_fill_32.svg" alt=""&gt;
+      &lt;span class="unit-calculator__head-title"&gt;만기금액 미리 계산해보기&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;button class="card__arrow card__arrow--down is-open" aria-label="접기"&gt;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="unit-calculator__row"&gt;
+    &lt;span class="unit-calculator__row-text"&gt;총&lt;/span&gt;
+    &lt;div class="input-box"&gt;&lt;div class="input-box__field"&gt;&lt;input class="input-box__input" value="1,000,000원" style="text-align:right;"&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;span class="unit-calculator__row-text"&gt;원을&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="unit-calculator__row"&gt;
+    &lt;div class="input-box"&gt;&lt;div class="input-box__field"&gt;&lt;input class="input-box__input" value="12"&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;span class="unit-calculator__row-text"&gt;개월 동안 저축한다면?&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn--secondary btn--md btn--full"&gt;계산해보기&lt;/button&gt;
+  &lt;div class="unit-calculator__result"&gt;
+    &lt;span class="unit-calculator__result-label"&gt;세전&lt;/span&gt;
+    &lt;span class="unit-calculator__result-value"&gt;10,000,000원&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-instruction — 상품설명서 및 약관(아코디언 헤더 + 링크 4개)</h3>
+			<p class="note">※ Figma의 "smart-match" 프레임은 calculator-expiration-amount와 완전히 동일한 인스턴스(같은 노드 내용)라
+				원본 자체의 중복 오류로 보입니다. 임의 추정으로 다른 내용을 만들지 않고 건너뛰었습니다. 정확한 별도 디자인이 있다면 Figma 링크를 다시
+				확인해 주세요.</p>
+			<div class="demo">
+				<div class="unit-product-instruction" style="width:312px;">
+					<div class="accordion-line">
+						<div class="accordion-line__item">
+							<button type="button" aria-expanded="true" data-acc-toggle>
+								<span class="accordion-line__title">상품설명서 및 약관</span>
+							</button>
+						</div>
+					</div>
+					<div class="link-horizontal">
+						<span class="link-horizontal__title"><span class="link-horizontal__text">변경이력보기</span></span>
+						<span class="link-horizontal__arrow"></span>
+					</div>
+					<div class="link-horizontal">
+						<span class="link-horizontal__title"><span class="link-horizontal__text">기본약관</span></span>
+						<span class="link-horizontal__arrow"></span>
+					</div>
+					<div class="link-horizontal">
+						<span class="link-horizontal__title"><span class="link-horizontal__text">상품설명서</span></span>
+						<span class="link-horizontal__arrow"></span>
+					</div>
+					<div class="link-horizontal">
+						<span class="link-horizontal__title"><span class="link-horizontal__text">상품특약</span></span>
+						<span class="link-horizontal__arrow"></span>
+					</div>
+				</div>
+			</div>
+			<p class="note">헤더는 accordion-line, 링크 4개는 link-horizontal(선행 아이콘 없이 텍스트+화살표만)을 그대로 재사용했습니다.
+				신규 CSS는 래퍼(unit-product-instruction) 하나뿐입니다.</p>
+			<pre><code>&lt;div class="unit-product-instruction"&gt;
+  &lt;div class="accordion-line"&gt;
+    &lt;div class="accordion-line__item"&gt;
+      &lt;button aria-expanded="true" data-acc-toggle&gt;&lt;span class="accordion-line__title"&gt;상품설명서 및 약관&lt;/span&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="link-horizontal"&gt;
+    &lt;span class="link-horizontal__title"&gt;&lt;span class="link-horizontal__text"&gt;변경이력보기&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="link-horizontal__arrow"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;!-- 기본약관 / 상품설명서 / 상품특약 동일 패턴 반복 --&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>product-recommend — 추천 상품 배너 리스트(가로 스크롤 카드 3개)</h3>
+			<div class="demo">
+				<div class="unit-product-recommend" style="width:312px;">
+					<span class="unit-product-recommend__title">김농협님을 위한 추천 상품</span>
+					<div class="unit-product-recommend__list">
+						<div class="unit-product-recommend__card">
+							<span class="unit-product-recommend__card-title">KB골프보험(B)</span>
+							<div class="unit-product-recommend__card-tags">
+								<span>#상해보장</span><span>#골프</span><span>#선물하기</span>
+							</div>
+						</div>
+						<div class="unit-product-recommend__card">
+							<span class="unit-product-recommend__card-title">e-심플한NH재해보험(무)</span>
+							<div class="unit-product-recommend__card-tags">
+								<span>#상해보장</span><span>#부모님/실버</span><span>#선물하기</span>
+							</div>
+						</div>
+						<div class="unit-product-recommend__card">
+							<span class="unit-product-recommend__card-title">청년도약계좌</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p class="note">배너 배경색은 Figma의 color/bg/banner 토큰을 새로 추출해 라이트/다크 3개 블록에 모두 추가했습니다(다크값은 Figma
+				변수 조회 결과가 라이트만 반환되어 color-bg-container의 다크 매핑을 그대로 따랐습니다). 카드 리스트는 overflow-x:auto로 가로
+				스크롤됩니다.</p>
+			<pre><code>&lt;div class="unit-product-recommend"&gt;
+  &lt;span class="unit-product-recommend__title"&gt;김농협님을 위한 추천 상품&lt;/span&gt;
+  &lt;div class="unit-product-recommend__list"&gt;
+    &lt;div class="unit-product-recommend__card"&gt;
+      &lt;span class="unit-product-recommend__card-title"&gt;KB골프보험(B)&lt;/span&gt;
+      &lt;div class="unit-product-recommend__card-tags"&gt;&lt;span&gt;#상해보장&lt;/span&gt;&lt;span&gt;#골프&lt;/span&gt;&lt;span&gt;#선물하기&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="unit-product-recommend__card"&gt;
+      &lt;span class="unit-product-recommend__card-title"&gt;e-심플한NH재해보험(무)&lt;/span&gt;
+      &lt;div class="unit-product-recommend__card-tags"&gt;&lt;span&gt;#상해보장&lt;/span&gt;&lt;span&gt;#부모님/실버&lt;/span&gt;&lt;span&gt;#선물하기&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="unit-product-recommend__card"&gt;
+      &lt;span class="unit-product-recommend__card-title"&gt;청년도약계좌&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
