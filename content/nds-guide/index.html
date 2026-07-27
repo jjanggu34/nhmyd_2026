@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>NDS 컴포넌트 가이드 (프로젝트 로컬)</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/nds.css?v=65">
+	<link rel="stylesheet" type="text/css" href="assets/css/nds.css?v=71">
 	<style>
 		body {
 			margin: 0;
@@ -396,21 +396,49 @@
 			}
 		}
 
-		.btn-floating--fixed {
+		#backToTop.btn-floating--fixed {
 			position: fixed;
 			right: 24px;
 			bottom: 24px;
 			z-index: 60;
+			width: 56px;
+			height: 56px;
 			opacity: 0;
 			pointer-events: none;
 			transform: translateY(8px);
 			transition: opacity .2s, transform .2s;
 		}
 
-		.btn-floating--fixed.is-visible {
+		#backToTop.btn-floating--fixed.is-visible {
 			opacity: 1;
 			pointer-events: auto;
 			transform: translateY(0);
+		}
+
+		/* self-contained fallback so the button renders correctly even if the
+		   .nds .btn-floating__circle cascade above it doesn't resolve for any reason */
+		#backToTopBtn {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+			left: 0;
+			top: 2px;
+			width: 54px;
+			height: 54px;
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			border-radius: 50%;
+			border: 1px solid var(--color-comp-btn-floating-default-border);
+			background-color: var(--color-comp-btn-floating-default-bg);
+			color: var(--color-comp-btn-floating-default-fg);
+			font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+			font-size: 12px;
+			font-weight: 600;
+			letter-spacing: -0.02em;
+			cursor: pointer;
 		}
 
 		.bottomsheet-preview {
@@ -760,6 +788,20 @@
 				아래 "아직 추출하지 않은 Component" 안내를 참고해 Figma 링크를 주시면 순서대로 반영합니다.
 				Component 다음에는 Typography/Color/Radius/Layout/Spacing/Icon/Image 순서로 Design Foundation 섹션이 이어집니다.
 			</p>
+			<h3>클래스 네이밍 규칙 (BEM)</h3>
+			<p class="note">
+				이 가이드의 모든 클래스는 표준 BEM(Block__Element--Modifier) 표기법을 따릅니다.<br>
+				<strong>블록(Block)</strong>: 컴포넌트 이름. 여러 단어면 바(<code>-</code>) 하나로 구분합니다. 예: <code>accordion-gray</code>(=
+				accordion + gray)<br>
+				<strong>엘리먼트(Element)</strong>: 블록 안의 하위 요소. 블록과는 언더바 두 개(<code>__</code>)로 구분합니다. 예:
+				<code>accordion-gray__item</code><br>
+				엘리먼트 이름 자체가 여러 단어면 그 안에서도 바(<code>-</code>)로 구분합니다. 예: <code>accordion-gray__row-icons</code>(=
+				row + icons라는 엘리먼트)<br>
+				<strong>모디파이어(Modifier)</strong>: 상태/변형. 바 두 개(<code>--</code>)로 구분합니다. 예: <code>accordion-gray--open</code>,
+				<code>btn--primary</code><br>
+				즉 언더바(<code>__</code>)는 블록↔엘리먼트 경계에만 쓰이고, 바(<code>-</code>/<code>--</code>)는 이름 내부 단어 구분(한 개)과
+				모디파이어 표시(두 개)에 쓰입니다. 새 컴포넌트를 추가할 때도 이 규칙을 그대로 따라주세요.
+			</p>
 		</section>
 
 		<div class="group-label">Component</div>
@@ -771,15 +813,19 @@
 			<h3>Notice 타입</h3>
 			<div class="demo row">
 				<div class="accordion-notice">
-					<button type="button" aria-expanded="false" data-acc-toggle>알아두세요</button>
-					<div class="accordion-notice__body" hidden>[SAMPLE] 알아두어야 할 안내 문구가 여기 들어갑니다.</div>
+					<div class="accordion-notice__item">
+						<button type="button" aria-expanded="false" data-acc-toggle>
+							<span class="accordion-notice__title">알아두세요</span>
+						</button>
+						<div class="accordion-notice__body" hidden>[SAMPLE] 알아두어야 할 안내 문구가 여기 들어갑니다.</div>
+					</div>
 				</div>
 			</div>
-			<pre><code>&lt;div class=&quot;accordion-notice&quot;&gt;
-	&lt;button type=&quot;button&quot; aria-expanded=&quot;false&quot; data-acc-toggle&gt;
-		&lt;strong&gt;알아두세요&lt;/strong&gt;
-	&lt;/button&gt;
-	&lt;div class=&quot;accordion-notice__body&quot; hidden&gt;[SAMPLE] 알아두어야 할 안내 문구가 여기 들어갑니다.&lt;/div&gt;
+			<pre><code>&lt;div class="accordion-notice"&gt;
+  &lt;div class="accordion-notice__item"&gt;
+    &lt;button aria-expanded="false" data-acc-toggle&gt;알아두세요&lt;/button&gt;
+    &lt;div class="accordion-notice__body" hidden&gt;내용&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Box 타입</h3>
@@ -921,11 +967,11 @@
 					<button type="button" class="attached-thumb__remove" aria-label="삭제"></button>
 				</div>
 			</div>
-			<pre><code>&lt;div class="attached-thumb__item"&gt;&lt;span class="attached-thumb__icon"&gt;&lt;svg ...&gt;...카메라 아이콘...&lt;/svg&gt;&lt;/span&gt;&lt;span class="attached-thumb__count"&gt;1 / 5&lt;/span&gt;&lt;/div&gt;
+			<pre><code>&lt;div class="attached-thumb__item"&gt;&lt;span class="attached-thumb__icon"&gt;&lt;/span&gt;&lt;span class="attached-thumb__count"&gt;1 / 5&lt;/span&gt;&lt;/div&gt;
 &lt;div class="attached-thumb__item attached-thumb__item--disabled"&gt;...동일 구조, disabled는 색만 자동 변경...&lt;/div&gt;
 &lt;div class="attached-thumb__item attached-thumb__item--filled"&gt;
   &lt;img class="attached-thumb__img" src="사진.jpg" alt=""&gt;
-  &lt;button class="attached-thumb__remove" aria-label="삭제"&gt;&lt;svg ...&gt;...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="attached-thumb__remove" aria-label="삭제"&gt;&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>리스트형 (1줄)</h3>
@@ -943,7 +989,7 @@
   &lt;div class="attached-list__divider"&gt;&lt;/div&gt;
   &lt;div class="attached-list__item"&gt;
     &lt;span class="attached-list__name"&gt;파일명.pdf&lt;/span&gt;
-    &lt;button class="attached-list__remove" aria-label="삭제"&gt;&lt;svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"&gt;...&lt;/svg&gt;&lt;/button&gt;
+    &lt;button class="attached-list__remove" aria-label="삭제"&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class="attached-list__divider"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -983,7 +1029,7 @@
 				<span class="badge"><button type="button" class="btn btn--secondary btn--sm">알림함</button><span
 						class="badge__count">3</span></span>
 			</div>
-			<pre><code>&lt;span class="badge"&gt;&lt;button class="btn-icon"&gt;&lt;img src="assets/img/icon/alarm-notice-24.svg" width="20" height="20" alt="알림"&gt;&lt;/button&gt;&lt;span class="badge__dot"&gt;&lt;/span&gt;&lt;/span&gt;
+			<pre><code>&lt;span class="badge"&gt;&lt;button class="btn-icon" aria-label="알림"&gt;&lt;/button&gt;&lt;span class="badge__dot"&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class="badge"&gt;&lt;button class="btn btn--secondary btn--sm"&gt;알림함&lt;/button&gt;&lt;span class="badge__count"&gt;3&lt;/span&gt;&lt;/span&gt;</code></pre>
 		</section>
 
@@ -1016,7 +1062,7 @@
 			<pre><code>&lt;!-- with-header: 상단에 타이틀+닫기(X) 행이 별도로 있음 --&gt;
 &lt;div class="bottomsheet__header"&gt;
   &lt;span class="bottomsheet__title"&gt;타이틀&lt;/span&gt;
-  &lt;button class="bottomsheet__close" aria-label="닫기"&gt;&lt;svg ...&gt;&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="bottomsheet__close" aria-label="닫기"&gt;&lt;/button&gt;
 &lt;/div&gt;
 &lt;div class="bottomsheet__body"&gt;&lt;p&gt;내용&lt;/p&gt;&lt;/div&gt;
 
@@ -1118,7 +1164,7 @@
 			</div>
 			<pre><code>&lt;div class="bottomsheet-list"&gt;
   &lt;button class="bottomsheet-list__item"&gt;&lt;span&gt;항목1&lt;/span&gt;&lt;/button&gt;
-  &lt;button class="bottomsheet-list__item bottomsheet-list__item--selected"&gt;&lt;span&gt;항목2&lt;/span&gt;&lt;svg class="bottomsheet-list__check"&gt;...체크...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="bottomsheet-list__item bottomsheet-list__item--selected"&gt;&lt;span&gt;항목2&lt;/span&gt;&lt;span class="bottomsheet-list__check"&gt;&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;
 &lt;!-- currency 변형은 각 항목 앞에 &lt;img class="bottomsheet-list__flag"&gt; 32x32 원형 국기 아이콘 추가 --&gt;</code></pre>
 
@@ -1139,28 +1185,28 @@
 						</div>
 						<div class="bottomsheet-grid-menu">
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#19973c;">NH</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">NH농협</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#7a7a7a;">국</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_bank-kb_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">국민</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#0177e4;">기</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_bank-ibk_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">기업</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#003b99;">산</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_bank-kdb_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">산업</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#2c6dd4;">신</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_bank-shinhan_40.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">신한</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#0d5722;">우</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_bank-woori_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">우리</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#19973c;">하</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_bank-hana_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">하나</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#e24949;">씨</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_bank-citi_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">한국씨티</span></button>
 						</div>
 					</div>
@@ -1172,7 +1218,7 @@
 &lt;/div&gt;
 &lt;div class="bottomsheet-grid-menu"&gt;
   &lt;button class="bottomsheet-grid-menu__item"&gt;
-    &lt;span class="bottomsheet-grid-menu__icon"&gt;&lt;img src="실제로고.png" alt=""&gt;&lt;/span&gt;
+    &lt;span class="bottomsheet-grid-menu__icon"&gt;&lt;img src="assets/img/flag/img_bank-nh_24.svg" alt=""&gt;&lt;/span&gt;
     &lt;span class="bottomsheet-grid-menu__label"&gt;NH농협&lt;/span&gt;
   &lt;/button&gt;
 &lt;/div&gt;</code></pre>
@@ -1193,28 +1239,28 @@
 						</div>
 						<div class="bottomsheet-grid-menu">
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#19973c;">NH</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">NH농협</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#0d5722;">교</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_stock-kyobo_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">교보증권</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#e24949;">미</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_stock-miraeasset_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">미래에셋증권</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#0177e4;">삼</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_stock-samsung_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">삼성증권</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#2c6dd4;">신</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_stock-shinhan_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">신한투자증권</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#7a7a7a;">키</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_stock-kiwoom_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">키움증권</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#19973c;">하</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_stock-hana_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">하나증권</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#003b99;">한</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_stock-ki_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">한국투자증권</span></button>
 						</div>
 					</div>
@@ -1242,25 +1288,25 @@
 									class="bottomsheet-grid-menu__icon" style="background:#19973c;">NH</span><span
 									class="bottomsheet-grid-menu__label">NH농협생명</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#0177e4;">삼</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_insurance-samsung-life_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">삼성생명</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#e24949;">한</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_insurance-hanhwa-life_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">한화생명</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#0d5722;">교</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_insurance-kyobo-life_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">교보생명</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#2c6dd4;">신</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_insurance-shinhan-life_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">신한생명</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#7a7a7a;">DB</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_insurance-db-ins_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">DB손해보험</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#003b99;">케</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_insurance-kb-insure_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">케이비손해보험</span></button>
 							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#19973c;">현</span><span
+									class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_insurance-hi_24.svg" alt=""></span><span
 									class="bottomsheet-grid-menu__label">현대해상화재</span></button>
 						</div>
 					</div>
@@ -1283,15 +1329,18 @@
 								class="bottomsheet-tabbar__item bottomsheet-tabbar__item--active">국세/지방세입</button>
 						</div>
 						<div class="bottomsheet-grid-menu">
-							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#505050;">국</span><span
-									class="bottomsheet-grid-menu__label">국세</span></button>
-							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#505050;">지</span><span
-									class="bottomsheet-grid-menu__label">지방세입</span></button>
-							<button type="button" class="bottomsheet-grid-menu__item"><span
-									class="bottomsheet-grid-menu__icon" style="background:#505050;">국</span><span
-									class="bottomsheet-grid-menu__label">국고금</span></button>
+							<button type="button" class="bottomsheet-grid-menu__item">
+								<span class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_organ_24.svg" alt=""></span>
+								<span class="bottomsheet-grid-menu__label">국세</span>
+							</button>
+							<button type="button" class="bottomsheet-grid-menu__item">
+								<span class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_organ_24.svg" alt=""></span>
+								<span class="bottomsheet-grid-menu__label">지방세입</span>
+							</button>
+							<button type="button" class="bottomsheet-grid-menu__item">
+								<span class="bottomsheet-grid-menu__icon"><img src="assets/img/flag/img_organ_24.svg" alt=""></span>
+								<span class="bottomsheet-grid-menu__label">국고금</span>
+							</button>
 						</div>
 					</div>
 				</div>
@@ -1359,24 +1408,21 @@
 						<div style="display:flex; justify-content:flex-end;"><button type="button"
 								class="btn btn--sm btn--tertiary">직접 입력</button></div>
 						<div class="bottomsheet-account-list">
-							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"
-									style="background:#19973c;">NH</span>
+							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<div class="bottomsheet-account-list__body"><span
 										class="bottomsheet-account-list__name">금융사명</span><span
 										class="bottomsheet-account-list__number">계좌번호</span><span
 										class="bottomsheet-account-list__balance">출금가능금액 <strong>10,000원</strong></span>
 								</div>
 							</div>
-							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"
-									style="background:#19973c;">NH</span>
+							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<div class="bottomsheet-account-list__body"><span
 										class="bottomsheet-account-list__name">금융사명</span><span
 										class="bottomsheet-account-list__number">계좌번호</span><span
 										class="bottomsheet-account-list__balance">출금가능금액 <strong>10,000원</strong></span>
 								</div>
 							</div>
-							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"
-									style="background:#19973c;">NH</span>
+							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<div class="bottomsheet-account-list__body"><span
 										class="bottomsheet-account-list__name">금융사명</span><span
 										class="bottomsheet-account-list__number">계좌번호</span><span
@@ -1403,23 +1449,20 @@
 								class="bottomsheet-tabbar__item bottomsheet-tabbar__item--active">다른금융</button>
 						</div>
 						<div class="bottomsheet-account-list">
-							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"
-									style="background:#1b64da;">토스</span>
+							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-toss_24.svg" alt=""></span>
 								<div class="bottomsheet-account-list__body"><span
 										class="bottomsheet-account-list__name">금융사명</span><span
 										class="bottomsheet-account-list__number">계좌번호</span><button type="button"
 										class="btn btn--text">출금가능금액조회</button></div>
 							</div>
-							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"
-									style="background:#fae100; color:#3a2929;">카카오</span>
+							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-kakao_24.svg" alt=""></span>
 								<div class="bottomsheet-account-list__body"><span
 										class="bottomsheet-account-list__name">금융사명</span><span
 										class="bottomsheet-account-list__number">계좌번호</span><span
 										class="bottomsheet-account-list__balance">출금가능금액 <strong>10,000원</strong></span>
 								</div>
 							</div>
-							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"
-									style="background:#2c6dd4;">신한</span>
+							<div class="bottomsheet-account-list__item"><span class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-shinhan_40.svg" alt=""></span>
 								<div class="bottomsheet-account-list__body"><span
 										class="bottomsheet-account-list__name">금융사명</span><span
 										class="bottomsheet-account-list__number">계좌번호</span><span
@@ -1450,7 +1493,7 @@
 						<div class="bottomsheet-account-accordion">
 							<div>
 								<button type="button" class="bottomsheet-account-accordion__head is-open">
-									<span class="bottomsheet-account-list__logo" style="background:#19973c;">NH</span>
+									<span class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 									<div class="bottomsheet-account-list__body" style="flex:1;"><span
 											class="bottomsheet-account-list__name">금융사명</span><span
 											class="bottomsheet-account-list__number">계좌번호</span><span
@@ -1459,15 +1502,15 @@
 								</button>
 								<div class="bottomsheet-account-accordion__sub">
 									<div class="bottomsheet-account-accordion__sub-row"><span
-											class="bottomsheet-account-accordion__flag"
-											style="background:#3c3b6e;">US</span>USD <strong>100,500.00</strong></div>
+											class="bottomsheet-account-accordion__flag"><img
+												src="assets/img/flag/img_flag-usa_24.svg" alt=""></span>USD <strong>100,500.00</strong></div>
 									<div class="bottomsheet-account-accordion__sub-row"><span
-											class="bottomsheet-account-accordion__flag"
-											style="background:#003399;">EU</span>EUR <strong>80,500.00</strong></div>
+											class="bottomsheet-account-accordion__flag"><img
+												src="assets/img/flag/img_flag-eu_24.svg" alt=""></span>EUR <strong>80,500.00</strong></div>
 								</div>
 							</div>
 							<button type="button" class="bottomsheet-account-accordion__head">
-								<span class="bottomsheet-account-list__logo" style="background:#19973c;">NH</span>
+								<span class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<div class="bottomsheet-account-list__body" style="flex:1;"><span
 										class="bottomsheet-account-list__name">금융사명</span><span
 										class="bottomsheet-account-list__number">계좌번호</span></div>
@@ -1495,7 +1538,7 @@
 								<p class="bottomsheet-account-list__group-title">NH농협은행</p>
 								<div class="bottomsheet-account-list" style="gap:32px;">
 									<div class="bottomsheet-account-list__item"><span
-											class="bottomsheet-account-list__logo" style="background:#19973c;">NH</span>
+											class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 										<div class="bottomsheet-account-list__body"><span
 												class="bottomsheet-account-list__name">금융사명</span><span
 												class="bottomsheet-account-list__number">계좌번호</span></div>
@@ -1503,14 +1546,14 @@
 											class="bottomsheet-account-list__check bottomsheet-account-list__check--selected"></span>
 									</div>
 									<div class="bottomsheet-account-list__item"><span
-											class="bottomsheet-account-list__logo" style="background:#19973c;">NH</span>
+											class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 										<div class="bottomsheet-account-list__body"><span
 												class="bottomsheet-account-list__name">금융사명</span><span
 												class="bottomsheet-account-list__number">계좌번호</span></div>
 										<span class="bottomsheet-account-list__check"></span>
 									</div>
 									<div class="bottomsheet-account-list__item"><span
-											class="bottomsheet-account-list__logo" style="background:#19973c;">NH</span>
+											class="bottomsheet-account-list__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 										<div class="bottomsheet-account-list__body"><span
 												class="bottomsheet-account-list__name">금융사명</span><span
 												class="bottomsheet-account-list__number">계좌번호</span></div>
@@ -1574,7 +1617,9 @@
 			</div>
 
 			<h3>Option — 거래내역 조회 설정</h3>
-			<p class="note">기본 노출 섹션은 "구분"(section1)이 꺼져 있고 조회기간·정렬·조회유형만 나옵니다. 두 라벨이 모두 "조회기간"인 것은 Figma 원본 그대로입니다.</p>
+			<p class="note">Figma 원본(node-id=91-13819) 재대조: radio-box-center는 존재하지 않는 클래스로 스타일이 전혀 적용되지 않던 버그였습니다 — 실제
+				컴포넌트인 radio-box + radio-box--center 조합으로 수정했습니다. 기본 노출 섹션은 "구분"(section1)이 꺼져 있고 조회기간·정렬·조회유형만 나오며, 두 라벨이 모두
+				"조회기간"인 것은 Figma 원본 그대로입니다. 조회기간 하단 날짜 표시는 select-field가 아니라 calendar-period 컴포넌트가 맞습니다.</p>
 			<div class="demo">
 				<div class="bottomsheet-preview">
 					<div class="bottomsheet__header">
@@ -1585,51 +1630,53 @@
 						style="display:flex; flex-direction:column; gap:32px; align-items:center;">
 						<div style="width:100%;">
 							<p class="bottomsheet-option__label">조회기간</p>
-							<div style="display:flex; gap:4px; margin:12px 0;">
-								<label class="radio-box-center radio-box-center--sm"><input type="radio"
-										name="opt-period" class="radio-box-center__input" checked><span
-										class="radio-box-center__label">12개월</span></label>
-								<label class="radio-box-center radio-box-center--sm"><input type="radio"
-										name="opt-period" class="radio-box-center__input"><span
-										class="radio-box-center__label">24개월</span></label>
-								<label class="radio-box-center radio-box-center--sm"><input type="radio"
-										name="opt-period" class="radio-box-center__input"><span
-										class="radio-box-center__label">36개월</span></label>
-								<label class="radio-box-center radio-box-center--sm"><input type="radio"
-										name="opt-period" class="radio-box-center__input"><span
-										class="radio-box-center__label">직접입력</span></label>
+							<div style="display:flex; gap:4px; margin-bottom:12px;">
+								<label style="flex:1;"><input type="radio" name="opt-period"
+										class="radio-hidden-input radio-box-input" checked><span
+										class="radio-box radio-box--sm radio-box--center">12개월</span></label>
+								<label style="flex:1;"><input type="radio" name="opt-period"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">24개월</span></label>
+								<label style="flex:1;"><input type="radio" name="opt-period"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">36개월</span></label>
+								<label style="flex:1;"><input type="radio" name="opt-period"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">직접입력</span></label>
 							</div>
-							<div class="select-field select-field--filled"><span class="select-field__label"
-									id="selLabelPeriod"
-									style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap;">조회기간</span><button
-									type="button" class="select-field__box" aria-haspopup="listbox"
-									aria-expanded="false" aria-labelledby="selLabelPeriod"><span
-										class="select-field__content"><span class="select-field__text">2025.01.01 ~
-											2025.01.02</span></span></button></div>
+							<div class="calendar-period">
+								<div class="calendar-period__field">
+									<span class="calendar-period__text is-filled">2025.01.01</span><span
+										class="calendar-period__icon"></span>
+									<span class="calendar-period__sep">~</span>
+									<span class="calendar-period__text is-filled">2025.01.02</span><span
+										class="calendar-period__icon"></span>
+								</div>
+							</div>
 						</div>
 						<div style="width:100%;">
 							<p class="bottomsheet-option__label">조회기간</p>
-							<div style="display:flex; gap:4px; margin-top:12px;">
-								<label class="radio-box-center radio-box-center--sm"><input type="radio" name="opt-sort"
-										class="radio-box-center__input" checked><span
-										class="radio-box-center__label">최신순</span></label>
-								<label class="radio-box-center radio-box-center--sm"><input type="radio" name="opt-sort"
-										class="radio-box-center__input"><span
-										class="radio-box-center__label">과거순</span></label>
+							<div style="display:flex; gap:4px;">
+								<label style="flex:1;"><input type="radio" name="opt-sort"
+										class="radio-hidden-input radio-box-input" checked><span
+										class="radio-box radio-box--sm radio-box--center">최신순</span></label>
+								<label style="flex:1;"><input type="radio" name="opt-sort"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">과거순</span></label>
 							</div>
 						</div>
 						<div style="width:100%;">
-							<p class="label">조회유형</p>
-							<div style="display:flex; gap:4px; margin-top:12px;">
-								<label class="radio-box-center radio-box-center--sm"><input type="radio" name="opt-type"
-										class="radio-box-center__input" checked><span
-										class="radio-box-center__label">전체</span></label>
-								<label class="radio-box-center radio-box-center--sm"><input type="radio" name="opt-type"
-										class="radio-box-center__input"><span
-										class="radio-box-center__label">입금</span></label>
-								<label class="radio-box-center radio-box-center--sm"><input type="radio" name="opt-type"
-										class="radio-box-center__input"><span
-										class="radio-box-center__label">출금</span></label>
+							<p class="bottomsheet-option__label">조회유형</p>
+							<div style="display:flex; gap:4px;">
+								<label style="flex:1;"><input type="radio" name="opt-type"
+										class="radio-hidden-input radio-box-input" checked><span
+										class="radio-box radio-box--sm radio-box--center">전체</span></label>
+								<label style="flex:1;"><input type="radio" name="opt-type"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">입금</span></label>
+								<label style="flex:1;"><input type="radio" name="opt-type"
+										class="radio-hidden-input radio-box-input"><span
+										class="radio-box radio-box--sm radio-box--center">출금</span></label>
 							</div>
 						</div>
 					</div>
@@ -2457,7 +2504,7 @@
 				<div class="row">
 					<button type="button" class="btn-icon" aria-label="plus"></button>
 					<div class="btn-floating"><button type="button"
-							class="btn-floating__circle"><span>원금손실<br>가능상품</span></button><button type="button"
+							class="btn-floating__circle"><span class="btn-floating__icon"></span><span>원금손실<br>가능상품</span></button><button type="button"
 							class="btn-floating__close" aria-label="닫기"></button></div>
 				</div>
 				<p class="note" style="margin-top:8px;">plus-minus (tertiary 스타일, default/active 상태 — active는 아이콘만 초록색으로
@@ -2469,12 +2516,12 @@
 					<button type="button" class="btn-plusminus is-active" aria-label="감소"></button>
 				</div>
 			</div>
-			<pre><code>&lt;button type="button" class="btn-icon"&gt;&lt;img src="assets/img/icon/plus-24.svg" width="18" height="18" alt="plus"&gt;&lt;/button&gt;
+			<pre><code>&lt;button type="button" class="btn-icon" aria-label="plus"&gt;&lt;/button&gt;
 &lt;div class="btn-floating"&gt;
-  &lt;button type="button" class="btn-floating__circle"&gt;&lt;span&gt;원금손실&lt;br&gt;가능상품&lt;/span&gt;&lt;/button&gt;
-  &lt;button type="button" class="btn-floating__close" aria-label="닫기"&gt;&lt;svg ...&gt;&lt;/svg&gt;&lt;/button&gt;
+  &lt;button type="button" class="btn-floating__circle"&gt;&lt;span class="btn-floating__icon"&gt;&lt;/span&gt;&lt;span&gt;원금손실&lt;br&gt;가능상품&lt;/span&gt;&lt;/button&gt;
+  &lt;button type="button" class="btn-floating__close" aria-label="닫기"&gt;&lt;/button&gt;
 &lt;/div&gt;
-&lt;button type="button" class="btn-plusminus is-active"&gt;&lt;svg ...plus...&gt;&lt;/svg&gt;&lt;/button&gt;</code></pre>
+&lt;button type="button" class="btn-plusminus is-active" aria-label="증가"&gt;&lt;/button&gt;</code></pre>
 
 			<h3>텍스트+아이콘 (text/icon — arrow_both/arrow_left/arrow_right/more/open/closed)</h3>
 			<div class="demo row">
@@ -2506,11 +2553,11 @@
 					<span class="btn-arrow__icon btn-arrow__icon--up"></span>
 				</button>
 			</div>
-			<pre><code>&lt;!-- arrow_left: 오른쪽 화살표는 opacity/visibility로 숨김(공간은 유지) --&gt;
+			<pre><code>&lt;!-- arrow_left: 오른쪽 화살표는 btn-arrow__icon--hidden으로 숨김(공간은 유지) --&gt;
 &lt;button type="button" class="btn-arrow"&gt;
-  &lt;svg ...왼쪽 화살표...&gt;&lt;/svg&gt;
+  &lt;span class="btn-arrow__icon btn-arrow__icon--left"&gt;&lt;/span&gt;
   &lt;span&gt;버튼&lt;/span&gt;
-  &lt;svg class="btn-arrow__icon--hidden" ...오른쪽 화살표...&gt;&lt;/svg&gt;
+  &lt;span class="btn-arrow__icon btn-arrow__icon--right btn-arrow__icon--hidden"&gt;&lt;/span&gt;
 &lt;/button&gt;</code></pre>
 
 			<h3>텍스트 링크 (text/link)</h3>
@@ -2629,7 +2676,7 @@
   &lt;span class="calendar-day__label"&gt;라벨&lt;/span&gt;
   &lt;div class="calendar-day__field"&gt;
     &lt;span class="calendar-day__text is-filled"&gt;2024.01.01&lt;/span&gt; &lt;!-- 값 없으면 is-filled 빼고 "선택" --&gt;
-    &lt;span class="calendar-day__icon"&gt;&lt;img src="assets/img/icon/calendar-24.svg"&gt;&lt;/span&gt;
+    &lt;span class="calendar-day__icon"&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;span class="calendar-day__message"&gt;안내 문구 입력&lt;/span&gt; &lt;!-- error 상태는 "오류 메세지 출력" --&gt;
 &lt;/div&gt;</code></pre>
@@ -2700,9 +2747,9 @@
 			<pre><code>&lt;div class="calendar-period"&gt; &lt;!-- 상태: 없음(inactive) / calendar-period--error / --readonly / --disabled --&gt;
   &lt;span class="calendar-period__label"&gt;라벨&lt;/span&gt;
   &lt;div class="calendar-period__field"&gt;
-    &lt;span class="calendar-period__text is-filled"&gt;2024.01.01&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;img src="assets/img/icon/calendar-24.svg"&gt;&lt;/span&gt;
+    &lt;span class="calendar-period__text is-filled"&gt;2024.01.01&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;/span&gt;
     &lt;span class="calendar-period__sep"&gt;~&lt;/span&gt;
-    &lt;span class="calendar-period__text is-filled"&gt;2024.01.01&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;img src="assets/img/icon/calendar-24.svg"&gt;&lt;/span&gt;
+    &lt;span class="calendar-period__text is-filled"&gt;2024.01.01&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;span class="calendar-period__message"&gt;안내 문구 입력&lt;/span&gt;
 &lt;/div&gt;</code></pre>
@@ -2749,7 +2796,7 @@
     &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="card__button-row"&gt;&lt;button class="btn btn--tertiary btn--sm" style="flex:1;"&gt;버튼&lt;/button&gt;&lt;/div&gt;
-  &lt;button class="card__close" aria-label="닫기"&gt;&lt;svg ...&gt;&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="card__close" aria-label="닫기"&gt;&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>list-link</h3>
@@ -2770,7 +2817,7 @@
   &lt;div class="card__list-link-body"&gt;
     &lt;div class="card__list-row"&gt;&lt;span class="card__list-row__title"&gt;타이틀&lt;/span&gt;&lt;span class="card__list-row__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
-  &lt;span class="card__arrow card__arrow--top-right"&gt;&lt;svg ...&gt;&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="card__arrow card__arrow--top-right"&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>date1</h3>
@@ -2811,7 +2858,7 @@
   &lt;div class="card__date2-row"&gt;
     &lt;span class="card__date2-row__day"&gt;2025.01.01&lt;span class="card__date2-row__sep"&gt;&lt;/span&gt;&lt;span class="card__date2-row__category"&gt;타이틀&lt;/span&gt;&lt;/span&gt;
     &lt;span class="card__date2-row__text"&gt;텍스트&lt;/span&gt;
-    &lt;span class="card__arrow"&gt;&lt;svg ...&gt;&lt;/svg&gt;&lt;/span&gt;
+    &lt;span class="card__arrow"&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;div class="card__divider"&gt;&lt;/div&gt;
   &lt;div class="card__list-rows"&gt;...&lt;/div&gt;
@@ -2958,7 +3005,7 @@
     &lt;span class="card__grip__name"&gt;타이틀&lt;/span&gt;
     &lt;div class="card__grip__actions"&gt;
       &lt;button class="btn btn--tertiary btn--xs"&gt;버튼&lt;/button&gt;
-      &lt;span class="card__grip__icon"&gt;&lt;svg ...&gt;&lt;/svg&gt;&lt;/span&gt;
+      &lt;span class="card__grip__icon"&gt;&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;p class="card__subtitle"&gt;계좌번호&lt;/p&gt;
@@ -3129,7 +3176,7 @@
   &lt;div class="card__accordion-box__body"&gt;
     &lt;button class="card__accordion-box__link"&gt;
       &lt;span class="card__accordion-box__link-text"&gt;내용을 입력해 주세요.&lt;/span&gt;
-      &lt;span class="card__accordion-box__link-icons"&gt;&lt;svg ...다운로드...&gt;&lt;/svg&gt;&lt;svg ...화살표...&gt;&lt;/svg&gt;&lt;/span&gt;
+      &lt;span class="card__accordion-box__link-icons"&gt;&lt;/span&gt;
     &lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -3304,13 +3351,13 @@
 					<div style="display:flex; flex-direction:column; gap:8px; width:100%;">
 						<span class="input-line__label">레이블</span>
 						<div style="display:flex; gap:6px; width:100%;">
-							<label class="radio-box-center radio-box-center--sm" style="flex:1;">
-								<input type="radio" name="card-etc-input-radio" class="radio-box-center__input" checked>
-								<span class="radio-box-center__label" style="width:100%;">라디오</span>
+							<label style="flex:1;">
+								<input type="radio" name="card-etc-input-radio" class="radio-hidden-input radio-box-input" checked>
+								<span class="radio-box radio-box--sm radio-box--center">라디오</span>
 							</label>
-							<label class="radio-box-center radio-box-center--sm" style="flex:1;">
-								<input type="radio" name="card-etc-input-radio" class="radio-box-center__input">
-								<span class="radio-box-center__label" style="width:100%;">라디오</span>
+							<label style="flex:1;">
+								<input type="radio" name="card-etc-input-radio" class="radio-hidden-input radio-box-input">
+								<span class="radio-box radio-box--sm radio-box--center">라디오</span>
 							</label>
 						</div>
 					</div>
@@ -3349,7 +3396,7 @@
 			<div class="demo">
 				<div class="card card--gap-32" style="padding-right:12px;">
 					<div class="card__account">
-						<div class="card__account__logo">NH</div>
+						<div class="card__account__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></div>
 						<div class="card__account__name-block">
 							<span class="card__account__name">금융사명</span>
 							<span class="card__account__sub">계좌번호</span>
@@ -3376,7 +3423,7 @@
 					<div style="display:flex; flex-direction:column; gap:4px; width:100%; align-items:flex-end;">
 						<span class="label label--sm label--line label--gray">라벨</span>
 						<div class="card__account" style="align-items:flex-start;">
-							<div class="card__account__logo">NH</div>
+							<div class="card__account__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></div>
 							<div class="card__account__name-block">
 								<span class="card__account__name">금융사명</span>
 								<span class="card__account__sub">계좌번호</span>
@@ -3404,7 +3451,7 @@
 			<div class="demo">
 				<div class="card card--gap-32" style="padding-right:12px;">
 					<div class="card__account">
-						<div class="card__account__logo">NH</div>
+						<div class="card__account__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></div>
 						<div class="card__account__name-block">
 							<span class="card__account__name">금융사명</span>
 							<span class="card__account__sub">계좌번호</span>
@@ -3428,7 +3475,7 @@
 			<div class="demo">
 				<div class="card card--gap-32">
 					<div class="card__account">
-						<div class="card__account__logo">NH</div>
+						<div class="card__account__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></div>
 						<div class="card__account__name-block">
 							<span class="card__account__name">금융사명</span>
 							<span class="card__account__sub">계좌번호</span>
@@ -3456,7 +3503,7 @@
 					<p class="note" style="margin-bottom:8px;">닫힘(close) — 2줄</p>
 					<div class="card card--gap-32" style="padding-bottom:16px;">
 						<div class="card__account">
-							<div class="card__account__logo">NH</div>
+							<div class="card__account__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></div>
 							<div class="card__account__name-block">
 								<span class="card__account__name">상품명</span>
 								<span class="card__account__sub">NH농협은행 302-1234-5678-81</span>
@@ -3477,7 +3524,7 @@
 					<p class="note" style="margin-bottom:8px;">열림(open) — 6줄</p>
 					<div class="card card--gap-32" style="padding-bottom:16px;">
 						<div class="card__account">
-							<div class="card__account__logo">NH</div>
+							<div class="card__account__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></div>
 							<div class="card__account__name-block">
 								<span class="card__account__name">상품명</span>
 								<span class="card__account__sub">NH농협은행 302-1234-5678-81</span>
@@ -3916,7 +3963,7 @@
 				<span class="chip-basic"><span class="chip-basic__text">선택필터</span><button type="button"
 						class="chip-basic__close" aria-label="삭제"></button></span>
 			</div>
-			<pre><code>&lt;span class="chip-basic"&gt;&lt;span class="chip-basic__text"&gt;필터명&lt;/span&gt;&lt;button class="chip-basic__close" aria-label="삭제"&gt;&lt;svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"&gt;...&lt;/svg&gt;&lt;/button&gt;&lt;/span&gt;</code></pre>
+			<pre><code>&lt;span class="chip-basic"&gt;&lt;span class="chip-basic__text"&gt;필터명&lt;/span&gt;&lt;button class="chip-basic__close" aria-label="삭제"&gt;&lt;/button&gt;&lt;/span&gt;</code></pre>
 
 			<h3>single — default / active</h3>
 			<div class="demo row">
@@ -3982,7 +4029,7 @@
     &lt;button type="button" class="chip-single" aria-pressed="false"&gt;메뉴&lt;/button&gt;
     ...
   &lt;/div&gt;
-  &lt;button class="chip-accordion__toggle"&gt;&lt;svg&gt;...화살표...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="chip-accordion__toggle" aria-label="펼치기"&gt;&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 		</section>
 
@@ -3999,9 +4046,9 @@
 				</div>
 			</div>
 			<pre><code>&lt;div class="controls-stepper"&gt;
-  &lt;button class="controls-stepper__btn" disabled&gt;&lt;svg&gt;...minus...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="controls-stepper__btn" aria-label="감소" disabled&gt;&lt;/button&gt;
   &lt;input class="controls-stepper__input" value="0"&gt;
-  &lt;button class="controls-stepper__btn"&gt;&lt;svg&gt;...plus...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="controls-stepper__btn" aria-label="증가"&gt;&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>controller — previous / next (default / disabled)</h3>
@@ -4011,9 +4058,10 @@
 				<button type="button" class="controls-controller" aria-label="이전" disabled></button>
 				<button type="button" class="controls-controller" aria-label="다음" disabled></button>
 			</div>
-			<pre><code>&lt;button class="controls-controller" aria-label="이전"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;
-&lt;button class="controls-controller" aria-label="다음"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;
-&lt;button class="controls-controller" disabled&gt;...&lt;/button&gt;</code></pre>
+			<pre><code>&lt;button class="controls-controller" aria-label="이전"&gt;&lt;/button&gt;
+&lt;button class="controls-controller" aria-label="다음"&gt;&lt;/button&gt;
+&lt;button class="controls-controller" aria-label="이전" disabled&gt;&lt;/button&gt;
+&lt;button class="controls-controller" aria-label="다음" disabled&gt;&lt;/button&gt;</code></pre>
 		</section>
 
 		<section id="sec-divider" class="nds">
@@ -4087,7 +4135,7 @@
 			</div>
 			<p class="note">아이콘(기본 on)·상단 타이틀(기본 off)·하단 텍스트버튼(기본 off)은 옵션입니다.</p>
 			<pre><code>&lt;div class="empty empty--result"&gt;
-  &lt;span class="empty__icon"&gt;&lt;svg viewBox="0 0 40 40"&gt;...말풍선+점3개...&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="empty__icon"&gt;&lt;/span&gt;
   &lt;p class="empty__text"&gt;조회 결과가 없습니다.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 		</section>
@@ -4172,15 +4220,15 @@
 			</div>
 			<pre><code>&lt;div class="indicator-number"&gt;
   &lt;div class="indicator-number__paging"&gt;
-    &lt;button class="indicator-number__arrow"&gt;&lt;svg&gt;...chevron-left...&lt;/svg&gt;&lt;/button&gt;
+    &lt;button class="indicator-number__arrow" aria-label="이전"&gt;&lt;/button&gt;
     &lt;span class="indicator-number__count"&gt;
       &lt;span class="indicator-number__current"&gt;1&lt;/span&gt;
       &lt;span class="indicator-number__dash"&gt;&lt;/span&gt;
       &lt;span class="indicator-number__total"&gt;3&lt;/span&gt;
     &lt;/span&gt;
-    &lt;button class="indicator-number__arrow"&gt;&lt;svg&gt;...chevron-right...&lt;/svg&gt;&lt;/button&gt;
+    &lt;button class="indicator-number__arrow" aria-label="다음"&gt;&lt;/button&gt;
   &lt;/div&gt;
-  &lt;button class="indicator-number__control"&gt;&lt;svg&gt;...stop(II)면 두 막대, play(▶)면 삼각형...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="indicator-number__control" aria-label="일시정지"&gt;&lt;/button&gt;  &lt;!-- 재생 상태는 aria-label="재생" --&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Dot</h3>
@@ -4223,7 +4271,7 @@
   &lt;span class="indicator-dot__item indicator-dot__item--active"&gt;&lt;/span&gt;
   &lt;span class="indicator-dot__item"&gt;&lt;/span&gt;
   ...
-  &lt;button class="indicator-dot__control"&gt;&lt;svg&gt;...stop(막대2개)면, play(삼각형)...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="indicator-dot__control" aria-label="일시정지"&gt;&lt;/button&gt;  &lt;!-- 재생 상태는 aria-label="재생" --&gt;
 &lt;/div&gt;</code></pre>
 		</section>
 
@@ -4251,7 +4299,7 @@
 			<pre><code>&lt;div class="infobox"&gt;
   &lt;p class="infobox__title"&gt;타이틀&lt;/p&gt;
   &lt;p class="infobox__body"&gt;내용을 입력해 주세요.&lt;/p&gt;
-  &lt;button class="infobox__button"&gt;버튼&lt;svg&gt;...화살표...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="infobox__button"&gt;버튼&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 		</section>
 
@@ -4328,7 +4376,7 @@
   &lt;span class="input-box__label"&gt;라벨&lt;/span&gt;
   &lt;div class="input-box__field"&gt;
     &lt;input class="input-box__input"&gt;
-    &lt;button class="input-box__clear" aria-label="삭제"&gt;&lt;svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"&gt;...&lt;/svg&gt;&lt;/button&gt;
+    &lt;button class="input-box__clear" aria-label="삭제"&gt;&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
@@ -4485,7 +4533,7 @@
   &lt;span class="input-box__ghost"&gt;직접입력&lt;/span&gt;
   &lt;span class="input-box__unit"&gt;＠&lt;/span&gt;
   &lt;span class="input-box__ghost input-box__ghost--fixed"&gt;이메일선택&lt;/span&gt;
-  &lt;span class="input-box__icon"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="input-box__icon"&gt;&lt;/span&gt;
 &lt;/div&gt;
 &lt;!-- inner: 필드 안 비활성 버튼 --&gt;
 &lt;button class="input-box__btn input-box__btn--disabled" disabled&gt;버튼&lt;/button&gt;</code></pre>
@@ -4715,7 +4763,7 @@
 				<span class="label-text"><span class="label-text__number">1</span>레이블</span>
 			</div>
 			<pre><code>&lt;span class="label-text"&gt;레이블&lt;/span&gt;
-&lt;span class="label-text"&gt;레이블&lt;span class="label-text__tooltip"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class="label-text"&gt;레이블&lt;span class="label-text__tooltip"&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class="label-text"&gt;&lt;span class="label-text__number"&gt;1&lt;/span&gt;레이블&lt;/span&gt;</code></pre>
 
 			<h3>Line/Color-Sm — 9색상</h3>
@@ -4773,8 +4821,8 @@
 			</div>
 			<p class="note">화살표는 옵션(기본 on)입니다.</p>
 			<pre><code>&lt;span class="label-icon"&gt;
-  &lt;span class="label-icon__content"&gt;&lt;span class="label-icon__icon"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;&lt;span class="label-icon__text"&gt;라벨&lt;/span&gt;&lt;/span&gt;
-  &lt;span class="label-icon__arrow"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="label-icon__content"&gt;&lt;span class="label-icon__icon"&gt;&lt;/span&gt;&lt;span class="label-icon__text"&gt;라벨&lt;/span&gt;&lt;/span&gt;
+  &lt;span class="label-icon__arrow"&gt;&lt;/span&gt;
 &lt;/span&gt;</code></pre>
 		</section>
 
@@ -4790,7 +4838,7 @@
 				</div>
 			</div>
 			<pre><code>&lt;div class="link-vertical"&gt;
-  &lt;span class="link-vertical__icon"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="link-vertical__icon"&gt;&lt;/span&gt;
   &lt;span class="link-vertical__title"&gt;타이틀&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
@@ -4806,10 +4854,10 @@
 			</div>
 			<pre><code>&lt;div class="link-horizontal"&gt;
   &lt;span class="link-horizontal__title"&gt;
-    &lt;span class="link-horizontal__icon"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;  &lt;!-- 옵션 --&gt;
+    &lt;span class="link-horizontal__icon"&gt;&lt;/span&gt;  &lt;!-- 옵션 --&gt;
     &lt;span class="link-horizontal__text"&gt;타이틀&lt;/span&gt;
   &lt;/span&gt;
-  &lt;span class="link-horizontal__arrow"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;  &lt;!-- 옵션 --&gt;
+  &lt;span class="link-horizontal__arrow"&gt;&lt;/span&gt;  &lt;!-- 옵션 --&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Mix — 아이콘 + 타이틀 + 부가설명</h3>
@@ -4823,7 +4871,7 @@
 				</div>
 			</div>
 			<pre><code>&lt;div class="link-mix"&gt;
-  &lt;span class="link-mix__icon"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="link-mix__icon"&gt;&lt;/span&gt;
   &lt;span class="link-mix__text"&gt;
     &lt;span class="link-mix__title"&gt;타이틀&lt;/span&gt;
     &lt;span class="link-mix__sub"&gt;부가설명&lt;/span&gt;
@@ -4839,7 +4887,7 @@
 			</div>
 			<pre><code>&lt;div class="link-none"&gt;
   &lt;span class="link-none__title"&gt;타이틀&lt;/span&gt;
-  &lt;span class="link-none__arrow"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="link-none__arrow"&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Category — 원형 아이콘 + 카테고리(위/아래 옵션) + 타이틀</h3>
@@ -4865,7 +4913,7 @@
       &lt;span class="link-category__title"&gt;타이틀&lt;/span&gt;
     &lt;/span&gt;
   &lt;/span&gt;
-  &lt;span class="link-category__arrow"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="link-category__arrow"&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Category2 — 아이콘 + 타이틀+화살표 + 서브텍스트</h3>
@@ -4885,9 +4933,9 @@
 				</div>
 			</div>
 			<pre><code>&lt;div class="link-category2"&gt;
-  &lt;span class="link-category2__icon"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="link-category2__icon"&gt;&lt;/span&gt;
   &lt;span class="link-category2__text"&gt;
-    &lt;span class="link-category2__title-row"&gt;&lt;span class="link-category2__title"&gt;타이틀&lt;/span&gt;&lt;span class="link-category2__arrow"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class="link-category2__title-row"&gt;&lt;span class="link-category2__title"&gt;타이틀&lt;/span&gt;&lt;span class="link-category2__arrow"&gt;&lt;/span&gt;&lt;/span&gt;
     &lt;span class="link-category2__sub"&gt;&lt;span class="link-category2__sub-text"&gt;카테고리&lt;/span&gt;&lt;span class="link-category2__sub-spacer"&gt;&lt;/span&gt;&lt;/span&gt;
   &lt;/span&gt;
 &lt;/div&gt;</code></pre>
@@ -4917,7 +4965,7 @@
 			<pre><code>&lt;div class="link-divide"&gt;
   &lt;div class="link-divide__item"&gt;
     &lt;span class="link-divide__text"&gt;&lt;span class="link-divide__title"&gt;타이틀&lt;/span&gt;&lt;span class="link-divide__sub"&gt;부가설명&lt;/span&gt;&lt;/span&gt;
-    &lt;span class="link-divide__arrow"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;
+    &lt;span class="link-divide__arrow"&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;hr class="divider divider--page"&gt;
   &lt;div class="link-divide__item"&gt;...&lt;/div&gt;
@@ -4989,7 +5037,7 @@
 			</div>
 			<pre><code>&lt;div class="link-list"&gt;
   &lt;span class="link-list__text"&gt;&lt;span class="link-list__label"&gt;텍스트&lt;/span&gt;&lt;span class="link-list__value"&gt;텍스트&lt;/span&gt;&lt;/span&gt;
-  &lt;span class="link-list__arrow"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;
+  &lt;span class="link-list__arrow"&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 		</section>
 
@@ -5104,7 +5152,7 @@
   &lt;div class="list-page__divider"&gt;&lt;/div&gt;  &lt;!-- 옵션 --&gt;
   &lt;span class="list-page__title"&gt;타이틀&lt;/span&gt;  &lt;!-- 옵션 --&gt;
   &lt;div class="list-page__rows"&gt;
-    &lt;div class="list-kv"&gt;&lt;span class="list-kv__title"&gt;타이틀&lt;span class="list-kv__tooltip"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="list-kv__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="list-kv"&gt;&lt;span class="list-kv__title"&gt;타이틀&lt;span class="list-kv__tooltip"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="list-kv__data"&gt;데이터&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="list-page__divider"&gt;&lt;/div&gt;  &lt;!-- 옵션 --&gt;
 &lt;/div&gt;</code></pre>
@@ -5179,7 +5227,7 @@
     &lt;span class="list-account__number"&gt;계좌번호&lt;/span&gt;
     &lt;span class="list-account__price"&gt;출금가능금액 &lt;strong&gt;10,000원&lt;/strong&gt;&lt;/span&gt;  &lt;!-- 옵션 --&gt;
   &lt;/span&gt;
-  &lt;button class="list-account__fav" aria-label="즐겨찾기"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;  &lt;!-- 옵션 --&gt;
+  &lt;button class="list-account__fav" aria-label="즐겨찾기"&gt;&lt;/button&gt;  &lt;!-- 옵션 --&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Continue — 이어하기 상품 + 닫기</h3>
@@ -5197,7 +5245,7 @@
   &lt;span class="list-continue__text"&gt;상품명&lt;/span&gt;
   &lt;span class="list-continue__actions"&gt;
     &lt;button class="list-continue__btn"&gt;이어하기&lt;/button&gt;  &lt;!-- 옵션 --&gt;
-    &lt;button class="list-continue__close" aria-label="닫기"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;
+    &lt;button class="list-continue__close" aria-label="닫기"&gt;&lt;/button&gt;
   &lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
@@ -5235,7 +5283,7 @@
 			<pre><code>&lt;div class="list-accordion"&gt;
   &lt;div class="list-accordion__divider"&gt;&lt;/div&gt;
   &lt;div class="list-accordion__row"&gt;&lt;span class="list-accordion__title"&gt;타이틀&lt;/span&gt;&lt;span class="list-accordion__data"&gt;0원&lt;/span&gt;&lt;/div&gt;
-  &lt;button class="list-accordion__toggle"&gt;펼치기&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="list-accordion__toggle"&gt;펼치기&lt;/button&gt;
   &lt;div class="list-accordion__divider"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 		</section>
@@ -5291,13 +5339,13 @@
 			</div>
 			<pre><code>&lt;div class="load-data"&gt;
   &lt;div class="load-data__label"&gt;
-    &lt;span class="label-text"&gt;레이블&lt;span class="label-text__tooltip"&gt;&lt;svg&gt;...&lt;/svg&gt;&lt;/span&gt;&lt;/span&gt;
-    &lt;button class="load-data__label-btn"&gt;버튼&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;
+    &lt;span class="label-text"&gt;레이블&lt;span class="label-text__tooltip"&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;button class="load-data__label-btn"&gt;버튼&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class="load-data__box"&gt;&lt;div class="load-data__row"&gt;&lt;span class="load-data__title"&gt;Label&lt;/span&gt;&lt;span class="load-data__data"&gt;Data&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
   &lt;div class="load-data__text-btn"&gt;&lt;span class="load-data__text"&gt;텍스트 입력&lt;/span&gt;&lt;button class="load-data__btn"&gt;버튼&lt;/button&gt;&lt;/div&gt;
   &lt;p class="load-data__message"&gt;안내 문구 입력&lt;/p&gt;
-  &lt;button class="load-data__bottom-btn"&gt;버튼&lt;svg&gt;...&lt;/svg&gt;&lt;/button&gt;
+  &lt;button class="load-data__bottom-btn"&gt;버튼&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Highlight — 데이터 강조(제목+부가설명 2줄)</h3>
@@ -5361,8 +5409,8 @@
   &lt;button class="navigation-top__link"&gt;&lt;span class="navigation-top__link-name"&gt;김농협님&lt;/span&gt;&lt;/button&gt;
   &lt;div class="navigation-top__actions"&gt;
     &lt;label class="switch-font"&gt;...&lt;/label&gt;
-    &lt;div class="navigation-top__alarm"&gt;&lt;button class="navigation-top__icon-btn"&gt;&lt;img src="alarm-notice-24.svg"&gt;&lt;/button&gt;&lt;span class="navigation-top__alarm-dot"&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;button class="navigation-top__icon-btn"&gt;&lt;img src="ico_menu_line_24.svg"&gt;&lt;/button&gt;
+    &lt;div class="navigation-top__alarm"&gt;&lt;button class="navigation-top__icon-btn" aria-label="알림"&gt;&lt;/button&gt;&lt;span class="navigation-top__alarm-dot"&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;button class="navigation-top__icon-btn" aria-label="메뉴"&gt;&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
@@ -5389,9 +5437,9 @@
   &lt;span class="navigation-top__zone navigation-top__zone--w60"&gt;&lt;/span&gt;  &lt;!-- 균형용 더미 --&gt;
   &lt;span class="navigation-top__title"&gt;서비스 타이틀&lt;/span&gt;
   &lt;div class="navigation-top__actions"&gt;
-    &lt;div class="navigation-top__badge"&gt;&lt;button class="navigation-top__icon-btn"&gt;&lt;img src="continue-24.svg"&gt;&lt;/button&gt;&lt;span class="navigation-top__badge-count"&gt;2&lt;/span&gt;&lt;/div&gt;
-    &lt;div class="navigation-top__badge"&gt;&lt;button class="navigation-top__icon-btn"&gt;&lt;img src="cart-24.svg"&gt;&lt;/button&gt;&lt;span class="navigation-top__badge-count"&gt;2&lt;/span&gt;&lt;/div&gt;
-    &lt;button class="navigation-top__icon-btn"&gt;&lt;img src="ico_menu_line_24.svg"&gt;&lt;/button&gt;
+    &lt;div class="navigation-top__badge"&gt;&lt;button class="navigation-top__icon-btn" aria-label="이용내역"&gt;&lt;/button&gt;&lt;span class="navigation-top__badge-count"&gt;2&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="navigation-top__badge"&gt;&lt;button class="navigation-top__icon-btn" aria-label="장바구니"&gt;&lt;/button&gt;&lt;span class="navigation-top__badge-count"&gt;2&lt;/span&gt;&lt;/div&gt;
+    &lt;button class="navigation-top__icon-btn" aria-label="메뉴"&gt;&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
@@ -5410,11 +5458,11 @@
 			</div>
 			<p class="note">가장 일반적으로 쓰이는 기본 헤더입니다. 좌우 60px 영역이 대칭을 이뤄 타이틀이 항상 화면 중앙에 위치합니다.</p>
 			<pre><code>&lt;div class="navigation-top navigation-top--basic"&gt;
-  &lt;span class="navigation-top__zone navigation-top__zone--w60"&gt;&lt;button class="navigation-top__icon-btn"&gt;&lt;img src="ico_previous_line_24.svg"&gt;&lt;/button&gt;&lt;/span&gt;
+  &lt;span class="navigation-top__zone navigation-top__zone--w60"&gt;&lt;button class="navigation-top__icon-btn" aria-label="뒤로가기"&gt;&lt;/button&gt;&lt;/span&gt;
   &lt;span class="navigation-top__title"&gt;서비스 타이틀&lt;/span&gt;
   &lt;span class="navigation-top__zone navigation-top__zone--w60 navigation-top__zone--end"&gt;
-    &lt;button class="navigation-top__icon-btn"&gt;&lt;img src="home-allone-24.svg"&gt;&lt;/button&gt;
-    &lt;button class="navigation-top__icon-btn"&gt;&lt;img src="ico_menu_line_24.svg"&gt;&lt;/button&gt;
+    &lt;button class="navigation-top__icon-btn" aria-label="홈"&gt;&lt;/button&gt;
+    &lt;button class="navigation-top__icon-btn" aria-label="메뉴"&gt;&lt;/button&gt;
   &lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
@@ -5464,7 +5512,7 @@
 			</div>
 			<p class="note">신청/가입 등 프로세스 화면용. 뒤로가기·타이틀·취소 3요소가 모두 옵션이라 화면 단계에 따라 선택적으로 노출합니다.</p>
 			<pre><code>&lt;div class="navigation-top navigation-top--process"&gt;
-  &lt;span class="navigation-top__zone navigation-top__zone--w60"&gt;&lt;button class="navigation-top__icon-btn"&gt;&lt;img src="ico_previous_line_24.svg"&gt;&lt;/button&gt;&lt;/span&gt;  &lt;!-- 옵션 --&gt;
+  &lt;span class="navigation-top__zone navigation-top__zone--w60"&gt;&lt;button class="navigation-top__icon-btn" aria-label="뒤로가기"&gt;&lt;/button&gt;&lt;/span&gt;  &lt;!-- 옵션 --&gt;
   &lt;span class="navigation-top__title"&gt;서비스 타이틀&lt;/span&gt;  &lt;!-- 옵션 --&gt;
   &lt;span class="navigation-top__zone navigation-top__zone--w60 navigation-top__zone--end"&gt;&lt;button class="navigation-top__cancel"&gt;취소&lt;/button&gt;&lt;/span&gt;  &lt;!-- 옵션 --&gt;
 &lt;/div&gt;</code></pre>
@@ -5486,7 +5534,7 @@
 			<pre><code>&lt;div class="navigation-top navigation-top--process-mall"&gt;
   ...
   &lt;span class="navigation-top__zone navigation-top__zone--w60 navigation-top__zone--end"&gt;
-    &lt;button class="navigation-top__icon-btn"&gt;&lt;img src="cs-24.svg"&gt;&lt;/button&gt;
+    &lt;button class="navigation-top__icon-btn" aria-label="상담"&gt;&lt;/button&gt;
     &lt;button class="navigation-top__cancel"&gt;취소&lt;/button&gt;
   &lt;/span&gt;
 &lt;/div&gt;</code></pre>
@@ -5503,7 +5551,7 @@
 			<p class="note">전체화면 팝업 전용. 뒤로가기 버튼 없이 타이틀이 좌측 정렬되고 닫기 버튼만 노출됩니다.</p>
 			<pre><code>&lt;div class="navigation-top navigation-top--full-popup"&gt;
   &lt;span class="navigation-top__title navigation-top__title--left"&gt;서비스 타이틀&lt;/span&gt;
-  &lt;span class="navigation-top__zone"&gt;&lt;button class="navigation-top__icon-btn"&gt;&lt;img src="close2-24.svg"&gt;&lt;/button&gt;&lt;/span&gt;
+  &lt;span class="navigation-top__zone"&gt;&lt;button class="navigation-top__icon-btn" aria-label="닫기"&gt;&lt;/button&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Top — partnership (뒤로가기 + 타이틀 + 닫기)</h3>
@@ -5535,7 +5583,7 @@
 				</div>
 			</div>
 			<p class="note">타이틀 옆 툴팁 아이콘은 장식용이며, 실제 구현 시 버튼으로 바꿔 설명 팝업을 열도록 구성합니다.</p>
-			<pre><code>&lt;span class="navigation-top__title"&gt;서비스 타이틀&lt;span class="navigation-top__icon-btn"&gt;&lt;img src="ico_tooltip1_gray600_line_24.svg"&gt;&lt;/span&gt;&lt;/span&gt;</code></pre>
+			<pre><code>&lt;span class="navigation-top__title"&gt;서비스 타이틀&lt;span class="navigation-top__icon-btn" aria-hidden="true"&gt;&lt;/span&gt;&lt;/span&gt;</code></pre>
 
 			<h3>Top — full-popup-product (여백 + 중앙 타이틀 + 닫기)</h3>
 			<div class="demo">
@@ -5551,7 +5599,7 @@
 			<pre><code>&lt;div class="navigation-top navigation-top--full-popup-product"&gt;
   &lt;span class="navigation-top__zone" style="width:24px"&gt;&lt;/span&gt;
   &lt;span class="navigation-top__title"&gt;서비스 타이틀&lt;/span&gt;
-  &lt;span class="navigation-top__zone"&gt;&lt;button class="navigation-top__icon-btn"&gt;&lt;img src="close2-24.svg"&gt;&lt;/button&gt;&lt;/span&gt;
+  &lt;span class="navigation-top__zone"&gt;&lt;button class="navigation-top__icon-btn" aria-label="닫기"&gt;&lt;/button&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Top — login (그린 배경 + 로그인 전 브랜드 로고)</h3>
@@ -5569,9 +5617,9 @@
 			</div>
 			<p class="note">--color-bg-point(그린) 배경 위에서 아이콘은 흰색으로 반전(filter)해서 사용합니다.</p>
 			<pre><code>&lt;div class="navigation-top navigation-top--login"&gt;
-  &lt;span class="navigation-top__zone navigation-top__zone--w60"&gt;&lt;button class="navigation-top__icon-btn"&gt;&lt;img src="ico_previous_line_24.svg"&gt;&lt;/button&gt;&lt;/span&gt;
+  &lt;span class="navigation-top__zone navigation-top__zone--w60"&gt;&lt;button class="navigation-top__icon-btn" aria-label="뒤로가기"&gt;&lt;/button&gt;&lt;/span&gt;
   &lt;span class="navigation-top__title"&gt;&lt;span class="navigation-top__logo navigation-top__logo--login"&gt;NH올원뱅크&lt;/span&gt;&lt;/span&gt;
-  &lt;span class="navigation-top__zone navigation-top__zone--w60 navigation-top__zone--end"&gt;&lt;button class="navigation-top__icon-btn"&gt;&lt;img src="ico_menu_line_24.svg"&gt;&lt;/button&gt;&lt;/span&gt;
+  &lt;span class="navigation-top__zone navigation-top__zone--w60 navigation-top__zone--end"&gt;&lt;button class="navigation-top__icon-btn" aria-label="메뉴"&gt;&lt;/button&gt;&lt;/span&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>Top — mydata (뒤로가기 + 마이데이터 로고 + 홈)</h3>
@@ -5609,8 +5657,8 @@
 			</div>
 			<p class="note">NH올원뱅크 하단 탭바. 선택된 탭만 아이콘이 채워진(fill) 형태로 바뀌고 aria-current="page"로 표시합니다.</p>
 			<pre><code>&lt;nav class="navigation-bottom navigation-bottom--allone" aria-label="주요 메뉴"&gt;
-  &lt;button class="navigation-bottom__item" aria-current="page"&gt;&lt;img class="navigation-bottom__icon" src="home-fill-28.svg"&gt;&lt;span class="navigation-bottom__label"&gt;홈&lt;/span&gt;&lt;/button&gt;
-  &lt;button class="navigation-bottom__item"&gt;&lt;img class="navigation-bottom__icon" src="mall-28.svg"&gt;&lt;span class="navigation-bottom__label"&gt;금융상품&lt;/span&gt;&lt;/button&gt;
+  &lt;button class="navigation-bottom__item" aria-current="page"&gt;&lt;span class="navigation-bottom__icon navigation-bottom__icon--home"&gt;&lt;/span&gt;&lt;span class="navigation-bottom__label"&gt;홈&lt;/span&gt;&lt;/button&gt;
+  &lt;button class="navigation-bottom__item"&gt;&lt;span class="navigation-bottom__icon navigation-bottom__icon--mall"&gt;&lt;/span&gt;&lt;span class="navigation-bottom__label"&gt;금융상품&lt;/span&gt;&lt;/button&gt;
   ...
 &lt;/nav&gt;</code></pre>
 
@@ -5816,7 +5864,7 @@
 			<pre><code>&lt;div class="process-step-icon-h"&gt;
   &lt;div class="process-step-icon-h__item"&gt;
     &lt;div class="process-step-icon-h__step"&gt;
-      &lt;div class="process-step-icon-h__icon process-step-icon-h__icon--active"&gt;&lt;img src="..."&gt;&lt;/div&gt;
+      &lt;div class="process-step-icon-h__icon process-step-icon-h__icon--active"&gt;&lt;/div&gt;
       &lt;div class="process-step-icon-h__title"&gt;
         &lt;span class="process-step-icon-h__name"&gt;스탭명&lt;/span&gt;
         &lt;span class="process-step-icon-h__desc"&gt;부가설명&lt;/span&gt;
@@ -5856,7 +5904,7 @@
 			<pre><code>&lt;div class="process-step-icon-v"&gt;
   &lt;div class="process-step-icon-v__item"&gt;
     &lt;div class="process-step-icon-v__step"&gt;
-      &lt;div class="process-step-icon-v__icon"&gt;&lt;img src="..."&gt;&lt;/div&gt;
+      &lt;div class="process-step-icon-v__icon"&gt;&lt;/div&gt;
       &lt;span class="process-step-icon-v__line"&gt;&lt;/span&gt;
     &lt;/div&gt;
     &lt;div class="process-step-icon-v__text"&gt;
@@ -6172,7 +6220,7 @@
 								class="radio-explain__sub">서브텍스트</span></span></span></label>
 			</div>
 			<pre><code>&lt;span class="radio-explain__label"&gt;
-  &lt;img src="..." class="radio-explain__icon"&gt;
+  &lt;span class="radio-explain__icon"&gt;&lt;/span&gt;
   &lt;span class="radio-explain__content"&gt;...&lt;/span&gt;
 &lt;/span&gt;</code></pre>
 
@@ -6188,7 +6236,7 @@
 			<pre><code>&lt;label class="radio-choose"&gt;
   &lt;input type="radio" name="g1" class="radio-hidden-input radio-choose__input"&gt;
   &lt;span class="radio-choose__label"&gt;
-    &lt;img src="..." class="radio-choose__icon"&gt;
+    &lt;span class="radio-choose__icon"&gt;&lt;/span&gt;
     &lt;span class="radio-choose__text"&gt;라디오-텍스트&lt;/span&gt;
   &lt;/span&gt;
 &lt;/label&gt;</code></pre>
@@ -6225,7 +6273,7 @@
 				그린, 오류: 레드, 보조 설명: 그레이).</p>
 			<pre><code>&lt;div class="radio-survey radio-survey--icon"&gt;
   &lt;div class="radio-survey__options"&gt;
-    &lt;label&gt;&lt;input type="radio" name="g1" class="radio-hidden-input radio-survey__input" checked&gt;&lt;span class="radio-survey__label"&gt;&lt;img src="..." class="radio-survey__icon"&gt;&lt;span class="radio-survey__text"&gt;라디오-텍스트&lt;/span&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;label&gt;&lt;input type="radio" name="g1" class="radio-hidden-input radio-survey__input" checked&gt;&lt;span class="radio-survey__label"&gt;&lt;span class="radio-survey__icon"&gt;&lt;/span&gt;&lt;span class="radio-survey__text"&gt;라디오-텍스트&lt;/span&gt;&lt;/span&gt;&lt;/label&gt;
   &lt;/div&gt;
   &lt;p class="radio-message"&gt;&lt;span class="radio-message__notice"&gt;정답 입니다.&lt;/span&gt;&lt;span class="radio-message__text"&gt;내용을 입력해 주세요.&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
@@ -6304,7 +6352,8 @@
 			</div>
 			<p class="note">선택/오류 아이콘은 _selected 굵기(2px, 그린)로 교체되고, 테두리 색만 그린/레드로 구분합니다. O/X 아이콘은 손으로 그린 임시 SVG이며 필요 시
 				실제 다운로드 파일로 교체 가능합니다.</p>
-			<pre><code>&lt;label&gt;&lt;input type="radio" name="g1" class="radio-hidden-input radio-survey__input" checked&gt;&lt;span class="radio-survey__label"&gt;&lt;img src="assets/img/icon/ico_o_line_24_selected.svg" class="radio-survey__icon radio-survey__icon--ox"&gt;&lt;/span&gt;&lt;/label&gt;</code></pre>
+			<pre><code>&lt;label&gt;&lt;input type="radio" name="g1" class="radio-hidden-input radio-survey__input"&gt;&lt;span class="radio-survey__label"&gt;&lt;span alt="예" class="radio-survey__icon radio-survey__icon--ox"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/label&gt;
+&lt;!-- 선택 시 radio-survey__icon--ox-selected 추가 --&gt;</code></pre>
 		</section>
 
 		<section id="sec-search" class="nds">
@@ -6356,7 +6405,7 @@
   &lt;span class="label-text"&gt;레이블&lt;/span&gt;
   &lt;div class="input-box__field"&gt;
     &lt;input class="input-box__input" placeholder="검색어 입력"&gt;
-    &lt;span class="input-box__icon"&gt;&lt;img src="assets/img/icon/ico_search_line_24.svg"&gt;&lt;/span&gt;
+    &lt;span class="input-box__icon input-box__icon--search"&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;p class="input-box__message"&gt;안내 문구 입력&lt;/p&gt;
 &lt;/div&gt;</code></pre>
@@ -6387,9 +6436,9 @@
 			<pre><code>&lt;div class="input-box__row"&gt;
   &lt;div class="input-box__field"&gt;
     &lt;input class="input-box__input" placeholder="검색어 입력"&gt;
-    &lt;span class="input-box__icon"&gt;&lt;img src="assets/img/icon/ico_search_line_24.svg"&gt;&lt;/span&gt;
+    &lt;span class="input-box__icon input-box__icon--search"&gt;&lt;/span&gt;
   &lt;/div&gt;
-  &lt;button type="button" class="search-filter-btn"&gt;&lt;img src="assets/img/icon/ico_filter_line_24.svg"&gt;&lt;/button&gt;
+  &lt;button type="button" class="search-filter-btn"&gt;&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>line/search — Input-line + 검색 아이콘, Inactive / Focus / Filled / Error</h3>
@@ -6435,7 +6484,7 @@
   &lt;span class="label-text"&gt;레이블&lt;/span&gt;
   &lt;div class="input-line__field"&gt;
     &lt;input class="input-line__input" placeholder="검색어 입력"&gt;
-    &lt;span class="input-box__icon"&gt;&lt;img src="assets/img/icon/ico_search_line_24.svg"&gt;&lt;/span&gt;
+    &lt;span class="input-box__icon input-box__icon--search"&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;p class="input-line__message"&gt;안내 문구 입력&lt;/p&gt;
 &lt;/div&gt;</code></pre>
@@ -6506,7 +6555,7 @@
   &lt;span class="select-field__label" id="selLabel"&gt;라벨&lt;/span&gt;
   &lt;button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selLabel"&gt;
     &lt;span class="select-field__content"&gt;&lt;span class="select-field__text"&gt;선택하세요&lt;/span&gt;&lt;/span&gt;
-    &lt;span class="select-field__chevron" aria-hidden="true"&gt;&lt;img src="assets/img/icon/arr_down1_line_24.svg" width="24" height="24" alt=""&gt;&lt;/span&gt;
+    &lt;span class="select-field__chevron" aria-hidden="true"&gt;&lt;/span&gt;
   &lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
@@ -6578,7 +6627,7 @@
 					<span class="select-field__label" id="selBankL2">은행 선택</span>
 					<button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false"
 						aria-labelledby="selBankL2">
-						<span class="select-field__logo select-field__logo--sm"></span>
+						<span class="select-field__logo select-field__logo--sm"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 						<span class="select-field__content"><span class="select-field__text">NH농협은행</span></span>
 						<span class="select-field__chevron" aria-hidden="true"></span>
 					</button>
@@ -6599,13 +6648,14 @@
 					<span class="select-field__label" id="selBankL4">은행 선택</span>
 					<button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false"
 						aria-labelledby="selBankL4" disabled>
-						<span class="select-field__logo select-field__logo--sm"></span>
+						<span class="select-field__logo select-field__logo--sm"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 						<span class="select-field__content"><span class="select-field__text">NH농협은행</span></span>
 						<span class="select-field__chevron" aria-hidden="true"></span>
 					</button>
 				</div>
 			</div>
-			<p class="note">select-field__logo--sm(24px 원형)을 텍스트 앞에 붙입니다. 실제 은행 로고 이미지가 없어 임시로 은행 라인 아이콘을 사용했습니다.</p>
+			<p class="note">select-field__logo--sm(24px 원형)을 텍스트 앞에 붙입니다. 은행 선택 전(placeholder)에는 기본 은행 라인 아이콘이, 선택 후에는 실제 로고
+				이미지가 표시됩니다.</p>
 
 			<h3>account — 대형 로고(40px) + 계좌명/계좌번호 2단</h3>
 			<div class="demo row">
@@ -6624,7 +6674,7 @@
 					<span class="select-field__label" id="selAcctL2">계좌 선택</span>
 					<button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false"
 						aria-labelledby="selAcctL2">
-						<span class="select-field__logo"></span>
+						<span class="select-field__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 						<span class="select-field__name-col">
 							<span class="select-field__name">NH올원계좌</span>
 							<span class="select-field__number">352-1234-5678-01</span>
@@ -6650,7 +6700,7 @@
 					<span class="select-field__label" id="selAcctL4">계좌 선택</span>
 					<button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false"
 						aria-labelledby="selAcctL4" disabled>
-						<span class="select-field__logo"></span>
+						<span class="select-field__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 						<span class="select-field__name-col">
 							<span class="select-field__name">NH올원계좌</span>
 							<span class="select-field__number">352-1234-5678-01</span>
@@ -6715,7 +6765,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">적금</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH직장인적금</span>
 									<span class="select-card__number">352-1234-5678-01</span>
@@ -6737,7 +6787,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">적금</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH직장인적금</span>
 									<span class="select-card__number">352-1234-5678-01</span>
@@ -6761,7 +6811,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">적금</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH직장인적금</span>
 									<span class="select-card__number">352-1234-5678-01</span>
@@ -6783,7 +6833,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">적금</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH직장인적금</span>
 									<span class="select-card__number">352-1234-5678-01</span>
@@ -6808,14 +6858,14 @@
     &lt;div class="select-card__select-text"&gt;
       &lt;span class="select-card__chip"&gt;적금&lt;/span&gt;
       &lt;div class="select-card__logo-row"&gt;
-        &lt;span class="select-card__logo"&gt;&lt;img src="..."&gt;&lt;/span&gt;
+        &lt;span class="select-card__logo"&gt;&lt;img src="assets/img/flag/img_bank-nh_24.svg" alt=""&gt;&lt;/span&gt;
         &lt;span class="select-card__name-col"&gt;
           &lt;span class="select-card__name"&gt;NH직장인적금&lt;/span&gt;
           &lt;span class="select-card__number"&gt;352-1234-5678-01&lt;/span&gt;
         &lt;/span&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-    &lt;span class="select-card__chevron"&gt;&lt;img src="..."&gt;&lt;/span&gt;
+    &lt;span class="select-card__chevron" aria-hidden="true"&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;div class="select-card__info-row"&gt;
     &lt;button class="select-card__fill-btn"&gt;채우기&lt;/button&gt;
@@ -6833,7 +6883,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">예금</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH정기예금</span>
 									<span class="select-card__number">352-1234-5678-02</span>
@@ -6852,7 +6902,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">예금</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH정기예금</span>
 									<span class="select-card__number">352-1234-5678-02</span>
@@ -6873,7 +6923,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">예금</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH정기예금</span>
 									<span class="select-card__number">352-1234-5678-02</span>
@@ -6892,7 +6942,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">예금</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH정기예금</span>
 									<span class="select-card__number">352-1234-5678-02</span>
@@ -6916,7 +6966,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">관리</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH올원계좌</span>
 									<span class="select-card__number-row">
@@ -6938,7 +6988,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">관리</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH올원계좌</span>
 									<span class="select-card__number-row">
@@ -6962,7 +7012,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">관리</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH올원계좌</span>
 									<span class="select-card__number-row">
@@ -6984,7 +7034,7 @@
 						<div class="select-card__select-text">
 							<span class="select-card__chip">관리</span>
 							<div class="select-card__logo-row">
-								<span class="select-card__logo"></span>
+								<span class="select-card__logo"><img src="assets/img/flag/img_bank-nh_24.svg" alt=""></span>
 								<span class="select-card__name-col">
 									<span class="select-card__name">NH올원계좌</span>
 									<span class="select-card__number-row">
@@ -7002,8 +7052,7 @@
 					</div>
 				</div>
 			</div>
-			<p class="note">select-card__number-row(계좌번호 + 16px 화살표)와 select-card__menu-btn(⋮, 우측 상단)을 조합한 관리용 카드입니다. 로고
-				이미지와 admin-dot 아이콘은 실제 에셋 다운로드 전까지 임시로 라인 아이콘으로 대체했습니다.</p>
+			<p class="note">select-card__number-row(계좌번호 + 16px 화살표)와 select-card__menu-btn(⋮, 우측 상단)을 조합한 관리용 카드입니다.</p>
 		</section>
 
 		<section id="sec-switch" class="nds">
@@ -7265,7 +7314,7 @@
       &lt;label class="check-basic"&gt;&lt;input type="checkbox" class="check-basic__input"&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
       &lt;span class="terms-card__title"&gt;[필수] 전체 동의&lt;/span&gt;
     &lt;/div&gt;
-    &lt;button class="terms-card__toggle"&gt;&lt;img src="arr_right2_line_24.svg"&gt;&lt;/button&gt;
+    &lt;button class="terms-card__toggle" aria-label="약관 상세로 이동"&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;hr class="terms-card__divider"&gt;
   &lt;div class="terms-card__list"&gt;
@@ -7274,7 +7323,7 @@
         &lt;label class="check-basic check-basic--xs"&gt;&lt;input type="checkbox" class="check-basic__input" checked&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
         &lt;span class="terms-link__text"&gt;약관명을 입력해 주세요&lt;/span&gt;
       &lt;/div&gt;
-      &lt;button class="terms-link__arrow"&gt;&lt;img src="arr_right1_gray600_line_24.svg"&gt;&lt;/button&gt;
+      &lt;button class="terms-link__arrow" aria-label="상세보기"&gt;&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
@@ -7312,7 +7361,7 @@
       &lt;label class="check-basic"&gt;&lt;input type="checkbox" class="check-basic__input"&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
       &lt;span class="terms-card__title"&gt;유의사항&lt;/span&gt;
     &lt;/div&gt;
-    &lt;button class="terms-card__toggle is-open" aria-expanded="true"&gt;&lt;img src="arr_down2_line_24.svg"&gt;&lt;/button&gt;
+    &lt;button class="terms-card__toggle is-open" aria-expanded="true" aria-label="접기"&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;hr class="terms-card__divider"&gt;
   &lt;p class="terms-card__body"&gt;내용을 입력해 주세요&lt;/p&gt;
@@ -7368,7 +7417,7 @@
   &lt;span class="textarea__label"&gt;레이블&lt;/span&gt;
   &lt;div class="textarea__wrap"&gt;
     &lt;textarea class="textarea__field" placeholder="내용을 입력하세요"&gt;&lt;/textarea&gt;
-    &lt;button class="textarea__clear"&gt;&lt;img src="ico_cancel1_fill_24.svg"&gt;&lt;/button&gt;
+    &lt;button class="textarea__clear" aria-label="입력 내용 지우기"&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class="textarea__footer"&gt;
     &lt;span class="textarea__msg"&gt;안내 문구 입력&lt;/span&gt;
@@ -7429,7 +7478,7 @@
 			<pre><code>&lt;div class="tooltip-card"&gt;
   &lt;div class="tooltip-card__header"&gt;
     &lt;span class="tooltip-card__title"&gt;타이틀&lt;/span&gt;
-    &lt;button class="tooltip-card__close" aria-label="닫기"&gt;&lt;svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"&gt;...&lt;/svg&gt;&lt;/button&gt;
+    &lt;button class="tooltip-card__close" aria-label="닫기"&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;p class="tooltip-card__sub"&gt;서브 타이틀&lt;/p&gt;
   &lt;p class="tooltip-card__body"&gt;서브 텍스트&lt;/p&gt;
@@ -7603,10 +7652,10 @@
 			<p class="note">search-box/search(검색 아이콘 포함 입력창) + input-box/inner(읽기전용 값 표시 + 변경 버튼) 조합입니다.</p>
 			<pre><code>&lt;div class="unit-staff-search"&gt;
   &lt;div class="input-box"&gt;
-    &lt;span class="label-text"&gt;권유직원(선택)&lt;img src="ico_tooltip1_gray600_line_24.svg"&gt;&lt;/span&gt;
+    &lt;span class="label-text"&gt;권유직원(선택)&lt;span class="label-text__tooltip"&gt;&lt;/span&gt;&lt;/span&gt;
     &lt;div class="input-box__field"&gt;
       &lt;input class="input-box__input" value="김농협"&gt;
-      &lt;span class="input-box__icon"&gt;&lt;img src="ico_search_line_24.svg"&gt;&lt;/span&gt;
+      &lt;span class="input-box__icon input-box__icon--search"&gt;&lt;/span&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="input-box"&gt;
@@ -7813,7 +7862,7 @@
 			</div>
 
 			<h3>Primitive Color (라이트 값 · CSS에서 직접 추출)</h3>
-			<div class="color-groups">
+			<div>
 				<div class="prow"><span class="prow__label">Base</span>
 					<div class="prow__swatches">
 						<div class="pcell" style="background:#FFFFFF" title="--primitive-base-0 (White): #FFFFFF">
@@ -8427,7 +8476,7 @@
 		</section>
 
 	</main>
-	<div class="btn-floating btn-floating--fixed" id="backToTop">
+	<div class="nds btn-floating btn-floating--fixed" id="backToTop">
 		<button type="button" class="btn-floating__circle" id="backToTopBtn" aria-label="맨 위로">TOP</button>
 	</div>
 	<script>
