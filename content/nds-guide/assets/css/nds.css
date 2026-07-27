@@ -2268,6 +2268,32 @@
   cursor: not-allowed;
 }
 
+.nds .btn-icon::before {
+  content: "";
+  display: block;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .btn-icon[aria-label="알림"]::before {
+  width: 20px;
+  height: 20px;
+  -webkit-mask-image: url("../img/icon/alarm-notice-24.svg");
+          mask-image: url("../img/icon/alarm-notice-24.svg");
+}
+
+.nds .btn-icon[aria-label="plus"]::before {
+  width: 18px;
+  height: 18px;
+  -webkit-mask-image: url("../img/icon/plus-24.svg");
+          mask-image: url("../img/icon/plus-24.svg");
+}
+
 .nds .btn-cta {
   display: flex;
   gap: 8px;
@@ -5885,6 +5911,31 @@
   display: block;
 }
 
+.nds .input-box__icon--search::before,
+.nds .input-box__icon--clear::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .input-box__icon--search::before {
+  -webkit-mask-image: url("../img/icon/ico_search_line_24.svg");
+          mask-image: url("../img/icon/ico_search_line_24.svg");
+}
+
+.nds .input-box__icon--clear::before {
+  -webkit-mask-image: url("../img/icon/ico_cancel1_fill_24.svg");
+          mask-image: url("../img/icon/ico_cancel1_fill_24.svg");
+}
+
 .nds .input-box__icon--up::before {
   content: "";
   display: block;
@@ -7932,6 +7983,38 @@
 .nds .radio-survey__icon--ox {
   width: 24px;
   height: 24px;
+  background-color: currentColor;
+  color: #505050;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .radio-survey__icon--ox[alt="예"] {
+  -webkit-mask-image: url("../img/icon/ico_o_line_24.svg");
+          mask-image: url("../img/icon/ico_o_line_24.svg");
+}
+
+.nds .radio-survey__icon--ox[alt="아니요"] {
+  -webkit-mask-image: url("../img/icon/ico_x_line_24.svg");
+          mask-image: url("../img/icon/ico_x_line_24.svg");
+}
+
+.nds .radio-survey__icon--ox-selected {
+  color: #19973c;
+}
+
+.nds .radio-survey__icon--ox-selected[alt="예"] {
+  -webkit-mask-image: url("../img/icon/ico_o_line_24_selected.svg");
+          mask-image: url("../img/icon/ico_o_line_24_selected.svg");
+}
+
+.nds .radio-survey__icon--ox-selected[alt="아니요"] {
+  -webkit-mask-image: url("../img/icon/ico_x_line_24_selected.svg");
+          mask-image: url("../img/icon/ico_x_line_24_selected.svg");
 }
 
 .nds .radio-survey--icon .radio-survey__text {
@@ -8834,13 +8917,28 @@
   color: var(--color-font-3, #505050);
 }
 
-.nds .terms-card__toggle svg,
-.nds .terms-card__toggle img {
+.nds .terms-card__toggle::before {
+  content: "";
+  display: block;
   width: 24px;
   height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/arr_right2_line_24.svg");
+          mask-image: url("../img/icon/arr_right2_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
 }
 
-.nds .terms-card__toggle.is-open img {
+.nds .terms-card__toggle[aria-expanded]::before {
+  -webkit-mask-image: url("../img/icon/arr_down2_line_24.svg");
+          mask-image: url("../img/icon/arr_down2_line_24.svg");
+}
+
+.nds .terms-card__toggle.is-open::before {
   transform: rotate(180deg);
 }
 
@@ -9374,10 +9472,30 @@
   flex-shrink: 0;
 }
 
-.nds .btn-stepper img {
+.nds .btn-stepper::before {
+  content: "";
+  display: block;
   width: 24px;
   height: 24px;
-  display: block;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .btn-stepper[aria-label="늘리기"]::before {
+  color: #19973c;
+  -webkit-mask-image: url("../img/icon/ico_plus_line_24_active.svg");
+          mask-image: url("../img/icon/ico_plus_line_24_active.svg");
+}
+
+.nds .btn-stepper[aria-label="줄이기"]::before {
+  color: #111111;
+  -webkit-mask-image: url("../img/icon/ico_minus_line_24.svg");
+          mask-image: url("../img/icon/ico_minus_line_24.svg");
 }
 
 .nds .unit-phone-number {
@@ -9612,14 +9730,76 @@
   flex-shrink: 0;
 }
 
-.nds .navigation-top__icon-btn img {
-  width: 24px;
-  height: 24px;
-  display: block;
+.nds .navigation-top__icon-btn {
+  color: var(--color-font-1, #121212);
 }
 
-.nds .navigation-top--login .navigation-top__icon-btn img {
-  filter: brightness(0) invert(1);
+.nds .navigation-top__icon-btn::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .navigation-top--login .navigation-top__icon-btn {
+  color: #ffffff;
+}
+
+.nds .navigation-top__icon-btn[aria-label="알림"]::before {
+  -webkit-mask-image: url("../img/icon/alarm-notice-24.svg");
+          mask-image: url("../img/icon/alarm-notice-24.svg");
+}
+
+.nds .navigation-top__icon-btn[aria-label="메뉴"]::before {
+  -webkit-mask-image: url("../img/icon/ico_menu_line_24.svg");
+          mask-image: url("../img/icon/ico_menu_line_24.svg");
+}
+
+.nds .navigation-top__icon-btn[aria-label="이용내역"]::before {
+  -webkit-mask-image: url("../img/icon/continue-24.svg");
+          mask-image: url("../img/icon/continue-24.svg");
+}
+
+.nds .navigation-top__icon-btn[aria-label="장바구니"]::before {
+  -webkit-mask-image: url("../img/icon/cart-24.svg");
+          mask-image: url("../img/icon/cart-24.svg");
+}
+
+.nds .navigation-top__icon-btn[aria-label="뒤로가기"]::before {
+  -webkit-mask-image: url("../img/icon/ico_previous_line_24.svg");
+          mask-image: url("../img/icon/ico_previous_line_24.svg");
+}
+
+.nds .navigation-top__icon-btn[aria-label="홈"]::before {
+  -webkit-mask-image: url("../img/icon/home-allone-24.svg");
+          mask-image: url("../img/icon/home-allone-24.svg");
+}
+
+.nds .navigation-top__icon-btn[aria-label="스마트뱅킹 홈"]::before {
+  -webkit-mask-image: url("../img/icon/ico_home-smartbanking_line_24.svg");
+          mask-image: url("../img/icon/ico_home-smartbanking_line_24.svg");
+}
+
+.nds .navigation-top__icon-btn[aria-label="상담"]::before {
+  -webkit-mask-image: url("../img/icon/cs-24.svg");
+          mask-image: url("../img/icon/cs-24.svg");
+}
+
+.nds .navigation-top__icon-btn[aria-label="닫기"]::before {
+  -webkit-mask-image: url("../img/icon/close2-24.svg");
+          mask-image: url("../img/icon/close2-24.svg");
+}
+
+.nds .navigation-top__icon-btn[aria-hidden="true"]::before {
+  -webkit-mask-image: url("../img/icon/ico_tooltip1_gray600_line_24.svg");
+          mask-image: url("../img/icon/ico_tooltip1_gray600_line_24.svg");
 }
 
 .nds .navigation-top__title {
@@ -9811,6 +9991,73 @@
   height: 28px;
   display: block;
   flex-shrink: 0;
+  color: var(--color-font-4, #767676);
+}
+
+.nds .navigation-bottom__icon--home,
+.nds .navigation-bottom__icon--home-smart {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nds .navigation-bottom__icon--home {
+  background-image: url("../img/icon/home-fill-28.svg");
+}
+
+.nds .navigation-bottom__icon--home-smart {
+  background-image: url("../img/icon/home-smart-fill-28.svg");
+}
+
+.nds .navigation-bottom__icon--mall,
+.nds .navigation-bottom__icon--mydata,
+.nds .navigation-bottom__icon--point,
+.nds .navigation-bottom__icon--lifeplus,
+.nds .navigation-bottom__icon--mall-smart,
+.nds .navigation-bottom__icon--mydata-smart,
+.nds .navigation-bottom__icon--talk-smart {
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .navigation-bottom__icon--mall {
+  -webkit-mask-image: url("../img/icon/mall-28.svg");
+          mask-image: url("../img/icon/mall-28.svg");
+}
+
+.nds .navigation-bottom__icon--mydata {
+  -webkit-mask-image: url("../img/icon/mydata-28.svg");
+          mask-image: url("../img/icon/mydata-28.svg");
+}
+
+.nds .navigation-bottom__icon--point {
+  -webkit-mask-image: url("../img/icon/point-28.svg");
+          mask-image: url("../img/icon/point-28.svg");
+}
+
+.nds .navigation-bottom__icon--lifeplus {
+  -webkit-mask-image: url("../img/icon/lifeplus-28.svg");
+          mask-image: url("../img/icon/lifeplus-28.svg");
+}
+
+.nds .navigation-bottom__icon--mall-smart {
+  -webkit-mask-image: url("../img/icon/mall-smart-28.svg");
+          mask-image: url("../img/icon/mall-smart-28.svg");
+}
+
+.nds .navigation-bottom__icon--mydata-smart {
+  -webkit-mask-image: url("../img/icon/mydata-smart-28.svg");
+          mask-image: url("../img/icon/mydata-smart-28.svg");
+}
+
+.nds .navigation-bottom__icon--talk-smart {
+  -webkit-mask-image: url("../img/icon/talk-smart-28.svg");
+          mask-image: url("../img/icon/talk-smart-28.svg");
 }
 
 .nds .navigation-bottom__label {
@@ -9995,9 +10242,32 @@
   box-sizing: border-box;
 }
 
-.nds .process-step-icon-h__icon img {
+.nds .process-step-icon-h__icon::before {
+  content: "";
+  display: block;
   width: 24px;
   height: 24px;
+  background-color: currentColor;
+  color: var(--color-font-1, #121212);
+  -webkit-mask-image: url("../img/icon/ico_id-login_line_24.svg");
+          mask-image: url("../img/icon/ico_id-login_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .process-step-icon-h__icon--active::before {
+  -webkit-mask-image: url("../img/icon/ico_security-info_line_24.svg");
+          mask-image: url("../img/icon/ico_security-info_line_24.svg");
+}
+
+.nds .process-step-icon-h__item--disabled .process-step-icon-h__icon::before {
+  color: #d3d3d3;
+  -webkit-mask-image: url("../img/icon/ico_pencil_gray500_line_24_disabled.svg");
+          mask-image: url("../img/icon/ico_pencil_gray500_line_24_disabled.svg");
 }
 
 .nds .process-step-icon-h__icon--active {
@@ -10454,6 +10724,270 @@
   line-height: 22px;
   color: var(--color-font-3, #505050);
 }
+
+/* --- img-to-css icon conversions (auto-appended) --- */
+.nds .calendar-day__icon::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/calendar-24.svg");
+          mask-image: url("../img/icon/calendar-24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .calendar-period__icon::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/calendar-24.svg");
+          mask-image: url("../img/icon/calendar-24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .navigation-top__link-arrow::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/arr_right_line_12.svg");
+          mask-image: url("../img/icon/arr_right_line_12.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .process-step-icon-v__icon::before {
+  color: var(--color-font-1, #121212);
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/ico_stockoption_line_24.svg");
+          mask-image: url("../img/icon/ico_stockoption_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .search-filter-btn::before {
+  color: var(--color-font-1, #121212);
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/ico_filter_line_24.svg");
+          mask-image: url("../img/icon/ico_filter_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .select-field__logo::before {
+  color: var(--color-font-4, #767676);
+  content: "";
+  display: block;
+  width: 100%px;
+  height: 100%px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/ico_bank_line_24.svg");
+          mask-image: url("../img/icon/ico_bank_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .select-card__logo::before {
+  color: var(--color-font-4, #767676);
+  content: "";
+  display: block;
+  width: 100%px;
+  height: 100%px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/ico_bank_line_24.svg");
+          mask-image: url("../img/icon/ico_bank_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .select-card__chevron::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/arr_down1_line_24.svg");
+          mask-image: url("../img/icon/arr_down1_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .select-card__number-arrow::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/arr_down_line_16.svg");
+          mask-image: url("../img/icon/arr_down_line_16.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .select-card__menu-btn::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/ico_admin-dot_line_24.svg");
+          mask-image: url("../img/icon/ico_admin-dot_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .terms-link__arrow::before {
+  color: var(--color-icon-4, #707070);
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/arr_right1_gray600_line_24.svg");
+          mask-image: url("../img/icon/arr_right1_gray600_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .textarea__clear::before {
+  color: var(--color-font-5, #929292);
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/ico_cancel1_fill_24.svg");
+          mask-image: url("../img/icon/ico_cancel1_fill_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .select-field__chevron::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/arr_down1_line_24.svg");
+          mask-image: url("../img/icon/arr_down1_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+.nds .select-field__chevron--up::before {
+  transform: rotate(180deg);
+}
+
+.nds .select-field__prefix::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url("../img/icon/ico_goal1_fill_36.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nds .radio-explain__icon::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url("../img/icon/ico_goal1_fill_36.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nds .radio-choose__icon::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url("../img/icon/ico_retiree_fill_36.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nds .radio-survey__icon:not(.radio-survey__icon--ox)::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-image: url("../img/icon/ico_bar-increase_fill_36.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 
 /* --- accessibility: focus-visible ---
    전체 컴포넌트 공통 포커스 링. 개별 컴포넌트에서 outline:none으로 지운 곳이
