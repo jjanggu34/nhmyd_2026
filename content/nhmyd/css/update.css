@@ -1,0 +1,778 @@
+/* update.css — NH마이데이터 AI자산관리 update/ 화면 전용 CSS
+ * nds.css(신규 디자인시스템 전체 카탈로그, content/nds-guide/assets/css/nds.css)를
+ * 그대로 링크하지 않고, 실제 update/ 화면에서 쓰는 컴포넌트만 여기로 옮겨 담습니다.
+ * 원본: content/nds-guide/assets/css/nds.css (선택자/변수 값 그대로, 다크모드 override만 제외)
+ * 새 컴포넌트가 필요해지면 nds-guide에서 해당 블록만 복사해 이 파일 뒤에 추가하세요.
+ * 포함된 컴포넌트: Accordion(notice/box/line/gray), Divider, Navigation(레거시 header 아이콘 재스킨)
+ */
+
+/* ---- 폰트: Pretendard ---- */
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-display: swap;
+  src: local("Pretendard SemiBold"), url("../../nds-guide/assets/fonts/woff2/Pretendard-Bold.woff2") format("woff2"), url("../../nds-guide/assets/fonts/woff/Pretendard-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-display: swap;
+  src: local("Pretendard SemiBold"), url("../../nds-guide/assets/fonts/woff2/Pretendard-SemiBold.woff2") format("woff2"), url("../../nds-guide/assets/fonts/woff/Pretendard-SemiBold.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 500;
+  font-display: swap;
+  src: local("Pretendard Medium"), url("../../nds-guide/assets/fonts/woff2/Pretendard-Medium.woff2") format("woff2"), url("../../nds-guide/assets/fonts/woff/Pretendard-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-display: swap;
+  src: local("Pretendard Regular"), url("../../nds-guide/assets/fonts/woff2/Pretendard-Regular.woff2") format("woff2"), url("../../nds-guide/assets/fonts/woff/Pretendard-Regular.woff") format("woff");
+}
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 300;
+  font-display: swap;
+  src: local("Pretendard Light"), url("../../nds-guide/assets/fonts/woff2/Pretendard-Light.woff2") format("woff2"), url("../../nds-guide/assets/fonts/woff/Pretendard-Light.woff") format("woff");
+}
+
+/* ---- 디자인 토큰 (라이트모드만; 다크모드 override는 production 미사용으로 제외) ---- */
+:root {
+  --primitive-base-0: #FFFFFF;
+  --primitive-gray-50: #FFFFFF;
+  --primitive-gray-100: #F6F6F6;
+  --primitive-gray-200: #F0F0F0;
+  --primitive-gray-300: #E1E1E1;
+  --primitive-gray-400: #D3D3D3;
+  --primitive-gray-500: #B3B3B3;
+  --primitive-gray-600: #707070;
+  --primitive-gray-700: #555555;
+  --primitive-gray-800: #333333;
+  --primitive-gray-900: #111111;
+  --primitive-gray-dark-50: #FFFFFF;
+  --primitive-gray-dark-100: #E6E6E6;
+  --primitive-gray-dark-200: #D0D0D0;
+  --primitive-gray-dark-300: #B0B0B0;
+  --primitive-gray-dark-400: #909090;
+  --primitive-gray-dark-500: #707070;
+  --primitive-gray-dark-600: #505050;
+  --primitive-gray-dark-700: #404040;
+  --primitive-gray-dark-800: #303030;
+  --primitive-gray-dark-900: #212121;
+  --primitive-gray-font-50: #FFFFFF;
+  --primitive-gray-font-100: #F2F2F2;
+  --primitive-gray-font-200: #D9D9D9;
+  --primitive-gray-font-300: #BFBFBF;
+  --primitive-gray-font-400: #A6A6A6;
+  --primitive-gray-font-500: #929292;
+  --primitive-gray-font-600: #767676;
+  --primitive-gray-font-700: #505050;
+  --primitive-gray-font-800: #343434;
+  --primitive-gray-font-900: #121212;
+  --primitive-gray-font-dark-50: #FFFFFF;
+  --primitive-gray-font-dark-100: #F2F2F2;
+  --primitive-gray-font-dark-200: #D9D9D9;
+  --primitive-gray-font-dark-300: #BFBFBF;
+  --primitive-gray-font-dark-400: #A6A6A6;
+  --primitive-gray-font-dark-500: #929292;
+  --primitive-gray-font-dark-600: #767676;
+  --primitive-gray-font-dark-700: #505050;
+  --primitive-gray-font-dark-800: #343434;
+  --primitive-gray-font-dark-900: #121212;
+  --primitive-red-200: #F2546D;
+  --primitive-red-300: #E24949;
+  --primitive-red-400: #DF3535;
+  --primitive-red-500: #EC0C0C;
+  --primitive-green-50: #DDF2E4;
+  --primitive-green-200: #ACE3BC;
+  --primitive-green-400: #3CDB61;
+  --primitive-green-500: #19973C;
+  --primitive-green-700: #0D5722;
+  --primitive-green-900: #062512;
+  /* Dark-mode-only accent green used for point/brand text, border & primary button bg (Figma raw value, does not align to a 50-900 step) */
+  --primitive-green-point-dark: #3CBD61;
+  --primitive-blue-300: #7AAEFF;
+  --primitive-blue-400: #66A1FF;
+  --primitive-blue-500: #2C6DD4;
+  --primitive-cobalt-500: #685EFD;
+  /* Figma real token names ("Point-1/2/3") — kept as aliases of plant1/2/3 (same values) for future linking */
+  --color-font-1: var(--primitive-gray-font-900);
+  --color-font-2: var(--primitive-gray-font-800);
+  --color-font-3: var(--primitive-gray-font-700);
+  --color-font-4: var(--primitive-gray-font-600);
+  --color-font-5: var(--primitive-gray-font-500);
+  --color-font-6: var(--primitive-gray-font-400);
+  --color-font-7: var(--primitive-gray-font-300);
+  --color-font-8: var(--primitive-gray-font-200);
+  --color-font-9: var(--primitive-gray-font-100);
+  --color-font-10: var(--primitive-gray-font-50);
+  --color-font-visual: var(--primitive-blue-500);
+  --color-font-error: var(--primitive-red-300);
+  --color-font-point: var(--primitive-green-500);
+  --color-font-positive: var(--primitive-blue-500);
+  --color-font-negative: var(--primitive-red-500);
+  --color-border-1: var(--primitive-gray-400);
+  --color-border-2: var(--primitive-gray-300);
+  --color-border-3: var(--primitive-gray-200);
+  --color-border-4: var(--primitive-gray-100);
+  --color-border-error: var(--primitive-red-300);
+  --color-border-point: var(--primitive-green-500);
+  --color-bg-default: var(--primitive-base-0);
+  --color-bg-container: var(--primitive-gray-100);
+  --color-bg-extra-bg: var(--primitive-gray-200);
+  --color-bg-disabled: var(--primitive-gray-200);
+  --color-bg-input-load-data: var(--primitive-gray-100);
+  --color-bg-banner: #f3f5f8;
+  --color-icon-1: var(--primitive-gray-900);
+  --color-icon-2: var(--primitive-gray-800);
+  --color-icon-3: var(--primitive-gray-700);
+  --color-icon-4: var(--primitive-gray-600);
+  --color-icon-5: var(--primitive-gray-500);
+  --color-icon-00: var(--primitive-base-0);
+  --color-icon-point: var(--primitive-green-500);
+  --color-icon-error: var(--primitive-red-500);
+  --color-icon-visual: var(--primitive-blue-500);
+  --color-comp-btn-primary-default-bg: var(--primitive-green-500);
+  --color-comp-btn-primary-default-fg: var(--primitive-base-0);
+  --color-comp-btn-primary-pressed-bg: var(--primitive-green-700);
+  --color-comp-btn-primary-pressed-fg: var(--primitive-base-0);
+  --color-comp-btn-primary-disabled-bg: var(--primitive-gray-200);
+  --color-comp-btn-primary-disabled-fg: var(--primitive-gray-font-500);
+  --color-comp-btn-secondary-default-bg: transparent;
+  --color-comp-btn-secondary-default-fg: var(--primitive-green-500);
+  --color-comp-btn-secondary-default-border: var(--primitive-green-500);
+  --color-comp-btn-secondary-pressed-bg: var(--primitive-green-50);
+  --color-comp-btn-secondary-pressed-fg: var(--primitive-green-700);
+  --color-comp-btn-secondary-pressed-border: var(--primitive-green-700);
+  --color-comp-btn-secondary-disabled-bg: transparent;
+  --color-comp-btn-secondary-disabled-fg: var(--primitive-gray-font-500);
+  --color-comp-btn-secondary-disabled-border:var(--primitive-gray-300);
+  --color-comp-btn-tertiary-default-bg: var(--primitive-gray-50);
+  --color-comp-btn-tertiary-default-fg: var(--primitive-gray-font-900);
+  --color-comp-btn-tertiary-default-border: var(--primitive-gray-400);
+  --color-comp-btn-tertiary-pressed-bg: var(--primitive-gray-100);
+  --color-comp-btn-tertiary-pressed-fg: var(--primitive-gray-font-900);
+  --color-comp-btn-tertiary-pressed-border: var(--primitive-gray-400);
+  --color-comp-btn-tertiary-disabled-bg: var(--primitive-gray-50);
+  --color-comp-btn-tertiary-disabled-fg: var(--primitive-gray-font-500);
+  --color-comp-btn-tertiary-disabled-border: var(--primitive-gray-300);
+  --color-comp-btn-floating-default-bg: var(--primitive-base-0);
+  --color-comp-btn-floating-default-fg: var(--primitive-cobalt-500);
+  --color-comp-btn-floating-default-border: var(--primitive-cobalt-500);
+  --color-comp-badge-red: var(--primitive-red-300);
+  --color-text-secondary: var(--color-font-3);
+  --color-text-button-tertiary-default: var(--color-comp-btn-tertiary-default-fg);
+  --color-bg-button-tertiary-default: var(--color-comp-btn-tertiary-default-bg);
+  --color-icon-secondary: var(--color-icon-3);
+}
+:root {
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --type-body2-size: 15px;
+  --type-body2-lh: 24px;
+  --type-body2-ls: -0.02em;
+  --type-body2_1-size: 15px;
+  --type-body2_1-lh: 20px;
+  --type-body2_1-ls: -0.02em;
+}
+:root {
+  --spacing-4: 4px;
+  --spacing-12: 12px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --radius-16: 16px;
+  --radius-full: 999px;
+  --transition-base: 0.15s ease;
+}
+
+/* ---- 기본 리셋 (.nds 스코프) ---- */
+/* 전체 페이지 기본 폰트 및 form 요소 적용 */
+.nds {
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+.nds *{box-sizing:border-box;}
+/* 실제 프로덕션(nhmyd/pub_2026/pub-assets/css/reset.css:30)의 기본 reset과 동일한 태그 목록에
+   margin/padding:0을 적용한다. 실서비스 화면은 이 reset.css를 항상 먼저 로드하므로 컴포넌트가
+   브라우저 기본 여백에 노출될 일이 없지만, 이 가이드 페이지는 reset.css 없이 nds.css만 단독으로
+   불러오기 때문에 여기서 동일하게 재현해야 실제 서비스와 같은 모습으로 미리보기가 된다.
+   h1~h6, pre는 이 가이드 자체의 페이지 구조/코드블록 스타일(섹션 제목, 코드 예제 배경 등)이
+   별도 bare-tag 선택자로 이미 걸려 있어 제외 — 포함하면 특이도 때문에 그 스타일을 덮어써 버린다. */
+.nds dl, .nds dt, .nds dd, .nds ul, .nds ol, .nds li, .nds code,
+.nds form, .nds fieldset, .nds legend, .nds textarea, .nds p,
+.nds blockquote, .nds th, .nds td, .nds input, .nds select, .nds button {
+  margin: 0;
+  padding: 0;
+}
+.nds .container{padding-left:24px;padding-right:24px}
+/* ---- Accordion (notice/box/line/gray) — content/nds-guide 3047-3435줄과 동일 ---- */
+.nds .guide-title{font-size:15px;font-weight:700;margin-bottom:8px;}
+.nds .accordion-notice {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.nds .accordion-notice__item {
+  position: relative;
+}
+.nds .accordion-notice__item::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 8px;
+  background-color: #FFE1E1;
+}
+.nds .accordion-notice__item > button {
+  width: 100%;
+  background-color: var(--color-bg-default);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 16px 50px;
+  display: block;
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+  position: relative;
+}
+.nds .accordion-notice__item > button::before{
+  content: "";
+  display: block;
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/ico_notice_line_24.svg");
+          mask-image: url("../../nds-guide/assets/img/icon/ico_notice_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.nds .accordion-notice__item > button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-icon-1);
+  transition: transform 0.2s ease;
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/arr_down2_line_24.svg");
+          mask-image: url("../../nds-guide/assets/img/icon/arr_down2_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.nds .accordion-notice__item > button[aria-expanded=true]::after {
+  transform: rotate(180deg) translateY(50%);
+}
+.nds .accordion-notice__title {
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.32px;
+  color: var(--color-font-1);
+  line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nds .accordion-notice__body {
+  padding: 0 24px 16px 24px;
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+  color: var(--color-font-3);
+  line-height: 1.6;
+}
+.nds .accordion-line {
+  width: 100%;
+}
+.nds .accordion-line__item {
+  position: relative;
+  border-top: 1px solid #F0F0F0;
+}
+.nds .accordion-line__item > button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px 32px 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+}
+.nds .accordion-line__title {
+  flex: 1;
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.32px;
+  line-height: 24px;
+  color: var(--color-font-1);
+}
+.nds .accordion-line__item > button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  background-color: var(--color-icon-1);
+  transition: transform 0.2s ease;
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/arr_down2_line_24.svg");
+          mask-image: url("../../nds-guide/assets/img/icon/arr_down2_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.nds .accordion-line__item > button[aria-expanded=true]::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+.nds .accordion-line__body {
+  padding: 0 0 20px;
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+  color: var(--color-font-3);
+  line-height: 1.6;
+}
+.nds .accordion-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nds .accordion-box__item {
+  border: 1px solid #E1E1E1;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: var(--color-bg-default);
+}
+.nds .accordion-box__item > button {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px 50px 20px 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+  position: relative;
+}
+.nds .accordion-box__title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 0;
+}
+.nds .accordion-box__title {
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.32px;
+  line-height: 24px;
+  color: var(--color-font-1);
+}
+.nds .accordion-box__title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.nds .accordion-box__sub {
+  font-size: 13px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.26px;
+  line-height: 20px;
+  color: var(--color-font-3);
+}
+.nds .accordion-box__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px 2px;
+  border-radius: 4px;
+  border: 1px solid #707070;
+  background-color: transparent;
+  font-size: 10px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.2px;
+  line-height: 15px;
+  color: var(--color-font-4);
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+.nds .accordion-box__item > button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--color-icon-1);
+  transition: transform 0.2s ease;
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/arr_down2_line_24.svg");
+          mask-image: url("../../nds-guide/assets/img/icon/arr_down2_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.nds .accordion-box__item > button[aria-expanded=true]::after {
+  transform: rotate(180deg);
+}
+.nds .accordion-box__body {
+  margin-top: 24px;
+  padding: 0 16px 20px 20px;
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  line-height: 22px;
+  color: var(--color-font-3);
+}
+.nds .accordion-box__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 0 16px 20px 20px;
+}
+.nds .accordion-box__list[hidden] {
+  display: none;
+}
+.nds .accordion-box__row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nds .accordion-box__row-title {
+  width: 108px;
+  flex-shrink: 0;
+  font-size: 15px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.3px;
+  line-height: 24px;
+  color: var(--color-font-3);
+}
+.nds .accordion-box__row-data {
+  flex: 1;
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.3px;
+  line-height: 24px;
+  color: var(--color-font-1);
+  text-align: right;
+}
+.nds .accordion-gray {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.nds .accordion-gray__item {
+  border-radius: 12px;
+  background-color: var(--color-bg-container);
+  overflow: hidden;
+}
+.nds .accordion-gray__item > button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 48px 12px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  gap: 12px;
+  position: relative;
+}
+.nds .accordion-gray__title {
+  flex: 1;
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  line-height: 22px;
+  color: var(--color-font-1);
+}
+.nds .accordion-gray__item > button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  background-color: var(--color-icon-1);
+  transition: transform 0.2s ease;
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/arr_down2_line_24.svg");
+          mask-image: url("../../nds-guide/assets/img/icon/arr_down2_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.nds .accordion-gray__item > button[aria-expanded=true]::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+.nds .accordion-gray__body {
+  padding: 0 12px 16px;
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  line-height: 22px;
+  color: var(--color-font-3);
+}
+.nds .accordion-gray__list {
+  padding: 0 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.nds .accordion-gray__list[hidden] {
+  display: none;
+}
+.nds .accordion-gray__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nds .accordion-gray__row-text {
+  flex: 1;
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  line-height: 22px;
+  color: var(--color-font-1);
+}
+.nds .accordion-gray__row-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  color: var(--color-font-4);
+}
+.nds .accordion-gray__row-icons::before,
+.nds .accordion-gray__row-icons::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: currentColor;
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.nds .accordion-gray__row-icons::before {
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/ico_download_gray600_line_24.svg");
+          mask-image: url("../../nds-guide/assets/img/icon/ico_download_gray600_line_24.svg");
+}
+.nds .accordion-gray__row-icons::after {
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/arr_right2_line_24.svg");
+          mask-image: url("../../nds-guide/assets/img/icon/arr_right2_line_24.svg");
+}
+
+/* --- divider --- */
+.nds .divider {
+  display: block;
+  width: 100%;
+  border: none;
+  margin: 20px auto;
+  flex-shrink: 0;
+}
+
+/* ---- Navigation: 레거시 header 마크업(.btnBack/.btnGoHome/.btnAlram/...) 유지,
+   nds Navigation-top(content/nds-guide 9769-10059줄) 스펙으로 아이콘/사이즈만 재스킨.
+   마크업 순서(DOM order)가 항상 [뒤로가기?, 타이틀, 우측버튼...] 이므로
+   position:absolute 대신 flex + order로 nds와 동일한 24px 아이콘 / 12px gap 레이아웃을 구현합니다.
+
+   주의: 실제 브라우저에서 body에 nhd_sbnew(스마트뱅킹 기본값) 클래스가 JS로 자동 부여되어
+   .nhd_sbnew .nhasset .header .btnXXX (4~5 class, 올원뱅크 변형은 nhd_allone도 동일) 규칙이
+   활성화됩니다. 이 규칙들이 클래스 수가 더 많아 update.css(3 class)가 로드 순서로는 이길 수 없으므로,
+   기하학적 속성(position/top/left/right/width/height/margin/background*)에는 !important로
+   명시적으로 이겨야 합니다. (.header 자체의 position/height/background 등 컨테이너 속성은
+   페이지 자체 override를 건드리지 않도록 그대로 둡니다) ---- */
+.nds .header {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 0 24px !important;
+  box-sizing: border-box;
+}
+.nds .header h1 {
+  order: 2;
+  flex: 1 1 0%;
+  min-width: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 16px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.32px;
+  text-align: center !important;
+  color: var(--color-font-1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nds .header.newMain h1 {
+  text-align: left !important;
+}
+.nds .header h1.fs18 {
+  font-size: 18px;
+}
+
+.nds .header .btnBack,
+.nds .header .btnGoHome,
+.nds .header .btnAlram,
+.nds .header .btnAll,
+.nds .header .btnCloseMenu,
+.nds .header .btnCalendar,
+.nds .header .btnPlus,
+.nds .header .btnCancle,
+.nds .header .btnAcAdmin,
+.nds .header .btnHidden {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 24px !important;
+  height: 24px !important;
+  margin: 0 !important;
+  flex-shrink: 0;
+}
+.nds .header .btnBack { order: 1; }
+.nds .header .btnGoHome,
+.nds .header .btnAlram,
+.nds .header .btnAll,
+.nds .header .btnCloseMenu,
+.nds .header .btnCalendar,
+.nds .header .btnPlus,
+.nds .header .btnCancle,
+.nds .header .btnAcAdmin,
+.nds .header .btnHidden { order: 3; }
+
+/* 아이콘형 버튼: 24x24 mask-image, currentColor */
+.nds .header .btnBack::before,
+.nds .header .btnGoHome::before,
+.nds .header .btnAlram::before,
+.nds .header .btnAll::before,
+.nds .header .btnCloseMenu::before,
+.nds .header .btnCalendar::before,
+.nds .header .btnPlus::before {
+  content: "" !important;
+  display: block !important;
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  margin: 0 !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: none !important;
+  background-color: var(--color-font-1) !important;
+  -webkit-mask-size: contain !important;
+          mask-size: contain !important;
+  -webkit-mask-repeat: no-repeat !important;
+          mask-repeat: no-repeat !important;
+  -webkit-mask-position: center !important;
+          mask-position: center !important;
+}
+.nds .header .btnBack::before {
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/ico_previous_line_24.svg") !important;
+          mask-image: url("../../nds-guide/assets/img/icon/ico_previous_line_24.svg") !important;
+}
+.nds .header .btnGoHome::before {
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/home-allone-24.svg") !important;
+          mask-image: url("../../nds-guide/assets/img/icon/home-allone-24.svg") !important;
+}
+.nds .header .btnAlram::before {
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/alarm-notice-24.svg") !important;
+          mask-image: url("../../nds-guide/assets/img/icon/alarm-notice-24.svg") !important;
+}
+.nds .header .btnAlram {
+  position: relative !important;
+}
+.nds .header .btnAlram.active::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 2px !important;
+  right: 2px !important;
+  left: auto !important;
+  margin: 0 !important;
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: var(--radius-full);
+  background: var(--color-comp-badge-red) !important;
+}
+.nds .header .btnAll::before {
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/ico_menu_line_24.svg") !important;
+          mask-image: url("../../nds-guide/assets/img/icon/ico_menu_line_24.svg") !important;
+}
+.nds .header .btnCloseMenu::before {
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/close2-24.svg") !important;
+          mask-image: url("../../nds-guide/assets/img/icon/close2-24.svg") !important;
+}
+.nds .header .btnCalendar::before {
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/calendar-24.svg") !important;
+          mask-image: url("../../nds-guide/assets/img/icon/calendar-24.svg") !important;
+}
+.nds .header .btnPlus::before {
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/ico_plus_line_24.svg") !important;
+          mask-image: url("../../nds-guide/assets/img/icon/ico_plus_line_24.svg") !important;
+}
+
+/* 텍스트형 버튼: 취소/관리/숨기기 (nds navigation-top__cancel과 동일 타이포) */
+.nds .header .btnCancle,
+.nds .header .btnAcAdmin,
+.nds .header .btnHidden {
+  width: auto !important;
+  font-size: 14px !important;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  color: var(--color-font-2) !important;
+}
+.nds .header .btnCancle::before,
+.nds .header .btnAcAdmin::before,
+.nds .header .btnHidden::before {
+  content: none !important;
+  display: none !important;
+}
+.nds .header .btnCancle .blind,
+.nds .header .btnAcAdmin .blind,
+.nds .header .btnHidden .blind {
+  display: none !important;
+}
+.nds .header .btnCancle::after { content: "취소" !important; }
+.nds .header .btnAcAdmin::after { content: "관리" !important; }
+.nds .header .btnHidden::after { content: "숨기기" !important; }

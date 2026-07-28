@@ -219,6 +219,140 @@
 			margin: 24px 2px 4px;
 		}
 
+		.typo-table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.typo-table th,
+		.typo-table td {
+			padding: 12px;
+			border-bottom: 1px solid rgba(0, 0, 0, .08);
+			text-align: left;
+			vertical-align: middle;
+		}
+
+		.typo-table th {
+			font-size: 11px;
+			font-weight: 500;
+			color: #888;
+			white-space: nowrap;
+		}
+
+		.typo-table td {
+			font-size: 13px;
+			color: #555;
+		}
+
+		.typo-table td.typo-table__sample {
+			color: #121212;
+			white-space: nowrap;
+		}
+
+		.radius-swatch {
+			width: 48px;
+			height: 48px;
+			flex-shrink: 0;
+			background: var(--color-bg-container);
+			border: 1.5px solid var(--color-border-2);
+			box-sizing: border-box;
+		}
+
+		.spacing-swatch--h {
+			height: 21px;
+			background: #aacefb;
+		}
+
+		.spacing-swatch--v {
+			width: 200px;
+			background: #aacefb;
+		}
+
+		.icon-lib__filters {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+			margin-bottom: 12px;
+		}
+
+		.icon-lib__filters select,
+		.icon-lib__filters input {
+			font: inherit;
+			font-size: 13px;
+			padding: 6px 10px;
+			border: 1px solid #ddd;
+			border-radius: 6px;
+			background: #fff;
+			color: #333;
+		}
+
+		.icon-lib__filters input {
+			flex: 1;
+			min-width: 160px;
+		}
+
+		.icon-lib__count {
+			font-size: 12px;
+			color: #888;
+			margin-bottom: 12px;
+		}
+
+		.icon-lib__grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+			gap: 8px;
+		}
+
+		.icon-card {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 6px;
+			padding: 10px 6px;
+			border: 1px solid rgba(0, 0, 0, .08);
+			border-radius: 8px;
+			text-align: center;
+		}
+
+		.icon-card__thumb {
+			width: 32px;
+			height: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.icon-card__thumb img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
+		.icon-card__thumb--missing {
+			width: 32px;
+			height: 32px;
+			border: 1px dashed #ccc;
+			border-radius: 6px;
+			color: #ccc;
+			font-size: 9px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.icon-card__name {
+			font-size: 10px;
+			color: #767676;
+			word-break: break-all;
+			line-height: 1.4;
+			cursor: text;
+			user-select: all;
+		}
+
+		.icon-card__size {
+			font-size: 9px;
+			color: #aaa;
+		}
+
 		.pending-note {
 			font-size: 12px;
 			color: #888;
@@ -480,6 +614,39 @@
 			border-color: rgba(255, 255, 255, .12);
 		}
 
+		html[data-theme="dark"] .typo-table th,
+		html[data-theme="dark"] .typo-table td {
+			border-bottom-color: rgba(255, 255, 255, .1);
+		}
+
+		html[data-theme="dark"] .typo-table td {
+			color: #a7aeac;
+		}
+
+		html[data-theme="dark"] .typo-table td.typo-table__sample {
+			color: #e4e6e5;
+		}
+
+		html[data-theme="dark"] .icon-lib__filters select,
+		html[data-theme="dark"] .icon-lib__filters input {
+			background: #202422;
+			border-color: #3a413e;
+			color: #e4e6e5;
+		}
+
+		html[data-theme="dark"] .icon-card {
+			border-color: rgba(255, 255, 255, .1);
+		}
+
+		html[data-theme="dark"] .icon-card__thumb--missing {
+			border-color: #3a413e;
+			color: #3a413e;
+		}
+
+		html[data-theme="dark"] .icon-card__name {
+			color: #9aa19e;
+		}
+
 		html[data-theme="dark"] .pcell span {
 			background: rgba(0, 0, 0, .45);
 		}
@@ -633,13 +800,11 @@
 			<button type="button" class="side-nav__group-title" data-nav-group="foundation"><span
 					class="side-nav__chevron">▾</span>Design Foundation</button>
 			<ul class="side-nav__list" data-nav-list="foundation">
+				<li><a href="#sec-typography">Typography</a></li>
 				<li><a href="#sec-color">Color</a></li>
-				<li class="pending">Typography</li>
-				<li class="pending">Radius</li>
-				<li class="pending">Layout</li>
-				<li class="pending">Spacing</li>
-				<li class="pending">Icon</li>
-				<li class="pending">Image</li>
+				<li><a href="#sec-radius">Radius</a></li>
+				<li><a href="#sec-spacing">Spacing</a></li>
+				<li><a href="#sec-icon">Icon</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -755,7 +920,9 @@
 				Unit은 Figma 조합이 45/47개까지 반영 완료된 상태입니다(나머지 1개는 Figma 원본 중복 확인되어 제외, 상세는 Unit 섹션 상단 노트 참고).
 				나머지(Controls/Filter)는
 				아래 "아직 추출하지 않은 Component" 안내를 참고해 Figma 링크를 주시면 순서대로 반영합니다.
-				Component 다음에는 Typography/Color/Radius/Layout/Spacing/Icon/Image 순서로 Design Foundation 섹션이 이어집니다.
+				Component 다음에는 Typography → Color → Radius → Layout → Spacing → Icon → Image 순서로 Design Foundation 섹션이
+				이어지며, 이 중 Typography/Color/Radius/Spacing/Icon은 Figma 원본과 대조 완료된 상태입니다(Icon은 이름 목록 기준 432개
+				전체를 담았고, 로컬 svg 파일명이 일치하는 것만 썸네일로 표시합니다).
 			</p>
 			<h3>클래스 네이밍 규칙 (BEM)</h3>
 			<p class="note">
@@ -9265,10 +9432,131 @@
 		</section>
 
 		<div class="pending-note">
-			<strong>아직 로컬로 추출하지 않은 Component (Figma 순서 기준, 순차 반영 예정):</strong> Unit(2/9~9/9 배치 진행 예정)
+			<strong>아직 로컬로 추출하지 않은 Component (Figma 순서 기준, 순차 반영 예정):</strong> Controls, Filter
 		</div>
 
 		<div class="group-label">Design Foundation (Typography · Color · Radius · Layout · Spacing · Icon · Image)</div>
+
+		<section id="sec-typography" class="nds">
+			<h2>Typography (Figma 원본 대조 완료)</h2>
+			<p class="note">사용자에게 제공하는 정보를 자연스럽고, 명확하게 전달하기 위해 모든 채널에서는 정의된 서체를 기본으로 사용합니다.</p>
+
+			<h3>Typeface</h3>
+			<p class="note">국문, 영문, 숫자, 특수문자(유니코드)는 Pretendard Font를 동일하게 사용합니다.</p>
+			<div class="demo">
+				<div style="display:flex; flex-direction:column; gap:16px; width:100%;">
+					<span style="font-size:40px; font-weight:600; letter-spacing:-0.02em;">Pretendard 프리텐다드 0123!@#$</span>
+					<div style="display:flex; gap:20px; font-size:15px; color:var(--color-font-3);">
+						<span style="font-weight:600;">SemiBold</span>
+						<span style="font-weight:500;">Medium</span>
+						<span style="font-weight:400;">Regular</span>
+					</div>
+				</div>
+			</div>
+
+			<h3>Scale</h3>
+			<p class="note">폰트 사이즈에 따라 고유의 높이값을 가지며, 심미적으로 필요한 경우에만 정해진 값 이외의 설정값을 사용합니다. Letter-spacing은 대부분
+				-2%(= font-size × -0.02)를 적용하고, Picker/Keypad 3종만 0%입니다.</p>
+
+			<h3>Usage</h3>
+			<div class="demo" style="padding:0;">
+				<table class="typo-table">
+					<thead>
+						<tr>
+							<th>Scale</th>
+							<th>Weight</th>
+							<th>Size/Line-height</th>
+							<th>Letter-spacing</th>
+							<th>Usage</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="typo-table__sample" style="font-size:36px; line-height:40px; font-weight:600; letter-spacing:-0.72px;">Display1</td>
+							<td>SemiBold</td><td>36/40</td><td>-2%</td><td>상품상세 내 강조</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:28px; line-height:38px; font-weight:600; letter-spacing:-0.56px;">Display2</td>
+							<td>SemiBold</td><td>28/38</td><td>-2%</td><td>상품상세 내 강조</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:25px; line-height:30px; font-weight:500; letter-spacing:0;">Picker1</td>
+							<td>Medium</td><td>25/30</td><td>0%</td><td>피커 내 텍스트</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:20px; line-height:24px; font-weight:400; letter-spacing:0;">Picker2</td>
+							<td>Regular</td><td>20/24</td><td>0%</td><td>피커 내 텍스트</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:24px; line-height:32px; font-weight:600; letter-spacing:0;">Keypad</td>
+							<td>SemiBold</td><td>24/32</td><td>0%</td><td>키패드 내 텍스트</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:26px; line-height:38px; font-weight:600; letter-spacing:-0.52px;">H1</td>
+							<td>SemiBold/Medium</td><td>26/38</td><td>-2%</td><td>서비스 소개 타이틀</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:22px; line-height:32px; font-weight:600; letter-spacing:-0.44px;">H2</td>
+							<td>SemiBold/Medium</td><td>22/32</td><td>-2%</td><td>상품소개, 프로세스 타이틀</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:20px; line-height:28px; font-weight:600; letter-spacing:-0.4px;">H3</td>
+							<td>SemiBold/Medium</td><td>20/28</td><td>-2%</td><td>팝업 페이지 타이틀</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:18px; line-height:26px; font-weight:600; letter-spacing:-0.36px;">H4</td>
+							<td>SemiBold/Medium</td><td>18/26</td><td>-2%</td><td>컨텐츠 내 타이틀</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:16px; line-height:24px; font-weight:600; letter-spacing:-0.32px;">H5</td>
+							<td>SemiBold/Medium</td><td>16/24</td><td>-2%</td><td>컨텐츠 내 타이틀</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:16px; line-height:24px; font-weight:500; letter-spacing:-0.32px;">Body1</td>
+							<td>Medium/Regular</td><td>16/24</td><td>-2%</td><td>컨텐츠, 팝업 문구</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:15px; line-height:24px; font-weight:500; letter-spacing:-0.3px;">Body2</td>
+							<td>Medium/Regular</td><td>15/24</td><td>-2%</td><td>컨텐츠, 팝업 문구</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:14px; line-height:22px; font-weight:500; letter-spacing:-0.28px;">Body3</td>
+							<td>Medium/Regular</td><td>14/22</td><td>-2%</td><td>컨텐츠 문구</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:16px; line-height:24px; font-weight:500; letter-spacing:-0.32px;">Table1</td>
+							<td>Medium/Regular</td><td>16/24</td><td>-2%</td><td>테이블 내 문구</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:15px; line-height:24px; font-weight:500; letter-spacing:-0.3px;">Table2</td>
+							<td>Medium/Regular</td><td>15/24</td><td>-2%</td><td>테이블 내 문구</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:14px; line-height:22px; font-weight:500; letter-spacing:-0.28px;">Table3</td>
+							<td>Medium/Regular</td><td>14/22</td><td>-2%</td><td>테이블 내 문구</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:13px; line-height:20px; font-weight:500; letter-spacing:-0.26px;">Caption1</td>
+							<td>Medium/Regular</td><td>13/20</td><td>-2%</td><td>인풋하단 안내문구, 테이블 하단 문구 등</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:12px; line-height:18px; font-weight:500; letter-spacing:-0.24px;">Caption2</td>
+							<td>Medium/Regular</td><td>12/18</td><td>-2%</td><td>인풋하단 안내문구, 테이블 하단 문구 등</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:10px; line-height:15px; font-weight:500; letter-spacing:-0.2px;">Caption3</td>
+							<td>Medium/Regular</td><td>10/15</td><td>-2%</td><td>라벨 등 컴포넌트에 사용</td>
+						</tr>
+						<tr>
+							<td class="typo-table__sample" style="font-size:15px; line-height:20px; font-weight:500; letter-spacing:-0.3px;">Body2.1</td>
+							<td>Medium/Regular</td><td>15/20</td><td>-2%</td><td>-</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="note">각 Scale 이름(첫 번째 열)은 실제 해당 크기·굵기·자간으로 렌더링한 라이브 샘플입니다. Weight가 두 개 표기된 항목(예: SemiBold/Medium)은
+				용도에 따라 둘 중 하나를 선택해 사용하며, 샘플은 그중 굵은 쪽으로 표시했습니다.</p>
+		</section>
 
 		<section id="sec-color" class="nds">
 			<h2>Color (Figma 원본 대조 완료)</h2>
@@ -10070,6 +10358,402 @@
 				</div>
 			</div>
 			<p class="note">Point1/2/3은 assets/css/nds.css 안에서 plant1/2/3와 값이 동일한 별칭(alias)입니다.</p>
+		</section>
+
+		<section id="sec-radius" class="nds">
+			<h2>Radius (Figma 원본 대조 완료)</h2>
+			<p class="note">모든 컴포넌트의 테두리 모양과 반경(Radius)을 통일하여 인터페이스의 시각적 일관성을 유지합니다. 특정 모양을 사용해 사용자 시선을 끌어 인터페이스의 핵심
+				요소에 주의를 집중하도록 합니다. 기준에 따른 모양을 적용하여 사용자가 상호작용할 수 있는 요소를 쉽게 식별할 수 있도록 돕습니다.</p>
+
+			<h3>Radius Variable</h3>
+			<p class="note">기본 단위는 4와 8의 배수로 사용되며, 8이 포함하고 있는 2배수도 사용 가능합니다.</p>
+			<div class="demo" style="padding:0;">
+				<table class="typo-table">
+					<thead>
+						<tr>
+							<th>Variable Name</th>
+							<th>Primitive Variable</th>
+							<th>PX</th>
+							<th>Visual</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>border/radius/0</td><td>unit/0</td><td>0</td>
+							<td><div class="radius-swatch" style="border-radius:0;"></div></td>
+						</tr>
+						<tr>
+							<td>border/radius/4</td><td>unit/4</td><td>4</td>
+							<td><div class="radius-swatch" style="border-radius:4px;"></div></td>
+						</tr>
+						<tr>
+							<td>border/radius/8</td><td>unit/8</td><td>8</td>
+							<td><div class="radius-swatch" style="border-radius:8px;"></div></td>
+						</tr>
+						<tr>
+							<td>border/radius/10</td><td>unit/10</td><td>10</td>
+							<td><div class="radius-swatch" style="border-radius:10px;"></div></td>
+						</tr>
+						<tr>
+							<td>border/radius/12</td><td>unit/12</td><td>12</td>
+							<td><div class="radius-swatch" style="border-radius:12px;"></div></td>
+						</tr>
+						<tr>
+							<td>border/radius/16</td><td>unit/16</td><td>16</td>
+							<td><div class="radius-swatch" style="border-radius:16px;"></div></td>
+						</tr>
+						<tr>
+							<td>border/radius/circle</td><td>unit/999</td><td>999</td>
+							<td><div class="radius-swatch" style="border-radius:999px;"></div></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="note">assets/css/nds.css에는 이 중 16/circle이 각각 <code>--radius-16</code>, <code>--radius-full</code>
+				변수로 정의되어 있고, 나머지(0/4/8/10/12)는 컴포넌트별로 하드코딩된 px 값으로 이미 동일하게 쓰이고 있습니다(예: .input-box__field/.card--radius-sm의
+				12px, .bottomsheet-tabbar__item의 10px 등).</p>
+		</section>
+
+		<section id="sec-spacing" class="nds">
+			<h2>Spacing (Figma 원본 대조 완료)</h2>
+			<p class="note">인터페이스 요소와 화면 가장자리 간의 공간을 정의하여 전체 레이아웃의 균형과 일관성을 유지하는 역할을 합니다. 요소 간 간격을 규칙적으로 설정하여
+				사용자에게 시각적 안정감을 제공합니다. 고정값 또는 화면 너비에 비례하는 값을 사용함으로써 다양한 디바이스 해상도에서 최적의 사용자 경험을 제공할 수 있도록 합니다.
+				8px(8-Point grid)의 배수를 사용하여 인터페이스 요소 간의 일관성과 조화를 유지해야 합니다. 4px의 배수 간격은 필요에 따라 적용하며, 세밀한 조정을 통해 다양한
+				콘텐츠 요구와 상황에 유연하게 대응합니다.</p>
+
+			<h3>Horizontal Spacing</h3>
+			<div class="demo" style="padding:0;">
+				<table class="typo-table">
+					<thead>
+						<tr>
+							<th>Variable Name</th>
+							<th>Primitive Variable</th>
+							<th>PX</th>
+							<th>Visual</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Horizontal_0</td><td>unit/0</td><td>0</td>
+							<td><div class="spacing-swatch--h" style="width:1px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_2</td><td>unit/2</td><td>2</td>
+							<td><div class="spacing-swatch--h" style="width:2px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_4</td><td>unit/4</td><td>4</td>
+							<td><div class="spacing-swatch--h" style="width:4px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_8</td><td>unit/8</td><td>8</td>
+							<td><div class="spacing-swatch--h" style="width:8px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_12</td><td>unit/12</td><td>12</td>
+							<td><div class="spacing-swatch--h" style="width:12px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_16</td><td>unit/16</td><td>16</td>
+							<td><div class="spacing-swatch--h" style="width:16px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_20</td><td>unit/20</td><td>20</td>
+							<td><div class="spacing-swatch--h" style="width:20px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_24</td><td>unit/24</td><td>24</td>
+							<td><div class="spacing-swatch--h" style="width:24px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_32</td><td>unit/32</td><td>32</td>
+							<td><div class="spacing-swatch--h" style="width:32px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_40</td><td>unit/40</td><td>40</td>
+							<td><div class="spacing-swatch--h" style="width:40px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_48</td><td>unit/48</td><td>48</td>
+							<td><div class="spacing-swatch--h" style="width:48px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_56</td><td>unit/56</td><td>56</td>
+							<td><div class="spacing-swatch--h" style="width:56px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_60</td><td>unit/60</td><td>60</td>
+							<td><div class="spacing-swatch--h" style="width:60px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_64</td><td>unit/64</td><td>64</td>
+							<td><div class="spacing-swatch--h" style="width:64px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_72</td><td>unit/72</td><td>72</td>
+							<td><div class="spacing-swatch--h" style="width:72px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_80</td><td>unit/80</td><td>80</td>
+							<td><div class="spacing-swatch--h" style="width:80px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_88</td><td>unit/88</td><td>88</td>
+							<td><div class="spacing-swatch--h" style="width:88px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_96</td><td>unit/96</td><td>96</td>
+							<td><div class="spacing-swatch--h" style="width:96px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_104</td><td>unit/104</td><td>104</td>
+							<td><div class="spacing-swatch--h" style="width:104px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_112</td><td>unit/112</td><td>112</td>
+							<td><div class="spacing-swatch--h" style="width:112px;"></div></td>
+						</tr>
+						<tr>
+							<td>Horizontal_120</td><td>unit/120</td><td>120</td>
+							<td><div class="spacing-swatch--h" style="width:120px;"></div></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>Vertical Spacing</h3>
+			<div class="demo" style="padding:0;">
+				<table class="typo-table">
+					<thead>
+						<tr>
+							<th>Variable Name</th>
+							<th>Primitive Variable</th>
+							<th>PX</th>
+							<th>Visual</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Vertical_0</td><td>unit/0</td><td>0</td>
+							<td><div class="spacing-swatch--v" style="height:1px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_2</td><td>unit/2</td><td>2</td>
+							<td><div class="spacing-swatch--v" style="height:2px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_4</td><td>unit/4</td><td>4</td>
+							<td><div class="spacing-swatch--v" style="height:4px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_8</td><td>unit/8</td><td>8</td>
+							<td><div class="spacing-swatch--v" style="height:8px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_12</td><td>unit/12</td><td>12</td>
+							<td><div class="spacing-swatch--v" style="height:12px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_16</td><td>unit/16</td><td>16</td>
+							<td><div class="spacing-swatch--v" style="height:16px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_20</td><td>unit/20</td><td>20</td>
+							<td><div class="spacing-swatch--v" style="height:20px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_24</td><td>unit/24</td><td>24</td>
+							<td><div class="spacing-swatch--v" style="height:24px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_32</td><td>unit/32</td><td>32</td>
+							<td><div class="spacing-swatch--v" style="height:32px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_40</td><td>unit/40</td><td>40</td>
+							<td><div class="spacing-swatch--v" style="height:40px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_48</td><td>unit/48</td><td>48</td>
+							<td><div class="spacing-swatch--v" style="height:48px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_56</td><td>unit/56</td><td>56</td>
+							<td><div class="spacing-swatch--v" style="height:56px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_64</td><td>unit/64</td><td>64</td>
+							<td><div class="spacing-swatch--v" style="height:64px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_72</td><td>unit/72</td><td>72</td>
+							<td><div class="spacing-swatch--v" style="height:72px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_80</td><td>unit/80</td><td>80</td>
+							<td><div class="spacing-swatch--v" style="height:80px;"></div></td>
+						</tr>
+						<tr>
+							<td>Vertical_88</td><td>unit/88</td><td>88</td>
+							<td><div class="spacing-swatch--v" style="height:88px;"></div></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="note">Horizontal은 요소 사이의 가로 간격(예: gap, padding-left/right), Vertical은 세로 간격(예: gap,
+				padding-top/bottom)에 사용하는 값입니다. assets/css/nds.css 전반의 gap/padding 값들은 이미 이 스케일(대부분 4의 배수, 8-Point
+				grid 기준) 안에서 쓰이고 있습니다.</p>
+		</section>
+
+		<section id="sec-icon" class="nds">
+			<h2>Icon (Figma 원본 대조 완료 — 이름 목록)</h2>
+			<p class="note">서비스의 주요 요소를 명확하게 나타내어 사용자가 이해하고 행동하도록 유도합니다. 직관적인 인식을 위해 통상적으로 익숙한 형태의 아이콘을 제작하고
+				별도의 추측이 필요 없도록 해야 합니다. 새로 제작되는 아이콘은 대중에게 친숙한 상징을 활용하여 만들어야 합니다.</p>
+
+			<h3>Grid layout</h3>
+			<p class="note">아이콘은 1px × 1px 그리드 기준으로 제작되며, 24px × 24px을 기본 사이즈로 시스템 아이콘을 사용합니다.</p>
+			<div class="demo row" style="align-items:flex-start;">
+				<div style="display:flex; flex-direction:column; gap:8px; align-items:center;">
+					<div style="width:96px; height:96px; border:1px dashed #ccc; box-sizing:border-box; display:flex; align-items:center; justify-content:center;">
+						<div style="width:72px; height:72px; border:1px dashed #19973c; box-sizing:border-box;"></div>
+					</div>
+					<span style="font-size:13px; font-weight:600;">Padding</span>
+					<span style="font-size:12px; color:var(--color-font-3); text-align:center; max-width:180px;">사방으로 최소 2px Padding을 적용합니다.</span>
+				</div>
+				<div style="display:flex; flex-direction:column; gap:8px; align-items:center;">
+					<div style="width:96px; height:96px; border:1px dashed #ccc; box-sizing:border-box; display:flex; align-items:center; justify-content:center;">
+						<div style="width:84px; height:84px; border-radius:50%; background:rgba(25,151,60,.12); display:flex; align-items:center; justify-content:center; font-size:9px; color:#19973c;">DRAWING<br>ZONE</div>
+					</div>
+					<span style="font-size:13px; font-weight:600;">Drawing zone</span>
+					<span style="font-size:12px; color:var(--color-font-3); text-align:center; max-width:180px;">20px × 20px 영역에서 아이콘을 제작합니다.</span>
+				</div>
+			</div>
+
+			<h3>Size Variation</h3>
+			<p class="note">각 사이즈의 가이드는 아래 각각의 아이콘 가이드를 따르고 16px / 12px 의 사이즈는 따로 패딩 가이드 없이 Fullbox로 사용합니다. 컨텐츠 특성에 따라
+				가이드 규격 외 아이콘이 존재할 수 있습니다. 신규아이콘 제작시 사용 용도에 맞게 Instance로 가져간 후 Detach 하여 사용해야 합니다.</p>
+			<div class="demo" style="padding:0;">
+				<table class="typo-table">
+					<thead>
+						<tr><th>Size</th><th>Line Stroke</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>80px</td><td>1.5 / 2.0</td></tr>
+						<tr><td>64px</td><td>1.5 / 2.0</td></tr>
+						<tr><td>56px</td><td>1.5 / 2.0</td></tr>
+						<tr><td>48px</td><td>1.5</td></tr>
+						<tr><td>40px</td><td>1.5</td></tr>
+						<tr><td>32px</td><td>1.5</td></tr>
+						<tr><td>24px</td><td>1.2</td></tr>
+						<tr><td>16px (Fullbox)</td><td>1</td></tr>
+						<tr><td>12px (Fullbox)</td><td>1</td></tr>
+					</tbody>
+				</table>
+			</div>
+
+			<h3>Icon Library</h3>
+			<p class="note">Figma 아이콘 가이드에 정의된 인스턴스 이름을 카테고리(System-line/General-line/System-fill/General-fill/Investor
+				type-fill/Tabbar) 전체 432개 그대로 나열했습니다. 로컬 assets/img/icon/의 파일명(및 Figma 경로 그대로의 하위 폴더 구조)이 432개 전부와 정확히 일치하여
+				모든 아이콘이 실제 썸네일로 표시됩니다(추측으로 다른 아이콘을 대신 보여주지 않습니다). 카테고리별 로컬 확보 현황: System (Line) 76/76, General (Line) 73/73, System (Fill) 14/14, General (Fill) 158/158, Investor type (Fill) 93/93, Tabbar 18/18.
+				아이콘 이름을 클릭하면 전체 선택되어 복사할 수 있습니다.</p>
+			<div class="demo">
+				<div style="width:100%;">
+					<div class="icon-lib__filters">
+						<select id="iconLibCat">
+							<option value="">전체 카테고리</option>
+						<option value="System (Line)">System (Line)</option>
+						<option value="General (Line)">General (Line)</option>
+						<option value="System (Fill)">System (Fill)</option>
+						<option value="General (Fill)">General (Fill)</option>
+						<option value="Investor type (Fill)">Investor type (Fill)</option>
+						<option value="Tabbar">Tabbar</option>
+						</select>
+						<select id="iconLibSize">
+							<option value="">전체 사이즈</option>
+						</select>
+						<label style="display:flex; align-items:center; gap:4px; font-size:13px; color:#555;">
+							<input type="checkbox" id="iconLibLocalOnly"> 로컬 썸네일만 보기
+						</label>
+						<input type="text" id="iconLibSearch" placeholder="이름으로 검색 (예: share, cancel, 24)">
+					</div>
+					<div class="icon-lib__count" id="iconLibCount"></div>
+					<div class="icon-lib__grid" id="iconLibGrid"></div>
+				</div>
+			</div>
+			<script>
+				(function () {
+					var ICONS = [{"c": "System (Line)", "s": "12", "n": "icon/12/line/system/ico_minus_line_12", "f": "12/line/system/ico_minus_line_12.svg"}, {"c": "System (Line)", "s": "12", "n": "icon/12/line/system/ico_minus_gray400_line_12_disabled", "f": "12/line/system/ico_minus_gray400_line_12_disabled.svg"}, {"c": "System (Line)", "s": "12", "n": "icon/12/line/system/ico_plus_line_12", "f": "12/line/system/ico_plus_line_12.svg"}, {"c": "System (Line)", "s": "12", "n": "icon/12/line/system/ico_plus_gray400_line_12_disabled", "f": "12/line/system/ico_plus_gray400_line_12_disabled.svg"}, {"c": "System (Line)", "s": "12", "n": "icon/12/line/system/arr_right_line_12", "f": "12/line/system/arr_right_line_12.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/arr_up_line_16", "f": "16/line/system/arr_up_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/arr_down_line_16", "f": "16/line/system/arr_down_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/arr_right_line_16", "f": "16/line/system/arr_right_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/arr_left_line_16", "f": "16/line/system/arr_left_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/arr_right_line_gray600_line_16", "f": "16/line/system/arr_right_line_gray600_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/arr_left_gray50_line_16", "f": "16/line/system/arr_left_gray50_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/arr_right_gray50_line_16", "f": "16/line/system/arr_right_gray50_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/ico_delete_line_16", "f": "16/line/system/ico_delete_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/ico_delete_gray50_line_16", "f": "16/line/system/ico_delete_gray50_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/ico_refresh_line_16", "f": "16/line/system/ico_refresh_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/ico_check_line_16_active", "f": "16/line/system/ico_check_line_16_active.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/ico_check_gray400_line_16_disabled", "f": "16/line/system/ico_check_gray400_line_16_disabled.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/ico_plus_line_16", "f": "16/line/system/ico_plus_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/ico_copy-info_gray600_line_16", "f": "16/line/system/ico_copy-info_gray600_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/ico_download_gray50_line_16", "f": "16/line/system/ico_download_gray50_line_16.svg"}, {"c": "System (Line)", "s": "16", "n": "icon/16/line/system/ico_favorite-star_gray500_line_16", "f": "16/line/system/ico_favorite-star_gray500_line_16.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_up1_line_24", "f": "24/line/system/arr_up1_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_down1_line_24", "f": "24/line/system/arr_down1_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_up1_gray600_line_24_disabled", "f": "24/line/system/arr_up1_gray600_line_24_disabled.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_down1_gray600_line_24_disabled", "f": "24/line/system/arr_down1_gray600_line_24_disabled.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_right1_gray600_line_24", "f": "24/line/system/arr_right1_gray600_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_notice_gray600_line_24", "f": "24/line/system/ico_notice_gray600_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_tooltip1_gray600_line_24", "f": "24/line/system/ico_tooltip1_gray600_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_full-popup_line_24", "f": "24/line/system/ico_full-popup_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_tooltip2_gray600_line_24", "f": "24/line/system/ico_tooltip2_gray600_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_copy_line_24", "f": "24/line/system/ico_copy_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_down2_line_24", "f": "24/line/system/arr_down2_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_up2_line_24", "f": "24/line/system/arr_up2_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_left2_line_24", "f": "24/line/system/arr_left2_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_right2_line_24", "f": "24/line/system/arr_right2_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_left2_gray400_line_24_disabled", "f": "24/line/system/arr_left2_gray400_line_24_disabled.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_right2_gray400_line_24_disabled", "f": "24/line/system/arr_right2_gray400_line_24_disabled.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_plus_line_24", "f": "24/line/system/ico_plus_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_minus_line_24", "f": "24/line/system/ico_minus_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_plus_gray400_line_24_disabled", "f": "24/line/system/ico_plus_gray400_line_24_disabled.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_minus_gray400_line_24_disabled", "f": "24/line/system/ico_minus_gray400_line_24_disabled.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_download_gray600_line_24", "f": "24/line/system/ico_download_gray600_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_refresh_line_24", "f": "24/line/system/ico_refresh_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_cs-call_line_24", "f": "24/line/system/ico_cs-call_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_filter_line_24", "f": "24/line/system/ico_filter_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_notice_line_24", "f": "24/line/system/ico_notice_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_search_line_24", "f": "24/line/system/ico_search_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_calendar_line_24", "f": "24/line/system/ico_calendar_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_share1_line_24", "f": "24/line/system/ico_share1_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_share2_line_24", "f": "24/line/system/ico_share2_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_shop_line_24", "f": "24/line/system/ico_shop_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_camera_line_24", "f": "24/line/system/ico_camera_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_photo_line_24", "f": "24/line/system/ico_photo_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_download_line_24", "f": "24/line/system/ico_download_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_close1_line_24", "f": "24/line/system/ico_close1_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_close2_line_24", "f": "24/line/system/ico_close2_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_home-allone_line_24", "f": "24/line/system/ico_home-allone_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_cs-center_line_24", "f": "24/line/system/ico_cs-center_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_cart_line_24", "f": "24/line/system/ico_cart_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_success_line_24", "f": "24/line/system/ico_success_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/arr_left3_line_24", "f": "24/line/system/arr_left3_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_setup-nuts_line_24", "f": "24/line/system/ico_setup-nuts_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_share-wallet_line_24", "f": "24/line/system/ico_share-wallet_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_alarm-notice_line_24", "f": "24/line/system/ico_alarm-notice_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_menu_line_24", "f": "24/line/system/ico_menu_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_delete-waste_line_24", "f": "24/line/system/ico_delete-waste_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_input_line_24", "f": "24/line/system/ico_input_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_input2_line_24", "f": "24/line/system/ico_input2_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_admin-dot_line_24", "f": "24/line/system/ico_admin-dot_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_favorite-star1_line_24", "f": "24/line/system/ico_favorite-star1_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_favorite-star2_gray600_line_24", "f": "24/line/system/ico_favorite-star2_gray600_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_share-message1_line_24", "f": "24/line/system/ico_share-message1_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_share-message2_line_24", "f": "24/line/system/ico_share-message2_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_share-link_line_24", "f": "24/line/system/ico_share-link_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_plus-add_gray600_line_24", "f": "24/line/system/ico_plus-add_gray600_line_24.svg"}, {"c": "System (Line)", "s": "24", "n": "icon/24/line/system/ico_continue_line_24", "f": "24/line/system/ico_continue_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_publish-insurance_line_24", "f": "24/line/general/ico_publish-insurance_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_security_line_24", "f": "24/line/general/ico_security_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_payment_line_24", "f": "24/line/general/ico_payment_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_phone-cs_line_24", "f": "24/line/general/ico_phone-cs_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_chat-cs_line_24", "f": "24/line/general/ico_chat-cs_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_mail-cs_line_24", "f": "24/line/general/ico_mail-cs_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_mobile-center_line_24", "f": "24/line/general/ico_mobile-center_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_bank_line_24", "f": "24/line/general/ico_bank_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_apply-insurance_line_24", "f": "24/line/general/ico_apply-insurance_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_stockoption_line_24", "f": "24/line/general/ico_stockoption_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_market-price_line_24", "f": "24/line/general/ico_market-price_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_fund_line_24", "f": "24/line/general/ico_fund_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_aim_line_24", "f": "24/line/general/ico_aim_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_circle-cancle_line_24", "f": "24/line/general/ico_circle-cancle_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_circle-cancle_gray400_line_24_disabled", "f": "24/line/general/ico_circle-cancle_gray400_line_24_disabled.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_o_line_24", "f": "24/line/general/ico_o_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_x_line_24", "f": "24/line/general/ico_x_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_o_line_24_selected", "f": "24/line/general/ico_o_line_24_selected.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_x_line_24_selected", "f": "24/line/general/ico_x_line_24_selected.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_check_line_24", "f": "24/line/general/ico_check_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_check_gray400_line_24_disabled", "f": "24/line/general/ico_check_gray400_line_24_disabled.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_check_gray50_line_24", "f": "24/line/general/ico_check_gray50_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_pencil_line_24", "f": "24/line/general/ico_pencil_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_pencil_gray400_line_24_disabled", "f": "24/line/general/ico_pencil_gray400_line_24_disabled.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_id-login_line_24", "f": "24/line/general/ico_id-login_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_id-login_gray400_line_24_disabled", "f": "24/line/general/ico_id-login_gray400_line_24_disabled.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_security-info_line_24", "f": "24/line/general/ico_security-info_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_security-info_gray500_line_24_disabled", "f": "24/line/general/ico_security-info_gray500_line_24_disabled.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_profile-add_gray50_line_24", "f": "24/line/general/ico_profile-add_gray50_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_profile-confirm_gray50_line_24", "f": "24/line/general/ico_profile-confirm_gray50_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/arr_recalculate_gray50_line_24", "f": "24/line/general/arr_recalculate_gray50_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_application-check_line_24", "f": "24/line/general/ico_application-check_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_account_line_24", "f": "24/line/general/ico_account_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_account_gray600_line_24", "f": "24/line/general/ico_account_gray600_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_confirm-phone_line_24", "f": "24/line/general/ico_confirm-phone_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_confirm-phone_gray600_line_24", "f": "24/line/general/ico_confirm-phone_gray600_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_cs-call_gray600_line_24", "f": "24/line/general/ico_cs-call_gray600_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_finance-won_gray600_line_24", "f": "24/line/general/ico_finance-won_gray600_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_foreign-exchange_gray600_line_24", "f": "24/line/general/ico_foreign-exchange_gray600_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_nh-group_gray600_line_24", "f": "24/line/general/ico_nh-group_gray600_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_product-bag_gray600_line_24", "f": "24/line/general/ico_product-bag_gray600_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_payment-card_gray600_line_24", "f": "24/line/general/ico_payment-card_gray600_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_nh-mydata_gray600_line_24", "f": "24/line/general/ico_nh-mydata_gray600_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_grip-line_line_24", "f": "24/line/general/ico_grip-line_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_domestic-franchise_line_24", "f": "24/line/general/ico_domestic-franchise_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_lounge-earth_line_24", "f": "24/line/general/ico_lounge-earth_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_exchange-pocket_line_24", "f": "24/line/general/ico_exchange-pocket_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_overseas-payment_line_24", "f": "24/line/general/ico_overseas-payment_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_auto-charge_line_24", "f": "24/line/general/ico_auto-charge_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_customer-verification_line_24", "f": "24/line/general/ico_customer-verification_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_terms-agree_line_24", "f": "24/line/general/ico_terms-agree_line_24.svg"}, {"c": "General (Line)", "s": "24", "n": "icon/24/line/general/ico_card-select_line_24", "f": "24/line/general/ico_card-select_line_24.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_certi-pattern_line_32", "f": "32/line/general/ico_certi-pattern_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_certi-face_line_32", "f": "32/line/general/ico_certi-face_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_certi-pw_line_32", "f": "32/line/general/ico_certi-pw_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_certi-fingerprint_line_32", "f": "32/line/general/ico_certi-fingerprint_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_share-message_gray50_line_32", "f": "32/line/general/ico_share-message_gray50_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_share-copylink_gray50_line_32", "f": "32/line/general/ico_share-copylink_gray50_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_share-present_line_32", "f": "32/line/general/ico_share-present_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_share-link_line_32", "f": "32/line/general/ico_share-link_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_service-time_line_32", "f": "32/line/general/ico_service-time_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_service-faq_line_32", "f": "32/line/general/ico_service-faq_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_service-counselor_line_32", "f": "32/line/general/ico_service-counselor_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_service-branch_line_32", "f": "32/line/general/ico_service-branch_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_foreign-input_line_32", "f": "32/line/general/ico_foreign-input_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_foreign-storage_line_32", "f": "32/line/general/ico_foreign-storage_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_foreign-out_line_32", "f": "32/line/general/ico_foreign-out_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_receipt-branch_line_32", "f": "32/line/general/ico_receipt-branch_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_account-deposit_line_32", "f": "32/line/general/ico_account-deposit_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_exchange-docu_line_32", "f": "32/line/general/ico_exchange-docu_line_32.svg"}, {"c": "General (Line)", "s": "32", "n": "icon/32/line/general/ico_exchange-remittance_line_32", "f": "32/line/general/ico_exchange-remittance_line_32.svg"}, {"c": "General (Line)", "s": "40", "n": "icon/40/line/general/ico_franchise-shoot_line_40", "f": "40/line/general/ico_franchise-shoot_line_40.svg"}, {"c": "General (Line)", "s": "40", "n": "icon/40/line/general/ico_franchise-qr_line_40", "f": "40/line/general/ico_franchise-qr_line_40.svg"}, {"c": "System (Fill)", "s": "bullet", "n": "icon/bullet/ico_bullet2_gray600_fill", "f": "bullet/ico_bullet2_gray600_fill.svg"}, {"c": "System (Fill)", "s": "bullet", "n": "icon/bullet/ico_bullet1_gray600_fill", "f": "bullet/ico_bullet1_gray600_fill.svg"}, {"c": "System (Fill)", "s": "bullet", "n": "icon/bullet/ico_bullet-hyphen_gray600_fill", "f": "bullet/ico_bullet-hyphen_gray600_fill.svg"}, {"c": "System (Fill)", "s": "8", "n": "icon/8/fill/system/ico_indicator-stop_gray50_fill_8", "f": "8/fill/system/ico_indicator-stop_gray50_fill_8.svg"}, {"c": "System (Fill)", "s": "8", "n": "icon/8/fill/system/ico_indicator-play_gray50_fill_8", "f": "8/fill/system/ico_indicator-play_gray50_fill_8.svg"}, {"c": "System (Fill)", "s": "12", "n": "icon/12/fill/system/ico_indicator-play_gray600_fill_12", "f": "12/fill/system/ico_indicator-play_gray600_fill_12.svg"}, {"c": "System (Fill)", "s": "12", "n": "icon/12/fill/system/ico_indicator-stop_gray600_fill_12", "f": "12/fill/system/ico_indicator-stop_gray600_fill_12.svg"}, {"c": "System (Fill)", "s": "16", "n": "icon/16/fill/system/ico_favorite-star_fill_16_selected", "f": "16/fill/system/ico_favorite-star_fill_16_selected.svg"}, {"c": "System (Fill)", "s": "20", "n": "icon/20/fill/system/ico_tooltip-error_fill_20", "f": "20/fill/system/ico_tooltip-error_fill_20.svg"}, {"c": "System (Fill)", "s": "24", "n": "icon/24/fill/system/ico_zoom-in_fill_24", "f": "24/fill/system/ico_zoom-in_fill_24.svg"}, {"c": "System (Fill)", "s": "24", "n": "icon/24/fill/system/ico_cancle1_fill_24", "f": "24/fill/system/ico_cancle1_fill_24.svg"}, {"c": "System (Fill)", "s": "24", "n": "icon/24/fill/system/ico_cancle2_fill_24", "f": "24/fill/system/ico_cancle2_fill_24.svg"}, {"c": "System (Fill)", "s": "24", "n": "icon/24/fill/system/ico_favorite-star_fill_24_selected", "f": "24/fill/system/ico_favorite-star_fill_24_selected.svg"}, {"c": "System (Fill)", "s": "24", "n": "icon/24/fill/system/ico_favorite-star_gray600_fill_24_default", "f": "24/fill/system/ico_favorite-star_gray600_fill_24_default.svg"}, {"c": "General (Fill)", "s": "12", "n": "icon/12/fill/general/ico_next-arrow_gray600_fill_12", "f": "12/fill/general/ico_next-arrow_gray600_fill_12.svg"}, {"c": "General (Fill)", "s": "20", "n": "icon/20/fill/general/ico_product-new_fill_24", "f": "20/fill/general/ico_product-new_fill_24.svg"}, {"c": "General (Fill)", "s": "20", "n": "icon/20/fill/general/ico_product-thumb_fill_24", "f": "20/fill/general/ico_product-thumb_fill_24.svg"}, {"c": "General (Fill)", "s": "20", "n": "icon/20/fill/general/ico_call-receiver_fill_20", "f": "20/fill/general/ico_call-receiver_fill_20.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_share-kakaotalk1_fill_24", "f": "24/fill/general/ico_share-kakaotalk1_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_share-kakaotalk2_fill_24", "f": "24/fill/general/ico_share-kakaotalk2_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_admin-number_gray400_fill_24", "f": "24/fill/general/ico_admin-number_gray400_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_announce-bell_fill_24", "f": "24/fill/general/ico_announce-bell_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_return-rate-search_fill_24", "f": "24/fill/general/ico_return-rate-search_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_major-index_fill_24", "f": "24/fill/general/ico_major-index_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/trust-money_fill_24", "f": "24/fill/general/trust-money_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_insurance-annuity_fill_24", "f": "24/fill/general/ico_insurance-annuity_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_trust-charitable_fill_24", "f": "24/fill/general/ico_trust-charitable_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_tendency-graph_fill_24", "f": "24/fill/general/ico_tendency-graph_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_interest-heart_fill_24", "f": "24/fill/general/ico_interest-heart_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_folder_fill_24", "f": "24/fill/general/ico_folder_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_monitoring_fill_24", "f": "24/fill/general/ico_monitoring_fill_24.svg"}, {"c": "General (Fill)", "s": "24", "n": "icon/24/fill/general/ico_management_fill_24", "f": "24/fill/general/ico_management_fill_24.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-withdrawal_fill_28", "f": "28/fill/general/ico_notice-withdrawal_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-remittance_fill_28", "f": "28/fill/general/ico_notice-remittance_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-electronic_fill_28", "f": "28/fill/general/ico_notice-electronic_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-new_fill_28", "f": "28/fill/general/ico_notice-new_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-candy_fill_28", "f": "28/fill/general/ico_notice-candy_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-event_fill_28", "f": "28/fill/general/ico_notice-event_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-smart-talk_fill_28", "f": "28/fill/general/ico_notice-smart-talk_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-recommend-product_fill_28", "f": "28/fill/general/ico_notice-recommend-product_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-community_fill_28", "f": "28/fill/general/ico_notice-community_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-the-mouim_fill_28", "f": "28/fill/general/ico_notice-the-mouim_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_notice-nts_fill_28", "f": "28/fill/general/ico_notice-nts_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_insurance-gift_fill_28", "f": "28/fill/general/ico_insurance-gift_fill_28.svg"}, {"c": "General (Fill)", "s": "28", "n": "icon/28/fill/general/ico_keep-gift_fill_28", "f": "28/fill/general/ico_keep-gift_fill_28.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_phone_fill_32", "f": "32/fill/general/ico_phone_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_share-kakaostory_gray50_fill_32", "f": "32/fill/general/ico_share-kakaostory_gray50_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_share-facebook_gray50_fill_32", "f": "32/fill/general/ico_share-facebook_gray50_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_share-twitter_gray50_fill_32", "f": "32/fill/general/ico_share-twitter_gray50_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_silver-won_fill_32", "f": "32/fill/general/ico_silver-won_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_gold-won_fill_32", "f": "32/fill/general/ico_gold-won_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_silver-percent_fill_32", "f": "32/fill/general/ico_silver-percent_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_gold-percent_fill_32", "f": "32/fill/general/ico_gold-percent_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-naver_fill_32", "f": "32/fill/general/ico_certi-naver_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-pass_fill_32", "f": "32/fill/general/ico_certi-pass_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-kakao_fill_32", "f": "32/fill/general/ico_certi-kakao_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-toss_fill_32", "f": "32/fill/general/ico_certi-toss_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-joint_fill_32", "f": "32/fill/general/ico_certi-joint_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-nh_fill_32", "f": "32/fill/general/ico_certi-nh_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_share-kakaotalk_fill_32", "f": "32/fill/general/ico_share-kakaotalk_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_target_fill_32", "f": "32/fill/general/ico_target_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_repayment_fill_32", "f": "32/fill/general/ico_repayment_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_amount-dollar_fill_32", "f": "32/fill/general/ico_amount-dollar_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_amount-won_fill_32", "f": "32/fill/general/ico_amount-won_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_rates-calculator_fill_32", "f": "32/fill/general/ico_rates-calculator_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_period-calendar_fill_32", "f": "32/fill/general/ico_period-calendar_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_diversified_fill_32", "f": "32/fill/general/ico_diversified_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_transaction-time_fill_32", "f": "32/fill/general/ico_transaction-time_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_play-video_fill_32", "f": "32/fill/general/ico_play-video_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_meritorious-person_fill_32", "f": "32/fill/general/ico_meritorious-person_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_global_fill_32", "f": "32/fill/general/ico_global_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_military-veterans_fill_32", "f": "32/fill/general/ico_military-veterans_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_own-name-phone_fill_32", "f": "32/fill/general/ico_own-name-phone_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_my-phone_fill_32", "f": "32/fill/general/ico_my-phone_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_nh-account_fill_32", "f": "32/fill/general/ico_nh-account_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_identification_fill_32", "f": "32/fill/general/ico_identification_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_verifying-info_fill_32", "f": "32/fill/general/ico_verifying-info_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_received-paid_fill_32", "f": "32/fill/general/ico_received-paid_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_bankbook_fill_32", "f": "32/fill/general/ico_bankbook_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_installment-save_fill_32", "f": "32/fill/general/ico_installment-save_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_apart-application_fill_32", "f": "32/fill/general/ico_apart-application_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_fund-graph_fill_32", "f": "32/fill/general/ico_fund-graph_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_loan-pocket-fink_fill_32", "f": "32/fill/general/ico_loan-pocket-fink_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_foreign-exchange_fill_32", "f": "32/fill/general/ico_foreign-exchange_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_retirement-pension_fill_32", "f": "32/fill/general/ico_retirement-pension_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_trust-graph_fill_32", "f": "32/fill/general/ico_trust-graph_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_isa-shield_fill_32", "f": "32/fill/general/ico_isa-shield_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_insurance-heart_fill_32", "f": "32/fill/general/ico_insurance-heart_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_gold-bar_fill_32", "f": "32/fill/general/ico_gold-bar_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_recommed-fund_fill_32", "f": "32/fill/general/ico_recommed-fund_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_best-crown_fill_32", "f": "32/fill/general/ico_best-crown_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_fund-coinhand_fill_32", "f": "32/fill/general/ico_fund-coinhand_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_elf-shield_fill_32", "f": "32/fill/general/ico_elf-shield_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_coin-bank_fill_32", "f": "32/fill/general/ico_coin-bank_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_pension-pocket_fill_32", "f": "32/fill/general/ico_pension-pocket_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_security-insurance_fill_32", "f": "32/fill/general/ico_security-insurance_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_variable-shield_fill_32", "f": "32/fill/general/ico_variable-shield_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_travel-insurance_fill_32", "f": "32/fill/general/ico_travel-insurance_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_children-insurance_fill_32", "f": "32/fill/general/ico_children-insurance_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_foreign-exchange-account_fill_32", "f": "32/fill/general/ico_foreign-exchange-account_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_insurance-heart2_fill_32", "f": "32/fill/general/ico_insurance-heart2_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_loan-pocket-orange_fill_32", "f": "32/fill/general/ico_loan-pocket-orange_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_nhis_fill_32", "f": "32/fill/general/ico_nhis_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_gov_fill_32", "f": "32/fill/general/ico_gov_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_rebalancing_fill_32", "f": "32/fill/general/ico_rebalancing_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_folder_fill_32", "f": "32/fill/general/ico_folder_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_monitoring_fill_32", "f": "32/fill/general/ico_monitoring_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_management_fill_32", "f": "32/fill/general/ico_management_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_guide-own-goods_fill_32", "f": "32/fill/general/ico_guide-own-goods_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_guide-deposit-product_fill_32", "f": "32/fill/general/ico_guide-deposit-product_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_check-payment-result_fill_32", "f": "32/fill/general/ico_check-payment-result_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_auto-payment-result_fill_32", "f": "32/fill/general/ico_auto-payment-result_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_auto-withdrawal-account_fill_32", "f": "32/fill/general/ico_auto-withdrawal-account_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_change-auto-payment_fill_32", "f": "32/fill/general/ico_change-auto-payment_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_block-credit-trans_fill_32", "f": "32/fill/general/ico_block-credit-trans_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_block-account-opening_fill_32", "f": "32/fill/general/ico_block-account-opening_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-ars_fill_32", "f": "32/fill/general/ico_certi-ars_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-joint2_fill_32", "f": "32/fill/general/ico_certi-joint2_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-financial_fill_32", "f": "32/fill/general/ico_certi-financial_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-sms_fill_32", "f": "32/fill/general/ico_certi-sms_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-usim_fill_32", "f": "32/fill/general/ico_certi-usim_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-videotelephony_fill_32", "f": "32/fill/general/ico_certi-videotelephony_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-my-account_fill_32", "f": "32/fill/general/ico_certi-my-account_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_certi-security-device_fill_32", "f": "32/fill/general/ico_certi-security-device_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_nh-robo-dream_fill_32", "f": "32/fill/general/ico_nh-robo-dream_fill_32.svg"}, {"c": "General (Fill)", "s": "32", "n": "icon/32/fill/general/ico_hybrid-roboadviser_32", "f": "32/fill/general/ico_hybrid-roboadviser_32.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_investor-1th_fill_36", "f": "36/fill/general/ico_investor-1th_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_investor-2th_fill_36", "f": "36/fill/general/ico_investor-2th_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_investor-3th_fill_36", "f": "36/fill/general/ico_investor-3th_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_investor-4th_fill_36", "f": "36/fill/general/ico_investor-4th_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_investor-5th_fill_36", "f": "36/fill/general/ico_investor-5th_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_goal1_fill_36", "f": "36/fill/general/ico_goal1_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_money_fill_36", "f": "36/fill/general/ico_money_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_bankbook_fill_36", "f": "36/fill/general/ico_bankbook_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_note_fill_36", "f": "36/fill/general/ico_note_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_suitcase_fill_36", "f": "36/fill/general/ico_suitcase_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_house1_fill_36", "f": "36/fill/general/ico_house1_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_goal2_fill_36", "f": "36/fill/general/ico_goal2_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_ring_fill_36", "f": "36/fill/general/ico_ring_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_present_fill_36", "f": "36/fill/general/ico_present_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_clover_fill_36", "f": "36/fill/general/ico_clover_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_baby_fill_36", "f": "36/fill/general/ico_baby_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_heart_fill_36", "f": "36/fill/general/ico_heart_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_timer_fill_36", "f": "36/fill/general/ico_timer_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_one-year1_fill_36", "f": "36/fill/general/ico_one-year1_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_one-year2_fill_36", "f": "36/fill/general/ico_one-year2_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_three-years_fill_36", "f": "36/fill/general/ico_three-years_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_senior_fill_36", "f": "36/fill/general/ico_senior_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_retiree_fill_36", "f": "36/fill/general/ico_retiree_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_housewife_fill_36", "f": "36/fill/general/ico_housewife_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_minor_fill_36", "f": "36/fill/general/ico_minor_fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_hasten-explain._fill_36", "f": "36/fill/general/ico_hasten-explain._fill_36.svg"}, {"c": "General (Fill)", "s": "36", "n": "icon/36/fill/general/ico_not-applicable_fill_36", "f": "36/fill/general/ico_not-applicable_fill_36.svg"}, {"c": "General (Fill)", "s": "40", "n": "icon/40/fill/general/ico_no-data_gray400_fill_40", "f": "40/fill/general/ico_no-data_gray400_fill_40.svg"}, {"c": "General (Fill)", "s": "48", "n": "icon/48/fill/general/ico_calculator-coin_fill_48", "f": "48/fill/general/ico_calculator-coin_fill_48.svg"}, {"c": "General (Fill)", "s": "48", "n": "icon/48/fill/general/ico_calculator-home_fill_48", "f": "48/fill/general/ico_calculator-home_fill_48.svg"}, {"c": "General (Fill)", "s": "48", "n": "icon/48/fill/general/ico_certificate_fill_48", "f": "48/fill/general/ico_certificate_fill_48.svg"}, {"c": "General (Fill)", "s": "48", "n": "icon/48/fill/general/ico_certificate_fill_48_error", "f": "48/fill/general/ico_certificate_fill_48_error.svg"}, {"c": "General (Fill)", "s": "48", "n": "icon/48/fill/general/ico_certificate_fill_48_disabled", "f": "48/fill/general/ico_certificate_fill_48_disabled.svg"}, {"c": "General (Fill)", "s": "48", "n": "icon/48/fill/general/ico_guard_fill_48", "f": "48/fill/general/ico_guard_fill_48.svg"}, {"c": "General (Fill)", "s": "48", "n": "icon/48/fill/general/ico_money_fill_48", "f": "48/fill/general/ico_money_fill_48.svg"}, {"c": "General (Fill)", "s": "48", "n": "icon/48/fill/general/ico_saving_fill_48", "f": "48/fill/general/ico_saving_fill_48.svg"}, {"c": "General (Fill)", "s": "48", "n": "icon/48/fill/general/ico_monitor_fill_48", "f": "48/fill/general/ico_monitor_fill_48.svg"}, {"c": "General (Fill)", "s": "56", "n": "icon/56/fill/general/ico_no-data_gray400_fill_56", "f": "56/fill/general/ico_no-data_gray400_fill_56.svg"}, {"c": "General (Fill)", "s": "56", "n": "icon/56/fill/general/ico_certificate-empty_fill_56", "f": "56/fill/general/ico_certificate-empty_fill_56.svg"}, {"c": "General (Fill)", "s": "56", "n": "icon/56/fill/general/ico_certi-nh_fill_56", "f": "56/fill/general/ico_certi-nh_fill_56.svg"}, {"c": "General (Fill)", "s": "56", "n": "icon/56/fill/general/ico_certi-toss_fill_56", "f": "56/fill/general/ico_certi-toss_fill_56.svg"}, {"c": "General (Fill)", "s": "56", "n": "icon/56/fill/general/ico_certi-kakao_fill_56", "f": "56/fill/general/ico_certi-kakao_fill_56.svg"}, {"c": "General (Fill)", "s": "56", "n": "icon/56/fill/general/ico_certi-pass_fill_56", "f": "56/fill/general/ico_certi-pass_fill_56.svg"}, {"c": "General (Fill)", "s": "56", "n": "icon/56/fill/general/ico_certi-naver_fill_56", "f": "56/fill/general/ico_certi-naver_fill_56.svg"}, {"c": "General (Fill)", "s": "56", "n": "icon/56/fill/general/ico_certi-yeskey_fill_56", "f": "56/fill/general/ico_certi-yeskey_fill_56.svg"}, {"c": "General (Fill)", "s": "60", "n": "icon/60/fill/general/ico_joint-certificate_fill_60", "f": "60/fill/general/ico_joint-certificate_fill_60.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_bar-join_fill_36", "f": "36/fill/investor-type/ico_bar-join_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_bar-caution__fill_36", "f": "36/fill/investor-type/ico_bar-caution__fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_bar-increase_fill_36", "f": "36/fill/investor-type/ico_bar-increase_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_bar-decrease_fill_36", "f": "36/fill/investor-type/ico_bar-decrease_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_bar-cancel_fill_36", "f": "36/fill/investor-type/ico_bar-cancel_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_profit-high_fill_36", "f": "36/fill/investor-type/ico_profit-high_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_profit-low_fill_36", "f": "36/fill/investor-type/ico_profit-low_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_profit-none_fill_36", "f": "36/fill/investor-type/ico_profit-none_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ratio-20percent_fill_36", "f": "36/fill/investor-type/ico_ratio-20percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ratio-30percent_fill_36", "f": "36/fill/investor-type/ico_ratio-30percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ratio-80percent_fill_36", "f": "36/fill/investor-type/ico_ratio-80percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ratio-80percent-high_fill_36", "f": "36/fill/investor-type/ico_ratio-80percent-high_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_level-1th_fill_36", "f": "36/fill/investor-type/ico_level-1th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_level-2th_fill_36", "f": "36/fill/investor-type/ico_level-2th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_level-3th_fill_36", "f": "36/fill/investor-type/ico_level-3th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_level-4th_fill_36", "f": "36/fill/investor-type/ico_level-4th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_level-5th_fill_36", "f": "36/fill/investor-type/ico_level-5th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_level-6th_fill_36", "f": "36/fill/investor-type/ico_level-6th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ranking-1th_fill_36", "f": "36/fill/investor-type/ico_ranking-1th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ranking-2th_fill_36", "f": "36/fill/investor-type/ico_ranking-2th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ranking-3th_fill_36", "f": "36/fill/investor-type/ico_ranking-3th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ranking-4th_fill_36", "f": "36/fill/investor-type/ico_ranking-4th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ranking-5th_fill_36", "f": "36/fill/investor-type/ico_ranking-5th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_ranking-6th_fill_36", "f": "36/fill/investor-type/ico_ranking-6th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_investor-1th_fill_36", "f": "36/fill/investor-type/ico_investor-1th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_investor-2th_fill_36", "f": "36/fill/investor-type/ico_investor-2th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_investor-3th_fill_36", "f": "36/fill/investor-type/ico_investor-3th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_investor-4th_fill_36", "f": "36/fill/investor-type/ico_investor-4th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_investor-5th_fill_36", "f": "36/fill/investor-type/ico_investor-5th_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_deposit_fill_36", "f": "36/fill/investor-type/ico_deposit_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_financial-bond_fill_36", "f": "36/fill/investor-type/ico_financial-bond_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_mixed-fund_fill_36", "f": "36/fill/investor-type/ico_mixed-fund_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_stock-fund_fill_36", "f": "36/fill/investor-type/ico_stock-fund_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_elw_fill_36", "f": "36/fill/investor-type/ico_elw_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_financial-recovery_fill_36", "f": "36/fill/investor-type/ico_financial-recovery_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_low-rate_fill_36", "f": "36/fill/investor-type/ico_low-rate_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_investor-analysis_fill_36", "f": "36/fill/investor-type/ico_investor-analysis_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_short-term_fill_36", "f": "36/fill/investor-type/ico_short-term_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_retirement-capital_fill_36", "f": "36/fill/investor-type/ico_retirement-capital_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_estate-capital_fill_36", "f": "36/fill/investor-type/ico_estate-capital_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_finance-pocket_fill_36", "f": "36/fill/investor-type/ico_finance-pocket_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_slight-risk_fill_36", "f": "36/fill/investor-type/ico_slight-risk_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_no-risk_fill_36", "f": "36/fill/investor-type/ico_no-risk_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_source-income_fill_36", "f": "36/fill/investor-type/ico_source-income_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_analysis-reanalyzing_fill_36", "f": "36/fill/investor-type/ico_analysis-reanalyzing_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_institutional-change_fill_36", "f": "36/fill/investor-type/ico_institutional-change_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-6m_fill_36", "f": "36/fill/investor-type/ico_period-6m_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-6m-low_fill_36", "f": "36/fill/investor-type/ico_period-6m-low_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-1y-high_fill_36", "f": "36/fill/investor-type/ico_period-1y-high_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-1y-low_fill_36", "f": "36/fill/investor-type/ico_period-1y-low_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-2y-high_fill_36", "f": "36/fill/investor-type/ico_period-2y-high_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-2y-low_fill_36", "f": "36/fill/investor-type/ico_period-2y-low_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-3y-high_fill_36", "f": "36/fill/investor-type/ico_period-3y-high_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-3y-low_fill_36", "f": "36/fill/investor-type/ico_period-3y-low_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-7y-low_fill_36", "f": "36/fill/investor-type/ico_period-7y-low_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-10y-low_fill_36", "f": "36/fill/investor-type/ico_period-10y-low_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-20y-high_fill_36", "f": "36/fill/investor-type/ico_period-20y-high_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-20y-low_fill_36", "f": "36/fill/investor-type/ico_period-20y-low_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-30y-high_fill_36", "f": "36/fill/investor-type/ico_period-30y-high_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-30y-low_fill_36", "f": "36/fill/investor-type/ico_period-30y-low_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-expiry_fill_36", "f": "36/fill/investor-type/ico_period-expiry_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-65y-high_fill_36", "f": "36/fill/investor-type/ico_period-65y-high_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-65y-high_fill_36_disabled", "f": "36/fill/investor-type/ico_period-65y-high_fill_36_disabled.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_period-none_fill_36", "f": "36/fill/investor-type/ico_period-none_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-3percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-3percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-5percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-5percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-7percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-7percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-10percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-10percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-15percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-15percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-20percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-20percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-30percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-30percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-40percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-40percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-50percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-50percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-70percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-70percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-90percent_fill_36", "f": "36/fill/investor-type/ico_assets-upto-90percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-0percent_fill_36", "f": "36/fill/investor-type/ico_assets-0percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-15percent_fill_36", "f": "36/fill/investor-type/ico_assets-15percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-20percent_fill_36", "f": "36/fill/investor-type/ico_assets-20percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-50percent_fill_36", "f": "36/fill/investor-type/ico_assets-50percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-90percent_fill_36", "f": "36/fill/investor-type/ico_assets-90percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-100percent_fill_36", "f": "36/fill/investor-type/ico_assets-100percent_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-10w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-10w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-30w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-30w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-50w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-50w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-100w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-100w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-200w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-200w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-400w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-400w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-500w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-500w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-1000w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-1000w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-5000w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-5000w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-10000w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-10000w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-50000w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-50000w_fill_36.svg"}, {"c": "Investor type (Fill)", "s": "36", "n": "icon/36/fill/investor-type/ico_assets-upto-100000w_fill_36", "f": "36/fill/investor-type/ico_assets-upto-100000w_fill_36.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/line/tabbar/ico_home_line_28", "f": "28/line/tabbar/ico_home_line_28.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/line/tabbar/ico_mall_line_28", "f": "28/line/tabbar/ico_mall_line_28.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/line/tabbar/ico_mydata_line_28", "f": "28/line/tabbar/ico_mydata_line_28.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/line/tabbar/ico_point_line_28", "f": "28/line/tabbar/ico_point_line_28.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/line/tabbar/ico_lifeplus_line_28", "f": "28/line/tabbar/ico_lifeplus_line_28.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/fill/tabbar/ico_home_fill_28_active", "f": "28/fill/tabbar/ico_home_fill_28_active.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/fill/tabbar/ico_mall_fill_28_active", "f": "28/fill/tabbar/ico_mall_fill_28_active.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/fill/tabbar/ico_mydata_fill_28_active", "f": "28/fill/tabbar/ico_mydata_fill_28_active.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/fill/tabbar/ico_point_fill_28_active", "f": "28/fill/tabbar/ico_point_fill_28_active.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/fill/tabbar/ico_lifeplus_fill_28_active", "f": "28/fill/tabbar/ico_lifeplus_fill_28_active.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/line/tabbar/ico_home-smart_line_28", "f": "28/line/tabbar/ico_home-smart_line_28.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/line/tabbar/ico_mall-smart_line_28", "f": "28/line/tabbar/ico_mall-smart_line_28.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/line/tabbar/ico_mydata-smart_line_28", "f": "28/line/tabbar/ico_mydata-smart_line_28.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/line/tabbar/ico_talk-smart_line_28", "f": "28/line/tabbar/ico_talk-smart_line_28.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/fill/tabbar/ico_home-smart_fill_28_active", "f": "28/fill/tabbar/ico_home-smart_fill_28_active.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/fill/tabbar/ico_mall-smart_fill_28_active", "f": "28/fill/tabbar/ico_mall-smart_fill_28_active.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/fill/tabbar/ico_mydata-smart_fill_28_active", "f": "28/fill/tabbar/ico_mydata-smart_fill_28_active.svg"}, {"c": "Tabbar", "s": "28", "n": "icon/28/fill/tabbar/ico_talk-smart_fill_28_active", "f": "28/fill/tabbar/ico_talk-smart_fill_28_active.svg"}];
+					var grid = document.getElementById('iconLibGrid');
+					var countEl = document.getElementById('iconLibCount');
+					var catSel = document.getElementById('iconLibCat');
+					var sizeSel = document.getElementById('iconLibSize');
+					var localOnly = document.getElementById('iconLibLocalOnly');
+					var search = document.getElementById('iconLibSearch');
+
+					// populate size options (sorted, numeric first)
+					var sizes = Array.from(new Set(ICONS.map(function (d) { return d.s; })));
+					sizes.sort(function (a, b) {
+						var na = parseInt(a, 10), nb = parseInt(b, 10);
+						if (isNaN(na) && isNaN(nb)) return a.localeCompare(b);
+						if (isNaN(na)) return 1;
+						if (isNaN(nb)) return -1;
+						return na - nb;
+					});
+					sizes.forEach(function (s) {
+						var opt = document.createElement('option');
+						opt.value = s;
+						opt.textContent = (isNaN(parseInt(s, 10)) ? s : s + 'px');
+						sizeSel.appendChild(opt);
+					});
+
+					function render() {
+						var c = catSel.value, s = sizeSel.value, q = search.value.trim().toLowerCase(), lo = localOnly.checked;
+						var filtered = ICONS.filter(function (d) {
+							if (c && d.c !== c) return false;
+							if (s && d.s !== s) return false;
+							if (lo && !d.f) return false;
+							if (q && d.n.toLowerCase().indexOf(q) === -1) return false;
+							return true;
+						});
+						countEl.textContent = filtered.length + ' / ' + ICONS.length + '개 표시 중';
+						var frag = document.createDocumentFragment();
+						filtered.forEach(function (d) {
+							var card = document.createElement('div');
+							card.className = 'icon-card';
+							var thumb;
+							if (d.f) {
+								thumb = document.createElement('div');
+								thumb.className = 'icon-card__thumb';
+								var img = document.createElement('img');
+								img.src = 'assets/img/icon/' + d.f;
+								img.alt = '';
+								thumb.appendChild(img);
+							} else {
+								thumb = document.createElement('div');
+								thumb.className = 'icon-card__thumb--missing';
+								thumb.textContent = 'N/A';
+							}
+							var name = document.createElement('div');
+							name.className = 'icon-card__name';
+							name.textContent = d.n.split('/').pop();
+							name.title = d.n;
+							var size = document.createElement('div');
+							size.className = 'icon-card__size';
+							size.textContent = d.c + ' · ' + (isNaN(parseInt(d.s,10)) ? d.s : d.s + 'px');
+							card.appendChild(thumb);
+							card.appendChild(name);
+							card.appendChild(size);
+							frag.appendChild(card);
+						});
+						grid.innerHTML = '';
+						grid.appendChild(frag);
+					}
+
+					[catSel, sizeSel, localOnly].forEach(function (el) { el.addEventListener('change', render); });
+					search.addEventListener('input', render);
+					render();
+				})();
+			</script>
 		</section>
 
 	</main>
