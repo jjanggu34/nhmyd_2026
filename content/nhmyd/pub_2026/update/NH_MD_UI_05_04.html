@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
+	<meta http-equiv="imagetoolbar" content="no">
+	<meta name="robots" content="no-index,follow">
+	<meta name="title" content="">
+	<meta name="author" content="">
+	<meta name="content" content="">
+	<meta name="keywords" content="NH마이데이터">
+	<meta name="description" content="NH마이데이터">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="-1">
+	<title>[P] 조회 기간 선택</title>
+	<script src="../pub-assets/js/head-mb-update.js"></script>
+	<script>
+		$(document).ready(function () {
+			slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+		})  
+	</script>
+</head>
+
+<body>
+	<div class="wrapper nhasset nds"><!-- 바닥페이지 --></div>
+	<div class="nhasset popWrap nds slidePopConfirm">
+		<div class="dim"></div>
+		<div class="popInner">
+			<h1>조회 기간 선택</h1>
+			<div class="popCont">
+				<div class="period">
+					<p class="bottomsheet-option__label">조회기간</p>
+					<div class="radio-box-row">
+						<input type="radio" name="period" id="period-12m" class="radio-hidden-input radio-box-input" checked>
+						<label for="period-12m" class="radio-box radio-box--sm radio-box--center">12개월</label>
+						<input type="radio" name="period" id="period-direct" class="radio-hidden-input radio-box-input">
+						<label for="period-direct" class="radio-box radio-box--sm radio-box--center">직접입력</label>
+					</div>
+
+					<div class="calendar-period mt12">
+						<div class="calendar-period__field">
+							<span class="calendar-period__text">2026.07.13</span>
+							<button type="button" class="calendar-period__icon" aria-label="시작일 날짜선택"></button>
+							<span class="calendar-period__sep">~</span>
+							<span class="calendar-period__text">2027.07.13</span>
+							<button type="button" class="calendar-period__icon" aria-label="종료일 날짜선택"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="popBtnWrap">
+				<div class="popBtn">
+					<a href="javascript:;" class="confirmBtn" role="button">확인</a>
+				</div>
+				<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."
+					role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
