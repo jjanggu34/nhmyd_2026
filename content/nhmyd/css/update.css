@@ -3,7 +3,7 @@
  * 그대로 링크하지 않고, 실제 update/ 화면에서 쓰는 컴포넌트만 여기로 옮겨 담습니다.
  * 원본: content/nds-guide/assets/css/nds.css (선택자/변수 값 그대로, 다크모드 override만 제외)
  * 새 컴포넌트가 필요해지면 nds-guide에서 해당 블록만 복사해 이 파일 뒤에 추가하세요.
- * 포함된 컴포넌트: Accordion(notice/box/line/gray), Divider, Navigation(레거시 header 아이콘 재스킨)
+ * 포함된 컴포넌트: Accordion(notice/box/line/gray), Divider, Navigation(레거시 header 아이콘 재스킨), Bottomsheet List(single/multi/currency), Popup(레거시 popCont/popBtnWrap 좌우 여백 보정), Radio Box(sm/center), Calendar Period, Bottomsheet Option Label, Button(md/tertiary/secondary), Button CTA row(popup 2버튼), Picker/wheel, Picker popup(floating center)
  */
 
 /* ---- 폰트: Pretendard ---- */
@@ -166,6 +166,11 @@
   --color-text-button-tertiary-default: var(--color-comp-btn-tertiary-default-fg);
   --color-bg-button-tertiary-default: var(--color-comp-btn-tertiary-default-bg);
   --color-icon-secondary: var(--color-icon-3);
+  /* Picker(wheel) 컴포넌트가 참조하는 토큰 — nds.css 원본에도 정의가 누락돼 있던 것을 이번에 보강하며
+     이 파일에도 동일하게 반영. 기존 font/bg 토큰의 별칭이라 다크모드는 이 파일에서 미사용이므로 무관. */
+  --color-text-picker-default: var(--color-font-1);
+  --color-text-picker-select: var(--color-font-point);
+  --color-bg-picker-press: var(--color-bg-container);
 }
 :root {
   --font-weight-regular: 400;
@@ -776,3 +781,294 @@
 .nds .header .btnCancle::after { content: "취소" !important; }
 .nds .header .btnAcAdmin::after { content: "관리" !important; }
 .nds .header .btnHidden::after { content: "숨기기" !important; }
+
+/* ---- Bottomsheet List (single/multi/currency) — content/nds-guide 535-595줄과 동일 ---- */
+.nds .bottomsheet-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.nds .bottomsheet-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px 4px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.02em;
+  line-height: 24px;
+  color: var(--color-font-1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.nds .bottomsheet-list__item--selected {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-font-point);
+}
+.nds .bottomsheet-list__item > span:first-child {
+  flex: 1;
+  min-width: 0;
+}
+.nds .bottomsheet-list__check {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--color-font-point);
+  background-color: currentColor;
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/check-24.svg");
+          mask-image: url("../../nds-guide/assets/img/icon/check-24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.nds .bottomsheet-list__flag {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ---- Popup: 레거시 .popCont/.popBtnWrap 좌우 여백 보정 (content/nds-guide 384-393줄과 동일)
+   레거시 기본값은 좌우 padding 0이라 콘텐츠가 화면 끝까지 붙는다. nds 실측 여백(12/24/32px)을
+   여기서 강제 적용한다. .popCont의 padding-bottom은 nhasset_myd_mb.css:410(class 5개)
+   /nhasset_com.css(class 5개) 등 특이도가 더 높은 레거시 규칙과 계속 충돌하므로 !important로 확정. ---- */
+.nds .popCont {padding-top:14px !important}
+.nds.centerLayer .popCont{padding-top:40px !important}
+.nds .popCont .bottomsheet-list{padding:0 24px}
+.nds .popCont .period{padding-top:0}
+.nds.slidePopConfirm .popBtnWrap{padding:0 24px 32px !important}
+.nds.slidePopConfirm .popBtnWrap .popBtn{height:56px !important;border:none !important;border-spacing:0 !important}
+.nds.centerLayer .popInner .popCont{padding-bottom:32px !important}
+.nds.centerLayer .popBtnWrap .popBtn{border-width:0 16px 24px !important;border-spacing:8px 0 !important}
+.nds .popBtnWrap .popBtn > a, .nds .popBtnWrap .popBtn > a:hover, .nds .popBtnWrap .popBtn > a:active, .nds .popBtnWrap .popBtn > a:link {width: 40% !important;}
+.nds .popBtnWrap .popBtn > a.confirmBtn{width: 60% !important;}
+/* ---- yearSet(년/월/일 휠피커) 세로 정렬 버그 수정 ----
+   원인: nhasset_cont.css ".yearSet > ol{padding:80px 0}" (특이도 0,1,1)가 각 리스트를
+   scrollTop = index*40 으로 스크롤했을 때 선택 항목이 컨테이너(200px) 정중앙 40px 밴드에
+   오도록 만드는 원본 로직인데, 바로 아래 기본 리셋 ".nds ol{margin:0;padding:0}"도 특이도가
+   똑같이 0,1,1이라 캐스케이드 순서(update.css가 나중에 로드)로 이겨서 padding이 0으로
+   깎여 있었다. 그 결과 년(9개)/월(12개)/일(30개) 리스트가 서로 다른 스크롤 상한에 맞춰
+   제각각 다른 높이에 선택 항목이 뜨고, 스크롤 범위가 짧은 년/월 리스트는 뒤쪽 항목을
+   선택해도 최대 스크롤에 막혀(clamp) 실제로는 중앙에 오지 못했다.
+   아래 80px는 JS 실행 전(또는 JS 미동작 환경) 대비용 기본값일 뿐이다 — 실제 센터링 여백은
+   NH_MD_UI_05_05.html에 페이지 로컬로 오버라이드한 calendarAlign()이 <a>의 실측 렌더
+   높이를 읽어 (컨테이너높이-행높이)/2 로 매번 다시 계산해서 이 padding을 덮어쓴다. 즉 행
+   높이가 40px가 아니어도(패딩을 바꿔도) 항상 정확히 센터링되도록 CSS 고정값에 의존하지 않는다. */
+.nds .yearSet > ol {
+  padding: 80px 0 !important;
+}
+
+
+.nds .yearSet.dayPicSet {
+  display: flex !important;
+  gap: 8px;
+  width: 100%;
+  margin-top:12px;
+}
+.nds .yearSet.dayPicSet .yearsetLft {
+  flex: none !important;
+  width: 98px !important;
+}
+.nds .yearSet.dayPicSet .yearsetRht,
+.nds .yearSet.dayPicSet .yearsetDay {
+  flex: 1 1 0% !important;
+  width: auto !important;
+}
+/* <a> 높이는 더 이상 40px로 고정할 필요가 없다. NH_MD_UI_05_05.html에 페이지 로컬로
+   오버라이드한 calendarAlign()이 매번 <li>의 실제 렌더 높이를 측정해서 scrollTop 계산과
+   .yearSet > ol의 센터링 padding을 그 값 기준으로 다시 구하기 때문에, 여기서 padding/
+   font-size 등을 자유롭게 바꿔도(=행 높이가 40px가 아니게 되어도) 스크롤 위치가 어긋나지
+   않는다. box-sizing:border-box만 유지해서 padding이 레이아웃 폭 계산에 영향 없게 한다. */
+.nds .yearSet a {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  line-height:40px !important;
+  font-size: 16px !important;
+  font-weight: var(--font-weight-regular) !important;
+  letter-spacing: -0.32px !important;
+  line-height: normal;
+  color: var(--color-font-1) !important;
+}
+.nds .yearSet .active {
+  font-size: 16px !important;
+  font-weight: var(--font-weight-semibold) !important;
+  color: var(--color-font-point) !important;
+}
+
+/* ---- Bottomsheet Option Label — content/nds-guide 1406-1413줄과 동일 (조회기간 등 팝업 내 라벨) ---- */
+.nds .bottomsheet-option__label {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.02em;
+  line-height: 22px;
+  color: var(--color-font-3);
+  margin: 0 0 12px;
+}
+
+/* ---- Radio Box (sm/center) — content/nds-guide 6832-6896줄과 동일. 주의: radio-box-center라는
+   합성 클래스는 존재하지 않음 — 반드시 radio-box + radio-box--center 두 클래스를 함께 사용해야 함. ---- */
+.nds .radio-box-row {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  height: 36px;
+}
+/* 주의: 레거시 nhasset_com.css:435 ".nhasset input[type='radio']"가 특이도(0,2,1)로
+   ".nds .radio-hidden-input"(0,2,0)보다 높아 position:relative/width:22px/border(원형)를
+   그대로 덮어써서 라디오 원형이 박스 밖으로 삐져나와 보이는 문제가 있었다. 전부 !important로 확정. */
+.nds .radio-hidden-input {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+}
+.nds .radio-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid var(--color-border-1);
+  background: var(--color-bg-default);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-font-3);
+  cursor: pointer;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transition: border-color var(--transition-base), color var(--transition-base), background-color var(--transition-base);
+}
+.nds .radio-box--center {
+  justify-content: center;
+  text-align: center;
+}
+.nds .radio-box--sm {
+  padding: 7px 8px;
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  line-height: 22px;
+  border-radius: 8px;
+  margin:0 !important;
+}
+.nds .radio-box-input:checked + .radio-box {
+  border-width: 1.5px;
+  border-color: var(--color-border-point);
+  color: var(--color-font-point);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ---- Calendar Period — content/nds-guide 3732-3806, 10850-10864줄과 동일 (조회기간 날짜범위 읽기전용 표시) ---- */
+.nds .calendar-period {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+.nds .calendar-period__label {
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.02em;
+  color: var(--color-font-3);
+}
+.nds .calendar-period__field {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 54px;
+  padding: 0 16px 0 20px;
+  background: var(--color-bg-default);
+  border: 1px solid var(--color-border-2);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color var(--transition-base);
+}
+.nds .calendar-period--readonly .calendar-period__field {
+  background: var(--color-bg-extra-bg);
+  cursor: default;
+}
+.nds .calendar-period__text {
+  flex: 1;
+  min-width: 0;
+  font-size: 18px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.02em;
+  color: var(--color-font-5);
+}
+.nds .calendar-period__text.is-filled {
+  color: var(--color-font-1);
+}
+.nds .calendar-period__icon {
+  flex-shrink: 0;
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  color: var(--color-icon-secondary);
+  cursor: pointer;
+  font: inherit;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.nds .calendar-period--readonly .calendar-period__icon {
+  cursor: default;
+}
+.nds .calendar-period--disabled .calendar-period__icon {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.nds .calendar-period__icon::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../../nds-guide/assets/img/icon/calendar-24.svg");
+          mask-image: url("../../nds-guide/assets/img/icon/calendar-24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.nds .calendar-period__sep {
+  flex-shrink: 0;
+  font-size: 18px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-font-1);
+  padding: 0 4px;
+}
+.nds .dayPicSet__label {
+  color: var(--color-font-1);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: -0.32px;
+}

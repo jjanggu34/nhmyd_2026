@@ -1784,11 +1784,9 @@
 							</div>
 							<div class="calendar-period">
 								<div class="calendar-period__field">
-									<span class="calendar-period__text is-filled">2025.01.01</span><span
-										class="calendar-period__icon"></span>
+									<span class="calendar-period__text is-filled">2025.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 									<span class="calendar-period__sep">~</span>
-									<span class="calendar-period__text is-filled">2025.01.02</span><span
-										class="calendar-period__icon"></span>
+									<span class="calendar-period__text is-filled">2025.01.02</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 								</div>
 							</div>
 						</div>
@@ -2152,6 +2150,53 @@
 							class="btn btn--primary btn--full btn--lg">확인</button></div>
 				</div>
 			</div>
+
+			<h3>Picker/wheel/year-month-day — center popup(floating) — bottomsheet 위에 추가로 뜨는 케이스</h3>
+			<p class="note">이미 열려있는 bottomsheet(예: 조회기간 선택) 위에서 캘린더 아이콘 등을 탭하면, 화면 하단에 붙지 않고 4모서리가 전부
+				둥근 채로 화면 중앙 쪽에 추가로 뜨는 팝업입니다(Figma node 571-1129). CTA는 닫기(고정폭
+				100px, btn-cta__item--fixed) + 선택(가변폭, secondary) 2버튼 조합을 재사용합니다.</p>
+			<div class="demo">
+				<div class="picker-popup">
+					<div class="picker-popup__body">
+						<p class="picker-popup__title">년 · 월 · 일을 선택해 주세요</p>
+						<div class="bottomsheet-picker-wheel">
+							<div class="bottomsheet-picker-wheel__row"><span
+									class="bottomsheet-picker-wheel__cell bottomsheet-picker-wheel__cell--fixed bottomsheet-picker-wheel__cell--selected">2026년</span><span
+									class="bottomsheet-picker-wheel__cell bottomsheet-picker-wheel__cell--selected">7월</span><span
+									class="bottomsheet-picker-wheel__cell bottomsheet-picker-wheel__cell--selected">13일</span>
+							</div>
+							<div class="bottomsheet-picker-wheel__row"><span
+									class="bottomsheet-picker-wheel__cell bottomsheet-picker-wheel__cell--fixed">2027년</span><span
+									class="bottomsheet-picker-wheel__cell">8월</span><span
+									class="bottomsheet-picker-wheel__cell">14일</span></div>
+							<div class="bottomsheet-picker-wheel__row"><span
+									class="bottomsheet-picker-wheel__cell bottomsheet-picker-wheel__cell--fixed"
+									style="opacity:0">2028년</span><span class="bottomsheet-picker-wheel__cell">9월</span><span
+									class="bottomsheet-picker-wheel__cell bottomsheet-picker-wheel__cell--press">15일</span>
+							</div>
+							<div class="bottomsheet-picker-wheel__row"><span
+									class="bottomsheet-picker-wheel__cell bottomsheet-picker-wheel__cell--fixed"
+									style="opacity:0">2029년</span><span class="bottomsheet-picker-wheel__cell">10월</span><span
+									class="bottomsheet-picker-wheel__cell">16일</span></div>
+						</div>
+					</div>
+					<div class="btn-cta btn-cta--popup">
+						<button type="button"
+							class="btn btn--tertiary btn--md btn-cta__item btn-cta__item--fixed">닫기</button>
+						<button type="button" class="btn btn--secondary btn--md btn-cta__item">선택</button>
+					</div>
+				</div>
+			</div>
+			<pre><code>&lt;div class="picker-popup"&gt;
+  &lt;div class="picker-popup__body"&gt;
+    &lt;p class="picker-popup__title"&gt;년 · 월 · 일을 선택해 주세요&lt;/p&gt;
+    &lt;div class="bottomsheet-picker-wheel"&gt;...&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="btn-cta btn-cta--popup"&gt;
+    &lt;button class="btn btn--tertiary btn--md btn-cta__item btn-cta__item--fixed"&gt;닫기&lt;/button&gt;
+    &lt;button class="btn btn--secondary btn--md btn-cta__item"&gt;선택&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
 
 			<h3>Picker/wheel/day — 이체주기(매일/매주/매월 + 요일)</h3>
 			<div class="demo">
@@ -2825,9 +2870,9 @@
 				<div class="calendar-period">
 					<span class="calendar-period__label">라벨</span>
 					<div class="calendar-period__field">
-						<span class="calendar-period__text">선택</span><span class="calendar-period__icon"></span>
+						<span class="calendar-period__text">선택</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 						<span class="calendar-period__sep">~</span>
-						<span class="calendar-period__text">선택</span><span class="calendar-period__icon"></span>
+						<span class="calendar-period__text">선택</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 					</div>
 					<span class="calendar-period__message">안내 문구 입력</span>
 				</div>
@@ -2837,11 +2882,9 @@
 				<div class="calendar-period">
 					<span class="calendar-period__label">라벨</span>
 					<div class="calendar-period__field">
-						<span class="calendar-period__text is-filled">2024.01.01</span><span
-							class="calendar-period__icon"></span>
+						<span class="calendar-period__text is-filled">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 						<span class="calendar-period__sep">~</span>
-						<span class="calendar-period__text is-filled">2024.01.01</span><span
-							class="calendar-period__icon"></span>
+						<span class="calendar-period__text is-filled">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 					</div>
 					<span class="calendar-period__message">안내 문구 입력</span>
 				</div>
@@ -2851,9 +2894,9 @@
 				<div class="calendar-period calendar-period--error">
 					<span class="calendar-period__label">라벨</span>
 					<div class="calendar-period__field">
-						<span class="calendar-period__text">2024.01.01</span><span class="calendar-period__icon"></span>
+						<span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 						<span class="calendar-period__sep">~</span>
-						<span class="calendar-period__text">2024.01.01</span><span class="calendar-period__icon"></span>
+						<span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 					</div>
 					<span class="calendar-period__message">오류 메세지 출력</span>
 				</div>
@@ -2863,9 +2906,9 @@
 				<div class="calendar-period calendar-period--readonly">
 					<span class="calendar-period__label">라벨</span>
 					<div class="calendar-period__field">
-						<span class="calendar-period__text">2024.01.01</span><span class="calendar-period__icon"></span>
+						<span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 						<span class="calendar-period__sep">~</span>
-						<span class="calendar-period__text">2024.01.01</span><span class="calendar-period__icon"></span>
+						<span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 					</div>
 					<span class="calendar-period__message">안내 문구 입력</span>
 				</div>
@@ -2875,9 +2918,9 @@
 				<div class="calendar-period calendar-period--disabled">
 					<span class="calendar-period__label">라벨</span>
 					<div class="calendar-period__field">
-						<span class="calendar-period__text">2024.01.01</span><span class="calendar-period__icon"></span>
+						<span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 						<span class="calendar-period__sep">~</span>
-						<span class="calendar-period__text">2024.01.01</span><span class="calendar-period__icon"></span>
+						<span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 					</div>
 					<span class="calendar-period__message">안내 문구 입력</span>
 				</div>
@@ -2885,9 +2928,9 @@
 			<pre><code>&lt;div class="calendar-period"&gt; &lt;!-- 상태: 없음(inactive) / calendar-period--error / --readonly / --disabled --&gt;
   &lt;span class="calendar-period__label"&gt;라벨&lt;/span&gt;
   &lt;div class="calendar-period__field"&gt;
-    &lt;span class="calendar-period__text is-filled"&gt;2024.01.01&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;/span&gt;
+    &lt;span class="calendar-period__text is-filled"&gt;2024.01.01&lt;/span&gt;&lt;button type="button" class="calendar-period__icon" aria-label="달력 열기"&gt;&lt;/button&gt;
     &lt;span class="calendar-period__sep"&gt;~&lt;/span&gt;
-    &lt;span class="calendar-period__text is-filled"&gt;2024.01.01&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;/span&gt;
+    &lt;span class="calendar-period__text is-filled"&gt;2024.01.01&lt;/span&gt;&lt;button type="button" class="calendar-period__icon" aria-label="달력 열기"&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;span class="calendar-period__message"&gt;안내 문구 입력&lt;/span&gt;
 &lt;/div&gt;</code></pre>
@@ -8355,11 +8398,9 @@
 						</div>
 						<div class="calendar-period">
 							<div class="calendar-period__field">
-								<span class="calendar-period__text is-filled">2025.01.01</span><span
-									class="calendar-period__icon"></span>
+								<span class="calendar-period__text is-filled">2025.01.01</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 								<span class="calendar-period__sep">~</span>
-								<span class="calendar-period__text is-filled">2025.01.02</span><span
-									class="calendar-period__icon"></span>
+								<span class="calendar-period__text is-filled">2025.01.02</span><button type="button" class="calendar-period__icon" aria-label="달력 열기"></button>
 							</div>
 						</div>
 					</div>
@@ -8379,9 +8420,9 @@
   &lt;/div&gt;
   &lt;div class="calendar-period"&gt;
     &lt;div class="calendar-period__field"&gt;
-      &lt;span class="calendar-period__text is-filled"&gt;2025.01.01&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;/span&gt;
+      &lt;span class="calendar-period__text is-filled"&gt;2025.01.01&lt;/span&gt;&lt;button type="button" class="calendar-period__icon" aria-label="달력 열기"&gt;&lt;/button&gt;
       &lt;span class="calendar-period__sep"&gt;~&lt;/span&gt;
-      &lt;span class="calendar-period__text is-filled"&gt;2025.01.02&lt;/span&gt;&lt;span class="calendar-period__icon"&gt;&lt;/span&gt;
+      &lt;span class="calendar-period__text is-filled"&gt;2025.01.02&lt;/span&gt;&lt;button type="button" class="calendar-period__icon" aria-label="달력 열기"&gt;&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;button class="btn btn--secondary btn--rg btn--full"&gt;조회&lt;/button&gt;
