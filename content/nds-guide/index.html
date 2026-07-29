@@ -1163,12 +1163,13 @@
 				색상 토큰(--color-comp-badge-red)이 red-500(#EC0C0C)을 참조해 실제로는 Figma가 지정한 red-300(#E24949)보다 진하게 렌더링되던 것을 이번에
 				수정했습니다.</p>
 			<div class="demo row">
-				<span class="badge"><button type="button" class="btn-icon" aria-label="알림"></button><span class="badge__dot"></span></span>
+				<span class="badge"><button type="button" class="btn-icon" aria-label="알림"></button><span class="badge__dot" aria-hidden="true"></span></span>
 				<span class="badge"><button type="button" class="btn btn--secondary btn--sm">알림함</button><span
-						class="badge__count">3</span></span>
+						class="badge__count" aria-hidden="true">3</span></span>
 			</div>
-			<pre><code>&lt;span class="badge"&gt;&lt;button class="btn-icon" aria-label="알림"&gt;&lt;/button&gt;&lt;span class="badge__dot"&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class="badge"&gt;&lt;button class="btn btn--secondary btn--sm"&gt;알림함&lt;/button&gt;&lt;span class="badge__count"&gt;3&lt;/span&gt;&lt;/span&gt;</code></pre>
+			<p class="note">배지는 시각적 강조용이므로 aria-hidden="true"를 붙이고, 실제 개수 정보는 버튼의 접근 가능한 이름에 포함시킵니다(예: aria-label="알림함, 새 알림 3개").</p>
+			<pre><code>&lt;span class="badge"&gt;&lt;button class="btn-icon" aria-label="알림"&gt;&lt;/button&gt;&lt;span class="badge__dot" aria-hidden="true"&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class="badge"&gt;&lt;button class="btn btn--secondary btn--sm"&gt;알림함&lt;/button&gt;&lt;span class="badge__count" aria-hidden="true"&gt;3&lt;/span&gt;&lt;/span&gt;</code></pre>
 		</section>
 
 		<section id="sec-bottomsheet" class="nds">
@@ -2603,39 +2604,39 @@
 
 		<section id="sec-bullet" class="nds">
 			<h2>Bullet</h2>
-			<p class="note">목록의 항목을 소개하는데 사용되는 타이포그래피 기호입니다. Body(15px)/Caption(13px)/Notice(14px) 3종 스타일이 있으며,
-				Body·Notice는 하위 항목(2depth, 하이픈 기호)을 가질 수 있습니다.</p>
+			<p class="note">목록의 항목을 소개하는데 사용되는 타이포그래피 기호입니다. 마커 모양 기준으로 Dot(15px, 기본 점)/Dash(14px, 대시)/Small
+				Dot(13px, 작은 점) 3종 스타일이 있으며, 하위 항목(2depth)은 bullet__item--dash로 대시 마커를 표시합니다.</p>
 
-			<h3>Body</h3>
+			<h3>Dot 타입</h3>
 			<div class="demo">
-				<ul class="bullet bullet--body">
+				<ul class="bullet bullet--dot">
 					<li class="bullet__item">페이지 1depth 목록 내용 입니다.</li>
 					<li class="bullet__item">페이지 1depth 목록 내용 입니다.</li>
-					<li class="bullet__item bullet__item--depth2">페이지 2depth 목록 내용 입니다.</li>
+					<li class="bullet__item bullet__item--dash">페이지 2depth 목록 내용 입니다.</li>
 				</ul>
 			</div>
 
-			<h3>Caption</h3>
+			<h3>Dash 타입</h3>
 			<div class="demo">
-				<ul class="bullet bullet--caption">
-					<li class="bullet__item">캡션 1depth 목록 내용 입니다.</li>
-				</ul>
-			</div>
-
-			<h3>Notice</h3>
-			<div class="demo">
-				<ul class="bullet bullet--notice">
+				<ul class="bullet bullet--dash">
 					<li class="bullet__item">알아두세요 1depth 목록 내용 입니다.</li>
 					<li class="bullet__item">알아두세요 1depth 목록 내용 입니다.</li>
-					<li class="bullet__item bullet__item--depth2">알아두세요 2depth 목록 내용 입니다.</li>
 				</ul>
 			</div>
 
-			<pre><code>&lt;!-- Body / Caption / Notice: bullet--body, bullet--caption, bullet--notice 중 택1 --&gt;
-&lt;ul class="bullet bullet--body"&gt;
+			<h3>Small Dot 타입</h3>
+			<div class="demo">
+				<ul class="bullet bullet--dot--small">
+					<li class="bullet__item">페이지 1depth 목록 내용 입니다.</li>
+					<li class="bullet__item">페이지 1depth 목록 내용 입니다.</li>
+				</ul>
+			</div>
+
+			<pre><code>&lt;!-- Dot / Dash / Small Dot: bullet--dot, bullet--dash, bullet--dot--small 중 택1 --&gt;
+&lt;ul class="bullet bullet--dot"&gt;
   &lt;li class="bullet__item"&gt;1depth 목록 내용&lt;/li&gt;
-  &lt;!-- 하위(2depth) 항목: 하이픈 기호 + 12px 들여쓰기 (Body/Notice만 지원) --&gt;
-  &lt;li class="bullet__item bullet__item--depth2"&gt;2depth 목록 내용&lt;/li&gt;
+  &lt;!-- 하위(2depth) 항목: 대시 마커 + 12px 들여쓰기 --&gt;
+  &lt;li class="bullet__item bullet__item--dash"&gt;2depth 목록 내용&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
 		</section>
 
@@ -4083,12 +4084,14 @@
 			<h3>survey/icon — default / selected / error</h3>
 			<div class="demo">
 				<label class="check-survey">
+					<input type="checkbox" class="check-survey__input">
 					<div class="check-survey__box">
 						<span class="check-survey__icon"></span>
 						<span class="check-survey__text">체크-텍스트</span>
 					</div>
 				</label>
 				<label class="check-survey check-survey--selected" style="margin-top:12px;">
+					<input type="checkbox" class="check-survey__input" checked>
 					<div class="check-survey__box">
 						<span class="check-survey__icon"></span>
 						<span class="check-survey__text">체크-텍스트</span>
@@ -4099,6 +4102,7 @@
 					</div>
 				</label>
 				<label class="check-survey check-survey--error" style="margin-top:12px;">
+					<input type="checkbox" class="check-survey__input" checked>
 					<div class="check-survey__box">
 						<span class="check-survey__icon"></span>
 						<span class="check-survey__text">체크-텍스트</span>
@@ -4109,7 +4113,7 @@
 					</div>
 				</label>
 			</div>
-			<p class="note">선택(selected)·오류(error) 상태에서만 하단 메세지(정답/오답 문구 + 안내문구)가 표시됩니다. 메세지의 정답/안내 문구는 각각 옵션(기본 on)입니다.
+			<p class="note">선택(selected)·오류(error) 상태에서만 하단 메세지(정답/오답 문구 + 안내문구)가 표시됩니다. 메세지의 정답/안내 문구는 각각 옵션(기본 on)입니다. check-survey__input은 스크린리더용 실제 체크박스 폼 컨트롤입니다(시각적으로 숨김).
 			</p>
 
 			<h3>box/center-sm</h3>
@@ -4167,7 +4171,7 @@
 							<button type="button" class="chip-single" aria-pressed="false">메뉴</button>
 							<button type="button" class="chip-single" aria-pressed="false">메뉴</button>
 						</div>
-						<button type="button" class="chip-accordion__toggle" aria-label="펼치기"></button>
+						<button type="button" class="chip-accordion__toggle" aria-label="펼치기" aria-expanded="false"></button>
 					</div>
 				</div>
 				<div style="width:312px;">
@@ -4200,7 +4204,7 @@
 							<button type="button" class="chip-single" aria-pressed="false">메뉴</button>
 							<button type="button" class="chip-single" aria-pressed="false">메뉴</button>
 						</div>
-						<button type="button" class="chip-accordion__toggle" aria-label="접기"></button>
+						<button type="button" class="chip-accordion__toggle" aria-label="접기" aria-expanded="true"></button>
 					</div>
 				</div>
 			</div>
@@ -4310,8 +4314,8 @@
 						<span class="card__title card__title--semibold">텍스트 입력</span>
 						<p class="empty__text" style="margin:0;">조회 결과가 없습니다.</p>
 					</div>
-					<span
-						style="font-size:14px; font-weight:var(--font-weight-medium); letter-spacing:-0.28px; color:#505050; text-decoration:underline;">버튼명</span>
+					<button type="button"
+						style="font-size:14px; font-weight:var(--font-weight-medium); letter-spacing:-0.28px; color:#505050; text-decoration:underline; background:none; border:none; cursor:pointer;">버튼명</button>
 				</div>
 			</div>
 			<p class="note">아이콘(기본 on)·상단 타이틀(기본 off)·하단 텍스트버튼(기본 off)은 옵션입니다.</p>
@@ -4671,10 +4675,10 @@
 					<div class="input-box">
 						<span class="input-box__label">레이블</span>
 						<div class="input-box__field">
-							<span class="input-box__ghost">직접입력</span>
-							<span class="input-box__unit">＠</span>
-							<span class="input-box__ghost input-box__ghost--fixed" style="text-align:left;">이메일선택</span>
-							<span class="input-box__icon input-box__icon--up"></span>
+							<input type="text" class="input-box__ghost" placeholder="직접입력">
+							<span class="input-box__unit" aria-hidden="true">＠</span>
+							<button type="button" class="input-box__ghost input-box__ghost--fixed" style="text-align:left;">이메일선택<span
+									class="input-box__icon input-box__icon--up" aria-hidden="true"></span></button>
 						</div>
 					</div>
 				</div>
@@ -4940,7 +4944,7 @@
 			<h3>Text-Label — 캡션 텍스트 (툴팁/번호 옵션)</h3>
 			<div class="demo row">
 				<span class="label-text">레이블</span>
-				<span class="label-text">레이블<span class="label-text__tooltip"></span></span>
+				<span class="label-text">레이블<button type="button" class="label-text__tooltip" aria-label="레이블 설명 더 보기"></button></span>
 				<span class="label-text"><span class="label-text__number">1</span>레이블</span>
 			</div>
 			<pre><code>&lt;span class="label-text"&gt;레이블&lt;/span&gt;
@@ -5322,7 +5326,7 @@
 					<span class="list-page__title">타이틀</span>
 					<div class="list-page__rows">
 						<div class="list-kv">
-							<span class="list-kv__title">타이틀<span class="list-kv__tooltip"></span></span>
+							<span class="list-kv__title">타이틀<button type="button" class="list-kv__tooltip" aria-label="타이틀 설명 더 보기"></button></span>
 							<span class="list-kv__data">데이터</span>
 						</div>
 					</div>
@@ -5438,7 +5442,7 @@
 						<span class="list-accordion__title">타이틀</span>
 						<span class="list-accordion__data">0원</span>
 					</div>
-					<button type="button" class="list-accordion__toggle">펼치기</button>
+					<button type="button" class="list-accordion__toggle" aria-expanded="false">펼치기</button>
 					<div class="list-accordion__divider"></div>
 				</div>
 				<div class="list-accordion" style="width:312px;">
@@ -5456,7 +5460,7 @@
 						<div class="list-kv"><span class="list-kv__title">타이틀</span><span
 								class="list-kv__data">데이터</span></div>
 					</div>
-					<button type="button" class="list-accordion__toggle is-open">접기</button>
+					<button type="button" class="list-accordion__toggle is-open" aria-expanded="true">접기</button>
 					<div class="list-accordion__divider"></div>
 				</div>
 			</div>
@@ -6550,48 +6554,49 @@
 			<h3>box/search — Input-box + 검색 아이콘, Inactive / Focus / Filled / Error</h3>
 			<div class="demo row">
 				<div class="input-box" style="width:280px;">
-					<span class="label-text">레이블</span>
+					<label class="input-box__label" for="demo-search-box-1">레이블</label>
 					<div class="input-box__field">
-						<input class="input-box__input" placeholder="검색어 입력">
-						<span class="input-box__icon input-box__icon--search"></span>
+						<input id="demo-search-box-1" class="input-box__input" placeholder="검색어 입력">
+						<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 					</div>
 					<p class="input-box__message">안내 문구 입력</p>
 				</div>
 				<div class="input-box input-box--focus" style="width:280px;">
-					<span class="label-text">레이블</span>
+					<label class="input-box__label" for="demo-search-box-2">레이블</label>
 					<div class="input-box__field">
-						<input class="input-box__input" value="검색어 입력">
-						<span class="input-box__icon input-box__icon--clear"></span>
-						<span class="input-box__icon input-box__icon--search"></span>
+						<input id="demo-search-box-2" class="input-box__input" value="검색어 입력">
+						<span class="input-box__icon input-box__icon--clear" aria-hidden="true"></span>
+						<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 					</div>
 					<p class="input-box__message">안내 문구 입력</p>
 				</div>
 			</div>
 			<div class="demo row">
 				<div class="input-box" style="width:280px;">
-					<span class="label-text">레이블</span>
+					<label class="input-box__label" for="demo-search-box-3">레이블</label>
 					<div class="input-box__field">
-						<input class="input-box__input" value="검색어 입력">
-						<span class="input-box__icon input-box__icon--search"></span>
+						<input id="demo-search-box-3" class="input-box__input" value="검색어 입력">
+						<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 					</div>
 					<p class="input-box__message">안내 문구 입력</p>
 				</div>
 				<div class="input-box input-box--error" style="width:280px;">
-					<span class="label-text">레이블</span>
+					<label class="input-box__label" for="demo-search-box-4">레이블</label>
 					<div class="input-box__field">
-						<input class="input-box__input" value="검색어 입력">
-						<span class="input-box__icon input-box__icon--search"></span>
+						<input id="demo-search-box-4" class="input-box__input" value="검색어 입력" aria-invalid="true" aria-describedby="demo-search-box-4-msg">
+						<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 					</div>
-					<p class="input-box__message">오류 메세지 출력</p>
+					<p class="input-box__message" id="demo-search-box-4-msg">오류 메세지 출력</p>
 				</div>
 			</div>
 			<p class="note">Focus/Filled 상태는 텍스트 뒤에 지우기 아이콘(ico_cancel1_fill_24)이 추가로 붙습니다. Error는 input-box--error, 메시지
-				색은 자동으로 --color-font-error가 적용됩니다.</p>
+				색은 자동으로 --color-font-error가 적용됩니다. 레이블은 label-text가 아니라 Input 컴포넌트와 동일한 input-box__label을 label 엘리먼트로 사용하고,
+				for/id로 input과 연결합니다. 검색/지우기 아이콘은 상태를 시각적으로만 보조하므로 aria-hidden="true"를 붙입니다.</p>
 			<pre><code>&lt;div class="input-box"&gt;
-  &lt;span class="label-text"&gt;레이블&lt;/span&gt;
+  &lt;label class="input-box__label" for="search-1"&gt;레이블&lt;/label&gt;
   &lt;div class="input-box__field"&gt;
-    &lt;input class="input-box__input" placeholder="검색어 입력"&gt;
-    &lt;span class="input-box__icon input-box__icon--search"&gt;&lt;/span&gt;
+    &lt;input id="search-1" class="input-box__input" placeholder="검색어 입력"&gt;
+    &lt;span class="input-box__icon input-box__icon--search" aria-hidden="true"&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;p class="input-box__message"&gt;안내 문구 입력&lt;/p&gt;
 &lt;/div&gt;</code></pre>
@@ -6601,76 +6606,80 @@
 				<div class="input-box" style="width:280px;">
 					<div class="input-box__row">
 						<div class="input-box__field">
-							<input class="input-box__input" placeholder="검색어 입력">
-							<span class="input-box__icon input-box__icon--search"></span>
+							<label class="blind" for="demo-search-filter-1">검색어</label>
+							<input id="demo-search-filter-1" class="input-box__input" placeholder="검색어 입력">
+							<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 						</div>
-						<button type="button" class="search-filter-btn"></button>
+						<button type="button" class="search-filter-btn" aria-label="검색 필터"></button>
 					</div>
 				</div>
 				<div class="input-box input-box--focus" style="width:280px;">
 					<div class="input-box__row">
 						<div class="input-box__field">
-							<input class="input-box__input" value="검색어 입력">
-							<span class="input-box__icon input-box__icon--clear"></span>
-							<span class="input-box__icon input-box__icon--search"></span>
+							<label class="blind" for="demo-search-filter-2">검색어</label>
+							<input id="demo-search-filter-2" class="input-box__input" value="검색어 입력">
+							<span class="input-box__icon input-box__icon--clear" aria-hidden="true"></span>
+							<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 						</div>
-						<button type="button" class="search-filter-btn"></button>
+						<button type="button" class="search-filter-btn" aria-label="검색 필터"></button>
 					</div>
 				</div>
 			</div>
-			<p class="note">필터 버튼은 input-box__row(기존 인증번호+버튼 조합에 쓰던 레이아웃)를 그대로 재사용해 필드 옆에 54×54 정사각 버튼을 붙입니다.</p>
+			<p class="note">필터 버튼은 input-box__row(기존 인증번호+버튼 조합에 쓰던 레이아웃)를 그대로 재사용해 필드 옆에 54×54 정사각 버튼을 붙입니다.
+				아이콘만 있는 버튼이므로 aria-label="검색 필터"로 접근 가능한 이름을 반드시 지정합니다. 레이블이 화면에 보이지 않는 필드는 blind 클래스로 숨긴 label을 연결합니다.</p>
 			<pre><code>&lt;div class="input-box__row"&gt;
   &lt;div class="input-box__field"&gt;
-    &lt;input class="input-box__input" placeholder="검색어 입력"&gt;
-    &lt;span class="input-box__icon input-box__icon--search"&gt;&lt;/span&gt;
+    &lt;label class="blind" for="search-2"&gt;검색어&lt;/label&gt;
+    &lt;input id="search-2" class="input-box__input" placeholder="검색어 입력"&gt;
+    &lt;span class="input-box__icon input-box__icon--search" aria-hidden="true"&gt;&lt;/span&gt;
   &lt;/div&gt;
-  &lt;button type="button" class="search-filter-btn"&gt;&lt;/button&gt;
+  &lt;button type="button" class="search-filter-btn" aria-label="검색 필터"&gt;&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 
 			<h3>line/search — Input-line + 검색 아이콘, Inactive / Focus / Filled / Error</h3>
 			<div class="demo row">
 				<div class="input-line" style="width:280px;">
-					<span class="label-text">레이블</span>
+					<label class="input-line__label" for="demo-search-line-1">레이블</label>
 					<div class="input-line__field">
-						<input class="input-line__input" placeholder="검색어 입력">
-						<span class="input-box__icon input-box__icon--search"></span>
+						<input id="demo-search-line-1" class="input-line__input" placeholder="검색어 입력">
+						<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 					</div>
 					<p class="input-line__message">안내 문구 입력</p>
 				</div>
 				<div class="input-line input-line--focus" style="width:280px;">
-					<span class="label-text">레이블</span>
+					<label class="input-line__label" for="demo-search-line-2">레이블</label>
 					<div class="input-line__field">
-						<input class="input-line__input" value="검색어 입력">
-						<span class="input-box__icon input-box__icon--clear"></span>
-						<span class="input-box__icon input-box__icon--search"></span>
+						<input id="demo-search-line-2" class="input-line__input" value="검색어 입력">
+						<span class="input-box__icon input-box__icon--clear" aria-hidden="true"></span>
+						<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 					</div>
 					<p class="input-line__message">안내 문구 입력</p>
 				</div>
 			</div>
 			<div class="demo row">
 				<div class="input-line" style="width:280px;">
-					<span class="label-text">레이블</span>
+					<label class="input-line__label" for="demo-search-line-3">레이블</label>
 					<div class="input-line__field">
-						<input class="input-line__input" value="검색어 입력">
-						<span class="input-box__icon input-box__icon--search"></span>
+						<input id="demo-search-line-3" class="input-line__input" value="검색어 입력">
+						<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 					</div>
 					<p class="input-line__message">안내 문구 입력</p>
 				</div>
 				<div class="input-line input-line--error" style="width:280px;">
-					<span class="label-text">레이블</span>
+					<label class="input-line__label" for="demo-search-line-4">레이블</label>
 					<div class="input-line__field">
-						<input class="input-line__input" value="검색어 입력">
-						<span class="input-box__icon input-box__icon--search"></span>
+						<input id="demo-search-line-4" class="input-line__input" value="검색어 입력" aria-invalid="true" aria-describedby="demo-search-line-4-msg">
+						<span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
 					</div>
-					<p class="input-line__message">오류 메세지 출력</p>
+					<p class="input-line__message" id="demo-search-line-4-msg">오류 메세지 출력</p>
 				</div>
 			</div>
 			<p class="note">box와 동일한 상태 구성이며, 테두리가 하단선(border-bottom)만 있는 line 타입입니다.</p>
 			<pre><code>&lt;div class="input-line"&gt;
-  &lt;span class="label-text"&gt;레이블&lt;/span&gt;
+  &lt;label class="input-line__label" for="search-3"&gt;레이블&lt;/label&gt;
   &lt;div class="input-line__field"&gt;
-    &lt;input class="input-line__input" placeholder="검색어 입력"&gt;
-    &lt;span class="input-box__icon input-box__icon--search"&gt;&lt;/span&gt;
+    &lt;input id="search-3" class="input-line__input" placeholder="검색어 입력"&gt;
+    &lt;span class="input-box__icon input-box__icon--search" aria-hidden="true"&gt;&lt;/span&gt;
   &lt;/div&gt;
   &lt;p class="input-line__message"&gt;안내 문구 입력&lt;/p&gt;
 &lt;/div&gt;</code></pre>
@@ -7474,6 +7483,9 @@
 		<section id="sec-terms" class="nds">
 			<h2>Terms</h2>
 			<p class="note">박스형 기본 스타일로 콘텐츠를 구분하고, 사용자가 쉽게 인식하고 탐색할 수 있도록 돕습니다.</p>
+			<p class="note">접근성: check-basic의 &lt;input&gt;은 시각적으로 숨겨진(clip) 상태라 스크린리더는 label의 텍스트로 이름을
+				읽습니다. 제목/링크 텍스트(terms-card__title, terms-link__text)를 label 밖 형제로 두지 않고 label 안에 함께 넣어서,
+				텍스트를 클릭해도 체크박스가 토글되고 별도 aria-labelledby 연결 없이도 이름이 항상 읽히게 했습니다.</p>
 
 			<h3>basic — 전체동의 + 개별 약관 목록(각 항목은 상세로 이동)</h3>
 			<div class="demo">
@@ -7481,22 +7493,24 @@
 					<div class="terms-card__header">
 						<div class="terms-card__check">
 							<label class="check-basic"><input type="checkbox" class="check-basic__input"><span
-									class="check-basic__icon"></span></label>
-							<span class="terms-card__title">[필수] 전체 동의</span>
+									class="check-basic__icon"></span><span
+									class="terms-card__title">[필수] 전체 동의</span></label>
 						</div>
 						<button type="button" class="terms-card__toggle" aria-label="약관 상세로 이동"></button>
 					</div>
 				</div>
 			</div>
 			<p class="note">위는 접힌(close) 상태입니다. 실제로는 아래처럼 구분선 아래에 개별 약관 목록이 항상 함께 노출됩니다(펼침/접힘이 아니라 각 항목을 누르면 상세 화면으로
-				이동).</p>
+				이동). 아래 데모는 실제로 동작합니다: 상단 "전체 동의" 체크박스(또는 그 텍스트)를 누르면 하위 3개 약관이 모두 같이
+				켜지고/꺼집니다. 개별 항목을 하나씩 누르면 일부만 선택된 상태가 되는데, 이때 전체 동의 체크박스는 indeterminate
+				상태(스크린리더 안내용)가 되지만 화면에는 선택 전과 똑같이 보입니다(js: update-ui.js의 initTermsSelectAll).</p>
 			<div class="demo">
 				<div class="terms-card" style="width:312px;">
 					<div class="terms-card__header">
 						<div class="terms-card__check">
 							<label class="check-basic"><input type="checkbox" class="check-basic__input"><span
-									class="check-basic__icon"></span></label>
-							<span class="terms-card__title">[필수] 전체 동의</span>
+									class="check-basic__icon"></span><span
+									class="terms-card__title">[필수] 전체 동의</span></label>
 						</div>
 						<button type="button" class="terms-card__toggle" aria-label="약관 상세로 이동"></button>
 					</div>
@@ -7506,8 +7520,8 @@
 							<div class="terms-link__check">
 								<label class="check-basic check-basic--xs"><input type="checkbox"
 										class="check-basic__input" checked><span
-										class="check-basic__icon"></span></label>
-								<span class="terms-link__text">약관명을 입력해 주세요</span>
+										class="check-basic__icon"></span><span
+										class="terms-link__text">약관명을 입력해 주세요</span></label>
 							</div>
 							<button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
 						</div>
@@ -7515,8 +7529,8 @@
 							<div class="terms-link__check">
 								<label class="check-basic check-basic--xs"><input type="checkbox"
 										class="check-basic__input" checked><span
-										class="check-basic__icon"></span></label>
-								<span class="terms-link__text">약관명을 입력해 주세요</span>
+										class="check-basic__icon"></span><span
+										class="terms-link__text">약관명을 입력해 주세요</span></label>
 							</div>
 							<button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
 						</div>
@@ -7524,8 +7538,8 @@
 							<div class="terms-link__check">
 								<label class="check-basic check-basic--xs"><input type="checkbox"
 										class="check-basic__input" checked><span
-										class="check-basic__icon"></span></label>
-								<span class="terms-link__text">약관명을 입력해 주세요</span>
+										class="check-basic__icon"></span><span
+										class="terms-link__text">약관명을 입력해 주세요</span></label>
 							</div>
 							<button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
 						</div>
@@ -7535,8 +7549,11 @@
 			<pre><code>&lt;div class="terms-card"&gt;
   &lt;div class="terms-card__header"&gt;
     &lt;div class="terms-card__check"&gt;
-      &lt;label class="check-basic"&gt;&lt;input type="checkbox" class="check-basic__input"&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
-      &lt;span class="terms-card__title"&gt;[필수] 전체 동의&lt;/span&gt;
+      &lt;label class="check-basic"&gt;
+        &lt;input type="checkbox" class="check-basic__input"&gt;
+        &lt;span class="check-basic__icon"&gt;&lt;/span&gt;
+        &lt;span class="terms-card__title"&gt;[필수] 전체 동의&lt;/span&gt;
+      &lt;/label&gt;
     &lt;/div&gt;
     &lt;button class="terms-card__toggle" aria-label="약관 상세로 이동"&gt;&lt;/button&gt;
   &lt;/div&gt;
@@ -7544,48 +7561,145 @@
   &lt;div class="terms-card__list"&gt;
     &lt;div class="terms-link"&gt;
       &lt;div class="terms-link__check"&gt;
-        &lt;label class="check-basic check-basic--xs"&gt;&lt;input type="checkbox" class="check-basic__input" checked&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
-        &lt;span class="terms-link__text"&gt;약관명을 입력해 주세요&lt;/span&gt;
+        &lt;label class="check-basic check-basic--xs"&gt;
+          &lt;input type="checkbox" class="check-basic__input" checked&gt;
+          &lt;span class="check-basic__icon"&gt;&lt;/span&gt;
+          &lt;span class="terms-link__text"&gt;약관명을 입력해 주세요&lt;/span&gt;
+        &lt;/label&gt;
       &lt;/div&gt;
       &lt;button class="terms-link__arrow" aria-label="상세보기"&gt;&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-			<h3>accordion — 유의사항 등 펼침/접힘 텍스트 박스</h3>
+			<h3>card — 수집 항목 안내 + 개인정보 동의 확인(정적 안내, 체크박스 아님)</h3>
+			<p class="note">이미 수집/동의된 항목을 안내하는 화면이라, 위쪽 정보 불릿 목록과 아래쪽 동의 목록 모두 실제로 켜고 끄는
+				&lt;input type="checkbox"&gt; 대신 장식용 체크 아이콘(aria-hidden)만 씁니다. 각 동의 항목의 화살표 버튼은 상세 화면으로 이동합니다.</p>
+			<div class="demo">
+				<div class="terms-card" style="width:312px;">
+					<div class="terms-info">
+						<div class="terms-info__list">
+							<div class="terms-info__item">
+								<div class="terms-info__row">
+									<span class="terms-info__icon" aria-hidden="true"></span>
+									<p class="terms-info__title">계좌정보 적요 또는 거래메모 수집</p>
+								</div>
+								<div class="terms-info__row">
+									<span class="terms-info__icon--blank" aria-hidden="true"></span>
+									<p class="terms-info__desc">송금인/수취인의 이름과 거래정보가 포함 되어 있습니다.</p>
+								</div>
+							</div>
+							<div class="terms-info__item">
+								<div class="terms-info__row">
+									<span class="terms-info__icon" aria-hidden="true"></span>
+									<p class="terms-info__title">결재내역의 가맹점/사업자번호 수집</p>
+								</div>
+								<div class="terms-info__row">
+									<span class="terms-info__icon--blank" aria-hidden="true"></span>
+									<p class="terms-info__desc">소비습관 등을 알 수 있는 정보가 포함되어 있습니다.</p>
+								</div>
+							</div>
+							<div class="terms-info__item">
+								<div class="terms-info__row">
+									<span class="terms-info__icon" aria-hidden="true"></span>
+									<p class="terms-info__title">상품구매 카테고리정보 수집</p>
+								</div>
+								<div class="terms-info__row">
+									<span class="terms-info__icon--blank" aria-hidden="true"></span>
+									<p class="terms-info__desc">구매한 상품이 아닌 해당 상품의 카테고리 정보가 포함되어 있습니다</p>
+								</div>
+							</div>
+						</div>
+						<p class="terms-info__notice">정보전송은 본인의 책임과 판단하에 신중하게 결정해 주시기 바랍니다.</p>
+					</div>
+					<hr class="terms-card__divider">
+					<div class="terms-card__list">
+						<div class="terms-link">
+							<div class="terms-link__check">
+								<span class="terms-info__icon" aria-hidden="true"></span>
+								<span class="terms-link__text">개인(신용)정보 수집·이용 동의(상품서비스 안내 등)</span>
+							</div>
+							<button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
+						</div>
+						<div class="terms-link">
+							<div class="terms-link__check">
+								<span class="terms-info__icon" aria-hidden="true"></span>
+								<span class="terms-link__text">개인(신용)정보 수집·이용 동의(상품서비스 안내 등) (NH마이데이터)</span>
+							</div>
+							<button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<pre><code>&lt;div class="terms-card"&gt;
+  &lt;div class="terms-info"&gt;
+    &lt;div class="terms-info__list"&gt;
+      &lt;div class="terms-info__item"&gt;
+        &lt;div class="terms-info__row"&gt;
+          &lt;span class="terms-info__icon" aria-hidden="true"&gt;&lt;/span&gt;
+          &lt;p class="terms-info__title"&gt;계좌정보 적요 또는 거래메모 수집&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="terms-info__row"&gt;
+          &lt;span class="terms-info__icon--blank" aria-hidden="true"&gt;&lt;/span&gt;
+          &lt;p class="terms-info__desc"&gt;송금인/수취인의 이름과 거래정보가 포함 되어 있습니다.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- 항목 반복 --&gt;
+    &lt;/div&gt;
+    &lt;p class="terms-info__notice"&gt;정보전송은 본인의 책임과 판단하에 신중하게 결정해 주시기 바랍니다.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;hr class="terms-card__divider"&gt;
+  &lt;div class="terms-card__list"&gt;
+    &lt;div class="terms-link"&gt;
+      &lt;div class="terms-link__check"&gt;
+        &lt;span class="terms-info__icon" aria-hidden="true"&gt;&lt;/span&gt;
+        &lt;span class="terms-link__text"&gt;개인(신용)정보 수집·이용 동의(상품서비스 안내 등)&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;button class="terms-link__arrow" aria-label="상세보기"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<h3>accordion — 유의사항 등 펼침/접힘 텍스트 박스(클릭 시 실제로 동작)</h3>
 			<div class="demo row">
 				<div class="terms-card" style="width:312px; gap:0;">
 					<div class="terms-card__header">
 						<div class="terms-card__check">
 							<label class="check-basic"><input type="checkbox" class="check-basic__input"><span
-									class="check-basic__icon"></span></label>
-							<span class="terms-card__title">유의사항</span>
+									class="check-basic__icon"></span><span class="terms-card__title">유의사항</span></label>
 						</div>
-						<button type="button" class="terms-card__toggle" aria-expanded="false" aria-label="펼치기"></button>
+						<button type="button" class="terms-card__toggle" aria-expanded="false" aria-label="펼치기"
+							data-terms-toggle></button>
 					</div>
+					<hr class="terms-card__divider" hidden>
+					<p class="terms-card__body" hidden>내용을 입력해 주세요</p>
 				</div>
 				<div class="terms-card" style="width:312px;">
 					<div class="terms-card__header">
 						<div class="terms-card__check">
 							<label class="check-basic"><input type="checkbox" class="check-basic__input"><span
-									class="check-basic__icon"></span></label>
-							<span class="terms-card__title">유의사항</span>
+									class="check-basic__icon"></span><span class="terms-card__title">유의사항</span></label>
 						</div>
 						<button type="button" class="terms-card__toggle is-open" aria-expanded="true"
-							aria-label="접기"></button>
+							aria-label="접기" data-terms-toggle></button>
 					</div>
 					<hr class="terms-card__divider">
 					<p class="terms-card__body">내용을 입력해 주세요</p>
 				</div>
 			</div>
-			<p class="note">펼침 상태(is-open)에서는 화살표 아이콘을 180도 회전시켜 위쪽을 향하게 합니다(arr_down2_line_24 하나로 down/up 모두 표현).</p>
+			<p class="note">펼침 상태(is-open)에서는 화살표 아이콘을 180도 회전시켜 위쪽을 향하게 합니다(arr_down2_line_24 하나로 down/up 모두 표현).
+				<code>data-terms-toggle</code> 버튼은 update-ui.js의 <code>initTermsToggle()</code>이 클릭 시 divider·body를
+				height·marginTop·opacity를 함께 애니메이션하며 펼치고/접고, aria-expanded·is-open·aria-label을 함께 갱신합니다.</p>
 			<pre><code>&lt;div class="terms-card"&gt;
   &lt;div class="terms-card__header"&gt;
     &lt;div class="terms-card__check"&gt;
-      &lt;label class="check-basic"&gt;&lt;input type="checkbox" class="check-basic__input"&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
-      &lt;span class="terms-card__title"&gt;유의사항&lt;/span&gt;
+      &lt;label class="check-basic"&gt;
+        &lt;input type="checkbox" class="check-basic__input"&gt;
+        &lt;span class="check-basic__icon"&gt;&lt;/span&gt;
+        &lt;span class="terms-card__title"&gt;유의사항&lt;/span&gt;
+      &lt;/label&gt;
     &lt;/div&gt;
-    &lt;button class="terms-card__toggle is-open" aria-expanded="true" aria-label="접기"&gt;&lt;/button&gt;
+    &lt;button class="terms-card__toggle is-open" aria-expanded="true" aria-label="접기" data-terms-toggle&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;hr class="terms-card__divider"&gt;
   &lt;p class="terms-card__body"&gt;내용을 입력해 주세요&lt;/p&gt;
@@ -10866,6 +10980,56 @@
 				var body = btn.parentElement.querySelector('[class$="__body"], [class$="__list"]');
 				if (body) body.hidden = open;
 			});
+		});
+	</script>
+	<script>
+		// Terms 아코디언(.terms-card) — production(update-ui.js의 initTermsToggle)과 동일한 동작을
+		// jQuery 없는 이 가이드 페이지에서도 그대로 시연합니다(애니메이션 없이 hidden 토글만 다름).
+		document.querySelectorAll('[data-terms-toggle]').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var open = btn.getAttribute('aria-expanded') === 'true';
+				btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+				btn.classList.toggle('is-open', !open);
+				btn.setAttribute('aria-label', open ? '펼치기' : '접기');
+				var card = btn.closest('.terms-card');
+				if (!card) return;
+				var divider = card.querySelector('.terms-card__divider');
+				var body = card.querySelector('.terms-card__body');
+				if (divider) divider.hidden = open;
+				if (body) body.hidden = open;
+			});
+		});
+	</script>
+	<script>
+		// Terms 전체동의 연동(.terms-card) — production(update-ui.js의 initTermsSelectAll)과 동일한
+		// 로직을 그대로 시연합니다.
+		document.querySelectorAll('.terms-card').forEach(function (card) {
+			var master = card.querySelector('.terms-card__header .check-basic__input');
+			var list = card.querySelector('.terms-card__list');
+			if (!master || !list) return;
+			var children = list.querySelectorAll('.check-basic__input');
+			if (!children.length) return;
+
+			function syncMasterFromChildren() {
+				var checkedCount = 0;
+				children.forEach(function (c) { if (c.checked) checkedCount++; });
+				var indeterminate = checkedCount > 0 && checkedCount < children.length;
+				master.checked = checkedCount === children.length;
+				master.indeterminate = indeterminate;
+				master.classList.toggle('is-indeterminate', indeterminate);
+			}
+
+			master.addEventListener('change', function () {
+				master.indeterminate = false;
+				master.classList.remove('is-indeterminate');
+				children.forEach(function (c) { c.checked = master.checked; });
+			});
+
+			children.forEach(function (c) {
+				c.addEventListener('change', syncMasterFromChildren);
+			});
+
+			syncMasterFromChildren();
 		});
 	</script>
 </body>

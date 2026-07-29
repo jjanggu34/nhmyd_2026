@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>Search | UI Guide</title>
+    </head>
+    <body>
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Search</h1>
+            </div>
+            <!-- //header -->
+            <div class="container">
+                <h2 class="guide-title">box/search — Input-box + 검색 아이콘 (Inactive / Filled)</h2>
+                <div class="input-box">
+                    <label class="input-box__label" for="search-box-1">레이블</label>
+                    <div class="input-box__field">
+                        <input type="text" id="search-box-1" class="input-box__input" placeholder="검색어 입력" />
+                        <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                    </div>
+                    <p class="input-box__message">안내 문구 입력</p>
+                </div>
+
+                <hr class="divider" />
+
+                <div class="input-box input-box--focus">
+                    <label class="input-box__label" for="search-box-2">레이블</label>
+                    <div class="input-box__field">
+                        <input type="text" id="search-box-2" class="input-box__input" value="검색어 입력" />
+                        <span class="input-box__icon input-box__icon--clear" aria-hidden="true"></span>
+                        <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                    </div>
+                    <p class="input-box__message">안내 문구 입력</p>
+                </div>
+
+                <hr class="divider" />
+
+                <div class="input-box input-box--error">
+                    <label class="input-box__label" for="search-box-3">레이블</label>
+                    <div class="input-box__field">
+                        <input type="text" id="search-box-3" class="input-box__input" value="검색어 입력" aria-invalid="true" aria-describedby="search-box-3-msg" />
+                        <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                    </div>
+                    <p class="input-box__message" id="search-box-3-msg">오류 메세지 출력</p>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">box/search-filter — 검색창 옆 필터 버튼(54×54)</h2>
+                <div class="input-box">
+                    <div class="input-box__row">
+                        <div class="input-box__field">
+                            <label class="blind" for="search-box-filter-1">검색어</label>
+                            <input type="text" id="search-box-filter-1" class="input-box__input" placeholder="검색어 입력" />
+                            <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                        </div>
+                        <button type="button" class="search-filter-btn" aria-label="검색 필터"></button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <div class="input-box input-box--focus">
+                    <div class="input-box__row">
+                        <div class="input-box__field">
+                            <label class="blind" for="search-box-filter-2">검색어</label>
+                            <input type="text" id="search-box-filter-2" class="input-box__input" value="검색어 입력" />
+                            <span class="input-box__icon input-box__icon--clear" aria-hidden="true"></span>
+                            <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                        </div>
+                        <button type="button" class="search-filter-btn" aria-label="검색 필터"></button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">line/search — Input-line + 검색 아이콘 (Inactive / Filled / Error)</h2>
+                <div class="input-line">
+                    <label class="input-line__label" for="search-line-1">레이블</label>
+                    <div class="input-line__field">
+                        <input type="text" id="search-line-1" class="input-line__input" placeholder="검색어 입력" />
+                        <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                    </div>
+                    <p class="input-line__message">안내 문구 입력</p>
+                </div>
+
+                <hr class="divider" />
+
+                <div class="input-line input-line--focus">
+                    <label class="input-line__label" for="search-line-2">레이블</label>
+                    <div class="input-line__field">
+                        <input type="text" id="search-line-2" class="input-line__input" value="검색어 입력" />
+                        <span class="input-box__icon input-box__icon--clear" aria-hidden="true"></span>
+                        <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                    </div>
+                    <p class="input-line__message">안내 문구 입력</p>
+                </div>
+
+                <hr class="divider" />
+
+                <div class="input-line input-line--error">
+                    <label class="input-line__label" for="search-line-3">레이블</label>
+                    <div class="input-line__field">
+                        <input type="text" id="search-line-3" class="input-line__input" value="검색어 입력" aria-invalid="true" aria-describedby="search-line-3-msg" />
+                        <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                    </div>
+                    <p class="input-line__message" id="search-line-3-msg">오류 메세지 출력</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

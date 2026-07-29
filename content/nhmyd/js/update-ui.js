@@ -149,7 +149,168 @@ window.calendarAlign = function () {
 		});
 	}
 
+	// Terms 아코디언(.terms-card, 유의사항 등) — [data-terms-toggle] 버튼을 눌러
+	// 같은 .terms-card 안의 divider/body를 펼치고/접습니다. initAccordion()과 달리
+	// terms-card는 body가 항상 아니라 접힘 상태 마크업만 문서 흐름에 있을 수도 있어
+	// [class$="__body"] 셀렉터 하나로는 부족해서(divider도 같이 접어야 함) 전용 함수로 분리합니다.
+	function initTermsToggle() {
+		document.querySelectorAll('[data-terms-toggle]').forEach(function (btn) {
+			var card = btn.closest('.terms-card');
+			if (!card) return;
+			var divider = card.querySelector('.terms-card__divider');
+			var body = card.querySelector('.terms-card__body');
+			if (!divider || !body) return;
+
+			// hidden 속성은 jQuery의 display 애니메이션과 충돌하므로
+			// 최초 1회만 display:none으로 치환해 이후 상태를 jQuery에 위임합니다.
+			[divider, body].forEach(function (el) {
+				if (el.hasAttribute('hidden')) {
+					el.removeAttribute('hidden');
+					el.style.display = 'none';
+				}
+			});
+
+			btn.addEventListener('click', function () {
+				var open = btn.getAttribute('aria-expanded') === 'true';
+				btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+				btn.classList.toggle('is-open', !open);
+				btn.setAttribute('aria-label', open ? '펼치기' : '접기');
+
+				if (window.jQuery) {
+					// slideUp/slideDown은 height만 애니메이션하고 margin은 건드리지 않아서,
+					// .terms-card > *:not(:first-child)의 margin-top:20px(gap 대체)이
+					// 애니메이션 없이 즉시 붙었다 떨어지며 부자연스럽게 튀는 원인이었다.
+					// height/marginTop/opacity를 한 번에 같이 애니메이션해서 간격까지
+					// 자연스럽게 늘고 줄게 한다.
+					jQuery([divider, body]).stop(true, true).animate(
+						{ height: 'toggle', marginTop: 'toggle', opacity: 'toggle' },
+						{ duration: 250, easing: 'swing' }
+					);
+				} else {
+					divider.style.display = open ? 'none' : '';
+					body.style.display = open ? 'none' : '';
+				}
+			});
+		});
+	}
+
+	// Terms 전체동의 연동(.terms-card) — 헤더의 마스터 체크박스를 누르면 목록(.terms-card__list)의
+	// 개별 약관 체크박스가 모두 같이 켜지고/꺼지고, 반대로 개별 항목을 하나씩 누르면 일부만 선택된
+	// 상태를 마스터 체크박스의 indeterminate로 반영합니다(스크린리더 안내용). 시각적으로는 일부러
+	// 선택 전과 동일하게 두므로(요청사항) CSS에 :indeterminate/.is-indeterminate 스타일이 없고,
+	// 아래 is-indeterminate 클래스 토글도 순수 훅(hook) 용도일 뿐 현재는 아무 효과가 없습니다.
+	// list가 없는 카드(안내문 아코디언 등)는 대상이 아니라서 건너뜁니다.
+	function initTermsSelectAll() {
+		document.querySelectorAll('.terms-card').forEach(function (card) {
+			var master = card.querySelector('.terms-card__header .check-basic__input');
+			var list = card.querySelector('.terms-card__list');
+			if (!master || !list) return;
+			var children = list.querySelectorAll('.check-basic__input');
+			if (!children.length) return;
+
+			function syncMasterFromChildren() {
+				var checkedCount = 0;
+				children.forEach(function (c) { if (c.checked) checkedCount++; });
+				var indeterminate = checkedCount > 0 && checkedCount < children.length;
+				master.checked = checkedCount === children.length;
+				master.indeterminate = indeterminate;
+				master.classList.toggle('is-indeterminate', indeterminate);
+			}
+
+			master.addEventListener('change', function () {
+				master.indeterminate = false;
+				master.classList.remove('is-indeterminate');
+				children.forEach(function (c) { c.checked = master.checked; });
+			});
+
+			children.forEach(function (c) {
+				c.addEventListener('change', syncMasterFromChildren);
+			});
+
+			syncMasterFromChildren(); // 데모/초기값이 이미 checked인 개별 항목이 있으면 마스터도 맞춰서 시작
+		});
+	}
+
+	// Tab(tab-line/tab-chip/tab-bar/tab-text 공통) — WAI-ARIA APG의 Tabs(automatic activation)
+	// 패턴을 그대로 구현합니다. [role="tablist"] 안의 [role="tab"] 버튼들에 대해:
+	//  - 클릭 또는 방향키(←/→, ↑/↓, Home/End)로 탭을 바꾸면 aria-selected/aria-controls로
+	//    연결된 [role="tabpanel"]이 즉시 전환됩니다(automatic activation).
+	//  - 포커스 이동은 방향키에서만 일어나고(roving tabindex: 선택된 탭만 tabindex="0",
+	//    나머지는 "-1"), Tab 키로는 탭리스트 전체를 한 번에 드나들 수 있습니다.
+	//  - 활성 스타일 클래스명(예: tab-line__item--active)은 탭마다 하드코딩하지 않고, 첫 번째
+	//    탭의 class 목록에서 "__item"으로 끝나는 블록 클래스를 찾아 "그 클래스--active"로
+	//    자동 유도합니다 — tab-line/tab-chip/tab-bar/tab-text 4종 모두 이 함수 하나로 동작합니다.
+	function initTabs() {
+		document.querySelectorAll('[role="tablist"]').forEach(function (tablist) {
+			var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+			if (!tabs.length) return;
+
+			// nhasset-ui-myd-mb.js가 DOMContentLoaded에서 document 전역의 [role="tab"]에
+			// 자기 changeTabs 핸들러를 이미 붙여둔다(레거시 .mbTabs 탭 전용, 여기 .nds 탭 마크업엔
+			// .mbTabs 래퍼가 없어 클릭 시 tabContainer가 null이라 그대로 두면 예외가 난다). update-ui.js는
+			// 항상 그 스크립트보다 늦게 로드되므로(head-mb-update.js 순서), 여기서 레거시 핸들러를
+			// 먼저 떼어내고 아래 우리 핸들러로 교체한다.
+			if (typeof window.changeTabs === 'function') {
+				tabs.forEach(function (t) {
+					t.removeEventListener('click', window.changeTabs);
+				});
+			}
+
+			var baseClass = null;
+			tabs[0].classList.forEach(function (c) {
+				if (/__item$/.test(c)) baseClass = c;
+			});
+			var activeClass = baseClass ? baseClass + '--active' : null;
+
+			function panelOf(tab) {
+				var id = tab.getAttribute('aria-controls');
+				return id ? document.getElementById(id) : null;
+			}
+
+			function activate(tab, moveFocus) {
+				tabs.forEach(function (t) {
+					var selected = t === tab;
+					t.setAttribute('aria-selected', selected ? 'true' : 'false');
+					t.setAttribute('tabindex', selected ? '0' : '-1');
+					if (activeClass) t.classList.toggle(activeClass, selected);
+					var panel = panelOf(t);
+					if (panel) panel.hidden = !selected;
+				});
+				if (moveFocus) tab.focus();
+			}
+
+			tabs.forEach(function (tab, i) {
+				tab.addEventListener('click', function () {
+					activate(tab, false);
+				});
+				tab.addEventListener('keydown', function (e) {
+					var targetIndex = null;
+					if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+						targetIndex = (i + 1) % tabs.length;
+					} else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+						targetIndex = (i - 1 + tabs.length) % tabs.length;
+					} else if (e.key === 'Home') {
+						targetIndex = 0;
+					} else if (e.key === 'End') {
+						targetIndex = tabs.length - 1;
+					} else {
+						return;
+					}
+					e.preventDefault();
+					// nhasset-ui-myd-mb.js가 페이지의 첫 번째 [role="tablist"]에도 자기 방향키
+					// 핸들러를 붙여두고 있어(레거시, 페이지 전체에서 tablist를 하나만 가정), 버블링으로
+					// 그 핸들러까지 같이 실행되면 포커스가 우리 로직과 충돌한다. 여기서 막는다.
+					e.stopPropagation();
+					activate(tabs[targetIndex], true);
+				});
+			});
+		});
+	}
+
 	document.addEventListener('DOMContentLoaded', function () {
 		initAccordion();
+		initTermsToggle();
+		initTermsSelectAll();
+		initTabs();
 	});
 })();

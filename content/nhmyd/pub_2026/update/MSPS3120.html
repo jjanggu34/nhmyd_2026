@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>추천기관</title>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset nds">
+            <div class="header">
+                <a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>자산연결</h1>
+                <a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+            </div>
+
+            <div class="container">
+                <div class="process-step-h" role="img" aria-label="총 3단계 중 1번째 단계: 기관선택">
+                    <span class="process-step-h__line"></span>
+                    <div class="process-step-h__item">
+                        <span class="process-step-h__num process-step-h__num--active">1</span>
+                        <span class="process-step-h__label process-step-h__label--active">기관선택</span>
+                    </div>
+                    <div class="process-step-h__item process-step-h__item--center">
+                        <span class="process-step-h__num process-step-h__num--default">2</span>
+                        <span class="process-step-h__label process-step-h__label--default">약관동의</span>
+                    </div>
+                    <div class="process-step-h__item process-step-h__item--end">
+                        <span class="process-step-h__num process-step-h__num--default">3</span>
+                        <span class="process-step-h__label process-step-h__label--default">연결완료</span>
+                    </div>
+                </div>
+
+                <div class="text-stack">
+                    <p class="text text--h2">자산을 연결할 기관을 선택해 주세요</p>
+                    <p class="text text--body2">고객님의 자산이 있을 것 같은 기관을 먼저 추천합니다</p>
+                </div>
+
+                <div class="tab-bar" role="tablist" aria-label="tab-bar 예시">
+                    <button type="button" id="tab-bar-1" class="tab-bar__item tab-bar__item--active" role="tab" aria-selected="true" aria-controls="panel-bar-1" tabindex="0">추천기관</button>
+                    <button type="button" id="tab-bar-2" class="tab-bar__item" role="tab" aria-selected="false" aria-controls="panel-bar-2" tabindex="-1">직접선택</button>
+                </div>
+                <div id="panel-bar-1" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-1" tabindex="0">
+                    <div class="tab-chip" role="tablist" aria-label="거래내역 필터">
+                        <button type="button" id="tab-filter-1" class="tab-chip__item tab-chip__item--active" role="tab" aria-selected="true" tabindex="0">
+                            은행
+                            <span>21</span>
+                        </button>
+                        <button type="button" id="tab-filter-2" class="tab-chip__item" role="tab" aria-selected="false" tabindex="-1">
+                            카드
+                            <span>24</span>
+                        </button>
+                        <button type="button" id="tab-filter-3" class="tab-chip__item" role="tab" aria-selected="false" tabindex="-1">
+                            증권
+                            <span>11</span>
+                        </button>
+                        <button type="button" id="tab-filter-4" class="tab-chip__item" role="tab" aria-selected="false" tabindex="-1">
+                            보험
+                            <span>8</span>
+                        </button>
+                        <button type="button" id="tab-filter-5" class="tab-chip__item" role="tab" aria-selected="false" tabindex="-1">
+                            할부금
+                            <span>15</span>
+                        </button>
+                    </div>
+                </div>
+                <div id="panel-bar-2" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-2" tabindex="0" hidden>직접선택</div>
+
+                <button type="button" class="goTopBtn2"><span class="blind">최상단으로 이동</span></button>
+            </div>
+        </div>
+    </body>
+</html>

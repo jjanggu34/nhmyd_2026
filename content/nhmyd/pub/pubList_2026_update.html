@@ -1,500 +1,864 @@
 <!doctype html>
 <html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NH마이데이터 AI 자산관리 - 화면 목록 (개발 스타트 페이지)</title>
-<link type="text/css" rel="stylesheet" href="../css/update_guide.css">
-</head>
-<body>
-<header>
-  <div class="title">
-    <div class="subject">
-      <img src="/content/nhmyd/pub/com/images/guide_logo_nh.svg" alt="NH Bank, NH 농협" class="nhLogo">
-      <span class="headerTit"><em class="headerYear">AI 자산관리</em> | <em class="prj">화면 목록</em></span>
-    </div>
-    <div class="search">
-      <input id="q" type="text" placeholder="화면ID, 화면명, 담당자로 검색...">
-    </div>
-    <div class="menu">
-      <ul>
-        <li><a href="pubList_2026.html" target="_blank">운영화면</a></li>
-        <li><a href="pubGuide.html" target="_blank">UI가이드</a></li>
-        <li><a href="/content/nds-guide/index.html" target="_blank">NDS가이드</a></li>
-      </ul>
-    </div>
-  </div>
-  <nav class="gnb">
-    <ul>
-      <li><span class="chip active" data-type="all">전체</span></li>
-      <li><span class="chip" data-type="신규">신규</span></li>
-      <li><span class="chip" data-type="개선">개선</span></li>
-      <li><span class="chip" data-type="유지">유지</span></li>
-      <li><span class="chip" data-type="삭제">삭제</span></li>
-    </ul>
-    <span class="count">기획서 v0.3 (2026.07.27) · 총 42건 (신규 27 · 개선 10 · 삭제 5)</span>
-  </nav>
-</header>
-<div class="summary-bar">기존 저장소에 이미 있는 화면(자산연결 5건: MSCO9100/MSPS3120/MSPS3600/MSAR3110P)은 링크로 바로 열람 가능합니다. 나머지는 "준비중"으로 표시됩니다. ⚠는 계획상 개선인데 저장소에서 대응 화면을 찾지 못한 항목입니다. 개발상태는 화면목록 xlsx의 기획 진행상태를 그대로 표시했습니다(디자인·퍼블은 아직 착수 전).</div>
-<main>
-  <div class="twrap">
-  <table>
-    <colgroup>
-      <col class="no"><col class="dep"><col class="dep"><col class="dep"><col class="dep"><col class="dep">
-      <col class="id"><col class="type"><col class="fmt"><col class="ppl"><col class="st"><col class="lnk">
-    </colgroup>
-    <thead><tr>
-      <th>No</th><th>0Depth</th><th>1Depth</th><th>2Depth</th><th>3Depth</th><th>4Depth</th>
-      <th>화면ID</th><th>유형</th><th>형식</th><th>담당</th><th>개발상태</th><th>기존화면</th>
-    </tr></thead>
-    <tbody>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">1</td>
-          <td class="dep">마이데이터 자산관리 포털 메인</td><td class="dep">일반인</td><td class="dep"></td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_01</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">권영주</span><span class="rbadge r-design">방민규</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">2</td>
-          <td class="dep">마이데이터 자산관리 포털 메인</td><td class="dep">일반인</td><td class="dep">위클리 브리핑상세</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_01_01</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">권영주</span><span class="rbadge r-design">방민규</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">3</td>
-          <td class="dep">마이데이터 자산관리 포털 메인</td><td class="dep">청년</td><td class="dep"></td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_02_01</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">권영주</span><span class="rbadge r-design">방민규</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="개선">
-          <td class="no">4</td>
-          <td class="dep">청소년 마이데이터</td><td class="dep">본인인증</td><td class="dep">14세이하, 19세이상 불가</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">MSSB1003R <span class="flag" title="저장소 내 대응 화면 미확인 — 확인 필요">⚠</span></td>
-          <td><span class="badge badge-improve">개선</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김도엽</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr class="del" style="background:#ffffff" data-type="삭제">
-          <td class="no">5</td>
-          <td class="dep">청소년 마이데이터</td><td class="dep">이용약관 및 동의(청소년용 표준 양식)</td><td class="dep">목록</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_YO_02_01</td>
-          <td><span class="badge badge-del">삭제</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김도엽</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr class="del" style="background:#ffffff" data-type="삭제">
-          <td class="no">6</td>
-          <td class="dep">청소년 마이데이터</td><td class="dep">이용약관 및 동의(청소년용 표준 양식)</td><td class="dep">상세</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_YO_02_02</td>
-          <td><span class="badge badge-del">삭제</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김도엽</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr class="del" style="background:#ffffff" data-type="삭제">
-          <td class="no">7</td>
-          <td class="dep">청소년 마이데이터</td><td class="dep">자산연결(은행,카드,페이)</td><td class="dep"></td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_YO_03</td>
-          <td><span class="badge badge-del">삭제</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김도엽</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr class="del" style="background:#ffffff" data-type="삭제">
-          <td class="no">8</td>
-          <td class="dep">청소년 마이데이터</td><td class="dep">가입완료 및 결과안내</td><td class="dep"></td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_YO_04</td>
-          <td><span class="badge badge-del">삭제</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김도엽</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">9</td>
-          <td class="dep">용돈관리</td><td class="dep">정보화면</td><td class="dep"></td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_PM_01</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김도엽</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">10</td>
-          <td class="dep">용돈관리</td><td class="dep">용돈 알림 설정 (바텀시트)</td><td class="dep">소비 경고 알림 설정</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_PM_02_01</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Fragment</td>
-          <td class="people"><span class="rbadge r-plan">김도엽</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">11</td>
-          <td class="dep">용돈관리</td><td class="dep">용돈 알림 설정 (바텀시트)</td><td class="dep">푸시알림 설정필요</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_PM_02_02</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Fragment</td>
-          <td class="people"><span class="rbadge r-plan">김도엽</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">12</td>
-          <td class="dep">용돈관리</td><td class="dep">한달 시작일 설정 (바텀시트)</td><td class="dep"></td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_PM_03</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Fragment</td>
-          <td class="people"><span class="rbadge r-plan">김도엽</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="개선">
-          <td class="no">13</td>
-          <td class="dep">자산연결</td><td class="dep">마이데이터 인트로</td><td class="dep">약관동의</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">MSCO9100</td>
-          <td><span class="badge badge-improve">개선</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="ok">기존화면</span></td>
-          <td class="link"><a href="co/MSCO9100.html" target="_blank">MSCO9100</a></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="개선">
-          <td class="no">14</td>
-          <td class="dep">자산연결</td><td class="dep">권유직원 선택</td><td class="dep">이름(사번)</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">MSAR3110P_01</td>
-          <td><span class="badge badge-improve">개선</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="ok">기존화면</span></td>
-          <td class="link"><a href="ar/MSAR3110P.html" target="_blank">MSAR3110P</a></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="개선">
-          <td class="no">15</td>
-          <td class="dep">자산연결</td><td class="dep">권유직원 선택</td><td class="dep">영업점</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">MSAR3110P_02</td>
-          <td><span class="badge badge-improve">개선</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="ok">기존화면</span></td>
-          <td class="link"><a href="ar/MSAR3110P.html" target="_blank">MSAR3110P</a></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="개선">
-          <td class="no">16</td>
-          <td class="dep">자산연결</td><td class="dep">기관선택</td><td class="dep">추천기관</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">MSPS3120</td>
-          <td><span class="badge badge-improve">개선</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="ok">기존화면</span></td>
-          <td class="link"><a href="ps/MSPS3120.html" target="_blank">MSPS3120</a></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">17</td>
-          <td class="dep">자산연결</td><td class="dep">기관선택</td><td class="dep">직접선택</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_UI_03_02</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">18</td>
-          <td class="dep">자산연결</td><td class="dep">기관선택</td><td class="dep">기관1개연결</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_UI_08</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr class="del" style="background:#ffffff" data-type="삭제">
-          <td class="no">19</td>
-          <td class="dep">자산연결</td><td class="dep">숨은 자산 찾기 (바텀시트)</td><td class="dep"></td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_UI_04</td>
-          <td><span class="badge badge-del">삭제</span></td>
-          <td class="fmt">Fragment</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="개선">
-          <td class="no">20</td>
-          <td class="dep">자산연결</td><td class="dep">약관동의</td><td class="dep">약관동의</td><td class="dep"></td><td class="dep"></td>
-          <td class="id"><a href="../pub_2026/update/NH_MD_UI_05.html" target="_blank">NH_MD_UI_05</a></td>
-          <td><span class="badge badge-improve">개선</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">21</td>
-          <td class="dep">자산연결</td><td class="dep">약관동의</td><td class="dep">정기전송 주기선택</td><td class="dep"></td><td class="dep"></td>
-          <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_01.html" target="_blank">NH_MD_UI_05_01</a></td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획확인필요</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">22</td>
-          <td class="dep">자산연결</td><td class="dep">약관동의</td><td class="dep">조회기간선택</td><td class="dep"></td><td class="dep"></td>
-          <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_02.html" target="_blank">NH_MD_UI_05_02</a></td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획확인필요</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">23</td>
-          <td class="dep">자산연결</td><td class="dep">약관동의</td><td class="dep">정기전송 주기선택 (공공)</td><td class="dep"></td><td class="dep"></td>
-          <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_03.html" target="_blank">NH_MD_UI_05_03</a></td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획확인필요</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">24</td>
-          <td class="dep">자산연결</td><td class="dep">약관동의</td><td class="dep">조회기간선택 (공공)</td><td class="dep"></td><td class="dep"></td>
-          <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_04.html" target="_blank">NH_MD_UI_05_04</a></td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획확인필요</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">25</td>
-          <td class="dep">자산연결</td><td class="dep">약관동의</td><td class="dep">날짜선택</td><td class="dep"></td><td class="dep"></td>
-          <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_05.html" target="_blank">NH_MD_UI_05_05</a></td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획확인필요</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">26</td>
-          <td class="dep">자산연결</td><td class="dep">연결 알림 설정</td><td class="dep">불러오기 시작</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_UI_06_01</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">27</td>
-          <td class="dep">자산연결</td><td class="dep">연결 알림 설정</td><td class="dep">알림 수신동의 (바텀시트)</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_UI_06_02</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Fragment</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">28</td>
-          <td class="dep">자산연결</td><td class="dep">연결 알림 설정</td><td class="dep">알림 수신동의완료 (바텀시트)</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_UI_06_03</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Fragment</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">29</td>
-          <td class="dep">자산연결</td><td class="dep">연결 알림 설정</td><td class="dep">자산연결 완료 안내 (바텀시트)</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_UI_06_04</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Fragment</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="개선">
-          <td class="no">30</td>
-          <td class="dep">자산연결</td><td class="dep">연결 결과</td><td class="dep">자산연결 완료  </td><td class="dep"></td><td class="dep"></td>
-          <td class="id">MSPS3600</td>
-          <td><span class="badge badge-improve">개선</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="ok">기존화면</span></td>
-          <td class="link"><a href="ps/MSPS3600.html" target="_blank">MSPS3600</a></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">31</td>
-          <td class="dep">자산연결</td><td class="dep">연결 결과</td><td class="dep">연결성공</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_UI_07_02</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="신규">
-          <td class="no">32</td>
-          <td class="dep">자산연결</td><td class="dep">연결 결과</td><td class="dep">연결실패</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_UI_07_03</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">한승희</span><span class="rbadge r-design">박고운</span><span class="rbadge r-pub">이솔</span></td>
-          <td class="status"><span class="tbd">기획 현업리뷰</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">33</td>
-          <td class="dep">자산.부채 통합 서비스</td><td class="dep">이용동의</td><td class="dep">동의</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_CO_03_01</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김희연</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">34</td>
-          <td class="dep">자산.부채 통합 서비스</td><td class="dep">이용동의</td><td class="dep">이용약관</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_CO_03_02</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김희연</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">35</td>
-          <td class="dep">자산.부채 통합 서비스</td><td class="dep">자산.부채 통합 진단</td><td class="dep">나의 부채</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_CO_01_01</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김희연</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">36</td>
-          <td class="dep">자산.부채 통합 서비스</td><td class="dep">자산.부채 통합 진단</td><td class="dep">부채/자산정보 확인</td><td class="dep">부채(tab)</td><td class="dep"></td>
-          <td class="id">NH_MD_CO_01_02</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김희연</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">37</td>
-          <td class="dep">자산.부채 통합 서비스</td><td class="dep">자산.부채 통합 진단</td><td class="dep">부채/자산정보 확인</td><td class="dep">자산(tab)</td><td class="dep"></td>
-          <td class="id">NH_MD_CO_01_03</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김희연</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">38</td>
-          <td class="dep">자산.부채 통합 서비스</td><td class="dep">자산.부채 통합 진단</td><td class="dep">리포트</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_CO_01_04</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김희연</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">39</td>
-          <td class="dep">자산.부채 통합 서비스</td><td class="dep">상환 시뮬레이션</td><td class="dep">설정</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_CO_02_01</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김희연</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#f2f8f2" data-type="신규">
-          <td class="no">40</td>
-          <td class="dep">자산.부채 통합 서비스</td><td class="dep">상환 시뮬레이션</td><td class="dep">리포트</td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_CO_02_02</td>
-          <td><span class="badge badge-new">신규</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">김희연</span><span class="rbadge r-design">조한</span><span class="rbadge r-pub">윤은정</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="개선">
-          <td class="no">41</td>
-          <td class="dep">AI 포트폴리오 매니저</td><td class="dep">포트폴리오</td><td class="dep"></td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_AI_02</td>
-          <td><span class="badge badge-improve">개선</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">정주영</span><span class="rbadge r-design">방민규</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-        <tr style="background:#ffffff" data-type="개선">
-          <td class="no">42</td>
-          <td class="dep">AI 포트폴리오 매니저</td><td class="dep">리밸런싱</td><td class="dep"></td><td class="dep"></td><td class="dep"></td>
-          <td class="id">NH_MD_AI_03</td>
-          <td><span class="badge badge-improve">개선</span></td>
-          <td class="fmt">Full</td>
-          <td class="people"><span class="rbadge r-plan">정주영</span><span class="rbadge r-design">방민규</span><span class="rbadge r-pub">오영주</span></td>
-          <td class="status"><span class="tbd">기획 예정</span></td>
-          <td class="link"></td>
-        </tr>
-    </tbody>
-  </table>
-  </div>
-</main>
-<footer>Claude가 생성 · NH마이데이터 AI 자산관리 서비스 기획_화면목록_v0.3_20260727.xlsx 기준 · 로컬 서버 루트(index.html)로 접속 시 자동으로 이 페이지가 열립니다.</footer>
-<script>
-  const q = document.getElementById('q');
-  const chips = document.querySelectorAll('.chip');
-  let activeType = 'all';
-  function applyFilter() {
-    const term = q.value.trim().toLowerCase();
-    document.querySelectorAll('tbody tr').forEach(function(row) {
-      const text = row.innerText.toLowerCase();
-      const typeMatch = activeType === 'all' || row.dataset.type === activeType;
-      const textMatch = term === '' || text.includes(term);
-      row.classList.toggle('hide', !(typeMatch && textMatch));
-    });
-  }
-  q.addEventListener('input', applyFilter);
-  chips.forEach(function(chip) {
-    chip.addEventListener('click', function() {
-      chips.forEach(function(c){c.classList.remove('active');});
-      chip.classList.add('active');
-      activeType = chip.dataset.type;
-      applyFilter();
-    });
-  });
-</script>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NH마이데이터 AI 자산관리 - 화면 목록 (개발 스타트 페이지)</title>
+        <link type="text/css" rel="stylesheet" href="../css/update_guide.css" />
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <div class="subject">
+                    <img src="/content/nhmyd/pub/com/images/guide_logo_nh.svg" alt="NH Bank, NH 농협" class="nhLogo" />
+                    <span class="headerTit">
+                        <em class="headerYear">AI 자산관리</em>
+                        |
+                        <em class="prj">화면 목록</em>
+                    </span>
+                </div>
+                <div class="search">
+                    <input id="q" type="text" placeholder="화면ID, 화면명, 담당자로 검색..." />
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="pubList_2026.html" target="_blank">운영화면</a></li>
+                        <li><a href="pubGuide.html" target="_blank">UI가이드</a></li>
+                        <li><a href="/content/nds-guide/index.html" target="_blank">NDS가이드</a></li>
+                    </ul>
+                </div>
+            </div>
+            <nav class="gnb">
+                <ul>
+                    <li><span class="chip active" data-type="all">전체</span></li>
+                    <li><span class="chip" data-type="신규">신규</span></li>
+                    <li><span class="chip" data-type="개선">개선</span></li>
+                    <li><span class="chip" data-type="유지">유지</span></li>
+                    <li><span class="chip" data-type="삭제">삭제</span></li>
+                </ul>
+                <span class="count">기획서 v0.3 (2026.07.27) · 총 42건 (신규 27 · 개선 10 · 삭제 5)</span>
+            </nav>
+        </header>
+        <div class="summary-bar">기존 저장소에 이미 있는 화면(자산연결 5건: MSCO9100/MSPS3120/MSPS3600/MSAR3110P)은 링크로 바로 열람 가능합니다. 나머지는 "준비중"으로 표시됩니다. ⚠는 계획상 개선인데 저장소에서 대응 화면을 찾지 못한 항목입니다. 개발상태는 화면목록 xlsx의 기획 진행상태를 그대로 표시했습니다(디자인·퍼블은 아직 착수 전).</div>
+        <main>
+            <div class="twrap">
+                <table>
+                    <colgroup>
+                        <col class="no" />
+                        <col class="dep" />
+                        <col class="dep" />
+                        <col class="dep" />
+                        <col class="dep" />
+                        <col class="dep" />
+                        <col class="id" />
+                        <col class="type" />
+                        <col class="fmt" />
+                        <col class="ppl" />
+                        <col class="st" />
+                        <col class="lnk" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>0Depth</th>
+                            <th>1Depth</th>
+                            <th>2Depth</th>
+                            <th>3Depth</th>
+                            <th>4Depth</th>
+                            <th>화면ID</th>
+                            <th>유형</th>
+                            <th>형식</th>
+                            <th>담당</th>
+                            <th>개발상태</th>
+                            <th>기존화면</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">1</td>
+                            <td class="dep">마이데이터 자산관리 포털 메인</td>
+                            <td class="dep">일반인</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_01.html" target="_blank">NH_MD_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">권영주</span>
+                                <span class="rbadge r-design">방민규</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">2</td>
+                            <td class="dep">마이데이터 자산관리 포털 메인</td>
+                            <td class="dep">일반인</td>
+                            <td class="dep">위클리 브리핑상세</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_01_01.html" target="_blank">NH_MD_01_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">권영주</span>
+                                <span class="rbadge r-design">방민규</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">3</td>
+                            <td class="dep">마이데이터 자산관리 포털 메인</td>
+                            <td class="dep">청년</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_02_01.html" target="_blank">NH_MD_02_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">권영주</span>
+                                <span class="rbadge r-design">방민규</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="개선">
+                            <td class="no">4</td>
+                            <td class="dep">청소년 마이데이터</td>
+                            <td class="dep">본인인증</td>
+                            <td class="dep">14세이하, 19세이상 불가</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id">
+                                <a href="../pub_2026/update/MSSB1003R.html" target="_blank">MSSB1003R</a>
+                                <span class="flag" title="저장소 내 대응 화면 미확인 — 확인 필요">⚠</span>
+                            </td>
+                            <td><span class="badge badge-improve">개선</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김도엽</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr class="del" style="background:#ffffff" data-type="삭제">
+                            <td class="no">5</td>
+                            <td class="dep">청소년 마이데이터</td>
+                            <td class="dep">이용약관 및 동의(청소년용 표준 양식)</td>
+                            <td class="dep">목록</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_YO_02_01.html" target="_blank">NH_MD_YO_02_01</a></td>
+                            <td><span class="badge badge-del">삭제</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김도엽</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr class="del" style="background:#ffffff" data-type="삭제">
+                            <td class="no">6</td>
+                            <td class="dep">청소년 마이데이터</td>
+                            <td class="dep">이용약관 및 동의(청소년용 표준 양식)</td>
+                            <td class="dep">상세</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_YO_02_02.html" target="_blank">NH_MD_YO_02_02</a></td>
+                            <td><span class="badge badge-del">삭제</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김도엽</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr class="del" style="background:#ffffff" data-type="삭제">
+                            <td class="no">7</td>
+                            <td class="dep">청소년 마이데이터</td>
+                            <td class="dep">자산연결(은행,카드,페이)</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_YO_03.html" target="_blank">NH_MD_YO_03</a></td>
+                            <td><span class="badge badge-del">삭제</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김도엽</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr class="del" style="background:#ffffff" data-type="삭제">
+                            <td class="no">8</td>
+                            <td class="dep">청소년 마이데이터</td>
+                            <td class="dep">가입완료 및 결과안내</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_YO_04.html" target="_blank">NH_MD_YO_04</a></td>
+                            <td><span class="badge badge-del">삭제</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김도엽</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">9</td>
+                            <td class="dep">용돈관리</td>
+                            <td class="dep">정보화면</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_PM_01.html" target="_blank">NH_MD_PM_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김도엽</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">10</td>
+                            <td class="dep">용돈관리</td>
+                            <td class="dep">용돈 알림 설정 (바텀시트)</td>
+                            <td class="dep">소비 경고 알림 설정</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_PM_02_01.html" target="_blank">NH_MD_PM_02_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Fragment</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김도엽</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">11</td>
+                            <td class="dep">용돈관리</td>
+                            <td class="dep">용돈 알림 설정 (바텀시트)</td>
+                            <td class="dep">푸시알림 설정필요</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_PM_02_02.html" target="_blank">NH_MD_PM_02_02</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Fragment</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김도엽</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">12</td>
+                            <td class="dep">용돈관리</td>
+                            <td class="dep">한달 시작일 설정 (바텀시트)</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_PM_03.html" target="_blank">NH_MD_PM_03</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Fragment</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김도엽</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="개선">
+                            <td class="no">13</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">마이데이터 인트로</td>
+                            <td class="dep">약관동의</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/MSCO9100.html" target="_blank">MSCO9100</a></td>
+                            <td><span class="badge badge-improve">개선</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="ok">기존화면</span></td>
+                            <td class="link"><a href="co/MSCO9100.html" target="_blank">MSCO9100</a></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="개선">
+                            <td class="no">14</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">권유직원 선택</td>
+                            <td class="dep">이름(사번)</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/MSAR3110P_01.html" target="_blank">MSAR3110P_01</a></td>
+                            <td><span class="badge badge-improve">개선</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획확인필요</span></td>
+                            <td class="link"><a href="ar/MSAR3110P.html" target="_blank">MSAR3110P</a></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="개선">
+                            <td class="no">15</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">권유직원 선택</td>
+                            <td class="dep">영업점</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/MSAR3110P_02.html" target="_blank">MSAR3110P_02</a></td>
+                            <td><span class="badge badge-improve">개선</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="ok">기존화면</span></td>
+                            <td class="link"><a href="ar/MSAR3110P.html" target="_blank">MSAR3110P</a></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="개선">
+                            <td class="no">16</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">기관선택</td>
+                            <td class="dep">추천기관</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/MSPS3120.html" target="_blank">MSPS3120</a></td>
+                            <td><span class="badge badge-improve">개선</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="ok">기존화면</span></td>
+                            <td class="link"><a href="ps/MSPS3120.html" target="_blank">MSPS3120</a></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">17</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">기관선택</td>
+                            <td class="dep">직접선택</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_03_02.html" target="_blank">NH_MD_UI_03_02</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">18</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">기관선택</td>
+                            <td class="dep">기관1개연결</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_08.html" target="_blank">NH_MD_UI_08</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr class="del" style="background:#ffffff" data-type="삭제">
+                            <td class="no">19</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">숨은 자산 찾기 (바텀시트)</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_04.html" target="_blank">NH_MD_UI_04</a></td>
+                            <td><span class="badge badge-del">삭제</span></td>
+                            <td class="fmt">Fragment</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="개선">
+                            <td class="no">20</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">약관동의</td>
+                            <td class="dep">약관동의</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_05.html" target="_blank">NH_MD_UI_05</a></td>
+                            <td><span class="badge badge-improve">개선</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">21</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">약관동의</td>
+                            <td class="dep">정기전송 주기선택</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_01.html" target="_blank">NH_MD_UI_05_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획확인필요</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">22</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">약관동의</td>
+                            <td class="dep">조회기간선택</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_02.html" target="_blank">NH_MD_UI_05_02</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획확인필요</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">23</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">약관동의</td>
+                            <td class="dep">정기전송 주기선택 (공공)</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_03.html" target="_blank">NH_MD_UI_05_03</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획확인필요</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">24</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">약관동의</td>
+                            <td class="dep">조회기간선택 (공공)</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_04.html" target="_blank">NH_MD_UI_05_04</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획확인필요</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">25</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">약관동의</td>
+                            <td class="dep">날짜선택</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_05.html" target="_blank">NH_MD_UI_05_05</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획확인필요</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">26</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">연결 알림 설정</td>
+                            <td class="dep">불러오기 시작</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_06_01.html" target="_blank">NH_MD_UI_06_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">27</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">연결 알림 설정</td>
+                            <td class="dep">알림 수신동의 (바텀시트)</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_06_02.html" target="_blank">NH_MD_UI_06_02</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Fragment</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">28</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">연결 알림 설정</td>
+                            <td class="dep">알림 수신동의완료 (바텀시트)</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_06_03.html" target="_blank">NH_MD_UI_06_03</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Fragment</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">29</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">연결 알림 설정</td>
+                            <td class="dep">자산연결 완료 안내 (바텀시트)</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_06_04.html" target="_blank">NH_MD_UI_06_04</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Fragment</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="개선">
+                            <td class="no">30</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">연결 결과</td>
+                            <td class="dep">자산연결 완료</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/MSPS3600.html" target="_blank">MSPS3600</a></td>
+                            <td><span class="badge badge-improve">개선</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="ok">기존화면</span></td>
+                            <td class="link"><a href="ps/MSPS3600.html" target="_blank">MSPS3600</a></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">31</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">연결 결과</td>
+                            <td class="dep">연결성공</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_07_02.html" target="_blank">NH_MD_UI_07_02</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="신규">
+                            <td class="no">32</td>
+                            <td class="dep">자산연결</td>
+                            <td class="dep">연결 결과</td>
+                            <td class="dep">연결실패</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_UI_07_03.html" target="_blank">NH_MD_UI_07_03</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">한승희</span>
+                                <span class="rbadge r-design">박고운</span>
+                                <span class="rbadge r-pub">이솔</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 현업리뷰</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">33</td>
+                            <td class="dep">자산.부채 통합 서비스</td>
+                            <td class="dep">이용동의</td>
+                            <td class="dep">동의</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_CO_03_01.html" target="_blank">NH_MD_CO_03_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김희연</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">34</td>
+                            <td class="dep">자산.부채 통합 서비스</td>
+                            <td class="dep">이용동의</td>
+                            <td class="dep">이용약관</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_CO_03_02.html" target="_blank">NH_MD_CO_03_02</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김희연</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">35</td>
+                            <td class="dep">자산.부채 통합 서비스</td>
+                            <td class="dep">자산.부채 통합 진단</td>
+                            <td class="dep">나의 부채</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_CO_01_01.html" target="_blank">NH_MD_CO_01_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김희연</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">36</td>
+                            <td class="dep">자산.부채 통합 서비스</td>
+                            <td class="dep">자산.부채 통합 진단</td>
+                            <td class="dep">부채/자산정보 확인</td>
+                            <td class="dep">부채(tab)</td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_CO_01_02.html" target="_blank">NH_MD_CO_01_02</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김희연</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">37</td>
+                            <td class="dep">자산.부채 통합 서비스</td>
+                            <td class="dep">자산.부채 통합 진단</td>
+                            <td class="dep">부채/자산정보 확인</td>
+                            <td class="dep">자산(tab)</td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_CO_01_03.html" target="_blank">NH_MD_CO_01_03</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김희연</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">38</td>
+                            <td class="dep">자산.부채 통합 서비스</td>
+                            <td class="dep">자산.부채 통합 진단</td>
+                            <td class="dep">리포트</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_CO_01_04.html" target="_blank">NH_MD_CO_01_04</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김희연</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">39</td>
+                            <td class="dep">자산.부채 통합 서비스</td>
+                            <td class="dep">상환 시뮬레이션</td>
+                            <td class="dep">설정</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_CO_02_01.html" target="_blank">NH_MD_CO_02_01</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김희연</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#f2f8f2" data-type="신규">
+                            <td class="no">40</td>
+                            <td class="dep">자산.부채 통합 서비스</td>
+                            <td class="dep">상환 시뮬레이션</td>
+                            <td class="dep">리포트</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_CO_02_02.html" target="_blank">NH_MD_CO_02_02</a></td>
+                            <td><span class="badge badge-new">신규</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">김희연</span>
+                                <span class="rbadge r-design">조한</span>
+                                <span class="rbadge r-pub">윤은정</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="개선">
+                            <td class="no">41</td>
+                            <td class="dep">AI 포트폴리오 매니저</td>
+                            <td class="dep">포트폴리오</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_AI_02.html" target="_blank">NH_MD_AI_02</a></td>
+                            <td><span class="badge badge-improve">개선</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">정주영</span>
+                                <span class="rbadge r-design">방민규</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                        <tr style="background:#ffffff" data-type="개선">
+                            <td class="no">42</td>
+                            <td class="dep">AI 포트폴리오 매니저</td>
+                            <td class="dep">리밸런싱</td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="dep"></td>
+                            <td class="id"><a href="../pub_2026/update/NH_MD_AI_03.html" target="_blank">NH_MD_AI_03</a></td>
+                            <td><span class="badge badge-improve">개선</span></td>
+                            <td class="fmt">Full</td>
+                            <td class="people">
+                                <span class="rbadge r-plan">정주영</span>
+                                <span class="rbadge r-design">방민규</span>
+                                <span class="rbadge r-pub">오영주</span>
+                            </td>
+                            <td class="status"><span class="tbd">기획 예정</span></td>
+                            <td class="link"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <script>
+            const q = document.getElementById('q');
+            const chips = document.querySelectorAll('.chip');
+            let activeType = 'all';
+            function applyFilter() {
+              const term = q.value.trim().toLowerCase();
+              document.querySelectorAll('tbody tr').forEach(function(row) {
+                const text = row.innerText.toLowerCase();
+                const typeMatch = activeType === 'all' || row.dataset.type === activeType;
+                const textMatch = term === '' || text.includes(term);
+                row.classList.toggle('hide', !(typeMatch && textMatch));
+              });
+            }
+            q.addEventListener('input', applyFilter);
+            chips.forEach(function(chip) {
+              chip.addEventListener('click', function() {
+                chips.forEach(function(c){c.classList.remove('active');});
+                chip.classList.add('active');
+                activeType = chip.dataset.type;
+                applyFilter();
+              });
+            });
+        </script>
+    </body>
 </html>

@@ -1,52 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>[P] 조회 기간 선택</title>
+        <script>
+            $(document).ready(function () {
+            	slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            })
+        </script>
+    </head>
 
-<head>
-	<script src="../pub-assets/js/head-mb-update.js"></script>
-	<title>[P] 조회 기간 선택</title>
-	<script>
-		$(document).ready(function () {
-			slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
-		})  
-	</script>
-</head>
+    <body>
+        <div class="wrapper nhasset nds"><!-- 바닥페이지 --></div>
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1>조회 기간 선택</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <div class="period">
+                            <p class="bottomsheet-option__label">조회기간</p>
+                            <div class="radio-box-row">
+                                <input type="radio" name="period" id="period-12m" class="radio-hidden-input radio-box-input" checked />
+                                <label for="period-12m" class="radio-box radio-box--sm radio-box--center">12개월</label>
+                                <input type="radio" name="period" id="period-direct" class="radio-hidden-input radio-box-input" />
+                                <label for="period-direct" class="radio-box radio-box--sm radio-box--center">직접입력</label>
+                            </div>
 
-<body>
-	<div class="wrapper nhasset nds"><!-- 바닥페이지 --></div>
-	<div class="nhasset popWrap nds slidePopConfirm">
-		<div class="dim"></div>
-		<div class="popInner">
-			<h1>조회 기간 선택</h1>
-			<div class="popCont">
-				<div class="period">
-					<p class="bottomsheet-option__label">조회기간</p>
-					<div class="radio-box-row">
-						<input type="radio" name="period" id="period-12m" class="radio-hidden-input radio-box-input" checked>
-						<label for="period-12m" class="radio-box radio-box--sm radio-box--center">12개월</label>
-						<input type="radio" name="period" id="period-direct" class="radio-hidden-input radio-box-input">
-						<label for="period-direct" class="radio-box radio-box--sm radio-box--center">직접입력</label>
-					</div>
-
-					<div class="calendar-period mt12">
-						<div class="calendar-period__field">
-							<span class="calendar-period__text">2026.07.13</span>
-							<button type="button" class="calendar-period__icon" aria-label="시작일 날짜선택"></button>
-							<span class="calendar-period__sep">~</span>
-							<span class="calendar-period__text">2027.07.13</span>
-							<button type="button" class="calendar-period__icon" aria-label="종료일 날짜선택"></button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="popBtnWrap">
-				<div class="popBtn">
-					<a href="javascript:;" class="confirmBtn" role="button">확인</a>
-				</div>
-				<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."
-					role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
-			</div>
-		</div>
-	</div>
-</body>
-
+                            <div class="calendar-period mt12">
+                                <div class="calendar-period__field">
+                                    <span class="calendar-period__text">2026.07.13</span>
+                                    <button type="button" class="calendar-period__icon" aria-label="시작일 날짜선택"></button>
+                                    <span class="calendar-period__sep">~</span>
+                                    <span class="calendar-period__text">2027.07.13</span>
+                                    <button type="button" class="calendar-period__icon" aria-label="종료일 날짜선택"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <div class="popBtn">
+                        <a href="javascript:;" class="confirmBtn" role="button">확인</a>
+                    </div>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

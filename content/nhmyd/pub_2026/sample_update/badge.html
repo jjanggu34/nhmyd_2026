@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>Badge | UI Guide</title>
+    </head>
+    <body>
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Badge</h1>
+            </div>
+            <!-- //header -->
+            <div class="container">
+                <h2 class="guide-title">Dot — 아이콘 버튼 위 신규 알림 점</h2>
+                <span class="badge">
+                    <button type="button" class="btn-icon" aria-label="알림"></button>
+                    <span class="badge__dot" aria-hidden="true"></span>
+                </span>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Count — 버튼 위 숫자 배지</h2>
+                <span class="badge">
+                    <button type="button" class="btn btn--secondary btn--sm">알림함</button>
+                    <span class="badge__count" aria-hidden="true">3</span>
+                </span>
+                <p class="note">배지는 시각적 강조이며 실제 개수 정보는 버튼의 접근 가능한 이름(aria-label 등)에 함께 담아야 합니다. 예: 알림이 3개 있다면
+                    버튼에 aria-label="알림함, 새 알림 3개"처럼 명시하는 것을 권장합니다.</p>
+            </div>
+        </div>
+    </body>
+</html>
