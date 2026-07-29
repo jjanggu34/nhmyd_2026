@@ -853,23 +853,10 @@
 .nds.centerLayer .popBtnWrap .popBtn{border-width:0 16px 24px !important;border-spacing:8px 0 !important}
 .nds .popBtnWrap .popBtn > a, .nds .popBtnWrap .popBtn > a:hover, .nds .popBtnWrap .popBtn > a:active, .nds .popBtnWrap .popBtn > a:link {width: 40% !important;}
 .nds .popBtnWrap .popBtn > a.confirmBtn{width: 60% !important;}
-/* ---- yearSet(년/월/일 휠피커) 세로 정렬 버그 수정 ----
-   원인: nhasset_cont.css ".yearSet > ol{padding:80px 0}" (특이도 0,1,1)가 각 리스트를
-   scrollTop = index*40 으로 스크롤했을 때 선택 항목이 컨테이너(200px) 정중앙 40px 밴드에
-   오도록 만드는 원본 로직인데, 바로 아래 기본 리셋 ".nds ol{margin:0;padding:0}"도 특이도가
-   똑같이 0,1,1이라 캐스케이드 순서(update.css가 나중에 로드)로 이겨서 padding이 0으로
-   깎여 있었다. 그 결과 년(9개)/월(12개)/일(30개) 리스트가 서로 다른 스크롤 상한에 맞춰
-   제각각 다른 높이에 선택 항목이 뜨고, 스크롤 범위가 짧은 년/월 리스트는 뒤쪽 항목을
-   선택해도 최대 스크롤에 막혀(clamp) 실제로는 중앙에 오지 못했다.
-   아래 80px는 JS 실행 전(또는 JS 미동작 환경) 대비용 기본값일 뿐이다 — 실제 센터링 여백은
-   NH_MD_UI_05_05.html에 페이지 로컬로 오버라이드한 calendarAlign()이 <a>의 실측 렌더
-   높이를 읽어 (컨테이너높이-행높이)/2 로 매번 다시 계산해서 이 padding을 덮어쓴다. 즉 행
-   높이가 40px가 아니어도(패딩을 바꿔도) 항상 정확히 센터링되도록 CSS 고정값에 의존하지 않는다. */
+
 .nds .yearSet > ol {
   padding: 80px 0 !important;
 }
-
-
 .nds .yearSet.dayPicSet {
   display: flex !important;
   gap: 8px;
@@ -885,11 +872,6 @@
   flex: 1 1 0% !important;
   width: auto !important;
 }
-/* <a> 높이는 더 이상 40px로 고정할 필요가 없다. NH_MD_UI_05_05.html에 페이지 로컬로
-   오버라이드한 calendarAlign()이 매번 <li>의 실제 렌더 높이를 측정해서 scrollTop 계산과
-   .yearSet > ol의 센터링 padding을 그 값 기준으로 다시 구하기 때문에, 여기서 padding/
-   font-size 등을 자유롭게 바꿔도(=행 높이가 40px가 아니게 되어도) 스크롤 위치가 어긋나지
-   않는다. box-sizing:border-box만 유지해서 padding이 레이아웃 폭 계산에 영향 없게 한다. */
 .nds .yearSet a {
   display: flex !important;
   align-items: center;

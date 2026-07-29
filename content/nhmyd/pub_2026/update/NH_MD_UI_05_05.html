@@ -2,144 +2,14 @@
 <html lang="ko">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Script-Type" content="text/javascript">
-	<meta http-equiv="Content-Style-Type" content="text/css">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="apple-mobile-web-app-title" content="NH마이데이터" />
-	<meta http-equiv="imagetoolbar" content="no">
-	<meta name="robots" content="no-index,follow">
-	<meta name="title" content="">
-	<meta name="author" content="">
-	<meta name="content" content="">
-	<meta name="keywords" content="NH마이데이터">
-	<meta name="description" content="NH마이데이터">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Expires" content="-1">
-	<title>[P] 조회 기간 선택 + 년월일 선택(center popup)</title>
 	<script src="../pub-assets/js/head-mb-update.js"></script>
+	<title>[P] 조회 기간 선택 + 년월일 선택(center popup)</title>
 	<script>
+		// popClose()/calendarAlign() 오버라이드는 content/nhmyd/js/nds-ui.js로 이동함
+		// (이 페이지에서만 쓰던 걸 head-mb-update.js를 쓰는 .nds 화면 전체가 공유하도록)
 		$(document).ready(function () {
 			slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
-			setTimeout(function () {
-				popCenter();
-				calendarAlign()
-			}, 2000);
 		})
-
-		/*
-		 * common_ui.js의 전역 popClose()는 $(".dim")로 페이지 내 모든 dim을 한번에 닫기 때문에,
-		 * 이 페이지처럼 bottomsheet(slidePopConfirm)와 centerLayer가 동시에 열려있는 상태에서
-		 * 하나만 닫아도 둘 다의 dim이 같이 사라지는 문제가 있었다.
-		 * 공용 파일(common_ui.js)은 다른 여러 페이지에서 쓰이므로 그대로 두고,
-		 * 이 페이지에서만 popClose를 클릭한 popWrap 자신의 dim만 닫도록 재정의한다.
-		 * (다른 popWrap이 아직 열려있으면 scrollUnlock도 하지 않아, bottomsheet가 남아있는 동안
-		 * 배경 스크롤이 풀리는 부수 문제도 함께 방지한다.)
-		 */
-		popClose = function (e) {
-			scrollPosY = ($("body").css("top"));
-			var $popWrap = $(e).closest(".popWrap");
-			var $slidePopInner = $popWrap.find(".popInner");
-			var isSlidePop = $popWrap.hasClass("slidePopOption") || $popWrap.hasClass("slidePopConfirm") || $popWrap.hasClass("bankSetWrap");
-
-			$popWrap.find(".dim").fadeOut(100);
-
-			if (isSlidePop) {
-				$slidePopInner.animate({height: 0}, 150, function () {
-					$popWrap.hide();
-				});
-			} else {
-				$popWrap.hide();
-			}
-
-			if ($(".popWrap:visible").not($popWrap).length === 0) {
-				scrollUnlock(scrollPosY);
-			}
-
-			$("#popupLayer_div").children(".fullLayerPop").children(".fullLayerPop").attr("aria-hidden", false).removeAttr('inert');
-			$("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden", false).removeAttr('inert');
-		};
-
-		/*
-		 * nhasset-ui.js의 전역 calendarAlign()은 행 높이를 40px로 하드코딩해서
-		 * scrollTop = index*40 계산과 스크롤-스냅(visibleEvnt)을 전부 40 기준으로 한다.
-		 * 그래서 CSS에서 <a>의 실제 렌더 높이가 40px에서 벗어나면(padding을 바꾸면) 선택 항목이
-		 * 어긋나는 문제가 반복됐다. 공용 nhasset-ui.js는 다른 여러 페이지가 40px 가정에 맞춰
-		 * 쓰고 있으므로 그대로 두고, 이 페이지에서만 40을 하드코딩하지 않고 매번 <li>의 실제
-		 * 렌더 높이를 측정해서 스크롤 계산 + .yearSet > ol 센터링 padding을 다시 구하도록
-		 * calendarAlign()을 재정의한다. (popClose와 동일한 "공용 파일은 안 건드리고 페이지에서
-		 * 오버라이드" 패턴 — MSCO1210P.html도 calendarAlign()을 페이지 로컬로 갖고 있다.)
-		 */
-		function calendarAlign() {
-			$('.yearSet').each(function () {
-				if ($(this).hasClass('noneAction')) {
-					$(this).attr('aria-hidden', 'true');
-				} else {
-					$(this).attr('aria-hidden', 'false');
-				}
-			});
-
-			$('.yearSet > ol').each(function () {
-				var $ol = $(this);
-				var rowH = $ol.children('li').first().outerHeight(); // 실제 행 높이 측정(하드코딩 40 대신)
-				if (!rowH) { return; }
-				// box-sizing:border-box인 <ol>에 jQuery .height()를 쓰면 "현재 padding을 뺀"
-				// content-height가 나와서(예: 200px 박스에 padding:80px 0이 남아있으면 40으로 잘못
-				// 측정됨) 실제 고정 뷰포트 높이(200px)를 얻으려면 .outerHeight()를 써야 한다.
-				var viewH = $ol.outerHeight();
-				var padY = Math.max(0, (viewH - rowH) / 2); // 실측 행 높이 기준으로 센터링 여백 계산
-				// update.css의 ".yearSet > ol{padding:80px 0 !important}" 폴백 규칙을 이겨야 하므로
-				// jQuery .css() 대신 !important를 직접 지정한다(인라인 스타일이라도 !important 없이는
-				// 스타일시트의 !important 규칙을 이길 수 없다).
-				this.style.setProperty('padding', padY + 'px 0', 'important');
-				$ol.data('rowH', rowH);
-
-				var $listIndex = $ol.find('a.active,button.active').attr('title', '선택됨').parent('li').index();
-				$ol.scrollTop($listIndex * rowH);
-			});
-
-			$('.yearSet ol a,.yearSet ol button').click(function () {
-				if ($('.yearSet').hasClass('noneAction')) { return; }
-				var $this = $(this);
-				var $ol = $this.parents('ol');
-				var rowH = $ol.data('rowH') || $ol.children('li').first().outerHeight();
-				var $thisParent = $ol.find('a,button');
-				$thisParent.removeClass('active').attr('title', '');
-				$this.addClass('active').attr('title', '선택됨');
-				var $listIndex = $this.parent('li').index();
-				$ol.stop().animate({ scrollTop: $listIndex * rowH }, 300);
-			});
-
-			var scrollEndEvntTimerId;
-			function visibleEvnt() {
-				var $el = $(this);
-				var rowH = $el.data('rowH') || $el.children('li').first().outerHeight();
-				var items = $el.find('li');
-				var idx = Math.round($el.scrollTop() / rowH);
-				items.eq(idx).addClass('on').children().addClass('active').parent().siblings().removeClass('on').children().removeClass('active');
-
-				clearTimeout(scrollEndEvntTimerId);
-				scrollEndEvntTimerId = setTimeout(function () {
-					$('.yearSet > ol').off('scroll', visibleEvnt);
-					$el.stop().animate({ scrollTop: idx * rowH }, {
-						duration: 40,
-						step: function (now, fx) {
-							if (fx.pos == 1) {
-								$(this).scrollTop((idx * rowH) - rowH);
-								setTimeout(function () {
-									$('.yearSet > ol').on('scroll', visibleEvnt);
-								}, 100);
-							}
-						}
-					});
-				}, 100);
-			}
-
-			setTimeout(function () {
-				$('.yearSet > ol').on('scroll', visibleEvnt);
-			}, 500);
-		}
 	</script>
 </head>
 
@@ -164,10 +34,10 @@
 					<div class="calendar-period mt12">
 						<div class="calendar-period__field">
 							<span class="calendar-period__text">2026.07.13</span>
-							<button type="button" class="calendar-period__icon" aria-label="시작일 날짜선택"></button>
+							<button type="button" class="calendar-period__icon" aria-label="시작일 날짜선택" onclick="popCenter();calendarAlign();"></button>
 							<span class="calendar-period__sep">~</span>
 							<span class="calendar-period__text">2027.07.13</span>
-							<button type="button" class="calendar-period__icon" aria-label="종료일 날짜선택"></button>
+							<button type="button" class="calendar-period__icon" aria-label="종료일 날짜선택" onclick="popCenter();calendarAlign();"></button>
 						</div>
 					</div>
 				</div>
