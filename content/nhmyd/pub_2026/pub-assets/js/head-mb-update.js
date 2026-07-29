@@ -44,7 +44,7 @@
 		+'<script src="../../js/nhasset-ui.js"></script>'
 		+'<script src="../../js/nhasset-ui-myd.js"></script>' //2023 마이데이터 고도화
 		+'<script src="../../js/nhasset-ui-myd-mb.js"></script>' //2025 NH농협은행 비대면 마이데이터 고객여정 개선
-		+'<script src="../../js/nds-ui.js"></script>' //2026 NH농협은행 nds 적용 화면 UI 스크립트
+		+'<script src="../../js/update-ui.js"></script>' //2026 NH농협은행 nds 적용 화면 UI 스크립트
 
 		+'<link type="text/css" rel="stylesheet" href="../pub-assets/css/guide.css">'//가이드용 css 실제 서비스에는 불필요
 		+'<script src="../pub-assets/js/guide.js"></script>'// 가이드용 js 실제 서비스에는 불필요
