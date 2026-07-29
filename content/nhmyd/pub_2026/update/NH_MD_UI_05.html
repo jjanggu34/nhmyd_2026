@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<script src="../pub-assets/js/head-mb-update.js"></script>
+<title>통합인증 별도동의 | 자산연결 | 설정/관리</title>
+</head>
+<body>
+<div class="wrapper nhasset nds">
+	<!-- header -->
+	<div class="header">
+		<a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+		<h1>약관동의</h1>
+		<a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+	</div>
+	<!-- //header -->
+
+	<div class="container">
+
+
+		<div class="areaBtnDefault">
+			<a href="javascript:;" class="btnPressPoint disabled" role="button" aria-disabled="true">확인</a> <!-- [D] 활성화 : 클래스명(disabled) 삭제 / aria-disabled="true" 삭제 -->
+		</div>
+	</div>
+</div>
+
+<!-- ###################################### -->
+<!-- ### [샘플] 스크립트 ### -->
+<!-- ###################################### -->
+<script type="text/javascript">
+    var rdochk = $('.rdoType input[type="radio"]');
+    rdochk.click(function(){
+        var iptname = $(this).attr("name");
+        var targetBox = $("." + iptname);
+        $(targetBox).hide();
+
+    });
+    function getRadioText(event, e)  {
+		const radioId = event.target.id;
+		const query = 'label[for="'+ radioId + '"]'
+		const txt = document.querySelector(query).innerText;
+		document.getElementById(e).innerText = txt;
+		$('#'+e).parent('a').focus();
+	}
+</script>
+<!-- ###################################### -->
+</body>
+</html>

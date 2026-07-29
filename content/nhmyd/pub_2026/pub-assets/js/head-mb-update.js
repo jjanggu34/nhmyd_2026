@@ -6,6 +6,23 @@
 
 (function(){
 	var str=''
+		+'<meta charset="utf-8">'
+		+'<meta http-equiv="Content-Script-Type" content="text/javascript">'
+		+'<meta http-equiv="Content-Style-Type" content="text/css">'
+		+'<meta http-equiv="X-UA-Compatible" content="IE=edge">'
+		+'<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">'
+		+'<meta name="apple-mobile-web-app-title" content="NH마이데이터">'
+		+'<meta http-equiv="imagetoolbar" content="no">'
+		+'<meta name="robots" content="no-index,follow">'
+		+'<meta name="title" content="">'
+		+'<meta name="author" content="">'
+		+'<meta name="content" content="">'
+		+'<meta name="keywords" content="NH마이데이터">'
+		+'<meta name="description" content="NH마이데이터">'
+		+'<meta http-equiv="Pragma" content="no-cache">'
+		+'<meta http-equiv="Expires" content="-1">'
+		// title은 공통 include에 넣지 않음 — 각 html 파일에서 <title>로 직접 지정
+
 		+'<link type="text/css" rel="stylesheet" href="../../css/swiper.min.css">'
 		+'<link type="text/css" rel="stylesheet" href="../../css/nh_base.css">'
 		+'<link rel="stylesheet" type="text/css" href="../../css/nh_layout.css">'
