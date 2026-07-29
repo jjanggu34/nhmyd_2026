@@ -134,6 +134,7 @@
   --color-bg-disabled: var(--primitive-gray-200);
   --color-bg-input-load-data: var(--primitive-gray-100);
   --color-bg-banner: #f3f5f8;
+  --color-bg-tab-bar: var(--color-bg-banner); /* nds.css 원본에 정의 누락된 토큰 별칭 추가 (2026-07-29) */
   --color-icon-1: var(--primitive-gray-900);
   --color-icon-2: var(--primitive-gray-800);
   --color-icon-3: var(--primitive-gray-700);
@@ -215,6 +216,7 @@
   --color-bg-disabled: var(--primitive-gray-dark-700);
   --color-bg-input-load-data: var(--primitive-gray-dark-800);
   --color-bg-banner: var(--primitive-gray-dark-800);
+  --color-bg-tab-bar: var(--color-bg-banner); /* nds.css 원본에 정의 누락된 토큰 별칭 추가 (2026-07-29) */
   --color-icon-1: var(--primitive-gray-dark-50);
   --color-icon-2: var(--primitive-gray-dark-100);
   --color-icon-3: var(--primitive-gray-dark-200);
@@ -286,6 +288,7 @@
     --color-bg-disabled: var(--primitive-gray-dark-700);
     --color-bg-input-load-data: var(--primitive-gray-dark-800);
     --color-bg-banner: var(--primitive-gray-dark-800);
+    --color-bg-tab-bar: var(--color-bg-banner); /* nds.css 원본에 정의 누락된 토큰 별칭 추가 (2026-07-29) */
     --color-icon-1: var(--primitive-gray-dark-50);
     --color-icon-2: var(--primitive-gray-dark-100);
     --color-icon-3: var(--primitive-gray-dark-200);
@@ -8044,25 +8047,20 @@
   flex-shrink: 0;
 }
 
-/* --- table --- */
+/* --- table (실제 <table>/<tr>/<th>/<td> 마크업 기준) --- */
 .nds .table {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  border-left: 1px solid var(--color-border-2);
-  border-right: 1px solid var(--color-border-2);
+  border-collapse: collapse;
   box-sizing: border-box;
 }
 
-.nds .table__row {
-  display: flex;
-  align-items: stretch;
-  width: 100%;
-}
-
-.nds .table__row > * {
+.nds .table__th,
+.nds .table__td {
   border-top: 1px solid var(--color-border-2);
   border-right: 1px solid var(--color-border-2);
+  box-sizing: border-box;
+  text-align: left;
+  vertical-align: middle;
 }
 
 .nds .table__row > *:last-child {
@@ -8074,8 +8072,6 @@
 }
 
 .nds .table__th {
-  display: flex;
-  align-items: center;
   min-height: 40px;
   padding: 9px 8px;
   background-color: var(--color-bg-container);
@@ -8084,13 +8080,9 @@
   letter-spacing: -0.28px;
   line-height: 22px;
   color: var(--color-font-1);
-  box-sizing: border-box;
 }
 
 .nds .table__td {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   min-height: 40px;
   padding: 9px 8px;
   font-size: 14px;
@@ -8098,32 +8090,16 @@
   letter-spacing: -0.28px;
   line-height: 22px;
   color: var(--color-font-3);
-  box-sizing: border-box;
 }
 
-.nds .table__th--center {
-  justify-content: center;
-  text-align: center;
-}
-
-.nds .table__th--right {
-  justify-content: flex-end;
-  text-align: right;
-}
-
+.nds .table__th--center,
 .nds .table__td--center {
-  align-items: center;
   text-align: center;
 }
 
+.nds .table__th--right,
 .nds .table__td--right {
-  align-items: flex-end;
   text-align: right;
-}
-
-.nds .table__cell--flex {
-  flex: 1 0 0;
-  min-width: 0;
 }
 
 /* --- terms --- */

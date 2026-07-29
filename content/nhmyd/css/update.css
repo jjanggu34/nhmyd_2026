@@ -125,6 +125,10 @@
   --color-bg-disabled: var(--primitive-gray-200);
   --color-bg-input-load-data: var(--primitive-gray-100);
   --color-bg-banner: #f3f5f8;
+  /* nds.css의 .process-step-h__num--disabled가 참조하는 --color-bg-tab-bar가 nds.css 어디에도
+     정의돼 있지 않아(원본 자체 버그) var()가 빈 값으로 떨어져 배경이 안 채워졌다.
+     Figma의 disabled 스텝 배경(#f3f5f8)과 값이 같은 --color-bg-banner를 별칭으로 사용한다. */
+  --color-bg-tab-bar: var(--color-bg-banner);
   --color-icon-1: var(--primitive-gray-900);
   --color-icon-2: var(--primitive-gray-800);
   --color-icon-3: var(--primitive-gray-700);
@@ -199,19 +203,12 @@
 .nds {
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
+/** ---- 공통 유틸리티 클래스 ---- */
 .nds *{box-sizing:border-box;}
-/* 실제 프로덕션(nhmyd/pub_2026/pub-assets/css/reset.css:30)의 기본 reset과 동일한 태그 목록에
-   margin/padding:0을 적용한다. 실서비스 화면은 이 reset.css를 항상 먼저 로드하므로 컴포넌트가
-   브라우저 기본 여백에 노출될 일이 없지만, 이 가이드 페이지는 reset.css 없이 nds.css만 단독으로
-   불러오기 때문에 여기서 동일하게 재현해야 실제 서비스와 같은 모습으로 미리보기가 된다.
-   h1~h6, pre는 이 가이드 자체의 페이지 구조/코드블록 스타일(섹션 제목, 코드 예제 배경 등)이
-   별도 bare-tag 선택자로 이미 걸려 있어 제외 — 포함하면 특이도 때문에 그 스타일을 덮어써 버린다. */
-.nds dl, .nds dt, .nds dd, .nds ul, .nds ol, .nds li, .nds code,
-.nds form, .nds fieldset, .nds legend, .nds textarea, .nds p,
-.nds blockquote, .nds th, .nds td, .nds input, .nds select, .nds button {
-  margin: 0;
-  padding: 0;
-}
+.nds .center { text-align: center; }
+.nds .left { text-align: left; }
+.nds .right { text-align: right; }
+
 .nds .container{padding-left:24px;padding-right:24px}
 /* ---- Accordion (notice/box/line/gray) — content/nds-guide 3047-3435줄과 동일 ---- */
 .nds .guide-title{font-size:15px;font-weight:700;margin-bottom:8px;}
@@ -1053,4 +1050,149 @@
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.32px;
+}
+
+/* ---- Process: step/horizontal (상단 3단계 스탭) — content/nds-guide 10574~10652줄과 동일 ---- */
+.nds .process-step-h {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+.nds .process-step-h__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 15px;
+  height: 0;
+  border-top: 1px dashed var(--color-border-2);
+}
+.nds .process-step-h__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1 0 0;
+  min-width: 0;
+}
+.nds .process-step-h__item--center { align-items: center; }
+.nds .process-step-h__item--end { align-items: flex-end; }
+.nds .process-step-h__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.24px;
+  line-height: 18px;
+  box-sizing: border-box;
+}
+.nds .process-step-h__num--disabled {
+  background: var(--color-bg-tab-bar);
+  border: 1px solid var(--color-border-2);
+  color: var(--color-font-5);
+}
+.nds .process-step-h__num--active {
+  background: var(--color-font-point);
+  color: #ffffff;
+}
+.nds .process-step-h__num--default {
+  background: var(--color-bg-default);
+  border: 1px solid var(--color-border-2);
+  color: var(--color-font-4);
+}
+.nds .process-step-h__label {
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  line-height: 22px;
+  width: 100%;
+}
+.nds .process-step-h__item--center .process-step-h__label { text-align: center; }
+.nds .process-step-h__item--end .process-step-h__label { text-align: right; }
+.nds .process-step-h__label--disabled { color: var(--color-font-4); }
+.nds .process-step-h__label--active {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-font-point);
+}
+.nds .process-step-h__label--default { color: var(--color-font-1); }
+
+/* ---- Table (실제 <table>/<tr>/<th>/<td> 마크업 기준) — content/nds-guide 8050줄~과 동일 ---- */
+.nds .table {
+  width: 100%;
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
+.nds .table__th,
+.nds .table__td {
+  border-top: 1px solid var(--color-border-2);
+  border-right: 1px solid var(--color-border-2);
+  box-sizing: border-box;
+  text-align: left;
+  vertical-align: middle;
+}
+.nds .table__row > *:last-child {
+  border-right: none;
+}
+.nds .table__row:last-child > * {
+  border-bottom: 1px solid var(--color-border-2);
+}
+.nds .table__th {
+  min-height: 40px;
+  padding: 9px 8px;
+  background-color: var(--color-bg-container);
+  font-size: 14px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: -0.28px;
+  line-height: 22px;
+  color: var(--color-font-1);
+}
+.nds .table__td {
+  min-height: 40px;
+  padding: 9px 8px;
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  line-height: 22px;
+  color: var(--color-font-3);
+}
+
+/* --- divider --- */
+.nds .divider {
+  display: block;
+  width: 100%;
+  border: none;
+  margin:20px auto;
+  flex-shrink: 0;
+}
+
+.nds .divider--content {
+  height: 8px;
+  background-color: var(--color-bg-container);
+  margin:40px auto;
+}
+
+.nds .divider--page {
+  height: 1px;
+  background-color: var(--color-bg-container);
+}
+
+.nds .divider--list1 {
+  height: 1px;
+  background-color: #e1e1e1;
+}
+
+.nds .divider--list2 {
+  height: 1px;
+  background-color: var(--color-bg-extra-bg);
+}
+
+.nds .divider--dash {
+  height: 0;
+  border-top: 1px dashed #f6f6f6;
 }

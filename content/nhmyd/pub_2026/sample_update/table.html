@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<script src="../pub-assets/js/head-mb-update.js"></script>
+	<title>Table | UI Guide</title>
+</head>
+<body>
+	<div class="wrapper nhasset nds">
+		<!-- header -->
+		<div class="header">
+			<a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+			<h1>Table</h1>
+		</div>
+		<!-- //header -->
+		<div class="container">
+			<h2 class="guide-title">width — 첫 열 고정폭 + 나머지 열 가변폭</h2>
+			<table class="table" aria-label="폭 예시 표">
+				<colgroup>
+					<col style="width:94px;">
+					<col>
+				</colgroup>
+				<thead>
+					<tr class="table__row">
+						<th scope="col" class="table__th center">항목</th>
+						<th scope="col" class="table__th center">구분</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="table__row">
+						<td class="table__td center">항목</td>
+						<td class="table__td center">구분</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr class="divider" />
+
+			<h2 class="guide-title">height — 내용에 따라 자라는 행 높이</h2>
+			<table class="table" aria-label="행 높이 예시 표">
+				<colgroup>
+					<col style="width:120px;">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr class="table__row">
+						<th scope="row" class="table__th center">항목</th>
+						<td class="table__td right">구분</td>
+					</tr>
+					<tr class="table__row">
+						<th scope="row" class="table__th center">항목</th>
+						<td class="table__td right">여러 줄로 길게 들어가는 내용은 셀 높이가 자동으로 늘어납니다</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr class="divider" />
+
+			<h2 class="guide-title">row header — 첫 열이 그 행의 이름으로 동작하는 경우</h2>
+			<table class="table" aria-label="기관별 수집 항목 표">
+				<colgroup>
+					<col style="width:80px;">
+					<col>
+				</colgroup>
+				<tbody>
+					<tr class="table__row">
+						<th scope="row" rowspan="2" class="table__th">은행</th>
+						<td class="table__td">계좌목록, DC형 퇴직연금 목록, 개인형IRP 목록, 선불카드 목록, 미출연 휴면예금 목록</td>
+					</tr>
+					<tr class="table__row">
+						<td class="table__td">수신계좌정보, 펀드상품정보, 대출상품정보, DC형 퇴직연금정보, 개인형IRP정보, 선불카드정보,
+							신탁/ISA상품정보, 미출연 휴면예금 정보</td>
+					</tr>
+					<tr class="table__row">
+						<th scope="row" rowspan="2" class="table__th">카드</th>
+						<td class="table__td">카드목록, 선불카드 목록</td>
+					</tr>
+					<tr class="table__row">
+						<td class="table__td">카드정보, 포인트정보, 월별 카드 이용정보, 일별 카드 이용정보, 카드대출정보, 카드매입취소정보,
+							선불카드정보, 승인상세정보</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
