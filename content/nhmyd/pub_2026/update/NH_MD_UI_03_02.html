@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>자산연결</title>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset nds">
+            <div class="header">
+                <a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>자산연결</h1>
+                <a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+            </div>
+
+            <div class="container">
+                <div class="process-step-h" role="img" aria-label="총 3단계 중 1번째 단계: 기관선택">
+                    <span class="process-step-h__line"></span>
+                    <div class="process-step-h__item">
+                        <span class="process-step-h__num process-step-h__num--active">1</span>
+                        <span class="process-step-h__label process-step-h__label--active">기관선택</span>
+                    </div>
+                    <div class="process-step-h__item process-step-h__item--center">
+                        <span class="process-step-h__num process-step-h__num--default">2</span>
+                        <span class="process-step-h__label process-step-h__label--default">약관동의</span>
+                    </div>
+                    <div class="process-step-h__item process-step-h__item--end">
+                        <span class="process-step-h__num process-step-h__num--default">3</span>
+                        <span class="process-step-h__label process-step-h__label--default">연결완료</span>
+                    </div>
+                </div>
+
+                <div class="text-stack">
+                    <p class="text text--h2">
+                        자산을 연결할 기관을
+                        <br />
+                        선택해 주세요
+                    </p>
+                    <p class="text text--body2">고객님의 자산이 있을 것 같은 기관을 먼저 추천합니다</p>
+                </div>
+
+                <div class="tab-bar" role="tablist" aria-label="기관 선택 방법">
+                    <button type="button" id="tab-bar-1" class="tab-bar__item" role="tab" aria-selected="false" aria-controls="panel-bar-1" tabindex="-1">추천기관</button>
+                    <button type="button" id="tab-bar-2" class="tab-bar__item tab-bar__item--active" role="tab" aria-selected="true" aria-controls="panel-bar-2" tabindex="0">직접선택</button>
+                </div>
+                <div id="panel-bar-1" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-1" tabindex="0" hidden>추천기관</div>
+                <div id="panel-bar-2" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-2" tabindex="0">
+                    <div class="input-box">
+                        <div class="input-box__field">
+                            <label class="blind" for="inst-search">기관명 검색</label>
+                            <input type="text" id="inst-search" class="input-box__input" placeholder="기관명을 입력하세요" />
+                            <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="inst-list">
+                        <div class="item__summary">
+                            <span class="inst-list__count">총 76건</span>
+                            <label class="check-basic">
+                                <input type="checkbox" class="check-basic__input" checked />
+                                <span class="check-basic__icon"></span>
+                                <span class="check-basic__label">추천기관 전체선택</span>
+                            </label>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="은행 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">은행</span>
+                                <span class="inst-list__group-count">41개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="카드 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">카드</span>
+                                <span class="inst-list__group-count">27개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="증권 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">증권</span>
+                                <span class="inst-list__group-count">24개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="보험 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">보험</span>
+                                <span class="inst-list__group-count">33개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="할부금융 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">할부금융</span>
+                                <span class="inst-list__group-count">18개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="전자금융 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">전자금융</span>
+                                <span class="inst-list__group-count">23개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="통신 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">통신</span>
+                                <span class="inst-list__group-count">6개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="공공 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">공공</span>
+                                <span class="inst-list__group-count">3개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="서민금융진흥원 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">서민금융진흥원</span>
+                                <span class="inst-list__group-count">1개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areaBtnDefault">
+                    <!-- <a href="javascript:;" class="btnPressPoint disabled" role="button" aria-disabled="true">선택한 기관이 없습니다</a> -->
+                    <a href="javascript:;" class="btnPressPoint" role="button">선택한 기관 73개 연결하기</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
