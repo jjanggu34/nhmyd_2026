@@ -121,6 +121,17 @@ window.calendarAlign = function () {
 (function () {
 	'use strict';
 
+	// aria-controls용 id 자동 부여 — 토글 버튼이 제어하는 대상 요소에 id가 없으면
+	// 하나 만들어 붙이고, 있으면 그대로 재사용합니다(중복 id 생성 방지).
+	var autoIdSeq = 0;
+	function ensureId(el, prefix) {
+		if (!el.id) {
+			autoIdSeq += 1;
+			el.id = prefix + '-' + autoIdSeq;
+		}
+		return el.id;
+	}
+
 	// Accordion (notice / box / line / gray 공통)
 	// 레거시 [data-toggle="wrap/btn/con"] 방식(nhasset-ui-myd.js)과 동일하게
 	// jQuery slideUp/slideDown('fast')로 부드럽게 열고 닫습니다.
@@ -128,6 +139,10 @@ window.calendarAlign = function () {
 		document.querySelectorAll('[data-acc-toggle]').forEach(function (btn) {
 			var body = btn.parentElement.querySelector('[class$="__body"], [class$="__list"]');
 			if (!body) return;
+
+			// aria-expanded만으로는 버튼이 "무엇을" 펼치고 접는지 스크린리더가 알 수 없어서,
+			// 대상 요소를 aria-controls로 명시적으로 연결합니다(4.1.2 Name, Role, Value).
+			btn.setAttribute('aria-controls', ensureId(body, 'acc-body'));
 
 			// hidden 속성은 jQuery의 display 애니메이션과 충돌하므로
 			// 최초 1회만 display:none으로 치환해 이후 상태를 jQuery에 위임합니다.
@@ -160,6 +175,9 @@ window.calendarAlign = function () {
 			var divider = card.querySelector('.terms-card__divider');
 			var body = card.querySelector('.terms-card__body');
 			if (!divider || !body) return;
+
+			// 버튼이 펼치고 접는 실제 내용(body)을 aria-controls로 연결합니다.
+			btn.setAttribute('aria-controls', ensureId(body, 'terms-body'));
 
 			// hidden 속성은 jQuery의 display 애니메이션과 충돌하므로
 			// 최초 1회만 display:none으로 치환해 이후 상태를 jQuery에 위임합니다.
@@ -307,10 +325,94 @@ window.calendarAlign = function () {
 		});
 	}
 
+	// Sticky footer(.sticky-footer) — 화면이 짧아도 하단 콘텐츠(알아두세요 아코디언 + CTA 버튼
+	// 등)가 항상 뷰포트 바닥에 붙어 있도록 position:fixed로 띄운 뒤, 그 실제 높이만큼
+	// .container에 padding-bottom을 채워 스크롤 콘텐츠가 가려지지 않게 합니다. ResizeObserver로
+	// 감시하므로 안쪽 아코디언을 펼치고/접어 푸터 높이가 바뀌면(애니메이션 도중 포함) 자동으로
+	// 다시 맞춰집니다.
+	function initStickyFooter() {
+		document.querySelectorAll('.sticky-footer').forEach(function (footer) {
+			var container = document.querySelector('.container');
+			if (!container) return;
+
+			function sync() {
+				container.style.paddingBottom = footer.offsetHeight + 'px';
+			}
+			sync();
+
+			if (window.ResizeObserver) {
+				new ResizeObserver(sync).observe(footer);
+			} else {
+				window.addEventListener('resize', sync);
+			}
+
+			// ResizeObserver 콜백은 브라우저 렌더링 사이클에 맞춰 비동기로 실행되는데, 환경에
+			// 따라 안쪽 아코디언이 jQuery slideUp/slideDown('fast', 약 200ms)으로 애니메이션되는
+			// 동안 콜백이 늦게 실행되거나 누락될 수 있어, 토글 버튼 클릭 시점에 애니메이션이
+			// 끝나는 시점(250ms)에도 한 번 더 확실히 다시 맞춰줍니다.
+			footer.querySelectorAll('[data-acc-toggle]').forEach(function (btn) {
+				btn.addEventListener('click', function () {
+					setTimeout(sync, 250);
+				});
+			});
+		});
+	}
+
+	// Chip Accordion(.chip-accordion) — [펼치기/접기] 버튼(.chip-accordion__toggle)을 누르면
+	// 부모 .chip-accordion에 is-open 클래스를 토글합니다. is-open 여부에 따라 CSS가 칩 목록을
+	// 가로 스크롤(닫힘) ↔ 여러 줄로 줄바꿈(열림, 높이 auto)으로 전환합니다.
+	function initChipAccordion() {
+		document.querySelectorAll('.chip-accordion__toggle').forEach(function (btn) {
+			var wrap = btn.closest('.chip-accordion');
+			if (!wrap) return;
+
+			// 버튼이 펼치고 접는 칩 목록(.chip-accordion__chips)을 aria-controls로 연결합니다.
+			var chips = wrap.querySelector('.chip-accordion__chips');
+			if (chips) btn.setAttribute('aria-controls', ensureId(chips, 'chip-list'));
+
+			btn.addEventListener('click', function () {
+				var open = wrap.classList.toggle('is-open');
+				btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+				btn.setAttribute('aria-label', open ? '접기' : '펼치기');
+			});
+		});
+	}
+
+	// Chip 단일선택(.chip-single) — 업권 필터 등 같은 부모 요소 아래 나란히 있는 .chip-single
+	// 버튼들 중 하나를 클릭하면 그 버튼만 active(.chip-single--active, aria-pressed="true")가 되고
+	// 나머지 형제 버튼은 모두 해제됩니다(라디오 그룹처럼 상호 배타적 단일 선택). 부모 클래스명을
+	// 하드코딩하지 않고 같은 parentElement를 공유하는 .chip-single끼리 자동으로 그룹을 구성하므로,
+	// .chip-accordion__chips 안이든 밖이든 동일하게 동작합니다.
+	function initChipSingle() {
+		var seenParents = [];
+		document.querySelectorAll('.chip-single').forEach(function (chip) {
+			var parent = chip.parentElement;
+			if (!parent || seenParents.indexOf(parent) !== -1) return;
+			seenParents.push(parent);
+
+			var group = Array.prototype.filter.call(parent.children, function (el) {
+				return el.classList.contains('chip-single');
+			});
+
+			group.forEach(function (btn) {
+				btn.addEventListener('click', function () {
+					group.forEach(function (c) {
+						var active = c === btn;
+						c.classList.toggle('chip-single--active', active);
+						c.setAttribute('aria-pressed', active ? 'true' : 'false');
+					});
+				});
+			});
+		});
+	}
+
 	document.addEventListener('DOMContentLoaded', function () {
 		initAccordion();
 		initTermsToggle();
 		initTermsSelectAll();
 		initTabs();
+		initChipAccordion();
+		initChipSingle();
+		initStickyFooter();
 	});
 })();

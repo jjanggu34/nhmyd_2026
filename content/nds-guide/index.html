@@ -968,16 +968,26 @@
 
             <section id="sec-accordion" class="nds">
                 <h2>Accordion</h2>
-                <p class="note">화면별 4종(notice/line/box/gray) — 아래 화살표를 눌러 열림/닫힘 확인 가능(이 페이지 전용 데모 스크립트).</p>
+                <p class="note">화면별 5종(notice/line/box/gray/리스트형) — 아래 화살표를 눌러 열림/닫힘 확인 가능(이 페이지 전용 데모 스크립트).</p>
 
                 <h3>Notice 타입</h3>
+                <p class="note">상단 8px 구분선(color-border-4, #f6f6f6) + 아이콘/타이틀/화살표 토글 버튼 + 본문(불릿 목록 + "바로가기" 링크) 구조입니다. 본문은 bullet--dot--body3(점 마커+Body3) 목록과 btn-arrow(기존 컴포넌트 재사용)를 그대로 조합하면 됩니다. Figma node-id=709-3323 "MSPS3600 자산연결 완료" 기준.</p>
                 <div class="demo row">
                     <div class="accordion-notice">
                         <div class="accordion-notice__item">
-                            <button type="button" aria-expanded="false" data-acc-toggle>
+                            <button type="button" aria-expanded="true" data-acc-toggle>
                                 <span class="accordion-notice__title">알아두세요</span>
                             </button>
-                            <div class="accordion-notice__body" hidden>[SAMPLE] 알아두어야 할 안내 문구가 여기 들어갑니다.</div>
+                            <div class="accordion-notice__body">
+                                <ul class="bullet bullet--dot--body3">
+                                    <li class="bullet__item">[SAMPLE] 알아두어야 할 안내 문구가 여기 들어갑니다.</li>
+                                    <li class="bullet__item">[SAMPLE] 두 번째 안내 문구도 여기 들어갑니다.</li>
+                                </ul>
+                                <button type="button" class="btn-arrow">
+                                    <span>바로가기</span>
+                                    <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -986,7 +996,15 @@
     &lt;button aria-expanded="false" data-acc-toggle&gt;
       &lt;span class="accordion-notice__title"&gt;알아두세요&lt;/span&gt;
     &lt;/button&gt;
-    &lt;div class="accordion-notice__body" hidden&gt;내용&lt;/div&gt;
+    &lt;div class="accordion-notice__body"&gt;
+      &lt;ul class="bullet bullet--dot--body3"&gt;
+        &lt;li class="bullet__item"&gt;안내 문구&lt;/li&gt;
+      &lt;/ul&gt;
+      &lt;button type="button" class="btn-arrow"&gt;
+        &lt;span&gt;바로가기&lt;/span&gt;
+        &lt;span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
@@ -1114,6 +1132,181 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+
+                <h3>리스트형 (체크박스 포함) — 기관선택(추천기관) 등</h3>
+                <p class="note">그룹 헤더에 전체선택 체크박스와 펼침 토글버튼이 나란히 오는 형태입니다. 전체선택/그룹 체크박스는 큰 사이즈(check-basic)를, 개별 기관 행 체크박스는 작은 사이즈(check-basic--xs)를 사용합니다(Figma 기준). 그룹 체크박스와 토글버튼은 형제 요소로 두고, data-acc-toggle 스크립트가 버튼의 부모(inst-list__group) 안에서 "__list"로 끝나는 요소를 찾아 펼침/닫힘을 처리합니다. 이용 불가 기관은 체크박스를 disabled 처리하고 상태 라벨(Label 컴포넌트)과 안내 버튼(inst-list__row-info)을 붙이며, Figma 원본에서 이 상태 항목들은 그룹 맨 위에 옵니다. 안내 버튼은 아이콘만 있어 aria-label이 필수입니다. 기관 로고는 체크박스(check-basic__icon)와 기관명(check-basic__label) 사이에 inst-list__row-logo 이미지로 넣으며, 로고·기관명이 모두 같은 &lt;label&gt;(inst-list__row-check) 안에 있어 로고나 이름을 클릭해도 체크박스가 토글됩니다. "추천기관" 화면은 그룹이 펼쳐진 상태로 시작합니다.</p>
+                <div class="demo">
+                    <div class="inst-list">
+                        <div class="inst-list__summary">
+                            <span class="inst-list__count">총 4건</span>
+                            <label class="check-basic">
+                                <input type="checkbox" class="check-basic__input" checked />
+                                <span class="check-basic__icon"></span>
+                                <span class="check-basic__label">추천기관 전체선택</span>
+                            </label>
+                        </div>
+                        <hr class="divider divider--list1" />
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="은행 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="true" data-acc-toggle>
+                                <span class="inst-list__group-title">[SAMPLE] 은행</span>
+                                <span class="inst-list__group-count">4개</span>
+                            </button>
+                            <div class="inst-list__group__list">
+                                <div class="inst-list__row inst-list__row--disabled">
+                                    <label class="check-basic check-basic--xs inst-list__row-check">
+                                        <input type="checkbox" class="check-basic__input" disabled />
+                                        <span class="check-basic__icon"></span>
+                                        <img class="inst-list__row-logo" src="../nhmyd/images/logos/AAAZ0000.png" alt="" />
+                                        <span class="check-basic__label">[SAMPLE] 농축협</span>
+                                    </label>
+                                    <span class="label label--sm label--line label--red">점검중</span>
+                                    <button type="button" class="inst-list__row-info" aria-label="[SAMPLE] 농축협 다시 연결하기"></button>
+                                </div>
+                                <div class="inst-list__row inst-list__row--disabled">
+                                    <label class="check-basic check-basic--xs inst-list__row-check">
+                                        <input type="checkbox" class="check-basic__input" disabled />
+                                        <span class="check-basic__icon"></span>
+                                        <img class="inst-list__row-logo" src="../nhmyd/images/logos/AAEO0000.png" alt="" />
+                                        <span class="check-basic__label">[SAMPLE] 국민은행</span>
+                                    </label>
+                                    <span class="label label--sm label--line label--gray">만료</span>
+                                    <button type="button" class="inst-list__row-info" aria-label="[SAMPLE] 국민은행 다시 연결하기"></button>
+                                </div>
+                                <div class="inst-list__row">
+                                    <label class="check-basic check-basic--xs inst-list__row-check">
+                                        <input type="checkbox" class="check-basic__input" checked />
+                                        <span class="check-basic__icon"></span>
+                                        <img class="inst-list__row-logo" src="../nhmyd/images/logos/AAER0000.png" alt="" />
+                                        <span class="check-basic__label">[SAMPLE] 신한은행</span>
+                                    </label>
+                                </div>
+                                <div class="inst-list__row">
+                                    <label class="check-basic check-basic--xs inst-list__row-check">
+                                        <input type="checkbox" class="check-basic__input" checked />
+                                        <span class="check-basic__icon"></span>
+                                        <img class="inst-list__row-logo" src="../nhmyd/images/logos/AAEM0000.png" alt="" />
+                                        <span class="check-basic__label">[SAMPLE] 우리은행</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="divider divider--list1" />
+                    </div>
+                </div>
+                <pre><code>&lt;div class="inst-list"&gt;
+  &lt;div class="inst-list__summary"&gt;
+    &lt;span class="inst-list__count"&gt;총 4건&lt;/span&gt;
+    &lt;label class="check-basic"&gt;&lt;input type="checkbox" class="check-basic__input" checked&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;span class="check-basic__label"&gt;전체선택&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;hr class="divider divider--list1"&gt;
+  &lt;div class="inst-list__group"&gt;
+    &lt;label class="check-basic inst-list__group-check"&gt;&lt;input type="checkbox" class="check-basic__input" checked aria-label="은행 전체선택"&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;button type="button" class="inst-list__group-toggle" aria-expanded="true" data-acc-toggle&gt;
+      &lt;span class="inst-list__group-title"&gt;은행&lt;/span&gt;&lt;span class="inst-list__group-count"&gt;4개&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;div class="inst-list__group__list"&gt;
+      &lt;div class="inst-list__row inst-list__row--disabled"&gt;
+        &lt;label class="check-basic check-basic--xs inst-list__row-check"&gt;&lt;input type="checkbox" class="check-basic__input" disabled&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;img class="inst-list__row-logo" src="logos/AAAZ0000.png" alt=""&gt;&lt;span class="check-basic__label"&gt;농축협&lt;/span&gt;&lt;/label&gt;
+        &lt;span class="label label--sm label--line label--red"&gt;점검중&lt;/span&gt;
+        &lt;button type="button" class="inst-list__row-info" aria-label="농축협 다시 연결하기"&gt;&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="inst-list__row"&gt;
+        &lt;label class="check-basic check-basic--xs inst-list__row-check"&gt;&lt;input type="checkbox" class="check-basic__input" checked&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;img class="inst-list__row-logo" src="logos/AAER0000.png" alt=""&gt;&lt;span class="check-basic__label"&gt;신한은행&lt;/span&gt;&lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;hr class="divider divider--list1"&gt;
+&lt;/div&gt;</code></pre>
+
+                <h3>리스트형 — 그룹 닫힘 상태(직접선택 등)</h3>
+                <p class="note">"직접선택" 화면처럼 카테고리별 그룹을 모두 접어 목록만 훑어보게 할 때는 각 그룹 버튼에 aria-expanded="false"를 주고 inst-list__group__list에 hidden 속성만 둡니다(내부 행 마크업은 펼칠 때 필요하며, 위 예시처럼 채워두면 그대로 재사용됩니다). 상단에 기관명 검색 입력(box/search)을 함께 두는 구성이 많습니다.</p>
+                <div class="demo">
+                    <div class="input-box">
+                        <div class="input-box__field">
+                            <label class="blind" for="inst-search-demo">기관명 검색</label>
+                            <input type="text" id="inst-search-demo" class="input-box__input" placeholder="기관명을 입력하세요" />
+                            <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="inst-list" style="margin-top:16px;">
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="은행 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">[SAMPLE] 은행</span>
+                                <span class="inst-list__group-count">41개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="카드 전체선택" />
+                                <span class="check-basic__icon"></span>
+                            </label>
+                            <button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle>
+                                <span class="inst-list__group-title">[SAMPLE] 카드</span>
+                                <span class="inst-list__group-count">27개</span>
+                            </button>
+                            <div class="inst-list__group__list" hidden></div>
+                        </div>
+                        <hr class="divider divider--list1" />
+                    </div>
+                </div>
+                <pre><code>&lt;div class="inst-list__group"&gt;
+  &lt;label class="check-basic inst-list__group-check"&gt;&lt;input type="checkbox" class="check-basic__input" checked aria-label="은행 전체선택"&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;/label&gt;
+  &lt;button type="button" class="inst-list__group-toggle" aria-expanded="false" data-acc-toggle&gt;
+    &lt;span class="inst-list__group-title"&gt;은행&lt;/span&gt;&lt;span class="inst-list__group-count"&gt;41개&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;div class="inst-list__group__list" hidden&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+                <h3>Sticky Footer — 아코디언+CTA가 화면 하단에 항상 붙어있는 패턴</h3>
+                <p class="note">
+                    화면 높이가 짧아도 알아두세요 아코디언 + CTA 버튼이 항상 뷰포트 바닥에 붙어 있어야 하는 화면(MSPS3600 자산연결 완료 등)에서 씁니다. sticky-footer는 accordion-notice/btn-cta 같은 기존 컴포넌트를 그대로 넣고 감싸기만 하면 되는 래퍼로, position:fixed로 뷰포트 바닥에 고정됩니다(이 가이드 페이지 전체 바닥에 고정돼 버리므로 아래 미리보기는 고정 높이 박스 안에 position:static으로 정적 배치해 모양만 보여줍니다 — 실제 동작은 아닙니다). update-ui.js의 <code>initStickyFooter()</code>가 sticky-footer의 실제 높이만큼 .container에 padding-bottom을 채워 스크롤 콘텐츠를 가리지 않게 하고, ResizeObserver로 감시하므로 아코디언을 펼치고/접어 높이가 바뀌어도(애니메이션 도중 포함) 자동으로 다시 맞춰집니다.
+                </p>
+                <div class="demo">
+                    <div class="bottomsheet-preview" style="display:flex; flex-direction:column; justify-content:flex-end; height:420px;">
+                        <div style="flex:1; padding:24px; color:var(--color-font-4); font-size:13px;">(스크롤 콘텐츠 영역)</div>
+                        <div class="sticky-footer" style="position:static;">
+                            <div class="accordion-notice">
+                                <div class="accordion-notice__item">
+                                    <button type="button" aria-expanded="true" data-acc-toggle>
+                                        <span class="accordion-notice__title">알아두세요</span>
+                                    </button>
+                                    <div class="accordion-notice__body">
+                                        <ul class="bullet bullet--dot--body3">
+                                            <li class="bullet__item">[SAMPLE] 안내 문구가 여기 들어갑니다.</li>
+                                        </ul>
+                                        <button type="button" class="btn-arrow">
+                                            <span>바로가기</span>
+                                            <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-cta btn-cta--basic">
+                                <button type="button" class="btn btn--primary btn--lg btn-cta__item">다음</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre><code>&lt;div class="container"&gt;...스크롤 콘텐츠...&lt;/div&gt;
+
+&lt;div class="sticky-footer"&gt;
+  &lt;div class="accordion-notice"&gt;...&lt;/div&gt;
+  &lt;div class="btn-cta btn-cta--basic"&gt;
+    &lt;button type="button" class="btn btn--primary btn--lg btn-cta__item"&gt;다음&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- update-ui.js DOMContentLoaded에서 initStickyFooter()가 자동 실행되어
+     .container의 padding-bottom을 sticky-footer 높이에 맞춰줍니다. --&gt;</code></pre>
             </section>
 
             <section id="sec-attached-file" class="nds">
@@ -2668,7 +2861,7 @@
 
             <section id="sec-bullet" class="nds">
                 <h2>Bullet</h2>
-                <p class="note">목록의 항목을 소개하는데 사용되는 타이포그래피 기호입니다. 마커 모양 기준으로 Dot(15px, 기본 점)/Dash(14px, 대시)/Small Dot(13px, 작은 점) 3종 스타일이 있으며, 하위 항목(2depth)은 bullet__item--dash로 대시 마커를 표시합니다.</p>
+                <p class="note">목록의 항목을 소개하는데 사용되는 타이포그래피 기호입니다. 마커 모양 기준으로 Dot(15px, 기본 점)/Dash(14px, 대시)/Small Dot(13px, 작은 점)/Dot-Body3(14px, 점 + Body3) 4종 스타일이 있으며, 하위 항목(2depth)은 bullet__item--dash로 대시 마커를 표시합니다.</p>
 
                 <h3>Dot 타입</h3>
                 <div class="demo">
@@ -2695,7 +2888,16 @@
                     </ul>
                 </div>
 
-                <pre><code>&lt;!-- Dot / Dash / Small Dot: bullet--dot, bullet--dash, bullet--dot--small 중 택1 --&gt;
+                <h3>Dot-Body3 타입</h3>
+                <p class="note">점(dot) 마커 + Body3(14px) 텍스트, 행간격 8px 조합입니다. Dash 타입과 텍스트 크기는 같지만 마커가 대시가 아니라 점이어야 할 때 씁니다(accordion-notice 본문 등, Figma node-id=709-3323 "MSPS3600 자산연결 완료" 기준).</p>
+                <div class="demo">
+                    <ul class="bullet bullet--dot--body3">
+                        <li class="bullet__item">알아두세요 1depth 목록 내용 입니다.</li>
+                        <li class="bullet__item">알아두세요 1depth 목록 내용 입니다.</li>
+                    </ul>
+                </div>
+
+                <pre><code>&lt;!-- Dot / Dash / Small Dot / Dot-Body3: bullet--dot, bullet--dash, bullet--dot--small, bullet--dot--body3 중 택1 --&gt;
 &lt;ul class="bullet bullet--dot"&gt;
   &lt;li class="bullet__item"&gt;1depth 목록 내용&lt;/li&gt;
   &lt;!-- 하위(2depth) 항목: 대시 마커 + 12px 들여쓰기 --&gt;
@@ -5387,31 +5589,35 @@
                 <h3>Divide — 구분선으로 나뉜 링크 목록 (2~4개)</h3>
                 <div class="demo">
                     <div class="link-divide">
-                        <div class="link-divide__item">
+                        <a href="javascript:;" class="link-divide__item" role="button">
                             <span class="link-divide__text">
                                 <span class="link-divide__title">타이틀</span>
                                 <span class="link-divide__sub">부가설명</span>
                             </span>
-                            <span class="link-divide__arrow"></span>
-                        </div>
+                            <span class="link-divide__arrow" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.50005 7L14.5 12.2507L9.50005 17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                            </span>
+                        </a>
                         <hr class="divider divider--page" />
-                        <div class="link-divide__item">
+                        <a href="javascript:;" class="link-divide__item" role="button">
                             <span class="link-divide__text">
                                 <span class="link-divide__title">타이틀</span>
                                 <span class="link-divide__sub">부가설명</span>
                             </span>
-                            <span class="link-divide__arrow"></span>
-                        </div>
+                            <span class="link-divide__arrow" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.50005 7L14.5 12.2507L9.50005 17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                            </span>
+                        </a>
                     </div>
                 </div>
-                <p class="note">기본 2개(link2Th)이며, 최대 4개(link3Th/link4th 추가)까지 늘릴 수 있습니다. 사이 구분선은 divider divider--page 재사용.</p>
+                <p class="note">기본 2개(link2Th)이며, 최대 4개(link3Th/link4th 추가)까지 늘릴 수 있습니다. 사이 구분선은 divider divider--page 재사용. 각 항목은 다른 화면으로 이동하는 실제 링크이므로 &lt;a role="button"&gt;(또는 실제 href가 있다면 &lt;a&gt;만)로 만들어야 클릭/키보드로 접근할 수 있습니다 — link-divide__item에 이미 버튼/링크 리셋 스타일이 포함되어 있어 div든 a든 시각적으로 동일합니다.</p>
                 <pre><code>&lt;div class="link-divide"&gt;
-  &lt;div class="link-divide__item"&gt;
+  &lt;a href="javascript:;" class="link-divide__item" role="button"&gt;
     &lt;span class="link-divide__text"&gt;&lt;span class="link-divide__title"&gt;타이틀&lt;/span&gt;&lt;span class="link-divide__sub"&gt;부가설명&lt;/span&gt;&lt;/span&gt;
-    &lt;span class="link-divide__arrow"&gt;&lt;/span&gt;
-  &lt;/div&gt;
+    &lt;span class="link-divide__arrow" aria-hidden="true"&gt;&lt;svg viewBox="0 0 24 24" fill="none"&gt;&lt;path d="M9.5 7L14.5 12.25L9.5 17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/&gt;&lt;/svg&gt;&lt;/span&gt;
+  &lt;/a&gt;
   &lt;hr class="divider divider--page"&gt;
-  &lt;div class="link-divide__item"&gt;...&lt;/div&gt;
+  &lt;a href="javascript:;" class="link-divide__item" role="button"&gt;...&lt;/a&gt;
 &lt;/div&gt;</code></pre>
 
                 <h3>Price — 이체 내역형 (이름/일시 + 금액/잔액)</h3>
@@ -7760,6 +7966,71 @@
                 <pre><code>&lt;div class="tab-bar" role="tablist"&gt;
   &lt;button class="tab-bar__item tab-bar__item--active" role="tab" aria-selected="true"&gt;메뉴&lt;/button&gt;
   &lt;button class="tab-bar__item" role="tab" aria-selected="false"&gt;메뉴&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+
+                <h3>bar + result-list — 탭 + 기관 연결결과 리스트 조합</h3>
+                <p class="note">NH_MD_UI_07_02/07_03 "자산연결 완료/실패" 팝업 전용 조합입니다. 탭패널마다 헤딩+탭바를 각자 갖고 있어(result-connect로 24px 간격 묶음), initTabs()가 패널별로 독립된 tablist로 인식합니다 — 어느 쪽 패널이 보이든 그 안의 탭바로 서로 전환할 수 있습니다. 리스트 행 아이콘은 inst-list__row-logo를 재사용하고, 우측 배지는 새로 안 만들고 기존 <a href="#sec-label">Label</a> 컴포넌트(label label--sm label--line label--green/red)를 그대로 씁니다.</p>
+                <div class="demo">
+                    <div class="result-connect" style="width: 360px">
+                        <div class="text-stack text-stack--lg" style="padding: 0 24px">
+                            <p class="text text--h2">
+                                총 22개 기관의
+                                <br />
+                                자산연결을 완료했어요
+                            </p>
+                            <div class="tab-bar" role="tablist" aria-label="자산연결 결과">
+                                <button type="button" class="tab-bar__item tab-bar__item--active" role="tab" aria-selected="true">연결성공 (22개)</button>
+                                <button type="button" class="tab-bar__item" role="tab" aria-selected="false">연결실패 (1개)</button>
+                            </div>
+                        </div>
+                        <div class="result-list">
+                            <div class="result-list__rows">
+                                <div class="result-list__row">
+                                    <span class="result-list__bank">
+                                        <img class="inst-list__row-logo" src="../nhmyd/images/logos/AAAZ0000.png" alt="" />
+                                        <span class="result-list__name">농축협</span>
+                                    </span>
+                                    <span class="label label--sm label--line label--green">연결성공</span>
+                                </div>
+                                <div class="result-list__row">
+                                    <span class="result-list__bank">
+                                        <img class="inst-list__row-logo" src="../nhmyd/images/logos/AAEO0000.png" alt="" />
+                                        <span class="result-list__name">국민은행</span>
+                                    </span>
+                                    <span class="label label--sm label--line label--green">연결성공</span>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-arrow">
+                                <span>더보기(1/5)</span>
+                                <span class="btn-arrow__icon btn-arrow__icon--plus" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <pre><code>&lt;!-- 패널당 1세트(헤딩+탭바+리스트)를 통째로 반복. 탭 전환은 initTabs()가 자동 처리 --&gt;
+&lt;div id="panel-success" class="result-connect" role="tabpanel" aria-labelledby="tab-success-a"&gt;
+  &lt;div class="text-stack text-stack--lg"&gt;
+    &lt;p class="text text--h2"&gt;총 22개 기관의&lt;br&gt;자산연결을 완료했어요&lt;/p&gt;
+    &lt;div class="tab-bar" role="tablist"&gt;
+      &lt;button class="tab-bar__item tab-bar__item--active" role="tab" id="tab-success-a" aria-selected="true" aria-controls="panel-success"&gt;연결성공 (22개)&lt;/button&gt;
+      &lt;button class="tab-bar__item" role="tab" id="tab-fail-a" aria-selected="false" aria-controls="panel-fail"&gt;연결실패 (1개)&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="result-list"&gt;
+    &lt;div class="result-list__rows"&gt;
+      &lt;div class="result-list__row"&gt;
+        &lt;span class="result-list__bank"&gt;
+          &lt;img class="inst-list__row-logo" src="..." alt="" /&gt;
+          &lt;span class="result-list__name"&gt;농축협&lt;/span&gt;
+        &lt;/span&gt;
+        &lt;span class="label label--sm label--line label--green"&gt;연결성공&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class="btn-arrow"&gt;&lt;span&gt;더보기(1/5)&lt;/span&gt;&lt;span class="btn-arrow__icon btn-arrow__icon--plus"&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="panel-fail" class="result-connect" role="tabpanel" aria-labelledby="tab-fail-b" hidden&gt;
+  ...동일 구조, &lt;span class="label label--sm label--line label--red"&gt;...&lt;/span&gt; 사용...
 &lt;/div&gt;</code></pre>
 
                 <h3>text — 구분선(|)으로 나뉜 텍스트 탭</h3>
@@ -12028,28 +12299,80 @@
             })();
         </script>
         <script>
+            // aria-controls용 id 자동 부여(production update-ui.js의 ensureId와 동일).
+            var autoIdSeq = 0;
+            function ensureId(el, prefix) {
+            	if (!el.id) {
+            		autoIdSeq += 1;
+            		el.id = prefix + '-' + autoIdSeq;
+            	}
+            	return el.id;
+            }
             document.querySelectorAll('[data-acc-toggle]').forEach(function (btn) {
+            	var body = btn.parentElement.querySelector('[class$="__body"], [class$="__list"]');
+            	if (body) btn.setAttribute('aria-controls', ensureId(body, 'acc-body'));
             	btn.addEventListener('click', function () {
             		var open = btn.getAttribute('aria-expanded') === 'true';
             		btn.setAttribute('aria-expanded', open ? 'false' : 'true');
-            		var body = btn.parentElement.querySelector('[class$="__body"], [class$="__list"]');
             		if (body) body.hidden = open;
             	});
             });
         </script>
         <script>
+            // Chip Accordion(.chip-accordion) — production(update-ui.js의 initChipAccordion)과 동일한
+            // 동작을 시연합니다. 펼치기/접기 버튼을 누르면 부모에 is-open을 토글해 CSS가 가로 스크롤
+            // (닫힘) ↔ 여러 줄 줄바꿈(열림)으로 전환합니다.
+            document.querySelectorAll('.chip-accordion__toggle').forEach(function (btn) {
+            	var wrap = btn.closest('.chip-accordion');
+            	if (!wrap) return;
+            	var chips = wrap.querySelector('.chip-accordion__chips');
+            	if (chips) btn.setAttribute('aria-controls', ensureId(chips, 'chip-list'));
+            	btn.addEventListener('click', function () {
+            		var open = wrap.classList.toggle('is-open');
+            		btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            		btn.setAttribute('aria-label', open ? '접기' : '펼치기');
+            	});
+            });
+        </script>
+        <script>
+            // Chip 단일선택(.chip-single) — production(update-ui.js의 initChipSingle)과 동일한 동작을
+            // 시연합니다. 같은 부모 아래 나란히 있는 .chip-single 버튼 중 하나를 클릭하면 그 버튼만
+            // active/aria-pressed=true가 되고 나머지는 해제됩니다.
+            (function () {
+            	var seenParents = [];
+            	document.querySelectorAll('.chip-single').forEach(function (chip) {
+            		var parent = chip.parentElement;
+            		if (!parent || seenParents.indexOf(parent) !== -1) return;
+            		seenParents.push(parent);
+            		var group = Array.prototype.filter.call(parent.children, function (el) {
+            			return el.classList.contains('chip-single');
+            		});
+            		group.forEach(function (btn) {
+            			btn.addEventListener('click', function () {
+            				group.forEach(function (c) {
+            					var active = c === btn;
+            					c.classList.toggle('chip-single--active', active);
+            					c.setAttribute('aria-pressed', active ? 'true' : 'false');
+            				});
+            			});
+            		});
+            	});
+            })();
+        </script>
+        <script>
             // Terms 아코디언(.terms-card) — production(update-ui.js의 initTermsToggle)과 동일한 동작을
             // jQuery 없는 이 가이드 페이지에서도 그대로 시연합니다(애니메이션 없이 hidden 토글만 다름).
             document.querySelectorAll('[data-terms-toggle]').forEach(function (btn) {
+            	var card = btn.closest('.terms-card');
+            	var body = card ? card.querySelector('.terms-card__body') : null;
+            	if (body) btn.setAttribute('aria-controls', ensureId(body, 'terms-body'));
             	btn.addEventListener('click', function () {
             		var open = btn.getAttribute('aria-expanded') === 'true';
             		btn.setAttribute('aria-expanded', open ? 'false' : 'true');
             		btn.classList.toggle('is-open', !open);
             		btn.setAttribute('aria-label', open ? '펼치기' : '접기');
-            		var card = btn.closest('.terms-card');
             		if (!card) return;
             		var divider = card.querySelector('.terms-card__divider');
-            		var body = card.querySelector('.terms-card__body');
             		if (divider) divider.hidden = open;
             		if (body) body.hidden = open;
             	});

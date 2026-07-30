@@ -1718,6 +1718,22 @@
           mask-image: url("../img/icon/plus-24.svg");
 }
 
+/* --- sticky-footer --- */
+/* 화면 높이가 짧아도 하단 영역(알아두세요 아코디언 + CTA 버튼 등)이 항상 뷰포트 바닥에
+   붙어 있어야 할 때 쓰는 래퍼입니다. accordion-notice나 btn-cta처럼 이미 있는 컴포넌트를
+   그대로 안에 넣고 감싸기만 하면 됩니다. 안쪽 아코디언을 펼치고/접어 높이가 바뀌어도
+   .container 콘텐츠가 가려지지 않도록 update-ui.js의 initStickyFooter()가 ResizeObserver로
+   감시하며 .container의 padding-bottom을 자동으로 맞춰줍니다. */
+.nds .sticky-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1100;
+  width: 100%;
+  background: var(--color-bg-default);
+}
+
 .nds .btn-cta {
   display: flex;
   gap: 8px;
@@ -3143,7 +3159,7 @@
   display: block;
   width: 100%;
   height: 8px;
-  background-color: #FFE1E1;
+  background-color: var(--color-border-4);
 }
 .nds .accordion-notice__item > button {
   width: 100%;
@@ -3211,12 +3227,10 @@
   text-overflow: ellipsis;
 }
 .nds .accordion-notice__body {
-  padding: 0 24px 16px 24px;
-  font-size: 14px;
-  font-weight: var(--font-weight-regular);
-  letter-spacing: -0.02em;
-  color: var(--color-font-3);
-  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 24px 16px 24px;
 }
 .nds .accordion-line {
   width: 100%;
@@ -3519,6 +3533,223 @@
   -webkit-mask-image: url("../img/icon/arr_right2_line_24.svg");
           mask-image: url("../img/icon/arr_right2_line_24.svg");
 }
+
+/* --- inst-list: 기관 리스트형 아코디언 (체크박스 + 토글버튼 헤더, 하위 기관 행에
+   체크박스+명칭+상태라벨+안내버튼) — data-acc-toggle 스크립트를 그대로 재사용합니다.
+   toggle 버튼의 부모(.inst-list__group)에 __list로 끝나는 요소가 형제로 있어야
+   스크립트가 열고 닫을 대상을 찾을 수 있습니다. */
+.nds .inst-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.nds .inst-list__summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.nds .inst-list__count {
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  color: var(--color-font-3);
+}
+.nds .inst-list__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 16px 0;
+  border-top: 1px solid #F0F0F0;
+}
+.nds .inst-list__group-check {
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+.nds .inst-list__group-toggle {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 28px 0 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+}
+.nds .inst-list__group-title {
+  font-size: 15px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.3px;
+  color: var(--color-font-1);
+}
+.nds .inst-list__group-count {
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  color: var(--color-font-3);
+}
+.nds .inst-list__group-toggle::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+  background-color: var(--color-icon-1);
+  transition: transform 0.2s ease;
+  -webkit-mask-image: url("../img/icon/arr_down2_line_24.svg");
+          mask-image: url("../img/icon/arr_down2_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+.nds .inst-list__group-toggle[aria-expanded=true]::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+.nds .inst-list__group__list {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4px;
+}
+.nds .inst-list__group__list[hidden] {
+  display: none;
+}
+.nds .inst-list__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+  flex-shrink: 0;
+}
+.nds .inst-list__row-check {
+  flex: 1;
+  min-width: 0;
+}
+.nds .inst-list__row-check .check-basic__label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nds .inst-list__row--disabled .check-basic__label {
+  color: var(--color-font-4);
+}
+.nds .inst-list__row-logo {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: var(--color-bg-container);
+}
+.nds .inst-list__row--disabled .inst-list__row-logo {
+  opacity: 0.4;
+}
+.nds .inst-list__row-info {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-icon-4);
+}
+.nds .inst-list__row-info::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  -webkit-mask-image: url("../img/icon/24/line/system/ico_share-link_line_24.svg");
+          mask-image: url("../img/icon/24/line/system/ico_share-link_line_24.svg");
+  -webkit-mask-size: contain;
+          mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+          mask-position: center;
+}
+
+/* ---- Result List: 기관명 + 연결성공/실패 라벨 리스트(NH_MD_UI_07_02/07_03 "자산연결
+   완료/실패" 팝업 전용). 아이콘은 inst-list__row-logo를 그대로 재사용합니다. */
+.nds .result-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.nds .result-list__rows {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.nds .result-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 4px;
+  box-sizing: border-box;
+}
+
+.nds .result-list__row + .result-list__row {
+  border-top: 1px solid var(--color-border-3);
+}
+
+.nds .result-list__bank {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.nds .result-list__name {
+  font-size: 14px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.28px;
+  line-height: 22px;
+  color: var(--color-font-1);
+  white-space: nowrap;
+}
+
+/* ---- fullLayerPop(.nds) 팝업 콘텐츠 기본 레이아웃: popCont의 레거시 좌우 16px 패딩을
+   제거합니다. 실제 세로 흐름(24px 간격)은 아래 result-connect가 담당합니다. */
+.nds.popWrap.fullLayerPop .popInner .popCont {
+  padding: 0 0 60px;
+}
+
+/* ---- Result Connect: 헤딩+탭바 블록과 result-list를 24px 간격으로 쌓는 래퍼
+   (NH_MD_UI_07_02/07_03 tabpanel 하나가 이 구조 하나에 대응). */
+.nds .result-connect {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.nds .result-connect[hidden] {
+  display: none;
+}
+
 .nds .attached-thumb__item {
   position: relative;
   width: 96px;
@@ -3749,6 +3980,20 @@
 }
 .nds .bullet--dash .bullet__item--dash::before {
   margin-top: 11.5px;
+}
+/* dot--body3: 점(dot) 마커 + Body3(14px) 텍스트, 행간격 8px — accordion-notice 본문 등
+   notice 성격 리스트지만 마커는 점을 쓰는 조합(--dash는 마커가 대시라 이 경우엔 안 맞음). */
+.nds .bullet--dot--body3 {
+  gap: 8px;
+}
+.nds .bullet--dot--body3 .bullet__item {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: -0.28px;
+  color: var(--color-font-3);
+}
+.nds .bullet--dot--body3 .bullet__item::before {
+  margin-top: 9px;
 }
 
 /* --- calendar-day --- */
@@ -4299,7 +4544,14 @@
   align-items: center;
   flex-wrap: nowrap;
   gap: 4px;
-  overflow: hidden;
+  height: 32px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+.nds .chip-accordion__chips::-webkit-scrollbar {
+  display: none;
 }
 
 .nds .chip-accordion__toggle {
@@ -4351,6 +4603,8 @@
 .nds .chip-accordion.is-open .chip-accordion__chips {
   flex-wrap: wrap;
   row-gap: 8px;
+  height: auto;
+  overflow: visible;
 }
 
 .nds .chip-accordion.is-open .chip-accordion__toggle {
@@ -5962,6 +6216,15 @@
   align-items: center;
   gap: 8px;
   width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .nds .link-divide__text {
@@ -5995,20 +6258,13 @@
   color: var(--color-font-5);
 }
 
-.nds .link-divide__arrow::before {
-  content: "";
+/* mask-image 대신 인라인 svg를 직접 넣는 방식입니다(마스크 렌더링이 불안정한 환경/확장
+   프로그램 오버레이 이슈를 피하기 위해 — link-divide__arrow에서 실제로 겪은 문제라 여기부터
+   먼저 바꿨습니다. 다른 아이콘도 같은 문제가 재현되면 같은 방식으로 옮길 수 있습니다). */
+.nds .link-divide__arrow svg {
   display: block;
   width: 100%;
   height: 100%;
-  background-color: currentColor;
-  -webkit-mask-image: url("../img/icon/arr_right2_line_24.svg");
-          mask-image: url("../img/icon/arr_right2_line_24.svg");
-  -webkit-mask-size: contain;
-          mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-          mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-          mask-position: center;
 }
 
 .nds .link-price {
@@ -8560,6 +8816,13 @@
 }
 .nds .text-stack--lg {
   gap: 32px;
+}
+/* 결과(완료/실패 등) 화면 상단에 쓰는 상태 아이콘 — Figma "img/common/img_agree-check_68" 등
+   68x68 고정 크기 아이콘. 바로 옆/아래 헤딩 텍스트가 같은 의미를 전달하므로 장식용(alt=""). */
+.nds .result-icon {
+  display: block;
+  width: 68px;
+  height: 68px;
 }
 /* 불릿 리스트 — 4px 점 불릿(첫 줄 높이에 세로 중앙 정렬) + 본문. 항목 텍스트가 여러 줄이어도
    이어지는 줄은 불릿이 아니라 텍스트 시작 위치에 맞춰 자연스럽게 흐릅니다(flex 레이아웃이라
