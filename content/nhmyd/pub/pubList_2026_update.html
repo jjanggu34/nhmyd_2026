@@ -19,6 +19,7 @@
                 </div>
                 <div class="search">
                     <input id="q" type="text" placeholder="화면ID, 화면명, 담당자로 검색..." />
+                    <span id="searchCount" class="searchCount"></span>
                 </div>
                 <div class="menu">
                     <ul>
@@ -36,7 +37,11 @@
                     <li><span class="chip" data-type="유지">유지</span></li>
                     <li><span class="chip" data-type="삭제">삭제</span></li>
                 </ul>
-                <span class="count">기획서 v0.3 (2026.07.27) · 총 42건 (신규 27 · 개선 10 · 삭제 5)</span>
+                <span class="count">
+                    기획서 v0.3 (2026.07.27) · 총 42건 (신규 27 · 개선 10 · 삭제 5) · 개발완료
+                    <span id="doneCount">0</span>
+                    건
+                </span>
             </nav>
         </header>
         <div class="summary-bar">기존 저장소에 이미 있는 화면(자산연결 5건: MSCO9100/MSPS3120/MSPS3600/MSAR3110P)은 링크로 바로 열람 가능합니다. 나머지는 "준비중"으로 표시됩니다. ⚠는 계획상 개선인데 저장소에서 대응 화면을 찾지 못한 항목입니다. 개발상태는 화면목록 xlsx의 기획 진행상태를 그대로 표시했습니다(디자인·퍼블은 아직 착수 전).</div>
@@ -83,7 +88,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_01.html" target="_blank">NH_MD_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">권영주</span>
                                 <span class="rbadge r-design">방민규</span>
@@ -101,7 +106,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_01_01.html" target="_blank">NH_MD_01_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">권영주</span>
                                 <span class="rbadge r-design">방민규</span>
@@ -119,7 +124,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_02_01.html" target="_blank">NH_MD_02_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">권영주</span>
                                 <span class="rbadge r-design">방민규</span>
@@ -140,7 +145,7 @@
                                 <span class="flag" title="저장소 내 대응 화면 미확인 — 확인 필요">⚠</span>
                             </td>
                             <td><span class="badge badge-improve">개선</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김도엽</span>
                                 <span class="rbadge r-design">조한</span>
@@ -158,7 +163,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_YO_02_01.html" target="_blank">NH_MD_YO_02_01</a></td>
                             <td><span class="badge badge-del">삭제</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김도엽</span>
                                 <span class="rbadge r-design">조한</span>
@@ -176,7 +181,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_YO_02_02.html" target="_blank">NH_MD_YO_02_02</a></td>
                             <td><span class="badge badge-del">삭제</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김도엽</span>
                                 <span class="rbadge r-design">조한</span>
@@ -194,7 +199,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_YO_03.html" target="_blank">NH_MD_YO_03</a></td>
                             <td><span class="badge badge-del">삭제</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김도엽</span>
                                 <span class="rbadge r-design">조한</span>
@@ -212,7 +217,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_YO_04.html" target="_blank">NH_MD_YO_04</a></td>
                             <td><span class="badge badge-del">삭제</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김도엽</span>
                                 <span class="rbadge r-design">조한</span>
@@ -230,7 +235,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_PM_01.html" target="_blank">NH_MD_PM_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김도엽</span>
                                 <span class="rbadge r-design">조한</span>
@@ -248,7 +253,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_PM_02_01.html" target="_blank">NH_MD_PM_02_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Fragment</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김도엽</span>
                                 <span class="rbadge r-design">조한</span>
@@ -266,7 +271,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_PM_02_02.html" target="_blank">NH_MD_PM_02_02</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Fragment</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김도엽</span>
                                 <span class="rbadge r-design">조한</span>
@@ -284,7 +289,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_PM_03.html" target="_blank">NH_MD_PM_03</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Fragment</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김도엽</span>
                                 <span class="rbadge r-design">조한</span>
@@ -302,13 +307,13 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/MSCO9100.html" target="_blank">MSCO9100</a></td>
                             <td><span class="badge badge-improve">개선</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
                                 <span class="rbadge r-pub">이솔</span>
                             </td>
-                            <td class="status"><span class="ok">기존화면</span></td>
+                            <td class="status"><span></span></td>
                             <td class="link"><a href="co/MSCO9100.html" target="_blank">MSCO9100</a></td>
                         </tr>
                         <tr style="background:#fff" data-type="개선">
@@ -320,7 +325,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/MSAR3110P_01.html" target="_blank">MSAR3110P_01</a></td>
                             <td><span class="badge badge-improve">개선</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -338,7 +343,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/MSAR3110P_02.html" target="_blank">MSAR3110P_02</a></td>
                             <td><span class="badge badge-improve">개선</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -356,7 +361,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/MSPS3120.html" target="_blank">MSPS3120</a></td>
                             <td><span class="badge badge-improve">개선</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -374,7 +379,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_03_02.html" target="_blank">NH_MD_UI_03_02</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -392,11 +397,11 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_08.html" target="_blank">NH_MD_UI_08</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
-                                <span class="rbadge r-pub">오영주</span>
+                                <span class="rbadge r-pub">이솔</span>
                             </td>
                             <td class="status"><span>작업중</span></td>
                             <td class="link"></td>
@@ -410,7 +415,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_04.html" target="_blank">NH_MD_UI_04</a></td>
                             <td><span class="badge badge-del">삭제</span></td>
-                            <td class="fmt">Fragment</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -428,13 +433,13 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_05.html" target="_blank">NH_MD_UI_05</a></td>
                             <td><span class="badge badge-improve">개선</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
                                 <span class="rbadge r-pub">이솔</span>
                             </td>
-                            <td class="status"><span>작업중</span></td>
+                            <td class="status"><span class="ok">완료</span></td>
                             <td class="link"></td>
                         </tr>
                         <tr style="background:#fff" data-type="신규">
@@ -446,7 +451,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_01.html" target="_blank">NH_MD_UI_05_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -464,7 +469,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_02.html" target="_blank">NH_MD_UI_05_02</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -482,7 +487,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_03.html" target="_blank">NH_MD_UI_05_03</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -500,7 +505,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_04.html" target="_blank">NH_MD_UI_05_04</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -518,7 +523,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_05_05.html" target="_blank">NH_MD_UI_05_05</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -536,7 +541,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_06_01.html" target="_blank">NH_MD_UI_06_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -554,7 +559,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_06_02.html" target="_blank">NH_MD_UI_06_02</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Fragment</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -572,7 +577,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_06_03.html" target="_blank">NH_MD_UI_06_03</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Fragment</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -590,7 +595,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_06_04.html" target="_blank">NH_MD_UI_06_04</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Fragment</td>
+                            <td class="fmt">slide popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -608,7 +613,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/MSPS3600.html" target="_blank">MSPS3600</a></td>
                             <td><span class="badge badge-improve">개선</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -626,7 +631,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_07_02.html" target="_blank">NH_MD_UI_07_02</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">full popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -644,7 +649,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_UI_07_03.html" target="_blank">NH_MD_UI_07_03</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">full popup</td>
                             <td class="people">
                                 <span class="rbadge r-plan">한승희</span>
                                 <span class="rbadge r-design">박고운</span>
@@ -662,7 +667,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_CO_03_01.html" target="_blank">NH_MD_CO_03_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김희연</span>
                                 <span class="rbadge r-design">조한</span>
@@ -680,7 +685,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_CO_03_02.html" target="_blank">NH_MD_CO_03_02</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김희연</span>
                                 <span class="rbadge r-design">조한</span>
@@ -698,7 +703,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_CO_01_01.html" target="_blank">NH_MD_CO_01_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김희연</span>
                                 <span class="rbadge r-design">조한</span>
@@ -716,7 +721,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_CO_01_02.html" target="_blank">NH_MD_CO_01_02</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김희연</span>
                                 <span class="rbadge r-design">조한</span>
@@ -734,7 +739,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_CO_01_03.html" target="_blank">NH_MD_CO_01_03</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김희연</span>
                                 <span class="rbadge r-design">조한</span>
@@ -752,7 +757,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_CO_01_04.html" target="_blank">NH_MD_CO_01_04</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김희연</span>
                                 <span class="rbadge r-design">조한</span>
@@ -770,7 +775,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_CO_02_01.html" target="_blank">NH_MD_CO_02_01</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김희연</span>
                                 <span class="rbadge r-design">조한</span>
@@ -788,7 +793,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_CO_02_02.html" target="_blank">NH_MD_CO_02_02</a></td>
                             <td><span class="badge badge-new">신규</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">김희연</span>
                                 <span class="rbadge r-design">조한</span>
@@ -806,7 +811,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_AI_02.html" target="_blank">NH_MD_AI_02</a></td>
                             <td><span class="badge badge-improve">개선</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">정주영</span>
                                 <span class="rbadge r-design">방민규</span>
@@ -824,7 +829,7 @@
                             <td class="dep"></td>
                             <td class="id"><a href="../pub_2026/update/NH_MD_AI_03.html" target="_blank">NH_MD_AI_03</a></td>
                             <td><span class="badge badge-improve">개선</span></td>
-                            <td class="fmt">Full</td>
+                            <td class="fmt">page</td>
                             <td class="people">
                                 <span class="rbadge r-plan">정주영</span>
                                 <span class="rbadge r-design">방민규</span>
@@ -838,18 +843,33 @@
             </div>
         </main>
         <script>
+            // 개발상태(td.status)가 "완료"(span.ok)인 행 개수를 세서 상단 카운트에 표시.
+            // 테이블 행이 늘거나 상태가 바뀌어도 매번 손으로 안 고치게 DOM에서 직접 셉니다.
+            document.getElementById('doneCount').textContent =
+              document.querySelectorAll('tbody tr td.status .ok').length;
+
             const q = document.getElementById('q');
+            const searchCount = document.getElementById('searchCount');
             const chips = document.querySelectorAll('.chip');
             let activeType = 'all';
             function applyFilter() {
               const term = q.value.trim().toLowerCase();
+              let visibleCount = 0;
               document.querySelectorAll('tbody tr').forEach(function(row) {
                 const text = row.innerText.toLowerCase();
                 const typeMatch = activeType === 'all' || row.dataset.type === activeType;
                 const textMatch = term === '' || text.includes(term);
-                row.classList.toggle('hide', !(typeMatch && textMatch));
+                const show = typeMatch && textMatch;
+                row.classList.toggle('hide', !show);
+                if (show) visibleCount++;
               });
+              // 검색어나 유형 필터가 걸려 있을 때만 "검색결과 N건"으로 보여주고,
+              // 아무 필터도 없을 때(전체 + 검색어 없음)는 표 전체가 다 보이는 상태라 굳이 안 띄웁니다.
+              searchCount.textContent = (term !== '' || activeType !== 'all')
+                ? '검색결과 ' + visibleCount + '건'
+                : '';
             }
+            applyFilter();
             q.addEventListener('input', applyFilter);
             chips.forEach(function(chip) {
               chip.addEventListener('click', function() {
