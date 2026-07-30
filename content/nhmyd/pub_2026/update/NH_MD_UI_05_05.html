@@ -1,135 +1,237 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>[P] 조회 기간 선택 + 년월일 선택(center popup)</title>
+        <script>
+            // popClose()/calendarAlign() 오버라이드는 content/nhmyd/js/nds-ui.js로 이동함
+            // (이 페이지에서만 쓰던 걸 head-mb-update.js를 쓰는 .nds 화면 전체가 공유하도록)
+            $(document).ready(function () {
+            	slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            })
+        </script>
+    </head>
 
-<head>
-	<script src="../pub-assets/js/head-mb-update.js"></script>
-	<title>[P] 조회 기간 선택 + 년월일 선택(center popup)</title>
-	<script>
-		// popClose()/calendarAlign() 오버라이드는 content/nhmyd/js/nds-ui.js로 이동함
-		// (이 페이지에서만 쓰던 걸 head-mb-update.js를 쓰는 .nds 화면 전체가 공유하도록)
-		$(document).ready(function () {
-			slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
-		})
-	</script>
-</head>
+    <body>
+        <div class="wrapper nhasset nds"><!-- 바닥페이지 --></div>
 
-<body>
-	<div class="wrapper nhasset nds"><!-- 바닥페이지 --></div>
+        <!-- 조회 기간 선택 bottomsheet (NH_MD_UI_05_04와 동일) - 이 케이스에서는 활성화된 채로 뒤에 그대로 남아있음 -->
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1>조회 기간 선택</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <div class="period">
+                            <p class="bottomsheet-option__label">조회기간</p>
+                            <div class="radio-box-row">
+                                <input type="radio" name="period" id="period-12m" class="radio-hidden-input radio-box-input" />
+                                <label for="period-12m" class="radio-box radio-box--sm radio-box--center">12개월</label>
+                                <input type="radio" name="period" id="period-direct" class="radio-hidden-input radio-box-input" checked />
+                                <label for="period-direct" class="radio-box radio-box--sm radio-box--center">직접입력</label>
+                            </div>
 
-	<!-- 조회 기간 선택 bottomsheet (NH_MD_UI_05_04와 동일) - 이 케이스에서는 활성화된 채로 뒤에 그대로 남아있음 -->
-	<div class="nhasset popWrap nds slidePopConfirm">
-		<div class="dim"></div>
-		<div class="popInner">
-			<h1>조회 기간 선택</h1>
-			<div class="popCont">
-				<div class="period">
-					<p class="bottomsheet-option__label">조회기간</p>
-					<div class="radio-box-row">
-						<input type="radio" name="period" id="period-12m" class="radio-hidden-input radio-box-input">
-						<label for="period-12m" class="radio-box radio-box--sm radio-box--center">12개월</label>
-						<input type="radio" name="period" id="period-direct" class="radio-hidden-input radio-box-input" checked>
-						<label for="period-direct" class="radio-box radio-box--sm radio-box--center">직접입력</label>
-					</div>
+                            <div class="calendar-period mt12">
+                                <div class="calendar-period__field">
+                                    <span class="calendar-period__text">2026.07.13</span>
+                                    <button type="button" class="calendar-period__icon" aria-label="시작일 날짜선택" onclick="popCenter();calendarAlign();"></button>
+                                    <span class="calendar-period__sep">~</span>
+                                    <span class="calendar-period__text">2027.07.13</span>
+                                    <button type="button" class="calendar-period__icon" aria-label="종료일 날짜선택" onclick="popCenter();calendarAlign();"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <div class="popBtn">
+                        <a href="javascript:;" class="confirmBtn" role="button">확인</a>
+                    </div>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
+                </div>
+            </div>
+        </div>
 
-					<div class="calendar-period mt12">
-						<div class="calendar-period__field">
-							<span class="calendar-period__text">2026.07.13</span>
-							<button type="button" class="calendar-period__icon" aria-label="시작일 날짜선택" onclick="popCenter();calendarAlign();"></button>
-							<span class="calendar-period__sep">~</span>
-							<span class="calendar-period__text">2027.07.13</span>
-							<button type="button" class="calendar-period__icon" aria-label="종료일 날짜선택" onclick="popCenter();calendarAlign();"></button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="popBtnWrap">
-				<div class="popBtn">
-					<a href="javascript:;" class="confirmBtn" role="button">확인</a>
-				</div>
-				<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."
-					role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
-			</div>
-		</div>
-	</div>
+        <div class="nhasset popWrap nds centerLayer">
+            <div class="dim"></div>
+            <div class="dimCloseArea" role="button" tabindex="0" onclick="popClose(this);return false;">터치 시 해당 창을 닫습니다.</div>
+            <div class="popInner">
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <p class="dayPicSet__label">년 · 월 · 일을 선택해 주세요</p>
+                        <div class="yearSet dayPicSet timePicSet">
+                            <ol class="yearsetLft">
+                                <li>
+                                    <a href="javascript:;"><span>2017</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>2018</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>2019</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>2020</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>2021</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="active"><span>2022</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>2023</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>2024</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>2025</span></a>
+                                </li>
+                            </ol>
 
-	<div class="nhasset popWrap nds centerLayer">
-		<div class="dim"></div>
-		<div class="dimCloseArea" role="button" tabindex="0" onclick="popClose(this);return false;">터치 시 해당 창을 닫습니다.</div>
-		<div class="popInner">
-			<div class="popCont">
-				<p class="dayPicSet__label">년 · 월 · 일을 선택해 주세요</p>
-				<div class="yearSet dayPicSet timePicSet">
-					<ol class="yearsetLft">
-						<li><a href="javascript:;"><span>2017</span></a></li>
-						<li><a href="javascript:;"><span>2018</span></a></li>
-						<li><a href="javascript:;"><span>2019</span></a></li>
-						<li><a href="javascript:;"><span>2020</span></a></li>
-						<li><a href="javascript:;"><span>2021</span></a></li>
-						<li><a href="javascript:;" class="active"><span>2022</span></a></li>
-						<li><a href="javascript:;"><span>2023</span></a></li>
-						<li><a href="javascript:;"><span>2024</span></a></li>
-						<li><a href="javascript:;"><span>2025</span></a></li>
-					</ol>
-					
-					<ol class="yearsetRht">
-						<li><a href="javascript:;"><span>01</span></a></li>
-						<li><a href="javascript:;"><span>02</span></a></li>
-						<li><a href="javascript:;" class="active"><span>03</span></a></li>
-						<li><a href="javascript:;"><span>04</span></a></li>
-						<li><a href="javascript:;"><span>05</span></a></li>
-						<li><a href="javascript:;"><span>06</span></a></li>
-						<li><a href="javascript:;"><span>07</span></a></li>
-						<li><a href="javascript:;"><span>08</span></a></li>
-						<li><a href="javascript:;"><span>09</span></a></li>
-						<li><a href="javascript:;"><span>10</span></a></li>
-						<li><a href="javascript:;"><span>11</span></a></li>
-						<li><a href="javascript:;"><span>12</span></a></li>
-					</ol>
+                            <ol class="yearsetRht">
+                                <li>
+                                    <a href="javascript:;"><span>01</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>02</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="active"><span>03</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>04</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>05</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>06</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>07</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>08</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>09</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>10</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>11</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>12</span></a>
+                                </li>
+                            </ol>
 
-					<ol class="yearsetDay">
-						<li><a href="javascript:;"><span>1</span></a></li>
-						<li><a href="javascript:;"><span>2</span></a></li>
-						<li><a href="javascript:;"><span>3</span></a></li>
-						<li><a href="javascript:;"><span>4</span></a></li>
-						<li><a href="javascript:;"><span>5</span></a></li>
-						<li><a href="javascript:;"><span>6</span></a></li>
-						<li><a href="javascript:;"><span>7</span></a></li>
-						<li><a href="javascript:;"><span>8</span></a></li>
-						<li><a href="javascript:;"><span>9</span></a></li>
-						<li><a href="javascript:;"><span>10</span></a></li>
-						<li><a href="javascript:;"><span>11</span></a></li>
-						<li><a href="javascript:;"><span>12</span></a></li>
-						<li><a href="javascript:;"><span>13</span></a></li>
-						<li><a href="javascript:;"><span>14</span></a></li>
-						<li><a href="javascript:;" class="active"><span>15</span></a></li>
-						<li><a href="javascript:;"><span>16</span></a></li>
-						<li><a href="javascript:;"><span>17</span></a></li>
-						<li><a href="javascript:;"><span>18</span></a></li>
-						<li><a href="javascript:;"><span>19</span></a></li>
-						<li><a href="javascript:;"><span>20</span></a></li>
-						<li><a href="javascript:;"><span>21</span></a></li>
-						<li><a href="javascript:;"><span>22</span></a></li>
-						<li><a href="javascript:;"><span>23</span></a></li>
-						<li><a href="javascript:;"><span>24</span></a></li>
-						<li><a href="javascript:;"><span>25</span></a></li>
-						<li><a href="javascript:;"><span>26</span></a></li>
-						<li><a href="javascript:;"><span>27</span></a></li>
-						<li><a href="javascript:;"><span>28</span></a></li>
-						<li><a href="javascript:;"><span>29</span></a></li>
-						<li><a href="javascript:;"><span>30</span></a></li>
-					</ol>
-				</div>
-			</div>
+                            <ol class="yearsetDay">
+                                <li>
+                                    <a href="javascript:;"><span>1</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>2</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>3</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>4</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>5</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>6</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>7</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>8</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>9</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>10</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>11</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>12</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>13</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>14</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" class="active"><span>15</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>16</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>17</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>18</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>19</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>20</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>21</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>22</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>23</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>24</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>25</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>26</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>27</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>28</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>29</span></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"><span>30</span></a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
 
-			<div class="popBtnWrap">
-				<div class="popBtn">
-					<a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">닫기</a>
-					<a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">선택</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-</body>
-
+                <div class="popBtnWrap">
+                    <div class="popBtn">
+                        <a href="javascript:;" class="" onclick="popClose(this);return false;" role="button">닫기</a>
+                        <a href="javascript:;" class="confirmBtn" onclick="popClose(this);return false;" role="button">선택</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

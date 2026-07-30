@@ -1,37 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>[P] 정기전송 주기 선택</title>
+        <script>
+            $(document).ready(function () {
+                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            });
+        </script>
+    </head>
 
-<head>
-	<script src="../pub-assets/js/head-mb-update.js"></script>
-	<title>[P] 정기전송 주기 선택</title>
-	<script>
-		$(document).ready(function () {
-			slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
-		})  
-	</script>
-</head>
-
-<body>
-	<div class="wrapper nhasset"><!-- 바닥페이지 --></div>
-	<div class="nhasset popWrap nds slidePopConfirm">
-		<div class="dim"></div>
-		<div class="popInner">
-			<h1>정기전송 주기 선택</h1>
-			<div class="popCont">
-				<div class="bottomsheet-list">
-					<button type="button" class="bottomsheet-list__item"><span>매주 1번</span></button>
-					<button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected"><span>2주에 1번</span></button>
-					<button type="button" class="bottomsheet-list__item"><span>3주에 1번</span></button>
-					<button type="button" class="bottomsheet-list__item"><span>4주에 1번</span></button>
-					<button type="button" class="bottomsheet-list__item"><span>정기적으로 전송하지 않음</span></button>
-				</div>
-			</div>
-			<div class="popBtnWrap">
-				<a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."
-					role="button"><img src="../../images/common/btn_popClose.png" alt="닫기"></a>
-			</div>
-		</div>
-	</div>
-</body>
-
+    <body>
+        <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1>정기전송 주기 선택</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <div class="bottomsheet-list">
+                            <button type="button" class="bottomsheet-list__item"><span>매주 1번</span></button>
+                            <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected"><span>2주에 1번</span></button>
+                            <button type="button" class="bottomsheet-list__item"><span>3주에 1번</span></button>
+                            <button type="button" class="bottomsheet-list__item"><span>4주에 1번</span></button>
+                            <button type="button" class="bottomsheet-list__item"><span>정기적으로 전송하지 않음</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

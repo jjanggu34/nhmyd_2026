@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>Select | UI Guide</title>
+    </head>
+    <body>
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Select</h1>
+            </div>
+            <!-- //header -->
+            <div class="container">
+                <h2 class="guide-title">Basic — Inactive / Focus / Filled / Error / Readonly / Disabled</h2>
+                <div class="demo">
+                    <div class="select-field" style="width:280px;">
+                        <span class="select-field__label" id="selBasicL1">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selBasicL1">
+                            <span class="select-field__content"><span class="select-field__text">선택하세요</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--focus" style="width:280px;">
+                        <span class="select-field__label" id="selBasicL2">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="selBasicL2">
+                            <span class="select-field__content"><span class="select-field__text">선택하세요</span></span>
+                            <span class="select-field__chevron select-field__chevron--up" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--filled" style="width:280px;">
+                        <span class="select-field__label" id="selBasicL3">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selBasicL3">
+                            <span class="select-field__content"><span class="select-field__text">NH올원계좌</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--error" style="width:280px;">
+                        <span class="select-field__label" id="selBasicL4">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selBasicL4">
+                            <span class="select-field__content"><span class="select-field__text">선택하세요</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                        <p class="select-field__msg">계좌를 선택해 주세요</p>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--readonly" style="width:280px;">
+                        <span class="select-field__label" id="selBasicL5">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selBasicL5" disabled>
+                            <span class="select-field__content"><span class="select-field__text">NH올원계좌</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--disabled" style="width:280px;">
+                        <span class="select-field__label" id="selBasicL6">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selBasicL6" disabled>
+                            <span class="select-field__content"><span class="select-field__text">선택하세요</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">2row — 텍스트 + 보조설명</h2>
+                <div class="demo">
+                    <div class="select-field" style="width:280px;">
+                        <span class="select-field__label" id="sel2rL1">상품 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="sel2rL1">
+                            <span class="select-field__content">
+                                <span class="select-field__text">선택하세요</span>
+                                <span class="select-field__sub">가입 가능한 상품을 확인해 보세요</span>
+                            </span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--filled" style="width:280px;">
+                        <span class="select-field__label" id="sel2rL2">상품 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="sel2rL2">
+                            <span class="select-field__content">
+                                <span class="select-field__text">NH적립식펀드</span>
+                                <span class="select-field__sub">최소 가입금액 10,000원</span>
+                            </span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--error" style="width:280px;">
+                        <span class="select-field__label" id="sel2rL3">상품 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="sel2rL3">
+                            <span class="select-field__content">
+                                <span class="select-field__text">선택하세요</span>
+                                <span class="select-field__sub">가입 가능한 상품을 확인해 보세요</span>
+                            </span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                        <p class="select-field__msg">상품을 선택해 주세요</p>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--readonly" style="width:280px;">
+                        <span class="select-field__label" id="sel2rL4">상품 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="sel2rL4" disabled>
+                            <span class="select-field__content">
+                                <span class="select-field__text">NH적립식펀드</span>
+                                <span class="select-field__sub">최소 가입금액 10,000원</span>
+                            </span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Bank — 소형 로고(24px) + 텍스트</h2>
+                <div class="demo">
+                    <div class="select-field" style="width:280px;">
+                        <span class="select-field__label" id="selBankL1">은행 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selBankL1">
+                            <span class="select-field__logo select-field__logo--sm"></span>
+                            <span class="select-field__content"><span class="select-field__text">은행을 선택하세요</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--filled" style="width:280px;">
+                        <span class="select-field__label" id="selBankL2">은행 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selBankL2">
+                            <span class="select-field__logo select-field__logo--sm"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                            <span class="select-field__content"><span class="select-field__text">NH농협은행</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--error" style="width:280px;">
+                        <span class="select-field__label" id="selBankL3">은행 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selBankL3">
+                            <span class="select-field__logo select-field__logo--sm"></span>
+                            <span class="select-field__content"><span class="select-field__text">은행을 선택하세요</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                        <p class="select-field__msg">은행을 선택해 주세요</p>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--disabled" style="width:280px;">
+                        <span class="select-field__label" id="selBankL4">은행 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selBankL4" disabled>
+                            <span class="select-field__logo select-field__logo--sm"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                            <span class="select-field__content"><span class="select-field__text">NH농협은행</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Account — 대형 로고(40px) + 계좌명/계좌번호 2단</h2>
+                <div class="demo">
+                    <div class="select-field" style="width:312px;">
+                        <span class="select-field__label" id="selAcctL1">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selAcctL1">
+                            <span class="select-field__logo"></span>
+                            <span class="select-field__name-col">
+                                <span class="select-field__name">계좌를 선택하세요</span>
+                            </span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--filled" style="width:312px;">
+                        <span class="select-field__label" id="selAcctL2">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selAcctL2">
+                            <span class="select-field__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                            <span class="select-field__name-col">
+                                <span class="select-field__name">NH올원계좌</span>
+                                <span class="select-field__number">352-1234-5678-01</span>
+                            </span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--error" style="width:312px;">
+                        <span class="select-field__label" id="selAcctL3">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selAcctL3">
+                            <span class="select-field__logo"></span>
+                            <span class="select-field__name-col">
+                                <span class="select-field__name">계좌를 선택하세요</span>
+                            </span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                        <p class="select-field__msg">계좌를 선택해 주세요</p>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--readonly" style="width:312px;">
+                        <span class="select-field__label" id="selAcctL4">계좌 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selAcctL4" disabled>
+                            <span class="select-field__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                            <span class="select-field__name-col">
+                                <span class="select-field__name">NH올원계좌</span>
+                                <span class="select-field__number">352-1234-5678-01</span>
+                            </span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Currency — basic과 동일 구조</h2>
+                <div class="demo">
+                    <div class="select-field" style="width:280px;">
+                        <span class="select-field__label" id="selCurL1">통화 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selCurL1">
+                            <span class="select-field__content"><span class="select-field__text">통화를 선택하세요</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--filled" style="width:280px;">
+                        <span class="select-field__label" id="selCurL2">통화 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selCurL2">
+                            <span class="select-field__content"><span class="select-field__text">원화 (KRW)</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Icon — 아이콘(36px) + 텍스트</h2>
+                <div class="demo">
+                    <div class="select-field" style="width:280px;">
+                        <span class="select-field__label" id="selIcoL1">목표 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selIcoL1">
+                            <span class="select-field__prefix"></span>
+                            <span class="select-field__content"><span class="select-field__text">목표를 선택하세요</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-field select-field--filled" style="width:280px;">
+                        <span class="select-field__label" id="selIcoL2">목표 선택</span>
+                        <button type="button" class="select-field__box" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="selIcoL2">
+                            <span class="select-field__prefix"></span>
+                            <span class="select-field__content"><span class="select-field__text">내 집 마련</span></span>
+                            <span class="select-field__chevron" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Price — 카드형, 요약칩 + 로고/이름/번호 + 채우기 버튼 + 금액</h2>
+                <div class="demo">
+                    <div class="select-card" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">적금</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH직장인적금</span>
+                                        <span class="select-card__number">352-1234-5678-01</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="select-card__chevron" aria-hidden="true"></span>
+                        </div>
+                        <div class="select-card__info-row">
+                            <button type="button" class="select-card__fill-btn">채우기</button>
+                            <span class="select-card__price">
+                                <span class="select-card__price-label">이번달 납입액</span>
+                                <span class="select-card__price-value">300,000원</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-card select-card--error" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">적금</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH직장인적금</span>
+                                        <span class="select-card__number">352-1234-5678-01</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="select-card__chevron" aria-hidden="true"></span>
+                        </div>
+                        <div class="select-card__info-row">
+                            <button type="button" class="select-card__fill-btn" disabled>채우기</button>
+                            <span class="select-card__price">
+                                <span class="select-card__price-label">이번달 납입액</span>
+                                <span class="select-card__price-value">0원</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-card select-card--readonly" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">적금</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH직장인적금</span>
+                                        <span class="select-card__number">352-1234-5678-01</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="select-card__chevron" aria-hidden="true"></span>
+                        </div>
+                        <div class="select-card__info-row">
+                            <button type="button" class="select-card__fill-btn" disabled>채우기</button>
+                            <span class="select-card__price">
+                                <span class="select-card__price-label">이번달 납입액</span>
+                                <span class="select-card__price-value">300,000원</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-card select-card--disabled" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">적금</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH직장인적금</span>
+                                        <span class="select-card__number">352-1234-5678-01</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="select-card__chevron" aria-hidden="true"></span>
+                        </div>
+                        <div class="select-card__info-row">
+                            <button type="button" class="select-card__fill-btn" disabled>채우기</button>
+                            <span class="select-card__price">
+                                <span class="select-card__price-label">이번달 납입액</span>
+                                <span class="select-card__price-value">300,000원</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">List — 카드형, 로고/이름/번호 + 항목/값 리스트</h2>
+                <div class="demo">
+                    <div class="select-card" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">예금</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH정기예금</span>
+                                        <span class="select-card__number">352-1234-5678-02</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="select-card__chevron" aria-hidden="true"></span>
+                        </div>
+                        <div class="select-card__list-row">
+                            <span class="select-card__list-title">가입금액</span>
+                            <span class="select-card__list-data">10,000,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-card select-card--error" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">예금</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH정기예금</span>
+                                        <span class="select-card__number">352-1234-5678-02</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="select-card__chevron" aria-hidden="true"></span>
+                        </div>
+                        <div class="select-card__list-row">
+                            <span class="select-card__list-title">만기일</span>
+                            <span class="select-card__list-data">2027-07-24</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-card select-card--readonly" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">예금</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH정기예금</span>
+                                        <span class="select-card__number">352-1234-5678-02</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="select-card__chevron" aria-hidden="true"></span>
+                        </div>
+                        <div class="select-card__list-row">
+                            <span class="select-card__list-title">가입금액</span>
+                            <span class="select-card__list-data">10,000,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-card select-card--disabled" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">예금</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH정기예금</span>
+                                        <span class="select-card__number">352-1234-5678-02</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="select-card__chevron" aria-hidden="true"></span>
+                        </div>
+                        <div class="select-card__list-row">
+                            <span class="select-card__list-title">가입금액</span>
+                            <span class="select-card__list-data">10,000,000원</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Admin — 카드형, 계좌번호 옆 화살표 + 우측 상단 더보기(⋮) 버튼</h2>
+                <div class="demo">
+                    <div class="select-card" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">관리</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH올원계좌</span>
+                                        <span class="select-card__number-row">
+                                            <span class="select-card__number">352-1234-5678-01</span>
+                                            <span class="select-card__number-arrow" aria-hidden="true"></span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="button" class="select-card__menu-btn" aria-label="더보기"></button>
+                        </div>
+                        <div class="select-card__list-row">
+                            <span class="select-card__list-title">잔액</span>
+                            <span class="select-card__list-data">1,250,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-card select-card--error" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">관리</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH올원계좌</span>
+                                        <span class="select-card__number-row">
+                                            <span class="select-card__number">352-1234-5678-01</span>
+                                            <span class="select-card__number-arrow" aria-hidden="true"></span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="button" class="select-card__menu-btn" aria-label="더보기"></button>
+                        </div>
+                        <div class="select-card__list-row">
+                            <span class="select-card__list-title">잔액</span>
+                            <span class="select-card__list-data">0원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-card select-card--readonly" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">관리</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH올원계좌</span>
+                                        <span class="select-card__number-row">
+                                            <span class="select-card__number">352-1234-5678-01</span>
+                                            <span class="select-card__number-arrow" aria-hidden="true"></span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="button" class="select-card__menu-btn" aria-label="더보기" disabled></button>
+                        </div>
+                        <div class="select-card__list-row">
+                            <span class="select-card__list-title">잔액</span>
+                            <span class="select-card__list-data">1,250,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo">
+                    <div class="select-card select-card--disabled" style="width:312px;">
+                        <div class="select-card__select-row">
+                            <div class="select-card__select-text">
+                                <span class="select-card__chip">관리</span>
+                                <div class="select-card__logo-row">
+                                    <span class="select-card__logo"><img src="../images/update/img_bank-nh_24.svg" alt=""></span>
+                                    <span class="select-card__name-col">
+                                        <span class="select-card__name">NH올원계좌</span>
+                                        <span class="select-card__number-row">
+                                            <span class="select-card__number">352-1234-5678-01</span>
+                                            <span class="select-card__number-arrow" aria-hidden="true"></span>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <button type="button" class="select-card__menu-btn" aria-label="더보기" disabled></button>
+                        </div>
+                        <div class="select-card__list-row">
+                            <span class="select-card__list-title">잔액</span>
+                            <span class="select-card__list-data">1,250,000원</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

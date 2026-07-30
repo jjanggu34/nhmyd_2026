@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>Calendar | UI Guide</title>
+    </head>
+    <body>
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Calendar</h1>
+            </div>
+            <!-- //header -->
+            <div class="container">
+                <h2 class="guide-title">단일 날짜(calendar-day) — Inactive</h2>
+                <div class="calendar-day">
+                    <span class="calendar-day__label" id="cal-day-1-label">라벨</span>
+                    <button type="button" class="calendar-day__field" aria-labelledby="cal-day-1-label"><span class="calendar-day__text">선택</span><span class="calendar-day__icon" aria-hidden="true"></span></button>
+                    <span class="calendar-day__message">안내 문구 입력</span>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">단일 날짜 — Filled</h2>
+                <div class="calendar-day">
+                    <span class="calendar-day__label" id="cal-day-2-label">라벨</span>
+                    <button type="button" class="calendar-day__field" aria-labelledby="cal-day-2-label"><span class="calendar-day__text is-filled">2024.01.01</span><span class="calendar-day__icon" aria-hidden="true"></span></button>
+                    <span class="calendar-day__message">안내 문구 입력</span>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">단일 날짜 — Error</h2>
+                <div class="calendar-day calendar-day--error">
+                    <span class="calendar-day__label" id="cal-day-3-label">라벨</span>
+                    <button type="button" class="calendar-day__field" aria-labelledby="cal-day-3-label" aria-describedby="cal-day-3-msg"><span class="calendar-day__text">2024.01.01</span><span class="calendar-day__icon" aria-hidden="true"></span></button>
+                    <span class="calendar-day__message" id="cal-day-3-msg">오류 메세지 출력</span>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">단일 날짜 — Readonly</h2>
+                <div class="calendar-day calendar-day--readonly">
+                    <span class="calendar-day__label" id="cal-day-4-label">라벨</span>
+                    <button type="button" class="calendar-day__field" aria-labelledby="cal-day-4-label" disabled><span class="calendar-day__text">2024.01.01</span><span class="calendar-day__icon" aria-hidden="true"></span></button>
+                    <span class="calendar-day__message">안내 문구 입력</span>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">단일 날짜 — Disabled</h2>
+                <div class="calendar-day calendar-day--disabled">
+                    <span class="calendar-day__label" id="cal-day-5-label">라벨</span>
+                    <button type="button" class="calendar-day__field" aria-labelledby="cal-day-5-label" disabled><span class="calendar-day__text">2024.01.01</span><span class="calendar-day__icon" aria-hidden="true"></span></button>
+                    <span class="calendar-day__message">안내 문구 입력</span>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">기간(calendar-period) — Inactive</h2>
+                <div class="calendar-period">
+                    <span class="calendar-period__label" id="cal-period-1-label">라벨</span>
+                    <div class="calendar-period__field" role="group" aria-labelledby="cal-period-1-label">
+                        <span class="calendar-period__text">선택</span><button type="button" class="calendar-period__icon" aria-label="시작일 달력 열기"></button>
+                        <span class="calendar-period__sep" aria-hidden="true">~</span>
+                        <span class="calendar-period__text">선택</span><button type="button" class="calendar-period__icon" aria-label="종료일 달력 열기"></button>
+                    </div>
+                    <span class="calendar-period__message">안내 문구 입력</span>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">기간 — Filled</h2>
+                <div class="calendar-period">
+                    <span class="calendar-period__label" id="cal-period-2-label">라벨</span>
+                    <div class="calendar-period__field" role="group" aria-labelledby="cal-period-2-label">
+                        <span class="calendar-period__text is-filled">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="시작일 달력 열기"></button>
+                        <span class="calendar-period__sep" aria-hidden="true">~</span>
+                        <span class="calendar-period__text is-filled">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="종료일 달력 열기"></button>
+                    </div>
+                    <span class="calendar-period__message">안내 문구 입력</span>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">기간 — Error</h2>
+                <div class="calendar-period calendar-period--error">
+                    <span class="calendar-period__label" id="cal-period-3-label">라벨</span>
+                    <div class="calendar-period__field" role="group" aria-labelledby="cal-period-3-label">
+                        <span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="시작일 달력 열기"></button>
+                        <span class="calendar-period__sep" aria-hidden="true">~</span>
+                        <span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="종료일 달력 열기"></button>
+                    </div>
+                    <span class="calendar-period__message" id="cal-period-3-msg">오류 메세지 출력</span>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">기간 — Readonly</h2>
+                <div class="calendar-period calendar-period--readonly">
+                    <span class="calendar-period__label" id="cal-period-4-label">라벨</span>
+                    <div class="calendar-period__field" role="group" aria-labelledby="cal-period-4-label">
+                        <span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="시작일 달력 열기" disabled></button>
+                        <span class="calendar-period__sep" aria-hidden="true">~</span>
+                        <span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="종료일 달력 열기" disabled></button>
+                    </div>
+                    <span class="calendar-period__message">안내 문구 입력</span>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">기간 — Disabled</h2>
+                <div class="calendar-period calendar-period--disabled">
+                    <span class="calendar-period__label" id="cal-period-5-label">라벨</span>
+                    <div class="calendar-period__field" role="group" aria-labelledby="cal-period-5-label">
+                        <span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="시작일 달력 열기" disabled></button>
+                        <span class="calendar-period__sep" aria-hidden="true">~</span>
+                        <span class="calendar-period__text">2024.01.01</span><button type="button" class="calendar-period__icon" aria-label="종료일 달력 열기" disabled></button>
+                    </div>
+                    <span class="calendar-period__message">안내 문구 입력</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

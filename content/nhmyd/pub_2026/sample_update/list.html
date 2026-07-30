@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>List | UI Guide</title>
+    </head>
+    <body>
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>List</h1>
+            </div>
+            <!-- //header -->
+            <div class="container">
+                <h2 class="guide-title">Key-Value — 기본 단위 (타이틀 + 데이터)</h2>
+                <div class="demo">
+                    <div class="list-kv">
+                        <span class="list-kv__title">최근 이용</span>
+                        <span class="list-kv__data">320,000원</span>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Card / Lg — 카드 안, 22px 강조 데이터</h2>
+                <div class="demo">
+                    <div class="list-card list-card--lg" style="width:272px;">
+                        <div class="list-card__rows">
+                            <div class="list-kv">
+                                <span class="list-kv__title">타이틀</span>
+                                <span class="list-kv__data">데이터</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Card / Sm — 헤더(옵션) + 하위 xs 행(옵션)</h2>
+                <p class="note">상단 헤더(list-card__title)와 하위 xs 보조행(list-kv--xs)은 각각 옵션입니다.</p>
+                <div class="demo">
+                    <div class="list-card list-card--sm" style="width:272px;">
+                        <span class="list-card__title">타이틀</span>
+                        <div class="list-card__rows">
+                            <div class="list-kv">
+                                <span class="list-kv__title">타이틀</span>
+                                <span class="list-kv__data">데이터</span>
+                            </div>
+                            <div class="list-kv list-kv--xs">
+                                <span class="list-kv__title">타이틀</span>
+                                <span class="list-kv__data">데이터</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Card / Xs — 카드 하위 보조 정보</h2>
+                <p class="note">계층 표시가 필요하면 타이틀 앞에 커넥터 라인(depth1) 또는 불릿(depth2) 아이콘을 옵션으로 추가할 수 있습니다.</p>
+                <div class="demo">
+                    <div class="list-card list-card--xs" style="width:272px;">
+                        <div class="list-card__rows">
+                            <div class="list-kv">
+                                <span class="list-kv__title">타이틀</span>
+                                <span class="list-kv__data">데이터</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Page / Lg — 화면 전체 폭, 22px 강조 데이터</h2>
+                <div class="demo">
+                    <div class="list-page list-page--lg" style="width:312px;">
+                        <div class="list-page__rows">
+                            <div class="list-kv">
+                                <span class="list-kv__title">타이틀</span>
+                                <span class="list-kv__data">데이터</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Page / Sm — 상/하단 구분선 + 헤더(옵션) + 툴팁(옵션)</h2>
+                <div class="demo">
+                    <div class="list-page list-page--sm" style="width:312px;">
+                        <div class="list-page__divider"></div>
+                        <span class="list-page__title">타이틀</span>
+                        <div class="list-page__rows">
+                            <div class="list-kv">
+                                <span class="list-kv__title">타이틀<button type="button" class="list-kv__tooltip" aria-label="타이틀 설명 더 보기"></button></span>
+                                <span class="list-kv__data">데이터</span>
+                            </div>
+                        </div>
+                        <div class="list-page__divider"></div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Page / Xs — 보조 정보용, 축소된 텍스트</h2>
+                <div class="demo">
+                    <div class="list-page list-page--xs" style="width:312px;">
+                        <div class="list-page__divider"></div>
+                        <div class="list-page__rows">
+                            <div class="list-kv">
+                                <span class="list-kv__title">타이틀</span>
+                                <span class="list-kv__data">데이터</span>
+                            </div>
+                        </div>
+                        <div class="list-page__divider"></div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Page / Sm-Multi — 여러 행(2~3개) + 행 사이 구분선</h2>
+                <p class="note">list-page 하나에 list-page__rows + list-page__divider를 반복해서 최대 3개 행까지 구성합니다.</p>
+                <div class="demo">
+                    <div class="list-page list-page--sm" style="width:312px;">
+                        <div class="list-page__divider"></div>
+                        <span class="list-page__title">타이틀</span>
+                        <div class="list-page__rows">
+                            <div class="list-kv"><span class="list-kv__title">타이틀</span><span class="list-kv__data">데이터</span></div>
+                        </div>
+                        <div class="list-page__divider"></div>
+                        <div class="list-page__rows">
+                            <div class="list-kv"><span class="list-kv__title">타이틀</span><span class="list-kv__data">데이터</span></div>
+                        </div>
+                        <div class="list-page__divider"></div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Account — 금융사 로고 + 이름/계좌번호 + 즐겨찾기</h2>
+                <p class="note">즐겨찾기 아이콘·출금가능금액·버튼(밑줄 텍스트)은 각각 옵션입니다.</p>
+                <div class="demo">
+                    <div class="list-account" style="width:312px;">
+                        <span class="list-account__logo"><img src="https://picsum.photos/40/40?grayscale" alt="[SAMPLE] 금융사 로고"></span>
+                        <span class="list-account__text">
+                            <span class="list-account__name">[SAMPLE] 금융사명</span>
+                            <span class="list-account__number">계좌번호</span>
+                            <span class="list-account__price">출금가능금액 <strong>10,000원</strong></span>
+                        </span>
+                        <button type="button" class="list-account__fav" aria-label="즐겨찾기 추가"></button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Continue — 이어하기 상품 + 닫기</h2>
+                <p class="note">이어하기 버튼은 옵션(기본 on)이며, 닫기 버튼은 항상 노출됩니다.</p>
+                <div class="demo">
+                    <div class="list-continue" style="width:312px;">
+                        <span class="list-continue__text">[SAMPLE] 상품명</span>
+                        <span class="list-continue__actions">
+                            <button type="button" class="list-continue__btn">이어하기</button>
+                            <button type="button" class="list-continue__close" aria-label="닫기"></button>
+                        </span>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Page / Sm-Accordion — 닫힘(close)</h2>
+                <p class="note">펼침 상태에서는 하위 list-page 행(최대 2개)이 구분선과 함께 노출되고, 토글 라벨/아이콘 방향이 바뀝니다.</p>
+                <div class="demo">
+                    <div class="list-accordion" style="width:312px;">
+                        <div class="list-accordion__divider"></div>
+                        <div class="list-accordion__row">
+                            <span class="list-accordion__title">타이틀</span>
+                            <span class="list-accordion__data">0원</span>
+                        </div>
+                        <button type="button" class="list-accordion__toggle" aria-expanded="false">펼치기</button>
+                        <div class="list-accordion__divider"></div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">Page / Sm-Accordion — 열림(open)</h2>
+                <div class="demo">
+                    <div class="list-accordion" style="width:312px;">
+                        <div class="list-accordion__divider"></div>
+                        <div class="list-accordion__row">
+                            <span class="list-accordion__title">타이틀</span>
+                            <span class="list-accordion__data">0원</span>
+                        </div>
+                        <div class="list-page__rows" style="width:100%;">
+                            <div class="list-kv"><span class="list-kv__title">타이틀</span><span class="list-kv__data">데이터</span></div>
+                        </div>
+                        <div class="list-page__divider"></div>
+                        <div class="list-page__rows" style="width:100%;">
+                            <div class="list-kv"><span class="list-kv__title">타이틀</span><span class="list-kv__data">데이터</span></div>
+                        </div>
+                        <button type="button" class="list-accordion__toggle is-open" aria-expanded="true">접기</button>
+                        <div class="list-accordion__divider"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
