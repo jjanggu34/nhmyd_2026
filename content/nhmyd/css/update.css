@@ -2829,7 +2829,10 @@
    여기서 강제 적용한다. .popCont의 padding-bottom은 nhasset_myd_mb.css:410(class 5개)
    /nhasset_com.css(class 5개) 등 특이도가 더 높은 레거시 규칙과 계속 충돌하므로 !important로 확정. ---- */
 .nds .popCont {
-    padding-top: 14px !important;
+    padding-top: 24px !important;
+}
+.nds.slidePopConfirm .popCont{
+    padding-top: 12px !important;
 }
 .nds .popCont .popCont__inner{
   padding: 0 24px !important;
@@ -2838,12 +2841,12 @@
     padding: 0;
 }
 .nds.slidePopConfirm .popBtnWrap {
-    padding: 0 24px 32px !important;
+    padding: 0 16px 32px !important;
 }
 .nds.slidePopConfirm .popBtnWrap .popBtn {
     height: 56px !important;
-    border: none !important;
-    border-spacing: 0 !important;
+    border-width: 0 !important;
+    border-spacing: 8px 0 !important;
 }
 .nds.centerLayer .popInner .popCont {
     padding:40px 0 32px !important;
@@ -2852,14 +2855,27 @@
     border-width: 0 16px 24px !important;
     border-spacing: 8px 0 !important;
 }
+.nds .popBtnWrap .popBtn > a.btnPressDefault{
+    background-color: var(--color-comp-btn-tertiary-default-bg);
+    color: var(--color-comp-btn-tertiary-default-fg);
+    border: 1px solid var(--color-comp-btn-tertiary-default-border);
+}
 .nds .popBtnWrap .popBtn > a,
 .nds .popBtnWrap .popBtn > a:hover,
 .nds .popBtnWrap .popBtn > a:active,
 .nds .popBtnWrap .popBtn > a:link {
-    width: 40% !important;
+    width: 100px !important;
 }
 .nds .popBtnWrap .popBtn > a.confirmBtn {
-    width: 60% !important;
+    width: calc(100% - 100px) !important;
+}
+
+.nds .areaBtnDefault {
+    table-layout: auto;
+    border-width: 0 16px 32px;
+    border-spacing: 8px 0;
+    border-collapse: separate;
+    background: var(--background)
 }
 
 /* ---- Accordion (notice/box/line/gray) — content/nds-guide 3047-3435줄과 동일 ---- */
@@ -4406,8 +4422,9 @@
     left: 0;
     right: 0;
     top: 15px;
-    height: 0;
-    border-top: 1px dashed var(--color-border-2);
+    height: 1px;
+    background:url("../images/update/bg_process-step-h__line.svg") repeat-x;
+    background-size: 100%;
 }
 .nds .process-step-h__item {
     position: relative;
@@ -5288,7 +5305,7 @@
 /* 탭 패널 — tab.html 데모 전용 콘텐츠 영역(실제 프로덕션에서는 화면 콘텐츠가 이 자리에 옵니다).
    비활성 패널은 hidden 속성으로 감춥니다. */
 .nds .tab-panel {
-    padding: 16px 0;
+    padding: 16px 0 0;
 }
 .nds .tab-panel[hidden] {
     display: none;
@@ -6276,34 +6293,27 @@
 .nds .btn-cta {
     display: flex;
     gap: 8px;
-    padding: 10px 24px 32px;
+    padding: 0;
     background: linear-gradient(to top, #ffffff 90%, rgba(255, 255, 255, 0) 100%);
 }
 
-.nds .btn-cta--basic {
-    padding-bottom: 32px;
-}
-
-.nds .btn-cta--popup {
-    padding-bottom: 20px;
-    background: var(--color-bg-default);
-}
-
-.nds .btn-cta--double {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    padding-bottom: 32px;
-}
-
-.nds .btn-cta__item {
+.nds .btn-cta .btn {
     flex: 1;
     min-width: 0;
 }
 
 .nds .btn-cta__item--fixed {
-    flex: none;
+    flex: none !important;
     width: 100px;
+}
+.nds .btn-cta--column {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding-bottom: 32px;
+}
+.nds .btn-cta--column .btn {
+    flex-basis: auto;
 }
 
 .nds .btn-arrow {

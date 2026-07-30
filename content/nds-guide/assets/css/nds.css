@@ -1751,6 +1751,15 @@
   width: 100px;
 }
 
+/* btn-cta__item이 (래퍼 div 없이) button/a에 직접 붙는 구조로 바뀌면서 생긴 버그 보강:
+   flex:1(=flex-basis:0%)은 row 방향(basic/popup)에서는 균등분할에 필요하지만, column
+   방향인 --double에서는 세로축(main axis)에 적용되어 버튼 자체의 지정 높이(btn--lg의
+   56px)가 자동 최소크기 계산에서 무시되고 텍스트 min-content 높이로 찌그러지는 문제가
+   있었음. --double에서만 flex-basis를 auto로 되돌려 버튼의 실제 높이를 그대로 사용하게 함. */
+.nds .btn-cta--double .btn-cta__item {
+  flex-basis: auto;
+}
+
 .nds .btn-arrow {
   display: inline-flex;
   align-items: center;

@@ -2752,55 +2752,47 @@
 
 			<h3>버튼 그룹 (btn-cta) — Full / 5:5 / 3:7 / Double</h3>
 			<p class="note">basic 유형은 LG 사이즈 + 상단 흰색 그라디언트(스크롤 콘텐츠 위에 뜰 때 경계 흐림 처리), popup 유형은 MD 사이즈 + 불투명 흰색 배경입니다.
-				5:5/3:7 모두 좌측은 tertiary, 우측(또는 유일한 버튼)은 basic에서 primary·popup에서 secondary 스타일입니다.</p>
+				5:5/3:7 모두 좌측은 tertiary, 우측(또는 유일한 버튼)은 basic에서 primary·popup에서 secondary 스타일입니다. btn-cta__item이
+				이미 flex:1로 버튼을 꽉 채우므로 btn-cta 안에서는 btn--full을 함께 쓰지 않습니다(btn--full은 btn-cta 밖에서 단독으로
+				전체폭 버튼을 만들 때만 사용).</p>
 			<div class="demo">
 				<div class="btn-cta btn-cta--basic">
-					<div class="btn-cta__item"><button type="button"
-							class="btn btn--primary btn--full btn--lg">버튼명</button></div>
+					<button type="button" class="btn btn--primary btn--lg btn-cta__item">버튼명</button>
 				</div>
 			</div>
 			<div class="demo">
 				<div class="btn-cta btn-cta--basic">
-					<div class="btn-cta__item"><button type="button"
-							class="btn btn--tertiary btn--full btn--lg">버튼명</button></div>
-					<div class="btn-cta__item"><button type="button"
-							class="btn btn--primary btn--full btn--lg">버튼명</button></div>
+					<button type="button" class="btn btn--tertiary btn--lg btn-cta__item">버튼명</button>
+					<button type="button" class="btn btn--primary btn--lg btn-cta__item">버튼명</button>
 				</div>
 			</div>
 			<div class="demo">
 				<div class="btn-cta btn-cta--basic">
-					<div class="btn-cta__item btn-cta__item--fixed"><button type="button"
-							class="btn btn--tertiary btn--full btn--lg">버튼</button></div>
-					<div class="btn-cta__item"><button type="button"
-							class="btn btn--primary btn--full btn--lg">버튼명</button></div>
+					<button type="button" class="btn btn--tertiary btn--lg btn-cta__item btn-cta__item--fixed">버튼</button>
+					<button type="button" class="btn btn--primary btn--lg btn-cta__item">버튼명</button>
 				</div>
 			</div>
 			<div class="demo">
 				<div class="btn-cta btn-cta--double">
-					<div class="btn-cta__item"><button type="button"
-							class="btn btn--secondary btn--full btn--lg">취소</button></div>
-					<div class="btn-cta__item"><button type="button"
-							class="btn btn--primary btn--full btn--lg">확인</button></div>
+					<button type="button" class="btn btn--secondary btn--lg btn-cta__item">취소</button>
+					<button type="button" class="btn btn--primary btn--lg btn-cta__item">확인</button>
 				</div>
 			</div>
 			<p class="note">popup 유형(팝업 하단 CTA, MD 사이즈) — Full은 secondary(outline) 단일 버튼입니다.</p>
 			<div class="demo">
 				<div class="btn-cta btn-cta--popup">
-					<div class="btn-cta__item"><button type="button"
-							class="btn btn--secondary btn--full btn--md">버튼명</button></div>
+					<button type="button" class="btn btn--secondary btn--md btn-cta__item">버튼명</button>
 				</div>
 			</div>
 			<div class="demo">
 				<div class="btn-cta btn-cta--popup">
-					<div class="btn-cta__item"><button type="button"
-							class="btn btn--tertiary btn--full btn--md">버튼명버튼명</button></div>
-					<div class="btn-cta__item"><button type="button"
-							class="btn btn--secondary btn--full btn--md">버튼명</button></div>
+					<button type="button" class="btn btn--tertiary btn--md btn-cta__item">버튼명버튼명</button>
+					<button type="button" class="btn btn--secondary btn--md btn-cta__item">버튼명</button>
 				</div>
 			</div>
 			<pre><code>&lt;div class="btn-cta btn-cta--basic"&gt;
-  &lt;div class="btn-cta__item btn-cta__item--fixed"&gt;&lt;button class="btn btn--tertiary btn--full btn--lg"&gt;버튼&lt;/button&gt;&lt;/div&gt;
-  &lt;div class="btn-cta__item"&gt;&lt;button class="btn btn--primary btn--full btn--lg"&gt;버튼명&lt;/button&gt;&lt;/div&gt;
+  &lt;button class="btn btn--tertiary btn--lg btn-cta__item btn-cta__item--fixed"&gt;버튼&lt;/button&gt;
+  &lt;button class="btn btn--primary btn--lg btn-cta__item"&gt;버튼명&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 		</section>
 
