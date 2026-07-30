@@ -244,13 +244,13 @@
     box-sizing: border-box;
 }
 .nds .center {
-    text-align: center;
+    text-align: center !important;
 }
 .nds .left {
-    text-align: left;
+    text-align: left !important;
 }
 .nds .right {
-    text-align: right;
+    text-align: right !important;
 }
 .nds .container {
     padding-left: 24px;
@@ -287,7 +287,8 @@
 .nds .divider--content {
     height: 8px;
     background-color: var(--color-bg-container);
-    margin: 40px auto;
+    margin: 40px -24px;
+    width: auto;
 }
 .nds .divider--page {
     height: 1px;
@@ -3289,7 +3290,7 @@
     display: flex;
     flex-direction: column;
 }
-.nds .inst-list__summary {
+.nds .item__summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -5003,8 +5004,6 @@
 .nds .check-survey--error .check-survey__notice {
     color: var(--color-font-error);
 }
-
-/* ---- Terms (terms-card/terms-link) — content/nds-guide 8106~8242, 11035~11050줄과 동일 ---- */
 .nds .terms-card {
     display: flex;
     flex-direction: column;
@@ -5015,11 +5014,7 @@
     background-color: var(--color-bg-default);
     box-sizing: border-box;
 }
-/* gap 대신 margin-top으로 간격을 줍니다. flex gap은 JS(jQuery animate)가 다룰 수 있는
-   요소별 CSS 프로퍼티가 아니라서, 접혀 있던 divider/body가 나타나는 순간 20px 간격이
-   애니메이션 없이 즉시 튀어나오고 그 다음에야 height가 자라는 부자연스러운 움직임의
-   원인이었습니다. margin-top으로 옮기면 initTermsToggle()이 height와 함께 marginTop도
-   같이 애니메이션할 수 있어 간격까지 자연스럽게 늘어나고/줄어듭니다. */
+.nds .terms-card + .terms-card{margin-top:16px}
 .nds .terms-card > *:not(:first-child) {
     margin-top: 20px;
 }
@@ -5262,35 +5257,35 @@
 .nds .text--h1 {
     font-size: 26px;
     line-height: 38px;
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold) !important;
     letter-spacing: -0.52px;
     color: var(--color-font-1);
 }
 .nds .text--h2 {
     font-size: 22px;
     line-height: 32px;
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold) !important;
     letter-spacing: -0.44px;
     color: var(--color-font-1);
 }
 .nds .text--h3 {
     font-size: 20px;
     line-height: 28px;
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold) !important;
     letter-spacing: -0.4px;
     color: var(--color-font-1);
 }
 .nds .text--h4 {
     font-size: 18px;
     line-height: 26px;
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold) !important;
     letter-spacing: -0.36px;
     color: var(--color-font-1);
 }
 .nds .text--h5 {
     font-size: 16px;
     line-height: 24px;
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold) !important;
     letter-spacing: -0.32px;
     color: var(--color-font-1);
 }
@@ -5386,8 +5381,9 @@
     gap: 32px;
     margin:48px 0 40px;
 }
-/* 결과(완료/실패 등) 화면 상단에 쓰는 상태 아이콘 — Figma "img/common/img_agree-check_68" 등
-   68x68 고정 크기 아이콘. 바로 옆/아래 헤딩 텍스트가 같은 의미를 전달하므로 장식용(alt=""). */
+.nds .text-stack--lg .text-stack:last-child{
+    margin-bottom:0;
+}
 .nds .result-icon {
     display: block;
     width: 68px;
@@ -6774,6 +6770,41 @@
     color: var(--color-font-point);
 }
 
+.nds .btn-setting {
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 1.5px solid var(--primitive-green-500);
+    font-size: var(--type-body2-size);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--type-body2-lh);
+    letter-spacing: var(--type-body2-ls);
+}
+.nds .btn-setting::after {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url("../images/update/arr_down_line_16.svg") no-repeat center;
+    content: '';
+}
+.nds .btn-circleArrow{
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+.nds .btn-circleArrow[aria-expanded]::after {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    background: url("../images/update/arr_down_txt_16.svg") no-repeat center;
+    content: '';
+    transition: transform .2s ease;
+}
+.nds .btn-circleArrow[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
 /* ---- Bullet (dot/dash/small dot) — content/nds-guide 3661-3734줄과 동일 ---- */
 /* 마커 모양 기준 네이밍: dot(본문, 15px) / dash(알림·노티스, 14px, 대시 마커) / dot--small(캡션, 13px, 작은 점).
    하위(2depth) 항목은 bullet__item--dash로 표시(마커가 대시로 바뀜, 들여쓰기 12px). */
@@ -6815,6 +6846,7 @@
     line-height: 24px;
     letter-spacing: -0.3px;
     color: var(--color-font-3);
+    word-break: keep-all;
 }
 .nds .bullet--dot .bullet__item::before {
     margin-top: 10px;
