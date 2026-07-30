@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>자산연결 완료</title>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset nds">
+            <div class="header">
+                <h1>자산연결</h1>
+                <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a>
+            </div>
+
+            <div class="container">
+                <div class="text-stack text-stack--lg">
+                    <img src="../../images/makebetter/icon/img_agree-check_68.svg" alt="" class="result-icon" />
+                    <p class="text text--h1">
+                        김농협님의 자산정보를
+                        <br />
+                        모두 불러왔습니다!
+                    </p>
+                    <div class="link-divide">
+                        <a href="javascript:;" class="link-divide__item" role="button">
+                            <span class="link-divide__text">
+                                <strong class="link-divide__title">연결 성공</strong>
+                                <span class="link-divide__sub">농축협 외 총 22개</span>
+                            </span>
+                            <span class="link-divide__arrow" aria-hidden="true"></span>
+                        </a>
+                        <hr class="divider divider--page" />
+                        <a href="javascript:;" class="link-divide__item" role="button">
+                            <span class="link-divide__text">
+                                <strong class="link-divide__title">연결 실패</strong>
+                                <span class="link-divide__sub">SC제일은행 외 총 1개</span>
+                            </span>
+                            <span class="link-divide__arrow" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 화면이 짧아도 아코디언+CTA 버튼이 항상 뷰포트 바닥에 붙어 있도록 sticky-footer로 감쌌습니다
+                 (update-ui.js의 initStickyFooter가 .container의 padding-bottom을 자동으로 맞춰줍니다). -->
+            <div class="sticky-footer">
+                <div class="accordion-notice">
+                    <div class="accordion-notice__item">
+                        <button type="button" aria-expanded="true" data-acc-toggle>
+                            <span class="accordion-notice__title">알아두세요</span>
+                        </button>
+                        <div class="accordion-notice__body">
+                            <ul class="bullet bullet--dot--body3">
+                                <li class="bullet__item">‘자산연결 내역안내’ 메뉴에서 다른 금융기관으로부터 전송받은 자산내역을 확인할 수 있어요.</li>
+                                <li class="bullet__item">‘자산연결 내역안내’ 는 [전체 &gt; MY &gt; 자산연결 내역안내]에서 확인할 수 있어요.</li>
+                            </ul>
+                            <button type="button" class="btn-arrow">
+                                <span>자산연결 내역안내 바로가기</span>
+                                <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- [CASE] 성공 -->
+                <div class="btn-cta btn-cta--basic">
+                    <button type="button" class="btn btn--primary btn--lg">다음</button>
+                </div>
+                <!-- [CASE] 실패 -->
+                <!-- <div class="btn-cta btn-cta--column">
+                    <button type="button" class="btn btn--secondary btn--lg">확인</button>
+                    <button type="button" class="btn btn--primary btn--lg">다시 연결하기</button>
+                </div> -->
+            </div>
+        </div>
+    </body>
+</html>
