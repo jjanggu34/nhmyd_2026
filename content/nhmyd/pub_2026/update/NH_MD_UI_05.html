@@ -249,34 +249,34 @@
                             <div class="terms-info">
                                 <div class="terms-info__list">
                                     <div class="terms-info__item">
-                                        <div class="terms-info__row">
-                                            <span class="terms-info__icon" aria-hidden="true"></span>
-                                            <p class="terms-info__title">계좌정보 적요 또는 거래메모를 가져올게요</p>
-                                        </div>
-                                        <div class="terms-info__row">
-                                            <span class="terms-info__icon--blank" aria-hidden="true"></span>
-                                            <p class="terms-info__desc">송금인/수취인의 이름과 거래정보가 포함되어 있습니다</p>
-                                        </div>
+                                        <label class="terms-info__row check-basic check-basic--xs">
+                                            <input type="checkbox" class="check-basic__input" checked />
+                                            <span class="check-basic__icon" aria-hidden="true"></span>
+                                            <p class="terms-info__title check-basic__label">
+                                                계좌정보 적요 또는 거래메모를 가져올게요
+                                                <span class="terms-info__desc">송금인/수취인의 이름과 거래정보가 포함되어 있습니다</span>
+                                            </p>
+                                        </label>
                                     </div>
                                     <div class="terms-info__item">
-                                        <div class="terms-info__row">
-                                            <span class="terms-info__icon" aria-hidden="true"></span>
-                                            <p class="terms-info__title">결재내역의 가맹점명 및 사업자등록번호를 가져올게요</p>
-                                        </div>
-                                        <div class="terms-info__row">
-                                            <span class="terms-info__icon--blank" aria-hidden="true"></span>
-                                            <p class="terms-info__desc">소비습관 등을 알 수 있는 정보가 포함되어 있습니다</p>
-                                        </div>
+                                        <label class="terms-info__row check-basic check-basic--xs">
+                                            <input type="checkbox" class="check-basic__input" checked />
+                                            <span class="check-basic__icon" aria-hidden="true"></span>
+                                            <p class="terms-info__title check-basic__label">
+                                                결재내역의 가맹점명 및 사업자등록번호를 가져올게요
+                                                <span class="terms-info__desc">소비습관 등을 알 수 있는 정보가 포함되어 있습니다</span>
+                                            </p>
+                                        </label>
                                     </div>
                                     <div class="terms-info__item">
-                                        <div class="terms-info__row">
-                                            <span class="terms-info__icon" aria-hidden="true"></span>
-                                            <p class="terms-info__title">상품구매 카테고리 정보를 가져올게요</p>
-                                        </div>
-                                        <div class="terms-info__row">
-                                            <span class="terms-info__icon--blank" aria-hidden="true"></span>
-                                            <p class="terms-info__desc">구매한 상품이 아닌 해당 상품의 카테고리 정보가 포함되어 있습니다</p>
-                                        </div>
+                                        <label class="terms-info__row check-basic check-basic--xs">
+                                            <input type="checkbox" class="check-basic__input" checked />
+                                            <span class="check-basic__icon" aria-hidden="true"></span>
+                                            <p class="terms-info__title check-basic__label">
+                                                상품구매 카테고리 정보를 가져올게요
+                                                <span class="terms-info__desc">구매한 상품이 아닌 해당 상품의 카테고리 정보가 포함되어 있습니다</span>
+                                            </p>
+                                        </label>
                                     </div>
                                 </div>
                                 <p class="terms-info__notice">정보전송은 본인의 책임과 판단하에 신중하게 결정해 주시기 바랍니다.</p>
@@ -285,15 +285,21 @@
                             <div class="terms-card__list">
                                 <div class="terms-link">
                                     <div class="terms-link__check">
-                                        <span class="terms-info__icon" aria-hidden="true"></span>
-                                        <span class="terms-link__text">개인(신용)정보 수집·이용 동의(상품서비스 안내 등)</span>
+                                        <label class="check-basic check-basic--xs">
+                                            <input type="checkbox" class="check-basic__input" />
+                                            <span class="check-basic__icon" aria-hidden="true"></span>
+                                            <span class="terms-link__text">개인(신용)정보 수집·이용 동의(상품서비스 안내 등)</span>
+                                        </label>
                                     </div>
                                     <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
                                 </div>
                                 <div class="terms-link">
                                     <div class="terms-link__check">
-                                        <span class="terms-info__icon" aria-hidden="true"></span>
-                                        <span class="terms-link__text">개인(신용)정보 수집·이용 동의(상품서비스 안내 등) (NH마이데이터)</span>
+                                        <label class="check-basic check-basic--xs">
+                                            <input type="checkbox" class="check-basic__input" />
+                                            <span class="check-basic__icon" aria-hidden="true"></span>
+                                            <span class="terms-link__text">개인(신용)정보 수집·이용 동의(상품서비스 안내 등) (NH마이데이터)</span>
+                                        </label>
                                     </div>
                                     <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
                                 </div>
@@ -350,9 +356,6 @@
             </div>
         </div>
 
-        <!-- ###################################### -->
-        <!-- ### 스크롤 이벤트 ### -->
-        <!-- ###################################### -->
         <script type="text/javascript">
             $(document).ready(function(){
             	//페이지 진입 시 버튼명 셋팅
@@ -388,6 +391,5 @@
             	}
             }
         </script>
-        <!-- ###################################### -->
     </body>
 </html>
