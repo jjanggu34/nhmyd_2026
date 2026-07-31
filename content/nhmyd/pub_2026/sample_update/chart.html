@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <script src="../../js/chart.js"></script>
+
+        <style>
+            /* 차트 크기는 부모 컨테이너의 너비/높이로 제어하는 것이 좋습니다 */
+            .chart-container {
+              width: 100%;
+              margin:40px auto;
+              padding: 0;
+              border: 1px solid #e2e8f0;
+              border-radius: 8px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+              height:500px;
+            }
+        </style>
+        <title>Chart | UI Guide</title>
+    </head>
+    <body>
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Chart</h1>
+            </div>
+            <!-- //header -->
+            <div class="container">
+                <h2 class="guide-title">Bar Chart</h2>
+                <canvas id="myBarChart"></canvas>
+                <hr class="divider" />
+
+                <h2 class="guide-title">Doughnut Chart</h2>
+                <canvas id="myDoughnutChart"></canvas>
+                <hr class="divider" />
+
+                <h2 class="guide-title">Interpolation Modes Chart</h2>
+                <canvas id="interpolationChart"></canvas>
+            </div>
+        </div>
+    </body>
+    <script>
+        // 3. Canvas 엘리먼트 가져오기
+        const ctx_bar = document.getElementById('myBarChart').getContext('2d');
+        const ctx_doughnut = document.getElementById('myDoughnutChart').getContext('2d');
+        const ctx_interpolation = document.getElementById('interpolationChart').getContext('2d');
+
+        // 4. Chart 객체 생성 및 설정
+        const myBarChart = new Chart(ctx_bar, {
+          type: 'bar', // 차트 형태: 막대 차트
+          data: {
+            // X축 라벨 설정
+            labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+            datasets: [{
+              label: '2026년 상반기 매출액 (단위: 만원)',
+              // 실제 막대에 표시될 데이터 값
+              data: [1200, 1900, 800, 1500, 2200, 2500],
+
+              // 막대 색상 설정 (배경색 및 테두리)
+              backgroundColor: [
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 99, 132, 0.6)' // 특정 항목(6월)만 강조하고 싶을 때 다르게 적용 가능
+              ],
+              borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 1)'
+              ],
+              borderWidth: 1,
+              borderRadius: 4 // 막대 모서리 둥글게 처리
+            }]
+          },
+          options: {
+            responsive: true, // 화면 크기에 맞춰 반응형으로 작동
+            plugins: {
+              legend: {
+                position: 'top', // 범례 위치 ('top', 'bottom', 'left', 'right')
+              },
+              title: {
+                display: true,
+                text: '월별 실적 그래프' // 차트 제목
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: true, // Y축을 0부터 시작하게 설정 (필수 옵션 중 하나)
+                ticks: {
+                  // Y축 수치 포맷팅 (예: 1,000원 단위 표기)
+                  callback: function(value) {
+                    return value.toLocaleString() + ' 만원';
+                  }
+                }
+              }
+            }
+          }
+        });
+
+        const myDoughnutChart = new Chart(ctx_doughnut, {
+            type: 'doughnut', // 차트 형태: 도넛 차트
+            data: {
+                // 라벨 (각 항목 명칭)
+                labels: ['주식/ETF', '예적금', '부동산', '채권', '현금성자산'],
+                datasets: [{
+                label: '자산 비중 (%)',
+                data: [40, 25, 20, 10, 5], // 각 항목별 수치
+                // 각 조각별 배경 색상
+                backgroundColor: [
+                    '#3b82f6', // 파랑
+                    '#10b981', // 초록
+                    '#f59e0b', // 주황
+                    '#8b5cf6', // 보라
+                    '#94a3b8'  // 회색
+                ],
+                // 각 조각 경계선 설정
+                borderColor: '#ffffff',
+                borderWidth: 2,
+                hoverOffset: 8 // 마우스 호버 시 조각이 튀어나오는 효과 크기
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                legend: {
+                    position: 'bottom', // 범례를 차트 하단에 배치
+                    labels: {
+                    padding: 20,
+                    usePointStyle: true // 네모 대신 동그라미로 범례 아이콘 변경
+                    }
+                },
+                title: {
+                    display: true,
+                    text: '포트폴리오 자산 배분 비중',
+                    font: {
+                    size: 16
+                    }
+                },
+                tooltip: {
+                    // 툴팁 노출 시 % 단위 추가 포맷팅
+                    callbacks: {
+                    label: function(context) {
+                        let label = context.label || '';
+                        let value = context.raw || 0;
+                        return `${label}: ${value}%`;
+                    }
+                    }
+                }
+                },
+                cutout: '65%' // 도넛 중앙 구멍 크기 조절 (기본값: 50%, 숫자/백분율 지정 가능)
+            }
+        });
+
+        const chart = new Chart(ctx_interpolation, {
+            type: 'line', // 라인 차트에서 보간 옵션을 적용합니다.
+            data: {
+                labels: ['1월', '2월', '3월'], // labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+                datasets: [
+                {
+                    label: '1. Cubic Smooth (부드러운 곡선)',
+                    data: [10, 50, 15, 30, 20, 35],
+                    borderColor: '#3b82f6', // 파랑
+                    backgroundColor: '#3b82f6',
+                    // [핵심] tension을 0보다 크게 설정 (기본값 0.4)
+                    tension: 0.4,
+                    cubicInterpolationMode: 'default' // 또는 'monotone' (변곡점 왜곡 방지)
+                },
+                {
+                    label: '2. Linear (직선 연결)',
+                    data: [20, 100, 100, 40, 30, 45],
+                    borderColor: '#ef4444', // 빨강
+                    backgroundColor: '#ef4444',
+                    // [핵심] tension을 0으로 만들어 직선 처리
+                    tension: 0
+                },
+                {
+                    label: '3. Stepped (계단형 보간)',
+                    data: [5, 15, 10, 20, 15, 100],
+                    borderColor: '#10b981', // 초록
+                    backgroundColor: '#10b981',
+                    // [핵심] 계단형 보간 모드 활성화
+                    stepped: true // 'before', 'after', 'middle' 값도 지정 가능
+                }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                title: {
+                    display: true,
+                    text: 'Chart.js 보간 모드(Interpolation Modes) 비교',
+                    font: { size: 16 }
+                },
+                legend: {
+                    position: 'bottom'
+                }
+                },
+                scales: {
+                y: {
+                    beginAtZero: true
+                }
+                }
+            }
+            });
+    </script>
+</html>
