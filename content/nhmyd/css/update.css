@@ -944,6 +944,11 @@
 .nds .terms-link__text {flex:1 0 0;min-width:0;font-size:14px;font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .terms-link__arrow {flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;border:none;background:none;cursor:pointer;isolation:isolate;transform:translateZ(0)}
 .nds .terms-link__arrow::before {color:var(--color-icon-4);content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/arr_right1_gray600_line_24.svg");mask-image:url("../images/update/arr_right1_gray600_line_24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+/* terms-link 체크박스를 체크하면 펼쳐지는 세부 수신채널 선택 패널(card-summary/accordion, Figma node 1008:35375) — 체크박스는 .check-basic(기본) 그대로 재사용, 열고 닫는 동작은 update-ui.js의 initTermsAccordionCheck() 담당 */
+.nds .terms-accordion {display:flex;flex-direction:column;align-items:flex-start;gap:16px;width:100%;padding:20px;border-radius:10px;background-color:var(--color-bg-container);box-sizing:border-box}
+.nds .terms-accordion__rows {display:flex;flex-direction:column;gap:16px;width:100%}
+.nds .terms-accordion__row {display:flex;align-items:center;justify-content:space-between;width:100%}
+.nds .terms-accordion__row .check-basic{width:50%}
 /* ---- Terms Info Card(CM006:수집 항목 안내 + 개인정보 동의 확인 리스트) ---- */
 .nds .terms-info {display:flex;flex-direction:column;gap:32px;width:100%}
 .nds .terms-info__list {display:flex;flex-direction:column;gap:12px;width:100%}
