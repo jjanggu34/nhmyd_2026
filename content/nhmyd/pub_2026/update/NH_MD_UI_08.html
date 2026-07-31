@@ -9,6 +9,7 @@
             })
         </script>
         <style>
+            /* 기존 hashWrap 스타일 커스텀 */
             .nds .hashWrap {
                 display: flex;
                 flex-wrap: wrap;
@@ -32,7 +33,7 @@
                 margin: 0 auto;
             }
             .pointColor22 {
-                color: #27A588;
+                color: var(--color-font-green-newtro);
             }
         </style>
     </head>
@@ -46,7 +47,7 @@
                 <div class="popCont">
                     <div class="popCont__inner center">
                         <div class="text-stack pb8">
-                            <p class="text text--h2"><span class="pointColor22">김농협님</span> 신한투자증권 <span class="fwN">에 <br> 자산이 있는 것 같아요</span></p>
+                            <p class="text text--h2"><span class="pointColor22">김농협님</span> 신한투자증권<span class="fwN">에 <br> 자산이 있는 것 같아요</span></p>
                             <p class="text text--body2 text--font2">딱 한 곳만 먼저 연결해 볼까요?</p>
                         </div>
                         <div class="text-stack">
@@ -72,10 +73,6 @@
                         <a href="javascript:;" class="btnPressDefault" role="button">추천기관 연결하기</a>
                         <a href="javascript:;" class="confirmBtn" role="button">기관 1개 연결하기</a>
                     </div>
-                    <!-- <div class="areaBtnDefault half">
-                        <a href="javascript:;" class="btnPressDefault" role="button">그냥 기다릴게요</a>
-                        <a href="javascript:;" class="btnPressPoint" role="button">네, 좋아요</a>
-                    </div> -->
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
                         <img src="../../images/common/btn_popClose.png" alt="닫기" />
                     </a>
