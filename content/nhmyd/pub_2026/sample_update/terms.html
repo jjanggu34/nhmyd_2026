@@ -130,6 +130,41 @@
                             </div>
                             <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
                         </div>
+                        <!-- 위 체크박스에 체크해야만 아래 수신채널을 고를 수 있는 패턴(Figma node 1008:35375).
+                                     update-ui.js의 initTermsAccordionCheck()가 체크 상태에 맞춰 열고/닫습니다. -->
+                        <div class="terms-accordion" hidden>
+                            <label class="check-basic">
+                                <input type="checkbox" class="check-basic__input" />
+                                <span class="check-basic__icon" aria-hidden="true"></span>
+                                <span class="check-basic__label">전체선택</span>
+                            </label>
+                            <div class="terms-accordion__rows">
+                                <div class="terms-accordion__row">
+                                    <label class="check-basic">
+                                        <input type="checkbox" class="check-basic__input" checked />
+                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                        <span class="check-basic__label">전화</span>
+                                    </label>
+                                    <label class="check-basic">
+                                        <input type="checkbox" class="check-basic__input" />
+                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                        <span class="check-basic__label">문자메세지</span>
+                                    </label>
+                                </div>
+                                <div class="terms-accordion__row">
+                                    <label class="check-basic">
+                                        <input type="checkbox" class="check-basic__input" />
+                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                        <span class="check-basic__label">우편물</span>
+                                    </label>
+                                    <label class="check-basic">
+                                        <input type="checkbox" class="check-basic__input" checked />
+                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                        <span class="check-basic__label">이메일</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
                         <div class="terms-link">
                             <div class="terms-link__check">
                                 <label class="check-basic check-basic--xs">
