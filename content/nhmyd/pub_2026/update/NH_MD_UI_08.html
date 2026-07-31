@@ -8,6 +8,33 @@
             	slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
             })
         </script>
+        <style>
+            .nds .hashWrap {
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: 16px;
+                padding: 16px;
+                border-radius: 8px;
+                background-color: var(--color-bg-banner);
+                font-size: 0;
+            }
+            .nds .hashWrap .hastag {
+                margin: 0;
+                color: #002259;
+                font-size: 14px;
+                font-weight: var(--font-weight-medium);
+                line-height: 22px;
+                letter-spacing: var(--type-body2-ls);
+            }
+            .nds .asset__link-logo {
+                width: 88px;
+                height: 88px;
+                margin: 0 auto;
+            }
+            .pointColor22 {
+                color: #27A588;
+            }
+        </style>
     </head>
 
     <body>
@@ -17,22 +44,38 @@
             <div class="popInner">
                 <h1>자산연결</h1>
                 <div class="popCont">
-                    <div class="popCont__inner">
-                        <div class="text-stack center pb8">
-                            <p class="text text--h2"><span>김농협님</span> <strong>신한투자증권</strong><span class="fwN">에 자산이 있는 것 같아요</span></p>
-                            <p class="text text--body2">딱 한 곳만 먼저 연결해 볼까요?</p>
+                    <div class="popCont__inner center">
+                        <div class="text-stack pb8">
+                            <p class="text text--h2"><span class="pointColor22">김농협님</span> 신한투자증권 <span class="fwN">에 <br> 자산이 있는 것 같아요</span></p>
+                            <p class="text text--body2 text--font2">딱 한 곳만 먼저 연결해 볼까요?</p>
                         </div>
-                        <div class="text-stack center">
-                            <img src="../../images/makebetter/icon/img_agree-check_68.svg" alt="" class="result-icon">
+                        <div class="text-stack">
+                            <img src="../../images/logos/AAER0000.png" alt="신한투자증권로고" class="asset__link-logo">
                             <p class="text text--body1-medium">신한투자증권</p>
+                        </div>
+                        <!-- <div class="cardHashtag">
+                            <span># 스마트한 자산관리의</span>
+                            <span># 자산증식의 첫걸음</span>
+                            <span># 완료까지 단,3단계!</span>
+                            <span># 언제든 해지가능</span>
+                        </div> -->
+                        <div class="hashWrap mt32">
+                            <span class="hastag"># 스마트한 자산관리의 시작</span>
+                            <span class="hastag"># 자산증식의 첫걸음</span>
+                            <span class="hastag"># 완료까지 단,3단계!</span>
+                            <span class="hastag"># 언제든 해지가능</span>
                         </div>
                     </div>
                 </div>
                 <div class="popBtnWrap">
-                    <div class="popBtn half">
-                        <a href="javascript:;" class="btnPressDefault" role="button">추천기관 연결</a>
-                        <a href="javascript:;" class="btnPressPoint" role="button">기관 1개 연결</a>
+                    <div class="popBtn btnHalf">
+                        <a href="javascript:;" class="btnPressDefault" role="button">추천기관 연결하기</a>
+                        <a href="javascript:;" class="confirmBtn" role="button">기관 1개 연결하기</a>
                     </div>
+                    <!-- <div class="areaBtnDefault half">
+                        <a href="javascript:;" class="btnPressDefault" role="button">그냥 기다릴게요</a>
+                        <a href="javascript:;" class="btnPressPoint" role="button">네, 좋아요</a>
+                    </div> -->
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
                         <img src="../../images/common/btn_popClose.png" alt="닫기" />
                     </a>
