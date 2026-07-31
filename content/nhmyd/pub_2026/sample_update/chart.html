@@ -7,13 +7,65 @@
         <style>
             /* 차트 크기는 부모 컨테이너의 너비/높이로 제어하는 것이 좋습니다 */
             .chart-container {
+                width: 100%;
+                margin:40px auto;
+                padding: 0;
+                border: 1px solid #e2e8f0;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                height:500px;
+            }
+            .asset-card {
               width: 100%;
-              margin:40px auto;
+              max-width: 420px;
+              margin: 40px auto;
+              padding: 24px;
+              background-color: #ffffff;
+            }
+
+            /* 차트 영역 크기 제어 */
+            .chart-box {
+              width: 100%;
+              height: 28px; /* 상단 얇은 막대 바 높이 */
+              margin-bottom: 24px;
+            }
+
+            /* 하단 데이터 리스트 (커스텀 범례) */
+            .asset-list {
+              list-style: none;
               padding: 0;
-              border: 1px solid #e2e8f0;
-              border-radius: 8px;
-              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-              height:500px;
+              margin: 0;
+              display: flex;
+              flex-direction: column;
+              gap: 16px;
+            }
+
+            .asset-item {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              font-size: 16px;
+            }
+
+            .asset-label {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              color: #333333;
+              font-weight: 500;
+            }
+
+            /* 동그란 색상 칩 */
+            .color-chip {
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              display: inline-block;
+            }
+
+            .asset-value {
+              font-weight: 700;
+              color: #111111;
             }
         </style>
         <title>Chart | UI Guide</title>
@@ -37,6 +89,45 @@
 
                 <h2 class="guide-title">Interpolation Modes Chart</h2>
                 <canvas id="interpolationChart"></canvas>
+                <hr class="divider" />
+
+                <h2 class="guide-title">Stacked Bar Chart</h2>
+
+                <div class="asset-card">
+                    <div class="chart-box">
+                        <canvas id="stackedBarChart"></canvas>
+                    </div>
+                    <ul class="asset-list">
+                        <li class="asset-item">
+                            <span class="asset-label">
+                                <span class="color-chip" style="background-color: #27ad75;"></span>
+                                입출금
+                            </span>
+                            <span class="asset-value">10,000원</span>
+                        </li>
+                        <li class="asset-item">
+                            <span class="asset-label">
+                                <span class="color-chip" style="background-color: #52e57d;"></span>
+                                예금
+                            </span>
+                            <span class="asset-value">10,000,000원</span>
+                        </li>
+                        <li class="asset-item">
+                            <span class="asset-label">
+                                <span class="color-chip" style="background-color: #1249b3;"></span>
+                                적금
+                            </span>
+                            <span class="asset-value">1,000,000원</span>
+                        </li>
+                        <li class="asset-item">
+                            <span class="asset-label">
+                                <span class="color-chip" style="background-color: #b0b0b0;"></span>
+                                외화
+                            </span>
+                            <span class="asset-value">0원</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </body>
@@ -45,6 +136,7 @@
         const ctx_bar = document.getElementById('myBarChart').getContext('2d');
         const ctx_doughnut = document.getElementById('myDoughnutChart').getContext('2d');
         const ctx_interpolation = document.getElementById('interpolationChart').getContext('2d');
+        const ctx_stacked = document.getElementById('stackedBarChart').getContext('2d');
 
         // 4. Chart 객체 생성 및 설정
         const myBarChart = new Chart(ctx_bar, {
@@ -157,7 +249,7 @@
             }
         });
 
-        const chart = new Chart(ctx_interpolation, {
+        const interpolationChart = new Chart(ctx_interpolation, {
             type: 'line', // 라인 차트에서 보간 옵션을 적용합니다.
             data: {
                 labels: ['1월', '2월', '3월'], // labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
@@ -204,6 +296,58 @@
                 scales: {
                 y: {
                     beginAtZero: true
+                }
+                }
+            }
+            });
+
+        const stackedBarChart = new Chart(ctx_stacked, {
+            type: 'bar',
+            data: {
+                labels: ['자산'], // 단일 행
+                datasets: [
+                {
+                    label: '입출금',
+                    data: [10000],
+                    backgroundColor: '#27ad75',
+                    borderWidth: 0
+                },
+                {
+                    label: '예금',
+                    data: [10000000],
+                    backgroundColor: '#52e57d',
+                    borderWidth: 0
+                },
+                {
+                    label: '적금',
+                    data: [1000000],
+                    backgroundColor: '#1249b3',
+                    borderWidth: 0
+                },
+                {
+                    label: '외화',
+                    data: [500000], // 0원인 경우 막대에 안 보이므로 최소한의 시각적 분량을 위해 예시값 지정 (필요시 조절)
+                    backgroundColor: '#b0b0b0',
+                    borderWidth: 0
+                }
+                ]
+            },
+            options: {
+                indexAxis: 'y', // 가로 막대 차트로 변경
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                legend: { display: false }, // 차트 자체 기본 범례 숨김 (HTML 리스트로 대체)
+                tooltip: { enabled: true }  // 마우스 호버 시 툴팁 표시
+                },
+                scales: {
+                x: {
+                    stacked: true, // X축 누적 설정
+                    display: false // 축 레이블/선 모두 숨김
+                },
+                y: {
+                    stacked: true, // Y축 누적 설정
+                    display: false // 축 레이블/선 모두 숨김
                 }
                 }
             }
