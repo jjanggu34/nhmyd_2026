@@ -477,7 +477,18 @@ window.calendarAlign = function () {
 		});
 	}
 
+	// .wrapper(.nhasset)에 nds 클래스가 있는 화면(= 이 update-ui.js를 쓰는 .nds 화면)이면
+	// <html>에도 같은 nds 클래스를 추가합니다. html.nds 스코프로 걸어야 하는 전역 스타일
+	// (예: 뷰포트/세이프에어리어 보정 등)이 .nds 화면에서만 적용되도록 하기 위함입니다.
+	function syncNdsClassToHtml() {
+		var wrapper = document.querySelector('.wrapper');
+		if (wrapper && wrapper.classList.contains('nds')) {
+			document.documentElement.classList.add('nds');
+		}
+	}
+
 	document.addEventListener('DOMContentLoaded', function () {
+		syncNdsClassToHtml();
 		initAccordion();
 		initTermsToggle();
 		initTermsSelectAll();
