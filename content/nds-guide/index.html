@@ -1133,8 +1133,8 @@
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
-                <h3>리스트형 (체크박스 포함) — 기관선택(추천기관) 등</h3>
-                <p class="note">그룹 헤더에 전체선택 체크박스와 펼침 토글버튼이 나란히 오는 형태입니다. 전체선택/그룹 체크박스는 큰 사이즈(check-basic)를, 개별 기관 행 체크박스는 작은 사이즈(check-basic--xs)를 사용합니다(Figma 기준). 그룹 체크박스와 토글버튼은 형제 요소로 두고, data-acc-toggle 스크립트가 버튼의 부모(inst-list__group) 안에서 "__list"로 끝나는 요소를 찾아 펼침/닫힘을 처리합니다. 이용 불가 기관은 체크박스를 disabled 처리하고 상태 라벨(Label 컴포넌트)과 안내 버튼(inst-list__row-info)을 붙이며, Figma 원본에서 이 상태 항목들은 그룹 맨 위에 옵니다. 안내 버튼은 아이콘만 있어 aria-label이 필수입니다. 기관 로고는 체크박스(check-basic__icon)와 기관명(check-basic__label) 사이에 inst-list__row-logo 이미지로 넣으며, 로고·기관명이 모두 같은 &lt;label&gt;(inst-list__row-check) 안에 있어 로고나 이름을 클릭해도 체크박스가 토글됩니다. "추천기관" 화면은 그룹이 펼쳐진 상태로 시작합니다.</p>
+                <h3>리스트형 (체크박스 포함, 아코디언 펼침 상태) — 직접선택 등</h3>
+                <p class="note">그룹 헤더에 전체선택 체크박스와 펼침 토글버튼이 나란히 오는 형태입니다. 전체선택/그룹 체크박스는 큰 사이즈(check-basic)를, 개별 기관 행 체크박스는 작은 사이즈(check-basic--xs)를 사용합니다(Figma 기준). 그룹 체크박스와 토글버튼은 형제 요소로 두고, data-acc-toggle 스크립트가 버튼의 부모(inst-list__group) 안에서 "__list"로 끝나는 요소를 찾아 펼침/닫힘을 처리합니다. 이용 불가 기관은 체크박스를 disabled 처리하고 상태 라벨(Label 컴포넌트)과 안내 버튼(inst-list__row-info)을 붙이며, Figma 원본에서 이 상태 항목들은 그룹 맨 위에 옵니다. 안내 버튼은 아이콘만 있어 aria-label이 필수입니다. 기관 로고는 체크박스(check-basic__icon)와 기관명(check-basic__label) 사이에 inst-list__row-logo 이미지로 넣으며, 로고·기관명이 모두 같은 &lt;label&gt;(inst-list__row-check) 안에 있어 로고나 이름을 클릭해도 체크박스가 토글됩니다. 이 토글형 아코디언은 "직접선택" 탭처럼 여러 카테고리 그룹을 한 화면에 쌓아두고 펼치고/접을 때 씁니다 — 카테고리 칩으로 한 그룹만 골라 보여주는 "추천기관" 탭은 아코디언이 필요 없으므로 바로 아래 "카드 그리드" 패턴을 씁니다.</p>
                 <div class="demo">
                     <div class="inst-list">
                         <div class="inst-list__summary">
@@ -1220,6 +1220,88 @@
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;hr class="divider divider--list1"&gt;
+&lt;/div&gt;</code></pre>
+
+                <h3>리스트형 (아코디언 없음, 카드 그리드) — 추천기관 등</h3>
+                <p class="note">MSPS3120 Figma node 869:7304 기준(추천기관 탭 리뉴얼). 상단 칩(카테고리)으로 이미 한 그룹만 필터링해 보여주므로 그룹 헤더에 펼침 토글버튼(inst-list__group-toggle)을 두지 않고, 전체선택 체크박스+제목+개수만 하나의 &lt;label&gt;(inst-list__group-check)에 둡니다. 하위 기관은 가로 리스트(inst-list__row) 대신 3열 카드 그리드(inst-list__grid)로 전체를 한 번에 나열합니다 — 카드 1개는 &lt;label class="inst-list__grid-item"&gt; 안에 시각적으로 숨긴 체크박스(check-basic__input, check-basic__icon과 동일한 클립 기법)와 로고+기관명을 담은 inst-list__grid-card로 구성되며, 체크박스 아이콘은 노출하지 않고 선택 시 카드 배경색(연한 블루 틴트)으로만 선택 여부를 표시합니다. 이용 불가 기관은 체크박스만 disabled 처리해 카드를 반투명하게 낮춥니다(현재 이 화면은 상태 라벨을 별도로 표시하지 않습니다).</p>
+                <div class="demo">
+                    <div class="inst-list inst-list--flat">
+                        <div class="inst-list__summary">
+                            <span class="inst-list__count">총 4건</span>
+                            <label class="check-basic">
+                                <input type="checkbox" class="check-basic__input" checked />
+                                <span class="check-basic__icon"></span>
+                                <span class="check-basic__label">추천기관 전체선택</span>
+                            </label>
+                        </div>
+                        <div class="inst-list__group">
+                            <label class="check-basic inst-list__group-check">
+                                <input type="checkbox" class="check-basic__input" checked aria-label="은행 전체선택" />
+                                <span class="check-basic__icon"></span>
+                                <span class="inst-list__group-title">[SAMPLE] 은행</span>
+                                <span class="inst-list__group-count">4개</span>
+                            </label>
+                            <div class="inst-list__grid">
+                                <label class="inst-list__grid-item">
+                                    <input type="checkbox" class="check-basic__input" disabled />
+                                    <span class="inst-list__grid-card">
+                                        <img class="inst-list__grid-logo" src="../nhmyd/images/logos/AAAZ0000.png" alt="" />
+                                        <span class="inst-list__grid-label">[SAMPLE] 농축협</span>
+                                    </span>
+                                </label>
+                                <label class="inst-list__grid-item">
+                                    <input type="checkbox" class="check-basic__input" />
+                                    <span class="inst-list__grid-card">
+                                        <img class="inst-list__grid-logo" src="../nhmyd/images/logos/AAEO0000.png" alt="" />
+                                        <span class="inst-list__grid-label">[SAMPLE] 국민은행</span>
+                                    </span>
+                                </label>
+                                <label class="inst-list__grid-item">
+                                    <input type="checkbox" class="check-basic__input" checked />
+                                    <span class="inst-list__grid-card">
+                                        <img class="inst-list__grid-logo" src="../nhmyd/images/logos/AAER0000.png" alt="" />
+                                        <span class="inst-list__grid-label">[SAMPLE] 신한은행</span>
+                                    </span>
+                                </label>
+                                <label class="inst-list__grid-item">
+                                    <input type="checkbox" class="check-basic__input" checked />
+                                    <span class="inst-list__grid-card">
+                                        <img class="inst-list__grid-logo" src="../nhmyd/images/logos/AAEM0000.png" alt="" />
+                                        <span class="inst-list__grid-label">[SAMPLE] 우리은행</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <pre><code>&lt;div class="inst-list inst-list--flat"&gt;
+  &lt;div class="inst-list__summary"&gt;
+    &lt;span class="inst-list__count"&gt;총 4건&lt;/span&gt;
+    &lt;label class="check-basic"&gt;&lt;input type="checkbox" class="check-basic__input" checked&gt;&lt;span class="check-basic__icon"&gt;&lt;/span&gt;&lt;span class="check-basic__label"&gt;추천기관 전체선택&lt;/span&gt;&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="inst-list__group"&gt;
+    &lt;label class="check-basic inst-list__group-check"&gt;
+      &lt;input type="checkbox" class="check-basic__input" checked aria-label="은행 전체선택"&gt;
+      &lt;span class="check-basic__icon"&gt;&lt;/span&gt;
+      &lt;span class="inst-list__group-title"&gt;은행&lt;/span&gt;&lt;span class="inst-list__group-count"&gt;41개&lt;/span&gt;
+    &lt;/label&gt;
+    &lt;div class="inst-list__grid"&gt;
+      &lt;label class="inst-list__grid-item"&gt;
+        &lt;input type="checkbox" class="check-basic__input" disabled&gt;
+        &lt;span class="inst-list__grid-card"&gt;
+          &lt;img class="inst-list__grid-logo" src="logos/AAAZ0000.png" alt=""&gt;
+          &lt;span class="inst-list__grid-label"&gt;농축협&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/label&gt;
+      &lt;label class="inst-list__grid-item"&gt;
+        &lt;input type="checkbox" class="check-basic__input" checked&gt;
+        &lt;span class="inst-list__grid-card"&gt;
+          &lt;img class="inst-list__grid-logo" src="logos/AAER0000.png" alt=""&gt;
+          &lt;span class="inst-list__grid-label"&gt;신한은행&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
                 <h3>리스트형 — 그룹 닫힘 상태(직접선택 등)</h3>
@@ -1484,11 +1566,11 @@
                         </div>
                         <div class="bottomsheet__body">
                             <div class="bottomsheet-list">
-                                <button type="button" class="bottomsheet-list__item"><span>항목1</span></button>
-                                <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected"><span>항목2</span></button>
-                                <button type="button" class="bottomsheet-list__item"><span>항목3</span></button>
-                                <button type="button" class="bottomsheet-list__item"><span>항목4</span></button>
-                                <button type="button" class="bottomsheet-list__item"><span>항목5</span></button>
+                                <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>항목1</span></button>
+                                <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected" aria-pressed="true"><span>항목2</span></button>
+                                <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>항목3</span></button>
+                                <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>항목4</span></button>
+                                <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>항목5</span></button>
                             </div>
                         </div>
                     </div>
@@ -1499,17 +1581,17 @@
                         </div>
                         <div class="bottomsheet__body" style="padding-bottom:6px;">
                             <div class="bottomsheet-list">
-                                <button type="button" class="bottomsheet-list__item"><span>항목1</span></button>
-                                <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected">
+                                <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>항목1</span></button>
+                                <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected" aria-pressed="true">
                                     <span>항목2</span>
                                     <span class="bottomsheet-list__check"></span>
                                 </button>
-                                <button type="button" class="bottomsheet-list__item"><span>항목3</span></button>
-                                <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected">
+                                <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>항목3</span></button>
+                                <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected" aria-pressed="true">
                                     <span>항목4</span>
                                     <span class="bottomsheet-list__check"></span>
                                 </button>
-                                <button type="button" class="bottomsheet-list__item"><span>항목5</span></button>
+                                <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>항목5</span></button>
                             </div>
                         </div>
                         <div class="bottomsheet__cta"><button type="button" class="btn btn--primary btn--full btn--lg">확인</button></div>
@@ -1521,15 +1603,15 @@
                         </div>
                         <div class="bottomsheet__body">
                             <div class="bottomsheet-list">
-                                <button type="button" class="bottomsheet-list__item">
+                                <button type="button" class="bottomsheet-list__item" aria-pressed="false">
                                     <img class="bottomsheet-list__flag" src="https://flagcdn.com/w80/us.png" alt="USD" />
                                     <span>USD(미국 달러)</span>
                                 </button>
-                                <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected">
+                                <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected" aria-pressed="true">
                                     <img class="bottomsheet-list__flag" src="https://flagcdn.com/w80/au.png" alt="AUD" />
                                     <span>AUD(호주 달러)</span>
                                 </button>
-                                <button type="button" class="bottomsheet-list__item">
+                                <button type="button" class="bottomsheet-list__item" aria-pressed="false">
                                     <img class="bottomsheet-list__flag" src="https://flagcdn.com/w80/cn.png" alt="CNY" />
                                     <span>CNY(중국 위안)</span>
                                 </button>
@@ -1538,10 +1620,10 @@
                     </div>
                 </div>
                 <pre><code>&lt;div class="bottomsheet-list"&gt;
-  &lt;button class="bottomsheet-list__item"&gt;&lt;span&gt;항목1&lt;/span&gt;&lt;/button&gt;
-  &lt;button class="bottomsheet-list__item bottomsheet-list__item--selected"&gt;&lt;span&gt;항목2&lt;/span&gt;&lt;span class="bottomsheet-list__check"&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;button class="bottomsheet-list__item" aria-pressed="false"&gt;&lt;span&gt;항목1&lt;/span&gt;&lt;/button&gt;
+  &lt;button class="bottomsheet-list__item bottomsheet-list__item--selected" aria-pressed="true"&gt;&lt;span&gt;항목2&lt;/span&gt;&lt;span class="bottomsheet-list__check"&gt;&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;
-&lt;!-- currency 변형은 각 항목 앞에 &lt;img class="bottomsheet-list__flag"&gt; 32x32 원형 국기 아이콘 추가 --&gt;</code></pre>
+&lt;!-- 단일 선택 버튼 그룹이므로 각 항목에 aria-pressed(선택=true/미선택=false)를 부여합니다. currency 변형은 각 항목 앞에 &lt;img class="bottomsheet-list__flag"&gt; 32x32 원형 국기 아이콘 추가 --&gt;</code></pre>
 
                 <h3>Finance/bank — 금융기관 선택 (탭 + 아이콘 그리드 메뉴)</h3>
                 <p class="note">실제 Figma는 은행 32곳의 실제 로고를 담고 있습니다. 로고 자산까지 그대로 옮기는 대신, 구조(탭바 + 아이콘+라벨 2열 리스트, 행 간격 28px, 열 간격 8px, 14px 텍스트)를 정확히 재현하고 로고는 샘플 원형 아이콘으로 대체했습니다 — 실제 화면에서는 은행별 실제 로고 이미지로 교체해서 쓰면 됩니다.</p>
@@ -4664,6 +4746,43 @@
   &lt;/div&gt;
   &lt;button class="chip-accordion__toggle" aria-label="펼치기"&gt;&lt;/button&gt;
 &lt;/div&gt;</code></pre>
+
+                <h3>single list — sticky(아코디언 아님, 스크롤 시 상단 고정)</h3>
+                <p class="note">토글(펼치기/접기) 없이 가로 스크롤되는 칩 목록입니다. 클릭하면 다른 chip-single과 똑같이 active 상태(chip-single--active, aria-pressed)로 전환되고(update-ui.js가 같은 부모를 공유하는 .chip-single을 자동으로 그룹핑해 처리하므로 별도 스크립트가 필요 없습니다), 이 목록 자체는 스크롤해서 원래 위치를 지나면 상단에 붙습니다. 레거시(content/nhmyd/pub/ps/MSPS3120.html)의 .anchorSubjectWrap.hasSticky와 같은 동작이며, 스크롤 이벤트로 position:fixed를 수동 토글하는 대신 네이티브 position:sticky만으로 구현합니다 — .chips 또는 .chips.chip-accordion에 chips--sticky 클래스만 추가하면 됩니다. 아래 미리보기는 데모 상자 자체가 스크롤 컨테이너라 top:0으로 덮어썼지만, 실 화면(.header가 고정 51px인 곳)에서는 기본값 top:51px가 그대로 적용됩니다.</p>
+                <div class="demo">
+                    <div style="height:220px; overflow-y:auto; border:1px solid var(--color-border-3); border-radius:8px;">
+                        <div class="chips chip-accordion chips--sticky" style="top:0; padding:12px 16px 8px;">
+                            <div class="chip-accordion__chips">
+                                <button type="button" class="chip-single chip-single--active" aria-pressed="true">은행</button>
+                                <button type="button" class="chip-single" aria-pressed="false">카드</button>
+                                <button type="button" class="chip-single" aria-pressed="false">증권</button>
+                                <button type="button" class="chip-single" aria-pressed="false">보험</button>
+                                <button type="button" class="chip-single" aria-pressed="false">할부금융</button>
+                            </div>
+                        </div>
+                        <div style="padding:0 16px 16px; color:var(--color-font-4); font-size:13px; line-height:1.8;">
+                            아래로 스크롤하면 위 칩 목록이 상단에 붙습니다.<br />
+                            [SAMPLE] 은행 목록 1<br />
+                            [SAMPLE] 은행 목록 2<br />
+                            [SAMPLE] 은행 목록 3<br />
+                            [SAMPLE] 은행 목록 4<br />
+                            [SAMPLE] 은행 목록 5<br />
+                            [SAMPLE] 은행 목록 6<br />
+                            [SAMPLE] 은행 목록 7<br />
+                            [SAMPLE] 은행 목록 8<br />
+                            [SAMPLE] 은행 목록 9<br />
+                            [SAMPLE] 은행 목록 10
+                        </div>
+                    </div>
+                </div>
+                <pre><code>&lt;div class="chips chip-accordion chips--sticky"&gt;
+  &lt;div class="chip-accordion__chips"&gt;
+    &lt;button type="button" class="chip-single chip-single--active" aria-pressed="true"&gt;은행&lt;/button&gt;
+    &lt;button type="button" class="chip-single" aria-pressed="false"&gt;카드&lt;/button&gt;
+    ...
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- update-ui.js가 .chip-single 클릭 시 active 토글을 자동 처리합니다 --&gt;</code></pre>
             </section>
 
             <section id="sec-controls" class="nds">
@@ -6525,6 +6644,27 @@
   &lt;span class="process-progress-number__current"&gt;01&lt;/span&gt;
   &lt;span class="process-progress-number__divider"&gt;&lt;/span&gt;
   &lt;span class="process-progress-number__total"&gt;03&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+                <h3>progress-h — 타이틀 + progress-number 조합(예: "기관선택" · MSPS3120)</h3>
+                <p class="note">MSPS3120 Figma node 863:6628 기준. 화면 최상단에서 원형 3단계 스텝(process-step-h)을 대체하는 더 단순한 헤더 패턴으로, 좌측에 현재 단계 타이틀, 우측에 위 progress-number pill을 나란히 둡니다(justify-content: center, gap 63px). 타이틀 텍스트는 --color-font-point(#19973c)가 아닌 별도 그린 톤 --color-font-green-newtro(#27a588, Figma "green_newtro" 토큰)를 씁니다. process-step-h가 계속 쓰이는 화면은 그대로 두고, 이 패턴이 필요한 화면에서만 바꿔 씁니다.</p>
+                <div class="demo">
+                    <div class="process-progress-h" role="img" aria-label="총 3단계 중 1번째 단계: 기관선택">
+                        <p class="process-progress-h__title">기관선택</p>
+                        <div class="process-progress-number">
+                            <span class="process-progress-number__current">01</span>
+                            <span class="process-progress-number__divider"></span>
+                            <span class="process-progress-number__total">03</span>
+                        </div>
+                    </div>
+                </div>
+                <pre><code>&lt;div class="process-progress-h" role="img" aria-label="총 3단계 중 1번째 단계: 기관선택"&gt;
+  &lt;p class="process-progress-h__title"&gt;기관선택&lt;/p&gt;
+  &lt;div class="process-progress-number"&gt;
+    &lt;span class="process-progress-number__current"&gt;01&lt;/span&gt;
+    &lt;span class="process-progress-number__divider"&gt;&lt;/span&gt;
+    &lt;span class="process-progress-number__total"&gt;03&lt;/span&gt;
+  &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
                 <h3>step/icon/horizontal — 3단계 아이콘 원형(48px) + 점선 연결선</h3>

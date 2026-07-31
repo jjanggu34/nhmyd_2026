@@ -16,7 +16,7 @@
                 <h2 class="guide-title">상태 — Inactive</h2>
                 <div class="demo">
                     <label class="input-box__label" for="input-1">레이블</label>
-                    <div class="input-box__field"><input type="text" id="input-1" class="input-box__input" placeholder="플레이스홀더"></div>
+                    <div class="input-box__field"><input type="text" id="input-1" class="input-box__input" placeholder="플레이스홀더" /></div>
                 </div>
 
                 <hr class="divider" />
@@ -25,7 +25,7 @@
                 <div class="demo">
                     <div class="input-box input-box--focus">
                         <label class="input-box__label" for="input-2">레이블</label>
-                        <div class="input-box__field"><input type="text" id="input-2" class="input-box__input" value="입력값"></div>
+                        <div class="input-box__field"><input type="text" id="input-2" class="input-box__input" value="입력값" /></div>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                 <div class="demo">
                     <div class="input-box input-box--error">
                         <label class="input-box__label" for="input-3">레이블</label>
-                        <div class="input-box__field"><input type="text" id="input-3" class="input-box__input" value="입력값" aria-invalid="true" aria-describedby="input-3-msg"></div>
+                        <div class="input-box__field"><input type="text" id="input-3" class="input-box__input" value="입력값" aria-invalid="true" aria-describedby="input-3-msg" /></div>
                         <span class="input-box__message" id="input-3-msg">안내 문구 입력</span>
                     </div>
                 </div>
@@ -46,7 +46,10 @@
                 <div class="demo">
                     <div class="input-box input-box--success">
                         <label class="input-box__label" for="input-4">레이블</label>
-                        <div class="input-box__field"><input type="text" id="input-4" class="input-box__input" value="입력값" aria-describedby="input-4-msg"><span class="input-box__check" aria-hidden="true"></span></div>
+                        <div class="input-box__field">
+                            <input type="text" id="input-4" class="input-box__input" value="입력값" aria-describedby="input-4-msg" />
+                            <span class="input-box__check" aria-hidden="true"></span>
+                        </div>
                         <span class="input-box__message input-box__message--success" id="input-4-msg">안내 문구 입력</span>
                     </div>
                 </div>
@@ -57,7 +60,7 @@
                 <div class="demo">
                     <div class="input-box input-box--readonly">
                         <label class="input-box__label" for="input-5">레이블</label>
-                        <div class="input-box__field"><input type="text" id="input-5" class="input-box__input" value="읽기 전용" readonly></div>
+                        <div class="input-box__field"><input type="text" id="input-5" class="input-box__input" value="읽기 전용" readonly /></div>
                     </div>
                 </div>
 
@@ -67,7 +70,7 @@
                 <div class="demo">
                     <div class="input-box input-box--disabled">
                         <label class="input-box__label" for="input-6">레이블</label>
-                        <div class="input-box__field"><input type="text" id="input-6" class="input-box__input" value="비활성" disabled></div>
+                        <div class="input-box__field"><input type="text" id="input-6" class="input-box__input" value="비활성" disabled /></div>
                     </div>
                 </div>
 
@@ -77,7 +80,7 @@
                 <div class="demo">
                     <label class="input-box__label" for="input-7">닉네임</label>
                     <div class="input-box__field">
-                        <input type="text" id="input-7" class="input-box__input" value="NH올원카드">
+                        <input type="text" id="input-7" class="input-box__input" value="NH올원카드" />
                         <button type="button" class="input-box__clear" aria-label="입력값 삭제"></button>
                     </div>
                 </div>
@@ -88,7 +91,7 @@
                 <div class="demo">
                     <label class="input-box__label" for="input-8">레이블</label>
                     <div class="input-box__field">
-                        <input type="text" id="input-8" inputmode="numeric" class="input-box__input input-box__input--right" placeholder="금액 입력">
+                        <input type="text" id="input-8" inputmode="numeric" class="input-box__input input-box__input--right" placeholder="금액 입력" />
                         <span class="input-box__unit">원</span>
                     </div>
                 </div>
@@ -99,7 +102,7 @@
                 <div class="demo">
                     <label class="input-box__label" for="input-9">레이블</label>
                     <div class="input-box__field">
-                        <input type="text" id="input-9" inputmode="numeric" class="input-box__input input-box__input--right" placeholder="1 ~ 99 이내로 입력">
+                        <input type="text" id="input-9" inputmode="numeric" class="input-box__input input-box__input--right" placeholder="1 ~ 99 이내로 입력" />
                         <span class="input-box__unit">%</span>
                     </div>
                 </div>
@@ -110,8 +113,14 @@
                 <div class="demo">
                     <span class="input-box__label" id="input-10-11-label">레이블</span>
                     <div class="input-box__row">
-                        <div class="input-box__field"><input type="text" id="input-10" aria-labelledby="input-10-11-label" class="input-box__input input-box__input--right" placeholder="동"><span class="input-box__unit">동</span></div>
-                        <div class="input-box__field"><input type="text" id="input-11" aria-labelledby="input-10-11-label" class="input-box__input input-box__input--right" placeholder="호"><span class="input-box__unit">호</span></div>
+                        <div class="input-box__field">
+                            <input type="text" id="input-10" aria-labelledby="input-10-11-label" class="input-box__input input-box__input--right" placeholder="동" />
+                            <span class="input-box__unit">동</span>
+                        </div>
+                        <div class="input-box__field">
+                            <input type="text" id="input-11" aria-labelledby="input-10-11-label" class="input-box__input input-box__input--right" placeholder="호" />
+                            <span class="input-box__unit">호</span>
+                        </div>
                     </div>
                 </div>
 
@@ -122,7 +131,7 @@
                     <label class="input-box__label" for="input-12">레이블</label>
                     <div class="input-box__field">
                         <span class="input-box__plus" aria-hidden="true"></span>
-                        <input type="text" id="input-12" inputmode="numeric" class="input-box__input input-box__input--right" placeholder="1 ~ 99 이내로 입력">
+                        <input type="text" id="input-12" inputmode="numeric" class="input-box__input input-box__input--right" placeholder="1 ~ 99 이내로 입력" />
                         <span class="input-box__unit">%</span>
                     </div>
                 </div>
@@ -134,7 +143,7 @@
                     <label class="input-box__label" for="input-13">레이블</label>
                     <div class="input-box__field">
                         <span class="input-box__prefix-text" aria-hidden="true">USD</span>
-                        <input type="text" id="input-13" inputmode="decimal" class="input-box__input input-box__input--right" placeholder="금액 입력" aria-label="USD 금액 입력">
+                        <input type="text" id="input-13" inputmode="decimal" class="input-box__input input-box__input--right" placeholder="금액 입력" aria-label="USD 금액 입력" />
                     </div>
                 </div>
 
@@ -145,7 +154,7 @@
                     <span class="input-box__label" id="input-14-label">레이블</span>
                     <div class="input-box__field">
                         <span class="input-box__prefix-text" aria-hidden="true">USD</span>
-                        <input type="text" id="input-14" aria-labelledby="input-14-label" inputmode="decimal" class="input-box__ghost input-box__ghost--right" placeholder="USD 10~2,000">
+                        <input type="text" id="input-14" aria-labelledby="input-14-label" inputmode="decimal" class="input-box__ghost input-box__ghost--right" placeholder="USD 10~2,000" />
                         <span class="input-box__unit">.</span>
                         <span class="input-box__unit">00</span>
                     </div>
@@ -157,7 +166,7 @@
                 <div class="demo">
                     <span class="input-box__label" id="input-15-label">레이블</span>
                     <div class="input-box__field">
-                        <input type="text" id="input-15" aria-labelledby="input-15-label" inputmode="decimal" class="input-box__ghost input-box__ghost--right" placeholder="입력해 주세요">
+                        <input type="text" id="input-15" aria-labelledby="input-15-label" inputmode="decimal" class="input-box__ghost input-box__ghost--right" placeholder="입력해 주세요" />
                         <span class="input-box__unit">.</span>
                         <span class="input-box__ghost" style="flex:none;">00</span>
                         <span class="input-box__unit">%</span>
@@ -183,9 +192,12 @@
                 <div class="demo">
                     <span class="input-box__label" id="input-17-label">레이블</span>
                     <div class="input-box__field">
-                        <input type="text" id="input-17" aria-labelledby="input-17-label" class="input-box__ghost" placeholder="직접입력">
+                        <input type="text" id="input-17" aria-labelledby="input-17-label" class="input-box__ghost" placeholder="직접입력" />
                         <span class="input-box__unit" aria-hidden="true">＠</span>
-                        <button type="button" class="input-box__ghost input-box__ghost--fixed" style="text-align:left;">이메일선택<span class="input-box__icon input-box__icon--up" aria-hidden="true"></span></button>
+                        <button type="button" class="input-box__ghost input-box__ghost--fixed" style="text-align:left;">
+                            이메일선택
+                            <span class="input-box__icon input-box__icon--up" aria-hidden="true"></span>
+                        </button>
                     </div>
                 </div>
 
@@ -195,7 +207,7 @@
                 <div class="demo">
                     <label class="input-box__label" for="input-18">레이블</label>
                     <div class="input-box__field">
-                        <input type="text" id="input-18" class="input-box__input" placeholder="플레이스홀더">
+                        <input type="text" id="input-18" class="input-box__input" placeholder="플레이스홀더" />
                         <button type="button" class="input-box__btn input-box__btn--disabled" disabled>버튼</button>
                     </div>
                 </div>
@@ -206,9 +218,9 @@
                 <div class="demo">
                     <span class="input-box__label" id="input-19-20-label">레이블</span>
                     <div class="input-box__field">
-                        <input type="text" id="input-19" aria-labelledby="input-19-20-label" class="input-box__input" placeholder="번지수 앞자리">
+                        <input type="text" id="input-19" aria-labelledby="input-19-20-label" class="input-box__input" placeholder="번지수 앞자리" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-20" aria-labelledby="input-19-20-label" class="input-box__input" placeholder="번지수 뒷자리">
+                        <input type="text" id="input-20" aria-labelledby="input-19-20-label" class="input-box__input" placeholder="번지수 뒷자리" />
                     </div>
                 </div>
 
@@ -218,7 +230,7 @@
                 <div class="demo">
                     <label class="input-box__label" for="input-21">비밀번호</label>
                     <div class="input-box__field">
-                        <input type="password" id="input-21" inputmode="numeric" class="input-box__input" placeholder="비밀번호 4자리 입력" maxlength="4">
+                        <input type="password" id="input-21" inputmode="numeric" class="input-box__input" placeholder="비밀번호 4자리 입력" maxlength="4" />
                     </div>
                 </div>
 
@@ -228,9 +240,9 @@
                 <div class="demo">
                     <span class="input-box__label" id="input-22-23-label">주민등록번호</span>
                     <div class="input-box__field">
-                        <input type="text" id="input-22" aria-labelledby="input-22-23-label" inputmode="numeric" class="input-box__input" placeholder="앞 6자리" maxlength="6">
+                        <input type="text" id="input-22" aria-labelledby="input-22-23-label" inputmode="numeric" class="input-box__input" placeholder="앞 6자리" maxlength="6" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="password" id="input-23" aria-labelledby="input-22-23-label" inputmode="numeric" class="input-box__input" placeholder="뒤 7자리" maxlength="7">
+                        <input type="password" id="input-23" aria-labelledby="input-22-23-label" inputmode="numeric" class="input-box__input" placeholder="뒤 7자리" maxlength="7" />
                     </div>
                 </div>
 
@@ -240,7 +252,7 @@
                 <div class="demo">
                     <label class="input-box__label" for="input-24">주민등록번호</label>
                     <div class="input-box__field">
-                        <input type="text" id="input-24" inputmode="numeric" class="input-box__input" value="123456" maxlength="6">
+                        <input type="text" id="input-24" inputmode="numeric" class="input-box__input" value="123456" maxlength="6" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
                         <span class="input-box__ghost" style="flex:none;" aria-hidden="true">●</span>
                         <span class="input-box__unit" aria-hidden="true">●●●●●●</span>
@@ -255,7 +267,7 @@
                     <span class="input-box__label" id="input-25-label">레이블</span>
                     <div class="input-box__field">
                         <button type="button" class="input-box__inline-select" aria-labelledby="input-25-label">선택</button>
-                        <input type="text" id="input-25" aria-labelledby="input-25-label" class="input-box__ghost" placeholder="- 없이 입력">
+                        <input type="text" id="input-25" aria-labelledby="input-25-label" class="input-box__ghost" placeholder="- 없이 입력" />
                         <button type="button" class="input-box__btn input-box__btn--disabled" disabled>요청</button>
                     </div>
                 </div>
@@ -267,9 +279,9 @@
                     <span class="input-box__label" id="input-26-27-label">레이블</span>
                     <div class="input-box__field">
                         <button type="button" class="input-box__inline-select" aria-labelledby="input-26-27-label">선택</button>
-                        <input type="text" id="input-26" aria-labelledby="input-26-27-label" class="input-box__input" placeholder="앞자리">
+                        <input type="text" id="input-26" aria-labelledby="input-26-27-label" class="input-box__input" placeholder="앞자리" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-27" aria-labelledby="input-26-27-label" class="input-box__input" placeholder="뒷자리">
+                        <input type="text" id="input-27" aria-labelledby="input-26-27-label" class="input-box__input" placeholder="뒷자리" />
                     </div>
                 </div>
 
@@ -279,7 +291,7 @@
                 <div class="demo">
                     <label class="input-box__label" for="input-28">레이블</label>
                     <div class="input-box__field">
-                        <input type="text" id="input-28" inputmode="numeric" class="input-box__input" placeholder="인증번호 6자리" maxlength="6">
+                        <input type="text" id="input-28" inputmode="numeric" class="input-box__input" placeholder="인증번호 6자리" maxlength="6" />
                     </div>
                 </div>
 
@@ -289,11 +301,11 @@
                 <div class="demo">
                     <span class="input-box__label" id="input-29-31-label">레이블</span>
                     <div class="input-box__field">
-                        <input type="text" id="input-29" aria-labelledby="input-29-31-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;">
+                        <input type="text" id="input-29" aria-labelledby="input-29-31-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-30" aria-labelledby="input-29-31-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;">
+                        <input type="text" id="input-30" aria-labelledby="input-29-31-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-31" aria-labelledby="input-29-31-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;">
+                        <input type="text" id="input-31" aria-labelledby="input-29-31-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;" />
                     </div>
                 </div>
 
@@ -303,11 +315,11 @@
                 <div class="demo">
                     <span class="input-box__label" id="input-32-34-label">레이블</span>
                     <div class="input-box__field">
-                        <input type="text" id="input-32" aria-labelledby="input-32-34-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:none;width:44px;">
+                        <input type="text" id="input-32" aria-labelledby="input-32-34-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:none;width:44px;" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-33" aria-labelledby="input-32-34-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="2자리" maxlength="2" style="flex:none;width:44px;">
+                        <input type="text" id="input-33" aria-labelledby="input-32-34-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="2자리" maxlength="2" style="flex:none;width:44px;" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-34" aria-labelledby="input-32-34-label" inputmode="numeric" class="input-box__input" placeholder="8자리" maxlength="8">
+                        <input type="text" id="input-34" aria-labelledby="input-32-34-label" inputmode="numeric" class="input-box__input" placeholder="8자리" maxlength="8" />
                     </div>
                 </div>
 
@@ -317,13 +329,13 @@
                 <div class="demo">
                     <span class="input-box__label" id="input-35-38-label">레이블</span>
                     <div class="input-box__field">
-                        <input type="text" id="input-35" aria-labelledby="input-35-38-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;">
+                        <input type="text" id="input-35" aria-labelledby="input-35-38-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-36" aria-labelledby="input-35-38-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;">
+                        <input type="text" id="input-36" aria-labelledby="input-35-38-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-37" aria-labelledby="input-35-38-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;">
+                        <input type="text" id="input-37" aria-labelledby="input-35-38-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;" />
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-38" aria-labelledby="input-35-38-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;">
+                        <input type="text" id="input-38" aria-labelledby="input-35-38-label" inputmode="numeric" class="input-box__input input-box__input--center" placeholder="4자리" maxlength="4" style="flex:1;" />
                     </div>
                 </div>
 
@@ -335,7 +347,7 @@
                     <div class="input-box__field">
                         <span class="input-box__prefix-text" aria-hidden="true">0123</span>
                         <span class="input-box__unit" aria-hidden="true">-</span>
-                        <input type="text" id="input-39" aria-labelledby="input-39-label" inputmode="numeric" class="input-box__ghost" placeholder="15자리 숫자 입력">
+                        <input type="text" id="input-39" aria-labelledby="input-39-label" inputmode="numeric" class="input-box__ghost" placeholder="15자리 숫자 입력" />
                     </div>
                 </div>
 
@@ -344,7 +356,7 @@
                 <h2 class="guide-title">line/basic</h2>
                 <div class="demo">
                     <label class="input-line__label" for="input-40">레이블</label>
-                    <div class="input-line__field"><input type="text" id="input-40" class="input-line__input" placeholder="플레이스홀더"></div>
+                    <div class="input-line__field"><input type="text" id="input-40" class="input-line__input" placeholder="플레이스홀더" /></div>
                 </div>
 
                 <hr class="divider" />
@@ -353,7 +365,7 @@
                 <div class="demo">
                     <label class="input-line__label" for="input-41">레이블</label>
                     <div class="input-line__field">
-                        <input type="text" id="input-41" inputmode="numeric" class="input-line__input input-line__input--right" placeholder="금액 입력">
+                        <input type="text" id="input-41" inputmode="numeric" class="input-line__input input-line__input--right" placeholder="금액 입력" />
                         <span class="input-line__unit">원</span>
                     </div>
                 </div>
@@ -364,7 +376,7 @@
                 <div class="demo">
                     <label class="input-line__label" for="input-42">레이블</label>
                     <div class="input-line__field">
-                        <input type="text" id="input-42" inputmode="numeric" class="input-line__input input-line__input--right" placeholder="1~99">
+                        <input type="text" id="input-42" inputmode="numeric" class="input-line__input input-line__input--right" placeholder="1~99" />
                         <span class="input-line__unit">%</span>
                     </div>
                 </div>
@@ -375,9 +387,9 @@
                 <div class="demo">
                     <span class="input-line__label" id="input-43-44-label">주민등록번호</span>
                     <div class="input-line__field">
-                        <input type="text" id="input-43" aria-labelledby="input-43-44-label" inputmode="numeric" class="input-line__input" placeholder="앞 6자리" maxlength="6">
+                        <input type="text" id="input-43" aria-labelledby="input-43-44-label" inputmode="numeric" class="input-line__input" placeholder="앞 6자리" maxlength="6" />
                         <span class="input-line__sep" aria-hidden="true">-</span>
-                        <input type="password" id="input-44" aria-labelledby="input-43-44-label" inputmode="numeric" class="input-line__input" placeholder="뒤 7자리" maxlength="7">
+                        <input type="password" id="input-44" aria-labelledby="input-43-44-label" inputmode="numeric" class="input-line__input" placeholder="뒤 7자리" maxlength="7" />
                         <button type="button" class="input-line__btn input-line__btn--disabled" disabled>인증</button>
                     </div>
                 </div>
@@ -389,7 +401,7 @@
                     <span class="input-line__label" id="input-45-label">레이블</span>
                     <div class="input-line__field">
                         <button type="button" class="input-line__inline-select" aria-labelledby="input-45-label">선택</button>
-                        <input type="text" id="input-45" aria-labelledby="input-45-label" class="input-line__input" placeholder="-없이 입력">
+                        <input type="text" id="input-45" aria-labelledby="input-45-label" class="input-line__input" placeholder="-없이 입력" />
                         <button type="button" class="input-line__btn input-line__btn--disabled" disabled>요청</button>
                     </div>
                 </div>
@@ -400,7 +412,7 @@
                 <div class="demo">
                     <label class="input-line__label" for="input-46">레이블</label>
                     <div class="input-line__field">
-                        <input type="password" id="input-46" class="input-line__input" placeholder="플레이스홀더">
+                        <input type="password" id="input-46" class="input-line__input" placeholder="플레이스홀더" />
                         <button type="button" class="input-line__btn input-line__btn--disabled" disabled>버튼</button>
                     </div>
                 </div>

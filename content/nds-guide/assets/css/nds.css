@@ -122,6 +122,7 @@
   --color-font-point: var(--primitive-green-500);
   --color-font-positive: var(--primitive-blue-500);
   --color-font-negative: var(--primitive-red-500);
+  --color-font-green-newtro: #27a588; /* Figma component/hero_card/green_newtro — process-progress-h 타이틀 전용, --color-font-point(#19973c)와 다른 별도 그린 톤 */
   --color-border-1: var(--primitive-gray-400);
   --color-border-2: var(--primitive-gray-300);
   --color-border-3: var(--primitive-gray-200);
@@ -3684,6 +3685,67 @@
           mask-position: center;
 }
 
+/* ---- inst-list--flat: 추천기관 탭 전용 은행목록 변형(MSPS3120 Figma node 869:7304).
+   직접선택 탭(.inst-list__group-toggle 아코디언 버튼 + .inst-list__row 가로 리스트)과
+   달리, 추천기관 탭은 상단 칩(카테고리)으로 한 번에 하나의 그룹만 보여주므로 펼치기/접기가
+   필요 없습니다 — .inst-list__group 헤더에 토글 버튼 없이 체크박스+제목+개수만 두고,
+   하위 기관은 .inst-list__row 가로 리스트 대신 .inst-list__grid 3열 카드 그리드로
+   전체 목록을 나열합니다(체크박스 아이콘은 노출하지 않고 카드 배경색으로 선택 여부를
+   표시 — check-basic__input의 클립 기법을 그대로 재사용). */
+.nds .inst-list__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+.nds .inst-list__grid-item {
+  display: block;
+  min-width: 0; /* 그리드 트랙 기본값(min-width:auto)이 긴 기관명의 min-content로 늘어나
+    3개 열 폭이 서로 달라지고 가로스크롤이 생기는 문제를 막습니다(글자는 카드 안에서
+    inst-list__grid-label의 ellipsis로 잘립니다). */
+  cursor: pointer;
+}
+.nds .inst-list__grid-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 6px;
+  border-radius: 8px;
+  background: var(--color-bg-container);
+  transition: background-color var(--transition-base);
+}
+.nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card {
+  background: rgba(229, 239, 255, 0.4); /* Figma atom-box 선택 상태 배경값 */
+}
+.nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card {
+  opacity: 0.5;
+}
+.nds .inst-list__grid-logo {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  object-fit: contain; /* Figma의 개별 로고 이미지는 border-radius/배경색 없이 24x24 원본
+    이미지 그대로 노출됩니다(overflow-clip은 안전장치일 뿐). 원 모양(border-radius:50%)으로
+    강제로 잘라버리면 IBK카드처럼 둥근사각형(앱 아이콘형) 원본 로고가 찌그러져 보이므로
+    제거했습니다. */
+}
+.nds .inst-list__grid-label {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: var(--font-weight-regular);
+  letter-spacing: -0.26px;
+  line-height: 20px;
+  color: var(--color-font-1);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* ---- Result List: 기관명 + 연결성공/실패 라벨 리스트(NH_MD_UI_07_02/07_03 "자산연결
    완료/실패" 팝업 전용). 아이콘은 inst-list__row-logo를 그대로 재사용합니다. */
 .nds .result-list {
@@ -4618,6 +4680,20 @@
 
 .nds .chip-accordion.is-open .chip-accordion__toggle::after {
   transform: rotate(180deg);
+}
+
+/* --- chips--sticky: 펼치기/접기 아코디언과 무관하게, 스크롤해서 원래 위치를 지나면
+   상단(고정 헤더 아래)에 붙는 칩 목록. .chips 또는 .chips.chip-accordion에 이 클래스만
+   추가하면 됩니다(예: MSPS3120 기관선택 화면의 업권 칩). 레거시(content/nhmyd/pub/ps/
+   MSPS3120.html)의 .anchorSubjectWrap.hasSticky는 스크롤 이벤트로 position:fixed를
+   수동 토글했지만, 여기서는 네이티브 position:sticky로 같은 동작을 구현합니다(스크립트 불필요).
+   top 값은 .header{position:fixed;height:51px}를 기준으로 하며, 헤더 높이가 다른 화면에서는
+   top을 인라인/컨텍스트 선택자로 덮어써야 합니다. */
+.nds .chips--sticky {
+  position: sticky;
+  top: 51px;
+  z-index: 15;
+  background: var(--color-bg-default);
 }
 
 /* --- controls --- */
@@ -11226,6 +11302,34 @@
   color: var(--color-font-point);
 }
 .nds .process-step-h__label--default { color: var(--color-font-1); }
+
+/* step / progress-h: 타이틀 + process-progress-number(01 | 03) 조합형 헤더.
+   원형 3단계 스텝(process-step-h)을 대체하는 더 단순한 패턴으로, Figma MSPS3120
+   node 863:6628 기준입니다(예: "기관선택" + "01 | 03"). process-step-h는 다른
+   화면에서 계속 쓰이므로 그대로 두고, 이 패턴은 별도 케이스로 추가합니다. */
+.nds .process-progress-h {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 63px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 24px 0 32px;
+}
+
+.nds .process-progress-h__title {
+  flex: 1 0 0;
+  min-width: 0;
+  font-size: 16px;
+  font-weight: var(--font-weight-medium);
+  line-height: 24px;
+  letter-spacing: -0.32px;
+  color: var(--color-font-green-newtro);
+}
+
+.nds .process-progress-h .process-progress-number {
+  flex-shrink: 0;
+}
 
 /* step / number / vertical */
 .nds .process-step-v {

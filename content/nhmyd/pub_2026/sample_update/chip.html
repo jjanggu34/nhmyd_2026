@@ -65,6 +65,50 @@
                         <button type="button" class="chip-accordion__toggle" aria-label="접기" aria-expanded="true"></button>
                     </div>
                 </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">single list — sticky(아코디언 아님, 스크롤 시 상단 고정)</h2>
+                <p class="note">
+                    토글(펼치기/접기) 없이 가로 스크롤되는 칩 목록입니다. 클릭하면 다른 chip-single과 똑같이 active 상태(chip-single--active, aria-pressed)로 전환되고(update-ui.js가 같은 부모를 공유하는 .chip-single을 자동으로 그룹핑해 처리하므로 별도 스크립트가 필요 없습니다), 이 목록 자체는 스크롤해서 원래 위치를 지나면 상단에 붙습니다. 레거시(content/nhmyd/pub/ps/MSPS3120.html)의 .anchorSubjectWrap.hasSticky와 같은 동작이며, 스크롤 이벤트로 position:fixed를 수동 토글하는 대신 네이티브
+                    position:sticky만으로 구현합니다 — .chips 또는 .chips.chip-accordion에 chips--sticky 클래스만 추가하면 됩니다. 아래 미리보기는 데모 상자 자체가 스크롤 컨테이너라 top:0으로 덮어썼지만, 실 화면(.header가 고정 51px인 곳)에서는 기본값 top:51px가 그대로 적용됩니다.
+                </p>
+                <div class="demo">
+                    <div style="height:220px; overflow-y:auto; border:1px solid var(--color-border-3); border-radius:8px;">
+                        <div class="chips chip-accordion chips--sticky" style="top:0; padding:12px 16px 8px;">
+                            <div class="chip-accordion__chips">
+                                <button type="button" class="chip-single chip-single--active" aria-pressed="true">은행</button>
+                                <button type="button" class="chip-single" aria-pressed="false">카드</button>
+                                <button type="button" class="chip-single" aria-pressed="false">증권</button>
+                                <button type="button" class="chip-single" aria-pressed="false">보험</button>
+                                <button type="button" class="chip-single" aria-pressed="false">할부금융</button>
+                            </div>
+                        </div>
+                        <div style="padding:0 16px 16px; color:var(--color-font-4); font-size:13px; line-height:1.8;">
+                            아래로 스크롤하면 위 칩 목록이 상단에 붙습니다.
+                            <br />
+                            [SAMPLE] 은행 목록 1
+                            <br />
+                            [SAMPLE] 은행 목록 2
+                            <br />
+                            [SAMPLE] 은행 목록 3
+                            <br />
+                            [SAMPLE] 은행 목록 4
+                            <br />
+                            [SAMPLE] 은행 목록 5
+                            <br />
+                            [SAMPLE] 은행 목록 6
+                            <br />
+                            [SAMPLE] 은행 목록 7
+                            <br />
+                            [SAMPLE] 은행 목록 8
+                            <br />
+                            [SAMPLE] 은행 목록 9
+                            <br />
+                            [SAMPLE] 은행 목록 10
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

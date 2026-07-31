@@ -406,6 +406,77 @@ window.calendarAlign = function () {
 		});
 	}
 
+	// Chip 앵커 이동 + 스크롤 스파이(.chips--sticky) — MSPS3120(기관선택) 등에서 업권 칩을
+	// 클릭하면 같은 부모(.chips--sticky의 부모) 아래 있는 .inst-list__group 목록 중 같은
+	// 순서(index)의 그룹으로 스크롤 이동하고, 반대로 스크롤해서 어떤 그룹이 화면에 보이는지에
+	// 따라 해당 칩이 자동으로 chip-single--active가 됩니다(레거시 content/nhmyd/pub/ps/
+	// MSPS3120.html의 anchorWrap() 스크롤 앵커+스크롤스파이와 동일한 동작). 칩 active 토글
+	// 자체는 initChipSingle()이 이미 클릭 시 처리하므로, 여기서는 (1) 클릭 시 스크롤 이동과
+	// (2) 스크롤 중 active 판정만 추가로 담당합니다. 칩 개수와 그룹 개수가 다르면(예: chip.html
+	// 가이드의 독립 데모처럼 짝지을 목록이 없는 경우) 안전하게 아무 것도 하지 않습니다.
+	function initChipAnchorScroll() {
+		document.querySelectorAll('.chips--sticky').forEach(function (chipsEl) {
+			var chips = Array.prototype.slice.call(chipsEl.querySelectorAll('.chip-single'));
+			var scope = chipsEl.parentElement;
+			if (!scope) return;
+			var groups = Array.prototype.slice.call(scope.querySelectorAll('.inst-list__group'));
+			if (!chips.length || !groups.length || chips.length !== groups.length) return;
+
+			function headerOffset() {
+				var header = document.querySelector('.header');
+				var headerH = header ? header.getBoundingClientRect().height : 0;
+				return headerH + chipsEl.getBoundingClientRect().height;
+			}
+
+			function setActive(index) {
+				chips.forEach(function (c, i) {
+					var active = i === index;
+					c.classList.toggle('chip-single--active', active);
+					c.setAttribute('aria-pressed', active ? 'true' : 'false');
+				});
+			}
+
+			chips.forEach(function (chip, i) {
+				chip.addEventListener('click', function () {
+					var target = groups[i];
+					var top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset() - 8;
+					window.scrollTo({ top: top, behavior: 'smooth' });
+					// 칩 목록 자체도 가로 스크롤이라 방금 누른 칩이 화면 밖으로 밀려있을 수
+					// 있어 가로 방향으로도 보이는 위치까지 맞춰줍니다(레거시의 anchorSubjectWrap
+					// 가로 스크롤 보정과 동일한 목적).
+					chip.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' });
+				});
+			});
+
+			var lastActive = 0;
+			var ticking = false;
+			function updateActiveByScroll() {
+				ticking = false;
+				var threshold = headerOffset() + 16;
+				var current = 0;
+				groups.forEach(function (g, i) {
+					if (g.getBoundingClientRect().top - threshold <= 0) {
+						current = i;
+					}
+				});
+				if (current !== lastActive) {
+					lastActive = current;
+					setActive(current);
+					chips[current].scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' });
+				}
+			}
+			window.addEventListener(
+				'scroll',
+				function () {
+					if (ticking) return;
+					ticking = true;
+					window.requestAnimationFrame(updateActiveByScroll);
+				},
+				{ passive: true }
+			);
+		});
+	}
+
 	document.addEventListener('DOMContentLoaded', function () {
 		initAccordion();
 		initTermsToggle();
@@ -413,6 +484,7 @@ window.calendarAlign = function () {
 		initTabs();
 		initChipAccordion();
 		initChipSingle();
+		initChipAnchorScroll();
 		initStickyFooter();
 	});
 })();
