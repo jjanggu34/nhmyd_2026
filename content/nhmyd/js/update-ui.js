@@ -249,6 +249,46 @@ window.calendarAlign = function () {
 		});
 	}
 
+	// terms-link 체크박스 연동 아코디언(.terms-accordion) — "개인(신용)정보 수집·이용 동의
+	// (상품서비스 안내 등)"처럼, 상위 동의 체크박스에 체크해야만 전화/문자메세지/우편물/이메일
+	// 같은 세부 수신채널을 고를 수 있는 패턴(Figma node 1008:35375). .terms-link 바로 다음
+	// 형제로 .terms-accordion이 있으면, 그 .terms-link의 체크박스 change에 맞춰 패널을
+	// 열고/닫습니다(initTermsToggle과 같은 jQuery slideDown/slideUp 방식).
+	function initTermsAccordionCheck() {
+		document.querySelectorAll('.terms-link').forEach(function (link) {
+			var panel = link.nextElementSibling;
+			if (!panel || !panel.classList.contains('terms-accordion')) return;
+			var input = link.querySelector('.terms-link__check .check-basic__input');
+			if (!input) return;
+
+			// aria-controls로 체크박스와 패널을 명시적으로 연결합니다(4.1.2 Name, Role, Value).
+			input.setAttribute('aria-controls', ensureId(panel, 'terms-accordion'));
+
+			// hidden 속성은 jQuery의 display 애니메이션과 충돌하므로
+			// 최초 1회만 display:none으로 치환해 이후 상태를 jQuery에 위임합니다.
+			if (panel.hasAttribute('hidden')) {
+				panel.removeAttribute('hidden');
+				panel.style.display = 'none';
+			}
+
+			function sync(animate) {
+				var open = input.checked;
+				input.setAttribute('aria-expanded', open ? 'true' : 'false');
+				if (animate && window.jQuery) {
+					jQuery(panel).stop(true, true)[open ? 'slideDown' : 'slideUp']('fast');
+				} else {
+					panel.style.display = open ? '' : 'none';
+				}
+			}
+
+			input.addEventListener('change', function () {
+				sync(true);
+			});
+
+			sync(false); // 초기 체크 상태에 맞춰 애니메이션 없이 시작
+		});
+	}
+
 	// Tab(tab-line/tab-chip/tab-bar/tab-text 공통) — WAI-ARIA APG의 Tabs(automatic activation)
 	// 패턴을 그대로 구현합니다. [role="tablist"] 안의 [role="tab"] 버튼들에 대해:
 	//  - 클릭 또는 방향키(←/→, ↑/↓, Home/End)로 탭을 바꾸면 aria-selected/aria-controls로
@@ -492,6 +532,7 @@ window.calendarAlign = function () {
 		initAccordion();
 		initTermsToggle();
 		initTermsSelectAll();
+		initTermsAccordionCheck();
 		initTabs();
 		initChipAccordion();
 		initChipSingle();

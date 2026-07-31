@@ -8657,6 +8657,38 @@
   transform: translateZ(0);
 }
 
+/* terms-link 체크박스를 체크하면 펼쳐지는 세부 수신채널 선택 패널(card-summary/accordion,
+   Figma node 1008:35375) — 예: "개인(신용)정보 수집·이용 동의(상품서비스 안내 등)"에 동의
+   해야만 전화/문자메세지/우편물/이메일 등 세부 채널을 고를 수 있는 패턴. 체크박스 자체는
+   .check-basic(기본, --xs 아님)을 그대로 재사용합니다 — 이 패널 안의 체크박스는 terms-link의
+   xs 체크박스보다 큰 기본 크기를 씁니다. 열고 닫는 동작은 update-ui.js의
+   initTermsAccordionCheck()가 담당합니다. */
+.nds .terms-accordion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--color-bg-container);
+  box-sizing: border-box;
+}
+
+.nds .terms-accordion__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.nds .terms-accordion__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 /* ---- Terms Info Card(CM006: 수집 항목 안내 + 개인정보 동의 확인 리스트) ----
    Figma node 625:2763. 처음엔 이 카드 전용으로 terms-info__icon + 자체 :checked 규칙을
    따로 만들었었는데, 그러면 check-basic--xs와 완전히 같은 체크박스 로직/모양(같은
