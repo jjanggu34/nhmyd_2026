@@ -66,6 +66,33 @@
                     </div>
                 </div>
                 <hr class="divider" />
+
+                <h2 class="guide-title">progress-number — 회색 pill, "현재 | 전체" 스텝 카운트</h2>
+                <div class="demo row">
+                    <div class="process-progress-number">
+                        <span class="process-progress-number__current">01</span>
+                        <span class="process-progress-number__divider"></span>
+                        <span class="process-progress-number__total">03</span>
+                    </div>
+                </div>
+                <hr class="divider" />
+
+                <h2 class="guide-title">progress-h — 타이틀 + progress-number 조합(예: "기관선택" · MSPS3120)</h2>
+                <p class="note">
+                    MSPS3120 Figma node 863:6628 기준. 화면 최상단에서 원형 3단계 스텝(process-step-h)을 대체하는 더 단순한 헤더 패턴으로, 좌측에 현재 단계 타이틀, 우측에 위 progress-number pill을 나란히 둡니다(justify-content: center, gap 63px, 타이틀이 flex:1로 늘어나 pill이 오른쪽 끝에 붙습니다). 타이틀 텍스트는 --color-font-point(#19973c)가 아닌 별도 그린 톤 --color-font-green-newtro(#27a588, Figma "green_newtro" 토큰)를 씁니다. process-step-h가 계속 쓰이는 화면은 그대로 두고, 이 패턴이
+                    필요한 화면에서만 바꿔 씁니다.
+                </p>
+                <div class="demo">
+                    <div class="process-progress-h" role="img" aria-label="총 3단계 중 1번째 단계: 기관선택">
+                        <p class="process-progress-h__title">기관선택</p>
+                        <div class="process-progress-number">
+                            <span class="process-progress-number__current">01</span>
+                            <span class="process-progress-number__divider"></span>
+                            <span class="process-progress-number__total">03</span>
+                        </div>
+                    </div>
+                </div>
+                <hr class="divider" />
             </div>
         </div>
     </body>
