@@ -487,11 +487,15 @@
         const interpolationChart = new Chart(ctx_interpolation, {
             type: 'line', // 라인 차트에서 보간 옵션을 적용합니다.
             data: {
-                labels: ['1월', '2월', '3월'], // labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+                // [업데이트] 기존엔 labels가 3개뿐인데 각 데이터는 6개라 뒤 3개가 안 그려지고
+                // 있었습니다(라벨 개수만큼만 렌더링됨) — 6개월로 맞추고, 값도 높낮이 편차를
+                // 훨씬 크게 줘서(대략 10~100 사이 급등락) 모바일 화면에서도 세 보간 방식의
+                // 차이가 뚜렷하게 보이도록 했습니다.
+                labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
                 datasets: [
                 {
                     label: '1. Cubic Smooth (부드러운 곡선)',
-                    data: [10, 50, 15, 30, 20, 35],
+                    data: [15, 90, 20, 95, 10, 75],
                     borderColor: '#3b82f6', // 파랑
                     borderWidth: 3,
                     // [업데이트] 대표 라인 하나만 그라데이션 영역 채우기 적용(3개 다 채우면
@@ -513,17 +517,21 @@
                 },
                 {
                     label: '2. Linear (직선 연결)',
-                    data: [20, 100, 100, 40, 30, 45],
+                    data: [85, 15, 95, 10, 80, 25],
                     borderColor: '#ef4444', // 빨강
                     backgroundColor: '#ef4444',
+                    borderWidth: 3,
+                    pointRadius: 3,
                     // [핵심] tension을 0으로 만들어 직선 처리
                     tension: 0
                 },
                 {
                     label: '3. Stepped (계단형 보간)',
-                    data: [5, 15, 10, 20, 15, 100],
+                    data: [20, 95, 10, 70, 15, 100],
                     borderColor: '#10b981', // 초록
                     backgroundColor: '#10b981',
+                    borderWidth: 3,
+                    pointRadius: 3,
                     // [핵심] 계단형 보간 모드 활성화
                     stepped: true // 'before', 'after', 'middle' 값도 지정 가능
                 }
@@ -555,12 +563,23 @@
                 labels: ['자산'], // 단일 행
                 datasets: [
                 {
+                    // [업데이트] 스택 막대는 각 세그먼트에 borderRadius를 똑같이(예: 3) 주면
+                    // 안쪽 경계(다른 세그먼트와 맞닿는 면)까지 둥글게 처리돼서 이가 빠진 것처럼
+                    // 보입니다. 그래서 맨 왼쪽 세그먼트(입출금)는 왼쪽 모서리만, 맨 오른쪽
+                    // 세그먼트(외화)는 오른쪽 모서리만 둥글게 주고, 가운데 세그먼트들은 0으로
+                    // 둬서 전체 막대가 하나의 알약(pill) 모양처럼 이어져 보이게 했습니다.
+                    // [버그 수정] 입출금 값(10,000원)이 전체 대비 너무 작아서(약 0.09%) 실제
+                    // 렌더링 폭이 1px도 안 됩니다 — 그래서 여기 준 왼쪽 radius가 화면엔 안 보이고,
+                    // 바로 다음(예금, 훨씬 큼)의 각진 왼쪽 모서리가 "막대의 진짜 왼쪽 끝"처럼
+                    // 보였던 것입니다. 입출금과 예금 둘 다 왼쪽 모서리를 둥글게 줘서, 둘 중
+                    // 실제로 화면에 보이는 쪽이 어느 것이든 항상 둥글게 보이도록 했습니다.
                     label: '입출금',
                     data: [10000],
                     backgroundColor: '#27ad75',
                     hoverBackgroundColor: '#27ad75',
                     borderWidth: 0,
-                    borderRadius: 3 // [업데이트] 세그먼트 모서리를 살짝 둥글게
+                    borderRadius: { topLeft: 3, bottomLeft: 3, topRight: 0, bottomRight: 0 },
+                    borderSkipped: false
                 },
                 {
                     label: '예금',
@@ -568,7 +587,8 @@
                     backgroundColor: '#52e57d',
                     hoverBackgroundColor: '#52e57d',
                     borderWidth: 0,
-                    borderRadius: 3
+                    borderRadius: { topLeft: 3, bottomLeft: 3, topRight: 0, bottomRight: 0 },
+                    borderSkipped: false
                 },
                 {
                     label: '적금',
@@ -576,7 +596,8 @@
                     backgroundColor: '#1249b3',
                     hoverBackgroundColor: '#1249b3',
                     borderWidth: 0,
-                    borderRadius: 3
+                    borderRadius: 0,
+                    borderSkipped: false
                 },
                 {
                     label: '외화',
@@ -584,7 +605,8 @@
                     backgroundColor: '#b0b0b0',
                     hoverBackgroundColor: '#b0b0b0',
                     borderWidth: 0,
-                    borderRadius: 3
+                    borderRadius: { topLeft: 0, bottomLeft: 0, topRight: 3, bottomRight: 3 },
+                    borderSkipped: false
                 }
                 ]
             },
