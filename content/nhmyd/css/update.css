@@ -1028,7 +1028,7 @@
 .nds .tab-line__list {display:flex;align-items:stretch;flex:1 0 0;min-width:0;border-bottom:1px solid var(--color-border-2)}
 .nds .tab-line__item {display:flex;flex:1 0 0;min-width:0;align-items:center;justify-content:center;padding:12px 8px;border:none;border-bottom:2px solid transparent;background:none;cursor:pointer;font-size:var(--type-size-16);font-weight:var(--font-weight-regular);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-3)}
 .nds .tab-line__item--active {border-bottom-color:var(--color-font-1);font-weight:var(--font-weight-semibold);color:var(--color-font-1)}
-.nds .tab-chip {display:flex;align-items:center;gap:8px;width:100%;padding:0 24px;overflow-x:auto;background-color:var(--color-bg-default);scrollbar-width:none}
+.nds .tab-chip {display:flex;align-items:center;gap:8px;width:100%;padding:0;overflow-x:auto;background-color:var(--color-bg-default);scrollbar-width:none}
 .nds .tab-chip::-webkit-scrollbar {display:none}
 .nds .tab-chip__item {display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px 16px;min-width:28px;border:1px solid var(--color-border-2);border-radius:var(--radius-full);background-color:var(--color-bg-container);cursor:pointer;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3);white-space:nowrap}
 .nds .tab-chip__item--active {border-color:transparent;background-color:var(--color-bg-tab-chip-active);font-weight:var(--font-weight-medium);color:var(--color-font-10)}
@@ -1236,7 +1236,6 @@
 .hero__head {display:flex;flex-direction:column;gap:20px}
 .hero__title-row {display:flex;align-items:center;justify-content:space-between;gap:8px}
 .hero__title {font-size:var(--type-size-18);font-weight:600;letter-spacing:-0.36px;color:#121212;margin:0}
-.hero__badge {background:#132333;color:#fff;font-size:var(--type-size-11);font-weight:500;letter-spacing:-0.22px;padding:4px 10px;border-radius:100px;white-space:nowrap}
 .hero__stat {display:flex;flex-direction:column;gap:10px}
 .hero__date {font-size:var(--type-size-14);font-weight:300;letter-spacing:-0.28px;color:#121212;margin:0}
 .hero__amount {font-size:var(--type-size-30);font-weight:600;letter-spacing:-0.6px;color:#121212;margin:0}
@@ -1244,14 +1243,28 @@
 .hero__change img {width:12px;height:7px}
 .hero__issue {background:#ededed;border-radius:8px;padding:12px 16px;font-size:var(--type-size-14);letter-spacing:-0.14px;color:#333}
 .hero__issue strong {font-weight:600;color:#f23f3f}
-.hero__bar {display:flex;gap:1px;width:100%;height:22px}
-.hero__bar span {display:block;height:100%}
+/* ---- 자산 구성비 막대(Chart.js stackedBarChart) ----
+   CSS로만 그리던 정적 막대 대신, chart.html의 Stacked Bar Chart 샘플과 동일한 패턴(얇은
+   가로 스택 막대 + 클릭/터치 시 뜨는 커스텀 HTML 툴팁)을 그대로 재사용합니다. */
+.hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;background:#f7f7f7}
+.hero__chart-box canvas {display:block;width:100%;height:100%;max-width:100%}
+.chartjs-tooltip {position:absolute;pointer-events:none;opacity:0;transition:opacity .12s ease;z-index:10;background:rgba(17,17,17,.92);color:#fff;border-radius:8px;padding:8px 12px;font-size:13px;line-height:1.6;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.chartjs-tooltip::after {content:"";position:absolute;left:var(--tt-arrow-left,50%);bottom:-6px;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(17,17,17,.92)}
+.chartjs-tooltip__title {font-weight:600;margin-bottom:2px;opacity:.85}
+.chartjs-tooltip__row {display:flex;align-items:center;gap:6px}
+.chartjs-tooltip__row + .chartjs-tooltip__row {margin-top:2px}
+.chartjs-tooltip__chip {width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0}
 .hero__legend {list-style:none;display:flex;flex-direction:column;gap:12px;margin:0;padding:0}
 .hero__legend li {display:flex;align-items:center;justify-content:space-between;font-size:var(--type-size-14);letter-spacing:-0.14px;color:#333}
 .hero__legend-label {display:flex;align-items:center;gap:6px}
 .hero__dot {width:10px;height:10px;border-radius:50%}
 .hero__legend b {font-weight:700}
-.hero__divider {border:none;border-top:1px solid #e1e1e1;margin:0}
+/* [버그 수정] 앞/뒤 면(.hero__face)은 grid-column/grid-row를 겹쳐서 항상 더 큰 쪽(보통
+   앞면) 높이에 맞춰지는데, 뒷면(인사이트) 콘텐츠가 그보다 짧으면 뒷면 박스만 아래로
+   빈 공간이 남아 hr/버튼이 실제 바닥보다 위쪽에 떠 보였습니다. margin-top:auto로 남는
+   공간을 hr 위쪽으로 밀어 올려서, 두 면 모두 hr+버튼이 항상 카드 맨 아래에 붙게 합니다
+   (콘텐츠가 더 긴 면은 밀어낼 여백이 없어 원래 자리 그대로입니다). */
+.hero__divider {border:none;border-top:1px solid #e1e1e1;margin:auto 0 0}
 .hero__cta {display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:none;border:none;padding:0;cursor:pointer;font-size:var(--type-size-16);font-weight:300;letter-spacing:-0.16px;color:#333;text-align:left}
 .hero__cta-icon {display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#f5f6f8;flex-shrink:0}
 .hero__cta-icon img {width:14px;height:14px}
@@ -1259,16 +1272,23 @@
 .hero__insight-legend {display:flex;align-items:center;gap:16px;font-size:var(--type-size-12);color:#6d6d6d}
 .hero__insight-legend span {display:inline-flex;align-items:center;gap:6px}
 .hero__insight-legend i {width:10px;height:10px;border-radius:2px;display:inline-block}
-.hero__insight-chart {display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex:1;padding-top:12px}
-.hero__insight-col {display:flex;flex-direction:column;align-items:center;gap:8px;flex:1}
-.hero__insight-bars {display:flex;align-items:flex-end;gap:4px;height:140px}
-.hero__insight-bars b {display:block;width:14px;border-radius:2px 2px 0 0;font-size:0}
-.hero__insight-prev {background:#cfe8db}
-.hero__insight-now {background:#20a570}
-.hero__insight-col-label {font-size:var(--type-size-12);color:#6d6d6d}
+/* [업데이트] 전월/금월 두 막대를 카테고리마다 CSS 높이값으로 직접 그리던 것을, 실제
+   Chart.js 그룹형(묶음) 세로 막대 차트로 교체했습니다(NH_MD_01.html 하단 스크립트의
+   buildInsightChart() 참고). 값은 카드마다 스케일이 워낙 달라(예: 유동성 카드의 예금
+   10,000,000원 vs 외화 1,482원) 그대로 넣으면 작은 값이 사실상 안 보이므로, 기존 CSS
+   버전이 손으로 정해뒀던 시각 높이(px)를 그대로 차트 데이터로 쓰고, 실제 금액은
+   툴팁/스크린리더용 .blind 목록으로만 보여줍니다. */
+/* [주의] flex:1을 쓰면 flex:1의 기본 flex-basis:0%가 이 height:172px를 무시하고
+   부모(.hero__face--back, 세로 flex)가 가진 여유 공간만큼 계속 늘어납니다 — 안의
+   canvas는 height:100%라 같이 늘어나고, syncCardHeight()가 다시 그 늘어난 높이를
+   측정해 컨테이너에 반영하면서 계속 커지는 순환이 생겨 결국 차트가 화면 밖으로
+   밀려나 "안 보이는" 것처럼 됐던 원인입니다. flex-grow 없이 172px 고정 높이로 둡니다. */
+.hero__insight-chart {flex:none;padding-top:12px;height:172px;position:relative}
+.hero__insight-chart canvas {display:block;width:100%;height:100%}
 /* ---- 위클리 브리핑 / 대출 금리 케어 / 조기 은퇴 진단 위젯 카드 ---- */
 .widget__desc {font-size:var(--type-size-16);font-weight:400;letter-spacing:-0.32px;color:#333;line-height:1.4;margin:0 0 8px}
 .widget__desc strong {display:block;font-weight:500;color:#111;line-height:1.7;margin-top:8px}
 .widget__caption {display:flex;align-items:center;gap:4px;font-size:var(--type-size-12);font-weight:300;letter-spacing:-0.12px;color:#707070;margin:0 0 20px}
 .widget__caption img {width:16px;height:16px;flex-shrink:0}
 .widget__cta {display:block;width:100%;background:#eff1f9;border:none;border-radius:8px;padding:12px 16px;font-size:var(--type-size-14);font-weight:500;letter-spacing:-0.35px;color:#3e4c59;text-align:center;cursor:pointer}
+.nds .linked-bottom-menu.alloneFooterNew{box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.05);}

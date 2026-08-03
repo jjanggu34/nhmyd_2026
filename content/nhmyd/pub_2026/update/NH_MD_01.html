@@ -58,11 +58,8 @@
                                             </p>
                                         </div>
                                         <div>
-                                            <div class="hero__bar" aria-hidden="true">
-                                                <span style="flex: 0 0 9px; background: #20a570;"></span>
-                                                <span style="flex: 1 1 auto; background: #53e57a;"></span>
-                                                <span style="flex: 0 0 90px; background: #1043a1;"></span>
-                                                <span style="flex: 0 0 8px; background: #a2a2a2;"></span>
+                                            <div class="hero__chart-box">
+                                                <canvas data-chart-canvas="liquidity" aria-hidden="true"></canvas>
                                             </div>
                                             <ul class="hero__legend" style="margin-top: 12px;">
                                                 <li>
@@ -105,7 +102,6 @@
                                     <div class="hero__face md-card hero__face--back" aria-hidden="true">
                                         <div class="hero__title-row">
                                             <p class="hero__title">유동성 인사이트</p>
-                                            <span class="hero__badge">개인화 정보</span>
                                         </div>
                                         <div class="hero__insight-legend">
                                             <span>
@@ -118,34 +114,13 @@
                                             </span>
                                         </div>
                                         <div class="hero__insight-chart">
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 6px;">전월 10,000원</b>
-                                                    <b class="hero__insight-now" style="height: 6px;">금월 10,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">입출금</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 126px;">전월 9,000,000원</b>
-                                                    <b class="hero__insight-now" style="height: 140px;">금월 10,000,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">예금</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 14px;">전월 1,000,000원</b>
-                                                    <b class="hero__insight-now" style="height: 14px;">금월 1,000,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">적금</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 2px;">전월 1,482원</b>
-                                                    <b class="hero__insight-now" style="height: 2px;">금월 1,482원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">외화</span>
-                                            </div>
+                                            <canvas data-insight-chart="liquidity" aria-hidden="true"></canvas>
+                                            <ul class="blind">
+                                                <li>입출금: 전월 10,000원, 금월 10,000원</li>
+                                                <li>예금: 전월 9,000,000원, 금월 10,000,000원</li>
+                                                <li>적금: 전월 1,000,000원, 금월 1,000,000원</li>
+                                                <li>외화: 전월 1,482원, 금월 1,482원</li>
+                                            </ul>
                                         </div>
                                         <hr class="hero__divider" />
                                         <button type="button" class="hero__cta" data-flip-toggle aria-pressed="true" tabindex="-1">
@@ -179,11 +154,8 @@
                                             </p>
                                         </div>
                                         <div>
-                                            <div class="hero__bar" aria-hidden="true">
-                                                <span style="flex: 0 0 37.5%; background: #7c3aed;"></span>
-                                                <span style="flex: 1 1 auto; background: #a78bfa;"></span>
-                                                <span style="flex: 0 0 21.5%; background: #1043a1;"></span>
-                                                <span style="flex: 0 0 7.6%; background: #a2a2a2;"></span>
+                                            <div class="hero__chart-box">
+                                                <canvas data-chart-canvas="invest" aria-hidden="true"></canvas>
                                             </div>
                                             <ul class="hero__legend" style="margin-top: 12px;">
                                                 <li>
@@ -226,7 +198,6 @@
                                     <div class="hero__face md-card hero__face--back" aria-hidden="true">
                                         <div class="hero__title-row">
                                             <p class="hero__title">투자 인사이트</p>
-                                            <span class="hero__badge">개인화 정보</span>
                                         </div>
                                         <div class="hero__insight-legend">
                                             <span>
@@ -239,34 +210,13 @@
                                             </span>
                                         </div>
                                         <div class="hero__insight-chart">
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 133px;">전월 30,500,000원</b>
-                                                    <b class="hero__insight-now" style="height: 140px;">금월 32,000,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">펀드</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 121px;">전월 27,700,000원</b>
-                                                    <b class="hero__insight-now" style="height: 125px;">금월 28,500,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">국내주식</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 77px;">전월 17,620,450원</b>
-                                                    <b class="hero__insight-now" style="height: 80px;">금월 18,320,450원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">해외주식</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 28px;">전월 6,300,000원</b>
-                                                    <b class="hero__insight-now" style="height: 28px;">금월 6,500,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">ETF</span>
-                                            </div>
+                                            <canvas data-insight-chart="invest" aria-hidden="true"></canvas>
+                                            <ul class="blind">
+                                                <li>펀드: 전월 30,500,000원, 금월 32,000,000원</li>
+                                                <li>국내주식: 전월 27,700,000원, 금월 28,500,000원</li>
+                                                <li>해외주식: 전월 17,620,450원, 금월 18,320,450원</li>
+                                                <li>ETF: 전월 6,300,000원, 금월 6,500,000원</li>
+                                            </ul>
                                         </div>
                                         <hr class="hero__divider" />
                                         <button type="button" class="hero__cta" data-flip-toggle aria-pressed="true" tabindex="-1">
@@ -300,11 +250,8 @@
                                             </p>
                                         </div>
                                         <div>
-                                            <div class="hero__bar" aria-hidden="true">
-                                                <span style="flex: 0 0 39.6%; background: #0f766e;"></span>
-                                                <span style="flex: 1 1 auto; background: #2dd4bf;"></span>
-                                                <span style="flex: 0 0 24.6%; background: #1043a1;"></span>
-                                                <span style="flex: 0 0 7%; background: #a2a2a2;"></span>
+                                            <div class="hero__chart-box">
+                                                <canvas data-chart-canvas="pension" aria-hidden="true"></canvas>
                                             </div>
                                             <ul class="hero__legend" style="margin-top: 12px;">
                                                 <li>
@@ -347,7 +294,6 @@
                                     <div class="hero__face md-card hero__face--back" aria-hidden="true">
                                         <div class="hero__title-row">
                                             <p class="hero__title">연금 인사이트</p>
-                                            <span class="hero__badge">개인화 정보</span>
                                         </div>
                                         <div class="hero__insight-legend">
                                             <span>
@@ -360,34 +306,13 @@
                                             </span>
                                         </div>
                                         <div class="hero__insight-chart">
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 138px;">전월 61,000,000원</b>
-                                                    <b class="hero__insight-now" style="height: 140px;">금월 62,000,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">연금저축</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 101px;">전월 44,600,000원</b>
-                                                    <b class="hero__insight-now" style="height: 102px;">금월 45,000,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">IRP</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 86px;">전월 38,180,000원</b>
-                                                    <b class="hero__insight-now" style="height: 87px;">금월 38,480,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">퇴직연금</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 24px;">전월 10,600,000원</b>
-                                                    <b class="hero__insight-now" style="height: 25px;">금월 11,000,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">개인연금</span>
-                                            </div>
+                                            <canvas data-insight-chart="pension" aria-hidden="true"></canvas>
+                                            <ul class="blind">
+                                                <li>연금저축: 전월 61,000,000원, 금월 62,000,000원</li>
+                                                <li>IRP: 전월 44,600,000원, 금월 45,000,000원</li>
+                                                <li>퇴직연금: 전월 38,180,000원, 금월 38,480,000원</li>
+                                                <li>개인연금: 전월 10,600,000원, 금월 11,000,000원</li>
+                                            </ul>
                                         </div>
                                         <hr class="hero__divider" />
                                         <button type="button" class="hero__cta" data-flip-toggle aria-pressed="true" tabindex="-1">
@@ -421,11 +346,8 @@
                                             </p>
                                         </div>
                                         <div>
-                                            <div class="hero__bar" aria-hidden="true">
-                                                <span style="flex: 0 0 66.4%; background: #c2410c;"></span>
-                                                <span style="flex: 1 1 auto; background: #fb923c;"></span>
-                                                <span style="flex: 0 0 9.5%; background: #1043a1;"></span>
-                                                <span style="flex: 0 0 1.6%; background: #a2a2a2;"></span>
+                                            <div class="hero__chart-box">
+                                                <canvas data-chart-canvas="loan" aria-hidden="true"></canvas>
                                             </div>
                                             <ul class="hero__legend" style="margin-top: 12px;">
                                                 <li>
@@ -468,7 +390,6 @@
                                     <div class="hero__face md-card hero__face--back" aria-hidden="true">
                                         <div class="hero__title-row">
                                             <p class="hero__title">대출 인사이트</p>
-                                            <span class="hero__badge">개인화 정보</span>
                                         </div>
                                         <div class="hero__insight-legend">
                                             <span>
@@ -481,34 +402,13 @@
                                             </span>
                                         </div>
                                         <div class="hero__insight-chart">
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 140px;">전월 28,000,000원</b>
-                                                    <b class="hero__insight-now" style="height: 140px;">금월 28,000,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">주택담보대출</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 49px;">전월 9,800,000원</b>
-                                                    <b class="hero__insight-now" style="height: 48px;">금월 9,500,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">신용대출</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 20px;">전월 4,000,000원</b>
-                                                    <b class="hero__insight-now" style="height: 20px;">금월 4,000,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">전세자금대출</span>
-                                            </div>
-                                            <div class="hero__insight-col">
-                                                <div class="hero__insight-bars">
-                                                    <b class="hero__insight-prev" style="height: 5px;">전월 850,000원</b>
-                                                    <b class="hero__insight-now" style="height: 4px;">금월 650,000원</b>
-                                                </div>
-                                                <span class="hero__insight-col-label">카드론</span>
-                                            </div>
+                                            <canvas data-insight-chart="loan" aria-hidden="true"></canvas>
+                                            <ul class="blind">
+                                                <li>주택담보대출: 전월 28,000,000원, 금월 28,000,000원</li>
+                                                <li>신용대출: 전월 9,800,000원, 금월 9,500,000원</li>
+                                                <li>전세자금대출: 전월 4,000,000원, 금월 4,000,000원</li>
+                                                <li>카드론: 전월 850,000원, 금월 650,000원</li>
+                                            </ul>
                                         </div>
                                         <hr class="hero__divider" />
                                         <button type="button" class="hero__cta" data-flip-toggle aria-pressed="true" tabindex="-1">
@@ -586,6 +486,20 @@
 
                     function setFlipped(flipped) {
                         flipEl.classList.toggle('is-flipped', flipped);
+                        // [버그 수정] "Blocked aria-hidden on an element because its descendant
+                        // retained focus" 콘솔 경고 — 방금 클릭한 hero__cta는 클릭 후에도 포커스를
+                        // 유지하는데, 바로 이어서 그 버튼이 들어있는 면(front/back)에
+                        // aria-hidden="true"를 걸면 "포커스가 남아있는 조상을 감춘" 상태가 되어
+                        // 브라우저가 이를 막고 경고합니다(스크린리더 입장에서도 감춰졌다면서
+                        // 포커스는 여전히 거기 있는 모순이라 실제 접근성 문제이기도 합니다).
+                        // 감추기 전에 그 안의 포커스를 먼저 빼고, 새로 보이는 면의 토글 버튼으로
+                        // 옮겨줘서 키보드 사용자가 같은 자리에서 계속 조작할 수 있게 합니다.
+                        var hidingEl = flipped ? front : back;
+                        var showingEl = flipped ? back : front;
+                        var focusWasInsideHidingEl = hidingEl.contains(document.activeElement);
+                        if (focusWasInsideHidingEl) {
+                            document.activeElement.blur();
+                        }
                         front.setAttribute('aria-hidden', flipped ? 'true' : 'false');
                         back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
                         toggles.forEach(function (btn) {
@@ -593,6 +507,10 @@
                             btn.setAttribute('aria-pressed', flipped ? 'true' : 'false');
                             btn.tabIndex = onVisibleFace ? 0 : -1;
                         });
+                        if (focusWasInsideHidingEl) {
+                            var newToggle = showingEl.querySelector('[data-flip-toggle]');
+                            if (newToggle) newToggle.focus();
+                        }
                     }
 
                     var turning = false;
@@ -644,6 +562,11 @@
                 var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
                 if (!tabs.length) return;
 
+                // 탭 순서(=슬라이드 문서 순서=realIndex 순서)와 아래 stackedBarChart 카테고리
+                // 키를 매핑하기 위한 공용 배열. slideChange의 차트 리플레이, 카드 높이 동기화
+                // 양쪽에서 같이 씁니다.
+                var categoryKeys = ['liquidity', 'invest', 'pension', 'loan'];
+
                 var syncingFromSwiper = false; // 스와이프發 동기화 중엔 탭 클릭 로직이 다시 슬라이드를 움직이지 않게 막는 플래그
 
                 function setActiveTab(index, moveFocus) {
@@ -690,9 +613,20 @@
                     slidesPerView: 1,
                     loop: true,
                     a11y: false, // 접근성은 위 커스텀 로직 + aria-hidden/aria-live로 직접 관리
+                    // [버그 수정] 카드 4장(유동성/투자/연금/대출)은 인사이트 문구 줄바꿈 등으로
+                    // 실제 높이가 서로 다른데, 기본(autoHeight:false) 상태에서는 Swiper가 컨테이너
+                    // 높이를 처음 측정한 슬라이드 기준으로 고정해버립니다. 그래서 더 짧은 카드로
+                    // 넘어가면 컨테이너 바닥에 빈 여백이 남고, 그 틈으로 방금 전 슬라이드(가로로는
+                    // 이미 넘어갔지만 세로로는 여전히 그 자리를 채우고 있던 카드)의 아랫부분이
+                    // 비쳐 보였습니다. Swiper의 autoHeight:true / updateAutoHeight()도 시도해봤지만
+                    // 위 slideChangeTransitionEnd/transitionEnd와 같은 이유로 slideToLoop()
+                    // (탭 클릭/방향키) 경로에서는 내부 높이 재계산이 전혀 반영되지 않아(드래그
+                    // 스와이프에서만 정상 동작), 아래 syncCardHeight()로 직접 컨테이너 높이를
+                    // 맞춥니다 — 이미 안정적으로 매번 발생한다고 확인된 slideChange에서 호출합니다.
                     on: {
                         init: function () {
                             syncSlideVisibility(this);
+                            syncCardHeight();
                         },
                         // 이 Swiper 빌드에서는 slideToLoop()으로 넘어갈 때(탭 클릭/방향키) transitionEnd
                         // 계열 이벤트(slideChangeTransitionEnd/transitionEnd)가 안정적으로 발생하지
@@ -703,10 +637,19 @@
                             // realIndex: loop 모드가 만드는 복제 슬라이드를 빼고, 실제 4장 중 몇 번째인지
                             setActiveTab(this.realIndex, false);
                             syncSlideVisibility(this);
+                            syncCardHeight();
                             if (announceEl) {
                                 var current = this.slides[this.activeIndex];
                                 var label = current ? current.getAttribute('data-category-label') : '';
                                 if (label) announceEl.textContent = label + ' 카테고리로 이동했습니다.';
+                            }
+                            // 탭 클릭이든 카드 스와이프든(둘 다 결국 이 slideChange 하나로
+                            // 들어옴) 새로 보이는 카드의 자산 구성비 막대(stackedBarChart)를
+                            // 0 -> 실제값으로 다시 채워지는 애니메이션으로 재생합니다. 차트
+                            // 인스턴스는 아래 별도 IIFE에서 만들어지므로 전역 함수(window.replayHeroBarChart)로
+                            // 노출해 여기서 호출합니다.
+                            if (typeof window.replayHeroBarChart === 'function') {
+                                window.replayHeroBarChart(categoryKeys[this.realIndex]);
                             }
                         }
                     }
@@ -714,9 +657,419 @@
 
                 function syncSlideVisibility(sw) {
                     sw.slides.forEach(function (slideEl) {
-                        slideEl.setAttribute('aria-hidden', slideEl.classList.contains('swiper-slide-active') ? 'false' : 'true');
+                        var isActive = slideEl.classList.contains('swiper-slide-active');
+                        // [버그 수정] "Blocked aria-hidden on an element because its descendant
+                        // retained focus" — 카드 안의 hero__cta(플립 버튼)에 포커스가 있는 채로
+                        // 탭을 누르거나 스와이프해서 다른 카테고리로 넘어가면, 방금 전 카드가
+                        // 비활성 슬라이드가 되면서 여기서 aria-hidden="true"를 거는데 포커스는
+                        // 아직 그 안에 남아있어 브라우저가 이를 막고 경고합니다. 위 카드 뒤집기의
+                        // setFlipped()에서 쓴 것과 같은 방식으로, 감추기 전에 그 안의 포커스를
+                        // 먼저 뺍니다 — 화면 밖으로 사라지는 카드라 다른 곳으로 옮길 필요 없이
+                        // blur만으로 충분합니다(탭 클릭으로 넘어온 경우엔 이미 포커스가 클릭한
+                        // 탭 버튼으로 가 있어 여기 blur는 영향이 없습니다).
+                        if (!isActive && slideEl.contains(document.activeElement)) {
+                            document.activeElement.blur();
+                        }
+                        slideEl.setAttribute('aria-hidden', isActive ? 'false' : 'true');
                     });
                 }
+
+                // [버그 수정 2] 스와이프 직후 hero__cta를 바로 누르면 위 fix에도 같은 경고가
+                // 다시 찍히는 경우가 있었습니다. 원인은 이벤트 순서 문제입니다 — Swiper가 드래그를
+                // 놓는 순간 활성 슬라이드의 swiper-slide-active 클래스를 먼저 바꾸고, 'slideChange'
+                // 이벤트(=위 syncSlideVisibility 호출)는 그 다음에 발생합니다. 이 둘 사이의 짧은
+                // 틈에 사용자가 이미 화면상 활성화된 것처럼 보이는 카드의 버튼을 클릭하면, 그
+                // 시점엔 클래스는 이미 바뀌었지만 aria-hidden은 아직 이전(true) 값이라 브라우저가
+                // 포커스를 막습니다. 'slideChange' 이벤트를 기다리는 대신, Swiper가 실제로 class를
+                // 바꾸는 그 순간을 MutationObserver로 직접 감시해서 같은 틱 안에 aria-hidden을
+                // 맞춰 이 틈을 없앱니다(사용자의 다음 클릭은 별도 타스크라 이 마이크로태스크보다
+                // 항상 늦게 처리됩니다).
+                var slideClassObserver = new MutationObserver(function () {
+                    syncSlideVisibility(swiper);
+                });
+                Array.prototype.forEach.call(swiperEl.querySelectorAll('.swiper-slide'), function (slideEl) {
+                    slideClassObserver.observe(slideEl, { attributes: true, attributeFilter: ['class'] });
+                });
+
+                // [버그 수정] 카테고리마다 컨테이너 높이를 각자의 자연 높이로 다시 맞추다 보니
+                // (유동성 564px / 투자·연금·대출 585px처럼) 카드를 넘길 때마다 높이가 들쭉날쭉
+                // 바뀌었습니다. realIndex별 높이를 따로 재는 대신, 복제 아닌 실제 슬라이드 4장의
+                // 자연 높이를 전부 측정해 그중 가장 큰 값 하나로 컨테이너 높이를 고정합니다 —
+                // 어떤 카테고리를 보고 있든 카드 높이가 항상 같습니다.
+                function syncCardHeight() {
+                    var realSlides = swiperEl.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)');
+                    if (!realSlides.length) return;
+                    // [주의] Swiper CSS는 .swiper-slide{height:100%}로 슬라이드를 컨테이너 높이에
+                    // 맞춰 늘리거나 줄입니다. offsetHeight는 물론, scrollHeight조차도 컨테이너가
+                    // 이미 더 큰 값으로 맞춰져 있으면 그보다 짧은 카드까지 height:100%로 늘어난
+                    // 상태라 scrollHeight가 부풀려져 나옵니다 — 측정 직전에 높이를 초기화(auto)해서
+                    // 모든 슬라이드가 각자의 실제 콘텐츠 높이로 되돌아간 상태를 만든 뒤 측정합니다.
+                    swiperEl.style.height = 'auto';
+                    var maxHeight = 0;
+                    realSlides.forEach(function (slideEl) {
+                        maxHeight = Math.max(maxHeight, slideEl.scrollHeight);
+                    });
+                    if (maxHeight) swiperEl.style.height = maxHeight + 'px';
+                }
+            })();
+
+            // 자산 구성비 막대 — chart.html의 Stacked Bar Chart 샘플과 동일한 패턴(얇은
+            // 가로 스택 막대 + external 콜백으로 그리는 커스텀 HTML 툴팁)을 그대로
+            // 재사용합니다. 캔버스가 22px로 얇아 기본(캔버스 내부) 툴팁은 눌려서 깨지므로,
+            // 부모(.hero__chart-box, position:relative)를 기준으로 절대 배치되는 실제
+            // DOM 말풍선을 씁니다 — 모바일 화면 가장자리에서 잘리지 않도록 뷰포트 경계
+            // 보정도 그대로 가져왔습니다.
+            (function () {
+                if (typeof Chart === 'undefined') return;
+
+                // 탭 클릭/스와이프로 카드가 바뀔 때마다 해당 차트 인스턴스를 다시 찾아 0 ->
+                // 실제값 애니메이션을 재생하기 위한 저장소. { liquidity: {chart, targets}, ... }
+                var heroBarCharts = {};
+
+                // chart는 값이 이미 채워진 상태로 생성되므로, 데이터를 잠깐 0으로 내렸다가
+                // (애니메이션 없이 즉시) 다음 프레임에 다시 실제값으로 되돌려서 Chart.js의
+                // 기본 전환 애니메이션(0 -> 실제값)이 그때 재생되게 합니다. 위 게이지 차트에
+                // 쓴 IntersectionObserver 트릭과 같은 원리이며, 여기서는 "화면에 보이는 순간"
+                // 대신 "탭/스와이프로 카드가 바뀌는 순간"에 맞춰 재생합니다.
+                function replayHeroBarChart(categoryKey) {
+                    var entry = heroBarCharts[categoryKey];
+                    if (!entry) return;
+                    var chart = entry.chart;
+                    chart.data.datasets.forEach(function (ds, i) {
+                        ds.data[0] = 0;
+                    });
+                    chart.update('none'); // 애니메이션 없이 즉시 0으로
+                    syncCloneCanvases(categoryKey, chart.canvas); // 복제 슬라이드 canvas도 "0" 상태로 즉시 맞춤
+                    // requestAnimationFrame 대신 setTimeout을 씁니다 — rAF는 탭이 백그라운드에
+                    // 있거나(예: 스와이프 직후 다른 곳으로 포커스가 잠깐 이동하는 경우) 브라우저가
+                    // 페인트를 쉬면 아예 호출되지 않을 수 있어, 그러면 0으로 내려간 값이 다시
+                    // 복원되지 않는 문제가 생깁니다. setTimeout은 그런 상황에서도 안정적으로 실행됩니다.
+                    setTimeout(function () {
+                        chart.data.datasets.forEach(function (ds, i) {
+                            ds.data[0] = entry.targets[i];
+                        });
+                        chart.update(); // 0 -> 실제값으로 채워지는 애니메이션 재생 (animation.onProgress/onComplete가 복제본 동기화를 이어서 담당)
+                    }, 20);
+                }
+                // 탭/스와이프 동기화 IIFE(위)에서 slideChange 시 호출할 수 있도록 전역 노출
+                window.replayHeroBarChart = replayHeroBarChart;
+
+                // [버그 수정] "스와이프하다가 첫번째로 다시 돌아오면 그래프가 안 나오고 애니메이션도
+                // 안 됨" — Swiper loop 모드는 무한 스와이프 착시를 위해 첫 슬라이드(유동성)와
+                // 마지막 슬라이드(대출)를 각각 반대쪽 끝에 cloneNode(true)로 복제해 둡니다. 그런데
+                // canvas는 DOM을 복제해도 그 안에 그려진 그림(픽셀)까지는 복제되지 않는 요소라서,
+                // 복제된 슬라이드의 canvas는 항상 빈 캔버스입니다. 대출 다음(맨 끝)으로 넘어가면
+                // Swiper가 먼저 이 "빈 유동성 복제본" 슬라이드로 전환한 뒤(사용자에게는 이 순간이
+                // 보임 → 그래프가 안 보이는 것처럼 보임), 그 다음 프레임에 티 안 나게 진짜 유동성
+                // 슬라이드로 순간 이동합니다(진짜 슬라이드는 차트가 있지만, 리플레이 애니메이션은
+                // 이미 복제본으로 전환되는 시점에 실제 차트 인스턴스에 걸려버려 화면엔 보이지 않는
+                // 채로 재생/종료되어 버립니다). 해결책: 실제 차트가 그려지거나 갱신될 때마다 같은
+                // categoryKey를 가진 복제 슬라이드의 canvas에도 현재 프레임을 그대로 복사해 둬서,
+                // 복제본이 화면에 잠깐 보이는 순간에도 항상 "최신 상태의 정적 스냅샷"이 보이게
+                // 만듭니다(복제본 자체는 어차피 상호작용 대상이 아니라 순간 이동 전 잠깐 스치는
+                // 화면일 뿐이라 애니메이션까지 따라할 필요는 없습니다).
+                function syncCloneCanvases(categoryKey, realCanvas) {
+                    var clones = document.querySelectorAll('.swiper-slide.swiper-slide-duplicate [data-chart-canvas="' + categoryKey + '"]');
+                    clones.forEach(function (cloneCanvas) {
+                        if (cloneCanvas.width !== realCanvas.width) cloneCanvas.width = realCanvas.width;
+                        if (cloneCanvas.height !== realCanvas.height) cloneCanvas.height = realCanvas.height;
+                        var ctx = cloneCanvas.getContext('2d');
+                        ctx.clearRect(0, 0, cloneCanvas.width, cloneCanvas.height);
+                        ctx.drawImage(realCanvas, 0, 0);
+                    });
+                }
+
+                function getOrCreateTooltip(chart) {
+                    var tooltipEl = chart.canvas.parentNode.querySelector('div.chartjs-tooltip');
+                    if (!tooltipEl) {
+                        tooltipEl = document.createElement('div');
+                        tooltipEl.className = 'chartjs-tooltip';
+                        chart.canvas.parentNode.appendChild(tooltipEl);
+                    }
+                    return tooltipEl;
+                }
+
+                function externalTooltipHandler(context) {
+                    var chart = context.chart;
+                    var tooltip = context.tooltip;
+                    var tooltipEl = getOrCreateTooltip(chart);
+
+                    if (tooltip.opacity === 0) {
+                        tooltipEl.style.opacity = 0;
+                        return;
+                    }
+
+                    if (tooltip.body) {
+                        var titleLines = tooltip.title || [];
+                        var bodyLines = tooltip.body.map(function (b) { return b.lines; });
+
+                        var innerHtml = '';
+                        titleLines.forEach(function (title) {
+                            innerHtml += '<div class="chartjs-tooltip__title">' + title + '</div>';
+                        });
+                        bodyLines.forEach(function (lines, i) {
+                            var colors = tooltip.labelColors[i];
+                            lines.forEach(function (line) {
+                                innerHtml +=
+                                    '<div class="chartjs-tooltip__row">' +
+                                    '<span class="chartjs-tooltip__chip" style="background:' + colors.backgroundColor + '"></span>' +
+                                    line +
+                                    '</div>';
+                            });
+                        });
+                        tooltipEl.innerHTML = innerHtml;
+                    }
+
+                    var positionX = chart.canvas.offsetLeft;
+                    var positionY = chart.canvas.offsetTop;
+                    tooltipEl.style.opacity = 1;
+                    tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+                    tooltipEl.style.top = positionY + tooltip.caretY - 10 + 'px';
+                    tooltipEl.style.transform = 'translate(-50%, -100%)';
+                    tooltipEl.style.removeProperty('--tt-arrow-left');
+
+                    var edgeMargin = 8;
+                    var rect = tooltipEl.getBoundingClientRect();
+                    var shift = 0;
+                    if (rect.left < edgeMargin) {
+                        shift = edgeMargin - rect.left;
+                    } else if (rect.right > window.innerWidth - edgeMargin) {
+                        shift = (window.innerWidth - edgeMargin) - rect.right;
+                    }
+                    if (shift !== 0) {
+                        tooltipEl.style.transform = 'translate(calc(-50% + ' + shift + 'px), -100%)';
+                        tooltipEl.style.setProperty('--tt-arrow-left', 'calc(50% - ' + shift + 'px)');
+                    }
+                }
+
+                // 세그먼트 4개 공통 모양: 맨 왼쪽만 왼쪽 모서리, 맨 오른쪽만 오른쪽 모서리를
+                // 둥글게 줘서 전체 막대가 하나의 알약(pill) 모양으로 이어져 보이게 합니다.
+                function makeDataset(label, value, color) {
+                    return { label: label, data: [value], backgroundColor: color, hoverBackgroundColor: color, borderWidth: 0 };
+                }
+
+                function buildStackedBarChart(categoryKey, datasets) {
+                    // [버그 수정] canvas에 id(예: id="loanBarChart")를 주고 getElementById로
+                    // 찾았더니, Swiper loop 모드가 무한 스와이프를 위해 슬라이드를 앞/뒤로 하나씩
+                    // 복제(cloneNode)하면서 그 안의 canvas id까지 그대로 복제해 문서에 같은 id가
+                    // 2개 생겼습니다. getElementById는 항상 "문서상 먼저 나오는" 요소를 반환하는데,
+                    // Swiper는 보통 마지막 슬라이드의 복제본을 맨 앞에 붙이기 때문에 대출(마지막
+                    // 카테고리)은 실제 슬라이드가 아니라 그 복제본(화면에 보이지 않는 canvas)에
+                    // Chart.js가 붙어버려 정작 보이는 대출 카드엔 그래프가 전혀 그려지지 않았습니다.
+                    // (연쇄적으로 유동성 쪽도 자기 자신의 복제본과 id가 겹치면서 canvas 크기 계산이
+                    // 꼬여 카드 폭이 브라우저 기본 canvas 크기로 잘려 보이는 부작용까지 있었습니다.)
+                    // id 대신 문서 전체에서 유일할 필요 없는 data-속성으로 찾되, ".swiper-slide-duplicate"
+                    // (복제 슬라이드)는 제외해서 항상 실제로 보이는 슬라이드의 canvas만 잡습니다.
+                    var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-chart-canvas="' + categoryKey + '"]');
+                    if (!canvas) return;
+                    // [버그 수정] 부모 .hero__chart-box가 overflow:hidden + border-radius:11px(=
+                    // 높이 22px의 절반, 즉 완전한 알약 모양)로 감싸고 있어서, 캔버스 세그먼트 쪽
+                    // 모서리를 3px로만 둥글리면 바깥 박스는 11px로 크게 잘리고 안쪽 막대는 3px로만
+                    // 둥글어 두 곡률이 어긋나 보였습니다(요청하신 "radius가 3px이 아닌 것 같다"는
+                    // 현상의 원인). 999처럼 큰 값을 주면 Chart.js가 자동으로 rect 크기의 절반까지만
+                    // 클램프하므로, 박스 높이가 몇이든 항상 바깥 박스와 정확히 같은 반원(알약) 모양이
+                    // 되게 맞춥니다.
+                    var PILL_RADIUS = 3;
+                    datasets[0].borderRadius = { topLeft: PILL_RADIUS, bottomLeft: PILL_RADIUS, topRight: 0, bottomRight: 0 };
+                    datasets[0].borderSkipped = false;
+                    for (var i = 1; i < datasets.length - 1; i++) {
+                        datasets[i].borderRadius = 0;
+                        datasets[i].borderSkipped = false;
+                    }
+                    var last = datasets[datasets.length - 1];
+                    last.borderRadius = { topLeft: 0, bottomLeft: 0, topRight: PILL_RADIUS, bottomRight: PILL_RADIUS };
+                    last.borderSkipped = false;
+
+                    // [버그 수정] x축 max를 지정 안 하면 Chart.js가 눈금이 딱 떨어지는 "보기 좋은"
+                    // 값으로 자동 반올림합니다(예: 대출 합계 42,150,000원 -> 45,000,000원). 이
+                    // 막대는 눈금 있는 일반 차트가 아니라 "전체 자산 구성비"를 항상 꽉 찬 막대로
+                    // 보여주는 용도라서, 그 반올림 여백이 막대 끝에 빈 공간으로 남습니다. 지금까지는
+                    // 빈 공간이 흰색이라 안 보였지만, 방금 .hero__chart-box에 배경색(#f7f7f7)을
+                    // 넣으면서 그 여백이 회색 트랙처럼 드러났습니다. 합계를 직접 계산해 max로
+                    // 고정하면 막대가 항상 박스 끝까지 정확히 채워집니다.
+                    var total = datasets.reduce(function (sum, ds) { return sum + ds.data[0]; }, 0);
+
+                    var chart = new Chart(canvas.getContext('2d'), {
+                        type: 'bar',
+                        data: { labels: ['자산'], datasets: datasets },
+                        options: {
+                            indexAxis: 'y',
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            // 최초 생성 시 재생되는 0->실제값 애니메이션(및 이후 replayHeroBarChart가
+                            // 재생하는 애니메이션) 매 프레임마다, 그리고 끝났을 때 복제 슬라이드의
+                            // canvas도 같은 그림으로 갱신합니다(syncCloneCanvases 설명 참고).
+                            animation: {
+                                onProgress: function () { syncCloneCanvases(categoryKey, canvas); },
+                                onComplete: function () { syncCloneCanvases(categoryKey, canvas); }
+                            },
+                            // [버그 수정] Chart.js 막대 차트는 기본적으로 categoryPercentage:0.8 /
+                            // barPercentage:0.9를 곱해(약 72%) 막대 앞뒤로 여백을 남기는데, 이
+                            // 막대는 22px 높이를 꽉 채운 "트랙"이어야 해서 그 기본 여백이 위아래
+                            // 빈틈(패딩처럼 보이는 부분)으로 그대로 드러났습니다. 두 값을 1로 올려
+                            // 막대가 캔버스 높이를 정확히 꽉 채우게 합니다.
+                            datasets: {
+                                bar: { categoryPercentage: 1, barPercentage: 1 }
+                            },
+                            // [버그 수정] 스와이프로 카드를 넘길 때 손가락이 캔버스 위를 스쳐 지나가면
+                            // Chart.js 기본 events(touchstart/touchmove 포함)가 이를 hover로 인식해
+                            // externalTooltipHandler가 열립니다. 이 막대는 22px밖에 안 되고 부모
+                            // .hero__chart-box가 overflow:hidden이라, 위로 떠야 할 어두운 말풍선이
+                            // 그 좁은 박스에 잘려 막대 위에 검은 얼룩/그림자처럼 겹쳐 보였습니다.
+                            // 값은 바로 아래 범례 목록에 이미 다 보이므로 이 미니 막대에서는 터치
+                            // hover로 뜨는 툴팁이 굳이 필요 없어, 마우스 이벤트만 남기고 터치/드래그로
+                            // 뜨는 경로를 아예 없앴습니다(데스크톱 마우스 오버는 그대로 유지).
+                            events: ['mousemove', 'mouseout'],
+                            plugins: {
+                                legend: { display: false }, // 범례는 아래 .hero__legend(HTML)로 대체
+                                tooltip: {
+                                    enabled: false,
+                                    external: externalTooltipHandler,
+                                    callbacks: {
+                                        label: function (context) {
+                                            var label = context.dataset.label || '';
+                                            var value = context.parsed.x || 0;
+                                            return label + ': ' + value.toLocaleString() + '원';
+                                        }
+                                    }
+                                }
+                            },
+                            layout: { padding: 0 },
+                            scales: {
+                                x: { stacked: true, display: false, min: 0, max: total },
+                                y: { stacked: true, display: false }
+                            }
+                        }
+                    });
+
+                    heroBarCharts[categoryKey] = {
+                        chart: chart,
+                        targets: datasets.map(function (ds) { return ds.data[0]; })
+                    };
+                }
+
+                // 유동성: 입출금(10,000원)·외화(1,482원)는 실제 값 그대로 두면 전체 대비
+                // 비중이 너무 작아(각각 약 0.09%, 0.01%) 막대에서 폭이 1px도 안 나와 사실상
+                // 안 보입니다. chart.html의 Stacked Bar Chart 샘플에서 쓴 것과 같은 방식으로,
+                // 차트에 넘기는 값만 최소 시각 폭을 위해 보정하고(아래 각 값), 하단
+                // .hero__legend에 표시되는 실제 금액(10,000원/1,482원)은 그대로 둡니다.
+                buildStackedBarChart('liquidity', [
+                    makeDataset('입출금', 300000, '#20a570'),
+                    makeDataset('예금', 10000000, '#53e57a'),
+                    makeDataset('적금', 1000000, '#1043a1'),
+                    makeDataset('외화', 250000, '#a2a2a2')
+                ]);
+
+                buildStackedBarChart('invest', [
+                    makeDataset('펀드', 32000000, '#7c3aed'),
+                    makeDataset('국내주식', 28500000, '#a78bfa'),
+                    makeDataset('해외주식', 18320450, '#1043a1'),
+                    makeDataset('ETF', 6500000, '#a2a2a2')
+                ]);
+
+                buildStackedBarChart('pension', [
+                    makeDataset('연금저축', 62000000, '#0f766e'),
+                    makeDataset('IRP', 45000000, '#2dd4bf'),
+                    makeDataset('퇴직연금', 38480000, '#1043a1'),
+                    makeDataset('개인연금', 11000000, '#a2a2a2')
+                ]);
+
+                buildStackedBarChart('loan', [
+                    makeDataset('주택담보대출', 28000000, '#c2410c'),
+                    makeDataset('신용대출', 9500000, '#fb923c'),
+                    makeDataset('전세자금대출', 4000000, '#1043a1'),
+                    makeDataset('카드론', 650000, '#a2a2a2')
+                ]);
+
+                // 뒷면 "인사이트" — 카테고리별 전월/금월 자산을 나란히 비교하는 그룹형(묶음)
+                // 세로 막대 차트(https://www.chartjs.org/docs/latest/samples/bar/stacked.html
+                // 처럼 stacked:true로 쌓으면 전월+금월이 합산 높이로 보여서 두 시점을 직접
+                // 비교하기 어려워집니다 — 지금 이 화면은 "나란히 비교"가 목적이라 stacked를
+                // 끈 채로 그대로 씁니다. stacked로 쌓는 패턴 자체는 sample_update/chart.html과
+                // nds-guide의 Chart 섹션에 별도 예시로 추가했습니다.
+                // 카드마다 금액 스케일이 크게 달라(예: 유동성 카드의 예금 10,000,000원 vs
+                // 외화 1,482원) 실제 금액을 그대로 넣으면 작은 값은 막대가 사실상 안 보이므로,
+                // 기존 CSS 버전이 손으로 정해뒀던 시각 높이(px, 최대 140)를 그대로 차트
+                // 데이터로 쓰고 실제 금액은 툴팁에서만 보여줍니다(막대 옆 .blind 목록도
+                // 동일 정보를 스크린리더용으로 제공).
+                function buildInsightChart(categoryKey, labels, visualPrev, visualNow, realPrev, realNow, colors) {
+                    var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-insight-chart="' + categoryKey + '"]');
+                    if (!canvas) return;
+                    new Chart(canvas.getContext('2d'), {
+                        type: 'bar',
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                { label: '전월', data: visualPrev, backgroundColor: colors.prev, borderRadius: 2, borderSkipped: false },
+                                { label: '금월', data: visualNow, backgroundColor: colors.now, borderRadius: 2, borderSkipped: false }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            // 스와이프 중 손가락이 캔버스를 스칠 때 touchmove가 hover로 인식돼
+                            // 툴팁이 뜨는 것을 막습니다(위 hero__chart-box와 같은 이유).
+                            events: ['mousemove', 'mouseout'],
+                            plugins: {
+                                legend: { display: false }, // 범례는 위 .hero__insight-legend(HTML)로 대체
+                                tooltip: {
+                                    callbacks: {
+                                        title: function (items) { return items[0].label; },
+                                        label: function (context) {
+                                            var realArr = context.datasetIndex === 0 ? realPrev : realNow;
+                                            var value = realArr[context.dataIndex];
+                                            return context.dataset.label + ': ' + value.toLocaleString() + '원';
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                x: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#6d6d6d' } },
+                                y: { display: false, beginAtZero: true }
+                            }
+                        }
+                    });
+                }
+
+                buildInsightChart(
+                    'liquidity',
+                    ['입출금', '예금', '적금', '외화'],
+                    [6, 126, 14, 2],
+                    [6, 140, 14, 2],
+                    [10000, 9000000, 1000000, 1482],
+                    [10000, 10000000, 1000000, 1482],
+                    { prev: '#cfe8db', now: '#20a570' }
+                );
+
+                buildInsightChart(
+                    'invest',
+                    ['펀드', '국내주식', '해외주식', 'ETF'],
+                    [133, 121, 77, 28],
+                    [140, 125, 80, 28],
+                    [30500000, 27700000, 17620450, 6300000],
+                    [32000000, 28500000, 18320450, 6500000],
+                    { prev: '#ddd6fe', now: '#7c3aed' }
+                );
+
+                buildInsightChart(
+                    'pension',
+                    ['연금저축', 'IRP', '퇴직연금', '개인연금'],
+                    [138, 101, 86, 24],
+                    [140, 102, 87, 25],
+                    [61000000, 44600000, 38180000, 10600000],
+                    [62000000, 45000000, 38480000, 11000000],
+                    { prev: '#ccfbf1', now: '#0f766e' }
+                );
+
+                buildInsightChart(
+                    'loan',
+                    ['주택담보대출', '신용대출', '전세자금대출', '카드론'],
+                    [140, 49, 20, 5],
+                    [140, 48, 20, 4],
+                    [28000000, 9800000, 4000000, 850000],
+                    [28000000, 9500000, 4000000, 650000],
+                    { prev: '#fed7aa', now: '#c2410c' }
+                );
             })();
         </script>
     </body>

@@ -2,7 +2,6 @@
 <html lang="ko">
     <head>
         <script src="../pub-assets/js/head-mb-update.js"></script>
-        <script src="../../js/chart.js"></script>
 
         <style>
             /* 차트 크기는 부모 컨테이너의 너비/높이로 제어하는 것이 좋습니다 */
@@ -19,7 +18,7 @@
               width: 100%;
               max-width: 420px;
               margin: 0 auto;
-              padding: 24px;
+              padding: 0;
               background-color: #ffffff;
             }
 
@@ -223,7 +222,14 @@
             <!-- //header -->
             <div class="container">
                 <h2 class="guide-title">Bar Chart</h2>
-                <canvas id="myBarChart"></canvas>
+                <!-- [버그 수정] 캔버스를 감싸는 박스 없이 responsive:true만 켜두면 너비는
+                     페이지 전체 폭에 맞춰 늘어나는데 높이는 Chart.js 기본 aspectRatio(2:1)로
+                     계산돼, 이 페이지처럼 폭이 넓은 컨테이너에서는 세로가 지나치게 눌려
+                     보였습니다. 아래 다른 차트들처럼 높이가 고정된 박스(.chart-box--tall)로
+                     감싸고 maintainAspectRatio:false를 켜서 박스 높이를 그대로 씁니다. -->
+                <div class="chart-box--tall">
+                    <canvas id="myBarChart"></canvas>
+                </div>
                 <hr class="divider" />
 
                 <h2 class="guide-title">Doughnut Chart</h2>
@@ -231,7 +237,9 @@
                 <hr class="divider" />
 
                 <h2 class="guide-title">Interpolation Modes Chart</h2>
-                <canvas id="interpolationChart"></canvas>
+                <div class="chart-box--tall">
+                    <canvas id="interpolationChart"></canvas>
+                </div>
                 <hr class="divider" />
 
                 <h2 class="guide-title">Stacked Bar Chart</h2>
@@ -273,6 +281,17 @@
                 </div>
                 <hr class="divider" />
 
+                <h2 class="guide-title">Stacked Bar Chart (세로형 — 월별 자산 구성 추이)</h2>
+                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">
+                    바로 위 Stacked Bar Chart는 카드 한 장 시점의 "구성비"를 보여주는 가로 막대라 stacked를 꺼둔 채로 씁니다(NH_MD_01.html의 인사이트 카드도 같은 이유로 전월/금월을 나란히 비교하는 그룹형으로 둡니다). 이 샘플은
+                    <a href="https://www.chartjs.org/docs/latest/samples/bar/stacked.html" target="_blank" rel="noopener">공식 Stacked Bar Chart 샘플</a>
+                    처럼 stacked:true를 그대로 켠 세로 막대입니다 — 카테고리(월)마다 여러 데이터셋(자산 종류)이 진짜로 쌓여서 "총합이 어떻게 늘어났는지"를 보여줄 때 씁니다.
+                </p>
+                <div class="chart-box--tall">
+                    <canvas id="stackedBarChartVertical"></canvas>
+                </div>
+                <hr class="divider" />
+
                 <h2 class="guide-title">Gradient Area Chart (다이나믹/화려한 샘플)</h2>
                 <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">그라데이션 채우기 + 로드 애니메이션 + 커스텀 HTML 툴팁(말풍선) 조합 예시입니다. 위 Stacked Bar Chart의 툴팁 수정에 쓴 것과 같은 external 툴팁 방식을 재사용했습니다.</p>
 
@@ -291,9 +310,7 @@
                 <hr class="divider" />
 
                 <h2 class="guide-title">Gauge Chart (반원 게이지 — 목표 달성률)</h2>
-                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">
-                    도넛 차트를 반원(circumference:180)으로 잘라서 만드는 게이지 패턴입니다. 목표/달성률처럼 "얼마나 채웠는지"를 보여줄 때 doughnut보다 훨씬 직관적입니다.
-                </p>
+                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">도넛 차트를 반원(circumference:180)으로 잘라서 만드는 게이지 패턴입니다. 목표/달성률처럼 "얼마나 채웠는지"를 보여줄 때 doughnut보다 훨씬 직관적입니다.</p>
                 <div class="gauge-card">
                     <div class="gauge-card__chart-box">
                         <canvas id="gaugeChart"></canvas>
@@ -303,18 +320,14 @@
                 <hr class="divider" />
 
                 <h2 class="guide-title">Radar Chart (다각형 비교 — 자산 건강도 진단)</h2>
-                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">
-                    여러 항목을 한 번에 비교할 때 막대/도넛보다 "균형이 잡혔는지 한쪽으로 치우쳤는지"가 한눈에 보이는 차트입니다. 또래 평균과 겹쳐 그리면 비교 효과가 커집니다.
-                </p>
+                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">여러 항목을 한 번에 비교할 때 막대/도넛보다 "균형이 잡혔는지 한쪽으로 치우쳤는지"가 한눈에 보이는 차트입니다. 또래 평균과 겹쳐 그리면 비교 효과가 커집니다.</p>
                 <div class="chart-box--tall">
                     <canvas id="radarChart"></canvas>
                 </div>
                 <hr class="divider" />
 
                 <h2 class="guide-title">Mixed Chart (막대 + 라인 혼합 — 매출 &amp; 성장률)</h2>
-                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">
-                    하나의 차트에 서로 다른 type(bar/line)과 서로 다른 축(y/y1)을 같이 쓸 수 있습니다. "금액"과 "증감률(%)"처럼 단위가 다른 두 지표를 한 화면에서 비교할 때 자주 쓰는 패턴입니다.
-                </p>
+                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">하나의 차트에 서로 다른 type(bar/line)과 서로 다른 축(y/y1)을 같이 쓸 수 있습니다. "금액"과 "증감률(%)"처럼 단위가 다른 두 지표를 한 화면에서 비교할 때 자주 쓰는 패턴입니다.</p>
                 <div class="chart-box--tall">
                     <canvas id="mixedChart"></canvas>
                 </div>
@@ -327,6 +340,7 @@
         const ctx_doughnut = document.getElementById('myDoughnutChart').getContext('2d');
         const ctx_interpolation = document.getElementById('interpolationChart').getContext('2d');
         const ctx_stacked = document.getElementById('stackedBarChart').getContext('2d');
+        const ctx_stacked_vertical = document.getElementById('stackedBarChartVertical').getContext('2d');
         const ctx_trend = document.getElementById('trendAreaChart').getContext('2d');
         const ctx_gauge = document.getElementById('gaugeChart').getContext('2d');
         const ctx_radar = document.getElementById('radarChart').getContext('2d');
@@ -455,6 +469,7 @@
           },
           options: {
             responsive: true, // 화면 크기에 맞춰 반응형으로 작동
+            maintainAspectRatio: false, // 위 .chart-box--tall의 고정 높이(380px)를 그대로 씀
             // [업데이트] 막대가 왼쪽부터 순서대로 튀어 오르듯 나타나는 다이나믹한 로드 애니메이션
             animation: {
               duration: 900,
@@ -630,6 +645,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false, // 위 .chart-box--tall의 고정 높이(380px)를 그대로 씀
                 plugins: {
                 title: {
                     display: true,
@@ -736,6 +752,73 @@
                 }
             }
             });
+
+        // ---- Stacked Bar Chart (세로형 — 월별 자산 구성 추이) ----
+        // https://www.chartjs.org/docs/latest/samples/bar/stacked.html 을 그대로 따른
+        // 패턴입니다: 카테고리(월)마다 여러 데이터셋(자산 종류)이 stacked:true로 실제로
+        // 쌓여서, 매달 총자산이 어떻게 늘었는지 + 그 안에서 자산별 비중이 어떻게
+        // 바뀌었는지를 한 번에 보여줍니다. 위 가로 Stacked Bar Chart(단일 시점 구성비)나
+        // NH_MD_01.html의 인사이트 카드(전월/금월 나란히 비교)와는 목적이 다른, 시계열
+        // 누적 패턴입니다.
+        const stackedBarChartVertical = new Chart(ctx_stacked_vertical, {
+            type: 'bar',
+            data: {
+                labels: ['2월', '3월', '4월', '5월', '6월', '7월'],
+                datasets: [
+                    {
+                        label: '유동성',
+                        data: [10800000, 11000000, 11300000, 11600000, 11900000, 12285106],
+                        backgroundColor: '#20a570'
+                    },
+                    {
+                        label: '투자',
+                        data: [72000000, 75000000, 78500000, 81000000, 83200000, 85320450],
+                        backgroundColor: '#7c3aed'
+                    },
+                    {
+                        label: '연금',
+                        data: [148000000, 150000000, 151800000, 153500000, 155000000, 156480000],
+                        backgroundColor: '#0f766e'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '월별 자산 구성 추이'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                const label = context.dataset.label || '';
+                                const value = context.parsed.y || 0;
+                                return label + ': ' + value.toLocaleString() + '원';
+                            },
+                            footer: function (items) {
+                                const total = items.reduce(function (sum, item) { return sum + item.parsed.y; }, 0);
+                                return '합계: ' + total.toLocaleString() + '원';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            callback: function (value) {
+                                return (value / 10000).toLocaleString() + '만원';
+                            }
+                        }
+                    }
+                }
+            }
+        });
 
         // ---- Gradient Area Chart (다이나믹/화려한 샘플) ----
         // 단위: 만원. 헤더의 금액/증감 표시도 이 배열에서 계산해서 채우므로, 값을 바꿔도
