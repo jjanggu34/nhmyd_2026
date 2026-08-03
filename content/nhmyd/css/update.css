@@ -505,9 +505,7 @@
 /* 
    주의:실제 브라우저에서 body에 nhd_sbnew(스마트뱅킹 기본값) 클래스가 JS로 자동 부여되어
    .nhd_sbnew .nhasset .header .btnXXX (4~5 class, 올원뱅크 변형은 nhd_allone도 동일) 규칙이
-   활성화됩니다. 이 규칙들이 클래스 수가 더 많아 update.css(3 class)가 로드 순서로는 이길 수 없으므로,
-   기하학적 속성(position/top/left/right/width/height/margin/background*)에는 !important로
-   명시적으로 이겨야 합니다. (.header 자체의 position/height/background 등 컨테이너 속성은
+   활성화됩니다. (.header 자체의 position/height/background 등 컨테이너 속성은
    페이지 자체 override를 건드리지 않도록 그대로 둡니다) ---- */
 .nds .header {display:flex !important;align-items:center;gap:12px;padding:0 24px !important;box-sizing:border-box}
 .nds .header h1 {order:2;flex:1 1 0%;min-width:0;padding:0 !important;margin:0 !important;font-size:16px;font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;text-align:center !important;color:var(--color-font-1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -805,7 +803,7 @@
 .nds .radio-survey__options {display:flex;gap:8px;width:100%}
 .nds .radio-survey__options > label {flex:1;min-width:0;display:flex}
 .nds .radio-survey__label {display:inline-flex;align-items:center;justify-content:center;flex:1;height:50px;min-width:152px;border:1px solid var(--color-border-1);border-radius:10px;box-sizing:border-box;font-size:15px;font-weight:var(--font-weight-regular);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-3);cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none;transition:border-color var(--transition-base), color var(--transition-base)}
-/* survey */
+/* ---- survey ---- */
 .nds .radio-survey__input:checked + .radio-survey__label,
 .nds .radio-survey--error .radio-survey__label {border-width:1.5px;font-weight:var(--font-weight-medium)}
 .nds .radio-survey__input:checked + .radio-survey__label {border-color:var(--color-border-point)}
@@ -1170,32 +1168,16 @@
 .nds .bullet--dot--body3 {gap:8px}
 .nds .bullet--dot--body3 .bullet__item {font-size:14px;line-height:22px;letter-spacing:-0.28px;color:var(--color-font-3)}
 .nds .bullet--dot--body3 .bullet__item::before {margin-top:9px}
-/* NH_MD_UI_08 */
+/* ---- NH_MD_UI_08 ---- */
 .nds .hashWrap {display:flex;flex-wrap:wrap;column-gap:16px;padding:16px;border-radius:8px;background-color:var(--color-bg-banner);font-size:0}
 .nds .hashWrap .hastag {margin:0;color:#002259;font-size:14px;font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:var(--type-body2-ls)}
 .nds .asset__link-logo {width:88px;height:88px;margin:0 auto}
 .pointColor22 {color:var(--color-font-green-newtro)}
-
-/* NH_MD_01 */
+/* ---- NH_MD_01 ---- */
 .md-section {margin-top:48px}
 .md-section__title {font-size:18px;font-weight:600;line-height:26px;letter-spacing:-0.45px;color:#132333;text-align:left;margin:0 0 20px 8px}
 .md-card {background:#fff;border-radius:16px;padding:24px 16px}
-
-/* 내 현금 자산 - 플립 카드
-    앞/뒤 면을 동시에 겹쳐두고 backface-visibility로 뒷면을 숨기는 3D 방식은
-    일부 웹뷰/프리뷰 환경에서 숨김 처리가 안 먹혀 두 면이 겹쳐 보이는 문제가
-    있었습니다(실기기 확인됨). rotateY(3D transform)도 같은 환경에서 아예
-    적용되지 않는 것까지 확인되어(getComputedStyle로 확인 — 계산값이 항상
-    identity), 3D 변형은 전혀 쓰지 않습니다. 대신 scaleX(0)으로 카드를 옆에서
-    보듯 납작하게 접었다가("납작해진" 찰나, 아무것도 안 보이는 정확히 그
-    타이밍에 내용을 교체) 다시 펼치는 2D 변형만으로 플립 효과를 재현합니다.
-    scaleX는 2D transform이라 어떤 환경에서도 안전하게 동작합니다.
-
-    앞/뒤 면은 grid-column/grid-row를 똑같이 1로 줘서 같은 셀에 포개 놓습니다
-    (display:none이 아니라 visibility로만 감추므로 둘 다 계속 레이아웃 계산에
-    들어가고, 그리드 행 높이는 둘 중 더 큰 콘텐츠 높이로 자동으로 맞춰집니다).
-    덕분에 높이를 재서 style="height:...px"로 박아넣는 JS 없이도 뒤집기 전후
-    카드 높이가 항상 같습니다. */
+/* ---- 내 현금 자산 - 플립 카드 ---- */
 .hero {margin-top:8px}
 .hero__flip {position:relative;display:grid;transition:transform 0.22s ease;transform:scaleX(1)}
 .hero__flip.is-turning {transform:scaleX(0)}
@@ -1225,8 +1207,7 @@
 .hero__cta {display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;background:none;border:none;padding:0;cursor:pointer;font-size:16px;font-weight:300;letter-spacing:-0.16px;color:#333;text-align:left}
 .hero__cta-icon {display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#f5f6f8;flex-shrink:0}
 .hero__cta-icon img {width:14px;height:14px}
-
-/* 뒷면:현금 인사이트(전월 대비 비교) */
+/* ---- 뒷면:현금 인사이트(전월 대비 비교) ---- */
 .hero__insight-legend {display:flex;align-items:center;gap:16px;font-size:12px;color:#6d6d6d}
 .hero__insight-legend span {display:inline-flex;align-items:center;gap:6px}
 .hero__insight-legend i {width:10px;height:10px;border-radius:2px;display:inline-block}
@@ -1237,8 +1218,7 @@
 .hero__insight-prev {background:#cfe8db}
 .hero__insight-now {background:#20a570}
 .hero__insight-col-label {font-size:12px;color:#6d6d6d}
-
-/* 위클리 브리핑 / 대출 금리 케어 / 조기 은퇴 진단 위젯 카드 */
+/* ---- 위클리 브리핑 / 대출 금리 케어 / 조기 은퇴 진단 위젯 카드 ---- */
 .widget__desc {font-size:16px;font-weight:400;letter-spacing:-0.32px;color:#333;line-height:1.4;margin:0 0 8px}
 .widget__desc strong {display:block;font-weight:500;color:#111;line-height:1.7;margin-top:8px}
 .widget__caption {display:flex;align-items:center;gap:4px;font-size:12px;font-weight:300;letter-spacing:-0.12px;color:#707070;margin:0 0 20px}
