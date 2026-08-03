@@ -28,6 +28,110 @@
               width: 100%;
               height: 28px; /* 상단 얇은 막대 바 높이 */
               margin-bottom: 24px;
+              position: relative; /* 커스텀(HTML) 툴팁의 위치 기준점. 캔버스가 28px로 얇아도
+                                     툴팁은 이 박스 기준 absolute로 떠서 캔버스 밖으로 안 잘립니다 */
+            }
+
+            /* ---- Chart.js 커스텀 HTML 툴팁(말풍선) ----
+               기본 Chart.js 툴팁은 캔버스 위에 "그려지는" 방식이라, stackedBarChart처럼 캔버스
+               자체가 얇으면(28px) 툴팁 내용이 그 안에 눌려서 깨져 보입니다. 이를 막기 위해 실제
+               DOM(div)으로 그리는 external 툴팁 방식을 사용합니다 — 캔버스 크기와 무관하게 항상
+               정상적으로 표시됩니다. */
+            .chartjs-tooltip {
+              position: absolute;
+              pointer-events: none;
+              opacity: 0;
+              transition: opacity 0.12s ease;
+              z-index: 10;
+              background: rgba(17, 17, 17, 0.92);
+              color: #ffffff;
+              border-radius: 8px;
+              padding: 8px 12px;
+              font-size: 13px;
+              line-height: 1.6;
+              white-space: nowrap;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+            }
+            .chartjs-tooltip::after {
+              content: "";
+              position: absolute;
+              left: 50%;
+              bottom: -6px;
+              transform: translateX(-50%);
+              border-left: 6px solid transparent;
+              border-right: 6px solid transparent;
+              border-top: 6px solid rgba(17, 17, 17, 0.92);
+            }
+            .chartjs-tooltip__title {
+              font-weight: 600;
+              margin-bottom: 2px;
+              opacity: 0.85;
+            }
+            .chartjs-tooltip__row {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+            }
+            .chartjs-tooltip__row + .chartjs-tooltip__row {
+              margin-top: 2px;
+            }
+            .chartjs-tooltip__chip {
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              display: inline-block;
+              flex-shrink: 0;
+            }
+
+            /* ---- 다이나믹/화려한 샘플: 그라데이션 트렌드 카드 ---- */
+            .trend-card {
+              width: 100%;
+              max-width: 420px;
+              margin: 40px auto;
+              padding: 24px;
+              background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 55%, #312e81 100%);
+              border-radius: 16px;
+              box-shadow: 0 12px 28px rgba(49, 46, 129, 0.35);
+              color: #ffffff;
+              box-sizing: border-box;
+            }
+            .trend-card__head {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-start;
+            }
+            .trend-card__title {
+              font-size: 13px;
+              color: rgba(255, 255, 255, 0.6);
+              margin: 0 0 6px;
+            }
+            .trend-card__amount {
+              font-size: 26px;
+              font-weight: 700;
+              margin: 0;
+              letter-spacing: -0.02em;
+            }
+            .trend-card__change {
+              display: inline-flex;
+              align-items: center;
+              gap: 2px;
+              font-size: 13px;
+              font-weight: 600;
+              color: #4ade80;
+              background: rgba(74, 222, 128, 0.14);
+              padding: 4px 10px;
+              border-radius: 999px;
+              white-space: nowrap;
+            }
+            .trend-card__chart-box {
+              position: relative; /* 커스텀 툴팁 위치 기준점 */
+              width: 100%;
+              height: 200px;
+              margin-top: 24px;
+            }
+            /* 캔버스 전체에 은은한 그림자(glow)를 줘서 화려한 느낌을 더합니다 */
+            #trendAreaChart {
+              filter: drop-shadow(0 6px 14px rgba(99, 102, 241, 0.45));
             }
 
             /* 하단 데이터 리스트 (커스텀 범례) */
@@ -128,6 +232,25 @@
                         </li>
                     </ul>
                 </div>
+                <hr class="divider" />
+
+                <h2 class="guide-title">Gradient Area Chart (다이나믹/화려한 샘플)</h2>
+                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">
+                    그라데이션 채우기 + 로드 애니메이션 + 커스텀 HTML 툴팁(말풍선) 조합 예시입니다. 위 Stacked Bar Chart의 툴팁 수정에 쓴 것과 같은 external 툴팁 방식을 재사용했습니다.
+                </p>
+
+                <div class="trend-card">
+                    <div class="trend-card__head">
+                        <div>
+                            <p class="trend-card__title">총자산 추이</p>
+                            <p class="trend-card__amount" id="trendAmount">0원</p>
+                        </div>
+                        <span class="trend-card__change" id="trendChange"></span>
+                    </div>
+                    <div class="trend-card__chart-box">
+                        <canvas id="trendAreaChart"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
@@ -137,6 +260,75 @@
         const ctx_doughnut = document.getElementById('myDoughnutChart').getContext('2d');
         const ctx_interpolation = document.getElementById('interpolationChart').getContext('2d');
         const ctx_stacked = document.getElementById('stackedBarChart').getContext('2d');
+        const ctx_trend = document.getElementById('trendAreaChart').getContext('2d');
+
+        // ---- 공용 유틸: 그라데이션 생성 ----
+        // scriptable option(함수)으로 넘겨야 chartArea가 확정된 뒤 그라데이션을 만들 수 있습니다.
+        // 최초 레이아웃 계산 전에는 chartArea가 없어서 null을 반환해야 에러가 안 납니다.
+        function createVerticalGradient(ctx, chartArea, colorStops) {
+            const gradient = ctx.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+            colorStops.forEach(function (stop) {
+                gradient.addColorStop(stop[0], stop[1]);
+            });
+            return gradient;
+        }
+
+        // ---- 공용 유틸: 커스텀 HTML 툴팁(말풍선) ----
+        // stackedBarChart의 "클릭하면 툴팁이 깨지는" 문제 원인: 기본 Chart.js 툴팁은 캔버스
+        // 안에 직접 그려지는데, stackedBarChart의 캔버스 높이가 28px밖에 안 돼서 툴팁 내용이
+        // 그 좁은 공간 안에 눌려 잘립니다. 아래 두 함수는 캔버스 대신 실제 DOM(div)으로 툴팁을
+        // 그려서, 부모(.chart-box / .trend-card__chart-box, 둘 다 position:relative)를 기준으로
+        // absolute 배치되므로 캔버스 크기와 무관하게 안 잘리고 정상 표시됩니다.
+        function getOrCreateTooltip(chart) {
+            let tooltipEl = chart.canvas.parentNode.querySelector('div.chartjs-tooltip');
+            if (!tooltipEl) {
+                tooltipEl = document.createElement('div');
+                tooltipEl.className = 'chartjs-tooltip';
+                chart.canvas.parentNode.appendChild(tooltipEl);
+            }
+            return tooltipEl;
+        }
+
+        function externalTooltipHandler(context) {
+            const chart = context.chart;
+            const tooltip = context.tooltip;
+            const tooltipEl = getOrCreateTooltip(chart);
+
+            // opacity 0이면 (마우스/터치가 떼어진 상태) 숨기고 종료
+            if (tooltip.opacity === 0) {
+                tooltipEl.style.opacity = 0;
+                return;
+            }
+
+            if (tooltip.body) {
+                const titleLines = tooltip.title || [];
+                const bodyLines = tooltip.body.map(function (b) { return b.lines; });
+
+                let innerHtml = '';
+                titleLines.forEach(function (title) {
+                    innerHtml += '<div class="chartjs-tooltip__title">' + title + '</div>';
+                });
+                bodyLines.forEach(function (lines, i) {
+                    const colors = tooltip.labelColors[i];
+                    lines.forEach(function (line) {
+                        innerHtml +=
+                            '<div class="chartjs-tooltip__row">' +
+                            '<span class="chartjs-tooltip__chip" style="background:' + colors.backgroundColor + '"></span>' +
+                            line +
+                            '</div>';
+                    });
+                });
+                tooltipEl.innerHTML = innerHtml;
+            }
+
+            // 캔버스 기준 좌표로 위치 계산 + 말풍선 꼬리가 아래를 가리키도록 위쪽에 띄움
+            const positionX = chart.canvas.offsetLeft;
+            const positionY = chart.canvas.offsetTop;
+            tooltipEl.style.opacity = 1;
+            tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+            tooltipEl.style.top = positionY + tooltip.caretY - 10 + 'px';
+            tooltipEl.style.transform = 'translate(-50%, -100%)';
+        }
 
         // 4. Chart 객체 생성 및 설정
         const myBarChart = new Chart(ctx_bar, {
@@ -149,29 +341,41 @@
               // 실제 막대에 표시될 데이터 값
               data: [1200, 1900, 800, 1500, 2200, 2500],
 
-              // 막대 색상 설정 (배경색 및 테두리)
-              backgroundColor: [
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(54, 162, 235, 0.6)',
-                'rgba(255, 99, 132, 0.6)' // 특정 항목(6월)만 강조하고 싶을 때 다르게 적용 가능
-              ],
-              borderColor: [
-                'rgba(54, 162, 235, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 99, 132, 1)'
-              ],
+              // [업데이트] 단색 대신 세로 그라데이션 — scriptable option(함수)으로 지정해야
+              // chartArea가 확정된 뒤 실제 그라데이션 객체를 만들 수 있습니다. dataIndex===5(6월)만
+              // 다른 색 그라데이션을 써서 강조합니다.
+              backgroundColor: function (context) {
+                const chart = context.chart;
+                const chartArea = chart.chartArea;
+                if (!chartArea) return null; // 최초 레이아웃 계산 전
+                const isHighlight = context.dataIndex === 5;
+                return createVerticalGradient(chart.ctx, chartArea, isHighlight
+                  ? [[0, 'rgba(251, 113, 133, 0.95)'], [1, 'rgba(244, 63, 94, 0.55)']]
+                  : [[0, 'rgba(96, 165, 250, 0.95)'], [1, 'rgba(59, 130, 246, 0.55)']]);
+              },
+              borderColor: function (context) {
+                return context.dataIndex === 5 ? 'rgba(244, 63, 94, 1)' : 'rgba(59, 130, 246, 1)';
+              },
+              // [업데이트] 마우스 오버 시 진한 단색으로 바뀌는 인터랙션 강조
+              hoverBackgroundColor: function (context) {
+                return context.dataIndex === 5 ? 'rgba(244, 63, 94, 1)' : 'rgba(59, 130, 246, 1)';
+              },
               borderWidth: 1,
-              borderRadius: 4 // 막대 모서리 둥글게 처리
+              borderRadius: 6 // 막대 모서리 둥글게 처리
             }]
           },
           options: {
             responsive: true, // 화면 크기에 맞춰 반응형으로 작동
+            // [업데이트] 막대가 왼쪽부터 순서대로 튀어 오르듯 나타나는 다이나믹한 로드 애니메이션
+            animation: {
+              duration: 900,
+              easing: 'easeOutBack',
+              delay: function (context) {
+                return context.type === 'data' && context.mode === 'default'
+                  ? context.dataIndex * 120
+                  : 0;
+              }
+            },
             plugins: {
               legend: {
                 position: 'top', // 범례 위치 ('top', 'bottom', 'left', 'right')
@@ -194,6 +398,30 @@
             }
           }
         });
+
+        // [업데이트] 도넛 중앙에 텍스트를 그리는 커스텀 플러그인 — 화려함 + 정보 밀도를 동시에
+        // 높이는 흔한 패턴입니다. 이 차트 인스턴스에만 적용되도록 아래 Chart 생성자의
+        // plugins 배열에 넣어서 등록합니다(Chart.register로 전역 등록하면 다른 doughnut/pie
+        // 차트에도 다 적용되니 주의).
+        const centerTextPlugin = {
+            id: 'centerText',
+            beforeDraw: function (chart) {
+                const ctx = chart.ctx;
+                const chartArea = chart.chartArea;
+                const centerX = (chartArea.left + chartArea.right) / 2;
+                const centerY = (chartArea.top + chartArea.bottom) / 2;
+                ctx.save();
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.font = '700 20px Pretendard, sans-serif';
+                ctx.fillStyle = '#111111';
+                ctx.fillText('100%', centerX, centerY - 8);
+                ctx.font = '400 12px Pretendard, sans-serif';
+                ctx.fillStyle = '#94a3b8';
+                ctx.fillText('전체 자산', centerX, centerY + 14);
+                ctx.restore();
+            }
+        };
 
         const myDoughnutChart = new Chart(ctx_doughnut, {
             type: 'doughnut', // 차트 형태: 도넛 차트
@@ -245,8 +473,17 @@
                     }
                 }
                 },
-                cutout: '65%' // 도넛 중앙 구멍 크기 조절 (기본값: 50%, 숫자/백분율 지정 가능)
-            }
+                cutout: '65%', // 도넛 중앙 구멍 크기 조절 (기본값: 50%, 숫자/백분율 지정 가능)
+                // [업데이트] 로드 시 회전하며 채워지는 다이나믹한 애니메이션
+                animation: {
+                    animateRotate: true,
+                    animateScale: true,
+                    duration: 1400,
+                    easing: 'easeOutCirc'
+                }
+            },
+            // [업데이트] 중앙 텍스트("100% / 전체 자산") 커스텀 플러그인 등록 — 이 인스턴스에만 적용
+            plugins: [centerTextPlugin]
         });
 
         const interpolationChart = new Chart(ctx_interpolation, {
@@ -258,7 +495,20 @@
                     label: '1. Cubic Smooth (부드러운 곡선)',
                     data: [10, 50, 15, 30, 20, 35],
                     borderColor: '#3b82f6', // 파랑
-                    backgroundColor: '#3b82f6',
+                    borderWidth: 3,
+                    // [업데이트] 대표 라인 하나만 그라데이션 영역 채우기 적용(3개 다 채우면
+                    // 서로 겹쳐서 지저분해지므로 비교 기준선 역할인 이 라인에만 적용)
+                    backgroundColor: function (context) {
+                        const chart = context.chart;
+                        const chartArea = chart.chartArea;
+                        if (!chartArea) return null;
+                        return createVerticalGradient(chart.ctx, chartArea, [
+                            [0, 'rgba(59, 130, 246, 0.35)'],
+                            [1, 'rgba(59, 130, 246, 0)']
+                        ]);
+                    },
+                    fill: true,
+                    pointRadius: 3,
                     // [핵심] tension을 0보다 크게 설정 (기본값 0.4)
                     tension: 0.4,
                     cubicInterpolationMode: 'default' // 또는 'monotone' (변곡점 왜곡 방지)
@@ -310,25 +560,33 @@
                     label: '입출금',
                     data: [10000],
                     backgroundColor: '#27ad75',
-                    borderWidth: 0
+                    hoverBackgroundColor: '#27ad75',
+                    borderWidth: 0,
+                    borderRadius: 3 // [업데이트] 세그먼트 모서리를 살짝 둥글게
                 },
                 {
                     label: '예금',
                     data: [10000000],
                     backgroundColor: '#52e57d',
-                    borderWidth: 0
+                    hoverBackgroundColor: '#52e57d',
+                    borderWidth: 0,
+                    borderRadius: 3
                 },
                 {
                     label: '적금',
                     data: [1000000],
                     backgroundColor: '#1249b3',
-                    borderWidth: 0
+                    hoverBackgroundColor: '#1249b3',
+                    borderWidth: 0,
+                    borderRadius: 3
                 },
                 {
                     label: '외화',
                     data: [500000], // 0원인 경우 막대에 안 보이므로 최소한의 시각적 분량을 위해 예시값 지정 (필요시 조절)
                     backgroundColor: '#b0b0b0',
-                    borderWidth: 0
+                    hoverBackgroundColor: '#b0b0b0',
+                    borderWidth: 0,
+                    borderRadius: 3
                 }
                 ]
             },
@@ -338,7 +596,22 @@
                 maintainAspectRatio: false,
                 plugins: {
                 legend: { display: false }, // 차트 자체 기본 범례 숨김 (HTML 리스트로 대체)
-                tooltip: { enabled: true }  // 마우스 호버 시 툴팁 표시
+                tooltip: {
+                    // [버그 수정] 캔버스가 28px로 얇아서 기본(캔버스에 직접 그리는) 툴팁이
+                    // 눌려서 깨져 보이던 문제 — enabled:false로 기본 렌더링을 끄고, external
+                    // 콜백으로 대체해서 실제 DOM 말풍선(위에서 정의한 externalTooltipHandler)을
+                    // 그리도록 바꿨습니다. 캔버스 높이와 무관하게 항상 정상 표시됩니다.
+                    enabled: false,
+                    external: externalTooltipHandler,
+                    callbacks: {
+                        // 값에 천 단위 콤마 + "원" 단위를 붙여서 보여줍니다
+                        label: function (context) {
+                            const label = context.dataset.label || '';
+                            const value = context.parsed.x || 0;
+                            return label + ': ' + value.toLocaleString() + '원';
+                        }
+                    }
+                }
                 },
                 scales: {
                 x: {
@@ -352,5 +625,92 @@
                 }
             }
             });
+
+        // ---- Gradient Area Chart (다이나믹/화려한 샘플) ----
+        // 단위: 만원. 헤더의 금액/증감 표시도 이 배열에서 계산해서 채우므로, 값을 바꿔도
+        // 차트와 헤더가 서로 안 어긋납니다(단일 소스 원칙).
+        const trendData = [8200, 8550, 8420, 8910, 9340, 9870];
+        const trendLabels = ['1월', '2월', '3월', '4월', '5월', '6월'];
+
+        // 헤더(금액/증감뱃지) 채우기
+        (function fillTrendHeader() {
+            const latest = trendData[trendData.length - 1];
+            const prev = trendData[trendData.length - 2];
+            const diff = latest - prev;
+            const percent = ((diff / prev) * 100).toFixed(1);
+            const amountEl = document.getElementById('trendAmount');
+            const changeEl = document.getElementById('trendChange');
+            if (amountEl) amountEl.textContent = (latest * 10000).toLocaleString() + '원';
+            if (changeEl) {
+                const isUp = diff >= 0;
+                changeEl.textContent = (isUp ? '▲ ' : '▼ ') + Math.abs(percent) + '%';
+                changeEl.style.color = isUp ? '#4ade80' : '#f87171';
+                changeEl.style.background = isUp ? 'rgba(74, 222, 128, 0.14)' : 'rgba(248, 113, 113, 0.14)';
+            }
+        })();
+
+        const trendAreaChart = new Chart(ctx_trend, {
+            type: 'line',
+            data: {
+                labels: trendLabels,
+                datasets: [{
+                    label: '총자산 (단위: 만원)',
+                    data: trendData,
+                    fill: true,
+                    // [핵심] 짙은 카드 배경 위에서 아래로 갈수록 투명해지는 보라~파랑 그라데이션
+                    backgroundColor: function (context) {
+                        const chart = context.chart;
+                        const chartArea = chart.chartArea;
+                        if (!chartArea) return null;
+                        return createVerticalGradient(chart.ctx, chartArea, [
+                            [0, 'rgba(129, 140, 248, 0.55)'],
+                            [0.6, 'rgba(129, 140, 248, 0.15)'],
+                            [1, 'rgba(129, 140, 248, 0)']
+                        ]);
+                    },
+                    borderColor: '#a5b4fc',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointHoverRadius: 7,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderColor: '#818cf8',
+                    pointBorderWidth: 2,
+                    pointHoverBorderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                // [핵심] 왼쪽부터 그려지는 듯한 다이나믹한 로드 애니메이션
+                animation: {
+                    duration: 1800,
+                    easing: 'easeOutQuart'
+                },
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        // Stacked Bar Chart와 동일한 external 방식으로 커스텀 말풍선 표시
+                        enabled: false,
+                        external: externalTooltipHandler,
+                        callbacks: {
+                            label: function (context) {
+                                return '총자산: ' + (context.parsed.y * 10000).toLocaleString() + '원';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: 'rgba(255, 255, 255, 0.5)', font: { size: 11 } }
+                    },
+                    y: {
+                        display: false // 카드형 요약 차트라 축 수치는 숨기고 툴팁으로만 확인
+                    }
+                }
+            }
+        });
     </script>
 </html>
