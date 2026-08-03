@@ -55,7 +55,10 @@
             .chartjs-tooltip::after {
               content: "";
               position: absolute;
-              left: 50%;
+              /* 기본은 말풍선 가운데(50%)를 가리키지만, 화면 밖으로 나가지 않게
+                 말풍선 박스를 좌우로 밀었을 때는 JS가 이 변수를 다시 계산해서
+                 화살표만 원래 데이터 포인트 쪽을 계속 가리키게 합니다. */
+              left: var(--tt-arrow-left, 50%);
               bottom: -6px;
               transform: translateX(-50%);
               border-left: 6px solid transparent;
@@ -132,6 +135,42 @@
             /* 캔버스 전체에 은은한 그림자(glow)를 줘서 화려한 느낌을 더합니다 */
             #trendAreaChart {
               filter: drop-shadow(0 6px 14px rgba(99, 102, 241, 0.45));
+            }
+
+            /* ---- 반원 게이지 카드(목표 달성률) ---- */
+            .gauge-card {
+              width: 100%;
+              max-width: 420px;
+              margin: 40px auto;
+              padding: 24px;
+              background-color: #ffffff;
+              border: 1px solid #e2e8f0;
+              border-radius: 16px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+              box-sizing: border-box;
+            }
+            .gauge-card__chart-box {
+              width: 100%;
+              height: 200px; /* 반원이라 전체 원보다 세로 공간이 덜 필요합니다 */
+            }
+            .gauge-card__desc {
+              text-align: center;
+              font-size: 13px;
+              color: #64748b;
+              margin: -12px 0 0;
+            }
+
+            /* ---- Radar / Mixed 차트 공용 래퍼 ---- */
+            .chart-box--tall {
+              position: relative;
+              width: 100%;
+              height: 380px;
+              margin: 40px auto;
+              padding: 16px;
+              border: 1px solid #e2e8f0;
+              border-radius: 8px;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+              box-sizing: border-box;
             }
 
             /* 하단 데이터 리스트 (커스텀 범례) */
@@ -249,6 +288,36 @@
                         <canvas id="trendAreaChart"></canvas>
                     </div>
                 </div>
+                <hr class="divider" />
+
+                <h2 class="guide-title">Gauge Chart (반원 게이지 — 목표 달성률)</h2>
+                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">
+                    도넛 차트를 반원(circumference:180)으로 잘라서 만드는 게이지 패턴입니다. 목표/달성률처럼 "얼마나 채웠는지"를 보여줄 때 doughnut보다 훨씬 직관적입니다.
+                </p>
+                <div class="gauge-card">
+                    <div class="gauge-card__chart-box">
+                        <canvas id="gaugeChart"></canvas>
+                    </div>
+                    <p class="gauge-card__desc">이번 달 목표 저축액 대비 72% 달성했어요</p>
+                </div>
+                <hr class="divider" />
+
+                <h2 class="guide-title">Radar Chart (다각형 비교 — 자산 건강도 진단)</h2>
+                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">
+                    여러 항목을 한 번에 비교할 때 막대/도넛보다 "균형이 잡혔는지 한쪽으로 치우쳤는지"가 한눈에 보이는 차트입니다. 또래 평균과 겹쳐 그리면 비교 효과가 커집니다.
+                </p>
+                <div class="chart-box--tall">
+                    <canvas id="radarChart"></canvas>
+                </div>
+                <hr class="divider" />
+
+                <h2 class="guide-title">Mixed Chart (막대 + 라인 혼합 — 매출 &amp; 성장률)</h2>
+                <p style="color: #64748b; font-size: 13px; margin: -8px 0 16px;">
+                    하나의 차트에 서로 다른 type(bar/line)과 서로 다른 축(y/y1)을 같이 쓸 수 있습니다. "금액"과 "증감률(%)"처럼 단위가 다른 두 지표를 한 화면에서 비교할 때 자주 쓰는 패턴입니다.
+                </p>
+                <div class="chart-box--tall">
+                    <canvas id="mixedChart"></canvas>
+                </div>
             </div>
         </div>
     </body>
@@ -259,6 +328,9 @@
         const ctx_interpolation = document.getElementById('interpolationChart').getContext('2d');
         const ctx_stacked = document.getElementById('stackedBarChart').getContext('2d');
         const ctx_trend = document.getElementById('trendAreaChart').getContext('2d');
+        const ctx_gauge = document.getElementById('gaugeChart').getContext('2d');
+        const ctx_radar = document.getElementById('radarChart').getContext('2d');
+        const ctx_mixed = document.getElementById('mixedChart').getContext('2d');
 
         // ---- 공용 유틸: 그라데이션 생성 ----
         // scriptable option(함수)으로 넘겨야 chartArea가 확정된 뒤 그라데이션을 만들 수 있습니다.
@@ -326,6 +398,25 @@
             tooltipEl.style.left = positionX + tooltip.caretX + 'px';
             tooltipEl.style.top = positionY + tooltip.caretY - 10 + 'px';
             tooltipEl.style.transform = 'translate(-50%, -100%)';
+            tooltipEl.style.removeProperty('--tt-arrow-left');
+
+            // 모바일처럼 화면이 좁으면, 데이터 포인트가 카드 가장자리에 가까울 때
+            // 말풍선(고정폭 아님, white-space:nowrap이라 내용에 따라 넓어짐)의 절반이
+            // 화면 밖으로 잘려 나갈 수 있습니다. 실제로 그려진 위치(getBoundingClientRect)를
+            // 측정해서 화면 안쪽으로 다시 당기고, 화살표는 --tt-arrow-left로 원래
+            // 데이터 포인트를 계속 가리키도록 보정합니다.
+            const edgeMargin = 8;
+            const rect = tooltipEl.getBoundingClientRect();
+            let shift = 0;
+            if (rect.left < edgeMargin) {
+                shift = edgeMargin - rect.left;
+            } else if (rect.right > window.innerWidth - edgeMargin) {
+                shift = (window.innerWidth - edgeMargin) - rect.right;
+            }
+            if (shift !== 0) {
+                tooltipEl.style.transform = 'translate(calc(-50% + ' + shift + 'px), -100%)';
+                tooltipEl.style.setProperty('--tt-arrow-left', 'calc(50% - ' + shift + 'px)');
+            }
         }
 
         // 4. Chart 객체 생성 및 설정
@@ -728,6 +819,234 @@
                     },
                     y: {
                         display: false // 카드형 요약 차트라 축 수치는 숨기고 툴팁으로만 확인
+                    }
+                }
+            }
+        });
+
+        // ---- Gauge Chart (반원 게이지) ----
+        // doughnut을 반원으로 자르는(circumference:180) 트릭입니다. rotation:270(=-90)으로
+        // 시작 각도를 12시가 아니라 9시 방향으로 돌려서, 왼쪽에서 오른쪽으로 채워지는 반원
+        // 게이지 모양을 만듭니다. 중앙 퍼센트 텍스트는 도넛 차트와 동일하게 beforeDraw
+        // 플러그인으로 그립니다(캔버스에 직접 그려야 하는 경우라 플러그인이 필요한 케이스).
+        const gaugeValue = 72; // 달성률(%) — 이 값만 바꾸면 게이지와 하단 설명 문구를 같이 바꿔야 합니다
+
+        const gaugeCenterTextPlugin = {
+            id: 'gaugeCenterText',
+            beforeDraw: function (chart) {
+                const ctx = chart.ctx;
+                const chartArea = chart.chartArea;
+                const centerX = (chartArea.left + chartArea.right) / 2;
+                // 반원이라 실제로 눈에 보이는 아치는 chartArea 위쪽 절반뿐이라, 텍스트는
+                // chartArea의 세로 중앙보다 조금 아래쪽에 둬야 아치 중심에 맞아 보입니다.
+                const centerY = chartArea.top + (chartArea.bottom - chartArea.top) * 0.82;
+                // 고정된 gaugeValue 대신 실제 데이터 값을 읽어서, 스크롤 진입 시
+                // 0% → 목표값으로 링이 채워질 때 숫자도 같이 바뀌도록 합니다.
+                const currentValue = chart.data.datasets[0].data[0];
+                ctx.save();
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.font = '700 34px Pretendard, sans-serif';
+                ctx.fillStyle = '#111111';
+                ctx.fillText(currentValue + '%', centerX, centerY);
+                ctx.restore();
+            }
+        };
+
+        // 게이지는 페이지 하단에 있어서, 그냥 생성 시점에 애니메이션을 걸면 사용자가
+        // 스크롤해서 보기도 전에 애니메이션이 이미 끝나버려 "애니메이션이 없다"고
+        // 느껴집니다. 그래서 처음엔 0%로 그려두고, 화면에 실제로 보이는 순간
+        // (IntersectionObserver) 목표값으로 데이터를 바꿔서 그때 채워지는 애니메이션이
+        // 재생되게 합니다.
+        const gaugeChart = new Chart(ctx_gauge, {
+            type: 'doughnut',
+            data: {
+                labels: ['달성', '남음'],
+                datasets: [{
+                    data: [0, 100],
+                    backgroundColor: function (context) {
+                        const chart = context.chart;
+                        const chartArea = chart.chartArea;
+                        if (!chartArea) return null;
+                        if (context.dataIndex !== 0) return '#e5e7eb'; // "남음" 구간은 옅은 회색
+                        // "달성" 구간만 초록 그라데이션으로 화려하게
+                        const gradient = chart.ctx.createLinearGradient(chartArea.left, 0, chartArea.right, 0);
+                        gradient.addColorStop(0, '#34d399');
+                        gradient.addColorStop(1, '#059669');
+                        return gradient;
+                    },
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                circumference: 180, // 360도가 아니라 180도만 그려서 반원으로
+                rotation: 270,      // 9시 방향에서 시작
+                cutout: '78%',      // 링을 얇게
+                animation: {
+                    animateRotate: true,
+                    duration: 1600,
+                    easing: 'easeOutCubic'
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false } // 반원 전체가 이미 값을 보여주므로 툴팁 불필요
+                }
+            },
+            plugins: [gaugeCenterTextPlugin]
+        });
+
+        // 화면에 보이는 순간(50% 이상 노출) 딱 한 번 실제 값으로 데이터를 바꿔서
+        // 0% → 72% 채워지는 애니메이션을 재생합니다. 한 번 재생되면 더 이상
+        // 감시할 필요가 없으니 observer는 그때 끊어줍니다.
+        const gaugeObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    gaugeChart.data.datasets[0].data = [gaugeValue, 100 - gaugeValue];
+                    gaugeChart.update();
+                    gaugeObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.5 });
+        gaugeObserver.observe(document.getElementById('gaugeChart'));
+
+        // ---- Radar Chart (다각형 비교) ----
+        // 막대/도넛과 달리 "여러 항목의 균형"을 한눈에 보여주는 데 특화된 차트입니다.
+        // 비교 대상(또래 평균)을 점선으로 겹쳐 그리면 "나는 어디가 강하고 약한지"가 바로 보입니다.
+        const radarChart = new Chart(ctx_radar, {
+            type: 'radar',
+            data: {
+                labels: ['유동성', '저축률', '투자 다각화', '부채 관리', '저축 습관'],
+                datasets: [
+                    {
+                        label: '나의 자산 건강도',
+                        data: [85, 60, 45, 90, 70],
+                        // [핵심] radar는 scriptable backgroundColor(함수)로 그라데이션을 넣기
+                        // 까다로워서(다각형 채우기 영역 계산이 복잡) 여기선 단순 반투명 단색을
+                        // 썼습니다 — 대신 진한 테두리+포인트로 화려함을 살렸습니다.
+                        backgroundColor: 'rgba(139, 92, 246, 0.35)',
+                        borderColor: '#8b5cf6',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#8b5cf6',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6
+                    },
+                    {
+                        label: '또래 평균',
+                        data: [60, 55, 50, 55, 55],
+                        backgroundColor: 'rgba(148, 163, 184, 0.08)',
+                        borderColor: '#94a3b8',
+                        borderDash: [4, 4], // 점선으로 "비교 기준선"임을 시각적으로 구분
+                        borderWidth: 2,
+                        pointRadius: 0
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                // [핵심] 다각형이 안쪽에서 바깥쪽으로 펼쳐지는 애니메이션(radar 기본 애니메이션)
+                animation: {
+                    duration: 1400,
+                    easing: 'easeOutQuart'
+                },
+                plugins: {
+                    legend: { position: 'bottom' },
+                    title: {
+                        display: true,
+                        text: '자산 건강도 진단 (또래 평균 대비)',
+                        font: { size: 16 }
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: { display: false }, // 눈금 숫자(20,40,60...)는 지저분해서 숨김
+                        grid: { color: 'rgba(148, 163, 184, 0.25)' },
+                        angleLines: { color: 'rgba(148, 163, 184, 0.25)' },
+                        pointLabels: { font: { size: 12 } }
+                    }
+                }
+            }
+        });
+
+        // ---- Mixed Chart (막대 + 라인 혼합, 이중 축) ----
+        // Chart.js는 데이터셋마다 type을 다르게 줄 수 있고(bar+line 혼합), 축도 y/y1처럼
+        // 여러 개를 만들어 각 데이터셋에 따로 연결할 수 있습니다. "금액(만원)"과 "증감률(%)"처럼
+        // 단위가 완전히 다른 두 지표를 한 화면에서 같이 봐야 할 때 유용한 패턴입니다.
+        const mixedSales = [1200, 1900, 800, 1500, 2200, 2500];
+        // 전월 대비 성장률(%) — mixedSales로부터 계산(1월은 비교할 전월이 없어 null)
+        const mixedGrowth = mixedSales.map(function (v, i) {
+            if (i === 0) return null;
+            return Number((((v - mixedSales[i - 1]) / mixedSales[i - 1]) * 100).toFixed(1));
+        });
+
+        const mixedChart = new Chart(ctx_mixed, {
+            data: {
+                labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+                datasets: [
+                    {
+                        type: 'bar',
+                        label: '매출 (단위: 만원)',
+                        data: mixedSales,
+                        backgroundColor: function (context) {
+                            const chart = context.chart;
+                            const chartArea = chart.chartArea;
+                            if (!chartArea) return null;
+                            return createVerticalGradient(chart.ctx, chartArea, [
+                                [0, 'rgba(96, 165, 250, 0.9)'],
+                                [1, 'rgba(59, 130, 246, 0.5)']
+                            ]);
+                        },
+                        borderRadius: 6,
+                        yAxisID: 'y'
+                    },
+                    {
+                        type: 'line',
+                        label: '전월 대비 성장률 (%)',
+                        data: mixedGrowth,
+                        borderColor: '#f97316',
+                        backgroundColor: '#f97316',
+                        borderWidth: 3,
+                        tension: 0.35,
+                        pointRadius: 4,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#f97316',
+                        pointBorderWidth: 2,
+                        yAxisID: 'y1' // [핵심] 막대와 다른 축(y1)에 연결
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                animation: { duration: 1200, easing: 'easeOutQuart' },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '월별 매출 & 성장률 (혼합 차트)',
+                        font: { size: 16 }
+                    },
+                    legend: { position: 'bottom' }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        position: 'left',
+                        beginAtZero: true,
+                        title: { display: true, text: '매출(만원)' }
+                    },
+                    y1: {
+                        type: 'linear',
+                        position: 'right',
+                        // [핵심] 오른쪽 축의 그리드선은 숨겨서 왼쪽 축 그리드와 안 겹치게
+                        grid: { drawOnChartArea: false },
+                        title: { display: true, text: '성장률(%)' }
                     }
                 }
             }
