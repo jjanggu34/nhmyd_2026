@@ -176,7 +176,7 @@
     --radius-full:999px;
     --transition-base:0.15s ease
 }
-/* ---- Fluid font-size 토큰 (실험/검토용 — 아직 어느 규칙에도 적용되지 않음, nds.css와 동일) ----
+/* ---- Fluid font-size 토큰 ----
    html{font-size:2.77vw}(nhasset_com.css) 위에서 동작하는 뷰포트폭 비례 스케일링이라 OS "글자
    크게" 접근성 설정과는 무관합니다. update.css에서 실제 쓰이는 스텝(10~16/18/20/22/26/30)만
    정의했습니다. 10~26px은 레거시 nhasset_myd.css --fontSizeN과 동일 공식(상한=하한×1.5)이고,
@@ -1043,6 +1043,7 @@
 .nds .tab-panel {padding:16px 0 0}
 .nds.fullLayerPop .tab-panel{padding-left:24px;padding-right:24px}
 .nds .tab-panel[hidden] {display:none}
+.nds .with_allone_footer .tab-line{background-color:transparent}
 /* ---- Search / Input(box·line) ---- */
 .nds .input-box {display:flex;flex-direction:column;gap:12px;width:100%;max-width:428px;min-width:0}
 .nds .input-box__label {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.02em;color:var(--color-font-3)}
@@ -1220,7 +1221,11 @@
 .md-section {margin-top:48px}
 .md-section__title {font-size:var(--type-size-18);font-weight:600;line-height:26px;letter-spacing:-0.45px;color:#132333;text-align:left;margin:0 0 20px 8px}
 .md-card {background:#fff;border-radius:16px;padding:24px 16px}
-/* ---- 내 현금 자산 - 플립 카드 ---- */
+/* ---- 자산 카테고리 탭 + 스와이프 히어로 캐러셀(유동성/투자/연금/대출) ---- */
+/* Swiper 본체 폭을 넘어가는 슬라이드가 화면 밖으로 삐져나오지 않게 자릅니다.
+   나머지 이동/터치 동작은 swiper.min.css + swiper.7.4.1.min.js가 처리합니다. */
+.asset-hero-swiper {overflow:hidden}
+/* ---- 자산 히어로 - 플립 카드(유동성/투자/연금/대출 공통) ---- */
 .hero {margin-top:8px}
 .hero__flip {position:relative;display:grid;transition:transform 0.22s ease;transform:scaleX(1)}
 .hero__flip.is-turning {transform:scaleX(0)}
