@@ -15,121 +15,509 @@
             </div>
 
             <div class="container">
-                <!-- 내 현금 자산 (플립 카드) -->
-                <div class="hero">
-                    <div class="hero__flip" id="cashFlip">
-                        <div class="hero__face md-card hero__face--front">
-                            <div class="hero__head">
-                                <p class="hero__title">내 현금 자산</p>
-                                <div class="hero__stat">
-                                    <p class="hero__date">2026.06.15 기준</p>
-                                    <p class="hero__amount">2,212,258,100원</p>
-                                    <p class="hero__change">
-                                        <img src="../../images/update/line_stock_graph_red.svg" alt="" />
-                                        212,258,100원(10%)
-                                    </p>
+                <!-- 자산 카테고리 탭 -->
+                <div class="tab-line">
+                    <div class="tab-line__list" role="tablist" aria-label="자산 카테고리" id="assetTabList">
+                        <button type="button" id="assetTab-liquidity" class="tab-line__item tab-line__item--active" role="tab" aria-selected="true" tabindex="0" data-index="0">유동성</button>
+                        <button type="button" id="assetTab-invest" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1" data-index="1">투자</button>
+                        <button type="button" id="assetTab-pension" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1" data-index="2">연금</button>
+                        <button type="button" id="assetTab-loan" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1" data-index="3">대출</button>
+                    </div>
+                </div>
+                <!-- 스와이프 중 화면리더 사용자에게 지금 어느 카테고리인지 알려주는 라이브 리전.
+                     탭 버튼 자체는 role/aria-selected로 이미 상태를 알 수 있지만, 탭이 아니라
+                     카드 영역을 직접 스와이프한 경우엔 포커스가 탭에 있지 않으므로 이걸로 보완합니다. -->
+                <p class="blind" id="assetHeroAnnounce" aria-live="polite"></p>
+
+                <!-- 자산 카테고리별 히어로 캐러셀(스와이프) — 유동성 → 투자 → 연금 → 대출 → 유동성
+                     순으로 무한 순환합니다(Swiper loop 모드). 위 탭과 서로 동기화됩니다: 탭을
+                     누르면 해당 슬라이드로 이동하고, 반대로 카드를 직접 스와이프해도 탭의
+                     선택 상태가 같이 바뀝니다. 각 카드는 기존과 동일한 플립(뒤집기) 인터랙션을
+                     그대로 가집니다. -->
+                <div class="asset-hero-swiper swiper-container" id="assetHeroSwiper">
+                    <div class="swiper-wrapper">
+                        <!-- 유동성 -->
+                        <div class="swiper-slide" data-category-label="유동성" aria-hidden="false">
+                            <div class="hero">
+                                <div class="hero__flip" id="liquidityFlip">
+                                    <div class="hero__face md-card hero__face--front">
+                                        <div class="hero__head">
+                                            <p class="hero__title">내 유동성 자산</p>
+                                            <div class="hero__stat">
+                                                <p class="hero__date">2027.07.13일 기준</p>
+                                                <p class="hero__amount">12,285,106원</p>
+                                                <p class="hero__change">
+                                                    <img src="../../images/update/line_stock_graph_red.svg" alt="" />
+                                                    1,000,000원(10%)
+                                                </p>
+                                            </div>
+                                            <p class="hero__issue">
+                                                3일 전, 예금이
+                                                <strong>10% 증가</strong>
+                                                되었어요.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="hero__bar" aria-hidden="true">
+                                                <span style="flex: 0 0 9px; background: #20a570;"></span>
+                                                <span style="flex: 1 1 auto; background: #53e57a;"></span>
+                                                <span style="flex: 0 0 90px; background: #1043a1;"></span>
+                                                <span style="flex: 0 0 8px; background: #a2a2a2;"></span>
+                                            </div>
+                                            <ul class="hero__legend" style="margin-top: 12px;">
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #20a570;"></span>
+                                                        입출금
+                                                    </span>
+                                                    <b>10,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #53e57a;"></span>
+                                                        예금
+                                                    </span>
+                                                    <b>10,000,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #1043a1;"></span>
+                                                        적금
+                                                    </span>
+                                                    <b>1,000,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #a2a2a2;"></span>
+                                                        외화
+                                                    </span>
+                                                    <b>1,482원</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <hr class="hero__divider" />
+                                        <button type="button" class="hero__cta" data-flip-toggle aria-pressed="false">
+                                            유동성 인사이트 보기
+                                            <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
+                                        </button>
+                                    </div>
+
+                                    <div class="hero__face md-card hero__face--back" aria-hidden="true">
+                                        <div class="hero__title-row">
+                                            <p class="hero__title">유동성 인사이트</p>
+                                            <span class="hero__badge">개인화 정보</span>
+                                        </div>
+                                        <div class="hero__insight-legend">
+                                            <span>
+                                                <i style="background: #cfe8db;"></i>
+                                                전월 유동성자산
+                                            </span>
+                                            <span>
+                                                <i style="background: #20a570;"></i>
+                                                금월 유동성자산
+                                            </span>
+                                        </div>
+                                        <div class="hero__insight-chart">
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 6px;">전월 10,000원</b>
+                                                    <b class="hero__insight-now" style="height: 6px;">금월 10,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">입출금</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 126px;">전월 9,000,000원</b>
+                                                    <b class="hero__insight-now" style="height: 140px;">금월 10,000,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">예금</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 14px;">전월 1,000,000원</b>
+                                                    <b class="hero__insight-now" style="height: 14px;">금월 1,000,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">적금</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 2px;">전월 1,482원</b>
+                                                    <b class="hero__insight-now" style="height: 2px;">금월 1,482원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">외화</span>
+                                            </div>
+                                        </div>
+                                        <hr class="hero__divider" />
+                                        <button type="button" class="hero__cta" data-flip-toggle aria-pressed="true" tabindex="-1">
+                                            내 유동성 자산 보기
+                                            <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <p class="hero__issue">
-                                    3일 전, 예금이
-                                    <strong>10% 증가</strong>
-                                    되었어요.
-                                </p>
                             </div>
-                            <div>
-                                <div class="hero__bar" aria-hidden="true">
-                                    <span style="flex: 0 0 27px; background: #20a570;"></span>
-                                    <span style="flex: 1 1 auto; background: #53e57a;"></span>
-                                    <span style="flex: 0 0 21.2px; background: #1043a1;"></span>
-                                    <span style="flex: 0 0 8px; background: #a2a2a2;"></span>
-                                </div>
-                                <ul class="hero__legend" style="margin-top: 12px;">
-                                    <li>
-                                        <span class="hero__legend-label">
-                                            <span class="hero__dot" style="background: #20a570;"></span>
-                                            입출금
-                                        </span>
-                                        <b>10,000원</b>
-                                    </li>
-                                    <li>
-                                        <span class="hero__legend-label">
-                                            <span class="hero__dot" style="background: #53e57a;"></span>
-                                            예금
-                                        </span>
-                                        <b>10,000,000원</b>
-                                    </li>
-                                    <li>
-                                        <span class="hero__legend-label">
-                                            <span class="hero__dot" style="background: #1043a1;"></span>
-                                            적금
-                                        </span>
-                                        <b>1,000,000원</b>
-                                    </li>
-                                    <li>
-                                        <span class="hero__legend-label">
-                                            <span class="hero__dot" style="background: #a2a2a2;"></span>
-                                            외화
-                                        </span>
-                                        <b>0원</b>
-                                    </li>
-                                </ul>
-                            </div>
-                            <hr class="hero__divider" />
-                            <button type="button" class="hero__cta" data-flip-toggle aria-pressed="false">
-                                현금 인사이트 보기
-                                <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
-                            </button>
                         </div>
 
-                        <div class="hero__face md-card hero__face--back" aria-hidden="true">
-                            <div class="hero__title-row">
-                                <p class="hero__title">현금 인사이트</p>
-                                <span class="hero__badge">개인화 정보</span>
+                        <!-- 투자 -->
+                        <div class="swiper-slide" data-category-label="투자" aria-hidden="true">
+                            <div class="hero">
+                                <div class="hero__flip" id="investFlip">
+                                    <div class="hero__face md-card hero__face--front">
+                                        <div class="hero__head">
+                                            <p class="hero__title">내 투자 자산</p>
+                                            <div class="hero__stat">
+                                                <p class="hero__date">2027.07.13일 기준</p>
+                                                <p class="hero__amount">85,320,450원</p>
+                                                <p class="hero__change">
+                                                    <img src="../../images/update/line_stock_graph_red.svg" alt="" />
+                                                    3,200,000원(3.9%)
+                                                </p>
+                                            </div>
+                                            <p class="hero__issue">
+                                                2일 전, 국내 주식형 펀드 수익률이
+                                                <strong>상승</strong>
+                                                했어요.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="hero__bar" aria-hidden="true">
+                                                <span style="flex: 0 0 37.5%; background: #7c3aed;"></span>
+                                                <span style="flex: 1 1 auto; background: #a78bfa;"></span>
+                                                <span style="flex: 0 0 21.5%; background: #1043a1;"></span>
+                                                <span style="flex: 0 0 7.6%; background: #a2a2a2;"></span>
+                                            </div>
+                                            <ul class="hero__legend" style="margin-top: 12px;">
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #7c3aed;"></span>
+                                                        펀드
+                                                    </span>
+                                                    <b>32,000,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #a78bfa;"></span>
+                                                        국내주식
+                                                    </span>
+                                                    <b>28,500,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #1043a1;"></span>
+                                                        해외주식
+                                                    </span>
+                                                    <b>18,320,450원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #a2a2a2;"></span>
+                                                        ETF
+                                                    </span>
+                                                    <b>6,500,000원</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <hr class="hero__divider" />
+                                        <button type="button" class="hero__cta" data-flip-toggle aria-pressed="false">
+                                            투자 인사이트 보기
+                                            <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
+                                        </button>
+                                    </div>
+
+                                    <div class="hero__face md-card hero__face--back" aria-hidden="true">
+                                        <div class="hero__title-row">
+                                            <p class="hero__title">투자 인사이트</p>
+                                            <span class="hero__badge">개인화 정보</span>
+                                        </div>
+                                        <div class="hero__insight-legend">
+                                            <span>
+                                                <i style="background: #ddd6fe;"></i>
+                                                전월 투자자산
+                                            </span>
+                                            <span>
+                                                <i style="background: #7c3aed;"></i>
+                                                금월 투자자산
+                                            </span>
+                                        </div>
+                                        <div class="hero__insight-chart">
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 133px;">전월 30,500,000원</b>
+                                                    <b class="hero__insight-now" style="height: 140px;">금월 32,000,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">펀드</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 121px;">전월 27,700,000원</b>
+                                                    <b class="hero__insight-now" style="height: 125px;">금월 28,500,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">국내주식</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 77px;">전월 17,620,450원</b>
+                                                    <b class="hero__insight-now" style="height: 80px;">금월 18,320,450원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">해외주식</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 28px;">전월 6,300,000원</b>
+                                                    <b class="hero__insight-now" style="height: 28px;">금월 6,500,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">ETF</span>
+                                            </div>
+                                        </div>
+                                        <hr class="hero__divider" />
+                                        <button type="button" class="hero__cta" data-flip-toggle aria-pressed="true" tabindex="-1">
+                                            내 투자 자산 보기
+                                            <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="hero__insight-legend">
-                                <span>
-                                    <i style="background: #cfe8db;"></i>
-                                    전월 현금자산
-                                </span>
-                                <span>
-                                    <i style="background: #20a570;"></i>
-                                    금월 현금자산
-                                </span>
+                        </div>
+
+                        <!-- 연금 -->
+                        <div class="swiper-slide" data-category-label="연금" aria-hidden="true">
+                            <div class="hero">
+                                <div class="hero__flip" id="pensionFlip">
+                                    <div class="hero__face md-card hero__face--front">
+                                        <div class="hero__head">
+                                            <p class="hero__title">내 연금 자산</p>
+                                            <div class="hero__stat">
+                                                <p class="hero__date">2027.07.13일 기준</p>
+                                                <p class="hero__amount">156,480,000원</p>
+                                                <p class="hero__change">
+                                                    <img src="../../images/update/line_stock_graph_red.svg" alt="" />
+                                                    2,100,000원(1.4%)
+                                                </p>
+                                            </div>
+                                            <p class="hero__issue">
+                                                이번 달, 연금저축 납입으로
+                                                <strong>자산이 증가</strong>
+                                                했어요.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="hero__bar" aria-hidden="true">
+                                                <span style="flex: 0 0 39.6%; background: #0f766e;"></span>
+                                                <span style="flex: 1 1 auto; background: #2dd4bf;"></span>
+                                                <span style="flex: 0 0 24.6%; background: #1043a1;"></span>
+                                                <span style="flex: 0 0 7%; background: #a2a2a2;"></span>
+                                            </div>
+                                            <ul class="hero__legend" style="margin-top: 12px;">
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #0f766e;"></span>
+                                                        연금저축
+                                                    </span>
+                                                    <b>62,000,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #2dd4bf;"></span>
+                                                        IRP
+                                                    </span>
+                                                    <b>45,000,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #1043a1;"></span>
+                                                        퇴직연금
+                                                    </span>
+                                                    <b>38,480,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #a2a2a2;"></span>
+                                                        개인연금
+                                                    </span>
+                                                    <b>11,000,000원</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <hr class="hero__divider" />
+                                        <button type="button" class="hero__cta" data-flip-toggle aria-pressed="false">
+                                            연금 인사이트 보기
+                                            <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
+                                        </button>
+                                    </div>
+
+                                    <div class="hero__face md-card hero__face--back" aria-hidden="true">
+                                        <div class="hero__title-row">
+                                            <p class="hero__title">연금 인사이트</p>
+                                            <span class="hero__badge">개인화 정보</span>
+                                        </div>
+                                        <div class="hero__insight-legend">
+                                            <span>
+                                                <i style="background: #ccfbf1;"></i>
+                                                전월 연금자산
+                                            </span>
+                                            <span>
+                                                <i style="background: #0f766e;"></i>
+                                                금월 연금자산
+                                            </span>
+                                        </div>
+                                        <div class="hero__insight-chart">
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 138px;">전월 61,000,000원</b>
+                                                    <b class="hero__insight-now" style="height: 140px;">금월 62,000,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">연금저축</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 101px;">전월 44,600,000원</b>
+                                                    <b class="hero__insight-now" style="height: 102px;">금월 45,000,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">IRP</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 86px;">전월 38,180,000원</b>
+                                                    <b class="hero__insight-now" style="height: 87px;">금월 38,480,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">퇴직연금</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 24px;">전월 10,600,000원</b>
+                                                    <b class="hero__insight-now" style="height: 25px;">금월 11,000,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">개인연금</span>
+                                            </div>
+                                        </div>
+                                        <hr class="hero__divider" />
+                                        <button type="button" class="hero__cta" data-flip-toggle aria-pressed="true" tabindex="-1">
+                                            내 연금 자산 보기
+                                            <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="hero__insight-chart">
-                                <div class="hero__insight-col">
-                                    <div class="hero__insight-bars">
-                                        <b class="hero__insight-prev" style="height: 6px;">전월 10,000원</b>
-                                        <b class="hero__insight-now" style="height: 6px;">금월 10,000원</b>
+                        </div>
+
+                        <!-- 대출 -->
+                        <div class="swiper-slide" data-category-label="대출" aria-hidden="true">
+                            <div class="hero">
+                                <div class="hero__flip" id="loanFlip">
+                                    <div class="hero__face md-card hero__face--front">
+                                        <div class="hero__head">
+                                            <p class="hero__title">내 대출 잔액</p>
+                                            <div class="hero__stat">
+                                                <p class="hero__date">2027.07.13일 기준</p>
+                                                <p class="hero__amount">42,150,000원</p>
+                                                <p class="hero__change" style="color: #1043a1;">
+                                                    <img src="../../images/update/line_stock_graph_blue.svg" alt="" />
+                                                    500,000원(1.2%)
+                                                </p>
+                                            </div>
+                                            <p class="hero__issue">
+                                                지난달보다, 대출 잔액이
+                                                <strong>500,000원 감소</strong>
+                                                했어요.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <div class="hero__bar" aria-hidden="true">
+                                                <span style="flex: 0 0 66.4%; background: #c2410c;"></span>
+                                                <span style="flex: 1 1 auto; background: #fb923c;"></span>
+                                                <span style="flex: 0 0 9.5%; background: #1043a1;"></span>
+                                                <span style="flex: 0 0 1.6%; background: #a2a2a2;"></span>
+                                            </div>
+                                            <ul class="hero__legend" style="margin-top: 12px;">
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #c2410c;"></span>
+                                                        주택담보대출
+                                                    </span>
+                                                    <b>28,000,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #fb923c;"></span>
+                                                        신용대출
+                                                    </span>
+                                                    <b>9,500,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #1043a1;"></span>
+                                                        전세자금대출
+                                                    </span>
+                                                    <b>4,000,000원</b>
+                                                </li>
+                                                <li>
+                                                    <span class="hero__legend-label">
+                                                        <span class="hero__dot" style="background: #a2a2a2;"></span>
+                                                        카드론
+                                                    </span>
+                                                    <b>650,000원</b>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <hr class="hero__divider" />
+                                        <button type="button" class="hero__cta" data-flip-toggle aria-pressed="false">
+                                            대출 인사이트 보기
+                                            <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
+                                        </button>
                                     </div>
-                                    <span class="hero__insight-col-label">입출금</span>
-                                </div>
-                                <div class="hero__insight-col">
-                                    <div class="hero__insight-bars">
-                                        <b class="hero__insight-prev" style="height: 127px;">전월 9,090,000원</b>
-                                        <b class="hero__insight-now" style="height: 140px;">금월 10,000,000원</b>
+
+                                    <div class="hero__face md-card hero__face--back" aria-hidden="true">
+                                        <div class="hero__title-row">
+                                            <p class="hero__title">대출 인사이트</p>
+                                            <span class="hero__badge">개인화 정보</span>
+                                        </div>
+                                        <div class="hero__insight-legend">
+                                            <span>
+                                                <i style="background: #fed7aa;"></i>
+                                                전월 대출잔액
+                                            </span>
+                                            <span>
+                                                <i style="background: #c2410c;"></i>
+                                                금월 대출잔액
+                                            </span>
+                                        </div>
+                                        <div class="hero__insight-chart">
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 140px;">전월 28,000,000원</b>
+                                                    <b class="hero__insight-now" style="height: 140px;">금월 28,000,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">주택담보대출</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 49px;">전월 9,800,000원</b>
+                                                    <b class="hero__insight-now" style="height: 48px;">금월 9,500,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">신용대출</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 20px;">전월 4,000,000원</b>
+                                                    <b class="hero__insight-now" style="height: 20px;">금월 4,000,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">전세자금대출</span>
+                                            </div>
+                                            <div class="hero__insight-col">
+                                                <div class="hero__insight-bars">
+                                                    <b class="hero__insight-prev" style="height: 5px;">전월 850,000원</b>
+                                                    <b class="hero__insight-now" style="height: 4px;">금월 650,000원</b>
+                                                </div>
+                                                <span class="hero__insight-col-label">카드론</span>
+                                            </div>
+                                        </div>
+                                        <hr class="hero__divider" />
+                                        <button type="button" class="hero__cta" data-flip-toggle aria-pressed="true" tabindex="-1">
+                                            대출 잔액 보기
+                                            <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
+                                        </button>
                                     </div>
-                                    <span class="hero__insight-col-label">예금</span>
-                                </div>
-                                <div class="hero__insight-col">
-                                    <div class="hero__insight-bars">
-                                        <b class="hero__insight-prev" style="height: 14px;">전월 1,000,000원</b>
-                                        <b class="hero__insight-now" style="height: 14px;">금월 1,000,000원</b>
-                                    </div>
-                                    <span class="hero__insight-col-label">적금</span>
-                                </div>
-                                <div class="hero__insight-col">
-                                    <div class="hero__insight-bars">
-                                        <b class="hero__insight-prev" style="height: 2px;">전월 0원</b>
-                                        <b class="hero__insight-now" style="height: 2px;">금월 0원</b>
-                                    </div>
-                                    <span class="hero__insight-col-label">외화</span>
                                 </div>
                             </div>
-                            <hr class="hero__divider" />
-                            <button type="button" class="hero__cta" data-flip-toggle aria-pressed="true" tabindex="-1">
-                                내 현금 자산 보기
-                                <span class="hero__cta-icon" aria-hidden="true"><img src="../../images/update/ico_change_card.svg" alt="" /></span>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -186,44 +574,149 @@
         </div>
 
         <script>
+            // 카드 뒤집기(플립) — 이제 카드가 4장(유동성/투자/연금/대출)이라, 카드 하나마다
+            // 반복하지 않고 .hero__flip 전부를 순회하며 같은 로직을 붙입니다.
             (function () {
-                var flipEl = document.getElementById('cashFlip');
-                if (!flipEl) return;
-                var front = flipEl.querySelector('.hero__face--front');
-                var back = flipEl.querySelector('.hero__face--back');
-                var toggles = flipEl.querySelectorAll('[data-flip-toggle]');
-                // 앞/뒤 면 높이 맞추기는 CSS(grid-column/grid-row 겹치기, 위 <style> 참고)로
-                // 처리하므로 여기서 따로 높이를 재거나 지정하지 않습니다.
+                document.querySelectorAll('.hero__flip').forEach(function (flipEl) {
+                    var front = flipEl.querySelector('.hero__face--front');
+                    var back = flipEl.querySelector('.hero__face--back');
+                    var toggles = flipEl.querySelectorAll('[data-flip-toggle]');
+                    // 앞/뒤 면 높이 맞추기는 CSS(grid-column/grid-row 겹치기, 위 <style> 참고)로
+                    // 처리하므로 여기서 따로 높이를 재거나 지정하지 않습니다.
 
-                function setFlipped(flipped) {
-                    flipEl.classList.toggle('is-flipped', flipped);
-                    front.setAttribute('aria-hidden', flipped ? 'true' : 'false');
-                    back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+                    function setFlipped(flipped) {
+                        flipEl.classList.toggle('is-flipped', flipped);
+                        front.setAttribute('aria-hidden', flipped ? 'true' : 'false');
+                        back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+                        toggles.forEach(function (btn) {
+                            var onVisibleFace = flipped ? back.contains(btn) : front.contains(btn);
+                            btn.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+                            btn.tabIndex = onVisibleFace ? 0 : -1;
+                        });
+                    }
+
+                    var turning = false;
+                    function playFlip() {
+                        if (turning) return;
+                        turning = true;
+                        var nextFlipped = !flipEl.classList.contains('is-flipped');
+                        flipEl.classList.add('is-turning'); // 0deg -> 90deg, 카드가 옆에서 보이듯 납작해짐
+                        window.setTimeout(function () {
+                            setFlipped(nextFlipped); // 아무것도 안 보이는 순간에 내용 교체
+                            flipEl.classList.remove('is-turning'); // 90deg -> 0deg, 바뀐 면이 펼쳐짐
+                            window.setTimeout(function () {
+                                turning = false;
+                            }, 220);
+                        }, 220);
+                    }
+
                     toggles.forEach(function (btn) {
-                        var onVisibleFace = flipped ? back.contains(btn) : front.contains(btn);
-                        btn.setAttribute('aria-pressed', flipped ? 'true' : 'false');
-                        btn.tabIndex = onVisibleFace ? 0 : -1;
+                        btn.addEventListener('click', playFlip);
+                    });
+                });
+            })();
+
+            // 자산 카테고리 탭 ↔ 히어로 스와이프 캐러셀 동기화
+            //
+            // Swiper를 쓰는 이유: 이 프로젝트(head-mb-update.js가 물고 오는 스크립트 체인)에
+            // swiper.7.4.1.min.js가 이미 모든 update 화면에 로드되어 있고, nhasset-ui.js 안에도
+            // 이미 여러 개의 카테고리 스와이프 배너/리스트가 이 라이브러리로 구현돼 있습니다(예:
+            // .listSwiperInv, .listSwiperPension 등). 터치 스와이프 제스처, 관성 스크롤, 무한
+            // 루프, 리사이즈 대응을 직접 구현하는 것보다 이미 검증된 라이브러리를 재사용하는 게
+            // 안전하고, 접근성 관점에서도 손으로 짠 touchstart/touchmove보다 실수(예: 스크롤과
+            // 스와이프 제스처 충돌)가 적습니다.
+            //
+            // 접근성: update-ui.js의 공용 initTabs()는 [role="tablist"]를 자동으로 찾아 처리하지만,
+            // 탭이 가리키는 패널을 hidden 속성으로 껐다 켭니다. 이 화면의 "패널"은 Swiper가 레이아웃을
+            // 잡고 있는 슬라이드라서 hidden(=display:none)을 주면 Swiper의 translateX 계산이 깨집니다.
+            // 그래서 이 탭은 initTabs()에 맡기지 않고, 아래에서 별도로 방향키(←/→, Home/End)와
+            // roving tabindex를 직접 구현합니다(WAI-ARIA APG Tabs 패턴과 동일한 동작). 슬라이드
+            // 쪽은 aria-hidden만 켜고 끄며(레이아웃에 영향 없음), Swiper loop 모드가 만드는 복제
+            // 슬라이드에 id를 넣으면 문서에 중복 id가 생기므로 aria-controls로 슬라이드를 직접
+            // 가리키지 않고, 대신 스와이프로만 카테고리를 바꾼 화면리더 사용자를 위해 별도의
+            // aria-live 영역(#assetHeroAnnounce)에 지금 어떤 카테고리인지 알려줍니다.
+            (function () {
+                var tablist = document.getElementById('assetTabList');
+                var swiperEl = document.getElementById('assetHeroSwiper');
+                var announceEl = document.getElementById('assetHeroAnnounce');
+                if (!tablist || !swiperEl || typeof Swiper === 'undefined') return;
+
+                var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+                if (!tabs.length) return;
+
+                var syncingFromSwiper = false; // 스와이프發 동기화 중엔 탭 클릭 로직이 다시 슬라이드를 움직이지 않게 막는 플래그
+
+                function setActiveTab(index, moveFocus) {
+                    tabs.forEach(function (t, i) {
+                        var selected = i === index;
+                        t.setAttribute('aria-selected', selected ? 'true' : 'false');
+                        t.setAttribute('tabindex', selected ? '0' : '-1');
+                        t.classList.toggle('tab-line__item--active', selected);
+                    });
+                    if (moveFocus) tabs[index].focus();
+                }
+
+                // 탭 클릭/방향키에서는 setActiveTab을 직접 부르지 않고 swiper.slideToLoop()만
+                // 호출합니다 — 실제 선택 상태(aria-selected/tabindex/active 클래스) 갱신은 아래
+                // Swiper의 slideChange 이벤트 하나에서만 처리합니다(단일 소스). 처음엔 클릭 시
+                // 여기서도 즉시 setActiveTab을 부르고 slideChange에서 다시 한번 불렀는데, 탭을
+                // 빠르게 연달아 눌러 이전 루프 전환이 채 안 끝난 상태에서 다음 클릭이 들어오면
+                // 나중에 도착한 이전 전환의 slideChange가 최신 클릭의 상태를 덮어써 탭이 전부
+                // 선택 안 됨 상태로 보이는 경합이 있었습니다. 갱신 경로를 하나로 합쳐 해결했습니다.
+                tabs.forEach(function (tab, i) {
+                    tab.addEventListener('click', function () {
+                        if (swiper) swiper.slideToLoop(i);
+                    });
+                    tab.addEventListener('keydown', function (e) {
+                        var targetIndex = null;
+                        if (e.key === 'ArrowRight') {
+                            targetIndex = (i + 1) % tabs.length;
+                        } else if (e.key === 'ArrowLeft') {
+                            targetIndex = (i - 1 + tabs.length) % tabs.length;
+                        } else if (e.key === 'Home') {
+                            targetIndex = 0;
+                        } else if (e.key === 'End') {
+                            targetIndex = tabs.length - 1;
+                        } else {
+                            return;
+                        }
+                        e.preventDefault();
+                        if (swiper) swiper.slideToLoop(targetIndex);
+                        tabs[targetIndex].focus(); // 포커스는 전환 애니메이션과 무관하게 즉시 이동(키보드 사용성)
+                    });
+                });
+
+                var swiper = new Swiper('#assetHeroSwiper', {
+                    slidesPerView: 1,
+                    loop: true,
+                    a11y: false, // 접근성은 위 커스텀 로직 + aria-hidden/aria-live로 직접 관리
+                    on: {
+                        init: function () {
+                            syncSlideVisibility(this);
+                        },
+                        // 이 Swiper 빌드에서는 slideToLoop()으로 넘어갈 때(탭 클릭/방향키) transitionEnd
+                        // 계열 이벤트(slideChangeTransitionEnd/transitionEnd)가 안정적으로 발생하지
+                        // 않아서(드래그 스와이프에서만 발생 확인됨), 탭 상태 갱신과 aria-hidden/라이브
+                        // 리전 안내를 모두 slideChange 하나에서 처리합니다. 전환 애니메이션이 끝나기 전에
+                        // 갱신되긴 하지만, 스크린리더 사용자에게는 오히려 더 즉각적인 피드백이라 문제없습니다.
+                        slideChange: function () {
+                            // realIndex: loop 모드가 만드는 복제 슬라이드를 빼고, 실제 4장 중 몇 번째인지
+                            setActiveTab(this.realIndex, false);
+                            syncSlideVisibility(this);
+                            if (announceEl) {
+                                var current = this.slides[this.activeIndex];
+                                var label = current ? current.getAttribute('data-category-label') : '';
+                                if (label) announceEl.textContent = label + ' 카테고리로 이동했습니다.';
+                            }
+                        }
+                    }
+                });
+
+                function syncSlideVisibility(sw) {
+                    sw.slides.forEach(function (slideEl) {
+                        slideEl.setAttribute('aria-hidden', slideEl.classList.contains('swiper-slide-active') ? 'false' : 'true');
                     });
                 }
-
-                var turning = false;
-                function playFlip() {
-                    if (turning) return;
-                    turning = true;
-                    var nextFlipped = !flipEl.classList.contains('is-flipped');
-                    flipEl.classList.add('is-turning'); // 0deg -> 90deg, 카드가 옆에서 보이듯 납작해짐
-                    window.setTimeout(function () {
-                        setFlipped(nextFlipped); // 아무것도 안 보이는 순간에 내용 교체
-                        flipEl.classList.remove('is-turning'); // 90deg -> 0deg, 바뀐 면이 펼쳐짐
-                        window.setTimeout(function () {
-                            turning = false;
-                        }, 220);
-                    }, 220);
-                }
-
-                toggles.forEach(function (btn) {
-                    btn.addEventListener('click', playFlip);
-                });
             })();
         </script>
     </body>
