@@ -74,6 +74,7 @@
     --primitive-green-700:#0d5722;
     --primitive-green-900:#062512;
     --primitive-green-point-dark:#3cbd61;
+    --primitive-blue-200:#8FBBFF;
     --primitive-blue-300:#7aaeff;
     --primitive-blue-400:#66a1ff;
     --primitive-blue-500:#2c6dd4;
@@ -662,11 +663,11 @@
 .nds .inst-list__row-info::before {content:"";display:block;width:20px;height:20px;background-color:currentColor;-webkit-mask-image:url("../images/update/ico_share-link_line_24.svg");mask-image:url("../images/update/ico_share-link_line_24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 /* ---- inst-list--flat --- */
 .nds .inst-list__grid {display:grid;grid-template-columns:repeat(3, 1fr);gap:8px;width:100%;margin-top:20px}
-.nds .inst-list__grid-item {display:block;min-width:0;cursor:pointer}
-.nds .inst-list__grid-card {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;padding:16px 6px;border-radius:8px;background:var(--color-bg-container);transition:background-color var(--transition-base)}
-.nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card {background:rgba(229, 239, 255, 0.4); /* Figma atom-box 선택 상태 배경값 */
-}
-.nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card {opacity:0.5}
+.nds .inst-list__grid-item {display:block;min-width:0;cursor:pointer;position:relative}
+.nds .inst-list__grid-card {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;width:100%;padding:16px 6px;border-radius:8px;background:var(--color-bg-default);border:1px solid  var(--primitive-gray-100);transition:background-color var(--transition-base)}
+.nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card {background:rgba(229, 239, 255, 0.20);border:1px solid  var(--primitive-blue-200)}
+.nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card:before{content:"";display:block;position:absolute;top:6px;right:8px;width:12px;height:12px;background-color:var(--primitive-gray-500);-webkit-mask-image: url("../images/update/ico_share-link_line_24.svg");mask-image: url("../images/update/ico_share-link_line_24.svg");-webkit-mask-size: contain;mask-size: contain;-webkit-mask-repeat: no-repeat;mask-repeat: no-repeat;-webkit-mask-position: center;mask-position: center}
+.nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card {background:var(--color-bg-default);border:1px solid  var(--primitive-gray-100)}
 .nds .inst-list__grid-logo {flex-shrink:0;width:24px;height:24px;object-fit:contain}
 .nds .inst-list__grid-label {max-width:100%;overflow:hidden;font-size:13px;font-weight:var(--font-weight-regular);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-1);text-align:center;text-overflow:ellipsis;white-space:nowrap}
 /* ---- Result List ---- */
