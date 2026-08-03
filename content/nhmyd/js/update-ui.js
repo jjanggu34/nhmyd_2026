@@ -365,6 +365,40 @@ window.calendarAlign = function () {
 		});
 	}
 
+	// common_ui.js(레거시 공용 파일)의 aria-selected 접근성 보정 로직 대응.
+	//
+	// common_ui.js는 [role='tab']에 대해 (1) 페이지 로드 시 1회, (2) 탭을 클릭할 때마다,
+	// aria-selected를 전부 false로 리셋했다가 1000ms 뒤 ".active" 클래스가 붙은 탭만 다시
+	// true로 복원한다(레거시 코드라 li 래퍼 + ".active"/"li.on" 클래스 컨벤션만 인식). 하지만
+	// nds 탭 컴포넌트(tab-line/tab-chip/tab-bar/tab-text 등, initTabs()가 관리하는 탭 포함)는
+	// 전부 "__item--active" 같은 BEM 접미사 클래스를 쓰기 때문에, common_ui.js의 1000ms 복원
+	// 로직이 이 탭들을 인식하지 못하고 aria-selected="false"인 채로 방치한다 — 실제 선택된
+	// 슬라이드/패널은 맞는데 스크린리더에는 "선택 안 됨"으로 보이는 접근성 버그.
+	//
+	// common_ui.js는 여러 화면이 공유하는 레거시 파일이라 직접 고치는 대신, 여기서 같은
+	// 시점(1000ms) "직후"에 한 번 더 보정한다 — 현재 "--active"로 끝나는 클래스가 붙은
+	// [role='tab']은 모두 aria-selected="true"로 다시 맞춘다. 페이지 로드 1회 + 탭 클릭마다
+	// 한 번씩, 총 두 지점에서 common_ui.js와 동일한 타이밍으로 실행한다.
+	function initLegacyAriaSelectedFix() {
+		function restoreActiveAriaSelected() {
+			document.querySelectorAll("[role='tab'][class*='--active']").forEach(function (tab) {
+				tab.setAttribute('aria-selected', 'true');
+			});
+		}
+
+		// (1) 페이지 로드 시 common_ui.js의 1회성 리셋(1000ms) 직후 보정
+		window.setTimeout(restoreActiveAriaSelected, 1050);
+
+		// (2) common_ui.js가 모든 [role='tab']에 붙이는 클릭 리스너의 1000ms 리셋 직후 보정.
+		// 캡처 단계에서 감지만 하고 실제 처리는 그대로 두므로, 다른 클릭 핸들러(예: 이 파일의
+		// initTabs(), 각 화면의 탭↔스와이프 동기화 로직)와 순서 충돌 없이 나중에 한 번 더
+		// 덧씌우는 방식으로만 동작한다.
+		document.addEventListener('click', function (e) {
+			var tab = e.target.closest && e.target.closest("[role='tab']");
+			if (tab) window.setTimeout(restoreActiveAriaSelected, 1050);
+		}, true);
+	}
+
 	// Sticky footer(.sticky-footer) — 화면이 짧아도 하단 콘텐츠(알아두세요 아코디언 + CTA 버튼
 	// 등)가 항상 뷰포트 바닥에 붙어 있도록 position:fixed로 띄운 뒤, 그 실제 높이만큼
 	// .container에 padding-bottom을 채워 스크롤 콘텐츠가 가려지지 않게 합니다. ResizeObserver로
@@ -534,6 +568,7 @@ window.calendarAlign = function () {
 		initTermsSelectAll();
 		initTermsAccordionCheck();
 		initTabs();
+		initLegacyAriaSelectedFix();
 		initChipAccordion();
 		initChipSingle();
 		initChipAnchorScroll();

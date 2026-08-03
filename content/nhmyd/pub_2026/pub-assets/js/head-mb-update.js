@@ -40,11 +40,12 @@
         // 열람하는 이 환경에는 존재하지 않음. nhasset-ui.js의 popOpenRun()이 OF.exeStatus를 가드 없이
         // 참조하고 있어서(레거시 원본 소스는 수정하지 않음) 여기서 빈 객체로 미리 정의해 ReferenceError를
         // 막는다. 실제 단말에서는 OF가 먼저 주입되어 있으므로 이 줄은 아무 영향을 주지 않는다.
-        '<script>window.OF = window.OF || {};</script>' +
+        "<script>window.OF = window.OF || {};</script>" +
         '<script src="../../js/jquery-1.9.1.min.js"></script>' +
         '<script src="../../js/jquery-ui.min.js"></script>' +
         '<script src="../../js/jquery.ui.touch-punch.min.js"></script>' +
         '<script src="../../js/swiper.7.4.1.min.js"></script>' +
+        '<script src="../../js/chart.js"></script>' + //2026 NH농협은행 update chart.js 적용
         '<script src="../../js/common_ui.js"></script>' +
         '<script src="../../js/nhasset-ui.js"></script>' +
         '<script src="../../js/nhasset-ui-myd.js"></script>' + //2023 마이데이터 고도화

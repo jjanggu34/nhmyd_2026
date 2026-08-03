@@ -58,11 +58,8 @@
                                             </p>
                                         </div>
                                         <div>
-                                            <div class="hero__bar" aria-hidden="true">
-                                                <span style="flex: 0 0 9px; background: #20a570;"></span>
-                                                <span style="flex: 1 1 auto; background: #53e57a;"></span>
-                                                <span style="flex: 0 0 90px; background: #1043a1;"></span>
-                                                <span style="flex: 0 0 8px; background: #a2a2a2;"></span>
+                                            <div class="hero__chart-box">
+                                                <canvas data-chart-canvas="liquidity" aria-hidden="true"></canvas>
                                             </div>
                                             <ul class="hero__legend" style="margin-top: 12px;">
                                                 <li>
@@ -179,11 +176,8 @@
                                             </p>
                                         </div>
                                         <div>
-                                            <div class="hero__bar" aria-hidden="true">
-                                                <span style="flex: 0 0 37.5%; background: #7c3aed;"></span>
-                                                <span style="flex: 1 1 auto; background: #a78bfa;"></span>
-                                                <span style="flex: 0 0 21.5%; background: #1043a1;"></span>
-                                                <span style="flex: 0 0 7.6%; background: #a2a2a2;"></span>
+                                            <div class="hero__chart-box">
+                                                <canvas data-chart-canvas="invest" aria-hidden="true"></canvas>
                                             </div>
                                             <ul class="hero__legend" style="margin-top: 12px;">
                                                 <li>
@@ -300,11 +294,8 @@
                                             </p>
                                         </div>
                                         <div>
-                                            <div class="hero__bar" aria-hidden="true">
-                                                <span style="flex: 0 0 39.6%; background: #0f766e;"></span>
-                                                <span style="flex: 1 1 auto; background: #2dd4bf;"></span>
-                                                <span style="flex: 0 0 24.6%; background: #1043a1;"></span>
-                                                <span style="flex: 0 0 7%; background: #a2a2a2;"></span>
+                                            <div class="hero__chart-box">
+                                                <canvas data-chart-canvas="pension" aria-hidden="true"></canvas>
                                             </div>
                                             <ul class="hero__legend" style="margin-top: 12px;">
                                                 <li>
@@ -421,11 +412,8 @@
                                             </p>
                                         </div>
                                         <div>
-                                            <div class="hero__bar" aria-hidden="true">
-                                                <span style="flex: 0 0 66.4%; background: #c2410c;"></span>
-                                                <span style="flex: 1 1 auto; background: #fb923c;"></span>
-                                                <span style="flex: 0 0 9.5%; background: #1043a1;"></span>
-                                                <span style="flex: 0 0 1.6%; background: #a2a2a2;"></span>
+                                            <div class="hero__chart-box">
+                                                <canvas data-chart-canvas="loan" aria-hidden="true"></canvas>
                                             </div>
                                             <ul class="hero__legend" style="margin-top: 12px;">
                                                 <li>
@@ -644,6 +632,11 @@
                 var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
                 if (!tabs.length) return;
 
+                // 탭 순서(=슬라이드 문서 순서=realIndex 순서)와 아래 stackedBarChart 카테고리
+                // 키를 매핑하기 위한 공용 배열. slideChange의 차트 리플레이, 카드 높이 동기화
+                // 양쪽에서 같이 씁니다.
+                var categoryKeys = ['liquidity', 'invest', 'pension', 'loan'];
+
                 var syncingFromSwiper = false; // 스와이프發 동기화 중엔 탭 클릭 로직이 다시 슬라이드를 움직이지 않게 막는 플래그
 
                 function setActiveTab(index, moveFocus) {
@@ -690,9 +683,20 @@
                     slidesPerView: 1,
                     loop: true,
                     a11y: false, // 접근성은 위 커스텀 로직 + aria-hidden/aria-live로 직접 관리
+                    // [버그 수정] 카드 4장(유동성/투자/연금/대출)은 인사이트 문구 줄바꿈 등으로
+                    // 실제 높이가 서로 다른데, 기본(autoHeight:false) 상태에서는 Swiper가 컨테이너
+                    // 높이를 처음 측정한 슬라이드 기준으로 고정해버립니다. 그래서 더 짧은 카드로
+                    // 넘어가면 컨테이너 바닥에 빈 여백이 남고, 그 틈으로 방금 전 슬라이드(가로로는
+                    // 이미 넘어갔지만 세로로는 여전히 그 자리를 채우고 있던 카드)의 아랫부분이
+                    // 비쳐 보였습니다. Swiper의 autoHeight:true / updateAutoHeight()도 시도해봤지만
+                    // 위 slideChangeTransitionEnd/transitionEnd와 같은 이유로 slideToLoop()
+                    // (탭 클릭/방향키) 경로에서는 내부 높이 재계산이 전혀 반영되지 않아(드래그
+                    // 스와이프에서만 정상 동작), 아래 syncCardHeight()로 직접 컨테이너 높이를
+                    // 맞춥니다 — 이미 안정적으로 매번 발생한다고 확인된 slideChange에서 호출합니다.
                     on: {
                         init: function () {
                             syncSlideVisibility(this);
+                            syncCardHeight(this.realIndex);
                         },
                         // 이 Swiper 빌드에서는 slideToLoop()으로 넘어갈 때(탭 클릭/방향키) transitionEnd
                         // 계열 이벤트(slideChangeTransitionEnd/transitionEnd)가 안정적으로 발생하지
@@ -703,10 +707,19 @@
                             // realIndex: loop 모드가 만드는 복제 슬라이드를 빼고, 실제 4장 중 몇 번째인지
                             setActiveTab(this.realIndex, false);
                             syncSlideVisibility(this);
+                            syncCardHeight(this.realIndex);
                             if (announceEl) {
                                 var current = this.slides[this.activeIndex];
                                 var label = current ? current.getAttribute('data-category-label') : '';
                                 if (label) announceEl.textContent = label + ' 카테고리로 이동했습니다.';
+                            }
+                            // 탭 클릭이든 카드 스와이프든(둘 다 결국 이 slideChange 하나로
+                            // 들어옴) 새로 보이는 카드의 자산 구성비 막대(stackedBarChart)를
+                            // 0 -> 실제값으로 다시 채워지는 애니메이션으로 재생합니다. 차트
+                            // 인스턴스는 아래 별도 IIFE에서 만들어지므로 전역 함수(window.replayHeroBarChart)로
+                            // 노출해 여기서 호출합니다.
+                            if (typeof window.replayHeroBarChart === 'function') {
+                                window.replayHeroBarChart(categoryKeys[this.realIndex]);
                             }
                         }
                     }
@@ -717,6 +730,268 @@
                         slideEl.setAttribute('aria-hidden', slideEl.classList.contains('swiper-slide-active') ? 'false' : 'true');
                     });
                 }
+
+                // 현재 카테고리(realIndex)의 "실제"(복제본 아닌) 슬라이드 자연 높이에 맞춰
+                // 컨테이너 높이를 직접 지정합니다. 문서 순서상 복제 없는 슬라이드만 골라내면
+                // 그 순서가 곧 realIndex(0=유동성 ~ 3=대출) 순서와 같습니다.
+                function syncCardHeight(realIndex) {
+                    var realSlides = swiperEl.querySelectorAll('.swiper-slide:not(.swiper-slide-duplicate)');
+                    var target = realSlides[realIndex];
+                    if (!target) return;
+                    // [주의] Swiper CSS는 .swiper-slide{height:100%}로 슬라이드를 컨테이너 높이에
+                    // 맞춰 늘리거나 줄입니다. offsetHeight는 물론, scrollHeight조차도 컨테이너가
+                    // 이미 더 큰 값(예: 대출의 675px)으로 맞춰져 있으면 그보다 짧은 카드(예:
+                    // 유동성의 진짜 높이 646px)까지 height:100%로 675px까지 늘어난 상태라
+                    // scrollHeight가 675로 부풀려져 나옵니다 — 그러면 다시 짧은 카드로 돌아가도
+                    // 컨테이너가 큰 값에서 줄어들지 않는 순환 오류가 생깁니다. 측정 직전에 높이를
+                    // 초기화(auto)해서 모든 슬라이드가 각자의 실제 콘텐츠 높이로 되돌아간 상태를
+                    // 만든 뒤 측정합니다.
+                    swiperEl.style.height = 'auto';
+                    swiperEl.style.height = target.scrollHeight + 'px';
+                }
+            })();
+
+            // 자산 구성비 막대 — chart.html의 Stacked Bar Chart 샘플과 동일한 패턴(얇은
+            // 가로 스택 막대 + external 콜백으로 그리는 커스텀 HTML 툴팁)을 그대로
+            // 재사용합니다. 캔버스가 22px로 얇아 기본(캔버스 내부) 툴팁은 눌려서 깨지므로,
+            // 부모(.hero__chart-box, position:relative)를 기준으로 절대 배치되는 실제
+            // DOM 말풍선을 씁니다 — 모바일 화면 가장자리에서 잘리지 않도록 뷰포트 경계
+            // 보정도 그대로 가져왔습니다.
+            (function () {
+                if (typeof Chart === 'undefined') return;
+
+                // 탭 클릭/스와이프로 카드가 바뀔 때마다 해당 차트 인스턴스를 다시 찾아 0 ->
+                // 실제값 애니메이션을 재생하기 위한 저장소. { liquidity: {chart, targets}, ... }
+                var heroBarCharts = {};
+
+                // chart는 값이 이미 채워진 상태로 생성되므로, 데이터를 잠깐 0으로 내렸다가
+                // (애니메이션 없이 즉시) 다음 프레임에 다시 실제값으로 되돌려서 Chart.js의
+                // 기본 전환 애니메이션(0 -> 실제값)이 그때 재생되게 합니다. 위 게이지 차트에
+                // 쓴 IntersectionObserver 트릭과 같은 원리이며, 여기서는 "화면에 보이는 순간"
+                // 대신 "탭/스와이프로 카드가 바뀌는 순간"에 맞춰 재생합니다.
+                function replayHeroBarChart(categoryKey) {
+                    var entry = heroBarCharts[categoryKey];
+                    if (!entry) return;
+                    var chart = entry.chart;
+                    chart.data.datasets.forEach(function (ds, i) {
+                        ds.data[0] = 0;
+                    });
+                    chart.update('none'); // 애니메이션 없이 즉시 0으로
+                    syncCloneCanvases(categoryKey, chart.canvas); // 복제 슬라이드 canvas도 "0" 상태로 즉시 맞춤
+                    // requestAnimationFrame 대신 setTimeout을 씁니다 — rAF는 탭이 백그라운드에
+                    // 있거나(예: 스와이프 직후 다른 곳으로 포커스가 잠깐 이동하는 경우) 브라우저가
+                    // 페인트를 쉬면 아예 호출되지 않을 수 있어, 그러면 0으로 내려간 값이 다시
+                    // 복원되지 않는 문제가 생깁니다. setTimeout은 그런 상황에서도 안정적으로 실행됩니다.
+                    setTimeout(function () {
+                        chart.data.datasets.forEach(function (ds, i) {
+                            ds.data[0] = entry.targets[i];
+                        });
+                        chart.update(); // 0 -> 실제값으로 채워지는 애니메이션 재생 (animation.onProgress/onComplete가 복제본 동기화를 이어서 담당)
+                    }, 20);
+                }
+                // 탭/스와이프 동기화 IIFE(위)에서 slideChange 시 호출할 수 있도록 전역 노출
+                window.replayHeroBarChart = replayHeroBarChart;
+
+                // [버그 수정] "스와이프하다가 첫번째로 다시 돌아오면 그래프가 안 나오고 애니메이션도
+                // 안 됨" — Swiper loop 모드는 무한 스와이프 착시를 위해 첫 슬라이드(유동성)와
+                // 마지막 슬라이드(대출)를 각각 반대쪽 끝에 cloneNode(true)로 복제해 둡니다. 그런데
+                // canvas는 DOM을 복제해도 그 안에 그려진 그림(픽셀)까지는 복제되지 않는 요소라서,
+                // 복제된 슬라이드의 canvas는 항상 빈 캔버스입니다. 대출 다음(맨 끝)으로 넘어가면
+                // Swiper가 먼저 이 "빈 유동성 복제본" 슬라이드로 전환한 뒤(사용자에게는 이 순간이
+                // 보임 → 그래프가 안 보이는 것처럼 보임), 그 다음 프레임에 티 안 나게 진짜 유동성
+                // 슬라이드로 순간 이동합니다(진짜 슬라이드는 차트가 있지만, 리플레이 애니메이션은
+                // 이미 복제본으로 전환되는 시점에 실제 차트 인스턴스에 걸려버려 화면엔 보이지 않는
+                // 채로 재생/종료되어 버립니다). 해결책: 실제 차트가 그려지거나 갱신될 때마다 같은
+                // categoryKey를 가진 복제 슬라이드의 canvas에도 현재 프레임을 그대로 복사해 둬서,
+                // 복제본이 화면에 잠깐 보이는 순간에도 항상 "최신 상태의 정적 스냅샷"이 보이게
+                // 만듭니다(복제본 자체는 어차피 상호작용 대상이 아니라 순간 이동 전 잠깐 스치는
+                // 화면일 뿐이라 애니메이션까지 따라할 필요는 없습니다).
+                function syncCloneCanvases(categoryKey, realCanvas) {
+                    var clones = document.querySelectorAll('.swiper-slide.swiper-slide-duplicate [data-chart-canvas="' + categoryKey + '"]');
+                    clones.forEach(function (cloneCanvas) {
+                        if (cloneCanvas.width !== realCanvas.width) cloneCanvas.width = realCanvas.width;
+                        if (cloneCanvas.height !== realCanvas.height) cloneCanvas.height = realCanvas.height;
+                        var ctx = cloneCanvas.getContext('2d');
+                        ctx.clearRect(0, 0, cloneCanvas.width, cloneCanvas.height);
+                        ctx.drawImage(realCanvas, 0, 0);
+                    });
+                }
+
+                function getOrCreateTooltip(chart) {
+                    var tooltipEl = chart.canvas.parentNode.querySelector('div.chartjs-tooltip');
+                    if (!tooltipEl) {
+                        tooltipEl = document.createElement('div');
+                        tooltipEl.className = 'chartjs-tooltip';
+                        chart.canvas.parentNode.appendChild(tooltipEl);
+                    }
+                    return tooltipEl;
+                }
+
+                function externalTooltipHandler(context) {
+                    var chart = context.chart;
+                    var tooltip = context.tooltip;
+                    var tooltipEl = getOrCreateTooltip(chart);
+
+                    if (tooltip.opacity === 0) {
+                        tooltipEl.style.opacity = 0;
+                        return;
+                    }
+
+                    if (tooltip.body) {
+                        var titleLines = tooltip.title || [];
+                        var bodyLines = tooltip.body.map(function (b) { return b.lines; });
+
+                        var innerHtml = '';
+                        titleLines.forEach(function (title) {
+                            innerHtml += '<div class="chartjs-tooltip__title">' + title + '</div>';
+                        });
+                        bodyLines.forEach(function (lines, i) {
+                            var colors = tooltip.labelColors[i];
+                            lines.forEach(function (line) {
+                                innerHtml +=
+                                    '<div class="chartjs-tooltip__row">' +
+                                    '<span class="chartjs-tooltip__chip" style="background:' + colors.backgroundColor + '"></span>' +
+                                    line +
+                                    '</div>';
+                            });
+                        });
+                        tooltipEl.innerHTML = innerHtml;
+                    }
+
+                    var positionX = chart.canvas.offsetLeft;
+                    var positionY = chart.canvas.offsetTop;
+                    tooltipEl.style.opacity = 1;
+                    tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+                    tooltipEl.style.top = positionY + tooltip.caretY - 10 + 'px';
+                    tooltipEl.style.transform = 'translate(-50%, -100%)';
+                    tooltipEl.style.removeProperty('--tt-arrow-left');
+
+                    var edgeMargin = 8;
+                    var rect = tooltipEl.getBoundingClientRect();
+                    var shift = 0;
+                    if (rect.left < edgeMargin) {
+                        shift = edgeMargin - rect.left;
+                    } else if (rect.right > window.innerWidth - edgeMargin) {
+                        shift = (window.innerWidth - edgeMargin) - rect.right;
+                    }
+                    if (shift !== 0) {
+                        tooltipEl.style.transform = 'translate(calc(-50% + ' + shift + 'px), -100%)';
+                        tooltipEl.style.setProperty('--tt-arrow-left', 'calc(50% - ' + shift + 'px)');
+                    }
+                }
+
+                // 세그먼트 4개 공통 모양: 맨 왼쪽만 왼쪽 모서리, 맨 오른쪽만 오른쪽 모서리를
+                // 둥글게 줘서 전체 막대가 하나의 알약(pill) 모양으로 이어져 보이게 합니다.
+                function makeDataset(label, value, color) {
+                    return { label: label, data: [value], backgroundColor: color, hoverBackgroundColor: color, borderWidth: 0 };
+                }
+
+                function buildStackedBarChart(categoryKey, datasets) {
+                    // [버그 수정] canvas에 id(예: id="loanBarChart")를 주고 getElementById로
+                    // 찾았더니, Swiper loop 모드가 무한 스와이프를 위해 슬라이드를 앞/뒤로 하나씩
+                    // 복제(cloneNode)하면서 그 안의 canvas id까지 그대로 복제해 문서에 같은 id가
+                    // 2개 생겼습니다. getElementById는 항상 "문서상 먼저 나오는" 요소를 반환하는데,
+                    // Swiper는 보통 마지막 슬라이드의 복제본을 맨 앞에 붙이기 때문에 대출(마지막
+                    // 카테고리)은 실제 슬라이드가 아니라 그 복제본(화면에 보이지 않는 canvas)에
+                    // Chart.js가 붙어버려 정작 보이는 대출 카드엔 그래프가 전혀 그려지지 않았습니다.
+                    // (연쇄적으로 유동성 쪽도 자기 자신의 복제본과 id가 겹치면서 canvas 크기 계산이
+                    // 꼬여 카드 폭이 브라우저 기본 canvas 크기로 잘려 보이는 부작용까지 있었습니다.)
+                    // id 대신 문서 전체에서 유일할 필요 없는 data-속성으로 찾되, ".swiper-slide-duplicate"
+                    // (복제 슬라이드)는 제외해서 항상 실제로 보이는 슬라이드의 canvas만 잡습니다.
+                    var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-chart-canvas="' + categoryKey + '"]');
+                    if (!canvas) return;
+                    datasets[0].borderRadius = { topLeft: 3, bottomLeft: 3, topRight: 0, bottomRight: 0 };
+                    datasets[0].borderSkipped = false;
+                    for (var i = 1; i < datasets.length - 1; i++) {
+                        datasets[i].borderRadius = 0;
+                        datasets[i].borderSkipped = false;
+                    }
+                    var last = datasets[datasets.length - 1];
+                    last.borderRadius = { topLeft: 0, bottomLeft: 0, topRight: 3, bottomRight: 3 };
+                    last.borderSkipped = false;
+
+                    // [버그 수정] x축 max를 지정 안 하면 Chart.js가 눈금이 딱 떨어지는 "보기 좋은"
+                    // 값으로 자동 반올림합니다(예: 대출 합계 42,150,000원 -> 45,000,000원). 이
+                    // 막대는 눈금 있는 일반 차트가 아니라 "전체 자산 구성비"를 항상 꽉 찬 막대로
+                    // 보여주는 용도라서, 그 반올림 여백이 막대 끝에 빈 공간으로 남습니다. 지금까지는
+                    // 빈 공간이 흰색이라 안 보였지만, 방금 .hero__chart-box에 배경색(#f7f7f7)을
+                    // 넣으면서 그 여백이 회색 트랙처럼 드러났습니다. 합계를 직접 계산해 max로
+                    // 고정하면 막대가 항상 박스 끝까지 정확히 채워집니다.
+                    var total = datasets.reduce(function (sum, ds) { return sum + ds.data[0]; }, 0);
+
+                    var chart = new Chart(canvas.getContext('2d'), {
+                        type: 'bar',
+                        data: { labels: ['자산'], datasets: datasets },
+                        options: {
+                            indexAxis: 'y',
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            // 최초 생성 시 재생되는 0->실제값 애니메이션(및 이후 replayHeroBarChart가
+                            // 재생하는 애니메이션) 매 프레임마다, 그리고 끝났을 때 복제 슬라이드의
+                            // canvas도 같은 그림으로 갱신합니다(syncCloneCanvases 설명 참고).
+                            animation: {
+                                onProgress: function () { syncCloneCanvases(categoryKey, canvas); },
+                                onComplete: function () { syncCloneCanvases(categoryKey, canvas); }
+                            },
+                            plugins: {
+                                legend: { display: false }, // 범례는 아래 .hero__legend(HTML)로 대체
+                                tooltip: {
+                                    enabled: false,
+                                    external: externalTooltipHandler,
+                                    callbacks: {
+                                        label: function (context) {
+                                            var label = context.dataset.label || '';
+                                            var value = context.parsed.x || 0;
+                                            return label + ': ' + value.toLocaleString() + '원';
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                x: { stacked: true, display: false, min: 0, max: total },
+                                y: { stacked: true, display: false }
+                            }
+                        }
+                    });
+
+                    heroBarCharts[categoryKey] = {
+                        chart: chart,
+                        targets: datasets.map(function (ds) { return ds.data[0]; })
+                    };
+                }
+
+                // 유동성: 입출금(10,000원)·외화(1,482원)는 실제 값 그대로 두면 전체 대비
+                // 비중이 너무 작아(각각 약 0.09%, 0.01%) 막대에서 폭이 1px도 안 나와 사실상
+                // 안 보입니다. chart.html의 Stacked Bar Chart 샘플에서 쓴 것과 같은 방식으로,
+                // 차트에 넘기는 값만 최소 시각 폭을 위해 보정하고(아래 각 값), 하단
+                // .hero__legend에 표시되는 실제 금액(10,000원/1,482원)은 그대로 둡니다.
+                buildStackedBarChart('liquidity', [
+                    makeDataset('입출금', 300000, '#20a570'),
+                    makeDataset('예금', 10000000, '#53e57a'),
+                    makeDataset('적금', 1000000, '#1043a1'),
+                    makeDataset('외화', 250000, '#a2a2a2')
+                ]);
+
+                buildStackedBarChart('invest', [
+                    makeDataset('펀드', 32000000, '#7c3aed'),
+                    makeDataset('국내주식', 28500000, '#a78bfa'),
+                    makeDataset('해외주식', 18320450, '#1043a1'),
+                    makeDataset('ETF', 6500000, '#a2a2a2')
+                ]);
+
+                buildStackedBarChart('pension', [
+                    makeDataset('연금저축', 62000000, '#0f766e'),
+                    makeDataset('IRP', 45000000, '#2dd4bf'),
+                    makeDataset('퇴직연금', 38480000, '#1043a1'),
+                    makeDataset('개인연금', 11000000, '#a2a2a2')
+                ]);
+
+                buildStackedBarChart('loan', [
+                    makeDataset('주택담보대출', 28000000, '#c2410c'),
+                    makeDataset('신용대출', 9500000, '#fb923c'),
+                    makeDataset('전세자금대출', 4000000, '#1043a1'),
+                    makeDataset('카드론', 650000, '#a2a2a2')
+                ]);
             })();
         </script>
     </body>
