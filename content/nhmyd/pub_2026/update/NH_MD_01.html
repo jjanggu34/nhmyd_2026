@@ -475,62 +475,139 @@
 
         <script>
             // 카드 뒤집기(플립) — 이제 카드가 4장(유동성/투자/연금/대출)이라, 카드 하나마다
-            // 반복하지 않고 .hero__flip 전부를 순회하며 같은 로직을 붙입니다.
+            // 반복하지 않고 이벤트 위임(event delegation)으로 전부 같은 로직을 붙입니다.
             (function () {
-                document.querySelectorAll('.hero__flip').forEach(function (flipEl) {
-                    var front = flipEl.querySelector('.hero__face--front');
-                    var back = flipEl.querySelector('.hero__face--back');
-                    var toggles = flipEl.querySelectorAll('[data-flip-toggle]');
-                    // 앞/뒤 면 높이 맞추기는 CSS(grid-column/grid-row 겹치기, 위 <style> 참고)로
-                    // 처리하므로 여기서 따로 높이를 재거나 지정하지 않습니다.
+                // [버그 수정] "마지막까지 스와이프했다가 다시 처음으로 돌아오면 hero__cta가
+                // 눌리지 않음" — 아래 탭↔스와이프 동기화 IIFE에서 Swiper를 loop:true로 초기화하면,
+                // 무한 스와이프 착시를 위해 첫 슬라이드와 마지막 슬라이드를 각각 반대쪽 끝에
+                // cloneNode(true)로 복제해 둡니다(.swiper-slide-duplicate — 아래 syncCloneCanvases
+                // 설명에 있는 것과 같은 복제본). 이 복제는 Swiper가 생성될 때 만들어지는데, 원래
+                // 이 카드 뒤집기 로직은 그보다 먼저 실행되어 querySelectorAll('.hero__flip')로
+                // "그 시점에 존재하는" 원본 4장에만 클릭 리스너를 달았습니다 — 나중에 Swiper가
+                // cloneNode로 만든 복제 슬라이드의 hero__cta는 리스너가 없는 새 DOM이라 클릭해도
+                // 아무 반응이 없었습니다. 대출(마지막) 카드에서 한 번 더 스와이프해 유동성(처음)
+                // 으로 돌아오면, Swiper는 잠깐 이 "복제된 유동성" 슬라이드를 보여줬다가 다음
+                // 프레임에 티 안 나게 진짜 유동성 슬라이드로 순간 이동하는데(=loopFix), 그 잠깐
+                // 사이 버튼을 누르면 리스너가 없는 복제본을 누른 셈이라 버튼이 죽은 것처럼
+                // 보였습니다. 특정 flipEl에 리스너를 미리 바인딩해두는 대신, 스와이퍼 컨테이너
+                // 하나에만 클릭을 위임해서 클릭이 실제로 일어난 시점에 조상(.hero__flip)을
+                // 찾아 동작시키면, 그 대상이 원본이든 Swiper가 나중에 만든 복제본이든 항상
+                // 정상 동작합니다.
+                var container = document.getElementById('assetHeroSwiper') || document;
+                var turningFlips = new WeakSet();
 
-                    function setFlipped(flipped) {
-                        flipEl.classList.toggle('is-flipped', flipped);
-                        // [버그 수정] "Blocked aria-hidden on an element because its descendant
-                        // retained focus" 콘솔 경고 — 방금 클릭한 hero__cta는 클릭 후에도 포커스를
-                        // 유지하는데, 바로 이어서 그 버튼이 들어있는 면(front/back)에
-                        // aria-hidden="true"를 걸면 "포커스가 남아있는 조상을 감춘" 상태가 되어
-                        // 브라우저가 이를 막고 경고합니다(스크린리더 입장에서도 감춰졌다면서
-                        // 포커스는 여전히 거기 있는 모순이라 실제 접근성 문제이기도 합니다).
-                        // 감추기 전에 그 안의 포커스를 먼저 빼고, 새로 보이는 면의 토글 버튼으로
-                        // 옮겨줘서 키보드 사용자가 같은 자리에서 계속 조작할 수 있게 합니다.
-                        var hidingEl = flipped ? front : back;
-                        var showingEl = flipped ? back : front;
-                        var focusWasInsideHidingEl = hidingEl.contains(document.activeElement);
-                        if (focusWasInsideHidingEl) {
-                            document.activeElement.blur();
-                        }
-                        front.setAttribute('aria-hidden', flipped ? 'true' : 'false');
-                        back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
-                        toggles.forEach(function (btn) {
-                            var onVisibleFace = flipped ? back.contains(btn) : front.contains(btn);
+                // [버그 수정] "뒤집힌 상태로 (스와이프해서) 첫 카드로 돌아오면 차트그래프가
+                // 사라짐" — 위 CTA 버튼 버그와 같은 근본 원인(Swiper loop:true가 만드는
+                // .swiper-slide-duplicate 복제 슬라이드)이지만 증상이 다릅니다. 복제 슬라이드는
+                // Swiper 초기화 시점에 원본을 통째로 cloneNode(true)한 "그 순간의 스냅샷"이라,
+                // 사용자가 나중에 원본 카드를 뒤집어도(is-flipped 클래스, aria-hidden, 보이는
+                // 면이 바뀜) 복제본은 그 변화를 전혀 모른 채 항상 "뒤집히지 않은 최초 상태"로
+                // 남아있습니다. 대출(마지막) 카드까지 갔다가 다시 유동성(처음)으로 스와이프하면
+                // Swiper가 실제 유동성 슬라이드로 순간 이동(loopFix)하기 직전 잠깐 이 복제본을
+                // 보여주는데, 방금 전 화면에서 인사이트(뒤집힌 면)를 보고 있던 사용자 눈에는
+                // 그 인사이트 차트가 갑자기 사라지고 뒤집히지 않은 앞면(자산 요약)으로 순간
+                // 바뀌었다가 다시 인사이트로 돌아오는 것처럼 보입니다. 게다가 복제본의 뒷면
+                // 캔버스(data-insight-chart)는 애초에 Chart.js 인스턴스가 한 번도 그려진 적
+                // 없는 빈 캔버스라(인사이트 차트는 실제 슬라이드에만 생성됩니다), 혹시라도 그
+                // 순간 복제본이 뒤집힌 채로 보인다면 완전히 빈 화면이 됩니다. 해결책: 카드를
+                // 뒤집을 때마다 같은 카테고리(data-category-label)를 가진 다른 슬라이드(=Swiper
+                // 복제본)에도 똑같이 뒤집힘 상태를 맞추고, 실제 슬라이드의 인사이트 캔버스
+                // 그림을 그대로 복제본 캔버스에 복사해 둡니다 — 아래 syncCloneCanvases가 자산
+                // 구성비 막대 그래프에 하는 것과 동일한 패턴입니다.
+                function syncFlipStateToSiblingSlides(flipEl, flipped) {
+                    var slideEl = flipEl.closest('.swiper-slide');
+                    var swiperEl = document.getElementById('assetHeroSwiper');
+                    if (!slideEl || !swiperEl) return;
+                    var label = slideEl.getAttribute('data-category-label');
+                    if (!label) return;
+                    var realSlideEl = swiperEl.querySelector('.swiper-slide:not(.swiper-slide-duplicate)[data-category-label="' + label + '"]');
+                    var realInsightCanvas = realSlideEl && realSlideEl.querySelector('[data-insight-chart]');
+                    var siblingSlides = swiperEl.querySelectorAll('.swiper-slide[data-category-label="' + label + '"]');
+                    siblingSlides.forEach(function (otherSlideEl) {
+                        if (otherSlideEl === slideEl) return;
+                        var otherFlip = otherSlideEl.querySelector('.hero__flip');
+                        if (!otherFlip) return;
+                        var oFront = otherFlip.querySelector('.hero__face--front');
+                        var oBack = otherFlip.querySelector('.hero__face--back');
+                        otherFlip.classList.toggle('is-flipped', flipped);
+                        oFront.setAttribute('aria-hidden', flipped ? 'true' : 'false');
+                        oBack.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+                        otherFlip.querySelectorAll('[data-flip-toggle]').forEach(function (btn) {
+                            var onVisibleFace = flipped ? oBack.contains(btn) : oFront.contains(btn);
                             btn.setAttribute('aria-pressed', flipped ? 'true' : 'false');
                             btn.tabIndex = onVisibleFace ? 0 : -1;
                         });
-                        if (focusWasInsideHidingEl) {
-                            var newToggle = showingEl.querySelector('[data-flip-toggle]');
-                            if (newToggle) newToggle.focus();
+                        // 복제 슬라이드가 뒤집힌 채로 잠깐 보이더라도 빈 캔버스가 아니라 실제
+                        // 인사이트 차트의 최신 스냅샷이 보이도록 픽셀을 그대로 복사합니다.
+                        var otherInsightCanvas = otherSlideEl.querySelector('[data-insight-chart]');
+                        if (realInsightCanvas && otherInsightCanvas && otherSlideEl.classList.contains('swiper-slide-duplicate')) {
+                            if (otherInsightCanvas.width !== realInsightCanvas.width) otherInsightCanvas.width = realInsightCanvas.width;
+                            if (otherInsightCanvas.height !== realInsightCanvas.height) otherInsightCanvas.height = realInsightCanvas.height;
+                            var ctx = otherInsightCanvas.getContext('2d');
+                            ctx.clearRect(0, 0, otherInsightCanvas.width, otherInsightCanvas.height);
+                            ctx.drawImage(realInsightCanvas, 0, 0);
                         }
-                    }
-
-                    var turning = false;
-                    function playFlip() {
-                        if (turning) return;
-                        turning = true;
-                        var nextFlipped = !flipEl.classList.contains('is-flipped');
-                        flipEl.classList.add('is-turning'); // 0deg -> 90deg, 카드가 옆에서 보이듯 납작해짐
-                        window.setTimeout(function () {
-                            setFlipped(nextFlipped); // 아무것도 안 보이는 순간에 내용 교체
-                            flipEl.classList.remove('is-turning'); // 90deg -> 0deg, 바뀐 면이 펼쳐짐
-                            window.setTimeout(function () {
-                                turning = false;
-                            }, 220);
-                        }, 220);
-                    }
-
-                    toggles.forEach(function (btn) {
-                        btn.addEventListener('click', playFlip);
                     });
+                }
+
+                function setFlipped(flipEl, front, back, toggles, flipped) {
+                    flipEl.classList.toggle('is-flipped', flipped);
+                    // [버그 수정] "Blocked aria-hidden on an element because its descendant
+                    // retained focus" 콘솔 경고 — 방금 클릭한 hero__cta는 클릭 후에도 포커스를
+                    // 유지하는데, 바로 이어서 그 버튼이 들어있는 면(front/back)에
+                    // aria-hidden="true"를 걸면 "포커스가 남아있는 조상을 감춘" 상태가 되어
+                    // 브라우저가 이를 막고 경고합니다(스크린리더 입장에서도 감춰졌다면서
+                    // 포커스는 여전히 거기 있는 모순이라 실제 접근성 문제이기도 합니다).
+                    // 감추기 전에 그 안의 포커스를 먼저 빼고, 새로 보이는 면의 토글 버튼으로
+                    // 옮겨줘서 키보드 사용자가 같은 자리에서 계속 조작할 수 있게 합니다.
+                    var hidingEl = flipped ? front : back;
+                    var showingEl = flipped ? back : front;
+                    var focusWasInsideHidingEl = hidingEl.contains(document.activeElement);
+                    if (focusWasInsideHidingEl) {
+                        document.activeElement.blur();
+                    }
+                    front.setAttribute('aria-hidden', flipped ? 'true' : 'false');
+                    back.setAttribute('aria-hidden', flipped ? 'false' : 'true');
+                    toggles.forEach(function (btn) {
+                        var onVisibleFace = flipped ? back.contains(btn) : front.contains(btn);
+                        btn.setAttribute('aria-pressed', flipped ? 'true' : 'false');
+                        btn.tabIndex = onVisibleFace ? 0 : -1;
+                    });
+                    if (focusWasInsideHidingEl) {
+                        var newToggle = showingEl.querySelector('[data-flip-toggle]');
+                        if (newToggle) newToggle.focus();
+                    }
+                    syncFlipStateToSiblingSlides(flipEl, flipped);
+                }
+
+                function playFlip(flipEl) {
+                    if (turningFlips.has(flipEl)) return;
+                    turningFlips.add(flipEl);
+                    // 앞/뒤 면 높이 맞추기는 CSS(grid-column/grid-row 겹치기, 위 <style> 참고)로
+                    // 처리하므로 여기서 따로 높이를 재거나 지정하지 않습니다. front/back/toggles를
+                    // 미리 캐싱해두지 않고 클릭 시점마다 다시 조회하는 이유는, 위 주석대로 flipEl이
+                    // 원본일 수도 Swiper의 복제 슬라이드일 수도 있어 클릭 전에는 어떤 DOM인지 알 수
+                    // 없기 때문입니다.
+                    var front = flipEl.querySelector('.hero__face--front');
+                    var back = flipEl.querySelector('.hero__face--back');
+                    var toggles = flipEl.querySelectorAll('[data-flip-toggle]');
+                    var nextFlipped = !flipEl.classList.contains('is-flipped');
+                    flipEl.classList.add('is-turning'); // 0deg -> 90deg, 카드가 옆에서 보이듯 납작해짐
+                    window.setTimeout(function () {
+                        setFlipped(flipEl, front, back, toggles, nextFlipped); // 아무것도 안 보이는 순간에 내용 교체
+                        flipEl.classList.remove('is-turning'); // 90deg -> 0deg, 바뀐 면이 펼쳐짐
+                        window.setTimeout(function () {
+                            turningFlips.delete(flipEl);
+                        }, 220);
+                    }, 220);
+                }
+
+                container.addEventListener('click', function (e) {
+                    var toggleBtn = e.target.closest && e.target.closest('[data-flip-toggle]');
+                    if (!toggleBtn) return;
+                    var flipEl = toggleBtn.closest('.hero__flip');
+                    if (!flipEl) return;
+                    playFlip(flipEl);
                 });
             })();
 
@@ -568,6 +645,20 @@
                 var categoryKeys = ['liquidity', 'invest', 'pension', 'loan'];
 
                 var syncingFromSwiper = false; // 스와이프發 동기화 중엔 탭 클릭 로직이 다시 슬라이드를 움직이지 않게 막는 플래그
+
+                // [버그 수정] "스와이프 중 특정 슬라이드(유동성/대출)로 가면 차트가 사라짐" —
+                // loop:true에서는 경계 카테고리(첫 슬라이드 유동성, 마지막 슬라이드 대출)로 넘어갈 때
+                // slideChange가 한 번이 아니라 두 번 연달아 발생합니다: ① 사용자가 스와이프를 놓는
+                // 즉시 Swiper가 먼저 복제 슬라이드(.swiper-slide-duplicate) 쪽으로 이동을 시작하면서
+                // 한 번, ② 전환 애니메이션이 끝난 뒤 loopFix가 티 안 나게 진짜 슬라이드로 순간 이동
+                // 시키면서 또 한 번 — 둘 다 realIndex는 같은 카테고리를 가리킵니다(위 CTA 버튼 버그
+                // 주석 참고). 아래 replayHeroBarChart는 매 slideChange마다 막대를 0으로 내렸다가
+                // 다시 채우는 애니메이션이라, 이 두 번째 slideChange가 첫 번째 애니메이션이 채 끝나기도
+                // 전(전환에 걸리는 시간은 300ms 안팎인데 막대 채우기 애니메이션은 그보다 김)에 다시
+                // 0으로 되돌려버려 "다 채워지려던 막대가 화면에 카드가 자리잡는 순간 갑자기 사라졌다가
+                // 다시 채워지는" 현상으로 보였습니다. 실제로는 카테고리가 바뀌지 않았는데도 재생을
+                // 중복 실행한 것이 원인이라, realIndex가 진짜로 바뀌었을 때만 재생하도록 막습니다.
+                var lastReplayedRealIndex = null;
 
                 function setActiveTab(index, moveFocus) {
                     tabs.forEach(function (t, i) {
@@ -647,9 +738,14 @@
                             // 들어옴) 새로 보이는 카드의 자산 구성비 막대(stackedBarChart)를
                             // 0 -> 실제값으로 다시 채워지는 애니메이션으로 재생합니다. 차트
                             // 인스턴스는 아래 별도 IIFE에서 만들어지므로 전역 함수(window.replayHeroBarChart)로
-                            // 노출해 여기서 호출합니다.
-                            if (typeof window.replayHeroBarChart === 'function') {
-                                window.replayHeroBarChart(categoryKeys[this.realIndex]);
+                            // 노출해 여기서 호출합니다. 위 lastReplayedRealIndex 주석대로, loop 경계
+                            // 카테고리는 같은 realIndex로 slideChange가 두 번 발생하므로 실제로
+                            // realIndex가 바뀐 경우에만(=처음 이 카테고리로 들어온 경우에만) 재생합니다.
+                            if (this.realIndex !== lastReplayedRealIndex) {
+                                lastReplayedRealIndex = this.realIndex;
+                                if (typeof window.replayHeroBarChart === 'function') {
+                                    window.replayHeroBarChart(categoryKeys[this.realIndex]);
+                                }
                             }
                         }
                     }
@@ -711,6 +807,32 @@
                     });
                     if (maxHeight) swiperEl.style.height = maxHeight + 'px';
                 }
+
+                // [버그 수정] "대출처럼 이슈 문구가 2줄로 넘어가 카드가 커져도, 다른 카드들이
+                // 그 높이를 못 따라감" — syncCardHeight() 자체는(위에서 강제로 문구를 길게 만들어
+                // 검증한 대로) 4장 중 가장 큰 자연 높이를 정확히 찾아내 항상 적용합니다. 다만 이
+                // 함수는 Swiper의 init/slideChange 시점에만 호출되는데, 맨 처음 init이 실행되는
+                // 시점은 커스텀 웹폰트가 아직 로드되기 전일 수 있습니다. 그러면 그 순간엔 대체
+                // 폰트 기준으로 "대출" 이슈 문구가 1줄로 측정되어 컨테이너 높이가 그걸로 고정되고,
+                // 잠시 후 실제 폰트가 로드되며 글자 폭이 바뀌어 문구가 2줄로 다시 흘러도(reflow)
+                // — 이때는 slideChange가 한 번도 안 일어난 상태라 아무도 syncCardHeight()를 다시
+                // 불러주지 않습니다. 그 결과 대출 카드 내용이 이미 고정된(너무 낮은) 컨테이너 높이를
+                // 벗어나 실제로는 더 아래까지 그려지는데, 다른 탭들은 여전히 그 낮은 높이 그대로라
+                // "대출 탭만 유독 높아 보이는" 현상으로 나타났습니다. document.fonts가 있는
+                // 브라우저에서는 폰트 로딩이 끝나는 시점(document.fonts.ready)에 한 번 더
+                // syncCardHeight()를 불러 이 시점 문제를 없앱니다. 같은 이유로 화면 회전/브라우저
+                // 창 크기 변경도 문구 줄바꿈을 바꿀 수 있어 resize에도 (과도한 연속 호출을 막는
+                // 디바운스와 함께) 재계산을 걸어둡니다.
+                if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === 'function') {
+                    document.fonts.ready.then(function () {
+                        syncCardHeight();
+                    });
+                }
+                var resizeSyncTimer = null;
+                window.addEventListener('resize', function () {
+                    window.clearTimeout(resizeSyncTimer);
+                    resizeSyncTimer = window.setTimeout(syncCardHeight, 150);
+                });
             })();
 
             // 자산 구성비 막대 — chart.html의 Stacked Bar Chart 샘플과 동일한 패턴(얇은
