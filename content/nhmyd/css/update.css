@@ -223,7 +223,7 @@
 .nds .center {text-align:center !important}
 .nds .left {text-align:left !important}
 .nds .right {text-align:right !important}
-.nds .container {padding-left:24px;padding-right:24px}
+.nds .container {padding-left:24px;padding-right:24px;padding-bottom:120px}
 .nds .guide-title {font-size:var(--type-size-15);font-weight:700;margin-bottom:8px}
 .nds .guide-desc {font-size:var(--type-size-14);font-weight:400;color:var(--primitive-red-200);margin-bottom:16px}
 .nds .demo{vertical-align:top;margin-bottom:16px}
@@ -640,7 +640,7 @@
 .nds .accordion-notice__item > button::after {content:"";display:block;position:absolute;right:24px;top:50%;transform:translateY(-50%);width:24px;height:24px;background-color:var(--color-icon-1);transition:transform 0.2s ease;-webkit-mask-image:url("../images/update/arr_down2_line_24.svg");mask-image:url("../images/update/arr_down2_line_24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .accordion-notice__item > button[aria-expanded="true"]::after {transform:rotate(180deg) translateY(50%)}
 .nds .accordion-notice__title {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;color:var(--color-font-1);line-height:24px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.nds .accordion-notice__body {display:flex;flex-direction:column;gap:12px;padding:8px 24px 16px 24px}
+.nds .accordion-notice__body {display:flex;flex-direction:column;gap:12px;padding:8px 24px 32px 24px}
 .nds .accordion-line {width:100%}
 .nds .accordion-line__item {position:relative;border-top:1px solid #f0f0f0}
 .nds .accordion-line__item > button {display:flex;align-items:center;width:100%;padding:20px 32px 20px 0;background:none;border:none;cursor:pointer;text-align:left;position:relative}
@@ -1025,6 +1025,8 @@
 .nds .text-stack--lg {gap:32px;margin:48px 0 40px}
 .nds .text-stack--lg .text-stack:last-child{margin-bottom:0}
 .nds .result-icon {display:block;width:68px;height:68px}
+.nds .intro-hero {margin:60px 0} /* MSCO9100 */
+.nds .intro-hero img {display:block}
 /* ---- Tab (line/chip/bar/text 4종) ---- */
 .nds .tab-line {display:flex;align-items:center;width:100%;background-color:var(--color-bg-default)}
 .nds .tab-line__list {display:flex;align-items:stretch;flex:1 0 0;min-width:0;border-bottom:1px solid var(--color-border-2)}
@@ -1171,7 +1173,7 @@
 .nds .btn-cta {display:flex;gap:8px;padding:0;background:linear-gradient(to top, #ffffff 90%, rgba(255, 255, 255, 0) 100%)}
 .nds .btn-cta .btn {flex:1;min-width:0}
 .nds .btn-cta__item--fixed {flex:none !important;width:100px}
-.nds .btn-cta--basic {padding:10px 24px 32px}
+.nds .btn-cta--basic {padding:0 24px 32px}
 .nds .btn-cta--column {flex-direction:column;align-items:stretch;gap:12px;padding-bottom:32px}
 .nds .btn-cta--column .btn {flex-basis:auto}
 .nds .btn-arrow {display:inline-flex;align-items:center;gap:2px;background:none;border:none;padding:0;margin:0;cursor:pointer;font:inherit;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.02em;color:var(--color-text-button-etc)}
