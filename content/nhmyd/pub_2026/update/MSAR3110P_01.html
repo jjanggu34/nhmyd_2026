@@ -26,9 +26,25 @@
                             <div class="input-box">
                                 <label class="input-box__label blind" for="search-box-1">이름(사번)</label>
                                 <div class="input-box__field">
-                                    <input type="text" id="search-box-1" class="input-box__input" placeholder="이름 또는 사번을 입력하세요" />
+                                    <input type="text" id="search-box-1" class="input-box__input" placeholder="이름 또는 사번을 입력하세요" autocomplete="off" />
+                                    <button type="button" class="input-box__icon input-box__icon--clear" id="searchClear1" aria-label="검색어 지우기" hidden></button>
                                     <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
                                 </div>
+                                <p class="input-box__message" id="searchMsg1" hidden>검색조건에 2글자 이상 입력하세요.</p>
+                            </div>
+
+                            <div class="text-stack mt32 mb0" id="searchResultWrap1" hidden>
+                                <p class="text text--body1 text--font1" id="searchCount1">
+                                    총
+                                    <span class="text--point" id="searchCountNum1">0</span>
+                                    건
+                                </p>
+                                <div class="bottomsheet-list" id="searchList1" role="listbox" aria-label="검색 결과"></div>
+                            </div>
+
+                            <div class="empty empty--result" id="searchEmpty1" hidden>
+                                <span class="empty__icon" aria-hidden="true"></span>
+                                <p class="empty__text">검색결과가 없습니다</p>
                             </div>
                         </div>
                         <div id="panel-bar-2" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-2" tabindex="0" hidden>
@@ -53,5 +69,132 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            $(function () {
+                //데모용 샘플 데이터 — 실제 연동 시 검색 API 결과로 교체
+                //name: 검색 매칭용 실명, label: 화면에 노출되는 마스킹 표기
+                var SAMPLE_STAFF = [
+                    { name: '김수인', label: '김*인 (0640****) 신길동' },
+                    { name: '김수영', label: '김*영 (1341****) 광화문금융센터 기업금융지원센터 디지털전략팀' },
+                    { name: '김수정', label: '김*정 (1441****) 삼성푸른금융센터' },
+                    { name: '김수현', label: '김*현 (1965****) 파주시청<출>' },
+                    { name: '김수민', label: '김*민 (2841****) 압구정역' },
+                    { name: '김수빈', label: '김*빈 (3312****) 강남금융센터' },
+                    { name: '김수호', label: '김*호 (4127****) 여의도금융센터' },
+                    { name: '김수경', label: '김*경 (5033****) 판교테크노밸리' },
+                    { name: '김수아', label: '김*아 (6210****) 잠실역' },
+                    { name: '김수진', label: '김*진 (7145****) 수원영통지점' },
+                    { name: '김수영2', label: '김*영 (8322****) 대전둔산지점' },
+                    { name: '김수완', label: '김*완 (9051****) 부산해운대지점' }
+                ];
+
+                var $input = $('#search-box-1');
+                var $clear = $('#searchClear1');
+                var $msg = $('#searchMsg1');
+                var $resultWrap = $('#searchResultWrap1');
+                var $countNum = $('#searchCountNum1');
+                var $list = $('#searchList1');
+                var $empty = $('#searchEmpty1');
+                var $confirmBtn = $('.popBtnWrap .confirmBtn');
+                var currentResults = [];
+                var selectedIndex = -1;
+
+                //slidePopConfirm()과 동일한 계산으로, 콘텐츠가 바뀔 때마다 팝업 높이를 다시 맞춥니다.
+                //단, popInner 전체 높이는 화면(디바이스) 높이의 80%를 넘지 않도록 제한하고,
+                //그 이상은 popCont 내부만 스크롤되도록 합니다.
+                function resyncPopHeight() {
+                    var confirmPop = $('.slidePopConfirm');
+                    var $popInner = confirmPop.find('.popInner');
+                    var $popCont = confirmPop.find('.popCont');
+                    var confirmTit = confirmPop.find('.popInner h1').length > 0 ? confirmPop.find('.popInner h1').outerHeight() : confirmPop.find('.popInner h2').outerHeight();
+                    var confirmBtnAra = confirmPop.find('.popBtnWrap .popBtn').length > 0 ? confirmPop.find('.popBtnWrap').outerHeight() : 0;
+
+                    //자연 높이를 다시 재는 동안은 기존 제약을 풀어야 정확한 콘텐츠 높이가 나옵니다.
+                    $popCont.css({ maxHeight: 'none', overflowY: 'visible' });
+                    var naturalContH = $popCont.outerHeight();
+                    var naturalTotal = naturalContH + confirmBtnAra + confirmTit;
+
+                    var maxPopInnerH = $(window).height() * 0.8;
+                    var targetPopInnerH = Math.min(naturalTotal, maxPopInnerH);
+                    $popInner.css({ height: targetPopInnerH });
+
+                    var maxContH = targetPopInnerH - confirmTit - confirmBtnAra;
+                    if (naturalContH > maxContH) {
+                        $popCont.css({ maxHeight: maxContH, overflowY: 'auto' });
+                    } else {
+                        $popCont.css({ maxHeight: 'none', overflowY: 'visible' });
+                    }
+                }
+
+                function syncConfirmBtn() {
+                    var enabled = selectedIndex > -1;
+                    $confirmBtn.toggleClass('disabled', !enabled);
+                    if (enabled) { $confirmBtn.removeAttr('aria-disabled'); } else { $confirmBtn.attr('aria-disabled', 'true'); }
+                }
+
+                function renderList() {
+                    $list.empty();
+                    currentResults.forEach(function (item, i) {
+                        var selected = i === selectedIndex;
+                        //check 아이콘은 append/remove 대신 항상 DOM에 두고,
+                        //부모 item의 --selected 클래스에 따라 CSS(display)로만 노출/공간 여부를 제어함
+                        var $item = $('<button type="button" class="bottomsheet-list__item" role="option"></button>')
+                            .attr('aria-selected', selected ? 'true' : 'false')
+                            .toggleClass('bottomsheet-list__item--selected', selected)
+                            .append($('<span></span>').text(item.label))
+                            .append('<span class="bottomsheet-list__check" aria-hidden="true"></span>');
+                        $item.on('click', function () {
+                            selectedIndex = selectedIndex === i ? -1 : i;
+                            renderList();
+                            syncConfirmBtn();
+                            resyncPopHeight();
+                        });
+                        $list.append($item);
+                    });
+                }
+
+                function updateSearch() {
+                    var q = $.trim($input.val());
+                    $clear.prop('hidden', q.length === 0);
+                    selectedIndex = -1;
+                    syncConfirmBtn();
+
+                    if (q.length < 2) {
+                        $msg.prop('hidden', q.length === 0);
+                        $resultWrap.prop('hidden', true);
+                        $empty.prop('hidden', true);
+                        currentResults = [];
+                        resyncPopHeight();
+                        return;
+                    }
+
+                    $msg.prop('hidden', true);
+                    currentResults = SAMPLE_STAFF.filter(function (item) { return item.name.indexOf(q) > -1; });
+
+                    if (currentResults.length > 0) {
+                        $countNum.text(currentResults.length.toLocaleString());
+                        renderList();
+                        $resultWrap.prop('hidden', false);
+                        $empty.prop('hidden', true);
+                    } else {
+                        $resultWrap.prop('hidden', true);
+                        $empty.prop('hidden', false);
+                    }
+                    resyncPopHeight();
+                }
+
+                $input.on('input', updateSearch);
+                $clear.on('click', function () {
+                    $input.val('').trigger('input').trigger('focus');
+                });
+
+                //화면 회전/리사이즈 시에도 80% 제한을 다시 계산합니다.
+                $(window).on('resize', resyncPopHeight);
+
+                //slidePopConfirm()이 popInner를 먼저 펼친 뒤, 80% 제한을 한 번 더 적용합니다.
+                setTimeout(resyncPopHeight, 150);
+            });
+        </script>
     </body>
 </html>

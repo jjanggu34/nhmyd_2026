@@ -275,6 +275,7 @@
 .nds .controls-controller:disabled {color:#d3d3d3;cursor:not-allowed}
 /* ---- Empty ---- */
 .nds .empty {display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.nds .empty[hidden] {display:none} /* MSAR3110P_01 */
 .nds .empty__icon {width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background-image:url("../images/update/ico_empty.svg");background-size:contain;background-repeat:no-repeat;background-position:center}
 .nds .empty__text {letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .empty--result {padding:40px 24px;gap:16px}
@@ -607,8 +608,9 @@
 .nds .bottomsheet-list {display:flex;flex-direction:column;width:100%}
 .nds .bottomsheet-list__item {display:flex;align-items:center;justify-content:center;gap:16px;width:100%;padding:16px 4px;border-radius:10px;font-size:var(--type-size-16);font-weight:var(--font-weight-regular);letter-spacing:-0.02em;line-height:24px;color:var(--color-font-1);background:none;border:none;cursor:pointer;text-align:left;font-family:inherit}
 .nds .bottomsheet-list__item--selected {font-weight:var(--font-weight-semibold);color:var(--color-font-point)}
-.nds .bottomsheet-list__item > span:first-child {flex:1;min-width:0}
-.nds .bottomsheet-list__check {display:block;flex-shrink:0;width:24px;height:24px;color:var(--color-font-point);background-color:currentColor;-webkit-mask-image:url("../images/update/check-24.svg");mask-image:url("../images/update/check-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .bottomsheet-list__item > span:first-child {flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.nds .bottomsheet-list__check {display:none;flex-shrink:0;width:24px;height:24px;color:var(--color-font-point);background-color:currentColor;-webkit-mask-image:url("../images/update/check_xs_default.svg");mask-image:url("../images/update/check_xs_default.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center} /* 기본은 숨김+비공간, 선택 시에만 노출+공간 차지 */
+.nds .bottomsheet-list__item--selected .bottomsheet-list__check {display:block}
 .nds .bottomsheet-list__flag {flex-shrink:0;width:32px;height:32px;border-radius:50%;object-fit:cover}
 /* ---- Popup:레거시 .popCont/.popBtnWrap 좌우 여백 보정 (content/nds-guide 384-393줄과 동일)
    레거시 기본값은 좌우 padding 0이라 콘텐츠가 화면 끝까지 붙는다. nds 실측 여백(12/24/32px)을
@@ -1020,6 +1022,7 @@
 .nds .text--font4 {color:var(--color-font-4)}
 .nds .text--point {color:var(--color-font-point)}
 .nds .text-stack {display:flex;flex-direction:column;gap:12px;width:100%;margin-bottom:24px}
+.nds .text-stack[hidden] {display:none} /* MSAR3110P_01 */
 .nds.fullLayerPop .text-stack{padding-left:24px;padding-right:24px}
 .nds.fullLayerPop .text-stack .text-stack{padding-left:0;padding-right:0}
 .nds .text-stack--lg {gap:32px;margin:48px 0 40px}
@@ -1103,6 +1106,7 @@
 .nds .input-box__inline-select::after,
 .nds .input-line__inline-select::after {content:"";display:block;width:24px;height:24px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/arr_down2_line_24.svg");mask-image:url("../images/update/arr_down2_line_24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;flex-shrink:0}
 .nds .input-box__icon {display:flex;align-items:center;justify-content:center;width:24px;height:24px;flex-shrink:0;color:var(--color-font-5)}
+.nds .input-box__icon[hidden] {display:none} /* MSAR3110P_01 */
 .nds .input-box__icon svg,
 .nds .input-box__icon img {width:100%;height:100%;display:block}
 .nds .input-box__icon--search::before,
