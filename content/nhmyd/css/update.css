@@ -89,6 +89,7 @@
     --color-font-8:var(--primitive-gray-font-200);
     --color-font-9:var(--primitive-gray-font-100);
     --color-font-10:var(--primitive-gray-font-50);
+    --color-font-white:var(--primitive-base-0);
     --color-font-visual:var(--primitive-blue-500);
     --color-font-error:var(--primitive-red-300);
     --color-font-point:var(--primitive-green-500);
@@ -156,6 +157,7 @@
     --border-radius-circle:var(--radius-full)
 }
 :root {
+    --font-weight-light:300;
     --font-weight-regular:400;
     --font-weight-medium:500;
     --font-weight-semibold:600;
@@ -172,6 +174,7 @@
     --spacing-12:12px;
     --spacing-24:24px;
     --spacing-32:32px;
+    --radius-8:8px;
     --radius-16:16px;
     --radius-full:999px;
     --transition-base:0.15s ease
@@ -896,21 +899,23 @@
 .nds .calendar-day--disabled .calendar-day__text {color:var(--color-font-1)}
 .nds .dayPicSet__label {color:var(--color-font-1);font-family:Pretendard;font-size:var(--type-size-16);font-style:normal;font-weight:600;line-height:24px;letter-spacing:-0.32px}
 /* ---- Process:step/horizontal ---- */
-.nds .process-step-h {position:relative;display:flex;align-items:flex-start;gap:4px;width:100%;margin:24px 0 40px}
-.nds .process-step-h__line {position:absolute;left:0;right:0;top:15px;height:1px;background:url("../images/update/bg_process-step-h__line.svg") repeat-x;background-size:auto 2px}
-.nds .process-step-h__item {position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:12px;flex:1 0 0;min-width:0}
+.nds .process-step-h {display:flex;align-items:flex-start;width:100%;margin:24px 0 32px;--color-step-green:#218659} /* 피그마는 3칸 균등분할이 아니라 아이템은 콘텐츠 폭만큼만 차지(auto), 사이 간격은 라인이 flex-grow로 채움 */
+.nds .process-step-h__line {flex:1 1 auto;min-width:24px;height:2px;margin:11px 8px 0;border-radius:1px;background:var(--color-border-2)} /* num 중심(12px)에 2px 두께를 맞춘 top 여백(11px), 배지와의 여백은 margin 8px */
+.nds .process-step-h__line--done {background:var(--color-step-green)} /* 완료된 구간만 그린으로 표시 */
+.nds .process-step-h__item {position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;flex:0 0 auto;min-width:0} /* 피그마: 배지가 라벨 폭 기준으로 가운데 정렬(items-center), 아이템 자체는 콘텐츠 폭만큼만 */
 .nds .process-step-h__item--center {align-items:center}
-.nds .process-step-h__item--end {align-items:flex-end}
-.nds .process-step-h__num {display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:var(--radius-full);font-size:var(--type-size-12);font-weight:var(--font-weight-medium);letter-spacing:-0.24px;line-height:18px;box-sizing:border-box}
+.nds .process-step-h__item--end {align-items:center}
+.nds .process-step-h__num {display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:var(--radius-8);font-size:var(--type-size-12);font-weight:var(--font-weight-medium);letter-spacing:-0.24px;line-height:18px;box-sizing:border-box}
 .nds .process-step-h__num--disabled {background:var(--color-bg-tab-bar);border:1px solid var(--color-border-2);color:var(--color-font-5)}
-.nds .process-step-h__num--active {background:var(--color-font-point);color:#ffffff}
-.nds .process-step-h__num--default {background:var(--color-bg-default);border:1px solid var(--color-border-2);color:var(--color-font-4)}
-.nds .process-step-h__label {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;width:100%}
-.nds .process-step-h__item--center .process-step-h__label {text-align:center}
-.nds .process-step-h__item--end .process-step-h__label {text-align:right}
+.nds .process-step-h__num--active {background:var(--color-step-green);outline:3px solid rgba(25,151,60,0.1);color:var(--color-font-white)}
+.nds .process-step-h__num--default {background:var(--color-bg-default);border:1px solid var(--color-border-1);color:var(--color-font-5)}
+.nds .process-step-h__num--complete {background:var(--color-step-green);color:var(--color-font-white);font-size:0} /* 지난 단계: 번호 대신 체크 아이콘 */
+.nds .process-step-h__num--complete::after {content:"";display:block;width:16px;height:16px;background-color:var(--color-font-white);-webkit-mask-image:url("../images/update/check_xs_checked.svg");mask-image:url("../images/update/check_xs_checked.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .process-step-h__label {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;white-space:nowrap} /* width:100% 제거: 라벨 폭만큼만 차지해야 아이템이 콘텐츠 기준 auto폭이 됨(피그마와 동일) */
 .nds .process-step-h__label--disabled {color:var(--color-font-4)}
-.nds .process-step-h__label--active {font-weight:var(--font-weight-medium);color:var(--color-font-point)}
-.nds .process-step-h__label--default {color:var(--color-font-1)}
+.nds .process-step-h__label--active {font-weight:var(--font-weight-semibold);color:var(--color-step-green)}
+.nds .process-step-h__label--default {color:var(--color-font-4)}
+.nds .process-step-h__label--complete {font-weight:var(--font-weight-medium);color:var(--color-font-3)}
 .nds .process-progress-h {display:flex;align-items:center;justify-content:center;gap:63px;width:100%;box-sizing:border-box;margin:24px 0 32px}
 .nds .process-progress-h__title {flex:1 0 0;min-width:0;font-size:var(--type-size-16);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-green-newtro)}
 .nds .process-progress-h .process-progress-number {flex-shrink:0}
