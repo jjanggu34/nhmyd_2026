@@ -626,7 +626,7 @@
 .nds .popCont {padding-top:24px !important}
 .nds.slidePopConfirm .popCont{padding-top:12px !important}
 .nds .popCont .popCont__inner{padding:0 24px !important}
-.nds .popCont .period {padding:0}
+.nds .popCont .period {padding:0 !important}
 .nds.slidePopConfirm .popBtnWrap {padding:0 16px 32px !important}
 .nds.slidePopConfirm .popBtnWrap .popBtn {height:56px !important;border-width:0 !important;border-spacing:8px 0 !important}
 .nds.centerLayer .popInner .popCont {padding:40px 0 32px !important}
@@ -1032,8 +1032,8 @@
 .nds .text--point {color:var(--color-font-point)}
 .nds .text-stack {display:flex;flex-direction:column;gap:12px;width:100%;margin-bottom:24px}
 .nds .text-stack[hidden] {display:none} /* MSAR3110P_01 */
-.nds.fullLayerPop .text-stack{padding-left:24px;padding-right:24px}
-.nds.fullLayerPop .text-stack .text-stack{padding-left:0;padding-right:0}
+/* .nds.fullLayerPop .text-stack{padding-left:24px;padding-right:24px}
+.nds.fullLayerPop .text-stack .text-stack{padding-left:0;padding-right:0} */
 .nds .text-stack--lg {gap:32px;margin:48px 0 40px}
 .nds .text-stack--lg .text-stack:last-child{margin-bottom:0}
 .nds .result-icon {display:block;width:68px;height:68px}
@@ -1049,7 +1049,7 @@
 .nds .tab-chip__item {display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px 16px;min-width:28px;border:1px solid var(--color-border-2);border-radius:var(--radius-full);background-color:var(--color-bg-container);cursor:pointer;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3);white-space:nowrap}
 .nds .tab-chip__item--active {border-color:transparent;background-color:var(--color-bg-tab-chip-active);font-weight:var(--font-weight-medium);color:var(--color-font-10)}
 .nds .tab-bar {display:flex;align-items:center;width:100%;padding:3px;border-radius:12px;background-color:var(--color-bg-tab-bar);box-sizing:border-box}
-.nds.fullLayerPop .tab-bar{margin-left:24px;margin-right:24px;width:calc(100% - 48px)}
+/* .nds.fullLayerPop .tab-bar{margin-left:24px;margin-right:24px;width:calc(100% - 48px)} */
 .nds .tab-bar__item {display:flex;flex:1 0 0;min-width:0;align-items:center;justify-content:center;padding:11px 12px;border:none;border-radius:10px;background:none;cursor:pointer;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .tab-bar__item--active {background-color:var(--color-bg-default);box-shadow:0 0 4px rgba(0, 0, 0, 0.1);font-weight:var(--font-weight-medium);color:var(--color-font-1)}
 .nds .tab-text {display:flex;align-items:center;gap:12px}
@@ -1057,7 +1057,7 @@
 .nds .tab-text__item--active {font-weight:var(--font-weight-medium);color:var(--color-font-1)}
 .nds .tab-text__dash {width:1px;height:12px;background-color:var(--color-border-2);flex-shrink:0}
 .nds .tab-panel {padding:16px 0 0}
-.nds.fullLayerPop .tab-panel{padding-left:24px;padding-right:24px}
+/* .nds.fullLayerPop .tab-panel{padding-left:24px;padding-right:24px} */
 .nds .tab-panel[hidden] {display:none}
 .nds .with_allone_footer .tab-line{background-color:transparent}
 /* ---- Search / Input(box·line) ---- */
@@ -1084,6 +1084,12 @@
 .nds .input-box__message {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);letter-spacing:-0.02em;color:var(--color-font-4)}
 .nds .input-box__message--success {color:var(--color-font-point)}
 .nds .input-box--focus .input-box__field {border-color:var(--color-border-point)}
+/* [추가] NH_MD_PM_00_00(별명설정, Figma node 1314:17775)은 입력창 포커스 시 테두리가 초록색으로
+   바뀌는데, 지금까지는 이 포커스 색이 --focus 수정자 클래스를 JS로 직접 토글해줘야만 켜졌습니다
+   (실제로 어떤 .nds 화면도 그 JS를 붙이지 않아서 죽 미반영 상태였음). .textarea__wrap에는 이미
+   있는 :focus-within 폴백을 .input-box__field에도 추가해, 별도 JS 없이 그냥 포커스만 줘도
+   자동으로 켜지게 합니다(기존 --focus 클래스 토글 방식과 공존 가능, 서로 충돌 없음). */
+.nds .input-box__field:focus-within {border-color:var(--color-border-point)}
 .nds .input-box--error .input-box__field {border-color:var(--color-border-error)}
 .nds .input-box--error .input-box__message {color:var(--color-font-error)}
 .nds .input-box--success .input-box__field {border-color:var(--color-border-point)}
@@ -1247,6 +1253,14 @@
       그려집니다 — li에는 .text 대신 .text--body2 같은 타이포그래피 전용 클래스만
       쓰고, 여기서 display:list-item을 명시적으로 강제합니다. */
 .nds .num-list li {display:list-item;list-style:decimal}
+/* ---- Toast(레거시 nhasset-ui.js의 toastPopup() 재사용) ----
+   toastPopup()은 $('.toastPop').fadeIn(200).delay(1800).fadeOut(400)만 하는 함수라, .toastPop
+   요소 자체는 화면마다 준비돼 있어야 합니다. 정작 이 프로젝트에는 .toastPop을 실제로 쓰는
+   화면이 하나도 없어서(죽은 코드) 스타일도 없었는데, NH_MD_PM_00_00(별명설정, Figma node
+   1314:18179 "toast-basic")에서 처음 채워 넣습니다. display:none이 fadeIn의 시작 상태이며,
+   다른 .nds 화면도 같은 마크업(.toastPop > .toast-basic)만 두면 그대로 재사용할 수 있습니다. */
+.toastPop.nds {display:none;position:fixed;left:20px;right:20px;bottom:32px;z-index:2000;max-width:320px;margin:0 auto;pointer-events:none}
+.nds .toast-basic {background:#111;color:#fff;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);line-height:22px;letter-spacing:-0.28px;margin:0;padding:13px 16px;border-radius:12px;box-shadow:0 3px 6px rgba(0,0,0,0.05);word-break:break-word;box-sizing:border-box}
 /* ---- NH_MD_UI_08 ---- */
 .nds .hashWrap {display:flex;flex-wrap:wrap;column-gap:16px;padding:16px;border-radius:8px;background-color:var(--color-bg-banner);font-size:0}
 .nds .hashWrap .hastag {margin:0;color:#002259;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:var(--type-body2-ls)}
@@ -1359,8 +1373,10 @@
 /* ---- 위클리 브리핑 / 대출 금리 케어 / 조기 은퇴 진단 위젯 카드 ---- */
 .widget__desc {font-size:var(--type-size-16);font-weight:400;letter-spacing:-0.32px;color:#333;line-height:1.4;margin:0 0 8px}
 .widget__desc strong {display:block;font-weight:500;color:#111;line-height:1.7;margin-top:8px}
+/* [변경] 항상 같은 위치(맨 앞)에 같은 아이콘 하나만 붙는 캡션이라, <img> 대신 ::before
+   배경이미지로 그립니다 — 마크업에서 <img> 자체가 필요 없어집니다. */
 .widget__caption {display:flex;align-items:center;gap:4px;font-size:var(--type-size-12);font-weight:300;letter-spacing:-0.12px;color:#707070;margin:0 0 20px}
-.widget__caption img {width:16px;height:16px;flex-shrink:0}
+.widget__caption::before {content:"";display:block;width:16px;height:16px;flex-shrink:0;background:url("../images/update/ic-alert-mark.svg") no-repeat center/contain}
 .widget__cta {display:block;width:100%;background:#eff1f9;border:none;border-radius:8px;padding:12px 16px;font-size:var(--type-size-14);font-weight:500;letter-spacing:-0.35px;color:#3e4c59;text-align:center;cursor:pointer}
 
 /* ---- 자산 카테고리 탭 콘텐츠(투자/유동성/연금/대출자산) — 탭별로 표시되는 인사이트/시황 카드 ---- */
@@ -1480,7 +1496,12 @@
 .hc-change__icon {width:12px;height:12px;flex-shrink:0;background-color:#fff;-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .hc-change__icon--up {transform:rotate(180deg)}
 .hc-notice {display:flex;align-items:center;gap:4px;background:rgba(14,54,69,0.6);border-radius:8px;padding:12px;margin:0 0 16px;box-sizing:border-box}
-.hc-notice__icon {width:16px;height:15px;flex-shrink:0}
+/* [변경] <img src="...svg">로 아이콘을 직접 보여주던 것을, 마크업은 빈 <span aria-hidden="true">로
+   두고 배경이미지로 그립니다(장식용 아이콘이라 alt=""와 동등하게 aria-hidden 처리). 두 SVG 모두
+   자체 색이 고정된 다색 아이콘이라(mask는 알파값만 남기고 색을 지워버림) mask-image 대신
+   background-image를 씁니다. 기본은 달력(예정), --check 수정자는 체크 표시가 있는 달력(완료)입니다. */
+.hc-notice__icon {display:block;width:16px;height:15px;flex-shrink:0;background:url("../images/update/ic-calendar.svg") no-repeat center/contain}
+.hc-notice__icon--check {background-image:url("../images/update/ic-calendar-check.svg")}
 .hc-notice p {margin:0;font-size:var(--type-size-12);letter-spacing:-0.24px;color:#fff}
 .hc-notice__accent {color:#08d561;font-weight:var(--font-weight-bold)}
 .hc-divider {border:none;border-top:1px solid rgba(255,255,255,0.16);margin:0 0 16px}

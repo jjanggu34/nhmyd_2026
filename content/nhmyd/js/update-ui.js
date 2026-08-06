@@ -118,6 +118,122 @@ window.calendarAlign = function () {
 	}, 500);
 };
 
+/*
+ * slidePopConfirm() 오버라이드
+ * ---------------------------------------------------------------
+ * 레거시 slidePopConfirm()(common_ui.js)은 .popInner 높이를 콘텐츠의 자연 높이(제목+popCont+
+ * 버튼 영역)로 그대로 애니메이션합니다 — 뷰포트 높이와 무관하게 무조건 그만큼 늘어나서, 콘텐츠가
+ * 길면(NH_MD_PM_03의 "월 시작일" 8개 옵션, 혹은 검색 결과가 많은 화면 등) 저사양/작은 화면
+ * (예: Galaxy S III 360x640)에서 팝업 하단(확인 버튼)이 화면 밖으로 완전히 밀려나 아예 안 보이는
+ * 문제가 있습니다. 같은 파일의 popCenter()(centerLayer 팝업)는 이미 뷰포트의 70%로 높이를 제한
+ * 하고 내부 popCont만 스크롤시키는 방식을 쓰고 있는데, slidePopConfirm에는 그런 제한이 전혀 없던
+ * 것 — 여기서는 popCenter와 같은 원칙(뷰포트 80% 제한 + popCont 내부 스크롤)을 slidePopConfirm에도
+ * 적용해 재정의합니다. (원래 MSAR3110P_01(검색결과) 화면에만 로컬로 있던 resyncPopHeight()를,
+ * slidePopConfirm을 쓰는 모든 .nds 화면이 공유하도록 여기로 옮겼습니다.)
+ *
+ * syncSlidePopConfirmHeight()는 따로도 공개해서, 검색 결과처럼 열려있는 동안 내용이 바뀌는
+ * 화면에서 데이터 갱신 시마다 애니메이션 없이 즉시 다시 맞출 때 씁니다
+ * (window.syncSlidePopConfirmHeight() 형태로 호출).
+ */
+function syncSlidePopConfirmHeight(animate) {
+	$('.slidePopConfirm:visible').each(function () {
+		var $pop = $(this);
+		var $popInner = $pop.find('.popInner');
+		var $popCont = $pop.find('.popCont');
+		var confirmTit = $pop.find('.popInner h1').length > 0 ? $pop.find('.popInner h1').outerHeight() : $pop.find('.popInner h2').outerHeight();
+		var confirmBtnAra = $pop.find('.popBtnWrap .popBtn').length > 0 ? $pop.find('.popBtnWrap').outerHeight() : 0;
+
+		// 자연 높이를 다시 재는 동안은 기존 제약(maxHeight/overflow)을 풀어야 정확한 콘텐츠
+		// 높이가 나옵니다.
+		$popCont.css({ maxHeight: 'none', overflowY: 'visible' });
+		var naturalContH = $popCont.outerHeight();
+		var naturalTotal = naturalContH + confirmBtnAra + confirmTit;
+
+		var maxPopInnerH = $(window).height() * 0.8;
+		var targetPopInnerH = Math.min(naturalTotal, maxPopInnerH);
+		$popInner.stop(true);
+		if (animate) {
+			$popInner.animate({ height: targetPopInnerH }, 100);
+		} else {
+			$popInner.css({ height: targetPopInnerH });
+		}
+
+		var maxContH = targetPopInnerH - confirmTit - confirmBtnAra;
+		if (naturalContH > maxContH) {
+			$popCont.css({ maxHeight: maxContH, overflowY: 'auto' });
+		} else {
+			$popCont.css({ maxHeight: 'none', overflowY: 'visible' });
+		}
+	});
+}
+window.syncSlidePopConfirmHeight = syncSlidePopConfirmHeight;
+
+window.slidePopConfirm = function () {
+	scrollLock();
+	$('.slidePopConfirm').show();
+	setTimeout(function () {
+		syncSlidePopConfirmHeight(true);
+	}, 100);
+};
+
+// 화면 회전/리사이즈 시에도 80% 제한을 다시 계산합니다(열려 있는 팝업이 없으면 각 화면 내부에서
+// 조용히 아무 일도 하지 않고 끝납니다 — :visible 셀렉터가 걸러줌).
+$(window).on('resize', function () {
+	syncSlidePopConfirmHeight(false);
+});
+
+// Bottomsheet 단일선택 리스트 렌더링(.bottomsheet-list, role="listbox"/[role="option"] 패턴) —
+// 검색 결과처럼 데이터가 바뀔 때마다 새로 그려야 하는 단일 선택 리스트 공통 렌더러입니다.
+// MSAR3110P_01(권유직원 검색) 화면 안에 인라인으로 있던 renderList()를, 검색/선택 화면이
+// 더 생길 걸 대비해 여기로 옮겼습니다(.bottomsheet-list 자체는 update.css 기준 NH_MD_PM_03/
+// NH_MD_UI_05_0[1-3] 등 여러 화면이 이미 공유하는 nds 컴포넌트입니다).
+// check 아이콘(.bottomsheet-list__check)은 항상 DOM에 두고 부모의 --selected 클래스로만
+// 노출 여부를 CSS에서 제어합니다(매번 append/remove하지 않음).
+//
+// options:
+//   container     [role="listbox"] 요소 또는 그 id 문자열
+//   items         렌더링할 배열
+//   selectedIndex 현재 선택된 index(-1이면 선택 없음)
+//   getLabel      (item) => 화면에 보여줄 문자열. 생략 시 item.label을 사용
+//   onSelect      (index, item) => 항목 클릭 시 호출. 재렌더링/버튼 활성화/팝업 높이 재계산 등
+//                 클릭 이후 화면 갱신은 전부 호출부(각 화면)의 책임입니다 — 이 함수는 순수하게
+//                 "현재 상태를 DOM에 그리는" 역할만 합니다.
+window.renderBottomsheetList = function (options) {
+	options = options || {};
+	var container = typeof options.container === 'string' ? document.getElementById(options.container) : options.container;
+	if (!container) return;
+
+	var items = options.items || [];
+	var selectedIndex = typeof options.selectedIndex === 'number' ? options.selectedIndex : -1;
+	var getLabel = options.getLabel || function (item) { return item.label; };
+	var onSelect = options.onSelect;
+
+	container.innerHTML = '';
+	items.forEach(function (item, i) {
+		var selected = i === selectedIndex;
+		var btn = document.createElement('button');
+		btn.type = 'button';
+		btn.className = 'bottomsheet-list__item' + (selected ? ' bottomsheet-list__item--selected' : '');
+		btn.setAttribute('role', 'option');
+		btn.setAttribute('aria-selected', selected ? 'true' : 'false');
+
+		var label = document.createElement('span');
+		label.textContent = getLabel(item);
+		btn.appendChild(label);
+
+		var check = document.createElement('span');
+		check.className = 'bottomsheet-list__check';
+		check.setAttribute('aria-hidden', 'true');
+		btn.appendChild(check);
+
+		btn.addEventListener('click', function () {
+			if (typeof onSelect === 'function') onSelect(i, item);
+		});
+
+		container.appendChild(btn);
+	});
+};
+
 (function () {
 	'use strict';
 
@@ -480,6 +596,35 @@ window.calendarAlign = function () {
 		});
 	}
 
+	// Bottomsheet 단일선택 리스트(.bottomsheet-list, 정적 마크업 + aria-pressed 패턴) — NH_MD_PM_03
+	// (한 달 시작일 설정)이나 가이드 문서(NH_MD_UI_05_01~03)처럼 처음부터 HTML에 [aria-pressed]
+	// 옵션이 다 박혀 있는 목록에서, 버튼 하나를 누르면 그 버튼만 선택되고(aria-pressed="true" +
+	// --selected 클래스) 같은 .bottomsheet-list 안의 나머지 버튼은 선택 해제됩니다(initChipSingle()과
+	// 동일하게 라디오 그룹처럼 상호 배타적 — "월 시작일"처럼 항상 하나는 선택돼 있어야 하는 설정값이라
+	// 이미 선택된 걸 다시 눌러도 해제되지 않습니다). NH_MD_PM_03은 이 버튼들에 클릭 핸들러가 아예
+	// 없어서(정적 마크업만 있고 뒤에 JS가 없던 상태) 눌러도 아무 반응이 없었던 것이 원인입니다.
+	// MSAR3110P_01(검색 결과)처럼 renderBottomsheetList()로 매번 새로 그리는 [role="option"] 마크업은
+	// 그쪽 onSelect 콜백에서 이미 직접 선택 상태를 처리하므로, 여기서는 건드리지 않고
+	// [aria-pressed]가 붙은 정적 마크업만 대상으로 합니다.
+	function initBottomsheetList() {
+		document.querySelectorAll('.bottomsheet-list').forEach(function (list) {
+			var items = Array.prototype.filter.call(list.children, function (el) {
+				return el.hasAttribute('aria-pressed');
+			});
+			if (!items.length) return;
+
+			items.forEach(function (btn) {
+				btn.addEventListener('click', function () {
+					items.forEach(function (b) {
+						var active = b === btn;
+						b.classList.toggle('bottomsheet-list__item--selected', active);
+						b.setAttribute('aria-pressed', active ? 'true' : 'false');
+					});
+				});
+			});
+		});
+	}
+
 	// Chip 앵커 이동 + 스크롤 스파이(.chips--sticky) — MSPS3120(기관선택) 등에서 업권 칩을
 	// 클릭하면 같은 부모(.chips--sticky의 부모) 아래 있는 .inst-list__group 목록 중 같은
 	// 순서(index)의 그룹으로 스크롤 이동하고, 반대로 스크롤해서 어떤 그룹이 화면에 보이는지에
@@ -571,6 +716,7 @@ window.calendarAlign = function () {
 		initLegacyAriaSelectedFix();
 		initChipAccordion();
 		initChipSingle();
+		initBottomsheetList();
 		initChipAnchorScroll();
 		initStickyFooter();
 	});

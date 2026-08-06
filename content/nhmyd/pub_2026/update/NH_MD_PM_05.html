@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>[P] 별명설정</title>
+        <script>
+            $(document).ready(function () {
+                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1>별명 설정</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <!-- Figma node 1314:17759(01-01별명설정)/1314:17775(01-02별명설정-입력) 기준.
+                             AOS 키보드 목업 프레임은 실제 기기에서 input focus 시 OS가 알아서 띄워주는
+                             화면이라 별도 마크업으로 옮기지 않았습니다(다른 .nds 화면들도 동일 관례). -->
+                        <div class="input-box" id="nicknameInputBox">
+                            <label class="input-box__label blind" for="nicknameInput">별명</label>
+                            <div class="input-box__field">
+                                <input type="text" id="nicknameInput" class="input-box__input" placeholder="예) 엄마" autocomplete="off" />
+                                <button type="button" class="input-box__icon input-box__icon--clear" id="nicknameClear" aria-label="입력 지우기" hidden></button>
+                            </div>
+                            <p class="input-box__message" id="nicknameMsg">김올리님을 어떻게 부를까요?</p>
+                        </div>
+                        <label class="check-basic mt24">
+                            <input type="checkbox" class="check-basic__input" id="nicknameAutoApply" checked />
+                            <span class="check-basic__icon" aria-hidden="true"></span>
+                            <span class="check-basic__label">앞으로 같은 이름에 자동으로 적용할게요</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <div class="popBtn">
+                        <a href="javascript:;" class="confirmBtn disabled" role="button" aria-disabled="true">확인</a>
+                    </div>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Figma node 1314:18179(03별명변경-완료) — 확인 클릭 시 팝업이 닫히고 바닥페이지 위에
+             뜨는 토스트입니다. 레거시 nhasset-ui.js의 toastPopup()(.toastPop을 fadeIn→유지→fadeOut)을
+             그대로 재사용합니다. -->
+        <div class="toastPop nds" role="status" aria-live="polite">
+            <p class="toast-basic">별명을 설정했어요!</p>
+        </div>
+
+        <script>
+            $(function () {
+                var $input = $('#nicknameInput');
+                var $clear = $('#nicknameClear');
+                var $confirmBtn = $('.popBtnWrap .confirmBtn');
+
+                //입력값이 있어야만 확인 버튼이 활성화됩니다(MSAR3110P_01/NH_MD_PM_03과 동일한 관례).
+                function syncConfirmBtn() {
+                    var enabled = $.trim($input.val()).length > 0;
+                    $confirmBtn.toggleClass('disabled', !enabled);
+                    if (enabled) { $confirmBtn.removeAttr('aria-disabled'); } else { $confirmBtn.attr('aria-disabled', 'true'); }
+                }
+
+                $input.on('input', function () {
+                    $clear.prop('hidden', $(this).val().length === 0);
+                    syncConfirmBtn();
+                });
+
+                $clear.on('click', function () {
+                    $input.val('').trigger('input').trigger('focus');
+                });
+
+                //확인 클릭 → 팝업 닫힘(popClose, 150ms 슬라이드다운) → 바닥페이지 위에 토스트
+                //(레거시 toastPopup())로 완료를 알려줍니다(Figma node 1314:18179 흐름).
+                $confirmBtn.on('click', function (e) {
+                    e.preventDefault();
+                    if ($(this).hasClass('disabled')) return;
+                    popClose(this);
+                    window.setTimeout(function () {
+                        toastPopup();
+                    }, 200);
+                });
+
+                syncConfirmBtn();
+            });
+        </script>
+    </body>
+</html>
