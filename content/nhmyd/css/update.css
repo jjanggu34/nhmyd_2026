@@ -811,6 +811,13 @@
 .nds .radio-box--lg {padding:13px 16px;font-size:var(--type-size-15);letter-spacing:-0.3px;line-height:24px;border-radius:10px;margin:0 !important}
 .nds .radio-box-input:checked + .radio-box {border-width:1.5px;border-color:var(--color-border-point);color:var(--color-font-point);font-weight:var(--font-weight-medium)}
 .nds .radio-box-input:disabled + .radio-box {background:var(--color-bg-extra-bg);cursor:not-allowed}
+/* [버그 수정] NH_MD_PM_02_01(소비 경고 알림 설정, Figma node 1436:34473) — "지출 알림 받기"
+   토글이 꺼지면 금액/기준 선택 영역 전체가 disabled 처리되는데, 이미 선택돼 있던(checked)
+   항목까지 disabled로 바뀌어도 :checked 규칙(초록 테두리)이 :disabled 규칙과 함께 그대로
+   적용돼 "회색인데 테두리만 초록"으로 어긋나 보였습니다. 피그마는 비활성 시 선택 여부와
+   무관하게 전부 동일한 무채색 모습이라, checked+disabled 조합에서는 checked 스타일을
+   기본값으로 되돌립니다. */
+.nds .radio-box-input:disabled:checked + .radio-box {border-width:1px;border-color:var(--color-border-1);color:var(--color-font-3);font-weight:var(--font-weight-regular)}
 /* box/center, box/left ---- */
 .nds .radio-box-field {display:flex;flex-direction:column;gap:12px;width:100%}
 .nds .radio-box-group {display:flex;flex-direction:column;gap:4px;width:100%}
@@ -1036,6 +1043,12 @@
 .nds.fullLayerPop .text-stack .text-stack{padding-left:0;padding-right:0} */
 .nds .text-stack--lg {gap:32px;margin:48px 0 40px}
 .nds .text-stack--lg .text-stack:last-child{margin-bottom:0}
+/* ---- 소비 경고 알림 설정(NH_MD_PM_02_01, Figma node 1436:34473) ---- */
+.nds .pmAlert {display:flex;flex-direction:column;gap:16px;width:100%}
+.nds .pmAlert__head {display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%}
+.nds .pmAlert__body {display:flex;flex-direction:column;gap:32px;width:100%}
+.nds .pmAlert__group {display:flex;flex-direction:column;gap:12px;width:100%}
+.nds .pmAlert__group .bottomsheet-option__label {margin:0}
 .nds .result-icon {display:block;width:68px;height:68px}
 .nds .intro-hero {margin:60px 0} /* MSCO9100 */
 .nds .intro-hero img {display:block}
@@ -1043,7 +1056,7 @@
 .nds .tab-line {display:flex;align-items:center;width:100%;background-color:var(--color-bg-default)}
 .nds .tab-line__list {display:flex;align-items:stretch;flex:1 0 0;min-width:0;border-bottom:1px solid var(--color-border-2)}
 .nds .tab-line__item {display:flex;flex:1 0 0;min-width:0;align-items:center;justify-content:center;padding:12px 8px;border:none;border-bottom:2px solid transparent;background:none;cursor:pointer;font-size:var(--type-size-16);font-weight:var(--font-weight-regular);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-3)}
-.nds .tab-line__item--active {border-bottom-color:var(--color-font-1);font-weight:var(--font-weight-semibold);color:var(--color-font-1);position:relative;bottom:-1px}
+.nds .tab-line__item--active {border-bottom-color:var(--color-font-1);font-weight:var(--font-weight-semibold);color:var(--color-font-1);position:relative;bottom:-1px;padding:11px 8px 13px}
 .nds .tab-chip {display:flex;align-items:center;gap:8px;width:100%;padding:0;overflow-x:auto;background-color:var(--color-bg-default);scrollbar-width:none}
 .nds .tab-chip::-webkit-scrollbar {display:none}
 .nds .tab-chip__item {display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;padding:5px 16px;min-width:28px;border:1px solid var(--color-border-2);border-radius:var(--radius-full);background-color:var(--color-bg-container);cursor:pointer;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3);white-space:nowrap}
@@ -1095,6 +1108,7 @@
 .nds .input-box--success .input-box__field {border-color:var(--color-border-point)}
 .nds .input-box--success .input-box__message {color:var(--color-font-point)}
 .nds .input-box--readonly .input-box__field {background:var(--color-bg-extra-bg);cursor:default}
+.nds input[type="text"]:read-only{background:var(--color-bg-extra-bg)}
 .nds .input-box--disabled .input-box__field {background:var(--color-bg-extra-bg);cursor:not-allowed}
 .nds .input-line {display:flex;flex-direction:column;gap:8px;width:100%;max-width:428px}
 .nds .input-line__label {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.02em;color:var(--color-font-3)}
@@ -1311,7 +1325,7 @@
    #assetHeroSwiper에 커스텀 프로퍼티로 심어줍니다. Swiper가 슬라이드 전환 시 자동으로
    .swiper-slide-active 클래스를 옮겨주므로 별도 JS 없이 CSS만으로 활성 카드만 원래
    크기, 나머지(복제 슬라이드 포함)는 축소된 크기로 자연스럽게 전환됩니다. */
-.swiper-slide:not(.swiper-slide-active) .hero {transform:scaleY(var(--hero-peek-scale-y, 0.96))}
+.swiper-slide:not(.swiper-slide-active) .hero {transform:scaleY(var(--hero-peek-scale-y, 0.9))}
 .hero__flip {position:relative;display:grid;height:100%;transition:transform 0.22s ease;transform:scaleX(1)}
 .hero__flip.is-turning {transform:scaleX(0)}
 .hero__face {grid-column:1;grid-row:1;display:flex;flex-direction:column;gap:32px;border:1px solid #ececec;box-sizing:border-box;visibility:hidden;pointer-events:none}
@@ -1331,8 +1345,8 @@
 /* ---- 자산 구성비 막대(Chart.js stackedBarChart) ----
    CSS로만 그리던 정적 막대 대신, chart.html의 Stacked Bar Chart 샘플과 동일한 패턴(얇은
    가로 스택 막대 + 클릭/터치 시 뜨는 커스텀 HTML 툴팁)을 그대로 재사용합니다. */
-.hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;background:#f7f7f7}
-.hero__chart-box canvas {display:block;width:100%;height:100%;max-width:100%}
+.hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;border-radius:999px;box-shadow:0 0 2px rgba(0,0,0,0.1)}
+.hero__chart-box canvas {display:block;width:100%;height:100%;max-width:100%;border-radius:999px}
 .chartjs-tooltip {position:absolute;pointer-events:none;opacity:0;transition:opacity .12s ease;z-index:10;background:rgba(17,17,17,.92);color:#fff;border-radius:8px;padding:8px 12px;font-size:13px;line-height:1.6;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.18)}
 .chartjs-tooltip::after {content:"";position:absolute;left:var(--tt-arrow-left,50%);bottom:-6px;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(17,17,17,.92)}
 .chartjs-tooltip__title {font-weight:600;margin-bottom:2px;opacity:.85}
@@ -1389,19 +1403,21 @@
 .insight-hero__date {display:inline-block;border:1px solid #d3d3d3;border-radius:4px;padding:3px 8px;font-size:var(--type-size-10);color:#767676;line-height:15px;margin:0 0 60px}
 .insight-hero__panel {position:relative;background:linear-gradient(120deg, #31ada9 17.8%, #137e78 87.3%);border-radius:16px;padding:20px 20px 20px;overflow:visible}
 .insight-hero__mascot {position:absolute;top:-44px;left:16px;width:110px;height:110px;object-fit:contain;pointer-events:none;transform:scaleX(-1)}
+.pension .insight-hero__mascot{transform:scaleX(1);width:80px;height:86px;top:-37px}
 .insight-hero__tags {display:flex;justify-content:flex-end;gap:6px;margin:0 0 24px}
 .insight-hero__tag {display:inline-flex;align-items:center;height:25px;padding:0 10px;border-radius:2px;font-size:var(--type-size-13);font-weight:var(--font-weight-regular)}
 .insight-hero__tag--accent {background:#e6ff58;color:#1c7964}
 .insight-hero__tag--outline {background:rgba(255,255,255,0.16);color:#ffffff;border: 1px solid rgba(246, 246, 246, 0.24);}
 .insight-hero__headline {font-size:var(--type-size-20);font-weight:var(--font-weight-light);line-height:28px;color:#eafff8;margin:0 0 20px}
-.insight-hero__headline strong{font-weight:var(--font-weight-bold)}
-.insight-hero__highlight {background:none;color:#e6ff58;font-weight:var(--font-weight-semibold);background-color:rgba(17, 17, 17, 0.40)}
+.insight-hero__headline strong{font-weight:var(--font-weight-bold) !important;color:#ffffff}
+.insight-hero__highlight {background:none;color:#e6ff58;font-weight:var(--font-weight-semibold);background-color:rgba(17, 17, 17, 0.40);padding:0 2px}
 .insight-hero__divider {border:none;border-top:1px solid rgba(255,255,255,0.24);margin:20px 0}
 .insight-hero__body {font-size:var(--type-size-14);line-height: 22px;color:rgba(255,255,255,0.92);font-weight:var(--font-weight-medium);margin:0 0 32px}
 .insight-hero__body .insight-hero__highlight{background-color:transparent;font-weight:var(--font-weight-bold)}
-.insight-hero__cta {display:flex;align-items:center;justify-content:center;gap:6px;width:100%;height:52px;background:#105c5e;border:none;border-radius:10px;color:#ffffff;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);cursor:pointer}
+.insight-hero__cta {display:flex;align-items:center;justify-content:center;gap:6px;width:100%;height:40px;background:#105c5e;border:none;border-radius:10px;color:#ffffff;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);cursor:pointer}
 .insight-hero__cta-icon {width:18px;height:18px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-ai-spark.svg");mask-image:url("../images/update/ic-ai-spark.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-.insight-hero__status {display:flex;align-items:flex-start;gap:12px;margin-top:32px;padding-top:32px;border-top:1px solid #f0f0f0}
+.insight-hero__status {display:flex;align-items:flex-start;position:relative;gap:12px;margin-top:32px;padding-top:32px;border-top:1px solid #f0f0f0}
+.insight-hero__status:before{display:block;content:"";position:absolute;top:84px;bottom:4px;left:18px;width:2px;background:#EBEFF6;border-radius:2px}
 .insight-hero__status-icon {flex-shrink:0;width:40px;height:40px;border-radius:999px;display:flex;align-items:center;justify-content:center}
 .insight-hero__status-icon::before {content:"";display:block;width:22px;height:22px;background-size:contain;background-repeat:no-repeat;background-position:center}
 .insight-hero__status-icon--mint {background:rgba(221,242,228,0.7)}
@@ -1451,24 +1467,24 @@
 /* NH 안심알림 서비스 배너 — 유동성/연금 탭 */
 .alert-banner {position:relative;background:#685efd;border-radius:16px;padding:24px 96px 24px 20px;overflow:hidden;color:#ffffff}
 .alert-banner__title {font-size:var(--type-size-22);font-weight:var(--font-weight-semibold);margin:0 0 8px;line-height:1.3}
-.alert-banner__subtitle {font-size:var(--type-size-16);font-weight:var(--font-weight-medium);margin:0 0 12px;line-height:1.4}
+.alert-banner__subtitle {font-size:var(--type-size-16);font-weight:var(--font-weight-medium);margin:0 0 24px;line-height:1.4}
 .alert-banner__tags {font-size:var(--type-size-14);color:rgba(255,255,255,0.8);margin:0}
 .alert-banner__illust {position:absolute;right:12px;bottom:12px;width:72px;height:72px;object-fit:contain;pointer-events:none}
 
 /* 조기 은퇴 진단 — 연금 탭 */
-.retire-check {text-align:center}
-.retire-check__headline {font-size:var(--type-size-20);font-weight:var(--font-weight-medium);line-height:1.4;color:#121212;margin:0 0 12px}
+.retire-check {text-align:left;position:relative}
+.retire-check__headline {font-size:var(--type-size-20);font-weight:var(--font-weight-medium);line-height:1.4;color:#121212;margin:0 0 82px;text-align:left}
 .retire-check__percent {color:#19973c;font-weight:var(--font-weight-semibold)}
-.retire-check__mascot {width:96px;height:96px;object-fit:contain;margin:0 auto 20px}
-.retire-check__bar {position:relative;width:100%;height:10px;border-radius:999px;background:#eef0f3;overflow:hidden;margin:0 0 12px}
+.retire-check__mascot {width:auto;height:56px;object-fit:contain;margin:0;transform: scaleX(-1);position:absolute;top:122px;left:36px;z-index:10}
+.retire-check__bar {position:relative;width:100%;height:20px;border-radius:999px;background:#eef0f3;overflow:hidden;margin:0 0 12px}
 .retire-check__bar-fill {height:100%;border-radius:999px;background:#08d561}
-.retire-check__caption {font-size:var(--type-size-13);color:#767676;margin:0 0 20px}
-.retire-check__rows {margin:0 0 20px;text-align:left;border-top:1px solid #f0f0f0}
-.retire-check__row {display:flex;align-items:center;justify-content:space-between;padding:12px 4px;border-bottom:1px solid #f0f0f0}
-.retire-check__row dt {font-size:var(--type-size-14);color:#767676}
-.retire-check__row dd {margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);color:#121212}
+.retire-check__caption {font-size:var(--type-size-16);color:#343434;margin:0 0 20px}
+.retire-check__rows {margin:0 0 24px;text-align:left;border-top:1px solid #f0f0f0;padding-top:24px}
+.retire-check__row {display:flex;align-items:center;justify-content:space-between;padding:0 0 4px}
+.retire-check__row dt {font-size:var(--type-size-16);color:#767676;line-height:24px}
+.retire-check__row dd {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-medium);color:#121212;line-height:24px}
 .retire-check__row--highlight dt,
-.retire-check__row--highlight dd {font-weight:var(--font-weight-semibold);color:#f23f3f}
+.retire-check__row--highlight dd {font-weight:var(--font-weight-semibold)}
 
 /* 프로모 배너 캐러셀 — 대출자산 탭 */
 .promo-carousel {width:100%}
@@ -1487,7 +1503,7 @@
 /* 히어로 카드 앞면 — 그라데이션 2단 카드(피그마 herocard_01~04, 투자/유동성/연금/대출 공통) */
 .hero__face--redesign {border:none;padding:0;gap:0;overflow:visible;background:transparent;box-shadow:none}
 .hc-top {position:relative;z-index:2;height:100%;margin-bottom:-56px;padding:32px 20px 88px;border-radius:20px 20px 60px 20px;box-shadow:5px 6px 18px rgba(0,0,0,0.1);background-image:linear-gradient(140.86deg, #046ea3 4.27%, #0e7a5c 108.4%);color:#fff;box-sizing:border-box}
-.hc-bottom {position:relative;z-index:1;margin-top:auto;padding:64px 20px 20px;border-radius:0 0 20px 20px;background-image:linear-gradient(-34.94deg, #0f3437 4.97%, #4174a3 179.53%);box-sizing:border-box}
+.hc-bottom {position:relative;z-index:1;margin-top:auto;padding:64px 20px 20px;border-radius:0 0 20px 20px;background-image:linear-gradient(-34.94deg, #0f3437 4.97%, #4174a3 179.53%);box-sizing:border-box;box-shadow: 5px 6px 18px 0 rgba(0, 0, 0, 0.10)}
 .hc-title {font-size:var(--type-size-18);font-weight:var(--font-weight-bold);letter-spacing:-0.36px;margin:0 0 24px}
 .hc-date {font-size:var(--type-size-13);font-weight:var(--font-weight-semibold);letter-spacing:-0.26px}
 .hc-amount {display:flex;align-items:baseline;gap:4px;font-size:var(--type-size-28);font-weight:var(--font-weight-bold);letter-spacing:-0.56px;line-height:38px;margin:0 0 8px}
@@ -1505,7 +1521,6 @@
 .hc-notice p {margin:0;font-size:var(--type-size-12);letter-spacing:-0.24px;color:#fff}
 .hc-notice__accent {color:#08d561;font-weight:var(--font-weight-bold)}
 .hc-divider {border:none;border-top:1px solid rgba(255,255,255,0.16);margin:0 0 16px}
-.hc-top .hero__chart-box {background:transparent;border-radius:8px;box-shadow:0 0 2px rgba(0,0,0,0.1)}
 .hc-top .hero__legend {margin-top:12px !important;padding:0 8px;gap:2px}
 .hc-top .hero__legend li {font-size:var(--type-size-12);letter-spacing:-0.24px;color:#fff}
 .hc-top .hero__dot {width:8px;height:8px;border-radius:2px}

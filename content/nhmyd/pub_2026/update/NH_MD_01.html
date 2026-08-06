@@ -311,7 +311,7 @@
                                                     843,545원(+11.43%)
                                                 </span>
                                                 <div class="hc-notice">
-                                                    <span class="hc-notice__icon" aria-hidden="true"></span>
+                                                    <span class="hc-notice__icon hc-notice__icon--check" aria-hidden="true"></span>
                                                     <p>
                                                         <strong class="hc-notice__accent">D-30</strong>
                                                         연금개시
@@ -404,7 +404,7 @@
                                                     1,058,000원(-16.54%)
                                                 </span>
                                                 <div class="hc-notice">
-                                                    <span class="hc-notice__icon" aria-hidden="true"></span>
+                                                    <span class="hc-notice__icon hc-notice__icon--check" aria-hidden="true"></span>
                                                     <p>
                                                         <strong class="hc-notice__accent">D-30</strong>
                                                         주택담보대출 원리금납입
@@ -634,7 +634,7 @@
                             </p>
                             <p class="insight-hero__date">2027.11.07 기준</p>
                             <div class="insight-hero__panel">
-                                <img class="insight-hero__mascot" src="../../images/update/img-oney-suitcase.png" alt="" aria-hidden="true" />
+                                <img class="insight-hero__mascot" src="../../images/update/img-ally-laptop-right.png" alt="" aria-hidden="true" />
                                 <div class="insight-hero__tags">
                                     <span class="insight-hero__tag insight-hero__tag--accent">유동성 자산</span>
                                     <span class="insight-hero__tag insight-hero__tag--outline">인사이트</span>
@@ -693,7 +693,7 @@
                                 <span class="briefing-notice__icon" aria-hidden="true"></span>
                                 KOSPI 7,000선 첫 돌파와 미·이란 갈등 격화가 동시에 작용한 한주 였어요.
                             </p>
-                            <button type="button" class="btn btn--primary btn--lg btn--full">브리핑 상세보기</button>
+                            <button type="button" class="btn btn--primary btn--md btn--full">브리핑 상세보기</button>
                         </div>
                     </section>
 
@@ -753,7 +753,7 @@
 
                 <!-- [연금] 자산 인사이트 -->
                 <div class="asset-tab-panel" data-tab-panel="pension" hidden>
-                    <section class="md-section">
+                    <section class="md-section pension">
                         <h2 class="md-section__title">연금 자산 인사이트</h2>
                         <div class="md-card insight-hero">
                             <p class="insight-hero__greeting">
@@ -764,7 +764,7 @@
                             </p>
                             <p class="insight-hero__date">2027.11.07 기준</p>
                             <div class="insight-hero__panel">
-                                <img class="insight-hero__mascot" src="../../images/update/img-oney-suitcase.png" alt="" aria-hidden="true" />
+                                <img class="insight-hero__mascot" src="../../images/update/img-ally-running.png" alt="" aria-hidden="true" />
                                 <div class="insight-hero__tags">
                                     <span class="insight-hero__tag insight-hero__tag--accent">연금 자산</span>
                                     <span class="insight-hero__tag insight-hero__tag--outline">인사이트</span>
@@ -799,11 +799,15 @@
                                 <strong class="retire-check__percent">32%</strong>
                                 입니다.
                             </p>
-                            <img class="retire-check__mascot" src="../../images/update/img-ally-running.png" alt="" aria-hidden="true" />
+                            <img class="retire-check__mascot" src="../../images/update/img-oney-suitcase.png" alt="" aria-hidden="true" />
                             <div class="retire-check__bar" role="img" aria-label="은퇴준비율 32%">
                                 <div class="retire-check__bar-fill" style="width:36%"></div>
                             </div>
-                            <p class="retire-check__caption">마련된 총 은퇴생활비 4,447만원</p>
+                            <p class="retire-check__caption">
+                                마련된 총 은퇴생활비
+                                <strong>4,447</strong>
+                                만원
+                            </p>
                             <dl class="retire-check__rows">
                                 <div class="retire-check__row">
                                     <dt>은퇴 후 월 희망생활비</dt>
@@ -822,7 +826,7 @@
                                     <dd>175만원</dd>
                                 </div>
                             </dl>
-                            <button type="button" class="btn btn--primary btn--lg btn--full">조기은퇴 결과보기</button>
+                            <button type="button" class="btn btn--primary btn--md btn--full">조기은퇴 결과보기</button>
                         </div>
                     </section>
 
@@ -1003,7 +1007,16 @@
                     var label = slideEl.getAttribute('data-category-label');
                     if (!label) return;
                     var realSlideEl = swiperEl.querySelector('.swiper-slide:not(.swiper-slide-duplicate)[data-category-label="' + label + '"]');
-                    var realInsightCanvas = realSlideEl && realSlideEl.querySelector('[data-insight-chart]');
+                    // [버그 수정] "투자 카드를 뒤집고 한 바퀴 돌아 첫 슬라이드로 오면 그래프가
+                    // 전혀 안 보이다가 한 번 더 스와이프해야 나타남" — 인사이트 차트는 카드마다
+                    // 캔버스 속성이 다릅니다(투자만 data-trend-chart, 나머지 세 카드는
+                    // data-insight-chart). 아래에서 [data-insight-chart]만 찾았더니 투자 카드는
+                    // 매칭되는 캔버스가 없어 복제 슬라이드로 픽셀 동기화가 아예 안 됐고, 복제
+                    // 슬라이드의 캔버스는 애초에 한 번도 그려진 적 없는 빈 캔버스라 그 순간
+                    // 그래프가 완전히 사라진 것처럼 보였습니다(진짜 슬라이드로 순간 이동해야
+                    // 다시 나타남). 두 속성을 모두 찾도록 셀렉터를 합쳐서 투자 카드도 똑같이
+                    // 동기화되게 합니다.
+                    var realInsightCanvas = realSlideEl && realSlideEl.querySelector('[data-insight-chart], [data-trend-chart]');
                     var siblingSlides = swiperEl.querySelectorAll('.swiper-slide[data-category-label="' + label + '"]');
                     siblingSlides.forEach(function (otherSlideEl) {
                         if (otherSlideEl === slideEl) return;
@@ -1021,7 +1034,7 @@
                         });
                         // 복제 슬라이드가 뒤집힌 채로 잠깐 보이더라도 빈 캔버스가 아니라 실제
                         // 인사이트 차트의 최신 스냅샷이 보이도록 픽셀을 그대로 복사합니다.
-                        var otherInsightCanvas = otherSlideEl.querySelector('[data-insight-chart]');
+                        var otherInsightCanvas = otherSlideEl.querySelector('[data-insight-chart], [data-trend-chart]');
                         if (realInsightCanvas && otherInsightCanvas && otherSlideEl.classList.contains('swiper-slide-duplicate')) {
                             if (otherInsightCanvas.width !== realInsightCanvas.width) otherInsightCanvas.width = realInsightCanvas.width;
                             if (otherInsightCanvas.height !== realInsightCanvas.height) otherInsightCanvas.height = realInsightCanvas.height;
@@ -1377,16 +1390,30 @@
                     });
                     chart.update('none'); // 애니메이션 없이 즉시 0으로
                     syncCloneCanvases(categoryKey, chart.canvas); // 복제 슬라이드 canvas도 "0" 상태로 즉시 맞춤
-                    // requestAnimationFrame 대신 setTimeout을 씁니다 — rAF는 탭이 백그라운드에
-                    // 있거나(예: 스와이프 직후 다른 곳으로 포커스가 잠깐 이동하는 경우) 브라우저가
-                    // 페인트를 쉬면 아예 호출되지 않을 수 있어, 그러면 0으로 내려간 값이 다시
-                    // 복원되지 않는 문제가 생깁니다. setTimeout은 그런 상황에서도 안정적으로 실행됩니다.
-                    setTimeout(function () {
+                    // [버그 수정] "첫 카드를 뒤집었다가 스와이프로 나갔다 돌아오면 그래프가
+                    // 바닥(0)에 한참 멈춰 있다가 뒤늦게 차오름" — 원래는 setTimeout(fn, 20)으로
+                    // "다음 틱"에 실제값으로 복원했는데, 실측해보니 스와이프 전환 도중/직후에는
+                    // 브라우저가 전환 렌더링을 우선시하며 일반 매크로태스크 타이머 실행을 뒤로
+                    // 미루는 경우가 있어(20ms 요청에 실제로는 300~500ms 이상 걸림 확인) 그동안
+                    // 그래프가 0에 멈춰 있는 것처럼 보였습니다. requestAnimationFrame은 같은
+                    // 상황에서도 실제 렌더 루프에 맞춰 훨씬 안정적으로(대개 1~2프레임 안에)
+                    // 호출되므로 이걸로 대체합니다. 다만 원래 setTimeout을 쓴 이유(rAF는 탭이
+                    // 백그라운드에 있으면 아예 호출되지 않아 0으로 내려간 값이 영영 복원되지
+                    // 않을 수 있음)도 여전히 유효한 우려라, rAF와 별개로 넉넉한 setTimeout을
+                    // 안전망으로 같이 걸어두고 둘 중 먼저 온 쪽만 실행되게 합니다.
+                    var restored = false;
+                    function restore() {
+                        if (restored) return;
+                        restored = true;
                         chart.data.datasets.forEach(function (ds, i) {
                             ds.data[0] = entry.targets[i];
                         });
                         chart.update(); // 0 -> 실제값으로 채워지는 애니메이션 재생 (animation.onProgress/onComplete가 복제본 동기화를 이어서 담당)
-                    }, 20);
+                    }
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(restore);
+                    });
+                    setTimeout(restore, 300); // rAF가 끝내 안 도는 경우(백그라운드 탭 등)를 위한 안전망
                 }
                 // 탭/스와이프 동기화 IIFE(위)에서 slideChange 시 호출할 수 있도록 전역 노출
                 window.replayHeroBarChart = replayHeroBarChart;
@@ -1506,7 +1533,7 @@
                     // 현상의 원인). 999처럼 큰 값을 주면 Chart.js가 자동으로 rect 크기의 절반까지만
                     // 클램프하므로, 박스 높이가 몇이든 항상 바깥 박스와 정확히 같은 반원(알약) 모양이
                     // 되게 맞춥니다.
-                    var PILL_RADIUS = 3;
+                    var PILL_RADIUS = 999;
                     datasets[0].borderRadius = { topLeft: PILL_RADIUS, bottomLeft: PILL_RADIUS, topRight: 0, bottomRight: 0 };
                     datasets[0].borderSkipped = false;
                     for (var i = 1; i < datasets.length - 1; i++) {
@@ -1628,6 +1655,31 @@
                 // 기존 CSS 버전이 손으로 정해뒀던 시각 높이(px, 최대 140)를 그대로 차트
                 // 데이터로 쓰고 실제 금액은 툴팁에서만 보여줍니다(막대 옆 .blind 목록도
                 // 동일 정보를 스크린리더용으로 제공).
+                // [버그 수정] "투자 카드를 뒤집고 한 바퀴 돌아 첫 슬라이드로 오면 그래프가
+                // 전혀 안 보이다가 한 번 더 스와이프해야 나타남" — 위 카드 뒤집기 IIFE의
+                // syncFlipStateToSiblingSlides가 뒤집는 "그 순간"에만 실제 캔버스 픽셀을
+                // 복제 슬라이드로 복사하는데, 뒤집힘 애니메이션(transform)이 끝난 직후 Chart.js가
+                // 컨테이너 크기를 다시 재보정하며 실제 캔버스를 리사이즈하는 경우가 있어(반응형
+                // responsive:true라 크기가 바뀌면 캔버스도 다시 그려짐), 그 리사이즈가 위 1회성
+                // 복사보다 "나중에" 일어나면 복제본은 리사이즈 이전의 낡은 크기/픽셀로 남아
+                // 다음에 그 복제본이 화면에 스쳐 지나갈 때(=루프 한 바퀴 돌아 돌아올 때) 실제
+                // 그래프와 어긋난 채 텅 빈 캔버스로 보였습니다. 위 자산 구성비 막대 차트가
+                // syncCloneCanvases를 애니메이션 콜백에서 계속 다시 부르는 것과 같은 원리로,
+                // 여기 뒷면 차트들도 onResize 때마다(=크기가 바뀔 때마다) 복제 슬라이드 캔버스를
+                // 다시 최신 상태로 맞춰 둡니다.
+                function syncBackFaceCloneCanvases(categoryKey, attrName) {
+                    var realCanvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [' + attrName + '="' + categoryKey + '"]');
+                    if (!realCanvas) return;
+                    var clones = document.querySelectorAll('.swiper-slide.swiper-slide-duplicate [' + attrName + '="' + categoryKey + '"]');
+                    clones.forEach(function (cloneCanvas) {
+                        if (cloneCanvas.width !== realCanvas.width) cloneCanvas.width = realCanvas.width;
+                        if (cloneCanvas.height !== realCanvas.height) cloneCanvas.height = realCanvas.height;
+                        var ctx = cloneCanvas.getContext('2d');
+                        ctx.clearRect(0, 0, cloneCanvas.width, cloneCanvas.height);
+                        ctx.drawImage(realCanvas, 0, 0);
+                    });
+                }
+
                 function buildInsightChart(categoryKey, labels, visualPrev, visualNow, realPrev, realNow, colors) {
                     var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-insight-chart="' + categoryKey + '"]');
                     if (!canvas) return;
@@ -1643,6 +1695,7 @@
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
+                            onResize: function () { syncBackFaceCloneCanvases(categoryKey, 'data-insight-chart'); },
                             // 스와이프 중 손가락이 캔버스를 스칠 때 touchmove가 hover로 인식돼
                             // 툴팁이 뜨는 것을 막습니다(위 hero__chart-box와 같은 이유).
                             events: ['mousemove', 'mouseout'],
@@ -1703,8 +1756,36 @@
                 function buildTrendChart(categoryKey, months, series) {
                     var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-trend-chart="' + categoryKey + '"]');
                     if (!canvas) return;
-                    var datasets = series.map(function (s) {
-                        return { label: s.label, data: s.data, backgroundColor: s.color, borderRadius: 3, borderSkipped: false, maxBarThickness: 28 };
+                    // [디자인 반영] 피그마(node 1267:16786)는 누적 막대 전체를 하나의 알약(pill)
+                    // 모양으로 표현합니다 — 각 구간(segment)마다 둥글리는 게 아니라, 맨 아래(첫
+                    // 데이터셋)만 아래쪽 두 모서리를, 맨 위(마지막 데이터셋)만 위쪽 두 모서리를
+                    // 막대 두께의 절반만큼 둥글리고 나머지 중간 구간은 각지게 둡니다. Chart.js는
+                    // 코너별 반지름 객체를 지원하므로 데이터셋 위치에 따라 다르게 줍니다.
+                    var barThickness = 14;
+                    var capRadius = barThickness / 2;
+                    // [버그 수정] "차트도 모든 컬러가 나오도록 데이터도 수정해줘" — 해외신흥국주식/
+                    // 국내채권/해외채권 실제 금액(550~1050원)이 국내주식/현금(수십~수백만원)에 비해
+                    // 너무 작아서 누적 막대에서 실제 비율대로 그리면 두께가 1px도 안 돼 사실상 안
+                    // 보였습니다(위 buildInsightChart의 "시각 높이 vs 실제 금액" 분리와 같은 문제).
+                    // 같은 해법으로, 작은 값 시리즈에는 실제 값과 비례 관계(추세 모양)는 유지하되
+                    // 최소한의 가시성을 보장하는 별도의 visual 배열을 두고, 툴팁에는 원래의 실제
+                    // 금액(data)을 그대로 보여줍니다.
+                    var datasets = series.map(function (s, i) {
+                        var isFirst = i === 0;
+                        var isLast = i === series.length - 1;
+                        return {
+                            label: s.label,
+                            data: s.visual || s.data,
+                            backgroundColor: s.color,
+                            borderRadius: {
+                                topLeft: isLast ? capRadius : 0,
+                                topRight: isLast ? capRadius : 0,
+                                bottomLeft: isFirst ? capRadius : 0,
+                                bottomRight: isFirst ? capRadius : 0
+                            },
+                            borderSkipped: false,
+                            barThickness: barThickness
+                        };
                     });
                     new Chart(canvas.getContext('2d'), {
                         type: 'bar',
@@ -1712,13 +1793,16 @@
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
+                            onResize: function () { syncBackFaceCloneCanvases(categoryKey, 'data-trend-chart'); },
                             events: ['mousemove', 'mouseout'],
                             plugins: {
                                 legend: { display: false }, // 범례는 아래 .hcb-legend--grid(HTML)로 대체
                                 tooltip: {
                                     callbacks: {
                                         label: function (context) {
-                                            return context.dataset.label + ': ' + context.parsed.y.toLocaleString() + '원';
+                                            // 시각 높이가 아니라 실제 금액(series[i].data)을 보여줍니다.
+                                            var real = series[context.datasetIndex].data[context.dataIndex];
+                                            return context.dataset.label + ': ' + real.toLocaleString() + '원';
                                         }
                                     }
                                 }
@@ -1734,9 +1818,9 @@
                 buildTrendChart('invest', ['27.02', '27.03', '27.04', '27.05', '27.06', '27.07'], [
                     { label: '국내주식', color: '#f4ff3f', data: [825000, 930000, 1200000, 1050000, 1575000, 1500000] },
                     { label: '해외선진국주식', color: '#ffa856', data: [275000, 310000, 400000, 350000, 525000, 500000] },
-                    { label: '해외신흥국주식', color: '#ff7e7e', data: [550, 620, 800, 700, 1050, 1000] },
-                    { label: '국내채권', color: '#49d8ff', data: [550, 620, 800, 700, 1050, 1000] },
-                    { label: '해외채권', color: '#09b2c5', data: [550, 620, 800, 700, 1050, 1000] },
+                    { label: '해외신흥국주식', color: '#ff7e7e', data: [550, 620, 800, 700, 1050, 1000], visual: [120000, 135000, 174000, 153000, 229000, 218000] },
+                    { label: '국내채권', color: '#49d8ff', data: [550, 620, 800, 700, 1050, 1000], visual: [80000, 90000, 116000, 101500, 152000, 145000] },
+                    { label: '해외채권', color: '#09b2c5', data: [550, 620, 800, 700, 1050, 1000], visual: [107000, 121000, 156000, 136500, 205000, 195000] },
                     { label: '현금', color: '#08d561', data: [1100000, 1240000, 1600000, 1400000, 2100000, 2000000] }
                 ]);
             })();

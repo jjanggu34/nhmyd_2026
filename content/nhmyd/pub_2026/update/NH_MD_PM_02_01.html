@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>[P] 소비 경고 알림 설정</title>
+        <script>
+            $(document).ready(function () {
+                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1>소비 경고 알림 설정</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <div class="text-stack mb32">
+                            <p class="text text--body2">오늘까지 쓴 금액이 설정한 기준을 넘으면 푸시로 알려드려요.</p>
+                        </div>
+
+                        <div class="pmAlert" id="pmAlert">
+                            <div class="pmAlert__head">
+                                <p class="text--h4">지출 알림 받기</p>
+                                <label class="switch">
+                                    <input type="checkbox" class="switch__input" id="pmAlertSwitch" checked />
+                                    <span class="switch__track"></span>
+                                </label>
+                            </div>
+
+                            <div class="pmAlert__body">
+                                <div class="pmAlert__group">
+                                    <p class="bottomsheet-option__label">알림 기준 금액</p>
+                                    <div class="radio-box-row">
+                                        <input type="radio" name="pmAlertAmount" id="pmAmount-5" class="radio-hidden-input radio-box-input" data-amount="50000" checked />
+                                        <label for="pmAmount-5" class="radio-box radio-box--sm radio-box--center">5만원</label>
+                                        <input type="radio" name="pmAlertAmount" id="pmAmount-10" class="radio-hidden-input radio-box-input" data-amount="100000" />
+                                        <label for="pmAmount-10" class="radio-box radio-box--sm radio-box--center">10만원</label>
+                                        <input type="radio" name="pmAlertAmount" id="pmAmount-20" class="radio-hidden-input radio-box-input" data-amount="200000" />
+                                        <label for="pmAmount-20" class="radio-box radio-box--sm radio-box--center">20만원</label>
+                                        <input type="radio" name="pmAlertAmount" id="pmAmount-direct" class="radio-hidden-input radio-box-input" data-amount="direct" />
+                                        <label for="pmAmount-direct" class="radio-box radio-box--sm radio-box--center">직접입력</label>
+                                    </div>
+                                    <div class="input-box input-box--readonly" id="pmAmountBox">
+                                        <div class="input-box__field">
+                                            <input type="text" inputmode="numeric" class="input-box__input input-box__input--right" id="pmAmountInput" value="50,000원" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pmAlert__group">
+                                    <p class="bottomsheet-option__label">알림 기준</p>
+                                    <div class="radio-box-row">
+                                        <input type="radio" name="pmAlertBasis" id="pmBasis-month" class="radio-hidden-input radio-box-input" checked />
+                                        <label for="pmBasis-month" class="radio-box radio-box--sm radio-box--center">이번 달 누적</label>
+                                        <input type="radio" name="pmAlertBasis" id="pmBasis-remain" class="radio-hidden-input radio-box-input" />
+                                        <label for="pmBasis-remain" class="radio-box radio-box--sm radio-box--center">남은 용돈 기준</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <div class="popBtn">
+                        <a href="javascript:;" class="confirmBtn" role="button">설정 저장하기</a>
+                    </div>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(function () {
+                // 피그마(node 1436:34473)의 "지출 알림 받기" 토글 Off일 때는 아래 금액/기준
+                // 선택 영역 전체가 비활성(회색) 상태로 보입니다. .radio-box-input:disabled와
+                // .input-box--disabled는 이미 update.css에 정의돼 있는 공용 규칙이라, disabled
+                // 속성만 여닫아주면 별도 CSS 없이 그 스타일이 그대로 적용됩니다.
+                var $switch = $('#pmAlertSwitch');
+                var $radios = $('#pmAlert .radio-box-input');
+                var $amountBox = $('#pmAmountBox');
+                var $amountInput = $('#pmAmountInput');
+
+                function formatWon(n) {
+                    return n.toLocaleString('ko-KR') + '원';
+                }
+
+                function syncEnabled() {
+                    var on = $switch.is(':checked');
+                    $radios.prop('disabled', !on);
+                    $amountInput.prop('disabled', !on);
+                    $amountBox.toggleClass('input-box--disabled', !on);
+                }
+
+                function syncAmountField() {
+                    var $checked = $('input[name="pmAlertAmount"]:checked');
+                    var amount = $checked.data('amount');
+                    if (amount === 'direct') {
+                        // 직접입력 선택 시: 읽기전용을 풀고 실제 입력창으로 전환합니다(네이티브
+                        // 숫자 키패드는 inputmode="numeric"이 알아서 띄워주므로 커스텀 키패드는
+                        // 만들지 않습니다 — 피그마 목업의 키보드는 OS 키보드를 그대로 보여준 것).
+                        $amountBox.removeClass('input-box--readonly');
+                        $amountInput.prop('readonly', false);
+                        if ($amountInput.data('wasPreset') !== false) {
+                            $amountInput.val('').data('wasPreset', false);
+                        }
+                        $amountInput.trigger('focus');
+                    } else {
+                        $amountBox.addClass('input-box--readonly');
+                        $amountInput.prop('readonly', true).data('wasPreset', true);
+                        $amountInput.val(formatWon(Number(amount)));
+                    }
+                }
+
+                $switch.on('change', syncEnabled);
+                $('input[name="pmAlertAmount"]').on('change', syncAmountField);
+
+                // 직접입력 중에는 숫자만 남기고 천단위 콤마 + '원'을 실시간으로 다시 붙여줍니다.
+                $amountInput.on('input', function () {
+                    if ($(this).prop('readonly')) return;
+                    var digits = $(this).val().replace(/[^0-9]/g, '');
+                    $(this).val(digits ? formatWon(Number(digits)) : '');
+                });
+
+                syncEnabled();
+            });
+        </script>
+    </body>
+</html>
