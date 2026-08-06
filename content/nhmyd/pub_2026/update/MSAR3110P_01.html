@@ -94,37 +94,18 @@
                 var $msg = $('#searchMsg1');
                 var $resultWrap = $('#searchResultWrap1');
                 var $countNum = $('#searchCountNum1');
-                var $list = $('#searchList1');
                 var $empty = $('#searchEmpty1');
                 var $confirmBtn = $('.popBtnWrap .confirmBtn');
                 var currentResults = [];
                 var selectedIndex = -1;
 
-                //slidePopConfirm()과 동일한 계산으로, 콘텐츠가 바뀔 때마다 팝업 높이를 다시 맞춥니다.
-                //단, popInner 전체 높이는 화면(디바이스) 높이의 80%를 넘지 않도록 제한하고,
-                //그 이상은 popCont 내부만 스크롤되도록 합니다.
+                //팝업 높이를 뷰포트 80%로 제한하고 넘치면 popCont 내부만 스크롤시키는 로직은
+                //update-ui.js의 slidePopConfirm() 오버라이드가 모든 .nds 화면에 공통 적용합니다.
+                //이 화면은 검색 결과처럼 열려 있는 동안 내용이 계속 바뀌므로, 바뀔 때마다 애니메이션
+                //없이 즉시 다시 맞추기 위해 그 공용 함수(window.syncSlidePopConfirmHeight)를
+                //그대로 재사용합니다(로컬로 따로 복제해서 들고 있지 않음).
                 function resyncPopHeight() {
-                    var confirmPop = $('.slidePopConfirm');
-                    var $popInner = confirmPop.find('.popInner');
-                    var $popCont = confirmPop.find('.popCont');
-                    var confirmTit = confirmPop.find('.popInner h1').length > 0 ? confirmPop.find('.popInner h1').outerHeight() : confirmPop.find('.popInner h2').outerHeight();
-                    var confirmBtnAra = confirmPop.find('.popBtnWrap .popBtn').length > 0 ? confirmPop.find('.popBtnWrap').outerHeight() : 0;
-
-                    //자연 높이를 다시 재는 동안은 기존 제약을 풀어야 정확한 콘텐츠 높이가 나옵니다.
-                    $popCont.css({ maxHeight: 'none', overflowY: 'visible' });
-                    var naturalContH = $popCont.outerHeight();
-                    var naturalTotal = naturalContH + confirmBtnAra + confirmTit;
-
-                    var maxPopInnerH = $(window).height() * 0.8;
-                    var targetPopInnerH = Math.min(naturalTotal, maxPopInnerH);
-                    $popInner.css({ height: targetPopInnerH });
-
-                    var maxContH = targetPopInnerH - confirmTit - confirmBtnAra;
-                    if (naturalContH > maxContH) {
-                        $popCont.css({ maxHeight: maxContH, overflowY: 'auto' });
-                    } else {
-                        $popCont.css({ maxHeight: 'none', overflowY: 'visible' });
-                    }
+                    window.syncSlidePopConfirmHeight(false);
                 }
 
                 function syncConfirmBtn() {
@@ -133,24 +114,22 @@
                     if (enabled) { $confirmBtn.removeAttr('aria-disabled'); } else { $confirmBtn.attr('aria-disabled', 'true'); }
                 }
 
+                //실제 DOM 렌더링은 update-ui.js의 공용 renderBottomsheetList()가 담당합니다
+                //(.bottomsheet-list는 이 화면만 쓰는 게 아니라 여러 화면이 공유하는 nds 컴포넌트라
+                //검색/선택 화면이 더 생길 걸 대비해 공통 유틸로 옮겼습니다). 여기서는 이 화면의
+                //상태(currentResults/selectedIndex)와 선택 후 동작(재렌더링/버튼 활성화/팝업
+                //높이 재계산)만 연결합니다.
                 function renderList() {
-                    $list.empty();
-                    currentResults.forEach(function (item, i) {
-                        var selected = i === selectedIndex;
-                        //check 아이콘은 append/remove 대신 항상 DOM에 두고,
-                        //부모 item의 --selected 클래스에 따라 CSS(display)로만 노출/공간 여부를 제어함
-                        var $item = $('<button type="button" class="bottomsheet-list__item" role="option"></button>')
-                            .attr('aria-selected', selected ? 'true' : 'false')
-                            .toggleClass('bottomsheet-list__item--selected', selected)
-                            .append($('<span></span>').text(item.label))
-                            .append('<span class="bottomsheet-list__check" aria-hidden="true"></span>');
-                        $item.on('click', function () {
+                    window.renderBottomsheetList({
+                        container: 'searchList1',
+                        items: currentResults,
+                        selectedIndex: selectedIndex,
+                        onSelect: function (i) {
                             selectedIndex = selectedIndex === i ? -1 : i;
                             renderList();
                             syncConfirmBtn();
                             resyncPopHeight();
-                        });
-                        $list.append($item);
+                        }
                     });
                 }
 
@@ -189,10 +168,11 @@
                     $input.val('').trigger('input').trigger('focus');
                 });
 
-                //화면 회전/리사이즈 시에도 80% 제한을 다시 계산합니다.
-                $(window).on('resize', resyncPopHeight);
+                //화면 회전/리사이즈 시 80% 제한 재계산은 update-ui.js가 모든 .nds 화면에
+                //공통으로 처리하므로 여기서 따로 등록하지 않습니다.
 
-                //slidePopConfirm()이 popInner를 먼저 펼친 뒤, 80% 제한을 한 번 더 적용합니다.
+                //slidePopConfirm()이 popInner를 먼저 펼친(100ms) 뒤, 이 화면의 초기 검색 상태
+                //기준으로 80% 제한을 한 번 더 확실히 적용합니다.
                 setTimeout(resyncPopHeight, 150);
             });
         </script>
