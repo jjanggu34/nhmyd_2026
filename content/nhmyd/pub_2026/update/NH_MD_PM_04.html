@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>[P] 월선택</title>
+        <script>
+            $(document).ready(function () {
+                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1>월선택</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <div class="bottomsheet-list">
+                            <button type="button" class="bottomsheet-list__item" aria-pressed="false">
+                                <span>2026년 7월</span>
+                                <span class="bottomsheet-list__check" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="bottomsheet-list__item" aria-pressed="false">
+                                <span>2026년 6월</span>
+                                <span class="bottomsheet-list__check" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="bottomsheet-list__item" aria-pressed="false">
+                                <span>2026년 5월</span>
+                                <span class="bottomsheet-list__check" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="bottomsheet-list__item" aria-pressed="false">
+                                <span>2026년 4월</span>
+                                <span class="bottomsheet-list__check" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected" aria-pressed="true">
+                                <span>2026년 5월</span>
+                                <span class="bottomsheet-list__check" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="bottomsheet-list__item" aria-pressed="false">
+                                <span>2026년 2월</span>
+                                <span class="bottomsheet-list__check" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="bottomsheet-list__item" aria-pressed="false">
+                                <span>2026년 1월</span>
+                                <span class="bottomsheet-list__check" aria-hidden="true"></span>
+                            </button>
+                            <button type="button" class="bottomsheet-list__item" aria-pressed="false">
+                                <span>2025년 12월</span>
+                                <span class="bottomsheet-list__check" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <!-- <div class="popBtn">
+                        <a href="javascript:;" class="confirmBtn" role="button">설정 저장하기</a>
+                    </div> -->
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
