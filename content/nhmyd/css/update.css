@@ -1322,7 +1322,7 @@
    유지합니다. 안쪽 진짜 스와이퍼(#assetHeroSwiper)는 overflow:visible로 두고 높이는
    기존처럼 JS(syncCardHeight)가 그대로 제어합니다 — 패딩이 안쪽 요소가 아니라 바깥
    래퍼에 있어서 카드 실제 높이 계산에는 영향을 주지 않습니다. */
-.asset-hero-swiper-clip {overflow:hidden;margin:-24px;padding:var(--spacing-24)}
+.asset-hero-swiper-clip {overflow:hidden;margin:-24px;padding:var(--spacing-24) var(--spacing-16)}
 .asset-tab-panel{margin-top:56px}
 .asset-hero-swiper {overflow:visible}
 /* ---- 자산 히어로 - 플립 카드(유동성/투자/연금/대출 공통) ---- */
@@ -1533,7 +1533,7 @@
 .hc-amount {display:flex;align-items:baseline;gap:var(--spacing-4);font-size:var(--type-size-28);font-weight:var(--font-weight-bold);letter-spacing:-0.56px;line-height:38px;margin:0 0 var(--spacing-8)}
 .hc-amount span {font-size:var(--type-size-24);font-weight:var(--font-weight-regular)}
 .hc-change {display:inline-flex;align-items:center;gap:3px;border:1px solid rgba(240,240,240,0.24);border-radius:var(--radius-4);padding:var(--spacing-8) 11px;font-size:var(--type-size-13);font-weight:var(--font-weight-bold);letter-spacing:-0.26px;line-height:20px;margin:0 0 var(--spacing-24)}
-.hc-change__icon {width:12px;height:12px;flex-shrink:0;background-color:var(--primitive-base-0);-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.hc-change__icon {width:12px;height:12px;flex-shrink:0;background-color:var(--primitive-base-0);-webkit-mask-image:url("../images/update/ic-graph-stock-red.svg");mask-image:url("../images/update/ic-graph-stock-red.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .hc-change__icon--up {transform:rotate(180deg)}
 .hc-notice {display:flex;align-items:center;gap:var(--spacing-4);background:rgba(14,54,69,0.6);border-radius:var(--radius-8);padding:var(--spacing-12);margin:0 0 var(--spacing-16);box-sizing:border-box}
 /* [변경] <img src="...svg">로 아이콘을 직접 보여주던 것을, 마크업은 빈 <span aria-hidden="true">로
