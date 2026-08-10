@@ -1466,12 +1466,12 @@
 .market-index__icon--pink::before {background-image:url("../images/update/ic-shield-check-pink.svg")}
 .market-index__label {font-size:var(--type-size-15);color:#828894;margin:0 0 var(--spacing-24)}
 .market-index__value {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);color:#132333;text-align:right;margin:0 0 var(--spacing-4)}
-.market-index__change {font-size:var(--type-size-13);text-align:right;margin:0;display:flex;align-items:center;justify-content:flex-end;gap:var(--spacing-2)}
+.market-index__change {font-size:var(--type-size-12);text-align:right;margin:0;display:flex;align-items:center;justify-content:flex-end;gap:var(--spacing-2);line-height:14px}
 .market-index__change--up {color:var(--primitive-red-warning)}
 .market-index__change--down {color:var(--primitive-blue-500)}
 .market-index__change--flat {color:#a2a2a2}
-.market-index__change::before {content:"";display:inline-block;width:10px;height:10px;background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:center;mask-position:center;-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");transform:rotate(-45deg)}
-.market-index__change--down::before {transform:rotate(45deg)}
+.market-index__change::before {content:"";display:inline-block;width:12px;height:12px;background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:center;mask-position:center;-webkit-mask-image:url("../images/update/ic-graph-stock-red.svg");mask-image:url("../images/update/ic-graph-stock-red.svg")}
+.market-index__change--down::before {-webkit-mask-image:url("../images/update/ic-graph-stock-blue.svg");mask-image:url("../images/update/ic-graph-stock-blue.svg")}
 .market-index__change--flat::before {content:none}
 
 /* 위클리 브리핑 — accordion-gray를 아이콘 뱃지가 있는 형태로 확장 */
@@ -1536,7 +1536,8 @@
 .hc-change {display:inline-flex;align-items:center;gap:3px;border:1px solid rgba(240,240,240,0.24);border-radius:var(--radius-4);padding:var(--spacing-8) 11px;font-size:var(--type-size-13);font-weight:var(--font-weight-bold);letter-spacing:-0.26px;line-height:20px;margin:0 0 var(--spacing-24)}
 .hc-change__icon {width:12px;height:12px;flex-shrink:0;background-color:var(--primitive-base-0);-webkit-mask-image:url("../images/update/ic-graph-stock-red.svg");mask-image:url("../images/update/ic-graph-stock-red.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .hc-change__icon--up {transform:rotate(180deg)}
-.hc-notice {display:flex;align-items:center;gap:var(--spacing-4);background:rgba(14,54,69,0.6);border-radius:var(--radius-8);padding:var(--spacing-12);margin:0 0 var(--spacing-16);box-sizing:border-box}
+.hc-notice {display:flex;align-items:center;gap:var(--spacing-4);background:rgba(14,54,69,0.6);border-radius:var(--radius-8);padding:var(--spacing-12);margin:0 0 var(--spacing-24);box-sizing:border-box}
+.hc-top .hc-divider{margin:0 0 var(--spacing-24)}
 /* [변경] <img src="...svg">로 아이콘을 직접 보여주던 것을, 마크업은 빈 <span aria-hidden="true">로
    두고 배경이미지로 그립니다(장식용 아이콘이라 alt=""와 동등하게 aria-hidden 처리). 두 SVG 모두
    자체 색이 고정된 다색 아이콘이라(mask는 알파값만 남기고 색을 지워버림) mask-image 대신
