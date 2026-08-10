@@ -1084,8 +1084,9 @@
                 var id = { 신규: 'newCount', 개선: 'improveCount', 유지: 'keepCount', 삭제: 'delCount' }[type];
                 document.getElementById(id).textContent = count;
               });
+              // 삭제 예정(.del) 행은 완료 표시가 있어도 개발완료 건수에서 제외합니다.
               document.getElementById('doneCount').textContent =
-                document.querySelectorAll('tbody tr td.status .ok').length;
+                document.querySelectorAll('tbody tr:not(.del) td.status .ok').length;
             })();
 
             const q = document.getElementById('q');

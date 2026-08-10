@@ -18,10 +18,10 @@
                 <!-- 자산 카테고리 탭 -->
                 <div class="tab-line">
                     <div class="tab-line__list" role="tablist" aria-label="자산 카테고리" id="assetTabList">
-                        <button type="button" id="assetTab-invest" class="tab-line__item tab-line__item--active" role="tab" aria-selected="true" tabindex="0" data-index="0">투자</button>
-                        <button type="button" id="assetTab-liquidity" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1" data-index="1">유동성</button>
-                        <button type="button" id="assetTab-pension" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1" data-index="2">연금</button>
-                        <button type="button" id="assetTab-loan" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1" data-index="3">대출</button>
+                        <button type="button" id="assetTab-invest" class="tab-line__item tab-line__item--active" role="tab" aria-selected="true" tabindex="0">투자</button>
+                        <button type="button" id="assetTab-liquidity" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">유동성</button>
+                        <button type="button" id="assetTab-pension" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">연금</button>
+                        <button type="button" id="assetTab-loan" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">대출</button>
                     </div>
                 </div>
                 <!-- 스와이프 중 화면리더 사용자에게 지금 어느 카테고리인지 알려주는 라이브 리전.
@@ -40,7 +40,7 @@
                             <!-- 투자 -->
                             <div class="swiper-slide" data-category-label="투자" aria-hidden="false">
                                 <div class="hero">
-                                    <div class="hero__flip" id="investFlip">
+                                    <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
                                             <div class="hc-top">
                                                 <p class="hc-title">내 투자 자산</p>
@@ -181,7 +181,7 @@
                             <!-- 유동성 -->
                             <div class="swiper-slide" data-category-label="유동성" aria-hidden="true">
                                 <div class="hero">
-                                    <div class="hero__flip" id="liquidityFlip">
+                                    <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
                                             <div class="hc-top">
                                                 <p class="hc-title">내 유동성 자산</p>
@@ -297,7 +297,7 @@
                             <!-- 연금 -->
                             <div class="swiper-slide" data-category-label="연금" aria-hidden="true">
                                 <div class="hero">
-                                    <div class="hero__flip" id="pensionFlip">
+                                    <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
                                             <div class="hc-top">
                                                 <p class="hc-title">내 연금 자산</p>
@@ -390,7 +390,7 @@
                             <!-- 대출 -->
                             <div class="swiper-slide" data-category-label="대출" aria-hidden="true">
                                 <div class="hero">
-                                    <div class="hero__flip" id="loanFlip">
+                                    <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
                                             <div class="hc-top">
                                                 <p class="hc-title">내 대출 자산</p>
@@ -1526,6 +1526,43 @@
                     // (복제 슬라이드)는 제외해서 항상 실제로 보이는 슬라이드의 canvas만 잡습니다.
                     var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-chart-canvas="' + categoryKey + '"]');
                     if (!canvas) return;
+                    // [버그 수정] "유동성 탭 오른쪽 끝 radius가 0<->999px로 이상하게 보인다" ->
+                    // (1차 수정 후) "기타 영역이 거의 안 보이고 각진 부분은 그대로다"까지 재확인한
+                    // 실제 원인 — 마지막 세그먼트(예: 유동성의 "기타" 500,000원)가 전체 합계 대비
+                    // 비중이 너무 작으면(약 0.05%) 렌더링 폭이 1px는커녕 0.1px대로 나와 사실상 화면에
+                    // 안 그려집니다. 단순히 "1px 넘게만" 보정해도(1차 수정) 문제가 완전히 없어지지
+                    // 않는데, 알약(pill) 모양을 만드는 borderRadius:999(아래 PILL_RADIUS)는 Chart.js가
+                    // "그 세그먼트 자신의" 사각형 크기 절반까지만 클램프하기 때문입니다 — 세그먼트 폭이
+                    // 박스 높이(.hero__chart-box, 완전한 반원이 되려면 필요한 최소 폭)보다 얇으면, 그
+                    // 세그먼트 자체 곡률은 작게 클램프되는데 바로 앞 세그먼트는 borderSkipped/radius:0로
+                    // 각져 있어서, 부모 박스(overflow:hidden + border-radius:999px)가 만드는 둥근
+                    // 테두리 곡선 한가운데에 "각진 색 경계선"이 그대로 비쳐 보였습니다(스샷으로 확인:
+                    // 둥근 초록 캡 안에 주황색이 수직으로 뚝 잘린 모양). 그래서 세그먼트 폭이 아니라
+                    // "박스 실제 렌더 높이" 자체를 기준으로 최소 폭을 계산합니다 — 처음/마지막
+                    // 세그먼트(알약 반경을 담당)는 최소한 박스 높이만큼의 폭을 확보해 자기 자신의
+                    // 반경 클램프도 부모와 같은 최대치(높이의 절반)에 도달하게 만들고, 그 외 중간
+                    // 세그먼트는 그냥 안 보이지 않을 정도의 작은 최소 폭만 보장합니다. 차트에 넘기는
+                    // 값만 보정하고, 실제 금액은 ds.realValue에 그대로 보존해 툴팁(아래 tooltip
+                    // callbacks.label 참고)·범례에는 왜곡 없이 표시됩니다.
+                    var boxRect = canvas.getBoundingClientRect();
+                    // 레이아웃이 아직 안 잡혔을 때(예: 화면 밖 복제 슬라이드)를 대비한 안전값 —
+                    // 22px 높이 / 300px 폭은 이 카드의 평소 실측치를 그대로 씀
+                    var boxHeightPx = boxRect.height > 0 ? boxRect.height : 22;
+                    var boxWidthPx = boxRect.width > 0 ? boxRect.width : 300;
+                    var realTotalForBoost = datasets.reduce(function (sum, ds) { return sum + ds.data[0]; }, 0);
+                    var pxPerUnit = realTotalForBoost > 0 ? boxWidthPx / realTotalForBoost : 0;
+                    // 처음/마지막 세그먼트: 박스 높이만큼의 폭 확보(=반경 클램프가 부모와 일치)
+                    var minEdgeValue = pxPerUnit > 0 ? boxHeightPx / pxPerUnit : 0;
+                    // 나머지 중간 세그먼트: 그냥 1px 안팎만 보이면 되므로 훨씬 작은 최소값
+                    var minGeneralValue = realTotalForBoost * 0.006;
+                    datasets.forEach(function (ds, dsIndex) {
+                        ds.realValue = ds.data[0]; // 툴팁 등 표시용 실제 금액 보존
+                        var isEdgeSegment = dsIndex === 0 || dsIndex === datasets.length - 1;
+                        var minVisualValue = isEdgeSegment ? minEdgeValue : minGeneralValue;
+                        if (realTotalForBoost > 0 && ds.data[0] < minVisualValue) {
+                            ds.data[0] = minVisualValue; // 렌더링(막대 폭)에만 쓰이는 값 보정
+                        }
+                    });
                     // [버그 수정] 부모 .hero__chart-box가 overflow:hidden + border-radius:11px(=
                     // 높이 22px의 절반, 즉 완전한 알약 모양)로 감싸고 있어서, 캔버스 세그먼트 쪽
                     // 모서리를 3px로만 둥글리면 바깥 박스는 11px로 크게 잘리고 안쪽 막대는 3px로만
@@ -1592,7 +1629,11 @@
                                     callbacks: {
                                         label: function (context) {
                                             var label = context.dataset.label || '';
-                                            var value = context.parsed.x || 0;
+                                            // [버그 수정] 최소 시각 폭 보정(위 MIN_VISUAL_RATIO)으로 아주
+                                            // 작은 세그먼트는 context.parsed.x(=차트 렌더링용 보정값)가
+                                            // 실제 금액보다 부풀려질 수 있어, 보존해둔 ds.realValue가
+                                            // 있으면 그걸 우선 사용해 툴팁엔 항상 실제 금액을 보여줍니다.
+                                            var value = context.dataset.realValue != null ? context.dataset.realValue : (context.parsed.x || 0);
                                             return label + ': ' + value.toLocaleString() + '원';
                                         }
                                     }
@@ -1683,13 +1724,18 @@
                 function buildInsightChart(categoryKey, labels, visualPrev, visualNow, realPrev, realNow, colors) {
                     var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-insight-chart="' + categoryKey + '"]');
                     if (!canvas) return;
+                    // [디자인 반영] 피그마(herocard_04 back, node 1267:16612)의 막대 radius를
+                    // 그대로 맞춥니다 — 각 막대(전월/금월 둘 다) 네 모서리 전부 rounded-[var(--radius/8,8px)],
+                    // 즉 update.css의 --radius-8(8px) 토큰과 동일한 8px입니다. borderSkipped:false는
+                    // 이미 있던 설정으로 위/아래 네 모서리를 전부 둥글립니다(Chart.js 기본값은 위쪽만).
+                    var BAR_RADIUS = 8; // update.css --radius-8 / 피그마 --radius/8 토큰과 동일
                     new Chart(canvas.getContext('2d'), {
                         type: 'bar',
                         data: {
                             labels: labels,
                             datasets: [
-                                { label: '전월', data: visualPrev, backgroundColor: colors.prev, borderRadius: 2, borderSkipped: false },
-                                { label: '금월', data: visualNow, backgroundColor: colors.now, borderRadius: 2, borderSkipped: false }
+                                { label: '전월', data: visualPrev, backgroundColor: colors.prev, borderRadius: BAR_RADIUS, borderSkipped: false },
+                                { label: '금월', data: visualNow, backgroundColor: colors.now, borderRadius: BAR_RADIUS, borderSkipped: false }
                             ]
                         },
                         options: {
