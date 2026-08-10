@@ -1121,16 +1121,40 @@
             });
 
             // 화면ID 링크(td.id a) 마우스오버시 아이프레임 미리보기 — pubList_2026.html의
-            // septem_pubcom.js overIframe()과 동일한 방식(고정폭 360x640 프리뷰 패널)
+            // septem_pubcom.js overIframe()과 동일한 방식(고정폭 360x640 프리뷰 패널).
+            // 단, 실제 저장소에 파일이 없는 화면(준비중)은 HEAD 요청으로 존재를 먼저 확인해서
+            // 있을 때만 미리보기를 띄웁니다(없으면 빈 화면/404 아이프레임이 뜨는 것을 방지).
             (function () {
               var previewIframe = document.createElement('iframe');
               previewIframe.className = 'previewIframe';
+              var hoveredLink = null;
+              var existsCache = {};
+
+              function showPreview(link, href) {
+                if (hoveredLink !== link) return; // 응답 오는 사이 마우스가 이미 벗어났으면 무시
+                document.body.appendChild(previewIframe);
+                previewIframe.src = href;
+              }
+
               document.querySelectorAll('td.id a').forEach(function (link) {
                 link.addEventListener('mouseover', function () {
-                  document.body.appendChild(previewIframe);
-                  previewIframe.src = link.getAttribute('href');
+                  hoveredLink = link;
+                  var href = link.getAttribute('href');
+                  if (existsCache.hasOwnProperty(href)) {
+                    if (existsCache[href]) showPreview(link, href);
+                    return;
+                  }
+                  fetch(href, { method: 'HEAD' })
+                    .then(function (res) {
+                      existsCache[href] = res.ok;
+                      if (res.ok) showPreview(link, href);
+                    })
+                    .catch(function () {
+                      existsCache[href] = false;
+                    });
                 });
                 link.addEventListener('mouseout', function () {
+                  hoveredLink = null;
                   if (previewIframe.parentNode) previewIframe.parentNode.removeChild(previewIframe);
                 });
               });
