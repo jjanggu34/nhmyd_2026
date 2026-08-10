@@ -738,10 +738,11 @@
 .nds .inst-list__grid-item {display:block;min-width:0;cursor:pointer;position:relative}
 .nds .inst-list__grid-card {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-8);width:100%;padding:var(--spacing-16) var(--spacing-6);border-radius:var(--radius-8);background:var(--color-bg-default);border:1px solid var(--color-border-4);transition:background-color var(--transition-base)}
 .nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card {background:rgba(229, 239, 255, 0.20);border:1px solid var(--primitive-blue-200)}
-.nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card:before{content:"";display:block;position:absolute;top:6px;right:8px;width:12px;height:12px;background-color:var(--primitive-gray-500);-webkit-mask-image: url("../images/update/ico_share-link_line_24.svg");mask-image: url("../images/update/ico_share-link_line_24.svg");-webkit-mask-size: contain;mask-size: contain;-webkit-mask-repeat: no-repeat;mask-repeat: no-repeat;-webkit-mask-position: center;mask-position: center}
+.nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card:before{content:"";display:block;position:absolute;top:6px;right:8px;width:12px;height:12px;background-color:var(--primitive-gray-500);-webkit-mask-image: url("../images/update/ic-share-copylink.svg");mask-image: url("../images/update/ic-share-copylink.svg");-webkit-mask-size: contain;mask-size: contain;-webkit-mask-repeat: no-repeat;mask-repeat: no-repeat;-webkit-mask-position: center;mask-position: center}
 .nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card {background:var(--color-bg-default);border:1px solid var(--color-border-4)}
 .nds .inst-list__grid-logo {flex-shrink:0;width:24px;height:24px;object-fit:contain}
 .nds .inst-list__grid-label {max-width:100%;overflow:hidden;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-1);text-align:center;text-overflow:ellipsis;white-space:nowrap}
+.nds .inst-list__grid-card .label{position:absolute;top:6px;right:6px;overflow:hidden;white-space:nowrap;background-color:var(--primitive-gray-100);padding:var(--spacing-2);font-size: var(--type-size-10);line-height:15px;letter-spacing: -0.2px}
 /* ---- Result List ---- */
 .nds .result-list {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-24);width:100%;box-sizing:border-box}
 .nds .result-list__rows {display:flex;flex-direction:column;width:100%}
