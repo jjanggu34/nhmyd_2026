@@ -194,7 +194,6 @@
     --spacing-32:32px;
     --radius-2:2px;
     --radius-4:4px;
-    --radius-6:6px;
     --radius-8:8px;
     --radius-10:10px;
     --radius-12:12px;
@@ -254,7 +253,7 @@
 .nds .center {text-align:center !important}
 .nds .left {text-align:left !important}
 .nds .right {text-align:right !important}
-.nds .container {padding-left:var(--spacing-24) !important;padding-right:var(--spacing-24) !important;padding-bottom:var(--sticky-footer-pad, 120px) !important}
+.nds .container {padding-left:var(--spacing-24) !important;padding-right:var(--spacing-24) !important;padding-bottom:120px !important}
 .nds .guide-title {font-size:var(--type-size-15);font-weight:700;margin-bottom:var(--spacing-8)}
 .nds .guide-desc {font-size:var(--type-size-14);font-weight:400;color:var(--primitive-red-200);margin-bottom:var(--spacing-16)}
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
@@ -1240,7 +1239,6 @@
 .nds .btn-arrow__icon--left {-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");transform:scaleX(-1)}
 .nds .btn-arrow__icon--right {-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg")}
 .nds .btn-arrow__icon--plus {-webkit-mask-image:url("../images/update/ic-plus-xs.svg");mask-image:url("../images/update/ic-plus-xs.svg")}
-.nds .btn-arrow__icon--setting {-webkit-mask-image:url("../images/update/ic-setting.svg");mask-image:url("../images/update/ic-setting.svg")}
 .nds .btn-arrow__icon--down {-webkit-mask-image:url("../images/update/ic-arrow-circle-down-short.svg");mask-image:url("../images/update/ic-arrow-circle-down-short.svg")}
 .nds .btn-arrow__icon--up {-webkit-mask-image:url("../images/update/ic-arrow-circle-down-short.svg");mask-image:url("../images/update/ic-arrow-circle-down-short.svg");transform:rotate(180deg)}
 .nds .btn-arrow__icon--hidden {visibility:hidden}
@@ -1579,117 +1577,5 @@
 .hcb-promo__eyebrow {font-size:var(--type-size-12);color:#023e58;margin:0 0 var(--spacing-2)}
 .hcb-promo__cta {font-size:var(--type-size-15);font-weight:var(--font-weight-semibold);color:#095778;margin:0}
 .hcb-promo__mascot {width:54px;height:58px;object-fit:contain;flex-shrink:0}
-
-/* ==========================================================================
-   NH_MD_PM_01.html — 용돈 리포트(Allowance report) 전용 컴포넌트
-   Figma: node 1652:26072 (2026-08-11)
-   섹션 간 세로 간격은 40px(피그마 실측), 좌우 여백은 .container의 기본
-   24px 패딩을 그대로 사용(섹션 내부에 추가 좌우 padding을 주지 않음)
-   ========================================================================== */
-.nds .allowance-hero {margin-top:var(--spacing-24)}
-.nds .allowance-section {margin-top:40px}
-.nds .allowance-section__title {margin:0 0 var(--spacing-12);font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
-
-/* ---- hero: 상단 월 선택/기준시각 ---- */
-.nds .allowance-hero__top {display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-16)}
-.nds .allowance-hero__month {display:flex;align-items:center;gap:var(--spacing-4);background:none;border:none;padding:0;margin:0;cursor:pointer;font:inherit}
-.nds .allowance-hero__month-num {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);line-height:26px;letter-spacing:-0.36px;color:var(--primitive-gray-900)}
-.nds .allowance-hero__month-range {font-size:var(--type-size-12);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
-.nds .allowance-hero__month-arrow {display:block;width:16px;height:16px;flex-shrink:0;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-.nds .allowance-hero__updated {display:flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-12);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
-.nds .allowance-hero__tooltip-icon {display:block;width:16px;height:16px;flex-shrink:0;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-
-/* ---- hero: 카드(흰 상단 + 파란 하단 바) ---- */
-.nds .allowance-hero__card {border-radius:var(--radius-16);overflow:visible}
-.nds .allowance-hero__white {position:relative;background:var(--color-bg-default);border-radius:var(--radius-16) var(--radius-16) 0 0;padding:var(--spacing-24) var(--spacing-20);box-shadow:0px 5px 15px rgba(0,0,0,0.1)}
-.nds .allowance-hero__summary {display:flex;align-items:center;gap:var(--spacing-8);width:100%}
-.nds .allowance-hero__summary-icon {display:flex;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:40px;border-radius:var(--radius-16);background:rgba(229,239,255,0.7)}
-.nds .allowance-hero__summary-icon::before {content:"";display:block;width:22px;height:22px;background:url("../images/update/ic-shield-check-blue.svg") no-repeat center/contain}
-.nds .allowance-hero__summary-text {flex:1;min-width:0}
-.nds .allowance-hero__summary-sub {margin:0;font-size:var(--type-size-14);line-height:1;letter-spacing:-0.28px;color:var(--color-font-3);line-height:1}
-.nds .allowance-hero__summary-main {margin:4px 0 0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;color:var(--color-font-2);line-height:1}
-.nds .allowance-hero__summary-main strong {color:var(--primitive-blue-500);font-weight:inherit}
-.nds .allowance-hero__mascot-wrap {display:flex;justify-content:space-between;align-items:flex-start;margin:10px 0 -31px}
-.nds .allowance-hero__mascot {width:120px;height:auto;filter:drop-shadow(-24px -16px 40px rgba(68,120,233,0.45));pointer-events:none}
-.nds .allowance-hero__glass {position:relative;backdrop-filter:blur(5.5px);-webkit-backdrop-filter:blur(5.5px);background:rgba(211,220,235,0.4);border:1px solid rgba(202,221,252,0.29);border-radius:var(--radius-12);padding:var(--spacing-16)}
-.nds .allowance-hero__glass-link {color:var(--color-icon-1);margin-top:8px;line-height:20px}
-.nds .allowance-hero__glass-label {margin:0;font-size:13px;line-height:20px;letter-spacing:-0.26px;color:var(--color-font-2)}
-.nds .allowance-hero__glass-amount {margin:0;font-size:20px;line-height:32px;color:var(--color-font-2)}
-.nds .allowance-hero__glass-amount strong {font-size:24px;font-weight:var(--font-weight-bold);letter-spacing:-0.96px;color:#002259}
-.nds .allowance-hero__progress {position:relative;width:100%;height:20px;border-radius:var(--radius-full);background:rgba(0,0,0,0.1);overflow:hidden;margin:var(--spacing-16) 0 0}
-.nds .allowance-hero__progress-fill {height:100%;border-radius:var(--radius-full);background:#09b2c5}
-.nds .allowance-hero__detail {display:flex;flex-direction:column;gap:var(--spacing-8);margin-top:var(--spacing-16)}
-.nds .allowance-hero__detail-row {display:flex;align-items:center;gap:var(--spacing-8);background:#f7f8fb;border-radius:var(--radius-8);padding:var(--spacing-6) var(--spacing-12)}
-.nds .allowance-hero__detail-icon {display:block;width:16px;height:16px;flex-shrink:0;border-radius:var(--radius-6)}
-.nds .allowance-hero__detail-icon--in {background:#FFE5E5 url("../images/update/ic-plus_red.svg")no-repeat center/8px 8px}
-.nds .allowance-hero__detail-icon--out {background:#E5EFFF url("../images/update/ic-minus_blue.svg")no-repeat center/8px 8px}
-.nds .allowance-hero__detail-label {font-size:var(--type-size-12);letter-spacing:-0.24px;color:var(--color-font-1)}
-.nds .allowance-hero__detail-amount {flex:1;text-align:right;font-size:13px;font-weight:var(--font-weight-semibold);letter-spacing:-0.26px;color:var(--color-font-1)}
-.nds .allowance-hero__detail-amount em {font-style:normal;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);color:var(--color-font-3);margin-left:2px}
-.nds .allowance-hero__cta {display:flex;align-items:center;justify-content:center;gap:2px;width:100%;background:var(--primitive-blue-500);border:none;border-radius:0 0 var(--radius-16) var(--radius-16);padding:var(--spacing-12) 0;color:var(--primitive-base-0);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;cursor:pointer}
-.nds .allowance-hero__cta .btn-arrow__icon {background-color:currentColor}
-
-/* ---- 누가 용돈을 보내줬을까요? (스와이프) ---- */
-.nds .allowance-senders__clip {overflow:hidden;margin:0 calc(var(--spacing-24) * -1);padding:0 var(--spacing-24)}
-.nds .allowance-senders__swiper {overflow:visible}
-.nds .allowance-sender-card {display:flex;align-items:center;gap:var(--spacing-12);width:148px;background:var(--color-bg-default);border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-8);box-shadow:0px 5px 7.5px rgba(0,0,0,0.04)}
-.nds .allowance-sender-card__icon {display:flex;align-items:center;justify-content:center;flex-shrink:0;width:32px;height:32px;border-radius:var(--radius-16);background:#f3f5f8}
-.nds .allowance-sender-card__icon::before {content:"";display:block;width:24px;height:24px;background:url("../images/update/ic-piggy-bank.svg") no-repeat center/contain}
-.nds .allowance-sender-card__info {flex:1;min-width:0}
-.nds .allowance-sender-card__name {margin:0;font-size:10px;line-height:15px;letter-spacing:-0.2px;color:var(--color-font-4)}
-.nds .allowance-sender-card__amount {margin:0;font-size:var(--type-size-14);color:var(--color-font-1)}
-.nds .allowance-sender-card__amount em {font-style:normal;font-weight:var(--font-weight-regular);color:var(--color-font-3)}
-
-/* ---- 체크카드 연결 nudge 배너 ---- */
-.nds .allowance-nudge__card {display:flex;align-items:center;height:72px;padding:var(--spacing-16);border-radius:12px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:linear-gradient(90deg, rgba(221,242,228,0.7) 0%, rgba(221,242,228,0.7) 100%)}
-.nds .allowance-nudge__text {flex:1;min-width:0}
-.nds .allowance-nudge__sub {margin:0;font-size:var(--type-size-12);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-1)}
-.nds .allowance-nudge__title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
-.nds .allowance-nudge__img {width:54px;height:54px;object-fit:cover;flex-shrink:0}
-
-/* ---- 어디에 많이 썼을까요? ---- */
-.nds .allowance-spend__card {display:flex;flex-direction:column;gap:var(--spacing-20);background:var(--color-bg-default);border-radius:var(--radius-16);padding:var(--spacing-20);box-shadow:0px 5px 7.5px rgba(0,0,0,0.04)}
-.nds .allowance-spend__row {display:flex;align-items:flex-start;gap:var(--spacing-8)}
-.nds .allowance-spend__icon {display:flex;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:40px;border-radius:var(--radius-16)}
-.nds .allowance-spend__icon::before {content:"";display:block;width:24px;height:24px;background-size:contain;background-repeat:no-repeat;background-position:center}
-.nds .allowance-spend__icon--food {background:#fff5df}
-.nds .allowance-spend__icon--food::before {background-image:url("../images/update/ic-restaurant.svg")}
-.nds .allowance-spend__icon--edu {background:#eaf5ff}
-.nds .allowance-spend__icon--edu::before {background-image:url("../images/update/ic-graduation-cap.svg")}
-.nds .allowance-spend__icon--bus {background:#e5f4d9}
-.nds .allowance-spend__icon--bus::before {background-image:url("../images/update/ic-bus.svg")}
-.nds .allowance-spend__info {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-8)}
-.nds .allowance-spend__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);line-height:22px}
-.nds .allowance-spend__label {margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-1)}
-.nds .allowance-spend__label span {font-weight:var(--font-weight-regular);color:var(--color-font-4);margin-left:var(--spacing-4)}
-.nds .allowance-spend__amount {margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-1)}
-.nds .allowance-spend__amount em {font-style:normal;font-weight:var(--font-weight-regular);color:#505050}
-.nds .allowance-spend__bar {position:relative;width:100%;height:8px;border-radius:var(--radius-full);background:rgba(0,0,0,0.1);overflow:hidden}
-.nds .allowance-spend__bar-fill {height:100%;border-radius:var(--radius-full)}
-.nds .allowance-spend__bar-fill--food {background:#ffa856}
-.nds .allowance-spend__bar-fill--edu {background:#49d8ff}
-.nds .allowance-spend__bar-fill--bus {background:#8ec567}
-
-/* ---- 또래 친구들은 어디에 많이 썼을까요? ---- */
-.nds .allowance-peers__grid {display:flex;gap:var(--spacing-8)}
-.nds .allowance-peers__card {position:relative;flex:1;min-width:0;height:172px;background:var(--color-bg-default);border-radius:var(--radius-16);padding:var(--spacing-20);overflow:hidden}
-.nds .allowance-peers__label {margin:0 0 var(--spacing-2);font-size:20px;font-weight:var(--font-weight-semibold);line-height:28px;letter-spacing:-0.4px;color:var(--primitive-blue-500)}
-.nds .allowance-peers__desc {margin:0;font-size:var(--type-size-12);line-height:16px;letter-spacing:-0.24px;color:var(--color-font-4)}
-.nds .allowance-peers__desc br + br {display:none}
-.nds .allowance-peers__icon {position:absolute;right:12px;bottom:12px;width:64px;height:64px;background-size:contain;background-repeat:no-repeat;background-position:center}
-.nds .allowance-peers__icon--shopping {background-image:url("../images/update/ic-bag-star-blue.svg")}
-.nds .allowance-peers__icon--health {background-image:url("../images/update/ic-shield-health.svg")}
-
-/* ---- 머니 캘린더 배너 ---- */
-.nds .allowance-calendar-banner__card {position:relative;background:#e4eeff;border-radius:16px;padding:22px 24px 14px;min-height:190px;box-sizing:border-box;overflow:hidden}
-.nds .allowance-calendar-banner__text {position:relative;z-index:1;display:flex;flex-direction:column;gap:var(--spacing-8);max-width:60%}
-.nds .allowance-calendar-banner__title {margin:0;font-size:22px;font-weight:var(--font-weight-semibold);line-height:28px;letter-spacing:-0.44px;color:var(--color-font-1)}
-.nds .allowance-calendar-banner__link {color:var(--color-text-button-etc)}
-.nds .allowance-calendar-banner__img {position:absolute;right:0;bottom:0;width:120px;height:106px;object-fit:contain;pointer-events:none}
-
-/* ---- 소비 경고 알림 설정 링크 ---- */
-.nds .allowance-alert-link {display:flex;justify-content:center;margin-bottom:var(--spacing-32)}
-.nds .allowance-alert-link__btn {color:var(--color-font-4)}
-
 
 .nds .linked-bottom-menu.alloneFooterNew{box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.05);}
