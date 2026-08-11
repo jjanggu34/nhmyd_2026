@@ -36,13 +36,14 @@ main { padding:18px 20px 60px; }
 .twrap { overflow-x:auto; background:#fff; border:1px solid #eee; }
 table { border-collapse:collapse; font-size:12px; table-layout:fixed; width:100%; min-width:1180px; }
 colgroup col.no   { width:42px; }
-colgroup col.dep  { width:150px; }
+colgroup col.dep  { width:180px; }
 colgroup col.id   { width:150px; }
 colgroup col.type { width:60px; }
 colgroup col.fmt  { width:70px; }
-colgroup col.ppl  { width:132px; }
-colgroup col.st   { width:80px; }
+colgroup col.ppl  { width:160px; }
+colgroup col.st   { width:60px; }
 colgroup col.lnk  { width:150px; }
+colgroup col.dep + col.dep + col.dep + col.dep{width:50px;}
 th, td { padding:6px 8px; border:1px solid #eee; border-width:1px 0 0 1px; text-align:left; vertical-align:top; word-break:break-word; }
 th:first-child, td:first-child { border-left:0; }
 th { padding:6px 8px; color:#000; font-weight:900; font-size:12px; border-bottom:1px solid #111; border-top:2px solid #555; background:#fff; }
@@ -58,7 +59,7 @@ tbody tr:hover td { background-color:#f4f6f4 !important; }
 .flag { color:#c0392b; cursor:help; }
 .id { font-size:12px; }
 .no { text-align:center; color:#888; font-weight:400; }
-.people { display:flex; flex-direction:column; gap:3px;}
+.people { display:flex; flex-direction:row; gap:3px;}
 .rbadge { display:inline-flex; align-items:center; gap:4px; padding:2px 6px; border-radius:9px; font-size:10.5px; font-weight:700; white-space:nowrap; width:fit-content; width:57px;}
 .rbadge::before { content:''; display:block; flex:0 0 auto; width:11px; height:11px; background-color:currentColor; -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat; -webkit-mask-position:center; mask-position:center; -webkit-mask-size:contain; mask-size:contain; }
 .r-plan { background:#e8eaf6; color:#3949ab; }
@@ -70,7 +71,9 @@ tbody tr:hover td { background-color:#f4f6f4 !important; }
 td.link a { color:#111; text-decoration:underline; }
 footer { height:30px; line-height:30px; text-align:center; background-color:#fafafa; color:#888; font-size:11px; }
 tr.hide { display:none; }
-tr.del td { text-decoration:line-through; color:#ccc !important; background:#eee !important; }
+tr.del { background:#eee !important}
+tr.del td { text-decoration:line-through; color:#ccc !important; background:#eee !important}
+tr.del td.status .ok {color:#ccc !important}
 tr.del .badge, tr.del .rbadge { opacity:.5; }
 tr.del td a{color:#ccc !important; background:#eee !important;}
 tbody tr.del:hover td { background-color:#eee !important; }
