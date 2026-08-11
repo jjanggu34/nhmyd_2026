@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>NH마이데이터 자산/부채 통합 진단 서비스 이용약관 | 약관 상세보기</title>
+        <script>
+            $(document).ready(function() {
+            	fullLayerPop();
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+        <div class="nhasset popWrap nds fullLayerPop">
+            <div class="popInner">
+                <h1><span class="blind">NH마이데이터 「자산/부채 통합 진단」 서비스 이용약관</span></h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <!-- 제목 -->
+                        <div class="text-stack">
+                            <strong class="text text--h3">
+                                NH마이데이터 「자산/부채 통합 진단」 서비스 이용약관
+                            </strong>
+                        </div>
+
+                        <!-- 제1조 -->
+                        <div class="text-stack mt40">
+                            <strong class="text text--h4">제1조 (목적)</strong>
+                            <p class="text text--body2 text--font1">본 약관은 NH농협은행(이하 "은행"이라 합니다)이 제공하는 NH마이데이터 내 「자산/부채 통합 진단」 서비스(이하 "서비스"라 합니다)의 이용조건 및 절차, 은행과 고객 간의 권리·의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.</p>
+                        </div>
+
+                        <!-- 제2조 -->
+                        <div class="text-stack">
+                            <div class="text-stack mb12">
+                                <strong class="text text--h4">제2조 (용어의 정의)</strong>
+                            </div>
+                            <ol class="num-list">
+                                <li class="text--body2">"자산/부채 통합 진단 서비스"란 은행이 보유한 인공지능(AI) 알고리즘 및 빅데이터 분석 기술을 활용하여, 고객의 자산 현황·투자 성향·재무 목표 등을 분석하고 최적화된 금융상품 조합을 추천·제시하는 자산관리 지원 서비스를 말합니다.</li>
+                                <li class="text--body2">"이용자"란 본 약관에 동의하고 NH마이데이터를 통해 본 서비스를 이용하는 개인 고객을 말합니다.</li>
+                                <li class="text--body2">"투자성향 분석"이란 금융소비자보호법에 따라 이용자의 투자 경험, 위험 선호도, 자명(소득) 상태 등을 종합적으로 평가하여 적합한 투자 유형을 분류하는 절차를 말합니다.</li>
+                            </ol>
+                        </div>
+
+                        <!-- 제3조 -->
+                        <div class="text-stack">
+                            <div class="text-stack mb12">
+                                <strong class="text text--h4">제3조 (약관의 효력 및 변경)</strong>
+                            </div>
+                            <ol class="num-list">
+                                <li class="text--body2">본 약관은 이용자가 NH마이데이터 내에서 동의 절차를 완료함과 동시에 효력이 발생합니다.</li>
+                                <li class="text--body2">은행이 약관을 변경하고자 할 때에는 변경 약관의 적용일자 1개월 전부터 NH마이데이터 및 은행 홈페이지를 통해 게시합니다.</li>
+                            </ol>
+                        </div>
+
+                        <!-- 제4조 ~~ (생략) -->
+                        <div class="text-stack">
+                            <strong class="text text--h4">제4조 ~~ (생략)</strong>
+                            <p class="text text--body1 text--font2">은행이 본 서비스를 통해 이용자에게 제공하는 업무는 다음 각 </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
+                    <div class="areaBtnDefault">
+                        <a href="javascript:;" id="btnTermsConfirm" class="btnPressPoint disabled" role="button" aria-disabled="true">아래로 내려보기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+            	//fullLayerHeight()는 .popBtnWrap .popBtn 높이만 계산에 반영하므로,
+            	//areaBtnDefault 버튼 영역까지 포함해 popCont 높이를 직접 재계산한다.
+            	adjustPopContHeight();
+            	//페이지 진입 시 버튼 상태 셋팅
+            	uiPopScrollEvt();
+            });
+
+            //리사이즈 시 재계산
+            $(window).on('resize', adjustPopContHeight);
+
+            //스크롤 이벤트 : fullLayerPop은 window가 아니라 popCont 내부가 스크롤되는 구조
+            $('.popCont').on('scroll', uiPopScrollEvt);
+
+            //확인 버튼 클릭 시 팝업 닫기 (끝까지 스크롤해야 활성화됨)
+            $('#btnTermsConfirm').on('click', function(){
+            	//a 태그는 disabled 속성이 없으므로 legacy 컨벤션대로 class로 상태 체크
+            	if ($(this).hasClass('disabled')) return;
+            	popClose($('.popClose')[0]);
+            });
+
+            //fullLayerHeight()를 대체하여 popCont 높이를 처음부터 직접 계산한다.
+            //(fullLayerHeight() 재호출과 이어서 보정하는 방식은 값이 중첩 적용되어 어긋날 수 있음)
+            function adjustPopContHeight(){
+            	var $popCont = $('.fullLayerPop .popCont');
+            	var winH = $(window).height();
+            	var titH = $('.fullLayerPop .popInner h1').outerHeight();
+            	var btnH = $('.fullLayerPop .popBtnWrap .areaBtnDefault').outerHeight() || 0;
+            	$popCont.css('height', Math.max(winH - titH - btnH, 0) + 'px');
+            }
+
+            //스크롤 위치에 따라 버튼 활성화/텍스트 변경
+            function uiPopScrollEvt(){
+            	var $popCont = $('.popCont');
+            	var $btn = $('#btnTermsConfirm');
+            	var contH = $popCont.outerHeight();
+            	var scrollH = $popCont[0].scrollHeight;
+            	var scrollTop = $popCont.scrollTop();
+            	var remain = scrollH - contH - scrollTop;
+
+            	if (remain < 50) {
+            		$btn.text('동의하고 계속').removeClass('disabled').removeAttr('aria-disabled');
+            	} else {
+            		$btn.text('아래로 내려보기').addClass('disabled').attr('aria-disabled', 'true');
+            	}
+            }
+        </script>
+    </body>
+</html>
