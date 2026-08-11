@@ -108,7 +108,7 @@
                 <div class="popBtnWrap">
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
                     <div class="areaBtnDefault">
-                        <a href="javascript:;" id="btnTermsConfirm" class="btnPressPoint disabled" role="button" aria-disabled="true">아래로 내려보기</a>
+                        <a href="javascript:;" id="btnTermsConfirm" class="btnPressPoint" role="button">아래로 내려보기</a>
                     </div>
                 </div>
             </div>
@@ -128,11 +128,17 @@
             //스크롤 이벤트 : fullLayerPop은 window가 아니라 popCont 내부가 스크롤되는 구조
             $('.popCont').on('scroll', uiPopScrollEvt);
 
-            //확인 버튼 클릭 시 팝업 닫기 (끝까지 스크롤해야 활성화됨)
+            //버튼 클릭 : '아래로 내려보기' 상태면 한 페이지만큼 스크롤 이동(NH_MD_UI_05.html과 동일한 관례),
+            //끝까지 스크롤해 문구가 바뀐 뒤에는 팝업 닫기
+            //NH_MD_UI_05.html과 동일하게 '아래로 내려보기' 단계에서는 버튼을 항상 활성 상태로 유지하므로
+            //(아래 uiPopScrollEvt() 참고) pointer-events:none 문제 없이 버튼 자체에 바로 클릭 리스너를 건다.
             $('#btnTermsConfirm').on('click', function(){
-            	//a 태그는 disabled 속성이 없으므로 legacy 컨벤션대로 class로 상태 체크
-            	if ($(this).hasClass('disabled')) return;
-            	popClose($('.popClose')[0]);
+            	if ($(this).text() === '아래로 내려보기') {
+            		var $popCont = $('.popCont');
+            		$popCont.stop().animate({ scrollTop: $popCont.scrollTop() + $popCont.height() }, 300);
+            		return;
+            	}
+            	//popClose($('.popClose')[0]);
             });
 
             //fullLayerHeight()를 대체하여 popCont 높이를 처음부터 직접 계산한다.
@@ -145,7 +151,8 @@
             	$popCont.css('height', Math.max(winH - titH - btnH, 0) + 'px');
             }
 
-            //스크롤 위치에 따라 버튼 활성화/텍스트 변경
+            //스크롤 위치에 따라 버튼 문구 전환 (체크박스가 없는 페이지라 스크롤 완료 조건만으로 활성화되며,
+            //NH_MD_UI_05.html과 동일하게 '아래로 내려보기' 단계에서도 버튼은 항상 활성 상태를 유지한다)
             function uiPopScrollEvt(){
             	var $popCont = $('.popCont');
             	var $btn = $('#btnTermsConfirm');
@@ -155,9 +162,9 @@
             	var remain = scrollH - contH - scrollTop;
 
             	if (remain < 50) {
-            		$btn.text('전체 동의').removeClass('disabled').removeAttr('aria-disabled');
+            		$btn.text('동의하고 계속');
             	} else {
-            		$btn.text('아래로 내려보기').addClass('disabled').attr('aria-disabled', 'true');
+            		$btn.text('아래로 내려보기');
             	}
             }
         </script>
