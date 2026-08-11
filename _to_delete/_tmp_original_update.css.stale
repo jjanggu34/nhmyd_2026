@@ -79,6 +79,7 @@
     --primitive-blue-400:#66a1ff;
     --primitive-blue-500:#2c6dd4;
     --primitive-cobalt-500:#685efd;
+    /* ---- 확장 팔레트 (반복 사용되는 미토큰화 색상 정리; 2026-08-06 변수화 작업 추가) ---- */
     --primitive-red-warning:#f23f3f;
     --primitive-red-grade:#d10f0f;
     --primitive-orange-grade:#d44b10;
@@ -193,7 +194,6 @@
     --spacing-32:32px;
     --radius-2:2px;
     --radius-4:4px;
-    --radius-6:6px;
     --radius-8:8px;
     --radius-10:10px;
     --radius-12:12px;
@@ -202,7 +202,13 @@
     --radius-full:999px;
     --transition-base:0.15s ease
 }
-/* ---- Fluid font-size 토큰 ---- */
+/* ---- Fluid font-size 토큰 ----
+   html{font-size:2.77vw}(nhasset_com.css) 위에서 동작하는 뷰포트폭 비례 스케일링이라 OS "글자
+   크게" 접근성 설정과는 무관합니다. update.css에서 실제 쓰이는 스텝(10~16/18/20/22/26/30)만
+   정의했습니다. 10~26px은 레거시 nhasset_myd.css --fontSizeN과 동일 공식(상한=하한×1.5)이고,
+   30px은 레거시에 없는 확장 스텝이라 레거시 대형 사이즈 선례(34/38px, 평균 ×1.34)를 따라
+   1.34배로 재계산했습니다(30*1.34=40.2px, 2026-08-03 재계산 — 자세한 근거는 nds.css의 동일
+   주석 참고) */
 :root {
     --type-size-10:clamp(10px, 1rem, 15px);
     --type-size-11:clamp(11px, 1.1rem, 16.5px);
@@ -219,7 +225,9 @@
     --type-size-28:clamp(28px, 2.8rem, 42px);
     --type-size-30:clamp(30px, 3rem, 40.2px)
 }
-
+/* 뷰포트 1025px 이상(아이패드 세로모드까지는 fluid 유지)에서는 fluid 스케일링을 끄고 원래
+   고정 px로 되돌립니다(넓은 화면에서 개발/테스트할 때 글자가 필요 이상 커 보이는 것 방지 —
+   자세한 이유는 nds.css의 동일 주석 참고) */
 @media (min-width: 1025px) {
     :root {
         --type-size-10:10px;
@@ -245,7 +253,7 @@
 .nds .center {text-align:center !important}
 .nds .left {text-align:left !important}
 .nds .right {text-align:right !important}
-.nds .container {padding-left:var(--spacing-24) !important;padding-right:var(--spacing-24) !important;padding-bottom:var(--sticky-footer-pad, 120px) !important}
+.nds .container {padding-left:var(--spacing-24) !important;padding-right:var(--spacing-24) !important;padding-bottom:120px !important}
 .nds .guide-title {font-size:var(--type-size-15);font-weight:700;margin-bottom:var(--spacing-8)}
 .nds .guide-desc {font-size:var(--type-size-14);font-weight:400;color:var(--primitive-red-200);margin-bottom:var(--spacing-16)}
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
@@ -827,6 +835,12 @@
 .nds .radio-box--lg {padding:13px var(--spacing-16);font-size:var(--type-size-15);letter-spacing:-0.3px;line-height:24px;border-radius:var(--radius-10);margin:0 !important}
 .nds .radio-box-input:checked + .radio-box {border-width:1.5px;border-color:var(--color-border-point);color:var(--color-font-point);font-weight:var(--font-weight-medium)}
 .nds .radio-box-input:disabled + .radio-box {background:var(--color-bg-extra-bg);cursor:not-allowed}
+/* [버그 수정] NH_MD_PM_02_01(소비 경고 알림 설정, Figma node 1436:34473) — "지출 알림 받기"
+   토글이 꺼지면 금액/기준 선택 영역 전체가 disabled 처리되는데, 이미 선택돼 있던(checked)
+   항목까지 disabled로 바뀌어도 :checked 규칙(초록 테두리)이 :disabled 규칙과 함께 그대로
+   적용돼 "회색인데 테두리만 초록"으로 어긋나 보였습니다. 피그마는 비활성 시 선택 여부와
+   무관하게 전부 동일한 무채색 모습이라, checked+disabled 조합에서는 checked 스타일을
+   기본값으로 되돌립니다. */
 .nds .radio-box-input:disabled:checked + .radio-box {border-width:1px;border-color:var(--color-border-1);color:var(--color-font-3);font-weight:var(--font-weight-regular)}
 /* box/center, box/left ---- */
 .nds .radio-box-field {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
@@ -1013,7 +1027,7 @@
 .nds .terms-link__check {display:flex;align-items:flex-start;gap:var(--spacing-12);flex:1 0 0;min-width:0}
 .nds .terms-link__text {flex:1 0 0;min-width:0;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .terms-link__arrow {flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;border:none;background:none;cursor:pointer;isolation:isolate;transform:translateZ(0)}
-.nds .terms-link__arrow::before {color:var(--color-icon-4);content:"";display:block;width:24px !important;height:24px !important;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-right-long.svg");mask-image:url("../images/update/ic-arrow-right-long.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .terms-link__arrow::before {color:var(--color-icon-4);content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-right-long.svg");mask-image:url("../images/update/ic-arrow-right-long.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 /* terms-link 체크박스를 체크하면 펼쳐지는 세부 수신채널 선택 패널(card-summary/accordion, Figma node 1008:35375) — 체크박스는 .check-basic(기본) 그대로 재사용, 열고 닫는 동작은 update-ui.js의 initTermsAccordionCheck() 담당 */
 .nds .terms-accordion {display:flex;flex-direction:column;align-items:flex-start;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);border-radius:var(--radius-10);background-color:var(--color-bg-container);box-sizing:border-box}
 .nds .terms-accordion__rows {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
@@ -1040,12 +1054,8 @@
 .nds .text--body2-medium {font-size:var(--type-size-15);line-height:24px;font-weight:var(--font-weight-medium);letter-spacing:-0.3px;color:var(--color-font-3)}
 .nds .text--body3 {font-size:var(--type-size-14);line-height:22px;font-weight:var(--font-weight-regular);letter-spacing:-0.28px;color:var(--color-font-3)}
 .nds .text--body3-medium {font-size:var(--type-size-14);line-height:22px;font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-3)}
-.nds .text--caption {font-size:var(--type-size-10);line-height:18px;font-weight:var(--font-weight-regular);letter-spacing:-0.24px;color:var(--color-font-4)}
+.nds .text--caption {font-size:var(--type-size-12);line-height:18px;font-weight:var(--font-weight-regular);letter-spacing:-0.24px;color:var(--color-font-4)}
 .nds .text--caption-medium {font-size:var(--type-size-12);line-height:18px;font-weight:var(--font-weight-medium);letter-spacing:-0.24px;color:var(--color-font-4)}
-.nds .text--caption2 {font-size:var(--type-size-13);line-height:20px;font-weight:var(--font-weight-regular);letter-spacing:-0.26px;color:var(--color-font-4)}
-.nds .text--caption2-medium {font-size:var(--type-size-13);line-height:20px;font-weight:var(--font-weight-medium);letter-spacing:-0.26px;color:var(--color-font-4)}
-.nds .text--caption3 {font-size:var(--type-size-10);line-height:15px;font-weight:var(--font-weight-regular);letter-spacing:-0.2px;color:var(--color-font-4)}
-.nds .text--caption3-medium {font-size:var(--type-size-10);line-height:15px;font-weight:var(--font-weight-medium);letter-spacing:-0.2px;color:var(--color-font-4)}
 .nds .text--font1 {color:var(--color-font-1)}
 .nds .text--font2 {color:var(--color-font-2)}
 .nds .text--font3 {color:var(--color-font-3)}
@@ -1053,6 +1063,8 @@
 .nds .text--point {color:var(--color-font-point)}
 .nds .text-stack {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%;margin-bottom:var(--spacing-24)}
 .nds .text-stack[hidden] {display:none} /* MSAR3110P_01 */
+/* .nds.fullLayerPop .text-stack{padding-left:var(--spacing-24);padding-right:var(--spacing-24)}
+.nds.fullLayerPop .text-stack .text-stack{padding-left:0;padding-right:0} */
 .nds .text-stack--lg {gap:var(--spacing-32);margin:48px 0 40px}
 .nds .text-stack--lg .text-stack:last-child{margin-bottom:0}
 /* ---- 소비 경고 알림 설정(NH_MD_PM_02_01, Figma node 1436:34473) ---- */
@@ -1227,7 +1239,6 @@
 .nds .btn-arrow__icon--left {-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");transform:scaleX(-1)}
 .nds .btn-arrow__icon--right {-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg")}
 .nds .btn-arrow__icon--plus {-webkit-mask-image:url("../images/update/ic-plus-xs.svg");mask-image:url("../images/update/ic-plus-xs.svg")}
-.nds .btn-arrow__icon--setting {-webkit-mask-image:url("../images/update/ic-setting.svg");mask-image:url("../images/update/ic-setting.svg")}
 .nds .btn-arrow__icon--down {-webkit-mask-image:url("../images/update/ic-arrow-circle-down-short.svg");mask-image:url("../images/update/ic-arrow-circle-down-short.svg")}
 .nds .btn-arrow__icon--up {-webkit-mask-image:url("../images/update/ic-arrow-circle-down-short.svg");mask-image:url("../images/update/ic-arrow-circle-down-short.svg");transform:rotate(180deg)}
 .nds .btn-arrow__icon--hidden {visibility:hidden}
@@ -1298,7 +1309,6 @@
 .md-section {margin-top:56px}
 .md-section__title {font-size:var(--type-size-18);font-weight:600;line-height:26px;letter-spacing:-0.45px;color:var(--primitive-gray-font-900);text-align:left;margin:0 0 var(--spacing-20) var(--spacing-8)}
 .md-card {background:var(--primitive-base-0);border-radius:var(--radius-16);padding:var(--spacing-32) var(--spacing-20);box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.07)}
-.nds .linked-bottom-menu.alloneFooterNew{box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.05)}
 /* ---- 자산 카테고리 탭 + 스와이프 히어로 캐러셀(유동성/투자/연금/대출) ---- */
 /* loop:true라 사실상 "첫/마지막" 슬라이드가 없는 무한 캐러셀이므로, 이전/다음 카드가
    양쪽에서 똑같이 살짝 겹쳐 보이고(centeredSlides:true) 카드 자체의 drop shadow도 함께
@@ -1567,110 +1577,5 @@
 .hcb-promo__eyebrow {font-size:var(--type-size-12);color:#023e58;margin:0 0 var(--spacing-2)}
 .hcb-promo__cta {font-size:var(--type-size-15);font-weight:var(--font-weight-semibold);color:#095778;margin:0}
 .hcb-promo__mascot {width:54px;height:58px;object-fit:contain;flex-shrink:0}
-/* ==========================================================================
-   NH_MD_PM_01.html — 용돈 리포트(Allowance report) 전용 컴포넌트
-   ========================================================================== */
-.nds .allowance-hero {margin-top:var(--spacing-24)}
-.nds .allowance-section {margin-top:40px}
-.nds .allowance-section__title {margin:0 0 var(--spacing-12);font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
 
-/* ---- hero: 상단 월 선택/기준시각 ---- */
-.nds .allowance-hero__top {display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-16)}
-.nds .allowance-hero__month {display:flex;align-items:center;gap:var(--spacing-4);background:none;border:none;padding:0;margin:0;cursor:pointer;font:inherit}
-.nds .allowance-hero__month-num {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);line-height:26px;letter-spacing:-0.36px;color:var(--primitive-gray-900)}
-.nds .allowance-hero__month-range {font-size:var(--type-size-12);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
-.nds .allowance-hero__month-arrow {display:block;width:16px;height:16px;flex-shrink:0;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-.nds .allowance-hero__updated {display:flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-12);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
-.nds .allowance-hero__tooltip-icon {display:block;width:16px;height:16px;flex-shrink:0;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-
-/* ---- hero: 카드(흰 상단 + 파란 하단 바) ---- */
-.nds .allowance-hero__card {border-radius:var(--radius-16);overflow:visible}
-.nds .allowance-hero__white {position:relative;background:var(--color-bg-default);border-radius:var(--radius-16) var(--radius-16) 0 0;padding:var(--spacing-24) var(--spacing-20);box-shadow:0px 5px 15px rgba(0,0,0,0.1)}
-.nds .allowance-hero__summary {display:flex;align-items:center;gap:var(--spacing-8);width:100%}
-.nds .allowance-hero__summary-icon {display:flex;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:40px;border-radius:var(--radius-16);background:rgba(229,239,255,0.7)}
-.nds .allowance-hero__summary-icon::before {content:"";display:block;width:22px;height:22px;background:url("../images/update/ic-shield-check-blue.svg") no-repeat center/contain}
-.nds .allowance-hero__summary-text {flex:1;min-width:0}
-.nds .allowance-hero__summary-sub {margin:0;font-size:var(--type-size-14);line-height:1;letter-spacing:-0.28px;color:var(--color-font-3);line-height:1}
-.nds .allowance-hero__summary-main {margin:4px 0 0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;color:var(--color-font-2);line-height:1}
-.nds .allowance-hero__summary-main strong {color:var(--primitive-blue-500);font-weight:inherit}
-.nds .allowance-hero__mascot-wrap {display:flex;justify-content:space-between;align-items:flex-start;margin:10px 0 -31px}
-.nds .allowance-hero__mascot {width:120px;height:auto;filter:drop-shadow(-24px -16px 40px rgba(68,120,233,0.45));pointer-events:none}
-.nds .allowance-hero__glass {position:relative;backdrop-filter:blur(5.5px);-webkit-backdrop-filter:blur(5.5px);background:rgba(211,220,235,0.4);border:1px solid rgba(202,221,252,0.29);border-radius:var(--radius-12);padding:var(--spacing-16)}
-.nds .allowance-hero__glass-link {color:var(--color-icon-1);margin-top:8px;line-height:20px}
-.nds .allowance-hero__glass-label {margin:0;font-size:13px;line-height:20px;letter-spacing:-0.26px;color:var(--color-font-2)}
-.nds .allowance-hero__glass-amount {margin:0;font-size:20px;line-height:32px;color:var(--color-font-2)}
-.nds .allowance-hero__glass-amount strong {font-size:24px;font-weight:var(--font-weight-bold);letter-spacing:-0.96px;color:#002259}
-.nds .allowance-hero__progress {position:relative;width:100%;height:20px;border-radius:var(--radius-full);background:rgba(0,0,0,0.1);overflow:hidden;margin:var(--spacing-16) 0 0}
-.nds .allowance-hero__progress-fill {height:100%;border-radius:var(--radius-full);background:#09b2c5}
-.nds .allowance-hero__detail {display:flex;flex-direction:column;gap:var(--spacing-8);margin-top:var(--spacing-16)}
-.nds .allowance-hero__detail-row {display:flex;align-items:center;gap:var(--spacing-8);background:#f7f8fb;border-radius:var(--radius-8);padding:var(--spacing-6) var(--spacing-12)}
-.nds .allowance-hero__detail-icon {display:block;width:16px;height:16px;flex-shrink:0;border-radius:var(--radius-6)}
-.nds .allowance-hero__detail-icon--in {background:#FFE5E5 url("../images/update/ic-plus_red.svg")no-repeat center/8px 8px}
-.nds .allowance-hero__detail-icon--out {background:#E5EFFF url("../images/update/ic-minus_blue.svg")no-repeat center/8px 8px}
-.nds .allowance-hero__detail-label {font-size:var(--type-size-12);letter-spacing:-0.24px;color:var(--color-font-1)}
-.nds .allowance-hero__detail-amount {flex:1;text-align:right;font-size:13px;font-weight:var(--font-weight-semibold);letter-spacing:-0.26px;color:var(--color-font-1)}
-.nds .allowance-hero__detail-amount em {font-style:normal;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);color:var(--color-font-3);margin-left:2px}
-.nds .allowance-hero__cta {display:flex;align-items:center;justify-content:center;gap:2px;width:100%;background:var(--primitive-blue-500);border:none;border-radius:0 0 var(--radius-16) var(--radius-16);padding:var(--spacing-12) 0;color:var(--primitive-base-0);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;cursor:pointer}
-.nds .allowance-hero__cta .btn-arrow__icon {background-color:currentColor}
-
-/* ---- 누가 용돈을 보내줬을까요? (스와이프) ---- */
-.nds .allowance-senders__clip {overflow:hidden;margin:0 calc(var(--spacing-24) * -1);padding:0 var(--spacing-24)}
-.nds .allowance-senders__swiper {overflow:visible}
-.nds .allowance-sender-card {display:flex;align-items:center;gap:var(--spacing-12);width:148px;background:var(--color-bg-default);border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-8);box-shadow:0px 5px 7.5px rgba(0,0,0,0.04)}
-.nds .allowance-sender-card__icon {display:flex;align-items:center;justify-content:center;flex-shrink:0;width:32px;height:32px;border-radius:var(--radius-16);background:#f3f5f8}
-.nds .allowance-sender-card__icon::before {content:"";display:block;width:24px;height:24px;background:url("../images/update/ic-piggy-bank.svg") no-repeat center/contain}
-.nds .allowance-sender-card__info {flex:1;min-width:0}
-.nds .allowance-sender-card__name {margin:0;font-size:10px;line-height:15px;letter-spacing:-0.2px;color:var(--color-font-4)}
-.nds .allowance-sender-card__amount {margin:0;font-size:var(--type-size-14);color:var(--color-font-1)}
-.nds .allowance-sender-card__amount em {font-style:normal;font-weight:var(--font-weight-regular);color:var(--color-font-3)}
-
-/* ---- 체크카드 연결 nudge 배너 ---- */
-.nds .allowance-nudge__card {display:flex;align-items:center;height:72px;padding:var(--spacing-16);border-radius:12px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:linear-gradient(90deg, rgba(221,242,228,0.7) 0%, rgba(221,242,228,0.7) 100%)}
-.nds .allowance-nudge__text {flex:1;min-width:0}
-.nds .allowance-nudge__sub {margin:0;font-size:var(--type-size-12);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-1)}
-.nds .allowance-nudge__title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
-.nds .allowance-nudge__img {width:54px;height:54px;object-fit:cover;flex-shrink:0}
-
-/* ---- 어디에 많이 썼을까요? ---- */
-.nds .allowance-spend__card {display:flex;flex-direction:column;gap:var(--spacing-20);background:var(--color-bg-default);border-radius:var(--radius-16);padding:var(--spacing-20);box-shadow:0px 5px 7.5px rgba(0,0,0,0.04)}
-.nds .allowance-spend__row {display:flex;align-items:flex-start;gap:var(--spacing-8)}
-.nds .allowance-spend__icon {display:flex;align-items:center;justify-content:center;flex-shrink:0;width:40px;height:40px;border-radius:var(--radius-16)}
-.nds .allowance-spend__icon::before {content:"";display:block;width:24px;height:24px;background-size:contain;background-repeat:no-repeat;background-position:center}
-.nds .allowance-spend__icon--food {background:#fff5df}
-.nds .allowance-spend__icon--food::before {background-image:url("../images/update/ic-restaurant.svg")}
-.nds .allowance-spend__icon--edu {background:#eaf5ff}
-.nds .allowance-spend__icon--edu::before {background-image:url("../images/update/ic-graduation-cap.svg")}
-.nds .allowance-spend__icon--bus {background:#e5f4d9}
-.nds .allowance-spend__icon--bus::before {background-image:url("../images/update/ic-bus.svg")}
-.nds .allowance-spend__info {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-8)}
-.nds .allowance-spend__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);line-height:22px}
-.nds .allowance-spend__label {margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-1)}
-.nds .allowance-spend__label span {font-weight:var(--font-weight-regular);color:var(--color-font-4);margin-left:var(--spacing-4)}
-.nds .allowance-spend__amount {margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-1)}
-.nds .allowance-spend__amount em {font-style:normal;font-weight:var(--font-weight-regular);color:#505050}
-.nds .allowance-spend__bar {position:relative;width:100%;height:8px;border-radius:var(--radius-full);background:rgba(0,0,0,0.1);overflow:hidden}
-.nds .allowance-spend__bar-fill {height:100%;border-radius:var(--radius-full)}
-.nds .allowance-spend__bar-fill--food {background:#ffa856}
-.nds .allowance-spend__bar-fill--edu {background:#49d8ff}
-.nds .allowance-spend__bar-fill--bus {background:#8ec567}
-
-/* ---- 또래 친구들은 어디에 많이 썼을까요? ---- */
-.nds .allowance-peers__grid {display:flex;gap:var(--spacing-8)}
-.nds .allowance-peers__card {position:relative;flex:1;min-width:0;height:172px;background:var(--color-bg-default);border-radius:var(--radius-16);padding:var(--spacing-20);overflow:hidden}
-.nds .allowance-peers__label {margin:0 0 var(--spacing-2);font-size:20px;font-weight:var(--font-weight-semibold);line-height:28px;letter-spacing:-0.4px;color:var(--primitive-blue-500)}
-.nds .allowance-peers__desc {margin:0;font-size:var(--type-size-12);line-height:16px;letter-spacing:-0.24px;color:var(--color-font-4)}
-.nds .allowance-peers__desc br + br {display:none}
-.nds .allowance-peers__icon {position:absolute;right:12px;bottom:12px;width:64px;height:64px;background-size:contain;background-repeat:no-repeat;background-position:center}
-.nds .allowance-peers__icon--shopping {background-image:url("../images/update/ic-bag-star-blue.svg")}
-.nds .allowance-peers__icon--health {background-image:url("../images/update/ic-shield-health.svg")}
-
-/* ---- 머니 캘린더 배너 ---- */
-.nds .allowance-calendar-banner__card {position:relative;background:#e4eeff;border-radius:16px;padding:22px 24px 14px;min-height:190px;box-sizing:border-box;overflow:hidden}
-.nds .allowance-calendar-banner__text {position:relative;z-index:1;display:flex;flex-direction:column;gap:var(--spacing-8);max-width:60%}
-.nds .allowance-calendar-banner__title {margin:0;font-size:22px;font-weight:var(--font-weight-semibold);line-height:28px;letter-spacing:-0.44px;color:var(--color-font-1)}
-.nds .allowance-calendar-banner__link {color:var(--color-text-button-etc)}
-.nds .allowance-calendar-banner__img {position:absolute;right:0;bottom:0;width:120px;height:106px;object-fit:contain;pointer-events:none}
-
-/* ---- 소비 경고 알림 설정 링크 ---- */
-.nds .allowance-alert-link {display:flex;justify-content:center;margin-bottom:var(--spacing-32)}
-.nds .allowance-alert-link__btn {color:var(--color-font-4)}
+.nds .linked-bottom-menu.alloneFooterNew{box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.05);}

@@ -526,7 +526,13 @@ window.renderBottomsheetList = function (options) {
 			if (!container) return;
 
 			function sync() {
-				container.style.paddingBottom = footer.offsetHeight + 'px';
+				// .nds .container의 padding-bottom은 레거시 규칙과 계속 충돌해서
+				// !important로 고정돼 있는데(update.css), !important 붙은 CSS 규칙은
+				// 항상 인라인 style보다 우선이라 container.style.paddingBottom = '...' 는
+				// 아무 효과가 없었습니다(값은 바뀌어도 실제 렌더링엔 반영 안 됨). 대신 CSS
+				// 변수(--sticky-footer-pad)를 인라인으로 갱신하면 !important 규칙이 그 변수를
+				// 그대로 참조하므로 값이 정상 반영됩니다.
+				container.style.setProperty('--sticky-footer-pad', footer.offsetHeight + 'px');
 			}
 			sync();
 
