@@ -542,6 +542,53 @@
                         </div>
                     </section>
 
+                    <!-- [투자] 자산 인사이트 - 진단 전 (AI포트폴리오 미진단 고객에게 노출되는 예시,
+                         피그마 "MC_Insight_none" 컴포넌트). 안의 패널은 실제 진단 결과가 아니라
+                         장식용 미리보기라 흐리게 처리하고 aria-hidden으로 숨기며, 실제로 전달할
+                         정보는 오버레이의 안내 문구와 진단 유도 버튼에만 담습니다. -->
+                    <section class="md-section">
+                        <h2 class="md-section__title">투자 자산 인사이트 (진단 전)</h2>
+                        <div class="md-card insight-hero insight-hero--locked">
+                            <div class="insight-hero__panel" aria-hidden="true">
+                                <img class="insight-hero__mascot" src="../../images/update/img-ally-laptop-right.png" alt="" aria-hidden="true" />
+                                <div class="insight-hero__tags">
+                                    <span class="insight-hero__tag insight-hero__tag--accent">투자 자산</span>
+                                    <span class="insight-hero__tag insight-hero__tag--outline">인사이트</span>
+                                </div>
+                                <p class="insight-hero__headline">
+                                    최적포트폴리오에 비해
+                                    <br />
+                                    <strong>기대수익율</strong>
+                                    과
+                                    <strong>투자위험도</strong>
+                                    가
+                                    <br />
+                                    <span class="insight-hero__highlight">낮은편이에요!</span>
+                                </p>
+                                <hr class="insight-hero__divider" />
+                                <p class="insight-hero__body">
+                                    장기적으로 수익 기회가 제한되어
+                                    <span class="insight-hero__highlight">목표지향적인 투자로 일부 옮겨보시는건</span>
+                                    어떨까요?
+                                </p>
+                                <button type="button" class="insight-hero__cta" tabindex="-1">
+                                    AI포트폴리오 진단결과 보기
+                                    <span class="insight-hero__cta-icon" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div class="insight-hero__lock">
+                                <div class="insight-hero__lock-inner">
+                                    <p class="insight-hero__lock-desc">
+                                        AI 포트폴리오 진단 받고, 수익을 높이는
+                                        <br />
+                                        인사이트 정보를 확인해보세요!
+                                    </p>
+                                    <button type="button" class="insight-hero__lock-cta">AI포트폴리오 진단하기</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- 위클리 브리핑 -->
                     <section class="md-section">
                         <h2 class="md-section__title">위클리 브리핑</h2>
