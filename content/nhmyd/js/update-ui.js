@@ -134,18 +134,33 @@ window.calendarAlign = function () {
  * syncSlidePopConfirmHeight()는 따로도 공개해서, 검색 결과처럼 열려있는 동안 내용이 바뀌는
  * 화면에서 데이터 갱신 시마다 애니메이션 없이 즉시 다시 맞출 때 씁니다
  * (window.syncSlidePopConfirmHeight() 형태로 호출).
+ *
+ * [업데이트] popCont 안에 .bottomsheet-list(검색/선택 결과 목록, 예: MSAR3110P_01)가 있으면
+ * 그 목록 요소 자체에만 maxHeight/overflow:auto를 걸어서 스크롤을 그 안으로만 가둡니다 —
+ * 팝업 제목, 탭바, 검색창, "총 N건" 문구까지 전부 항상 고정으로 보이고 목록만 스크롤됩니다.
+ * .bottomsheet-list가 없지만 .tab-bar + .tab-panel 구조인 화면은 활성 .tab-panel 전체를
+ * 스크롤 영역으로 쓰고(탭바만 고정), 둘 다 없는 화면(예: NH_MD_PM_03의 단순 옵션 리스트)은
+ * 기존처럼 popCont 전체를 스크롤 영역으로 씁니다. (popCont 자체를 스크롤시키지 않을 때도
+ * overflow-y만 'visible'로 두면, CSS 스펙상 overflow-x가 여전히 'auto'로 남아 있어 브라우저가
+ * overflow-y를 다시 'auto'로 강제 승격시킵니다 — 다만 이 경우 popCont는 안쪽 스크롤 대상이
+ * 이미 자기 몫만큼 줄어들어 있어 popCont 자체엔 실제로 넘치는 내용이 없으므로 시각적으로는
+ * auto든 visible이든 차이가 없습니다.)
  */
 function syncSlidePopConfirmHeight(animate) {
 	$('.slidePopConfirm:visible').each(function () {
 		var $pop = $(this);
 		var $popInner = $pop.find('.popInner');
 		var $popCont = $pop.find('.popCont');
+		var $tabPanels = $pop.find('.tab-panel');
+		var $bottomsheetLists = $pop.find('.bottomsheet-list');
 		var confirmTit = $pop.find('.popInner h1').length > 0 ? $pop.find('.popInner h1').outerHeight() : $pop.find('.popInner h2').outerHeight();
 		var confirmBtnAra = $pop.find('.popBtnWrap .popBtn').length > 0 ? $pop.find('.popBtnWrap').outerHeight() : 0;
 
 		// 자연 높이를 다시 재는 동안은 기존 제약(maxHeight/overflow)을 풀어야 정확한 콘텐츠
-		// 높이가 나옵니다.
+		// 높이가 나옵니다(popCont/tab-panel/bottomsheet-list 전부).
 		$popCont.css({ maxHeight: 'none', overflowY: 'visible' });
+		$tabPanels.css({ maxHeight: 'none', overflowY: 'visible' });
+		$bottomsheetLists.css({ maxHeight: 'none', overflowY: 'visible' });
 		var naturalContH = $popCont.outerHeight();
 		var naturalTotal = naturalContH + confirmBtnAra + confirmTit;
 
@@ -159,10 +174,24 @@ function syncSlidePopConfirmHeight(animate) {
 		}
 
 		var maxContH = targetPopInnerH - confirmTit - confirmBtnAra;
-		if (naturalContH > maxContH) {
-			$popCont.css({ maxHeight: maxContH, overflowY: 'auto' });
+		if (naturalContH <= maxContH) {
+			// 넘치지 않으면 아무것도 제약하지 않고 그대로 둡니다(위에서 이미 리셋됨).
+			return;
+		}
+
+		// 가장 안쪽(목록)부터 우선순위대로 스크롤 대상을 고릅니다: bottomsheet-list가 실제로
+		// 보이고 있으면 그것부터, 없으면 활성 tab-panel, 그것도 없으면 popCont 전체.
+		var $scrollTarget = $bottomsheetLists.filter(':visible');
+		if ($scrollTarget.length === 0) $scrollTarget = $tabPanels.not('[hidden]');
+
+		if ($scrollTarget.length > 0) {
+			// popCont에 배정된 공간(maxContH)에서 스크롤 대상이 아닌 나머지(탭바/검색창/문구 등)가
+			// 차지하는 높이를 뺀 만큼만 스크롤 대상의 최대 높이로 주고, 그 안에서만 스크롤시킵니다.
+			var otherH = naturalContH - $scrollTarget.outerHeight();
+			var maxScrollTargetH = Math.max(maxContH - otherH, 0);
+			$scrollTarget.css({ maxHeight: maxScrollTargetH, overflowY: 'auto' });
 		} else {
-			$popCont.css({ maxHeight: 'none', overflowY: 'visible' });
+			$popCont.css({ maxHeight: maxContH, overflowY: 'auto' });
 		}
 	});
 }
