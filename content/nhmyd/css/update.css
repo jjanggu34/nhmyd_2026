@@ -366,14 +366,14 @@
 /* ---- Tooltip ---- */
 .nds .tooltip-card {display:flex;flex-direction:column;gap:var(--spacing-12);border:1px solid var(--color-border-3);border-radius:var(--radius-16);background-color:var(--color-bg-default);box-shadow:0px 3px 6px rgba(0, 0, 0, 0.05);padding:var(--spacing-20);box-sizing:border-box;width:100%}
 .nds .tooltip-card__header {display:flex;align-items:flex-start;justify-content:space-between;gap:var(--spacing-12)}
-.nds .tooltip-card__title {font-size:var(--type-size-16) !important;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1);flex:1}
+.nds .tooltip-card__title {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1);flex:1}
 .nds .tooltip-card__close {display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;flex-shrink:0;background:none;border:none;cursor:pointer;color:var(--color-font-1);padding:0}
 .nds .tooltip-card__close::before {content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-close.svg");mask-image:url("../images/update/ic-close.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .tooltip-card__close:hover {color:var(--color-font-3)}
 .nds .tooltip-card__sub {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-1)}
 .nds .tooltip-card__body {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .tooltip-card__list {margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--spacing-8)}
-.nds .tooltip-card__item {position:relative;padding-left:var(--spacing-12);font-size:var(--type-size-14) !important;font-weight:var(--font-weight-regular) !important;letter-spacing:-0.28px;line-height:22px !important;color:var(--color-font-3) !important}
+.nds .tooltip-card__item {position:relative;padding-left:var(--spacing-12);font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .tooltip-card__item::before {content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background-color:var(--primitive-gray-600)}
 /* ---- Infobox ---- */
 .nds .infobox {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%;padding:var(--spacing-20) var(--spacing-16);border-radius:var(--radius-16);background-color:var(--color-bg-container);text-align:left}
@@ -1057,6 +1057,20 @@
 .nds .result-icon {display:block;width:68px;height:68px}
 .nds .intro-hero {margin:48px 0 32px;padding:20px 4px} /* MSCO9100 */
 .nds .intro-hero img {display:block}
+/* ---- 성인 축하 안내(NH_MD_YO_05) ---- */
+.nds .celebrate {position:relative;display:flex;flex-direction:column;gap:var(--spacing-32);align-items:flex-start;width:100%}
+.nds .celebrate__glow {position:absolute;top:4px;right:0;width:120px;height:120px;pointer-events:none} 
+.nds .celebrate__glow::before{content:'';position: absolute;top:60%;left:50%;transform:translate(-60%, -50%);width:160px;height:140px;background: radial-gradient(circle, rgba(140, 238, 166, 0.5) 0%, rgba(255, 255, 255, 0) 70%);border-radius: 50%;z-index: 1}
+.nds .celebrate__glow img {position: relative;width:120px;height:120px;z-index:2}
+.nds .celebrate__title {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
+.nds .celebrate__title .text--h2 {margin:0}
+.nds .celebrate__name {display:block;color:var(--primitive-green-accent)}
+.nds .celebrate__regular {font-weight:var(--font-weight-regular)}
+.nds .celebrate__info {display:flex;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);background:#f3f5f8;border-radius:var(--radius-8);box-sizing:border-box}
+.nds .celebrate__info-body {display:flex;flex-direction:column;gap:var(--spacing-12);flex:1;min-width:0}
+.nds .celebrate__info-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:#002259}
+.nds .celebrate__info-list .bullet__item {color:#002259}
+.nds .celebrate__info-list .bullet__item::before {background-color:#002259}
 /* ---- Tab (line/chip/bar/text 4종) ---- */
 .nds .tab-line {display:flex;align-items:center;width:100%;background-color:var(--color-bg-default)}
 .nds .tab-line__list {display:flex;align-items:stretch;flex:1 0 0;min-width:0;border-bottom:1px solid var(--color-border-2)}
@@ -1528,8 +1542,8 @@
 .nds .allowance-sender-card__icon::before {content:"";display:block;width:24px;height:24px;background:url("../images/update/ic-piggy-bank.svg") no-repeat center/contain}
 .nds .allowance-sender-card__info {flex:1;min-width:0}
 .nds .allowance-sender-card__name {margin:0;font-size:10px;line-height:15px;letter-spacing:-0.2px;color:var(--color-font-4)}
-.nds .allowance-sender-card__amount {margin:0;font-size:var(--type-size-14);color:var(--color-font-3)}
-.nds .allowance-sender-card__amount em {font-style:normal;font-weight:var(--font-weight-medium);color:var(--color-font-1)}
+.nds .allowance-sender-card__amount {margin:0;font-size:var(--type-size-14);color:var(--color-font-1)}
+.nds .allowance-sender-card__amount em {font-style:normal;font-weight:var(--font-weight-regular);color:var(--color-font-3)}
 /* ---- 체크카드 연결 nudge 배너 ---- */
 .nds .allowance-nudge__card {display:flex;align-items:center;height:72px;padding:var(--spacing-16);border-radius:12px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:linear-gradient(90deg, rgba(221,242,228,0.7) 0%, rgba(221,242,228,0.7) 100%)}
 .nds .allowance-nudge__text {flex:1;min-width:0}
