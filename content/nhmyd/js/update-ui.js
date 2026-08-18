@@ -20,9 +20,42 @@
  * 가능하도록 여기로 옮김.)
  */
 
+/*
+ * .nds 스코프 판별
+ * ---------------------------------------------------------------
+ * update-ui.js는 head-mb-update.js를 통해 update/ 화면에서만 로드되긴 하지만, 이 파일이 덮어쓰는
+ * popClose()/calendarAlign() 같은 전역 함수는 레거시 공용 파일(common_ui.js)의 것과 이름이 같아서
+ * 실행 시점의 실제 대상이 .nds 화면(또는 .nds 팝업)이 맞는지 한 번 더 확인한 뒤에만 개선된 동작을
+ * 태우고, 아니면 레거시 원본 동작으로 그대로 넘깁니다. 이 화면군은 두 가지 마크업 패턴이 섞여
+ * 있어(전체 화면형은 <div class="wrapper nds">, 팝업 단독형은 바닥페이지 wrapper엔 nds가 없고
+ * 실제 팝업 <div class="popWrap nds ...">에만 nds가 붙음) 스코프 판정도 그 둘을 모두 봅니다.
+ *   1) 처리 대상 팝업의 .popWrap이 nds 클래스를 가진 경우
+ *   2) 화면 전체를 감싸는 .wrapper가 nds 클래스를 가진 경우
+ * $target에 특정 팝업(.popWrap 또는 그 하위 요소)을 넘기면 1)을 우선 검사하고, 넘기지 않거나
+ * 1)에 해당하지 않으면 2) 및(페이지 어딘가에 열려 있을 수 있는) nds 팝업 존재 여부로 판단합니다.
+ */
+function isNdsScope($target) {
+    if ($target && $target.length) {
+        var $popWrap = $target.hasClass("popWrap") ? $target : $target.closest(".popWrap");
+        if ($popWrap.length && $popWrap.hasClass("nds")) return true;
+    }
+    if ($(".wrapper").hasClass("nds")) return true;
+    if ($(".popWrap.nds").length > 0) return true;
+    return false;
+}
+
+// popClose()를 덮어쓰기 전에 레거시(common_ui.js) 원본을 붙잡아 둡니다 — nds 스코프가 아닐 때는
+// 이 원본으로 그대로 위임합니다.
+var legacyPopClose = window.popClose;
+
 window.popClose = function (e) {
-    scrollPosY = $("body").css("top");
     var $popWrap = $(e).closest(".popWrap");
+    if (!isNdsScope($popWrap)) {
+        if (typeof legacyPopClose === "function") legacyPopClose(e);
+        return;
+    }
+
+    scrollPosY = $("body").css("top");
     var $slidePopInner = $popWrap.find(".popInner");
     var isSlidePop = $popWrap.hasClass("slidePopOption") || $popWrap.hasClass("slidePopConfirm") || $popWrap.hasClass("bankSetWrap");
 
@@ -48,7 +81,16 @@ window.popClose = function (e) {
     $("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden", false).removeAttr("inert");
 };
 
+// calendarAlign()도 popClose()와 동일하게 레거시 원본을 붙잡아 두고 nds 스코프에서만 개선된
+// 동작(실측 행 높이 기준 센터링)을 태웁니다.
+var legacyCalendarAlign = window.calendarAlign;
+
 window.calendarAlign = function () {
+    if (!isNdsScope()) {
+        if (typeof legacyCalendarAlign === "function") legacyCalendarAlign();
+        return;
+    }
+
     $(".yearSet").each(function () {
         if ($(this).hasClass("noneAction")) {
             $(this).attr("aria-hidden", "true");
@@ -197,6 +239,7 @@ window.slidePopConfirm = function () {
 // 밖으로 밀려 잘려 보일 수 있었습니다. .slidePopConfirm과 동일하게 resize/orientationchange마다
 // 다시 맞춥니다(레거시 원본 fullLayerHeight() 함수 자체는 그대로 두고 여기서 재호출만 추가).
 $(window).on("resize orientationchange", function () {
+    if (!isNdsScope()) return; // nds 화면/nds 팝업이 아니면 관여하지 않습니다.
     syncSlidePopConfirmHeight(false);
     if ($(".fullLayerPop:visible").length > 0 && typeof window.fullLayerHeight === "function") {
         window.fullLayerHeight();
@@ -743,6 +786,10 @@ window.renderBottomsheetList = function (options) {
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+        // 이 IIFE의 초기화 함수들(아코디언/탭/칩/스티키푸터 등)도 nds 스코프(.wrapper.nds 또는
+        // .popWrap.nds)가 아니면 아무 것도 하지 않습니다.
+        if (!isNdsScope()) return;
+
         syncNdsClassToHtml();
         initAccordion();
         initTermsToggle();
