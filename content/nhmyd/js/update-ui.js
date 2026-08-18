@@ -20,9 +20,42 @@
  * 가능하도록 여기로 옮김.)
  */
 
+/*
+ * .nds 스코프 판별
+ * ---------------------------------------------------------------
+ * update-ui.js는 head-mb-update.js를 통해 update/ 화면에서만 로드되긴 하지만, 이 파일이 덮어쓰는
+ * popClose()/calendarAlign() 같은 전역 함수는 레거시 공용 파일(common_ui.js)의 것과 이름이 같아서
+ * 실행 시점의 실제 대상이 .nds 화면(또는 .nds 팝업)이 맞는지 한 번 더 확인한 뒤에만 개선된 동작을
+ * 태우고, 아니면 레거시 원본 동작으로 그대로 넘깁니다. 이 화면군은 두 가지 마크업 패턴이 섞여
+ * 있어(전체 화면형은 <div class="wrapper nds">, 팝업 단독형은 바닥페이지 wrapper엔 nds가 없고
+ * 실제 팝업 <div class="popWrap nds ...">에만 nds가 붙음) 스코프 판정도 그 둘을 모두 봅니다.
+ *   1) 처리 대상 팝업의 .popWrap이 nds 클래스를 가진 경우
+ *   2) 화면 전체를 감싸는 .wrapper가 nds 클래스를 가진 경우
+ * $target에 특정 팝업(.popWrap 또는 그 하위 요소)을 넘기면 1)을 우선 검사하고, 넘기지 않거나
+ * 1)에 해당하지 않으면 2) 및(페이지 어딘가에 열려 있을 수 있는) nds 팝업 존재 여부로 판단합니다.
+ */
+function isNdsScope($target) {
+    if ($target && $target.length) {
+        var $popWrap = $target.hasClass("popWrap") ? $target : $target.closest(".popWrap");
+        if ($popWrap.length && $popWrap.hasClass("nds")) return true;
+    }
+    if ($(".wrapper").hasClass("nds")) return true;
+    if ($(".popWrap.nds").length > 0) return true;
+    return false;
+}
+
+// popClose()를 덮어쓰기 전에 레거시(common_ui.js) 원본을 붙잡아 둡니다 — nds 스코프가 아닐 때는
+// 이 원본으로 그대로 위임합니다.
+var legacyPopClose = window.popClose;
+
 window.popClose = function (e) {
-    scrollPosY = $("body").css("top");
     var $popWrap = $(e).closest(".popWrap");
+    if (!isNdsScope($popWrap)) {
+        if (typeof legacyPopClose === "function") legacyPopClose(e);
+        return;
+    }
+
+    scrollPosY = $("body").css("top");
     var $slidePopInner = $popWrap.find(".popInner");
     var isSlidePop = $popWrap.hasClass("slidePopOption") || $popWrap.hasClass("slidePopConfirm") || $popWrap.hasClass("bankSetWrap");
 
@@ -48,7 +81,16 @@ window.popClose = function (e) {
     $("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden", false).removeAttr("inert");
 };
 
+// calendarAlign()도 popClose()와 동일하게 레거시 원본을 붙잡아 두고 nds 스코프에서만 개선된
+// 동작(실측 행 높이 기준 센터링)을 태웁니다.
+var legacyCalendarAlign = window.calendarAlign;
+
 window.calendarAlign = function () {
+    if (!isNdsScope()) {
+        if (typeof legacyCalendarAlign === "function") legacyCalendarAlign();
+        return;
+    }
+
     $(".yearSet").each(function () {
         if ($(this).hasClass("noneAction")) {
             $(this).attr("aria-hidden", "true");
@@ -187,8 +229,21 @@ window.slidePopConfirm = function () {
 
 // 화면 회전/리사이즈 시에도 80% 제한을 다시 계산합니다(열려 있는 팝업이 없으면 각 화면 내부에서
 // 조용히 아무 일도 하지 않고 끝납니다 — :visible 셀렉터가 걸러줌).
-$(window).on("resize", function () {
+//
+// [버그 수정] .fullLayerPop(common_ui.js의 레거시 fullLayerPop()/fullLayerHeight())은 팝업을 열 때
+// $(window).height() 기준으로 .popCont 높이를 인라인 px로 "한 번만" 고정하고, 그 이후 리사이즈에
+// 다시 맞추는 로직이 어디에도 없었습니다. 같은 .nds 화면군인 .slidePopConfirm은 아래에서 이미
+// resize마다 재계산하는데 .fullLayerPop만 빠져 있던 것 — 폴더블 기기(예: 갤럭시 Z 폴드 시리즈)처럼
+// 화면을 펼치거나 접어 뷰포트 가로세로 비율이 크게 바뀌는 경우, 팝업이 열려 있는 동안 접거나 펴면
+// .popCont가 옛 화면 크기 기준의 높이를 그대로 들고 있어 하단 popBtnWrap(닫기 버튼 등)이 화면
+// 밖으로 밀려 잘려 보일 수 있었습니다. .slidePopConfirm과 동일하게 resize/orientationchange마다
+// 다시 맞춥니다(레거시 원본 fullLayerHeight() 함수 자체는 그대로 두고 여기서 재호출만 추가).
+$(window).on("resize orientationchange", function () {
+    if (!isNdsScope()) return; // nds 화면/nds 팝업이 아니면 관여하지 않습니다.
     syncSlidePopConfirmHeight(false);
+    if ($(".fullLayerPop:visible").length > 0 && typeof window.fullLayerHeight === "function") {
+        window.fullLayerHeight();
+    }
 });
 
 // Bottomsheet 단일선택 리스트 렌더링(.bottomsheet-list, role="listbox"/[role="option"] 패턴) —
@@ -731,6 +786,10 @@ window.renderBottomsheetList = function (options) {
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+        // 이 IIFE의 초기화 함수들(아코디언/탭/칩/스티키푸터 등)도 nds 스코프(.wrapper.nds 또는
+        // .popWrap.nds)가 아니면 아무 것도 하지 않습니다.
+        if (!isNdsScope()) return;
+
         syncNdsClassToHtml();
         initAccordion();
         initTermsToggle();
