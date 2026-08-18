@@ -187,8 +187,20 @@ window.slidePopConfirm = function () {
 
 // 화면 회전/리사이즈 시에도 80% 제한을 다시 계산합니다(열려 있는 팝업이 없으면 각 화면 내부에서
 // 조용히 아무 일도 하지 않고 끝납니다 — :visible 셀렉터가 걸러줌).
-$(window).on("resize", function () {
+//
+// [버그 수정] .fullLayerPop(common_ui.js의 레거시 fullLayerPop()/fullLayerHeight())은 팝업을 열 때
+// $(window).height() 기준으로 .popCont 높이를 인라인 px로 "한 번만" 고정하고, 그 이후 리사이즈에
+// 다시 맞추는 로직이 어디에도 없었습니다. 같은 .nds 화면군인 .slidePopConfirm은 아래에서 이미
+// resize마다 재계산하는데 .fullLayerPop만 빠져 있던 것 — 폴더블 기기(예: 갤럭시 Z 폴드 시리즈)처럼
+// 화면을 펼치거나 접어 뷰포트 가로세로 비율이 크게 바뀌는 경우, 팝업이 열려 있는 동안 접거나 펴면
+// .popCont가 옛 화면 크기 기준의 높이를 그대로 들고 있어 하단 popBtnWrap(닫기 버튼 등)이 화면
+// 밖으로 밀려 잘려 보일 수 있었습니다. .slidePopConfirm과 동일하게 resize/orientationchange마다
+// 다시 맞춥니다(레거시 원본 fullLayerHeight() 함수 자체는 그대로 두고 여기서 재호출만 추가).
+$(window).on("resize orientationchange", function () {
     syncSlidePopConfirmHeight(false);
+    if ($(".fullLayerPop:visible").length > 0 && typeof window.fullLayerHeight === "function") {
+        window.fullLayerHeight();
+    }
 });
 
 // Bottomsheet 단일선택 리스트 렌더링(.bottomsheet-list, role="listbox"/[role="option"] 패턴) —
