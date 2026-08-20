@@ -250,6 +250,19 @@
 .nds .guide-desc {font-size:var(--type-size-14);font-weight:400;color:var(--primitive-red-200);margin-bottom:var(--spacing-16)}
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
 .nds .note {margin:var(--spacing-20) 0;background-color:var(--color-bg-banner);border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);line-height:20px;color:var(--color-font-3)}
+/* ---- 간격 가이드(세로 스택 gap 3단계) ----
+ * 화면 전반에서 반복되는 "flex-column 세로 스택" 레이아웃을 값이 아니라 쓰임새(케이스)로 고르도록
+ * 이름을 명시한 유틸리티 클래스. 기존 .radio-box-field/.select-field/.input-box처럼 이미 화면에
+ * 쓰이고 있는 컴포넌트 클래스는 그대로 두고(각자 하위 __element/--modifier가 딸린 독립 컴포넌트라
+ * 이름을 바꾸면 기존 화면까지 함께 고쳐야 함), 새로 만드는 영역에서 아래 3단계 중 하나를 그대로
+ * 재사용하면 된다.
+ *   --spacing-12(.stack--field)   : 컴포넌트 내부 — 라벨+컨트롤처럼 하나의 필드를 이루는 요소끼리
+ *   --spacing-24(.stack--group)   : 필드 그룹 사이 — 서로 관련은 있지만 별개인 입력/블록 그룹 사이
+ *   --spacing-32(.stack--section) : 섹션 사이 — 화면·팝업 안에서 의미 단위가 다른 큰 구획을 나눌 때
+ */
+.nds .stack--field {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
+.nds .stack--group {display:flex;flex-direction:column;gap:var(--spacing-24);width:100%}
+.nds .stack--section {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
 /* --- divider --- */
 .nds .divider {display:block;width:100%;border:none;margin:var(--spacing-20) auto;flex-shrink:0}
 .nds .divider--content {height:8px;background-color:var(--color-bg-container);margin:40px -24px;width:auto}
@@ -364,6 +377,7 @@
 .nds .textarea--error .textarea__msg {color:var(--color-font-error)}
 .nds .textarea__clear::before {color:var(--color-font-5);content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-cancel-fill.svg");mask-image:url("../images/update/ic-cancel-fill.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 /* ---- Tooltip ---- */
+.nds .toolTipBtn, .nds .boxTypeWrap .toolTipBtn{margin:0 !important;background: url('../images/update/ic-tooltip-mark_16.svg') no-repeat center / 24px auto !important}
 .nds .tooltip-card {display:flex;flex-direction:column;gap:var(--spacing-12);border:1px solid var(--color-border-3);border-radius:var(--radius-16);background-color:var(--color-bg-default);box-shadow:0px 3px 6px rgba(0, 0, 0, 0.05);padding:var(--spacing-20);box-sizing:border-box;width:100%}
 .nds .tooltip-card__header {display:flex;align-items:flex-start;justify-content:space-between;gap:var(--spacing-12)}
 .nds .tooltip-card__title {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1);flex:1}
@@ -527,7 +541,6 @@
 .nds .list-kv__data {flex:1;min-width:0;text-align:right;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-1)}
 .nds .list-card {display:flex;flex-direction:column;gap:var(--spacing-20);width:100%;background-color:var(--color-bg-default)}
 .nds .list-card__title {width:100%;font-size:var(--type-size-16);font-weight:var(--font-weight-medium);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1)}
-.nds .list-card__rows {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .list-card--lg .list-kv__title {width:108px;padding-top:var(--spacing-6);align-self:stretch}
 .nds .list-card--lg .list-kv__data {font-size:var(--type-size-22);font-weight:var(--font-weight-semibold);letter-spacing:-0.44px;line-height:32px}
 .nds .list-card--sm .list-kv__title {width:108px}
@@ -535,7 +548,6 @@
 .nds .list-card--xs .list-kv__data {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);color:var(--color-font-3);letter-spacing:-0.28px;line-height:22px}
 .nds .list-page {display:flex;flex-direction:column;gap:var(--spacing-20);width:100%}
 .nds .list-page__title {width:100%;font-size:var(--type-size-16);font-weight:var(--font-weight-medium);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1)}
-.nds .list-page__rows {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .list-page__divider {width:100%;height:1px;background-color:var(--color-bg-extra-bg);flex-shrink:0}
 .nds .list-page--lg .list-kv__title {width:108px;padding-top:var(--spacing-6);align-self:stretch}
 .nds .list-page--lg .list-kv__data {font-size:var(--type-size-22);font-weight:var(--font-weight-semibold);letter-spacing:-0.44px;line-height:32px}
@@ -1012,8 +1024,6 @@
 .nds .terms-accordion__row {display:flex;align-items:center;justify-content:space-between;width:100%}
 .nds .terms-accordion__row .check-basic{width:50%}
 /* ---- Terms Info Card ---- */
-.nds .terms-info {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
-.nds .terms-info__list {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .terms-info__item {display:flex;flex-direction:column;width:100%}
 .nds .terms-info__row {display:flex;align-items:flex-start;gap:var(--spacing-12);width:100%}
 .nds .terms-info__icon--blank {flex-shrink:0;width:24px;height:24px}
@@ -1051,9 +1061,7 @@
 /* ---- 소비 경고 알림 설정(NH_MD_PM_02_01) ---- */
 .nds .pmAlert {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
 .nds .pmAlert__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);width:100%}
-.nds .pmAlert__body {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
-.nds .pmAlert__group {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
-.nds .pmAlert__group .bottomsheet-option__label {margin:0}
+.nds .pmAlert .stack--field .bottomsheet-option__label {margin:0}
 .nds .result-icon {display:block;width:68px;height:68px}
 .nds .intro-hero {margin:48px 0 32px;padding:20px 4px} /* MSCO9100 */
 .nds .intro-hero img {display:block}
@@ -1061,8 +1069,7 @@
 .nds .celebrate {position:relative;display:flex;flex-direction:column;gap:var(--spacing-32);align-items:flex-start;width:100%}
 .nds .celebrate__glow {position:absolute;top:4px;right:0;width:120px;height:120px;box-shadow:-32px -12px 80px 0 rgba(68, 233, 104, 0.32), inset 0 0 44px 4px rgba(68, 233, 104, 0.35);pointer-events:none} /* box-shadow는 마스크가 없는 이 래퍼에 둠 — mask-image가 걸린 요소에 box-shadow를 같이 주면 mask 페인팅 영역(박스 크기)에 걸쳐 그림자까지 잘려나가 안 보이게 됨. inset shadow는 박스 안쪽(자식 mascot이 mask로 투명해진 가장자리)에서 흰색이 그대로 드러나지 않도록 같은 색을 은은하게 채워, 바깥 글로우와 자연스럽게 이어지게 함 */
 .nds .celebrate__mascot {position:absolute;inset:0;background:url("../images/update/img-ally-firecracker.png") -15.126px -18.727px / 122.929% 122.929% no-repeat;-webkit-mask-image:radial-gradient(circle at 55% 60%, black 60%, transparent 100%);mask-image:radial-gradient(circle at 55% 60%, black 60%, transparent 100%)} /* 박스 자체가 정사각형이라 안쪽 투명 여백이 흰 네모로 도드라져 보이는 문제 — radial-gradient 마스크로 이미지 가장자리를 부드럽게 페이드시켜서 사각형 윤곽 없이 글로우와 자연스럽게 섞이도록 처리 */
-.nds .celebrate__title {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
-.nds .celebrate__title .text--h2 {margin:0}
+.nds .celebrate .stack--field .text--h2 {margin:0}
 .nds .celebrate__name {display:block;color:var(--primitive-green-accent)}
 .nds .celebrate__regular {font-weight:var(--font-weight-regular)}
 .nds .celebrate__info {display:flex;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);background:#f3f5f8;border-radius:var(--radius-8);box-sizing:border-box}
@@ -1074,18 +1081,14 @@
 .nds .asset-connect {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-32);width:100%;text-align:center}
 .nds .asset-connect__visual {position:relative;overflow:hidden;width:148px;height:104px}
 .nds .asset-connect__visual img {position:absolute;left:-5.83%;top:-5.76%;width:115.6%;height:117.81%;max-width:none}
-.nds .asset-connect__text {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .asset-connect__title {margin:0}
 .nds .asset-connect__regular {font-weight:var(--font-weight-regular)}
 .nds .asset-connect__desc {margin:0}
 /* ---- 소득/소비정보 등록(NH_MD_CO_01_02) ---- */
-.nds .income-consume {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
 .nds .income-consume__title {position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:2px;width:100%}
 .nds .income-consume__title .tooltipCont {position:absolute !important;top:100% !important;left:0 !important;transform:none !important;width:100% !important;margin-top:var(--spacing-12);box-sizing:border-box;z-index:30} /* 절대 위치로 라벨 바로 아래에 띄움(레거시 .tooltipWrap .tooltipCont의 left:50%/translateX(-50%) 중앙정렬만 좁은 바텀시트에 맞게 재정의) — nhasset_myd_mb.css 최상단 @import url("update.css") 때문에 이 파일 규칙이 캐스케이드상 먼저 배치되어, 동일 특이도(0,3,0) 레거시 규칙에 소스 순서로 밀리므로 top/left/transform/width에 !important 필요 */
 .nds .income-consume__title .tooltipCont .close {position:absolute} /* 레거시 규칙(nhasset_myd_mb.css)에 top/right/배경만 있고 position 지정이 빠져 있어 보강 */
 .nds .income-consume__title .tooltipCont.tooltipCont--top {top:auto !important;bottom:100% !important;margin-top:0;margin-bottom:var(--spacing-12)} /* update-ui.js의 tooltipOpen() 오버라이드가 트리거 아래쪽 공간이 부족(팝업 CTA 버튼에 가려짐 등)할 때 붙이는 클래스 — 트리거 위쪽으로 뒤집어 띄움 */
-.nds .income-consume__chips {display:flex;align-items:center;gap:var(--spacing-4);width:100%}
-.nds .income-consume__chip {display:flex;flex:1 0 0;min-width:0;align-items:center;justify-content:center;padding:5px var(--spacing-12);border:1px solid var(--color-border-1);border-radius:var(--radius-8);background:var(--color-bg-default);font-size:var(--type-size-13);font-weight:var(--font-weight-regular);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-1);cursor:pointer;white-space:nowrap}
 /* ---- Tab (line/chip/bar/text 4종) ---- */
 .nds .tab-line {display:flex;align-items:center;width:100%;background-color:var(--color-bg-default)}
 .nds .tab-line__list {display:flex;align-items:stretch;flex:1 0 0;min-width:0;border-bottom:1px solid var(--color-border-2)}
