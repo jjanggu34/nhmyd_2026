@@ -1059,9 +1059,8 @@
 .nds .intro-hero img {display:block}
 /* ---- 성인 축하 안내(NH_MD_YO_05) ---- */
 .nds .celebrate {position:relative;display:flex;flex-direction:column;gap:var(--spacing-32);align-items:flex-start;width:100%}
-.nds .celebrate__glow {position:absolute;top:4px;right:0;width:120px;height:120px;pointer-events:none} 
-.nds .celebrate__glow::before{content:'';position: absolute;top:60%;left:50%;transform:translate(-60%, -60%);width:160px;height:140px;background:radial-gradient(circle, rgb(178 240 195 / 50%) 0%, rgba(255, 255, 255, 0) 70%);border-radius:50%;z-index:1}
-.nds .celebrate__glow img {position: relative;width:120px;height:120px;z-index:2}
+.nds .celebrate__glow {position:absolute;top:4px;right:0;width:120px;height:120px;box-shadow:-32px -12px 80px 0 rgba(68, 233, 104, 0.32), inset 0 0 44px 4px rgba(68, 233, 104, 0.35);pointer-events:none} /* box-shadow는 마스크가 없는 이 래퍼에 둠 — mask-image가 걸린 요소에 box-shadow를 같이 주면 mask 페인팅 영역(박스 크기)에 걸쳐 그림자까지 잘려나가 안 보이게 됨. inset shadow는 박스 안쪽(자식 mascot이 mask로 투명해진 가장자리)에서 흰색이 그대로 드러나지 않도록 같은 색을 은은하게 채워, 바깥 글로우와 자연스럽게 이어지게 함 */
+.nds .celebrate__mascot {position:absolute;inset:0;background:url("../images/update/img-ally-firecracker.png") -15.126px -18.727px / 122.929% 122.929% no-repeat;-webkit-mask-image:radial-gradient(circle at 55% 60%, black 60%, transparent 100%);mask-image:radial-gradient(circle at 55% 60%, black 60%, transparent 100%)} /* 박스 자체가 정사각형이라 안쪽 투명 여백이 흰 네모로 도드라져 보이는 문제 — radial-gradient 마스크로 이미지 가장자리를 부드럽게 페이드시켜서 사각형 윤곽 없이 글로우와 자연스럽게 섞이도록 처리 */
 .nds .celebrate__title {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .celebrate__title .text--h2 {margin:0}
 .nds .celebrate__name {display:block;color:var(--primitive-green-accent)}
@@ -1071,6 +1070,22 @@
 .nds .celebrate__info-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:#002259}
 .nds .celebrate__info-list .bullet__item {color:#002259}
 .nds .celebrate__info-list .bullet__item::before {background-color:#002259}
+/* ---- 자산연결 안내(NH_MD_CO_04_01) ---- */
+.nds .asset-connect {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-32);width:100%;text-align:center}
+.nds .asset-connect__visual {position:relative;overflow:hidden;width:148px;height:104px}
+.nds .asset-connect__visual img {position:absolute;left:-5.83%;top:-5.76%;width:115.6%;height:117.81%;max-width:none}
+.nds .asset-connect__text {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
+.nds .asset-connect__title {margin:0}
+.nds .asset-connect__regular {font-weight:var(--font-weight-regular)}
+.nds .asset-connect__desc {margin:0}
+/* ---- 소득/소비정보 등록(NH_MD_CO_01_02) ---- */
+.nds .income-consume {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
+.nds .income-consume__title {position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:2px;width:100%}
+.nds .income-consume__title .tooltipCont {position:absolute !important;top:100% !important;left:0 !important;transform:none !important;width:100% !important;margin-top:var(--spacing-12);box-sizing:border-box;z-index:30} /* 절대 위치로 라벨 바로 아래에 띄움(레거시 .tooltipWrap .tooltipCont의 left:50%/translateX(-50%) 중앙정렬만 좁은 바텀시트에 맞게 재정의) — nhasset_myd_mb.css 최상단 @import url("update.css") 때문에 이 파일 규칙이 캐스케이드상 먼저 배치되어, 동일 특이도(0,3,0) 레거시 규칙에 소스 순서로 밀리므로 top/left/transform/width에 !important 필요 */
+.nds .income-consume__title .tooltipCont .close {position:absolute} /* 레거시 규칙(nhasset_myd_mb.css)에 top/right/배경만 있고 position 지정이 빠져 있어 보강 */
+.nds .income-consume__title .tooltipCont.tooltipCont--top {top:auto !important;bottom:100% !important;margin-top:0;margin-bottom:var(--spacing-12)} /* update-ui.js의 tooltipOpen() 오버라이드가 트리거 아래쪽 공간이 부족(팝업 CTA 버튼에 가려짐 등)할 때 붙이는 클래스 — 트리거 위쪽으로 뒤집어 띄움 */
+.nds .income-consume__chips {display:flex;align-items:center;gap:var(--spacing-4);width:100%}
+.nds .income-consume__chip {display:flex;flex:1 0 0;min-width:0;align-items:center;justify-content:center;padding:5px var(--spacing-12);border:1px solid var(--color-border-1);border-radius:var(--radius-8);background:var(--color-bg-default);font-size:var(--type-size-13);font-weight:var(--font-weight-regular);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-1);cursor:pointer;white-space:nowrap}
 /* ---- Tab (line/chip/bar/text 4종) ---- */
 .nds .tab-line {display:flex;align-items:center;width:100%;background-color:var(--color-bg-default)}
 .nds .tab-line__list {display:flex;align-items:stretch;flex:1 0 0;min-width:0;border-bottom:1px solid var(--color-border-2)}
@@ -1113,7 +1128,7 @@
 .nds .input-box__timer {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.02em;color:var(--color-font-error);flex-shrink:0;white-space:nowrap}
 .nds .input-box__check {display:block;width:18px;height:18px;flex-shrink:0;color:var(--color-font-point);background-color:currentColor;-webkit-mask-image:url("../images/update/ic-check.svg");mask-image:url("../images/update/ic-check.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .input-box__message {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);letter-spacing:-0.02em;color:var(--color-font-4)}
-.nds .input-box__message--success {color:var(--color-font-point)}
+.nds .input-box__message--success {color:var(--color-font-point);text-align:right}
 .nds .input-box--focus .input-box__field {border-color:var(--color-border-point)}
 /* ---- NH_MD_PM_00_00(별명설정) ---- */
 .nds .input-box__field:focus-within {border-color:var(--color-border-point)}
@@ -1122,7 +1137,7 @@
 .nds .input-box--success .input-box__field {border-color:var(--color-border-point)}
 .nds .input-box--success .input-box__message {color:var(--color-font-point)}
 .nds .input-box--readonly .input-box__field {background:var(--color-bg-extra-bg);cursor:default}
-.nds input[type="text"]:read-only{background:var(--color-bg-extra-bg)}
+.nds input[type="text"]:read-only{background:var(--color-bg-default)}
 .nds .input-box--disabled .input-box__field {background:var(--color-bg-extra-bg);cursor:not-allowed}
 .nds .input-line {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%;max-width:428px}
 .nds .input-line__label {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.02em;color:var(--color-font-3)}
