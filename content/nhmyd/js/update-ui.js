@@ -167,6 +167,50 @@ window.calendarAlign = function () {
     }, 500);
 };
 
+/*
+ * tooltipOpen()/tooltipClose() 오버라이드
+ * ---------------------------------------------------------------
+ * 레거시 tooltipOpen()(nhasset-ui.js)은 트리거 바로 아래(.tooltipWrap 기준 top:100%)에 항상
+ * 툴팁을 띄운다. NH_MD_CO_01_02처럼 슬라이드팝업 하단부(두 번째 "매월 얼마나 소비하고
+ * 있나요" 트리거 등)에 가까운 트리거를 클릭하면, 아래로 펼쳐진 툴팁이 화면 하단에 고정된
+ * CTA 버튼(.popBtnWrap)에 가려지거나 팝업 영역 밖으로 잘릴 수 있다.
+ * nds 스코프에서만: 열고 나서 실제로 그려진 위치를 측정해, 툴팁 아래쪽 끝이 CTA 버튼(있으면)
+ * 또는 뷰포트 하단을 넘어가면 .tooltipCont--top 클래스를 붙여 트리거 위쪽으로 뒤집어 띄운다.
+ * (레거시 tooltipOpen() 원본 함수 자체는 그대로 두고, 여기서만 위치 보정을 추가한다.)
+ */
+var legacyTooltipOpen = window.tooltipOpen;
+
+window.tooltipOpen = function ($obj) {
+    if (!isNdsScope($obj)) {
+        if (typeof legacyTooltipOpen === "function") legacyTooltipOpen($obj);
+        return;
+    }
+
+    var $tooltipCont = $obj.closest(".tooltipWrap").find(".tooltipCont");
+    $(".tooltipCont").removeClass("tooltipCont--top").hide(); // 매번 기본(아래로 열림) 상태로 리셋 후 재측정
+    $tooltipCont.css({ width: $(window).width() - 32 });
+    $tooltipCont.show();
+
+    // 실제로 그려진 위치를 측정해, 아래쪽 끝이 팝업 CTA 버튼(있으면 그 상단)이나 뷰포트 하단을
+    // 넘어가면 트리거 위쪽으로 뒤집습니다.
+    var contRect = $tooltipCont[0].getBoundingClientRect();
+    var $ctaWrap = $obj.closest(".popWrap").find(".popBtnWrap");
+    var blockBottom = $ctaWrap.length ? $ctaWrap[0].getBoundingClientRect().top : $(window).height();
+
+    if (contRect.bottom > blockBottom) {
+        $tooltipCont.addClass("tooltipCont--top");
+    }
+};
+
+// tooltipClose()는 스코프와 무관하게 뒤집힘 상태 클래스만 정리하고, 레거시 원본 동작(hide,
+// 트리거 포커스 복원)에 그대로 위임합니다.
+var legacyTooltipClose = window.tooltipClose;
+
+window.tooltipClose = function ($obj) {
+    $obj.closest(".tooltipCont").removeClass("tooltipCont--top");
+    if (typeof legacyTooltipClose === "function") legacyTooltipClose($obj);
+};
+
 /* --- slidePopConfirm() 오버라이드 --- */
 function syncSlidePopConfirmHeight(animate) {
     $(".slidePopConfirm:visible").each(function () {
