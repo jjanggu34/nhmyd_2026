@@ -833,6 +833,13 @@
 .nds .radio-box-input:checked + .radio-box {border-width:1.5px;border-color:var(--color-border-point);color:var(--color-font-point);font-weight:var(--font-weight-medium)}
 .nds .radio-box-input:disabled + .radio-box {background:var(--color-bg-extra-bg);cursor:not-allowed}
 .nds .radio-box-input:disabled:checked + .radio-box {border-width:1px;border-color:var(--color-border-1);color:var(--color-font-3);font-weight:var(--font-weight-regular)}
+/* radio-box--xs 4개가 한 줄(NH_MD_CO_01_06 소비금액 빠른입력 등)에 들어가는 경우 320px 폭에서
+   가로 스크롤이 생겨, 레이아웃/문구는 그대로 두고 320px 이하에서만 gap/padding을 좁혀 대응
+   (nhasset_myd_mb.css의 기존 max-width:320px 브레이크포인트 컨벤션과 동일) */
+@media all and (max-width:320px) {
+    .nds .radio-box-row {gap:2px}
+    .nds .radio-box--xs {padding:5px 4px}
+}
 /* box/center, box/left ---- */
 .nds .radio-box-field {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .radio-box-group {display:flex;flex-direction:column;gap:var(--spacing-4);width:100%}
