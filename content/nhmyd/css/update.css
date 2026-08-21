@@ -732,7 +732,6 @@
 .nds .inst-list__row-logo {flex-shrink:0;width:24px;height:24px;border-radius:50%;object-fit:cover;background-color:var(--color-bg-container);margin-left:var(--spacing-4)}
 .nds .inst-list__row-info {flex-shrink:0;display:flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;background:none;border:none;cursor:pointer;color:var(--color-icon-4)}
 .nds .inst-list__row-info::before {content:"";display:block;width:16px;height:16px;background-color:currentColor;-webkit-mask-image:url("../images/update/ico_share-link_line_24.svg");mask-image:url("../images/update/ico_share-link_line_24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-
 /* ---- inst-list--flat --- */
 .nds .inst-list__grid {display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--spacing-8);width:100%;margin-top:var(--spacing-20)}
 .nds .inst-list__grid-item {display:block;min-width:0;cursor:pointer;position:relative}
@@ -747,6 +746,29 @@
 .nds .inst-list__grid-label {max-width:100%;overflow:hidden;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-1);text-align:center;text-overflow:ellipsis;white-space:nowrap}
 .nds .inst-list__grid-card .label{position:absolute;top:6px;right:6px;overflow:hidden;white-space:nowrap;background-color:var(--primitive-gray-100);padding:0 var(--spacing-4);font-size: var(--type-size-10);line-height:15px;letter-spacing: -0.2px;border-radius: 4px;}
 .nds .inst-list__grid-card .label.label--red{background: rgba(226, 73, 73, 0.10)}
+/* ---- inst-list-theme (NH_MD_UI_03_02 기관선택>추천기관: 26.08.11 기획/디자인 전면수정 반영,
+   업권별 테마문구 카드 + CI 미리보기 + 더보기/접기 아코디언. 기관 목록(.inst-list__grid)은
+   기존 연결기관 선택하기 탭과 동일 컴포넌트를 그대로 재사용합니다. ---- */
+.nds .inst-list-theme {width:100%;display:flex;flex-direction:column}
+.nds .inst-list-theme__item {display:flex;flex-direction:column;gap:var(--spacing-4);padding:var(--spacing-24) 0;border-top:1px solid var(--color-border-4)}
+.nds .inst-list-theme__item:first-child {border-top:none;padding-top:0}
+.nds .inst-list-theme__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
+.nds .inst-list-theme__title {display:flex;align-items:center;gap:var(--spacing-8);min-width:0}
+.nds .inst-list-theme__name {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--type-size-16);font-weight:var(--font-weight-medium);letter-spacing:-0.32px;color:var(--color-font-1)}
+.nds .inst-list-theme__check {flex-shrink:0}
+.nds .inst-list-theme__desc {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-4)}
+.nds .inst-list-theme__toggle {display:flex;align-items:center;gap:var(--spacing-8);width:100%;padding:0 28px 0 0;margin-top:20px; background:none;border:none;cursor:pointer;text-align:left;position:relative}
+.nds .inst-list-theme__avatars {display:flex;align-items:center;flex-shrink:0}
+.nds .inst-list-theme__avatar {flex-shrink:0;width:22px;height:22px;border-radius:var(--radius-8);object-fit:cover;background-color:var(--color-bg-container);margin-right:-4px;border:2px solid var(--color-bg-default)}
+.nds .inst-list-theme__avatar:last-child {margin-right:0}
+.nds .inst-list-theme__count {font-size:var(--type-size-15);font-weight:var(--font-weight-medium);letter-spacing:-0.3px;color:var(--color-font-point)}
+.nds .inst-list-theme__toggle::after {content:"";display:block;position:absolute;top:50%;right:0;width:24px;height:24px;transform:translateY(-50%);background-color:var(--color-icon-1);transition:transform 0.2s ease;-webkit-mask-image:url("../images/update/ic-arrow-down-24.svg");mask-image:url("../images/update/ic-arrow-down-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .inst-list-theme__toggle[aria-expanded=true]::after {transform:translateY(-50%) rotate(180deg)}
+.nds .inst-list-theme__toggle[aria-expanded=false] .is-less,
+.nds .inst-list-theme__toggle[aria-expanded=true] .is-more {display:none}
+.nds .inst-list-theme__list {margin-top:var(--spacing-20)}
+.nds .inst-list-theme__list[hidden] {display:none}
+.nds .inst-list-theme__list .inst-list__grid {margin-top:0}
 /* ---- Result List ---- */
 .nds .result-list {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-24);width:100%;box-sizing:border-box}
 .nds .result-list__rows {display:flex;flex-direction:column;width:100%}
@@ -939,7 +961,7 @@
 .nds .calendar-day--disabled .calendar-day__text {color:var(--color-font-1)}
 .nds .dayPicSet__label {color:var(--color-font-1);font-family:Pretendard;font-size:var(--type-size-16);font-style:normal;font-weight:600;line-height:24px;letter-spacing:-0.32px}
 /* ---- Process:step/horizontal ---- */
-.nds .process-step-h {display:flex;align-items:flex-start;width:100%;margin:var(--spacing-24) 0 var(--spacing-32);padding:0 var(--spacing-12);--color-step-green:var(--primitive-green-accent)} /* 피그마는 3칸 균등분할이 아니라 아이템은 콘텐츠 폭만큼만 차지(auto), 사이 간격은 라인이 flex-grow로 채움 */
+.nds .process-step-h {display:flex;align-items:flex-start;width:100%;margin:var(--spacing-24) 0 var(--spacing-32);padding:0 var(--spacing-12);--color-step-green:var(--primitive-green-accent)}  /* 피그마는 3칸 균등분할이 아니라 아이템은 콘텐츠 폭만큼만 차지(auto), 사이 간격은 라인이 flex-grow로 채움 */
 .nds .process-step-h__line {flex:1 1 auto;min-width:24px;height:2px;margin:11px var(--spacing-8) 0;border-radius:1px;background:var(--color-border-2)} /* num 중심(12px)에 2px 두께를 맞춘 top 여백(11px), 배지와의 여백은 margin 8px */
 .nds .process-step-h__line--done {background:var(--color-step-green)} /* 완료된 구간만 그린으로 표시 */
 .nds .process-step-h__item {position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--spacing-8);flex:0 0 auto;min-width:0} /* 피그마: 배지가 라벨 폭 기준으로 가운데 정렬(items-center), 아이템 자체는 콘텐츠 폭만큼만 */
