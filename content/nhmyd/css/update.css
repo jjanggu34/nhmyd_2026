@@ -1104,10 +1104,13 @@
 .nds .intro-hero img {display:block}
 /* ---- 성인 축하 안내(NH_MD_YO_05) ---- */
 .nds .celebrate {position:relative;display:flex;flex-direction:column;gap:var(--spacing-32);align-items:flex-start;width:100%}
-.nds .celebrate__glow {position:absolute;top:4px;right:0;width:120px;height:120px;box-shadow:-32px -12px 80px 0 rgba(68, 233, 104, 0.32), inset 0 0 44px 4px rgba(68, 233, 104, 0.35);pointer-events:none} /* box-shadow는 마스크가 없는 이 래퍼에 둠 — mask-image가 걸린 요소에 box-shadow를 같이 주면 mask 페인팅 영역(박스 크기)에 걸쳐 그림자까지 잘려나가 안 보이게 됨. inset shadow는 박스 안쪽(자식 mascot이 mask로 투명해진 가장자리)에서 흰색이 그대로 드러나지 않도록 같은 색을 은은하게 채워, 바깥 글로우와 자연스럽게 이어지게 함 */
-.nds .celebrate__mascot {position:absolute;inset:0;background:url("../images/update/img-ally-firecracker.png") -15.126px -18.727px / 122.929% 122.929% no-repeat;-webkit-mask-image:radial-gradient(circle at 55% 60%, black 60%, transparent 100%);mask-image:radial-gradient(circle at 55% 60%, black 60%, transparent 100%)} /* 박스 자체가 정사각형이라 안쪽 투명 여백이 흰 네모로 도드라져 보이는 문제 — radial-gradient 마스크로 이미지 가장자리를 부드럽게 페이드시켜서 사각형 윤곽 없이 글로우와 자연스럽게 섞이도록 처리 */
-.nds .celebrate .stack--field .text--h2 {margin:0}
-.nds .celebrate__name {display:block;color:var(--primitive-green-accent)}
+.nds .celebrate__glow {position:absolute;top:4px;right:0;width:120px;height:120px;pointer-events:none} 
+.nds .celebrate__glow::before{content:'';position: absolute;top:60%;left:50%;transform:translate(-60%, -60%);width:160px;height:140px;background:radial-gradient(circle, rgb(178 240 195 / 50%) 0%, rgba(255, 255, 255, 0) 70%);border-radius:50%;z-index:1}
+.nds .celebrate__glow img {position: relative;width:120px;height:120px;z-index:2}
+.nds .celebrate__title {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
+.nds .celebrate__title .text--h2 {margin:0}
+.nds .celebrate__name {display:block}
+.nds .celebrate__name em{color:var(--primitive-green-accent)}
 .nds .celebrate__regular {font-weight:var(--font-weight-regular)}
 .nds .celebrate__info {display:flex;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);background:#f3f5f8;border-radius:var(--radius-8);box-sizing:border-box}
 .nds .celebrate__info-body {display:flex;flex-direction:column;gap:var(--spacing-12);flex:1;min-width:0}
