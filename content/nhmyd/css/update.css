@@ -188,8 +188,10 @@
     --spacing-8:8px;
     --spacing-12:12px;
     --spacing-16:16px;
+    --spacing-18:18px;
     --spacing-20:20px;
     --spacing-24:24px;
+    --spacing-26:26px;
     --spacing-32:32px;
     --radius-2:2px;
     --radius-4:4px;
@@ -433,7 +435,7 @@
 .nds .label--lightblue {color:var(--primitive-teal-grade)}
 .nds .label--navy {color:var(--primitive-navy-grade)}
 .nds .label--orange {color:var(--primitive-orange-grade)}
-.nds .label--red {color:var(--primitive-red-grade)}
+.nds .label--red {color:var(--color-icon-error)}
 .nds .label--skyblue {color:var(--primitive-skyblue-grade)}
 .nds .label--yellow {color:var(--primitive-yellow-grade)}
 .nds .label--line.label--gray {border-color:var(--primitive-gray-600)}
@@ -730,16 +732,21 @@
 .nds .inst-list__row-logo {flex-shrink:0;width:24px;height:24px;border-radius:50%;object-fit:cover;background-color:var(--color-bg-container);margin-left:var(--spacing-4)}
 .nds .inst-list__row-info {flex-shrink:0;display:flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;background:none;border:none;cursor:pointer;color:var(--color-icon-4)}
 .nds .inst-list__row-info::before {content:"";display:block;width:16px;height:16px;background-color:currentColor;-webkit-mask-image:url("../images/update/ico_share-link_line_24.svg");mask-image:url("../images/update/ico_share-link_line_24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+
 /* ---- inst-list--flat --- */
 .nds .inst-list__grid {display:grid;grid-template-columns:repeat(3, 1fr);gap:var(--spacing-8);width:100%;margin-top:var(--spacing-20)}
 .nds .inst-list__grid-item {display:block;min-width:0;cursor:pointer;position:relative}
-.nds .inst-list__grid-card {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-8);width:100%;padding:var(--spacing-16) var(--spacing-6);border-radius:var(--radius-8);background:var(--color-bg-default);border:1px solid var(--color-border-4);transition:background-color var(--transition-base)}
-.nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card {background:rgba(229, 239, 255, 0.20);border:1px solid var(--primitive-blue-200)}
-.nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card:before{content:"";display:block;position:absolute;top:6px;right:8px;width:12px;height:12px;background-color:var(--primitive-gray-500);-webkit-mask-image: url("../images/update/ic-share-copylink.svg");mask-image: url("../images/update/ic-share-copylink.svg");-webkit-mask-size: contain;mask-size: contain;-webkit-mask-repeat: no-repeat;mask-repeat: no-repeat;-webkit-mask-position: center;mask-position: center}
-.nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card {background:var(--color-bg-default);border:1px solid var(--color-border-4)}
-.nds .inst-list__grid-logo {flex-shrink:0;width:24px;height:24px;object-fit:contain}
+.nds .inst-list__grid-card {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-8);width:100%;padding:var(--spacing-26) var(--spacing-6) var(--spacing-18);border-radius:var(--radius-8);background:var(--color-bg-default);transition:background-color var(--transition-base)}
+.nds .inst-list__grid-item .check-basic__input:checked + .inst-list__grid-card {background:#EBEFF6}
+.nds .inst-list__grid-item.linked .check-basic__input + .inst-list__grid-card:before{content:"";display:block;position:absolute;top:6px;right:8px;width:12px;height:12px;background-color:var(--primitive-gray-500);-webkit-mask-image: url("../images/update/ic-share-copylink.svg");mask-image: url("../images/update/ic-share-copylink.svg");-webkit-mask-size: contain;mask-size: contain;-webkit-mask-repeat: no-repeat;mask-repeat: no-repeat;-webkit-mask-position: center;mask-position: center}
+.nds .inst-list__grid-item.linked .check-basic__input:disabled + .inst-list__grid-card:before{display:none}
+.nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card {background:rgba(250, 250, 250, 0.2);cursor:not-allowed}
+.nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card img{opacity:0.2}
+.nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card .inst-list__grid-label{color:var(--color-font-5)}
+.nds .inst-list__grid-logo {flex-shrink:0;width:40px;height:40px;object-fit:contain}
 .nds .inst-list__grid-label {max-width:100%;overflow:hidden;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-1);text-align:center;text-overflow:ellipsis;white-space:nowrap}
-.nds .inst-list__grid-card .label{position:absolute;top:6px;right:6px;overflow:hidden;white-space:nowrap;background-color:var(--primitive-gray-100);padding:var(--spacing-2);font-size: var(--type-size-10);line-height:15px;letter-spacing: -0.2px}
+.nds .inst-list__grid-card .label{position:absolute;top:6px;right:6px;overflow:hidden;white-space:nowrap;background-color:var(--primitive-gray-100);padding:0 var(--spacing-4);font-size: var(--type-size-10);line-height:15px;letter-spacing: -0.2px;border-radius: 4px;}
+.nds .inst-list__grid-card .label.label--red{background: rgba(226, 73, 73, 0.10)}
 /* ---- Result List ---- */
 .nds .result-list {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-24);width:100%;box-sizing:border-box}
 .nds .result-list__rows {display:flex;flex-direction:column;width:100%}
@@ -932,7 +939,7 @@
 .nds .calendar-day--disabled .calendar-day__text {color:var(--color-font-1)}
 .nds .dayPicSet__label {color:var(--color-font-1);font-family:Pretendard;font-size:var(--type-size-16);font-style:normal;font-weight:600;line-height:24px;letter-spacing:-0.32px}
 /* ---- Process:step/horizontal ---- */
-.nds .process-step-h {display:flex;align-items:flex-start;width:100%;margin:var(--spacing-24) 0 var(--spacing-32);--color-step-green:var(--primitive-green-accent)} /* 피그마는 3칸 균등분할이 아니라 아이템은 콘텐츠 폭만큼만 차지(auto), 사이 간격은 라인이 flex-grow로 채움 */
+.nds .process-step-h {display:flex;align-items:flex-start;width:100%;margin:var(--spacing-24) 0 var(--spacing-32);padding:0 var(--spacing-12);--color-step-green:var(--primitive-green-accent)} /* 피그마는 3칸 균등분할이 아니라 아이템은 콘텐츠 폭만큼만 차지(auto), 사이 간격은 라인이 flex-grow로 채움 */
 .nds .process-step-h__line {flex:1 1 auto;min-width:24px;height:2px;margin:11px var(--spacing-8) 0;border-radius:1px;background:var(--color-border-2)} /* num 중심(12px)에 2px 두께를 맞춘 top 여백(11px), 배지와의 여백은 margin 8px */
 .nds .process-step-h__line--done {background:var(--color-step-green)} /* 완료된 구간만 그린으로 표시 */
 .nds .process-step-h__item {position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--spacing-8);flex:0 0 auto;min-width:0} /* 피그마: 배지가 라벨 폭 기준으로 가운데 정렬(items-center), 아이템 자체는 콘텐츠 폭만큼만 */
