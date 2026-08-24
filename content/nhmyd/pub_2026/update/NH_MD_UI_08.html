@@ -3,11 +3,6 @@
     <head>
         <script src="../pub-assets/js/head-mb-update.js"></script>
         <title>[P] 자산연결</title>
-        <script>
-            $(document).ready(function () {
-            	slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
-            })
-        </script>
     </head>
 
     <body>
@@ -21,19 +16,29 @@
                         <div class="text-stack pb8">
                             <p class="text text--h2">
                                 <em class="pointColor22">김농협님</em>
-                                신한투자증권
-                                <span class="fwN">
-                                    에
+                                신한투자증권<span class="fwN">에
                                     <br />
                                     자산이 있는 것 같아요
                                 </span>
                             </p>
                             <p class="text text--body2 text--font2">딱 한 곳만 먼저 연결해 볼까요?</p>
                         </div>
-                        <div class="text-stack">
+                        <!--S:수정-->
+                        <!--<div class="text-stack">
                             <img src="../../images/logos/AAER0000.png" alt="신한투자증권로고" class="asset__link-logo" />
                             <p class="text text--body1-medium">신한투자증권</p>
+                        </div>-->
+                        <div class="bank__item">
+                            <label class="text-stack">
+                                <input type="checkbox" class="check-basic__input inputChecked" checked="">
+                                <span class="check-basic__icon" aria-hidden="true"></span>
+                                <span>
+                                    <img class="asset__link-logo" src="../../images/logos/AADF0000.png" alt="">
+                                    <span class="text text--body1-medium">신한투자증권</span>
+                                </span>
+                            </label>
                         </div>
+                        <!--E:수정끝-->
 
                         <div class="hashWrap mt32">
                             <span class="hastag"># 스마트한 자산관리의 시작</span>
@@ -46,7 +51,7 @@
                 <div class="popBtnWrap">
                     <div class="popBtn half">
                         <a href="javascript:;" class="btnPressDefault" role="button">추천기관 연결하기</a>
-                        <a href="javascript:;" class="confirmBtn" role="button">기관 1개 연결하기</a>
+                        <a href="javascript:;" class="confirmBtn" role="button" aria-disabled="false">기관 1개 연결하기</a>
                     </div>
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
                         <img src="../../images/common/btn_popClose.png" alt="닫기" />
@@ -54,5 +59,29 @@
                 </div>
             </div>
         </div>
+        <!--S : 퍼블 확인용 스크립트-->
+        <script>
+            $(document).ready(function () {
+            	slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            	syncConfirmBtnState(); //기관 체크 여부에 따라 '기관 1개 연결하기' 활성화 상태 셋팅
+
+            	//기관 체크박스 상태 변경 시 '기관 1개 연결하기' 버튼 활성화 상태 동기화
+            	$('.inputChecked').on('change', syncConfirmBtnState);
+
+            	$('.confirmBtn').on('click', function () {
+            		if ($(this).hasClass('disabled')) return false; //비활성화 상태에서는 동작하지 않음
+            	});
+            })
+
+            function syncConfirmBtnState() {
+            	var $btn = $('.confirmBtn');
+            	if ($('.inputChecked').is(':checked')) {
+            		$btn.removeClass('disabled').attr('aria-disabled', 'false');
+            	} else {
+            		$btn.addClass('disabled').attr('aria-disabled', 'true');
+            	}
+            }
+        </script>
+        <!--E : 퍼블 확인용 스크립트-->
     </body>
 </html>
