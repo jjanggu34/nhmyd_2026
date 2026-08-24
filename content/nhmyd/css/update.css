@@ -1091,7 +1091,7 @@
 .nds .text--font4 {color:var(--color-font-4)}
 .nds .text--point {color:var(--color-font-point)}
 .nds .text--visual {color:var(--color-font-visual)}
-.nds .text-stack {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%;margin-bottom:var(--spacing-24)}
+.nds .text-stack {display:flex;flex-direction:column;gap:var(--spacing-12);position:relative;width:100%;margin-bottom:var(--spacing-24)}
 .nds .text-stack[hidden] {display:none} /* MSAR3110P_01 */
 .nds .text-stack--lg {gap:var(--spacing-32);margin:48px 0 40px}
 .nds .text-stack--lg .text-stack:last-child{margin-bottom:0}
@@ -1332,7 +1332,10 @@
 /* ---- NH_MD_UI_08 ---- */
 .nds .hashWrap {display:flex;flex-wrap:wrap;column-gap:var(--spacing-16);padding:var(--spacing-16);border-radius:var(--radius-8);background-color:var(--color-bg-banner);font-size:0}
 .nds .hashWrap .hastag {margin:0;color:#002259;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:var(--type-body2-ls)}
-.nds .asset__link-logo {width:88px;height:88px;margin:0 auto}
+.nds .asset__link-logo {width:88px; height:88px; margin:0 auto;}
+.nds .bank__item { position:relative; padding-top:24px; }
+.nds .bank__item .text-stack { max-width:184px; margin:0 auto; }
+.nds .bank__item .check-basic__icon {position:absolute;top:-12px;right:20px;}
 .pointColor22 {color:var(--color-font-green-newtro)}
 /* ---- NH_MD_01 ---- */
 .md-section {margin-top:56px}
