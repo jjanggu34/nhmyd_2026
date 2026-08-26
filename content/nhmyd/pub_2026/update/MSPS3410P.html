@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>[P] 계좌 거래메모, 적요 확인</title>
+        <script>
+            $(document).ready(function () {
+                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1>계좌 거래메모, 적요를 확인해요</h1>
+                <div class="popCont">
+                    <div class="popCont__inner"></div>
+                </div>
+                <div class="popBtnWrap">
+                    <div class="popBtn half">
+                        <a href="javascript:;" class="btnPressDefault" role="button">다음에</a>
+                        <a href="javascript:;" class="confirmBtn" role="button">동의하기</a>
+                    </div>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
