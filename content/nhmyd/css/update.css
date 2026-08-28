@@ -829,7 +829,7 @@
 .nds .select-card {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%;padding:var(--spacing-20) var(--spacing-16) var(--spacing-20) var(--spacing-20);border:1px solid var(--color-border-2);border-radius:var(--radius-16);background-color:var(--color-bg-default);box-sizing:border-box}
 .nds .select-card__select-row {display:flex;align-items:flex-start;gap:var(--spacing-8);width:100%}
 .nds .select-card__select-text {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-2)}
-.nds .select-card__select-text .select-card__logo-row:first-child {margin-bottom:var(--spacing-32)}
+/* .nds .select-card__select-text .select-card__logo-row:first-child {margin-bottom:var(--spacing-32)} */
 .nds .select-card__chip {display:inline-flex;align-items:center;justify-content:center;width:fit-content;padding:3px var(--spacing-8) var(--spacing-2);background-color:var(--color-bg-container);border-radius:var(--radius-4);font-size:var(--type-size-10);font-weight:var(--font-weight-regular);letter-spacing:-0.2px;line-height:15px;color:var(--color-font-2)}
 .nds .select-card__logo-row {display:flex;align-items:center;gap:var(--spacing-8);width:100%}
 .nds .select-card__logo {width:40px;height:40px;flex-shrink:0;overflow:hidden}
@@ -1500,9 +1500,8 @@
 .retire-check__row--highlight dd {font-weight:var(--font-weight-semibold)}
 /* ---- 프로모 배너 캐러셀 — 대출자산 탭 ---- */
 .promo-carousel {width:100%}
-.promo-carousel__track {display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;border-radius:var(--radius-16);scrollbar-width:none}
-.promo-carousel__track::-webkit-scrollbar {display:none}
-.promo-carousel__slide {position:relative;flex:0 0 100%;scroll-snap-align:start;min-height:190px;border-radius:var(--radius-16);padding:var(--spacing-24) 96px var(--spacing-24) var(--spacing-20);box-sizing:border-box}
+.promo-carousel__track {border-radius:var(--radius-16)} /* overflow:hidden/position은 swiper-container(swiper.min.css)가 담당 — Swiper JS가 .swiper-wrapper를 transform으로 넘깁니다 */
+.promo-carousel__slide {position:relative;min-height:190px;border-radius:var(--radius-16);padding:var(--spacing-24) 96px var(--spacing-24) var(--spacing-20);box-sizing:border-box}
 .promo-carousel__eyebrow {font-size:var(--type-size-13);font-weight:var(--font-weight-medium);color:var(--primitive-gray-font-700);margin:0 0 var(--spacing-8)}
 .promo-carousel__title {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);color:var(--primitive-gray-font-900);line-height:1.4;margin:0 0 var(--spacing-8)}
 .promo-carousel__tags {font-size:var(--type-size-13);color:var(--primitive-gray-font-600);margin:0}
@@ -1777,8 +1776,8 @@
 .nds .select-card__progress {display:flex;flex-direction:column;gap:var(--spacing-4);width:100%}
 .nds .select-card__progress-detail {display:flex;align-items:center;justify-content:space-between;width:100%;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-4)}
 .nds .fund-donut {display:flex;align-items:center;gap:var(--spacing-24);width:100%}
-.nds .fund-donut__chart {flex-shrink:0;position:relative;width:120px;height:120px;border-radius:var(--radius-full)}
-.nds .fund-donut__chart::after {content:"";position:absolute;inset:20px;background-color:var(--primitive-base-0);border-radius:var(--radius-full)}
+.nds .fund-donut__chart {flex-shrink:0;position:relative;width:120px;height:120px}
+.nds .fund-donut__chart canvas {display:block;width:100%;height:100%}
 .nds .fund-donut__data {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-12)}
 .nds .fund-donut__total-label {margin:0 0 2px;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-4)}
 .nds .fund-donut__total-value {margin:0;text-align:right;font-size:var(--type-size-22);font-weight:var(--font-weight-semibold);letter-spacing:-0.44px;line-height:32px;color:var(--color-font-1)}
@@ -1806,3 +1805,5 @@
 .nds .compare-card__bar-fill {position:absolute;left:0;top:0;height:100%;border-radius:var(--radius-full)}
 .nds .compare-card__bar-value {flex-shrink:0;min-width:52px;text-align:right;font-size:12px;font-weight:var(--font-weight-medium);letter-spacing:-0.24px;color:var(--color-font-1)}
 .nds .promo-carousel__slide--fund {background-color:#dce4f5}
+.nds .promo-carousel__slide--card {background-color:#dcf2df}
+.nds .promo-carousel__slide--saving {background-color:#fff2d9}
