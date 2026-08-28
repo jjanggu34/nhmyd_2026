@@ -34,7 +34,7 @@
                     <li><span class="chip" data-type="신규">신규</span></li>
                     <li><span class="chip" data-type="개선">개선</span></li>
                     <li><span class="chip" data-type="유지">유지</span></li>
-                    <li><span class="chip" data-type="삭제">삭제</span></li>
+                    <li><span class="chip" data-type="excludeDel">삭제제외</span></li>
                 </ul>
                 <span class="count">
                     기획서 v0.3 (2026.07.27) · 총
@@ -1518,7 +1518,11 @@
               let visibleCount = 0;
               document.querySelectorAll('tbody tr').forEach(function(row) {
                 const text = row.innerText.toLowerCase();
-                const typeMatch = activeType === 'all' || row.dataset.type === activeType;
+                const typeMatch = activeType === 'all'
+                  ? true
+                  : activeType === 'excludeDel'
+                    ? row.dataset.type !== '삭제'
+                    : row.dataset.type === activeType;
                 const textMatch = term === '' || text.includes(term);
                 const show = typeMatch && textMatch;
                 row.classList.toggle('hide', !show);

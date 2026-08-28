@@ -7,18 +7,414 @@
     </head>
 
     <body>
-        <div class="wrapper nhasset nds">
-            <div class="header">
+        <div class="wrapper nhasset nds bgcolor">
+            <div class="header bgcolor">
                 <a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
                 <h1>자산&middot;부채 통합분석</h1>
                 <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a>
                 <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
             </div>
 
-            <div class="container">
-                <div class="areaBtnDefault">
-                    <a href="javascript:;" class="btnPressPoint" role="button">자산·부채 분석하기</a>
+            <div class="container bgcolor">
+                <div class="stack--24">
+                    <div class="stack--20 pb16">
+                        <p class="text--h4">종합 진단 결과</p>
+                        <div class="md-card insight-hero">
+                            <p class="insight-hero__greeting">
+                                <!-- prettier-ignore -->
+                                <strong>$김농협$</strong>
+                                님의
+                                <br />
+                                종합진단 결과입니다.
+                            </p>
+                            <div class="insight-hero__panel mt30">
+                                <img class="insight-hero__mascot" src="../../images/update/img-ally-laptop-right.png" alt="" aria-hidden="true" />
+                                <div class="insight-hero__tags">
+                                    <span class="insight-hero__tag insight-hero__tag--accent">AI진단</span>
+                                    <span class="insight-hero__tag insight-hero__tag--outline">통합분석</span>
+                                </div>
+                                <p class="insight-hero__headline">
+                                    <strong>
+                                        대출상환을 고려해보는건
+                                        <br />
+                                        어떠세요?
+                                    </strong>
+                                </p>
+                                <hr class="insight-hero__divider" />
+                                <p class="insight-hero__body">AI가 현재 부채를 금리와 잔액 기준으로 분석해보니, 금리가 높은 부채부터 우선 상환하는 전략이 가장 효과적이에요. 지금 여유자금으로 고금리 부채를 먼저 줄이면 원금이 낮아지는 만큼 매달 내는 이자도 함께 줄어들고, 이후 상환에 사용할 수 있는 여유자금도 더 커질 수 있어요.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stack--20 pb16">
+                        <p class="text--h4">나의 여유 자금</p>
+                        <div class="md-card">
+                            <div class="fund-donut">
+                                <div class="fund-donut__chart" style="background:conic-gradient(#ff7e7e 0% 15.66%, #49d8ff 15.66% 75.9%, #a1f069 75.9% 100%)" aria-hidden="true"></div>
+                                <div class="fund-donut__data">
+                                    <div>
+                                        <p class="fund-donut__total-label">총 여유 자금</p>
+                                        <p class="fund-donut__total-value">8,300만원</p>
+                                    </div>
+                                    <div class="fund-donut__legend">
+                                        <div class="fund-donut__legend-row">
+                                            <span class="fund-donut__chip" style="background-color:#ff7e7e" aria-hidden="true"></span>
+                                            <span class="fund-donut__legend-label">계좌</span>
+                                            <span class="fund-donut__legend-value">13,000,000원</span>
+                                        </div>
+                                        <div class="fund-donut__legend-row">
+                                            <span class="fund-donut__chip" style="background-color:#49d8ff" aria-hidden="true"></span>
+                                            <span class="fund-donut__legend-label">투자</span>
+                                            <span class="fund-donut__legend-value">50,000,000원</span>
+                                        </div>
+                                        <div class="fund-donut__legend-row">
+                                            <span class="fund-donut__chip" style="background-color:#a1f069" aria-hidden="true"></span>
+                                            <span class="fund-donut__legend-label">연금</span>
+                                            <span class="fund-donut__legend-value">20,000,000원</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stack--20">
+                        <p class="text--h4-regular">
+                            여유 자금
+                            <strong>180만원</strong>
+                            으로
+                            <br />
+                            대출을
+                            <strong>상환</strong>
+                            하면 이렇게 달라져요.
+                        </p>
+                        <div class="compare-scroll">
+                            <div class="compare-card">
+                                <p class="compare-card__title">총 자산</p>
+                                <div class="compare-card__box">
+                                    <div class="compare-card__row">
+                                        <div class="compare-card__stat">
+                                            <span class="compare-card__stat-label">상환 전 월 예상 금액</span>
+                                            <span class="compare-card__stat-value">65만원</span>
+                                        </div>
+                                        <span class="compare-card__divider" aria-hidden="true"></span>
+                                        <div class="compare-card__stat">
+                                            <span class="compare-card__stat-label">상환 후 월 예상 금액</span>
+                                            <span class="compare-card__stat-value compare-card__stat-value--after">34만원</span>
+                                        </div>
+                                    </div>
+                                    <div class="compare-card__row">
+                                        <div class="compare-card__stat">
+                                            <span class="compare-card__stat-label">상환 전 적용 금리</span>
+                                            <span class="compare-card__stat-value">12.35%</span>
+                                        </div>
+                                        <span class="compare-card__divider" aria-hidden="true"></span>
+                                        <div class="compare-card__stat">
+                                            <span class="compare-card__stat-label">상환 후 적용 금리</span>
+                                            <span class="compare-card__stat-value compare-card__stat-value--after">10.24%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="compare-card__bars">
+                                    <div class="compare-card__bar-row">
+                                        <span class="compare-card__bar-label">상환 전</span>
+                                        <div class="compare-card__bar-track"><span class="compare-card__bar-fill" style="width:100%;background-color:#c8d2e4"></span></div>
+                                        <span class="compare-card__bar-value">12,000만원</span>
+                                    </div>
+                                    <div class="compare-card__bar-row">
+                                        <span class="compare-card__bar-label">상환 후</span>
+                                        <div class="compare-card__bar-track"><span class="compare-card__bar-fill" style="width:78%;background-color:#ff7e7e"></span></div>
+                                        <span class="compare-card__bar-value">9,370만원</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="compare-card">
+                                <p class="compare-card__title">총 부채</p>
+                                <div class="compare-card__box">
+                                    <div class="compare-card__row">
+                                        <div class="compare-card__stat">
+                                            <span class="compare-card__stat-label">상환 전 대출 기간</span>
+                                            <span class="compare-card__stat-value">34개월</span>
+                                        </div>
+                                        <span class="compare-card__divider" aria-hidden="true"></span>
+                                        <div class="compare-card__stat">
+                                            <span class="compare-card__stat-label">상환 후 대출 기간</span>
+                                            <span class="compare-card__stat-value compare-card__stat-value--after">30개월</span>
+                                        </div>
+                                    </div>
+                                    <div class="compare-card__row">
+                                        <div class="compare-card__stat">
+                                            <span class="compare-card__stat-label">상환 전 부채 비율</span>
+                                            <span class="compare-card__stat-value">108%</span>
+                                        </div>
+                                        <span class="compare-card__divider" aria-hidden="true"></span>
+                                        <div class="compare-card__stat">
+                                            <span class="compare-card__stat-label">상환 후 부채 비율</span>
+                                            <span class="compare-card__stat-value compare-card__stat-value--after">83%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="compare-card__bars">
+                                    <div class="compare-card__bar-row">
+                                        <span class="compare-card__bar-label">상환 전</span>
+                                        <div class="compare-card__bar-track"><span class="compare-card__bar-fill" style="width:100%;background-color:#c8d2e4"></span></div>
+                                        <span class="compare-card__bar-value">13,000만원</span>
+                                    </div>
+                                    <div class="compare-card__bar-row">
+                                        <span class="compare-card__bar-label">상환 후</span>
+                                        <div class="compare-card__bar-track"><span class="compare-card__bar-fill" style="width:80%;background-color:#ff7e7e"></span></div>
+                                        <span class="compare-card__bar-value">10,370만원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stack--20 pb16">
+                        <p class="text--h4">이 부채 먼저 상환해 보세요.</p>
+                        <div class="asset-list-card">
+                            <div class="asset-list-card__list">
+                                <div class="select-card select-card--row">
+                                    <div class="select-card__select-row">
+                                        <div class="select-card__select-text">
+                                            <div class="select-card__logo-row">
+                                                <span class="select-card__logo"></span>
+                                                <div class="select-card__name-col">
+                                                    <p class="select-card__name">장기대출</p>
+                                                    <p class="select-card__number">현대카드 &middot; 1234-****-****-****</p>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__progress">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
+                                                <div class="select-card__progress-detail">
+                                                    <span>500,000원 상환</span>
+                                                    <span>상환 후 잔액 0원</span>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금액</span>
+                                                <span class="select-card__list-data">500,000원</span>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금리</span>
+                                                <span class="select-card__list-data">19.9%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="select-card select-card--row">
+                                    <div class="select-card__select-row">
+                                        <div class="select-card__select-text">
+                                            <div class="select-card__logo-row">
+                                                <span class="select-card__logo"><img src="../../images/update/img-bank-nh.svg" alt="" /></span>
+                                                <div class="select-card__name-col">
+                                                    <p class="select-card__name">NH직장인대출Ⅴ</p>
+                                                    <p class="select-card__number">NH농협은행 &middot; 342-12534-56788-90</p>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__progress">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:30.5%;background-color:#001b33"></span></div>
+                                                <div class="select-card__progress-detail">
+                                                    <span>8,430,000원 상환</span>
+                                                    <span>상환 후 잔액 41,570,000원</span>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금액</span>
+                                                <span class="select-card__list-data">50,000,000원</span>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금리</span>
+                                                <span class="select-card__list-data">4.85%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stack--20 pb16">
+                        <p class="text--h4">자산은 이렇게 사용돼요</p>
+                        <div class="asset-list-card">
+                            <div class="asset-list-card__list">
+                                <div class="select-card select-card--row">
+                                    <div class="select-card__select-row">
+                                        <div class="select-card__select-text">
+                                            <div class="select-card__logo-row">
+                                                <span class="select-card__logo"></span>
+                                                <div class="select-card__name-col">
+                                                    <p class="select-card__name">BNK 공공 드림 통장</p>
+                                                    <p class="select-card__number">경남은행 &middot; 123-1234-4567-00</p>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__progress">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
+                                                <div class="select-card__progress-detail">
+                                                    <span>50,000,000원 사용</span>
+                                                    <span>상환 후 잔액 0원</span>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금액</span>
+                                                <span class="select-card__list-data">50,000,000원</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="select-card select-card--row">
+                                    <div class="select-card__select-row">
+                                        <div class="select-card__select-text">
+                                            <div class="select-card__logo-row">
+                                                <span class="select-card__logo"><img src="../../images/update/img-bank-nh.svg" alt="" /></span>
+                                                <div class="select-card__name-col">
+                                                    <p class="select-card__name">NH고향사람기부예금</p>
+                                                    <p class="select-card__number">NH농협은행 &middot; 342-12534-56788-90</p>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__progress">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
+                                                <div class="select-card__progress-detail">
+                                                    <span>1,000,000원 사용</span>
+                                                    <span>상환 후 잔액 0원</span>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금액</span>
+                                                <span class="select-card__list-data">1,000,000원</span>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금리</span>
+                                                <span class="select-card__list-data">2.45%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="select-card select-card--row">
+                                    <div class="select-card__select-row">
+                                        <div class="select-card__select-text">
+                                            <div class="select-card__logo-row">
+                                                <span class="select-card__logo"></span>
+                                                <div class="select-card__name-col">
+                                                    <p class="select-card__name">신한 운동화 적금</p>
+                                                    <p class="select-card__number">신한은행 &middot; 342-12534-56788-90</p>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__progress">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
+                                                <div class="select-card__progress-detail">
+                                                    <span>4,000,000원 사용</span>
+                                                    <span>상환 후 잔액 30,000,000원</span>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금액</span>
+                                                <span class="select-card__list-data">34,000,000원</span>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금리</span>
+                                                <span class="select-card__list-data">2.5%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="select-card select-card--row">
+                                    <div class="select-card__select-row">
+                                        <div class="select-card__select-text">
+                                            <div class="select-card__logo-row">
+                                                <span class="select-card__logo"><img src="../../images/update/img-bank-nh.svg" alt="" /></span>
+                                                <div class="select-card__name-col">
+                                                    <p class="select-card__name">청년 주택드림 청약통장</p>
+                                                    <p class="select-card__number">NH농협은행 &middot; 342-12534-56788-90</p>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__progress">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
+                                                <div class="select-card__progress-detail">
+                                                    <span>4,000,000원 사용</span>
+                                                    <span>상환 후 잔액 30,000,000원</span>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금액</span>
+                                                <span class="select-card__list-data">34,000,000원</span>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금리</span>
+                                                <span class="select-card__list-data">4.5%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="select-card select-card--row">
+                                    <div class="select-card__select-row">
+                                        <div class="select-card__select-text">
+                                            <div class="select-card__logo-row">
+                                                <span class="select-card__logo"><img src="../../images/update/img-bank-nh.svg" alt="" /></span>
+                                                <div class="select-card__name-col">
+                                                    <p class="select-card__name">NH올원e 미니적금</p>
+                                                    <p class="select-card__number">NH농협은행 &middot; 342-12534-56788-90</p>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__progress">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
+                                                <div class="select-card__progress-detail">
+                                                    <span>4,000,000원 사용</span>
+                                                    <span>상환 후 잔액 30,000,000원</span>
+                                                </div>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금액</span>
+                                                <span class="select-card__list-data">34,000,000원</span>
+                                            </div>
+                                            <div class="select-card__list-row">
+                                                <span class="select-card__list-title">금리</span>
+                                                <span class="select-card__list-data">4.15%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="select-card__more">더보기(5/7)</button>
+                        </div>
+                    </div>
+
+                    <div class="promo-carousel mb40">
+                        <div class="promo-carousel__track">
+                            <div class="promo-carousel__slide promo-carousel__slide--fund">
+                                <p class="promo-carousel__title">
+                                    AI대출금리 케어로
+                                    <br />
+                                    대출이자를 줄여보세요!
+                                </p>
+                                <p class="promo-carousel__tags">
+                                    AI대출금리케어+
+                                    <br />
+                                    <br />
+                                    #AI금리인하 #AI대환대출
+                                </p>
+                                <img class="promo-carousel__illust" src="../../images/update/img-ally-laptop-cash.png" alt="" aria-hidden="true" />
+
+                                <div class="indicator-number">
+                                    <div class="indicator-number__paging">
+                                        <button type="button" class="indicator-number__arrow" aria-label="이전"></button>
+                                        <span class="indicator-number__count">
+                                            <span class="indicator-number__current">1</span>
+                                            <span class="indicator-number__dash" aria-hidden="true"></span>
+                                            <span class="indicator-number__total">3</span>
+                                        </span>
+                                        <button type="button" class="indicator-number__arrow" aria-label="다음"></button>
+                                    </div>
+                                    <button type="button" class="indicator-number__control" aria-label="일시정지"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- <div class="areaBtnDefault bgcolor">
+                    <a href="javascript:;" class="btnPressPoint" role="button">자산·부채 분석하기</a>
+                </div> -->
             </div>
             <div class="sticky-footer">
                 <div class="accordion-notice">
