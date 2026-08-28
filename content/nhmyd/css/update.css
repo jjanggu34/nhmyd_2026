@@ -187,6 +187,7 @@
     --spacing-6:6px;
     --spacing-8:8px;
     --spacing-12:12px;
+    --spacing-14:14px;
     --spacing-16:16px;
     --spacing-18:18px;
     --spacing-20:20px;
@@ -255,11 +256,14 @@
 .nds .note {margin:var(--spacing-20) 0;background-color:var(--color-bg-banner);border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);line-height:20px;color:var(--color-font-3)}
 .nds .bt-1{border-top:1px solid var(--color-border-3) !important}
 /* ---- 간격 가이드(세로 스택, 클래스명 = gap 값) ---- */
-.nds .stack--8 {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%}
-.nds .stack--12 {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
-.nds .stack--16 {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
-.nds .stack--24 {display:flex;flex-direction:column;gap:var(--spacing-24);width:100%}
-.nds .stack--32 {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
+[class^="stack--"] {display:flex;flex-direction:column;width:100%}
+.nds .stack--8 {gap:var(--spacing-8)}
+.nds .stack--12 {gap:var(--spacing-12)}
+.nds .stack--16 {gap:var(--spacing-16)}
+.nds .stack--20 {gap:var(--spacing-20)}
+.nds .stack--24 {gap:var(--spacing-24)}
+.nds .stack--32 {gap:var(--spacing-32)}
+.nds .stack--40 {gap:var(--spacing-40)}
 /* --- divider --- */
 .nds .divider {display:block;width:100%;border:none;margin:var(--spacing-20) auto;flex-shrink:0}
 .nds .divider--content {height:8px;background-color:var(--color-bg-container);margin:40px -24px;width:auto}
@@ -589,8 +593,8 @@
 .nds .header h1 + .btnCancle,
 .nds .header h1 + .btnAcAdmin,
 .nds .header h1 + .btnHidden {margin-left:auto !important}
-.nds body.nhd_allone, .nds .header.newMain, .nds .container.with_allone_footer, .nds body.bgcolor, .nds .header.bgcolor, .nds .container.bgcolor, .nds .areaBtnDefault.bgcolor, .nds.fullLayerPop .popCont.bgcolor{background-color:#f5f5f5 !important}
-.nds .areaBtnDefault.bgcolor{border-color:#f5f5f5 !important}
+.nds body.nhd_allone, .nds .header.newMain, .nds .container.with_allone_footer, .nds body.bgcolor, .nds .header.bgcolor, .nds .container.bgcolor, .nds .areaBtnDefault.bgcolor, .nds.fullLayerPop .popCont.bgcolor{background-color:#F6F6F6 !important}
+.nds .areaBtnDefault.bgcolor{border-color:#F6F6F6 !important}
 .nds .header h1.fs18 {font-size:var(--type-size-18)}
 .nds .header .btnBack,
 .nds .header .btnGoHome,
@@ -824,7 +828,8 @@
 .nds .select-card__name-col {flex:1;min-width:0;display:flex;flex-direction:column}
 .nds .select-card {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%;padding:var(--spacing-20) var(--spacing-16) var(--spacing-20) var(--spacing-20);border:1px solid var(--color-border-2);border-radius:var(--radius-16);background-color:var(--color-bg-default);box-sizing:border-box}
 .nds .select-card__select-row {display:flex;align-items:flex-start;gap:var(--spacing-8);width:100%}
-.nds .select-card__select-text {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-8)}
+.nds .select-card__select-text {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-2)}
+/* .nds .select-card__select-text .select-card__logo-row:first-child {margin-bottom:var(--spacing-32)} */
 .nds .select-card__chip {display:inline-flex;align-items:center;justify-content:center;width:fit-content;padding:3px var(--spacing-8) var(--spacing-2);background-color:var(--color-bg-container);border-radius:var(--radius-4);font-size:var(--type-size-10);font-weight:var(--font-weight-regular);letter-spacing:-0.2px;line-height:15px;color:var(--color-font-2)}
 .nds .select-card__logo-row {display:flex;align-items:center;gap:var(--spacing-8);width:100%}
 .nds .select-card__logo {width:40px;height:40px;flex-shrink:0;overflow:hidden}
@@ -1075,6 +1080,7 @@
 .nds .text--h2 {font-size:var(--type-size-22);line-height:32px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.44px;color:var(--color-font-1)}
 .nds .text--h3 {font-size:var(--type-size-20);line-height:28px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.4px;color:var(--color-font-1)}
 .nds .text--h4 {font-size:var(--type-size-18);line-height:26px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.36px;color:var(--color-font-1)}
+.nds .text--h4-regular {font-size:var(--type-size-18);line-height:26px;font-weight:var(--font-weight-regular) !important;letter-spacing:-0.36px;color:var(--color-font-1)}
 .nds .text--h5 {font-size:var(--type-size-16);line-height:24px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.32px;color:var(--color-font-1)}
 .nds .text--body1 {font-size:var(--type-size-16);line-height:24px;font-weight:var(--font-weight-regular);letter-spacing:-0.32px;color:var(--color-font-3)}
 .nds .text--body1-medium {font-size:var(--type-size-16);line-height:24px;font-weight:var(--font-weight-medium);letter-spacing:-0.32px;color:var(--color-font-1)}
@@ -1494,17 +1500,17 @@
 .retire-check__row--highlight dd {font-weight:var(--font-weight-semibold)}
 /* ---- 프로모 배너 캐러셀 — 대출자산 탭 ---- */
 .promo-carousel {width:100%}
-.promo-carousel__track {display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;border-radius:var(--radius-16);scrollbar-width:none}
-.promo-carousel__track::-webkit-scrollbar {display:none}
-.promo-carousel__slide {position:relative;flex:0 0 100%;scroll-snap-align:start;min-height:140px;border-radius:var(--radius-16);padding:var(--spacing-24) 96px var(--spacing-24) var(--spacing-20);box-sizing:border-box}
+.promo-carousel__track {border-radius:var(--radius-16)} /* overflow:hidden/position은 swiper-container(swiper.min.css)가 담당 — Swiper JS가 .swiper-wrapper를 transform으로 넘깁니다 */
+.promo-carousel__slide {position:relative;min-height:190px;border-radius:var(--radius-16);padding:var(--spacing-24) 96px var(--spacing-24) var(--spacing-20);box-sizing:border-box}
 .promo-carousel__eyebrow {font-size:var(--type-size-13);font-weight:var(--font-weight-medium);color:var(--primitive-gray-font-700);margin:0 0 var(--spacing-8)}
 .promo-carousel__title {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);color:var(--primitive-gray-font-900);line-height:1.4;margin:0 0 var(--spacing-8)}
 .promo-carousel__tags {font-size:var(--type-size-13);color:var(--primitive-gray-font-600);margin:0}
-.promo-carousel__illust {position:absolute;right:12px;bottom:12px;width:64px;height:64px;object-fit:contain;pointer-events:none}
+.promo-carousel__illust {position:absolute;right:20px;bottom:20px;width:75px;height:83px;object-fit:contain;pointer-events:none}
 .promo-carousel__icon {position:absolute;right:20px;bottom:20px;width:48px;height:48px;background-color:#27a588;-webkit-mask-image:url("../images/update/ic-chart-board.svg");mask-image:url("../images/update/ic-chart-board.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .promo-carousel__dots {display:flex;justify-content:center;gap:var(--spacing-6);margin-top:var(--spacing-12)}
 .promo-carousel__dot {width:6px;height:6px;border-radius:var(--radius-full);background:var(--primitive-gray-400);transition:width 0.2s,background 0.2s}
 .promo-carousel__dot--active {width:16px;background:var(--primitive-green-500)}
+.promo-carousel__track .indicator-number{position:absolute;bottom:var(--spacing-14);left:var(--spacing-24)}
 /* ---- 히어로 카드 앞면 — 그라데이션 2단 카드 ---- */
 .hero__face--redesign {border:none;padding:0;gap:0;overflow:visible;background:transparent;box-shadow:none}
 .hc-top {position:relative;z-index:2;height:100%;margin-bottom:-56px;padding:var(--spacing-32) var(--spacing-20) 88px;border-radius:var(--radius-20) var(--radius-20) 60px var(--radius-20);box-shadow:5px 6px 18px rgba(0,0,0,0.1);background-image:linear-gradient(140.86deg, #046ea3 4.27%, #0e7a5c 108.4%);color:var(--primitive-base-0);box-sizing:border-box}
@@ -1752,7 +1758,7 @@
 .nds .debt-card__list {display:flex;flex-direction:column;width:100%}
 .nds .select-card--row {gap:var(--spacing-16);padding:0 0 var(--spacing-32);border:none;border-radius:0}
 .nds .select-card--row + .select-card--row {border-top:1px solid var(--primitive-gray-100);padding:var(--spacing-32) 0}
-.nds .select-card__more {display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:100%;padding-bottom:var(--spacing-20);background:none;border:none;font-size:var(--type-size-14);letter-spacing:-0.28px;color:var(--color-font-3);cursor:pointer}
+.nds .select-card__more {display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:calc(100% - 40px);padding:var(--spacing-20) 0;margin:var(--spacing-12) var(--spacing-20) 0;background:none;border:none;font-size:var(--type-size-14);letter-spacing:-0.28px;color:var(--color-font-3);cursor:pointer;border-top:1px solid var(--primitive-gray-100)}
 .nds .select-card__more::before {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-plus-24.svg");mask-image:url("../images/update/ic-plus-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 /* --- NH_MD_CO_01_07 --- */
 .nds .asset-list-card {display:flex;flex-direction:column;width:100%;border-radius:var(--radius-16);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);overflow:hidden;box-sizing:border-box}
@@ -1761,8 +1767,43 @@
 .nds .asset-list-card__title-name {font-weight:var(--font-weight-medium);color:var(--color-font-1)}
 .nds .asset-list-card__title-count {font-weight:var(--font-weight-semibold);color:var(--color-font-point)}
 .nds .asset-list-card__total {margin:0;font-size:var(--type-size-20);font-weight:var(--font-weight-semibold);letter-spacing:-0.4px;line-height:28px;color:#132333}
-.nds .asset-list-card__list {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%;padding:var(--spacing-24) var(--spacing-20) var(--spacing-20);box-sizing:border-box}
+.nds .asset-list-card__list {display:flex;flex-direction:column;width:100%;padding:var(--spacing-24) var(--spacing-20) var(--spacing-20);box-sizing:border-box}
 .nds .asset-list-card__list .select-card--row:last-child {padding-bottom:0}
 .nds .select-card__list-data--positive {color:var(--color-font-positive)}
 .nds .select-card__list-data--negative {color:var(--color-font-negative)}
 .nds .select-card__list-data--muted {color:var(--color-font-5)}
+/* --- NH_MD_CO_01_04 --- */
+.nds .select-card__progress {display:flex;flex-direction:column;gap:var(--spacing-4);width:100%}
+.nds .select-card__progress-detail {display:flex;align-items:center;justify-content:space-between;width:100%;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-4)}
+.nds .fund-donut {display:flex;align-items:center;gap:var(--spacing-24);width:100%}
+.nds .fund-donut__chart {flex-shrink:0;position:relative;width:120px;height:120px}
+.nds .fund-donut__chart canvas {display:block;width:100%;height:100%}
+.nds .fund-donut__data {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-12)}
+.nds .fund-donut__total-label {margin:0 0 2px;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-4)}
+.nds .fund-donut__total-value {margin:0;text-align:right;font-size:var(--type-size-22);font-weight:var(--font-weight-semibold);letter-spacing:-0.44px;line-height:32px;color:var(--color-font-1)}
+.nds .fund-donut__legend {display:flex;flex-direction:column;gap:2px;width:100%}
+.nds .fund-donut__legend-row {display:flex;align-items:center;gap:var(--spacing-16);width:100%}
+.nds .fund-donut__chip {flex-shrink:0;width:8px;height:8px;border-radius:2px}
+.nds .fund-donut__legend-label {font-size:12px;letter-spacing:-0.24px;line-height:18px;color:#383b40}
+.nds .fund-donut__legend-value {flex:1;min-width:0;text-align:right;font-size:12px;font-weight:var(--font-weight-medium);letter-spacing:-0.24px;line-height:18px;color:var(--color-font-1)}
+.nds .compare-scroll {display:flex;gap:var(--spacing-16);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 24px 16px;margin:0 -24px}
+.nds .compare-scroll::-webkit-scrollbar {display:none}
+.nds .compare-card {flex:0 0 260px;display:flex;flex-direction:column;gap:var(--spacing-16);padding:var(--spacing-20);background-color:var(--primitive-base-0);border-radius:var(--radius-10);box-shadow:0 5px 16px 0 rgba(0,0,0,0.07);box-sizing:border-box}
+.nds .compare-card__title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1)}
+.nds .compare-card__box {display:flex;flex-direction:column;background-color:var(--color-bg-container);border-radius:var(--radius-10);width:100%;overflow:hidden}
+.nds .compare-card__row {display:flex;align-items:center;gap:var(--spacing-16);padding:var(--spacing-16) var(--spacing-12);width:100%;box-sizing:border-box}
+.nds .compare-card__row + .compare-card__row {border-top:1px solid var(--color-border-3)}
+.nds .compare-card__stat {display:flex;flex:1;flex-direction:column;align-items:center;gap:2px;min-width:0}
+.nds .compare-card__stat-label {font-size:10px;letter-spacing:-0.2px;line-height:15px;color:var(--color-font-4);white-space:nowrap}
+.nds .compare-card__stat-value {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-5)}
+.nds .compare-card__stat-value--after {color:var(--color-font-1)}
+.nds .compare-card__divider {flex-shrink:0;width:1px;height:34px;background-color:var(--color-border-3)}
+.nds .compare-card__bars {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%}
+.nds .compare-card__bar-row {display:flex;align-items:center;gap:var(--spacing-8);width:100%}
+.nds .compare-card__bar-label {flex-shrink:0;width:38px;font-size:12px;letter-spacing:-0.24px;color:var(--color-font-4)}
+.nds .compare-card__bar-track {position:relative;flex:1;height:10px;border-radius:var(--radius-full);background-color:var(--color-bg-container);overflow:hidden}
+.nds .compare-card__bar-fill {position:absolute;left:0;top:0;height:100%;border-radius:var(--radius-full)}
+.nds .compare-card__bar-value {flex-shrink:0;min-width:52px;text-align:right;font-size:12px;font-weight:var(--font-weight-medium);letter-spacing:-0.24px;color:var(--color-font-1)}
+.nds .promo-carousel__slide--fund {background-color:#dce4f5}
+.nds .promo-carousel__slide--card {background-color:#dcf2df}
+.nds .promo-carousel__slide--saving {background-color:#fff2d9}
