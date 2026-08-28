@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>서비스 소개</title>
+    </head>
+
+    <body class="bgcolor">
+        <div class="wrapper nhasset nds">
+            <div class="header bgcolor">
+                <a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>서비스 타이틀</h1>
+                <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a>
+                <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
+            </div>
+
+            <div class="container bgcolor">
+                <div class="finance-preview">
+                    <div class="stack--group mt24">
+                        <div class="stack--heading">
+                            <strong class="text text--h2">한눈에 점검하는 내 재무 상태</strong>
+                            <p class="text text--body3">
+                                자산과 부채 현황을 다각도로 분석하여
+                                <br />
+                                나의 재정 건강도를 파악해 보세요.
+                            </p>
+                        </div>
+                        <div class="finance-preview__card">
+                            <strong class="text text--h4">내 부채 상태의 현주소</strong>
+                            <div class="finance-preview__card-body">
+                                <div class="finance-preview__bars" data-bar-anim>
+                                    <div class="finance-preview__bar-col">
+                                        <div class="finance-preview__bar finance-preview__bar--muted"></div>
+                                        <span class="finance-preview__bar-label">작년 상환 금액</span>
+                                    </div>
+                                    <div class="finance-preview__bar-col">
+                                        <div class="finance-preview__bar finance-preview__bar--point">
+                                            <span class="finance-preview__callout">??? 원</span>
+                                        </div>
+                                        <span class="finance-preview__bar-label">예상 상환 금액</span>
+                                    </div>
+                                </div>
+                                <p class="text text--body3-medium">흩어진 대출 내역부터 매달 새어나가는 이자와 손실까지 빠짐없이 파악해 드려요.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stack--group">
+                        <div class="stack--heading">
+                            <strong class="text text--h2">AI 맞춤형 부채·자산 분석</strong>
+                            <p class="text text--body3">
+                                수집된 재무 데이터를 바탕으로 AI가 내 상황에
+                                <br />
+                                꼭 맞는 똑똑한 관리법을 제안해 드려요.
+                            </p>
+                        </div>
+                        <div class="finance-preview__card">
+                            <strong class="text text--h4">부채 상환 시 얻는 효과</strong>
+                            <div class="finance-preview__card-body">
+                                <div class="finance-preview__gauge" data-gauge style="--gauge-pct:50%">
+                                    <div class="finance-preview__gauge-track">
+                                        <div class="finance-preview__gauge-fill">
+                                            <span class="finance-preview__callout">??? 개월 단축</span>
+                                        </div>
+                                        <span class="finance-preview__gauge-goal" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="finance-preview__gauge-labels">
+                                        <span>현재</span>
+                                        <span>기존 완납</span>
+                                    </div>
+                                </div>
+                                <p class="text text--body3-medium">
+                                    부채를 갚았을 때 줄어드는 이자와 단축되는
+                                    <br />
+                                    완납 기간을 미리 확인해 보세요.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="areaBtnDefault bgcolor">
+                    <a href="javascript:;" class="btnPressPoint" role="button">자산·부채 통합분석 시작</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // 카드1의 --point 막대(data-bar-anim)와 카드2의 게이지(data-gauge)가 화면에 스크롤되어
+            // 들어올 때 각각 0 -> 목표치까지 차오르는 애니메이션을 적용합니다. 실제 채움 값은
+            // .finance-preview__bar--point/.finance-preview__gauge-fill의 CSS transition이 담당하고,
+            // 여기서는 트리거 시점에 is-animated 클래스만 붙입니다.
+            document.addEventListener('DOMContentLoaded', function () {
+                var targets = document.querySelectorAll('.finance-preview__bars[data-bar-anim], .finance-preview__gauge[data-gauge]');
+                if (!targets.length) return;
+
+                if (!('IntersectionObserver' in window)) {
+                    // 구형 브라우저 폴백: 옵저버 없이 바로 채움
+                    targets.forEach(function (el) { el.classList.add('is-animated'); });
+                    return;
+                }
+
+                var io = new IntersectionObserver(
+                    function (entries) {
+                        entries.forEach(function (entry) {
+                            if (!entry.isIntersecting) return;
+                            entry.target.classList.add('is-animated');
+                            io.unobserve(entry.target);
+                        });
+                    },
+                    { threshold: 0.4 }
+                );
+                targets.forEach(function (el) { io.observe(el); });
+            });
+        </script>
+    </body>
+</html>
