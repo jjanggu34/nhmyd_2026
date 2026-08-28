@@ -33,12 +33,11 @@
                          ============================================================ -->
                     <div class="qa-case-group">
                         <p class="qa-case-group__label">[부채=0, 자산=0일 때]</p>
-
                         <!-- case1: 일반 Case -->
                         <div class="qa-case">
-                            <p class="qa-case__label"><b>case 1</b> · 일반 Case — 자산·부채 모두 미연결/0원</p>
+                            <!--<p class="qa-case__label"><b>case 1</b> · 일반 Case — 자산·부채 모두 미연결/0원</p>-->
                             <div class="finance-preview">
-                                <div class="stack--group">
+                                <div class="stack--page">
                                     <div class="asset-hero">
                                         <div class="asset-hero__top">
                                             <strong class="text text--h2 asset-hero__title">나의 부채</strong>
@@ -54,10 +53,23 @@
                                                         <span class="asset-hero__stat-label">부채 비율</span>
                                                         <span class="asset-hero__stat-value">0%</span>
                                                     </div>
-                                                    <div class="asset-hero__stat asset-hero__stat--right">
+                                                    <div class="asset-hero__stat asset-hero__stat--right tooltipWrap">
                                                         <span class="asset-hero__stat-label">총 자산</span>
                                                         <span class="asset-hero__stat-value">0원</span>
-                                                        <button type="button" class="asset-hero__stat-tooltip"><span class="blind">총 자산 안내</span></button>
+                                                        <button type="button" class="asset-hero__stat-tooltip" onclick="tooltipOpen($(this));return false;">
+                                                            <span class="blind">총 자산 안내</span>
+                                                        </button>
+                                                        <div class="tooltip-card tooltipCont" style="display:none">
+                                                            <div class="tooltip-card__header">
+                                                                <strong class="tooltip-card__title">총 자산 제외 내역</strong>
+                                                                <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;">
+                                                                    <span class="blind">닫기</span>
+                                                                </button>
+                                                            </div>
+                                                            <ul class="tooltip-card__list">
+                                                                <li class="tooltip-card__item">보험은 해지환급금 확인이 어려워 총 자산에서 제외됩니다.</li>
+                                                            </ul>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -80,63 +92,18 @@
                                         </div>
                                         <div class="connect-nudge">
                                             <p class="connect-nudge__text">자산을 연결하고 맞춤 리포트를 완성하세요</p>
-                                            <img class="connect-nudge__img" src="../../images/update/img-ally-wallet.png" alt="" />
+                                            <img class="connect-nudge__img" src="../../images/update/img-3d-money-stack.png" alt="" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- case2: 툴팁 노출 -->
+                        <!-- case2: 일반 Case (연결은 되어 있으나 잔액이 모두 0원인 경우) -->
                         <div class="qa-case">
-                            <p class="qa-case__label"><b>case 2</b> · 툴팁 노출 — case 1과 동일 화면에서 "총 자산" 안내 툴팁이 열린 상태</p>
+                            <p class="qa-case__label"><b>case 2</b> · 일반 Case — 자산은 연결됐지만 계좌&bull;투자&bull;연금 잔액이 모두 0원인 경우(순자산 위젯은 뜨지만 전부 0)</p>
                             <div class="finance-preview">
-                                <div class="stack--group">
-                                    <div class="asset-hero">
-                                        <div class="asset-hero__top">
-                                            <strong class="text text--h2 asset-hero__title">나의 부채</strong>
-                                            <span class="asset-hero__updated">2026.12.12 09:09 기준</span>
-                                        </div>
-                                        <div class="asset-hero__graph">
-                                            <p class="asset-hero__amount">0<span class="unit">원</span></p>
-                                            <div class="asset-hero__bar-wrap">
-                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:0%"></span></div>
-                                                <div class="asset-hero__stats">
-                                                    <div class="asset-hero__stat">
-                                                        <span class="asset-hero__chip" aria-hidden="true"></span>
-                                                        <span class="asset-hero__stat-label">부채 비율</span>
-                                                        <span class="asset-hero__stat-value">0%</span>
-                                                    </div>
-                                                    <div class="asset-hero__stat asset-hero__stat--right tooltipWrap">
-                                                        <span class="asset-hero__stat-label">총 자산</span>
-                                                        <span class="asset-hero__stat-value">0원</span>
-                                                        <!-- 레거시 tooltipOpen()/tooltipClose()(nhasset-ui.js) + .tooltip-card(신규 nds) 조합 재사용 (NH_MD_PM_01.html과 동일 패턴) -->
-                                                        <button type="button" class="asset-hero__stat-tooltip" onclick="tooltipOpen($(this));return false;"><span class="blind">총 자산 안내</span></button>
-                                                        <div class="tooltip-card tooltipCont" style="display:none">
-                                                            <div class="tooltip-card__header">
-                                                                <p class="tooltip-card__title">총 자산 산정 기준</p>
-                                                                <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
-                                                            </div>
-                                                            <ul class="tooltip-card__list">
-                                                                <li class="tooltip-card__item">연결된 모든 계좌&bull;투자&bull;연금 자산의 합계 금액이에요.</li>
-                                                                <li class="tooltip-card__item">업데이트 반영 시간 등으로 실제 정보와 다를 수 있어요.</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="qa-case__label" style="padding-left:4px">(하단 금융/수입&bull;지출 정보 영역은 case 1과 동일해 생략)</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- case3: 일반 Case (연결은 되어 있으나 잔액이 모두 0원인 경우) -->
-                        <div class="qa-case">
-                            <p class="qa-case__label"><b>case 3</b> · 일반 Case — 자산은 연결됐지만 계좌&bull;투자&bull;연금 잔액이 모두 0원인 경우(순자산 위젯은 뜨지만 전부 0)</p>
-                            <div class="finance-preview">
-                                <div class="stack--group">
+                                <div class="stack--page">
                                     <div class="list-accordion">
                                         <div class="asset-summary__total">
                                             <p class="asset-summary__total-label">순 자산</p>
@@ -144,13 +111,13 @@
                                         </div>
                                         <div class="info-card">
                                             <div class="list-accordion__row list-accordion__row--link">
-                                                <span class="list-accordion__title">계좌<span class="badge"><span class="badge__count">0</span></span></span>
+                                                <span class="list-accordion__title">계좌<span class="badge"><span class="badge__count">46</span></span></span>
                                                 <span class="list-accordion__data">0원</span>
                                                 <span class="list-accordion__arrow" aria-hidden="true"></span>
                                             </div>
                                             <div class="list-accordion__divider"></div>
                                             <div class="list-accordion__row list-accordion__row--link">
-                                                <span class="list-accordion__title">투자<span class="badge"><span class="badge__count">0</span></span></span>
+                                                <span class="list-accordion__title">투자<span class="badge"><span class="badge__count">12</span></span></span>
                                                 <span class="list-accordion__data">0원</span>
                                                 <span class="list-accordion__arrow" aria-hidden="true"></span>
                                             </div>
@@ -186,7 +153,7 @@
                         <div class="qa-case">
                             <p class="qa-case__label"><b>case 4</b> · 진단 부채=0인 경우 — 부채가 전혀 없어 "진단 부채" 카드 자체가 노출되지 않는 기본형</p>
                             <div class="finance-preview">
-                                <div class="stack--group">
+                                <div class="stack--page">
                                     <div class="asset-hero">
                                         <div class="asset-hero__top">
                                             <strong class="text text--h2 asset-hero__title">나의 부채</strong>
