@@ -6,18 +6,907 @@
         <title>자산&middot;부채 통합분석</title>
     </head>
 
-    <body>
+    <!--
+        피그마 node 2770:17073(Container)에 "부채/자산 보유 여부 × 세부 조건"에 따른 케이스 19종이
+        한 프레임 안에 전부 나열되어 있습니다. 실제 화면에서는 API 응답(연결된 자산/부채 유무, 개수,
+        진단 가능 부채 존재 여부 등)에 따라 그 중 하나만 노출되지만, 퍼블 확인용으로 19개 케이스를
+        4개 상위 조건 그룹으로 묶어 전부 마크업해 두었습니다
+        (NH_MD_CO_01_05.html의 입력값 정상/오류 2케이스 마크업과 동일한 방식).
+        각 케이스 라벨 텍스트는 피그마 원문 그대로이며, 확인 목적의 표기라 실제 화면엔 노출되지 않습니다
+        (.qa-case-group__label / .qa-case__label 은 update.css에서 이 페이지 전용으로 추가).
+    -->
+
+    <body class="bgcolor">
         <div class="wrapper nhasset nds">
-            <div class="header">
+            <div class="header bgcolor">
                 <a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
                 <h1>자산&middot;부채 통합분석</h1>
                 <a href="javascript:;" class="btnGoHome" role="button"><span class="blind">Home</span></a>
                 <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
             </div>
 
-            <div class="container">
-                <div class="areaBtnDefault">
-                    <a href="javascript:;" class="btnPressPoint" role="button">자산·부채 분석하기</a>
+            <div class="container bgcolor">
+                <div class="stack--section mt24">
+
+                    <!-- ============================================================
+                         그룹 A. [부채=0, 자산=0일 때]  (피그마 case 1~3)
+                         ============================================================ -->
+                    <div class="qa-case-group">
+                        <p class="qa-case-group__label">[부채=0, 자산=0일 때]</p>
+
+                        <!-- case1: 일반 Case -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 1</b> · 일반 Case — 자산·부채 모두 미연결/0원</p>
+                            <div class="finance-preview">
+                                <div class="stack--group">
+                                    <div class="asset-hero">
+                                        <div class="asset-hero__top">
+                                            <strong class="text text--h2 asset-hero__title">나의 부채</strong>
+                                            <span class="asset-hero__updated">2026.12.12 09:09 기준</span>
+                                        </div>
+                                        <div class="asset-hero__graph">
+                                            <p class="asset-hero__amount">0<span class="unit">원</span></p>
+                                            <div class="asset-hero__bar-wrap">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:0%"></span></div>
+                                                <div class="asset-hero__stats">
+                                                    <div class="asset-hero__stat">
+                                                        <span class="asset-hero__chip" aria-hidden="true"></span>
+                                                        <span class="asset-hero__stat-label">부채 비율</span>
+                                                        <span class="asset-hero__stat-value">0%</span>
+                                                    </div>
+                                                    <div class="asset-hero__stat asset-hero__stat--right">
+                                                        <span class="asset-hero__stat-label">총 자산</span>
+                                                        <span class="asset-hero__stat-value">0원</span>
+                                                        <button type="button" class="asset-hero__stat-tooltip"><span class="blind">총 자산 안내</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">금융 정보</strong>
+                                        <div class="info-card">
+                                            <p class="info-card__text"><strong>부채</strong>를 연결하시면 <strong>AI가 내 상황에 꼭 맞는 부채 관리법</strong>을 찾아줘요.</p>
+                                            <button type="button" class="info-card__btn">내 부채 연결하러 가기</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">수입&bull;지출 정보</strong>
+                                        <div class="info-card">
+                                            <p class="info-card__text"><strong>월수입</strong>과 지출을 알려주시면 <strong>여유자금을 정확히 계산</strong>할 수 있어요.</p>
+                                            <button type="button" class="info-card__btn">수입&bull;지출 정보 입력하기</button>
+                                        </div>
+                                        <div class="connect-nudge">
+                                            <p class="connect-nudge__text">자산을 연결하고 맞춤 리포트를 완성하세요</p>
+                                            <img class="connect-nudge__img" src="../../images/update/img-ally-wallet.png" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case2: 툴팁 노출 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 2</b> · 툴팁 노출 — case 1과 동일 화면에서 "총 자산" 안내 툴팁이 열린 상태</p>
+                            <div class="finance-preview">
+                                <div class="stack--group">
+                                    <div class="asset-hero">
+                                        <div class="asset-hero__top">
+                                            <strong class="text text--h2 asset-hero__title">나의 부채</strong>
+                                            <span class="asset-hero__updated">2026.12.12 09:09 기준</span>
+                                        </div>
+                                        <div class="asset-hero__graph">
+                                            <p class="asset-hero__amount">0<span class="unit">원</span></p>
+                                            <div class="asset-hero__bar-wrap">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:0%"></span></div>
+                                                <div class="asset-hero__stats">
+                                                    <div class="asset-hero__stat">
+                                                        <span class="asset-hero__chip" aria-hidden="true"></span>
+                                                        <span class="asset-hero__stat-label">부채 비율</span>
+                                                        <span class="asset-hero__stat-value">0%</span>
+                                                    </div>
+                                                    <div class="asset-hero__stat asset-hero__stat--right tooltipWrap">
+                                                        <span class="asset-hero__stat-label">총 자산</span>
+                                                        <span class="asset-hero__stat-value">0원</span>
+                                                        <!-- 레거시 tooltipOpen()/tooltipClose()(nhasset-ui.js) + .tooltip-card(신규 nds) 조합 재사용 (NH_MD_PM_01.html과 동일 패턴) -->
+                                                        <button type="button" class="asset-hero__stat-tooltip" onclick="tooltipOpen($(this));return false;"><span class="blind">총 자산 안내</span></button>
+                                                        <div class="tooltip-card tooltipCont" style="display:none">
+                                                            <div class="tooltip-card__header">
+                                                                <p class="tooltip-card__title">총 자산 산정 기준</p>
+                                                                <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
+                                                            </div>
+                                                            <ul class="tooltip-card__list">
+                                                                <li class="tooltip-card__item">연결된 모든 계좌&bull;투자&bull;연금 자산의 합계 금액이에요.</li>
+                                                                <li class="tooltip-card__item">업데이트 반영 시간 등으로 실제 정보와 다를 수 있어요.</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="qa-case__label" style="padding-left:4px">(하단 금융/수입&bull;지출 정보 영역은 case 1과 동일해 생략)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case3: 일반 Case (연결은 되어 있으나 잔액이 모두 0원인 경우) -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 3</b> · 일반 Case — 자산은 연결됐지만 계좌&bull;투자&bull;연금 잔액이 모두 0원인 경우(순자산 위젯은 뜨지만 전부 0)</p>
+                            <div class="finance-preview">
+                                <div class="stack--group">
+                                    <div class="list-accordion">
+                                        <div class="asset-summary__total">
+                                            <p class="asset-summary__total-label">순 자산</p>
+                                            <p class="asset-summary__total-value">0원</p>
+                                        </div>
+                                        <div class="info-card">
+                                            <div class="list-accordion__row list-accordion__row--link">
+                                                <span class="list-accordion__title">계좌<span class="badge"><span class="badge__count">0</span></span></span>
+                                                <span class="list-accordion__data">0원</span>
+                                                <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="list-accordion__divider"></div>
+                                            <div class="list-accordion__row list-accordion__row--link">
+                                                <span class="list-accordion__title">투자<span class="badge"><span class="badge__count">0</span></span></span>
+                                                <span class="list-accordion__data">0원</span>
+                                                <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="list-accordion__divider"></div>
+                                            <div class="list-accordion__row">
+                                                <span class="list-accordion__title">연금</span>
+                                                <span class="list-accordion__data">연금 내역이 없습니다</span>
+                                            </div>
+                                            <div class="pension-nudge">
+                                                <div class="pension-nudge__top">
+                                                    <span class="pension-nudge__icon" aria-hidden="true"></span>
+                                                    <p class="pension-nudge__title">숨은 연금이 있나요?</p>
+                                                </div>
+                                                <p class="pension-nudge__desc">연금을 연결하고 더 정확한 진단을<br />받아보세요.</p>
+                                                <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider divider--content" role="separator"></div>
+
+                    <!-- ============================================================
+                         그룹 B. [부채=0, 자산>0일 때]  (피그마 case 4~9)
+                         ============================================================ -->
+                    <div class="qa-case-group">
+                        <p class="qa-case-group__label">[부채=0, 자산&gt;0일 때]</p>
+
+                        <!-- case4: 자산=0 and 진단 부채=0인 경우 → 진단부채 카드 자체가 없는 그룹 B의 기본형 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 4</b> · 진단 부채=0인 경우 — 부채가 전혀 없어 "진단 부채" 카드 자체가 노출되지 않는 기본형</p>
+                            <div class="finance-preview">
+                                <div class="stack--group">
+                                    <div class="asset-hero">
+                                        <div class="asset-hero__top">
+                                            <strong class="text text--h2 asset-hero__title">나의 부채</strong>
+                                            <span class="asset-hero__updated">2026.12.12 09:09 기준</span>
+                                        </div>
+                                        <div class="asset-hero__graph">
+                                            <p class="asset-hero__amount">0<span class="unit">원</span></p>
+                                            <div class="asset-hero__bar-wrap">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:0%"></span></div>
+                                                <div class="asset-hero__stats">
+                                                    <div class="asset-hero__stat">
+                                                        <span class="asset-hero__chip" aria-hidden="true"></span>
+                                                        <span class="asset-hero__stat-label">부채 비율</span>
+                                                        <span class="asset-hero__stat-value">0%</span>
+                                                    </div>
+                                                    <div class="asset-hero__stat asset-hero__stat--right">
+                                                        <span class="asset-hero__stat-label">총 자산</span>
+                                                        <span class="asset-hero__stat-value asset-hero__stat-value--point">128,000,000원</span>
+                                                        <button type="button" class="asset-hero__stat-tooltip"><span class="blind">총 자산 안내</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">금융 정보</strong>
+                                        <div class="info-card">
+                                            <p class="info-card__text"><strong>부채</strong>를 연결하시면 <strong>AI가 내 상황에 꼭 맞는 부채 관리법</strong>을 찾아줘요.</p>
+                                            <button type="button" class="info-card__btn">내 부채 연결하러 가기</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">수입&bull;지출 정보</strong>
+                                        <div class="info-card">
+                                            <p class="info-card__text"><strong>월수입</strong>과 지출을 알려주시면 <strong>여유자금을 정확히 계산</strong>할 수 있어요.</p>
+                                            <button type="button" class="info-card__btn">수입&bull;지출 정보 입력하기</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">순 자산</strong>
+                                        <div class="list-accordion">
+                                            <div class="info-card">
+                                                <div class="list-accordion__row list-accordion__row--link">
+                                                    <span class="list-accordion__title">계좌<span class="badge"><span class="badge__count">12</span></span></span>
+                                                    <span class="list-accordion__data">100,000,000원</span>
+                                                    <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                                </div>
+                                                <div class="list-accordion__divider"></div>
+                                                <div class="list-accordion__row list-accordion__row--link">
+                                                    <span class="list-accordion__title">투자<span class="badge"><span class="badge__count">5</span></span></span>
+                                                    <span class="list-accordion__data">20,000,000원</span>
+                                                    <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                                </div>
+                                                <div class="list-accordion__divider"></div>
+                                                <div class="list-accordion__row list-accordion__row--link">
+                                                    <span class="list-accordion__title">연금<span class="badge"><span class="badge__count">2</span></span></span>
+                                                    <span class="list-accordion__data">8,000,000원</span>
+                                                    <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case5: 자산>0인 경우, 계좌/투자/연금 1개 이상 존재 (case4와 동일 위젯 재사용) -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 5</b> · 자산&gt;0인 경우, 계좌&bull;투자&bull;연금 1개 이상 존재 — case 4의 순자산 위젯과 동일</p>
+                        </div>
+
+                        <!-- case6: 일부 자산 0개일 때(연금 예시) -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 6</b> · 자산&gt;0인 경우, 일부 자산 0개일 때(연금 예시 — case 9 "연결된 연금이 0개일 때"와 동일 위젯)</p>
+                        </div>
+
+                        <!-- case7: 연결된 계좌가 0개일 때 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 7</b> · 연결된 계좌가 0개일 때</p>
+                            <div class="finance-preview">
+                                <div class="list-accordion">
+                                    <div class="info-card">
+                                        <div class="list-accordion__row list-accordion__row--link">
+                                            <span class="list-accordion__title">계좌<span class="badge"><span class="badge__count">0</span></span></span>
+                                            <span class="list-accordion__data">0원</span>
+                                            <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="list-accordion__divider"></div>
+                                        <div class="list-accordion__row list-accordion__row--link">
+                                            <span class="list-accordion__title">투자<span class="badge"><span class="badge__count">5</span></span></span>
+                                            <span class="list-accordion__data">20,000,000원</span>
+                                            <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="list-accordion__divider"></div>
+                                        <div class="list-accordion__row list-accordion__row--link">
+                                            <span class="list-accordion__title">연금<span class="badge"><span class="badge__count">2</span></span></span>
+                                            <span class="list-accordion__data">8,000,000원</span>
+                                            <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case8: 연결된 투자가 0개일 때 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 8</b> · 연결된 투자가 0개일 때</p>
+                            <div class="finance-preview">
+                                <div class="list-accordion">
+                                    <div class="info-card">
+                                        <div class="list-accordion__row list-accordion__row--link">
+                                            <span class="list-accordion__title">계좌<span class="badge"><span class="badge__count">12</span></span></span>
+                                            <span class="list-accordion__data">100,000,000원</span>
+                                            <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="list-accordion__divider"></div>
+                                        <div class="list-accordion__row list-accordion__row--link">
+                                            <span class="list-accordion__title">투자<span class="badge"><span class="badge__count">0</span></span></span>
+                                            <span class="list-accordion__data">0원</span>
+                                            <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="list-accordion__divider"></div>
+                                        <div class="list-accordion__row list-accordion__row--link">
+                                            <span class="list-accordion__title">연금<span class="badge"><span class="badge__count">2</span></span></span>
+                                            <span class="list-accordion__data">8,000,000원</span>
+                                            <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case9: 연결된 연금이 0개일 때 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 9</b> · 연결된 연금이 0개일 때 — 연금만 넛지 카드로 대체</p>
+                            <div class="finance-preview">
+                                <div class="list-accordion">
+                                    <div class="info-card">
+                                        <div class="list-accordion__row list-accordion__row--link">
+                                            <span class="list-accordion__title">계좌<span class="badge"><span class="badge__count">12</span></span></span>
+                                            <span class="list-accordion__data">100,000,000원</span>
+                                            <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="list-accordion__divider"></div>
+                                        <div class="list-accordion__row list-accordion__row--link">
+                                            <span class="list-accordion__title">투자<span class="badge"><span class="badge__count">5</span></span></span>
+                                            <span class="list-accordion__data">20,000,000원</span>
+                                            <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="list-accordion__divider"></div>
+                                        <div class="list-accordion__row">
+                                            <span class="list-accordion__title">연금</span>
+                                            <span class="list-accordion__data">연금 내역이 없습니다</span>
+                                        </div>
+                                        <div class="pension-nudge">
+                                            <div class="pension-nudge__top">
+                                                <span class="pension-nudge__icon" aria-hidden="true"></span>
+                                                <p class="pension-nudge__title">숨은 연금이 있나요?</p>
+                                            </div>
+                                            <p class="pension-nudge__desc">연금을 연결하고 더 정확한 진단을<br />받아보세요.</p>
+                                            <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider divider--content" role="separator"></div>
+
+                    <!-- ============================================================
+                         그룹 C. [부채>0, 자산=0일 때]  (피그마 case 10~15)
+                         ============================================================ -->
+                    <div class="qa-case-group">
+                        <p class="qa-case-group__label">[부채&gt;0, 자산=0일 때]</p>
+
+                        <!-- case10: 일반 Case -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 10</b> · 일반 Case — 부채는 있고 진단 가능한 부채 목록도 있는 기본형</p>
+                            <div class="finance-preview">
+                                <div class="stack--group">
+                                    <div class="asset-hero">
+                                        <div class="asset-hero__top">
+                                            <strong class="text text--h2 asset-hero__title">나의 부채</strong>
+                                            <span class="asset-hero__updated">2026.12.12 09:09 기준</span>
+                                        </div>
+                                        <div class="asset-hero__graph">
+                                            <p class="asset-hero__amount">85,000,000<span class="unit">원</span></p>
+                                            <div class="asset-hero__bar-wrap">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%"></span></div>
+                                                <div class="asset-hero__stats">
+                                                    <div class="asset-hero__stat">
+                                                        <span class="asset-hero__chip" aria-hidden="true"></span>
+                                                        <span class="asset-hero__stat-label">부채 비율</span>
+                                                        <span class="asset-hero__stat-value">-100%</span>
+                                                    </div>
+                                                    <div class="asset-hero__stat asset-hero__stat--right">
+                                                        <span class="asset-hero__stat-label">총 자산</span>
+                                                        <span class="asset-hero__stat-value">0원</span>
+                                                        <button type="button" class="asset-hero__stat-tooltip"><span class="blind">총 자산 안내</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">금융 정보</strong>
+                                        <div class="info-card info-card--split">
+                                            <div class="info-card__pair">
+                                                <p class="info-card__label">이번 달 예상 상환 금액</p>
+                                                <p class="info-card__value">12만원<button type="button" class="info-card__value-tooltip"><span class="blind">예상 상환 금액 안내</span></button></p>
+                                            </div>
+                                            <div class="info-card__pair">
+                                                <p class="info-card__label">신용 점수</p>
+                                                <p class="info-card__value">812점</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">수입&bull;지출 정보</strong>
+                                        <div class="info-card">
+                                            <p class="info-card__text"><strong>월수입</strong>과 지출을 알려주시면 <strong>여유자금을 정확히 계산</strong>할 수 있어요.</p>
+                                            <button type="button" class="info-card__btn">수입&bull;지출 정보 입력하기</button>
+                                        </div>
+                                        <div class="connect-nudge">
+                                            <p class="connect-nudge__text">자산을 연결하고 맞춤 리포트를 완성하세요</p>
+                                            <img class="connect-nudge__img" src="../../images/update/img-ally-wallet.png" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="info-card">
+                                        <div class="debt-card__head">
+                                            <div class="debt-card__row">
+                                                <p class="debt-card__label">진단 부채<span class="debt-card__count">3</span></p>
+                                                <p class="debt-card__amount">85,000,000원</p>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="debt-card__toggle" data-toggle-debt>펼치기</button>
+                                        <div class="debt-card__select-all">
+                                            <label class="check-basic check-basic--xs">
+                                                <input type="checkbox" class="check-basic__input" checked />
+                                                <span class="check-basic__icon" aria-hidden="true"></span>
+                                                <span class="check-basic__label">전체선택</span>
+                                            </label>
+                                        </div>
+                                        <div class="debt-card__list">
+                                            <div class="select-card select-card--row">
+                                                <div class="select-card__select-row">
+                                                    <label class="check-basic check-basic--xs">
+                                                        <input type="checkbox" class="check-basic__input" checked />
+                                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                                    </label>
+                                                    <div class="select-card__select-text">
+                                                        <div class="select-card__logo-row">
+                                                            <span class="select-card__logo"></span>
+                                                            <div class="select-card__name-col">
+                                                                <p class="select-card__name">장기대출</p>
+                                                                <p class="select-card__number">현대카드 &middot; 1234-****-****-****</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">500,000원</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">19.9%</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">대출일</span><span class="select-card__list-data">2026.08.31</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="select-card select-card--row">
+                                                <div class="select-card__select-row">
+                                                    <label class="check-basic check-basic--xs">
+                                                        <input type="checkbox" class="check-basic__input" checked />
+                                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                                    </label>
+                                                    <div class="select-card__select-text">
+                                                        <div class="select-card__logo-row">
+                                                            <span class="select-card__logo"></span>
+                                                            <div class="select-card__name-col">
+                                                                <p class="select-card__name">ACE 신용대출</p>
+                                                                <p class="select-card__number">한국투자저축은행 &middot; 계좌 보유</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">50,000,000원</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">12.72%</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2030.12.31</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="select-card select-card--row">
+                                                <div class="select-card__select-row">
+                                                    <label class="check-basic check-basic--xs">
+                                                        <input type="checkbox" class="check-basic__input" checked />
+                                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                                    </label>
+                                                    <div class="select-card__select-text">
+                                                        <div class="select-card__logo-row">
+                                                            <span class="select-card__logo"></span>
+                                                            <div class="select-card__name-col">
+                                                                <p class="select-card__name">[만료] 장기대출</p>
+                                                                <p class="select-card__number">현대카드 &middot; 1234-****-****-****</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">500,000원</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">19.9%</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case11: 툴팁 노출 시 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 11</b> · 툴팁 노출 시 — case 10과 동일 화면에서 목록 항목의 상세조회 안내 팝업이 열린 상태</p>
+                            <div class="finance-preview">
+                                <div class="tooltip-card" style="position:static">
+                                    <div class="tooltip-card__header">
+                                        <p class="tooltip-card__title">보험계약 상세조회</p>
+                                        <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
+                                    </div>
+                                    <ul class="tooltip-card__list">
+                                        <li class="tooltip-card__item">타금융기관 대출상품은 원금균등, 원리금균등, 만기예정일시 상환방식에 한하여 제공하며 상환금액 및 상환일은 차이가 있을 수 있습니다.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case12: 부채=0인 경우 (진단 부채=0 → 목록 카드 자체가 없고, 대신 자산연결 유도 카드로 대체) — 실제 조회 확인 완료 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 12</b> · 진단 부채=0인 경우 — 총 부채 금액은 있지만 개별 진단 목록이 없어 "자산 연결" 유도 카드로 대체</p>
+                            <div class="finance-preview">
+                                <div class="stack--group">
+                                    <div class="asset-hero">
+                                        <div class="asset-hero__top">
+                                            <strong class="text text--h2 asset-hero__title">나의 부채</strong>
+                                            <span class="asset-hero__updated">2026.12.12 09:09 기준</span>
+                                        </div>
+                                        <div class="asset-hero__graph">
+                                            <p class="asset-hero__amount">130,000,000<span class="unit">원</span></p>
+                                            <div class="asset-hero__bar-wrap">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%"></span></div>
+                                                <div class="asset-hero__stats">
+                                                    <div class="asset-hero__stat">
+                                                        <span class="asset-hero__chip" aria-hidden="true"></span>
+                                                        <span class="asset-hero__stat-label">부채 비율</span>
+                                                        <span class="asset-hero__stat-value asset-hero__stat-value--point">-100%</span>
+                                                    </div>
+                                                    <div class="asset-hero__stat asset-hero__stat--right">
+                                                        <span class="asset-hero__stat-label">총 자산</span>
+                                                        <span class="asset-hero__stat-value">0원</span>
+                                                        <button type="button" class="asset-hero__stat-tooltip"><span class="blind">총 자산 안내</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">금융 정보</strong>
+                                        <div class="info-card info-card--split">
+                                            <div class="info-card__pair">
+                                                <p class="info-card__label">이번 달 예상 상환 금액</p>
+                                                <p class="info-card__value">12만원<button type="button" class="info-card__value-tooltip"><span class="blind">예상 상환 금액 안내</span></button></p>
+                                            </div>
+                                            <div class="info-card__pair">
+                                                <p class="info-card__label">신용 점수</p>
+                                                <p class="info-card__value">812점</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">수입&bull;지출 정보</strong>
+                                        <div class="info-card">
+                                            <p class="info-card__text"><strong>월수입</strong>과 지출을 알려주시면 <strong>여유자금을 정확히 계산</strong>할 수 있어요.</p>
+                                            <button type="button" class="info-card__btn">수입&bull;지출 정보 입력하기</button>
+                                        </div>
+                                        <div class="connect-nudge">
+                                            <p class="connect-nudge__text">자산을 연결하고 맞춤 리포트를 완성하세요</p>
+                                            <img class="connect-nudge__img" src="../../images/update/img-ally-wallet.png" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">순 자산</strong>
+                                        <p class="asset-hero__amount" style="width:100%">-130,000,000<span class="unit">원</span></p>
+                                        <div class="info-card">
+                                            <p class="info-card__text"><strong>자산</strong>을 등록하시면 내 자산 현황을 기반으로 <strong>부채를 알뜰하게 줄일 수 있는 방법을 AI가 추천</strong>해드려요.</p>
+                                            <button type="button" class="info-card__btn">내 자산 연결하러 가기</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case13: 부채>0 and 진단 부채=0인 경우(대상 외 부채만 존재) -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 13</b> · 부채&gt;0 and 진단 부채=0인 경우(대상 외 부채만 존재) — 총 부채는 있으나 전부 "진단 대상 외" 부채라 목록에 표시할 항목이 없는 경우</p>
+                            <div class="finance-preview">
+                                <div class="info-card">
+                                    <p class="info-card__text">현재 <strong>분석 가능한 부채가 없어요.</strong> 조건에 맞는 부채가 등록되면 알려드릴게요.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case14: 자산=0 and 진단 부채>0인 경우 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 14</b> · 자산=0 and 진단 부채&gt;0인 경우 — case 10의 진단 부채 카드와 동일 구성</p>
+                        </div>
+
+                        <!-- case15: 자산>0 and 진단 부채>0이고, 목록이 5개 이상일 때 → 하단 CTA 버튼 노출 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 15</b> · 진단 부채 목록이 5개 이상일 때 — 이 경우부터 하단 "자산&bull;부채 분석하기" CTA 버튼이 노출됨(case 1~14는 CTA 숨김)</p>
+                            <div class="finance-preview">
+                                <div class="info-card">
+                                    <div class="debt-card__head">
+                                        <div class="debt-card__row">
+                                            <p class="debt-card__label">진단 부채<span class="debt-card__count">38</span></p>
+                                            <p class="debt-card__amount">85,000,000원</p>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="debt-card__toggle">펼치기</button>
+                                    <p class="qa-case__label" style="padding-left:4px">(목록 5행 + "더보기(5/38)" + 전체선택 UI는 case 10/case 16 참고 — 아래 CTA 버튼만 확인용으로 노출)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider divider--content" role="separator"></div>
+
+                    <!-- ============================================================
+                         그룹 D. [총 자산/총 부채]  (자산·부채 모두 존재, 피그마 case 16~19) — 실제 조회 확인 완료
+                         ============================================================ -->
+                    <div class="qa-case-group">
+                        <p class="qa-case-group__label">[총 자산/총 부채]</p>
+
+                        <!-- case16: 일반 Case -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 16</b> · 일반 Case — 자산&bull;부채가 모두 있는 가장 풍부한 기본형(진단 부채 목록 접힌 상태)</p>
+                            <div class="finance-preview">
+                                <div class="stack--group">
+                                    <div class="asset-hero">
+                                        <div class="asset-hero__top">
+                                            <strong class="text text--h2 asset-hero__title">나의 부채</strong>
+                                            <span class="asset-hero__updated">2026.12.12 09:09 기준</span>
+                                        </div>
+                                        <div class="asset-hero__graph">
+                                            <p class="asset-hero__amount">130,000,000<span class="unit">원</span></p>
+                                            <div class="asset-hero__bar-wrap">
+                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%"></span></div>
+                                                <div class="asset-hero__stats">
+                                                    <div class="asset-hero__stat">
+                                                        <span class="asset-hero__chip" aria-hidden="true"></span>
+                                                        <span class="asset-hero__stat-label">부채 비율</span>
+                                                        <span class="asset-hero__stat-value">108%</span>
+                                                    </div>
+                                                    <div class="asset-hero__stat asset-hero__stat--right">
+                                                        <span class="asset-hero__stat-label">총 자산</span>
+                                                        <span class="asset-hero__stat-value">250,000,000원</span>
+                                                        <button type="button" class="asset-hero__stat-tooltip"><span class="blind">총 자산 안내</span></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">금융 정보</strong>
+                                        <div class="info-card info-card--split">
+                                            <div class="info-card__pair">
+                                                <p class="info-card__label">이번 달 예상 상환 금액</p>
+                                                <p class="info-card__value">12만원<button type="button" class="info-card__value-tooltip"><span class="blind">예상 상환 금액 안내</span></button></p>
+                                            </div>
+                                            <div class="info-card__pair">
+                                                <p class="info-card__label">신용 점수</p>
+                                                <p class="info-card__value">812점</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">수입&bull;지출 정보</strong>
+                                        <div class="info-card">
+                                            <div class="list-kv">
+                                                <span class="list-kv__title">월 수입</span>
+                                                <span class="list-kv__data">800만원~1,000만원</span>
+                                            </div>
+                                            <div class="list-kv">
+                                                <span class="list-kv__title">월 지출</span>
+                                                <span class="list-kv__data">560만원</span>
+                                            </div>
+                                        </div>
+                                        <div class="connect-nudge">
+                                            <p class="connect-nudge__text">자산을 연결하고 맞춤 리포트를 완성하세요</p>
+                                            <img class="connect-nudge__img" src="../../images/update/img-ally-wallet.png" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="stack--heading">
+                                        <strong class="text text--h4">순 자산</strong>
+                                        <p class="asset-hero__amount" style="width:100%">120,000,000<span class="unit">원</span></p>
+                                        <div class="list-accordion">
+                                            <div class="info-card">
+                                                <div class="list-accordion__row list-accordion__row--link">
+                                                    <span class="list-accordion__title">계좌<span class="badge"><span class="badge__count">46</span></span></span>
+                                                    <span class="list-accordion__data">100,000,000원</span>
+                                                    <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                                </div>
+                                                <div class="list-accordion__divider"></div>
+                                                <div class="list-accordion__row list-accordion__row--link">
+                                                    <span class="list-accordion__title">투자<span class="badge"><span class="badge__count">12</span></span></span>
+                                                    <span class="list-accordion__data">20,000,000원</span>
+                                                    <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                                </div>
+                                                <div class="list-accordion__divider"></div>
+                                                <div class="list-accordion__row">
+                                                    <span class="list-accordion__title">연금</span>
+                                                    <span class="list-accordion__data">연금 내역이 없습니다</span>
+                                                </div>
+                                                <div class="pension-nudge">
+                                                    <div class="pension-nudge__top">
+                                                        <span class="pension-nudge__icon" aria-hidden="true"></span>
+                                                        <p class="pension-nudge__title">숨은 연금이 있나요?</p>
+                                                    </div>
+                                                    <p class="pension-nudge__desc">연금을 연결하고 더 정확한 진단을<br />받아보세요.</p>
+                                                    <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-card" id="debtCard16">
+                                        <div class="debt-card__head">
+                                            <div class="debt-card__row">
+                                                <p class="debt-card__label">진단 부채<span class="debt-card__count">38</span></p>
+                                                <p class="debt-card__amount">85,000,000원</p>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="debt-card__toggle" onclick="var b=this;var d=b.parentNode.querySelector('.debt-detail');if(d){d.remove();b.textContent='펼치기';b.classList.remove('is-open');}else{d=document.createElement('div');d.className='debt-detail';d.innerHTML='<div class=\'list-kv\'><span class=\'list-kv__title\'>선택 부채</span><span class=\'list-kv__data\'>85,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>잔여 부채</span><span class=\'list-kv__data\'>30,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>대상 외 부채</span><span class=\'list-kv__data\'>25,000,000원</span></div><div class=\'list-kv debt-detail__total\'><span class=\'list-kv__title\'>총 부채</span><span class=\'list-kv__data\'>130,000,000원</span></div>';b.parentNode.insertBefore(d,b.parentNode.querySelector('.debt-card__toggle'));b.textContent='접기';b.classList.add('is-open');}return false;">펼치기</button>
+                                        <div class="debt-card__select-all">
+                                            <label class="check-basic check-basic--xs">
+                                                <input type="checkbox" class="check-basic__input" checked />
+                                                <span class="check-basic__icon" aria-hidden="true"></span>
+                                                <span class="check-basic__label">전체선택</span>
+                                            </label>
+                                        </div>
+                                        <div class="debt-card__list">
+                                            <div class="select-card select-card--row">
+                                                <div class="select-card__select-row">
+                                                    <label class="check-basic check-basic--xs">
+                                                        <input type="checkbox" class="check-basic__input" checked />
+                                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                                    </label>
+                                                    <div class="select-card__select-text">
+                                                        <div class="select-card__logo-row">
+                                                            <span class="select-card__logo"></span>
+                                                            <div class="select-card__name-col">
+                                                                <p class="select-card__name">장기대출</p>
+                                                                <p class="select-card__number">현대카드 &middot; 1234-****-****-****</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">500,000원</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">19.9%</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">대출일</span><span class="select-card__list-data">2026.08.31</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="select-card select-card--row">
+                                                <div class="select-card__select-row">
+                                                    <label class="check-basic check-basic--xs">
+                                                        <input type="checkbox" class="check-basic__input" checked />
+                                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                                    </label>
+                                                    <div class="select-card__select-text">
+                                                        <div class="select-card__logo-row">
+                                                            <span class="select-card__logo"></span>
+                                                            <div class="select-card__name-col">
+                                                                <p class="select-card__name">ACE 신용대출</p>
+                                                                <p class="select-card__number">한국투자저축은행</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">50,000,000원</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">12.72%</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2030.12.31</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="select-card select-card--row">
+                                                <div class="select-card__select-row">
+                                                    <label class="check-basic check-basic--xs">
+                                                        <input type="checkbox" class="check-basic__input" checked />
+                                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                                    </label>
+                                                    <div class="select-card__select-text">
+                                                        <div class="select-card__logo-row">
+                                                            <span class="select-card__logo"></span>
+                                                            <div class="select-card__name-col">
+                                                                <p class="select-card__name">[만료] 장기대출</p>
+                                                                <p class="select-card__number">현대카드 &middot; 1234-****-****-****</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">500,000원</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">19.9%</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="select-card select-card--row select-card--disabled">
+                                                <div class="select-card__select-row">
+                                                    <label class="check-basic check-basic--xs">
+                                                        <input type="checkbox" class="check-basic__input" disabled />
+                                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                                    </label>
+                                                    <div class="select-card__select-text">
+                                                        <div class="select-card__logo-row">
+                                                            <span class="select-card__logo"></span>
+                                                            <div class="select-card__name-col">
+                                                                <p class="select-card__name">NH모바일주택담보대출(6개월 변동형)</p>
+                                                                <p class="select-card__number">NH농협은행 &middot; 123-4567-7890-00</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">100,000,000원</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">4.78%</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2045.06.30</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="select-card select-card--row">
+                                                <div class="select-card__select-row">
+                                                    <label class="check-basic check-basic--xs">
+                                                        <input type="checkbox" class="check-basic__input" checked />
+                                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                                    </label>
+                                                    <div class="select-card__select-text">
+                                                        <div class="select-card__logo-row">
+                                                            <span class="select-card__logo"></span>
+                                                            <div class="select-card__name-col">
+                                                                <p class="select-card__name">ACE 신용대출</p>
+                                                                <p class="select-card__number">한국투자저축은행</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">50,000,000원</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">12.72%</span></div>
+                                                        <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2030.12.31</span></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="select-card__more">더보기(5/38)</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case17: 툴팁 노출 시 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 17</b> · 툴팁 노출 시 — case 16과 동일 화면에서 "총 자산" 안내 툴팁이 열린 상태(case 2와 동일 UI)</p>
+                        </div>
+
+                        <!-- case18: 펼치기 버튼 누를 시 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 18</b> · 펼치기 버튼 누를 시 — case 16의 "진단 부채" 카드에서 상세내역이 펼쳐진 상태(위 case 16의 펼치기 버튼을 눌러 직접 확인 가능)</p>
+                            <div class="finance-preview">
+                                <div class="info-card">
+                                    <div class="debt-card__head">
+                                        <div class="debt-card__row">
+                                            <p class="debt-card__label">진단 부채<span class="debt-card__count">38</span></p>
+                                            <p class="debt-card__amount">85,000,000원</p>
+                                        </div>
+                                    </div>
+                                    <div class="debt-detail">
+                                        <div class="list-kv"><span class="list-kv__title">선택 부채</span><span class="list-kv__data">85,000,000원</span></div>
+                                        <div class="list-kv"><span class="list-kv__title">잔여 부채</span><span class="list-kv__data">30,000,000원</span></div>
+                                        <div class="list-kv"><span class="list-kv__title">대상 외 부채</span><span class="list-kv__tooltip"></span><span class="list-kv__data">25,000,000원</span></div>
+                                        <div class="list-kv debt-detail__total"><span class="list-kv__title">총 부채</span><span class="list-kv__data">130,000,000원</span></div>
+                                    </div>
+                                    <button type="button" class="debt-card__toggle is-open">접기</button>
+                                    <p class="qa-case__label" style="padding-left:4px">(전체선택/목록 UI는 case 16과 동일해 생략)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- case19: 펼치기 버튼 누를 시 → 상세 내역 툴팁 노출 시 -->
+                        <div class="qa-case">
+                            <p class="qa-case__label"><b>case 19</b> · 펼치기 → 상세 내역 툴팁 노출 시 — case 18의 "대상 외 부채" 안내 툴팁이 열린 상태</p>
+                            <div class="finance-preview">
+                                <div class="info-card">
+                                    <div class="debt-detail">
+                                        <div class="list-kv"><span class="list-kv__title">선택 부채</span><span class="list-kv__data">85,000,000원</span></div>
+                                        <div class="list-kv"><span class="list-kv__title">잔여 부채</span><span class="list-kv__data">30,000,000원</span></div>
+                                        <div class="list-kv tooltipWrap">
+                                            <span class="list-kv__title">대상 외 부채</span>
+                                            <button type="button" class="list-kv__tooltip" onclick="tooltipOpen($(this));return false;" style="border:none;cursor:pointer"><span class="blind">대상 외 부채 안내</span></button>
+                                            <span class="list-kv__data">25,000,000원</span>
+                                            <div class="tooltip-card tooltipCont" style="display:none">
+                                                <div class="tooltip-card__header">
+                                                    <p class="tooltip-card__title">대상 외 부채란?</p>
+                                                    <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
+                                                </div>
+                                                <ul class="tooltip-card__list">
+                                                    <li class="tooltip-card__item">전세자금대출, 담보대출 등 상환 관리 진단 대상에서 제외되는 부채예요.</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="list-kv debt-detail__total"><span class="list-kv__title">총 부채</span><span class="list-kv__data">130,000,000원</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 위 case 15부터 노출되는 하단 CTA. 실제 화면에서는 이 버튼 하나만 고정 노출됩니다(케이스 반복 아님). -->
+                <div class="areaBtnDefault bgcolor">
+                    <a href="javascript:;" class="btnPressPoint" role="button">자산&middot;부채 분석하기</a>
                 </div>
             </div>
         </div>
