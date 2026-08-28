@@ -254,11 +254,12 @@
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
 .nds .note {margin:var(--spacing-20) 0;background-color:var(--color-bg-banner);border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);line-height:20px;color:var(--color-font-3)}
 .nds .bt-1{border-top:1px solid var(--color-border-3) !important}
-/* ---- 간격 가이드(세로 스택 gap 3단계) ---- */
-.nds .stack--heading {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%}
-.nds .stack--field {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
-.nds .stack--group {display:flex;flex-direction:column;gap:var(--spacing-24);width:100%}
-.nds .stack--section {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
+/* ---- 간격 가이드(세로 스택, 클래스명 = gap 값) ---- */
+.nds .stack--8 {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%}
+.nds .stack--12 {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
+.nds .stack--16 {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
+.nds .stack--24 {display:flex;flex-direction:column;gap:var(--spacing-24);width:100%}
+.nds .stack--32 {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
 /* --- divider --- */
 .nds .divider {display:block;width:100%;border:none;margin:var(--spacing-20) auto;flex-shrink:0}
 .nds .divider--content {height:8px;background-color:var(--color-bg-container);margin:40px -24px;width:auto}
@@ -851,7 +852,7 @@
 .nds .select-card--error {border-color:var(--color-border-error)}
 .nds .select-card--readonly, .nds .select-card--disabled {background-color:var(--color-bg-extra-bg);pointer-events:none}
 .nds .select-card--readonly .select-card__number-arrow, .nds .select-card--disabled .select-card__number-arrow {display:none}
-.nds .select-card__logo:empty::before {color:var(--color-font-4);content:"";display:block;width:40px;height:40px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-bank-structure.svg");mask-image:url("../images/update/ic-bank-structure.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .select-card__logo:empty::before {color:var(--color-font-4);content:"";display:block;width:40px;height:40px;background-color:var(--color-bg-extra-bg);border-radius:var(--radius-full)}
 .nds .select-card__chevron::before {content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-down-long.svg");mask-image:url("../images/update/ic-arrow-down-long.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .select-card__number-arrow::before {content:"";display:block;width:16px;height:16px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-circle-down-short.svg");mask-image:url("../images/update/ic-arrow-circle-down-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .select-card__menu-btn::before {content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-admin-dots.svg");mask-image:url("../images/update/ic-admin-dots.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
@@ -1100,7 +1101,7 @@
 /* ---- 소비 경고 알림 설정(NH_MD_PM_02_01) ---- */
 .nds .pmAlert {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
 .nds .pmAlert__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);width:100%}
-.nds .pmAlert .stack--field .bottomsheet-option__label {margin:0}
+.nds .pmAlert .stack--12 .bottomsheet-option__label {margin:0}
 .nds .result-icon {display:block;width:68px;height:68px}
 .nds .intro-hero {margin:48px 0 32px;padding:20px 4px} /* MSCO9100 */
 .nds .intro-hero img {display:block}
@@ -1683,10 +1684,6 @@
 .nds .finance-preview__gauge-labels {display:flex;justify-content:space-between;margin-top:var(--spacing-8);font-size:12px;letter-spacing:-0.24px;color:var(--color-font-4)}
 /* ==================================================================================
    NH_MD_CO_01_01.html — 자산·부채 통합분석(자산 부채 현황) 전용 컴포넌트
-   피그마 node 2770:17073 컨테이너에 케이스(부채/자산 유무 조합, 툴팁, 펼치기 등) 19종이
-   전부 나열되어 있어, 실제 화면에서는 API 응답값에 따라 그 중 하나만 노출됩니다.
-   NH_MD_CO_01_01.html에는 퍼블 확인용으로 19개 케이스를 전부 마크업해 두었습니다
-   (NH_MD_CO_01_05.html의 입력값 정상/오류 2케이스 마크업과 동일한 방식).
    ================================================================================== */
 /* ---- 공용 카드 뼈대(흰 배경 + radius 10 + shadow) — Co006/Co007/CO009 계열이 공유 ---- */
 .nds .info-card {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);border-radius:var(--radius-10);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);box-sizing:border-box}
@@ -1752,15 +1749,20 @@
 .nds .debt-card__toggle::after {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-down-24.svg");mask-image:url("../images/update/ic-arrow-down-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;transition:transform var(--transition-base)}
 .nds .debt-card__toggle.is-open::after {transform:rotate(180deg)}
 .nds .debt-card__select-all {display:flex;align-items:center;width:100%;padding-bottom:var(--spacing-16);border-bottom:1px solid var(--primitive-gray-300)}
-.nds .debt-card__list {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
-.nds .select-card--row {gap:var(--spacing-16);padding:var(--spacing-16) 0;border:none;border-radius:0}
-.nds .select-card--row + .select-card--row {border-top:1px solid var(--primitive-gray-300)}
-.nds .select-card__more {display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:100%;padding-top:var(--spacing-4);background:none;border:none;font-size:var(--type-size-14);letter-spacing:-0.28px;color:var(--color-font-3);cursor:pointer}
+.nds .debt-card__list {display:flex;flex-direction:column;width:100%}
+.nds .select-card--row {gap:var(--spacing-16);padding:0 0 var(--spacing-32);border:none;border-radius:0}
+.nds .select-card--row + .select-card--row {border-top:1px solid var(--primitive-gray-100);padding:var(--spacing-32) 0}
+.nds .select-card__more {display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:100%;padding-bottom:var(--spacing-20);background:none;border:none;font-size:var(--type-size-14);letter-spacing:-0.28px;color:var(--color-font-3);cursor:pointer}
 .nds .select-card__more::before {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-plus-24.svg");mask-image:url("../images/update/ic-plus-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-/* ---- 퍼블 확인용 케이스 라벨(실제 화면엔 노출되지 않는 dev 참고용 표기) ---- */
-.nds .qa-case-group {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
-.nds .qa-case-group__label {margin:0;padding:var(--spacing-8) var(--spacing-12);border-radius:var(--radius-8);background-color:#111;color:#fff;font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);letter-spacing:-0.28px}
-.nds .qa-case {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%;padding-top:var(--spacing-24);border-top:1px dashed var(--primitive-gray-300)}
-.nds .qa-case:first-child {padding-top:0;border-top:none}
-.nds .qa-case__label {margin:0;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:#767676}
-.nds .qa-case__label b {color:var(--color-font-positive);font-weight:var(--font-weight-semibold)}
+/* --- NH_MD_CO_01_07 --- */
+.nds .asset-list-card {display:flex;flex-direction:column;width:100%;border-radius:var(--radius-16);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);overflow:hidden;box-sizing:border-box}
+.nds .asset-list-card__head {display:flex;flex-direction:column;gap:var(--spacing-2);width:100%;padding:var(--spacing-20);border-bottom:1px solid var(--color-border-3);box-sizing:border-box}
+.nds .asset-list-card__title {display:flex;align-items:center;gap:var(--spacing-4);margin:0;font-size:var(--type-size-16);letter-spacing:-0.32px;line-height:24px}
+.nds .asset-list-card__title-name {font-weight:var(--font-weight-medium);color:var(--color-font-1)}
+.nds .asset-list-card__title-count {font-weight:var(--font-weight-semibold);color:var(--color-font-point)}
+.nds .asset-list-card__total {margin:0;font-size:var(--type-size-20);font-weight:var(--font-weight-semibold);letter-spacing:-0.4px;line-height:28px;color:#132333}
+.nds .asset-list-card__list {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%;padding:var(--spacing-24) var(--spacing-20) var(--spacing-20);box-sizing:border-box}
+.nds .asset-list-card__list .select-card--row:last-child {padding-bottom:0}
+.nds .select-card__list-data--positive {color:var(--color-font-positive)}
+.nds .select-card__list-data--negative {color:var(--color-font-negative)}
+.nds .select-card__list-data--muted {color:var(--color-font-5)}
