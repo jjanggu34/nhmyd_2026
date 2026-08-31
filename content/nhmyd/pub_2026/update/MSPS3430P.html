@@ -24,7 +24,32 @@
                                 cutout: '62%',
                                 events: [],
                                 plugins: { legend: { display: false }, tooltip: { enabled: false } }
-                            }
+                            },
+                            //식비(첫 번째) 조각만 안쪽으로 두껍게 이어 그려서 강조 — 얇은 링(위 데이터셋)의 실제 각도/중심좌표를
+                            //그대로 읽어와 같은 offset만큼 밀어서 겹치는 부분 없이 자연스럽게 이어붙임
+                            plugins: [{
+                                id: 'foodEmphasisRing',
+                                afterDatasetsDraw: function (chart) {
+                                    var arc = chart.getDatasetMeta(0).data[0];
+                                    if (!arc) return;
+                                    var p = arc.getProps(['x', 'y', 'startAngle', 'endAngle', 'innerRadius'], true);
+                                    var offsetPx = 12; //위 dataset의 offset[0]과 동일한 값
+                                    var mid = (p.startAngle + p.endAngle) / 2;
+                                    var cx = p.x + Math.cos(mid) * offsetPx;
+                                    var cy = p.y + Math.sin(mid) * offsetPx;
+                                    var outer = p.innerRadius; //얇은 링의 안쪽 경계에 맞닿게 시작
+                                    var inner = outer - 18; //그만큼 더 안쪽까지 두껍게 확장
+                                    var ctx = chart.ctx;
+                                    ctx.save();
+                                    ctx.beginPath();
+                                    ctx.arc(cx, cy, outer, p.startAngle, p.endAngle);
+                                    ctx.arc(cx, cy, inner, p.endAngle, p.startAngle, true);
+                                    ctx.closePath();
+                                    ctx.fillStyle = chart.data.datasets[0].backgroundColor[0];
+                                    ctx.fill();
+                                    ctx.restore();
+                                }
+                            }]
                         });
                     }
                 }
@@ -48,7 +73,7 @@
                             <div class="txn-preview__card fund-donut">
                                 <div class="fund-donut__chart">
                                     <canvas data-category-donut-chart width="120" height="120" role="img" aria-label="식비 40%, 쇼핑 30%, 여행 20%, 의료비 10%"></canvas>
-                                    <span class="fund-donut__callout" style="top:16px;left:105px">
+                                    <span class="fund-donut__callout">
                                         식비
                                         <br />
                                         <strong>40%</strong>
