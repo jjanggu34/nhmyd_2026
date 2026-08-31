@@ -538,6 +538,7 @@
 /* ---- List ---- */
 .nds .list-kv {display:flex;align-items:flex-start;gap:var(--spacing-4);width:100%}
 .nds .list-kv__title {flex-shrink:0;display:flex;align-items:center;gap:var(--spacing-2);width:108px;font-size:var(--type-size-15);font-weight:var(--font-weight-regular);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nds .list-kv__title img { width:24px; }
 .nds .list-kv__tooltip {flex-shrink:0;display:inline-flex;align-items:center;width:24px;height:20px;color:var(--color-icon-4)}
 .nds .list-kv__tooltip::before {content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-tooltip-mark.svg");mask-image:url("../images/update/ic-tooltip-mark.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .list-kv__data {flex:1;min-width:0;text-align:right;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-1)}
@@ -578,6 +579,7 @@
 .nds .list-accordion__divider {width:100%;height:1px;background-color:var(--color-bg-extra-bg);flex-shrink:0}
 .nds .list-accordion__row {display:flex;align-items:center;gap:var(--spacing-4);width:100%}
 .nds .list-accordion__title {flex-shrink:0;width:124px;font-size:var(--type-size-15);font-weight:var(--font-weight-regular);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nds .list-accordion__data.list-accordion__data-none{ font-size:var(--type-size-15); color:var(--primitive-gray-font-500); font-weight:var(--font-weight-medium); }
 .nds .list-accordion__data {flex:1;min-width:0;font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-1);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .nds .list-accordion__toggle {display:inline-flex;align-items:center;gap:var(--spacing-2);padding-top:var(--spacing-4);background:none;border:none;cursor:pointer;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .list-accordion__toggle::after {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-down-24.svg");mask-image:url("../images/update/ic-arrow-down-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;transition:transform var(--transition-base)}
@@ -829,10 +831,9 @@
 .nds .select-card__name-col {flex:1;min-width:0;display:flex;flex-direction:column}
 .nds .select-card {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%;padding:var(--spacing-20) var(--spacing-16) var(--spacing-20) var(--spacing-20);border:1px solid var(--color-border-2);border-radius:var(--radius-16);background-color:var(--color-bg-default);box-sizing:border-box}
 .nds .select-card__select-row {display:flex;align-items:flex-start;gap:var(--spacing-8);width:100%}
-.nds .select-card__select-text {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-2)}
-/* .nds .select-card__select-text .select-card__logo-row:first-child {margin-bottom:var(--spacing-32)} */
+.nds .select-card__select-text {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-8)}
 .nds .select-card__chip {display:inline-flex;align-items:center;justify-content:center;width:fit-content;padding:3px var(--spacing-8) var(--spacing-2);background-color:var(--color-bg-container);border-radius:var(--radius-4);font-size:var(--type-size-10);font-weight:var(--font-weight-regular);letter-spacing:-0.2px;line-height:15px;color:var(--color-font-2)}
-.nds .select-card__logo-row {display:flex;align-items:center;gap:var(--spacing-8);width:100%}
+.nds .select-card__logo-row {display:flex;align-items:center;gap:var(--spacing-8);width:100%;padding-right:26px}
 .nds .select-card__logo {width:40px;height:40px;flex-shrink:0;overflow:hidden}
 .nds .select-card__logo img {width:100%;height:100%;display:block;object-fit:cover}
 .nds .select-card__name {font-size:var(--type-size-16);font-weight:var(--font-weight-medium);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -858,9 +859,10 @@
 .nds .select-card__menu-btn {display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;background:none;border:none;cursor:pointer;color:var(--color-font-3);flex-shrink:0;padding:0}
 .nds .select-card__menu-btn svg {width:24px;height:24px}
 .nds .select-card--error {border-color:var(--color-border-error)}
-.nds .select-card--readonly, .nds .select-card--disabled {background-color:var(--color-bg-extra-bg);pointer-events:none}
+.nds .select-card--readonly, .nds .select-card--disabled {pointer-events:none; }
+.nds .select-card--readonly, .nds .select-card--disabled .select-card__select-text { opacity:.5 }
 .nds .select-card--readonly .select-card__number-arrow, .nds .select-card--disabled .select-card__number-arrow {display:none}
-.nds .select-card__logo:empty::before {color:var(--color-font-4);content:"";display:block;width:40px;height:40px;background-color:var(--color-bg-extra-bg);-webkit-mask-image:url("../images/logos/img_nodata.svg");mask-image:url("../images/logos/img_nodata.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .select-card__logo:empty::before {color:var(--color-font-4);content:"";display:block;width:40px;height:40px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-bank-structure.svg");mask-image:url("../images/update/ic-bank-structure.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .select-card__chevron::before {content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-down-long.svg");mask-image:url("../images/update/ic-arrow-down-long.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .select-card__number-arrow::before {content:"";display:block;width:16px;height:16px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-circle-down-short.svg");mask-image:url("../images/update/ic-arrow-circle-down-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .select-card__menu-btn::before {content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-admin-dots.svg");mask-image:url("../images/update/ic-admin-dots.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
@@ -1664,7 +1666,7 @@
 .nds .allowance-alert-link {display:flex;justify-content:center;margin-bottom:var(--spacing-32)}
 .nds .allowance-alert-link__btn {color:var(--color-font-4)}
 /* ---- NH_MD_CO_04 ---- */
-.nds .finance-preview {display:flex;flex-direction:column;gap:56px;width:100%}
+.nds .finance-preview {display:flex;flex-direction:column;gap:56px;position:relative;width:100%}
 .nds .finance-preview__card {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-40);width:100%;padding:var(--spacing-24) var(--spacing-32) var(--spacing-32);border-radius:var(--radius-16);background:var(--color-bg-default);box-shadow:0px 5px 7.5px rgba(0,0,0,0.04);box-sizing:border-box}
 .nds .finance-preview__card .text--h4{display:block;text-align:left;width:100%}
 .nds .finance-preview__card-body {display:flex;flex-direction:column;align-items:flex-start;gap:var(--spacing-32);width:100%}
@@ -1696,16 +1698,17 @@
    ================================================================================== */
 /* ---- 공용 카드 뼈대(흰 배경 + radius 10 + shadow) — Co006/Co007/CO009 계열이 공유 ---- */
 .nds .info-card {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);border-radius:var(--radius-10);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);box-sizing:border-box}
-.nds .info-card__text {margin:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-3);text-align:left;width:100%}
+.nds .info-card__text {margin:0;font-size:var(--type-sie-15);font-weight:var(--font-weight-medium);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-3);text-align:left;width:100%}
 .nds .info-card__text strong {font-weight:var(--font-weight-medium);color:var(--color-font-1)}
 .nds .info-card__btn {display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:100%;padding:var(--spacing-12) var(--spacing-16);border-radius:var(--radius-10);background-color:var(--color-bg-container);border:none;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-2);cursor:pointer}
 .nds .info-card__btn::after {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-.nds .info-card--split {flex-direction:row;gap:var(--spacing-16);padding:0;box-shadow:none;background:none}
-.nds .info-card--split .info-card {flex:1 0 0;min-width:0}
-.nds .info-card__pair {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-8);width:100%}
+.nds .info-card__split {flex-direction:row;gap:var(--spacing-16);padding:0;box-shadow:none;background:none}
+.nds .info-card__split .info-card {flex:1 0 0;min-width:0}
+.nds .info-card__pair {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-8);width:100%;background:var(--primitive-base-0);padding:var(--spacing-20) var(--spacing-16);border-radius:var(--radius-10);box-shadow:0 5px 16px 0 rgba(0, 0, 0, 0.07)}
 .nds .info-card__label {margin:0;font-size:var(--type-size-12);letter-spacing:-0.24px;line-height:18px;color:var(--color-font-3);text-align:center}
-.nds .info-card__value {display:flex;align-items:center;gap:var(--spacing-2);font-size:var(--type-size-20);font-weight:var(--font-weight-semibold);letter-spacing:-0.4px;line-height:28px;color:var(--color-font-point)}
-.nds .info-card__value-tooltip {display:inline-flex;width:20px;height:20px;flex-shrink:0;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:16px 16px;mask-size:16px 16px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;border:none;padding:0;cursor:pointer}
+.nds .info-card__value {display:flex;align-items:center;gap:var(--spacing-2);font-size:var(--type-size-20);font-weight:var(--font-weight-semibold);letter-spacing:-0.4px;line-height:28px;color:#219D93;}
+.nds .info-card__value-tooltip {display:inline-flex;width:20px;height:20px;flex-shrink:0;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:20px 20px;mask-size:20px 20px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;border:none;padding:0;cursor:pointer}
+
 /* ---- CO005: 나의 부채/순자산 히어로 카드(제목·기준시각 + 총액 + 진행바 + 부채비율/총자산) ---- */
 .nds .asset-hero {display:flex;flex-direction:column;gap:var(--spacing-16);align-items:center;width:100%}
 .nds .asset-hero__top {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-10);width:100%}
@@ -1716,12 +1719,16 @@
 .nds .asset-hero__amount .unit {font-size:var(--type-size-22);font-weight:var(--font-weight-medium);letter-spacing:-0.44px;line-height:32px}
 .nds .asset-hero__bar-wrap {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .asset-hero__bar {position:relative;width:100%;height:16px;border-radius:var(--radius-full);background-color:#e6e9eb;overflow:hidden}
-.nds .asset-hero__bar-fill {position:absolute;left:0;top:0;height:100%;border-radius:var(--radius-full);background-color:var(--color-font-positive);width:0%}
+.nds .asset-hero__bar-fill {position:absolute;left:0;top:0;height:100%;border-radius:var(--radius-full);width:0%}
+.nds .finance-preview.finance-preview__debt--over .asset-hero__bar-fill { background-color:var(--color-font-positive);}
+.nds .finance-preview.finance-preview__debt--under .asset-hero__bar-fill { background-color:#ff7e7e;}
 .nds .asset-hero__stats {display:flex;align-items:center;justify-content:center;gap:var(--spacing-10);width:100%}
 .nds .asset-hero__stat {display:flex;flex:1;min-width:0;align-items:center;gap:var(--spacing-6)}
 .nds .asset-hero__stat--right {flex:none;justify-content:flex-end;gap:var(--spacing-4)}
 .nds .asset-hero__chip {flex-shrink:0;width:8px;height:8px;border-radius:2px;background-color:#ff7e7e}
 .nds .asset-hero__stat-label {font-size:var(--type-size-14);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3);white-space:nowrap}
+.nds .finance-preview.finance-preview__debt--over .asset-hero__stat:first-of-type .asset-hero__stat-value { color:var(--color-font-positive)}
+.nds .finance-preview.finance-preview__debt--under .asset-hero__stat:first-of-type .asset-hero__stat-value { color:#ff7e7e}
 .nds .asset-hero__stat-value {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-1);white-space:nowrap}
 .nds .asset-hero__stat-value--point {color:var(--color-font-positive)}
 .nds .asset-hero__stat-tooltip {display:inline-flex;width:20px;height:20px;flex-shrink:0;background:none;border:none;padding:0;cursor:pointer;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:16px 16px;mask-size:16px 16px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
@@ -1732,15 +1739,19 @@
 /* ---- 순자산 위젯(list-accordion 재사용: 계좌/투자/연금 행 + 연금 없을 때 넛지) ---- */
 .nds .asset-summary__total {display:flex;align-items:center;justify-content:space-between;width:100%;padding:0 var(--spacing-4);box-sizing:border-box}
 .nds .asset-summary__total-label {margin:0;font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-1)}
-.nds .asset-summary__total-value {margin:0;font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-point)}
+.nds .asset-summary__total-value {margin:0;font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px}
 .nds .asset-summary__total-value--point {color:var(--color-font-positive)}
 .nds .list-accordion__row--link {cursor:pointer}
 .nds .list-accordion__row--link .list-accordion__title {display:flex;align-items:center;gap:var(--spacing-4)}
 .nds .list-accordion__arrow {flex-shrink:0;display:block;width:16px;height:16px;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;margin-left:var(--spacing-2)}
-.nds .pension-nudge {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%;padding:var(--spacing-16);border-radius:var(--radius-10);background-color:var(--color-bg-container)}
-.nds .pension-nudge__top {display:flex;align-items:center;gap:var(--spacing-8)}
-.nds .pension-nudge__icon {flex-shrink:0;width:24px;height:24px;background-color:var(--color-icon-3);-webkit-mask-image:url("../images/update/ic-question-coin.svg");mask-image:url("../images/update/ic-question-coin.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-.nds .pension-nudge__title {margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-1)}
+.nds .pension-nudge {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%;padding:var(--spacing-16) 0;border-radius:var(--radius-10);background-color:var(--primitive-base-0)}
+.nds .pension-nudge__top {display:flex;align-items:flex-start;gap:var(--spacing-8)}
+.nds .pension-nudge__title {display:flex;align-items:center;gap:var(--spacing-8);font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-1)}
+.nds .pension-nudge__count {font-weight:var(--font-weight-semibold);color:var(--color-font-point)}
+.nds .pension-nudge__icon {flex-shrink:0;width:40px;height:40px;background-color:var(--color-bg-banner);border-radius:var(--radius-16);}
+.nds .pension-nudge__content{ position:relative; display:flex; flex-direction:column; gap:var(--spacing-12); padding-left:44px; }
+.nds .pension-nudge__content::before { content:""; position:absolute; left:20px; width:2px; top:0; bottom:0; background:var(--color-bg-banner);  }
+.nds .pension-nudge__content .info-card__btn { width:auto; align-self:flex-start; }
 .nds .pension-nudge__desc {margin:0;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-3)}
 /* ---- CO009 진단부채 카드: 배지 · 펼치기 상세내역 · 전체선택 · select-card 행 목록 ---- */
 .nds .debt-card__head {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%;padding:0 var(--spacing-4);box-sizing:border-box}
@@ -1763,58 +1774,10 @@
 .nds .select-card--row + .select-card--row {border-top:1px solid var(--primitive-gray-100);padding:var(--spacing-16) 0}
 .nds .select-card__more {display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:calc(100% - 40px);padding:var(--spacing-20) 0;margin:var(--spacing-12) var(--spacing-20) 0;background:none;border:none;font-size:var(--type-size-14);letter-spacing:-0.28px;color:var(--color-font-3);cursor:pointer;border-top:1px solid var(--primitive-gray-100)}
 .nds .select-card__more::before {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-plus-24.svg");mask-image:url("../images/update/ic-plus-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-/* --- NH_MD_CO_01_07 --- */
-.nds .asset-list-card {display:flex;flex-direction:column;width:100%;border-radius:var(--radius-16);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);overflow:hidden;box-sizing:border-box}
-.nds .asset-list-card__head {display:flex;flex-direction:column;gap:var(--spacing-2);width:100%;padding:var(--spacing-20);border-bottom:1px solid var(--color-border-3);box-sizing:border-box}
-.nds .asset-list-card__head + .asset-list-card__list .select-card--row{padding:0 0 var(--spacing-32)}
-.nds .asset-list-card__head + .asset-list-card__list .select-card--row + .select-card--row{padding:var(--spacing-32) 0}
-.nds .asset-list-card__title {display:flex;align-items:center;gap:var(--spacing-4);margin:0;font-size:var(--type-size-16);letter-spacing:-0.32px;line-height:24px}
-.nds .asset-list-card__title-name {font-weight:var(--font-weight-medium);color:var(--color-font-1)}
-.nds .asset-list-card__title-count {font-weight:var(--font-weight-semibold);color:var(--color-font-point)}
-.nds .asset-list-card__total {margin:0;font-size:var(--type-size-20);font-weight:var(--font-weight-semibold);letter-spacing:-0.4px;line-height:28px;color:#132333}
-.nds .asset-list-card__list {display:flex;flex-direction:column;width:100%;padding:var(--spacing-24) var(--spacing-20) var(--spacing-20);box-sizing:border-box}
-.nds .asset-list-card__list .select-card--row:last-child {padding-bottom:0}
-.nds .select-card__list-data--positive {color:var(--color-font-positive)}
-.nds .select-card__list-data--negative {color:var(--color-font-negative)}
-.nds .select-card__list-data--muted {color:var(--color-font-5)}
-/* --- NH_MD_CO_01_04 --- */
-.nds .select-card__progress {display:flex;flex-direction:column;gap:var(--spacing-4);width:100%}
-.nds .select-card__progress-detail {display:flex;align-items:center;justify-content:space-between;width:100%;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-4)}
-.nds .select-card__progress--bubble {position:relative;padding-top:34px}
-.nds .select-card__progress-bubble {position:absolute;top:0;left:0;transform:translateX(-50%);background-color:var(--primitive-gray-900);color:var(--color-font-10);font-size:12px;font-weight:var(--font-weight-semibold);letter-spacing:-0.24px;line-height:18px;padding:4px 10px;border-radius:var(--radius-8);box-shadow:0 2px 6px rgba(0,0,0,0.14);white-space:nowrap;z-index:1}
-.nds .select-card__progress-bubble::after {content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--primitive-gray-900)}
-.nds .fund-donut {display:flex;align-items:center;gap:var(--spacing-24);width:100%}
-.nds .fund-donut__chart {flex-shrink:0;position:relative;width:120px;height:120px}
-.nds .fund-donut__chart canvas {display:block;width:100%;height:100%}
-.nds .fund-donut__data {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-12)}
-.nds .fund-donut__total-label {margin:0 0 2px;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-4)}
-.nds .fund-donut__total-value {margin:0;text-align:right;font-size:var(--type-size-22);font-weight:var(--font-weight-semibold);letter-spacing:-0.44px;line-height:32px;color:var(--color-font-1)}
-.nds .fund-donut__legend {display:flex;flex-direction:column;gap:2px;width:100%}
-.nds .fund-donut__legend-row {display:flex;align-items:center;gap:var(--spacing-16);width:100%}
-.nds .fund-donut__chip {flex-shrink:0;width:8px;height:8px;border-radius:2px}
-.nds .fund-donut__legend-label {font-size:12px;letter-spacing:-0.24px;line-height:18px;color:#383b40}
-.nds .fund-donut__legend-value {flex:1;min-width:0;text-align:right;font-size:12px;font-weight:var(--font-weight-medium);letter-spacing:-0.24px;line-height:18px;color:var(--color-font-1)}
-.nds .compare-scroll {display:flex;gap:var(--spacing-16);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 24px 16px;margin:0 -24px}
-.nds .compare-scroll::-webkit-scrollbar {display:none}
-.nds .compare-card {flex:0 0 260px;display:flex;flex-direction:column;gap:var(--spacing-16);padding:var(--spacing-20);background-color:var(--primitive-base-0);border-radius:var(--radius-10);box-shadow:0 5px 16px 0 rgba(0,0,0,0.07);box-sizing:border-box}
-.nds .compare-card__title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1)}
-.nds .compare-card__box {display:flex;flex-direction:column;background-color:var(--color-bg-container);border-radius:var(--radius-10);width:100%;overflow:hidden}
-.nds .compare-card__row {display:flex;align-items:center;gap:var(--spacing-16);padding:var(--spacing-16) var(--spacing-12);width:100%;box-sizing:border-box}
-.nds .compare-card__row + .compare-card__row {border-top:1px solid var(--color-border-3)}
-.nds .compare-card__stat {display:flex;flex:1;flex-direction:column;align-items:center;gap:2px;min-width:0}
-.nds .compare-card__stat-label {font-size:10px;letter-spacing:-0.2px;line-height:15px;color:var(--color-font-4);white-space:nowrap}
-.nds .compare-card__stat-value {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-5)}
-.nds .compare-card__stat-value--after {color:var(--color-font-1)}
-.nds .compare-card__divider {flex-shrink:0;width:1px;height:34px;background-color:var(--color-border-3)}
-.nds .compare-card__chart {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%;border-radius:var(--Radius-4, 4px);background: linear-gradient(180deg, rgba(200, 210, 228, 0.12) 0%, rgba(200, 210, 228, 0.00) 100%)}
-.nds .compare-card__chart-bars {position:relative;display:flex;align-items:flex-end;justify-content:center;gap:var(--spacing-36);width:100%;height:86px;padding-top:var(--spacing-24);box-sizing:content-box;border-bottom:1px solid #E1E1E1}
-.nds .compare-card__chart-bars::after {content:"";position:absolute;top:70px;left:0;right:0;border-top:1px dashed #C8D2E4}
-.nds .compare-card__chart-bar {position:relative;width:70px;border-radius:var(--radius-6) var(--radius-6) 0 0;z-index:10}
-.nds .compare-card__chart-bar::before {content:attr(data-value);position:absolute;top:0;left:50%;transform:translateX(-50%);margin-top:var(--spacing-12);font-size:10px;letter-spacing:-0.24px;color:var(--color-font-4);white-space:nowrap}
-.nds .compare-card__chart-bar--after::before {font-weight:var(--font-weight-semibold);color:var(--color-font-1)}
-.nds .compare-card__chart-labels {display:flex;justify-content:center;gap:var(--spacing-36)}
-.nds .compare-card__chart-col-label {width:70px;text-align:center;font-size:12px;letter-spacing:-0.24px;color:var(--color-font-4)}
-.nds .compare-card__chart-col-label--after {font-weight:var(--font-weight-semibold);color:var(--color-font-1)}
-.nds .promo-carousel__slide--fund {background-color:#dce4f5}
-.nds .promo-carousel__slide--card {background-color:#dcf2df}
-.nds .promo-carousel__slide--saving {background-color:#fff2d9}
+/* ---- 퍼블 확인용 케이스 라벨(실제 화면엔 노출되지 않는 dev 참고용 표기) ---- */
+.nds .qa-case-group {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%}
+.nds .qa-case-group__label {margin:0;padding:var(--spacing-8) var(--spacing-12);border-radius:var(--radius-8);background-color:#111;color:#fff;font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);letter-spacing:-0.28px}
+.nds .qa-case {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%;padding-top:var(--spacing-24);border-top:1px dashed var(--primitive-gray-300)}
+.nds .qa-case:first-child {padding-top:0;border-top:none}
+.nds .qa-case__label {margin:0;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:#767676}
+.nds .qa-case__label b {color:var(--color-font-positive);font-weight:var(--font-weight-semibold)}
