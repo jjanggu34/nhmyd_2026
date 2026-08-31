@@ -7,6 +7,27 @@
         <script>
             $(document).ready(function () {
                 slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+
+                //소비 카테고리 미리보기 도넛(목업 데이터 — 실 연동 시 API 응답 비중으로 교체)
+                if (typeof Chart !== 'undefined') {
+                    var donutCanvas = document.querySelector('[data-category-donut-chart]');
+                    if (donutCanvas) {
+                        new Chart(donutCanvas.getContext('2d'), {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['식비', '쇼핑', '여행', '의료비'],
+                                datasets: [{ data: [40, 30, 20, 10], backgroundColor: ['#38e784', '#ffa856', '#ede100', '#ff7e7e'], borderWidth: 0, offset: [12, 0, 0, 0] }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                cutout: '62%',
+                                events: [],
+                                plugins: { legend: { display: false }, tooltip: { enabled: false } }
+                            }
+                        });
+                    }
+                }
             });
         </script>
     </head>
@@ -16,13 +37,48 @@
         <div class="nhasset popWrap nds slidePopConfirm">
             <div class="dim"></div>
             <div class="popInner">
-                <h1>소비 카테고리를 확인해요</h1>
+                <h1 class="normal">
+                    <strong>무엇을 샀는지</strong>
+                    알 수 있어요
+                </h1>
                 <div class="popCont">
-                    <div class="popCont__inner"></div>
+                    <div class="popCont__inner">
+                        <div class="txn-preview">
+                            <p class="txn-preview__caption">상품구매 카테고리 수집·이용 동의</p>
+                            <div class="txn-preview__card fund-donut">
+                                <div class="fund-donut__chart">
+                                    <canvas data-category-donut-chart width="120" height="120" role="img" aria-label="식비 40%, 쇼핑 30%, 여행 20%, 의료비 10%"></canvas>
+                                    <span class="fund-donut__callout" style="top:16px;left:105px">
+                                        식비
+                                        <br />
+                                        <strong>40%</strong>
+                                    </span>
+                                </div>
+                                <div class="fund-donut__legend">
+                                    <div class="fund-donut__legend-row">
+                                        <span class="fund-donut__chip" style="background-color:#38e784"></span>
+                                        <span class="fund-donut__legend-label">식비</span>
+                                    </div>
+                                    <div class="fund-donut__legend-row">
+                                        <span class="fund-donut__chip" style="background-color:#ffa856"></span>
+                                        <span class="fund-donut__legend-label">쇼핑</span>
+                                    </div>
+                                    <div class="fund-donut__legend-row">
+                                        <span class="fund-donut__chip" style="background-color:#ede100"></span>
+                                        <span class="fund-donut__legend-label">여행</span>
+                                    </div>
+                                    <div class="fund-donut__legend-row">
+                                        <span class="fund-donut__chip" style="background-color:#ff7e7e"></span>
+                                        <span class="fund-donut__legend-label">의료비</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="popBtnWrap">
                     <div class="popBtn half">
-                        <a href="javascript:;" class="btnPressDefault" role="button">다음에</a>
+                        <a href="javascript:;" class="confirmBtn" role="button">다음에</a>
                         <a href="javascript:;" class="confirmBtn" role="button">동의하기</a>
                     </div>
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
