@@ -3,10 +3,65 @@
     <head>
         <meta charset="utf-8" />
         <script src="../pub-assets/js/head-mb-update.js"></script>
-        <title>[P] 소비 카테고리 확인</title>
+        <title>[P] 상품구매카테고리 수집동의</title>
         <script>
             $(document).ready(function () {
                 slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+
+                //소비 카테고리 미리보기 도넛(목업 데이터 — 실 연동 시 API 응답 비중으로 교체)
+                if (typeof Chart !== 'undefined') {
+                    var donutCanvas = document.querySelector('[data-category-donut-chart]');
+                    if (donutCanvas) {
+                        var categoryColors = ['#38e784', '#ffa856', '#ede100', '#ff7e7e'];
+                        new Chart(donutCanvas.getContext('2d'), {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['식비', '쇼핑', '여행', '의료비'],
+                                //식비(첫 번째)는 기본 크기 그대로 두고, 나머지는 아래 플러그인이 더 작게 다시 그리므로 여기서는 투명 처리
+                                datasets: [{
+                                    data: [40, 30, 20, 10],
+                                    backgroundColor: [categoryColors[0], 'transparent', 'transparent', 'transparent'],
+                                    borderWidth: 0,
+                                    //식비(첫 번째) 바깥쪽 끝 두 모서리만 둥글게 — 안쪽(구멍 쪽)은 각지게 유지
+                                    borderRadius: { outerStart: 4, outerEnd: 4, innerStart: 4, innerEnd: 4 }
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                cutout: '50%',
+                                events: [],
+                                spacing: 0, //조각 사이 여백 없음 — 식비와 양옆(쇼핑·의료비)이 바로 맞닿음
+                                plugins: { legend: { display: false }, tooltip: { enabled: false } }
+                            },
+                            //식비(첫 번째)는 기본 크기 그대로, 나머지 세 조각(쇼핑·여행·의료비)만 바깥쪽 반지름을 줄여
+                            //안으로 들어가 보이도록 다시 그려서 식비가 상대적으로 커 보이게 강조 (알약 효과 없이 단순 부채꼴)
+                            plugins: [{
+                                id: 'shrinkOtherCategories',
+                                afterDatasetsDraw: function (chart) {
+                                    var meta = chart.getDatasetMeta(0);
+                                    var shrinkPx = 8; //바깥쪽으로 이만큼 안쪽으로 줄여서 그림
+                                    var ctx = chart.ctx;
+                                    for (var i = 1; i <= 3; i++) {
+                                        var arc = meta.data[i];
+                                        if (!arc) continue;
+                                        var p = arc.getProps(['x', 'y', 'startAngle', 'endAngle', 'innerRadius', 'outerRadius'], true);
+                                        var outerR = p.outerRadius - shrinkPx;
+                                        var innerR = p.innerRadius;
+                                        ctx.save();
+                                        ctx.beginPath();
+                                        ctx.arc(p.x, p.y, outerR, p.startAngle, p.endAngle);
+                                        ctx.arc(p.x, p.y, innerR, p.endAngle, p.startAngle, true);
+                                        ctx.closePath();
+                                        ctx.fillStyle = categoryColors[i];
+                                        ctx.fill();
+                                        ctx.restore();
+                                    }
+                                }
+                            }]
+                        });
+                    }
+                }
             });
         </script>
     </head>
@@ -16,13 +71,48 @@
         <div class="nhasset popWrap nds slidePopConfirm">
             <div class="dim"></div>
             <div class="popInner">
-                <h1>소비 카테고리를 확인해요</h1>
+                <h1 class="normal">
+                    <strong>무엇을 샀는지</strong>
+                    알 수 있어요
+                </h1>
                 <div class="popCont">
-                    <div class="popCont__inner"></div>
+                    <div class="popCont__inner">
+                        <div class="txn-preview">
+                            <p class="txn-preview__caption">상품구매 카테고리 수집·이용 동의</p>
+                            <div class="txn-preview__card fund-donut">
+                                <div class="fund-donut__chart">
+                                    <canvas data-category-donut-chart width="120" height="120" role="img" aria-label="식비 40%, 쇼핑 30%, 여행 20%, 의료비 10%"></canvas>
+                                    <span class="fund-donut__callout">
+                                        식비
+                                        <br />
+                                        <strong>40%</strong>
+                                    </span>
+                                </div>
+                                <div class="fund-donut__legend">
+                                    <div class="fund-donut__legend-row">
+                                        <span class="fund-donut__chip" style="background-color:#38e784"></span>
+                                        <span class="fund-donut__legend-label">식비</span>
+                                    </div>
+                                    <div class="fund-donut__legend-row">
+                                        <span class="fund-donut__chip" style="background-color:#ffa856"></span>
+                                        <span class="fund-donut__legend-label">쇼핑</span>
+                                    </div>
+                                    <div class="fund-donut__legend-row">
+                                        <span class="fund-donut__chip" style="background-color:#ede100"></span>
+                                        <span class="fund-donut__legend-label">여행</span>
+                                    </div>
+                                    <div class="fund-donut__legend-row">
+                                        <span class="fund-donut__chip" style="background-color:#ff7e7e"></span>
+                                        <span class="fund-donut__legend-label">의료비</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="popBtnWrap">
                     <div class="popBtn half">
-                        <a href="javascript:;" class="btnPressDefault" role="button">다음에</a>
+                        <a href="javascript:;" class="confirmBtn" role="button">다음에</a>
                         <a href="javascript:;" class="confirmBtn" role="button">동의하기</a>
                     </div>
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
