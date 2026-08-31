@@ -12,42 +12,51 @@
                 if (typeof Chart !== 'undefined') {
                     var donutCanvas = document.querySelector('[data-category-donut-chart]');
                     if (donutCanvas) {
+                        var categoryColors = ['#38e784', '#ffa856', '#ede100', '#ff7e7e'];
                         new Chart(donutCanvas.getContext('2d'), {
                             type: 'doughnut',
                             data: {
                                 labels: ['식비', '쇼핑', '여행', '의료비'],
-                                datasets: [{ data: [40, 30, 20, 10], backgroundColor: ['#38e784', '#ffa856', '#ede100', '#ff7e7e'], borderWidth: 0, offset: [12, 0, 0, 0] }]
+                                //식비(첫 번째)는 기본 크기 그대로 두고, 나머지는 아래 플러그인이 더 작게 다시 그리므로 여기서는 투명 처리
+                                datasets: [{
+                                    data: [40, 30, 20, 10],
+                                    backgroundColor: [categoryColors[0], 'transparent', 'transparent', 'transparent'],
+                                    borderWidth: 0,
+                                    //식비(첫 번째) 바깥쪽 끝 두 모서리만 둥글게 — 안쪽(구멍 쪽)은 각지게 유지
+                                    borderRadius: { outerStart: 4, outerEnd: 4, innerStart: 4, innerEnd: 4 }
+                                }]
                             },
                             options: {
                                 responsive: true,
                                 maintainAspectRatio: false,
-                                cutout: '62%',
+                                cutout: '50%',
                                 events: [],
+                                spacing: 0, //조각 사이 여백 없음 — 식비와 양옆(쇼핑·의료비)이 바로 맞닿음
                                 plugins: { legend: { display: false }, tooltip: { enabled: false } }
                             },
-                            //식비(첫 번째) 조각만 안쪽으로 두껍게 이어 그려서 강조 — 얇은 링(위 데이터셋)의 실제 각도/중심좌표를
-                            //그대로 읽어와 같은 offset만큼 밀어서 겹치는 부분 없이 자연스럽게 이어붙임
+                            //식비(첫 번째)는 기본 크기 그대로, 나머지 세 조각(쇼핑·여행·의료비)만 바깥쪽 반지름을 줄여
+                            //안으로 들어가 보이도록 다시 그려서 식비가 상대적으로 커 보이게 강조 (알약 효과 없이 단순 부채꼴)
                             plugins: [{
-                                id: 'foodEmphasisRing',
+                                id: 'shrinkOtherCategories',
                                 afterDatasetsDraw: function (chart) {
-                                    var arc = chart.getDatasetMeta(0).data[0];
-                                    if (!arc) return;
-                                    var p = arc.getProps(['x', 'y', 'startAngle', 'endAngle', 'innerRadius'], true);
-                                    var offsetPx = 12; //위 dataset의 offset[0]과 동일한 값
-                                    var mid = (p.startAngle + p.endAngle) / 2;
-                                    var cx = p.x + Math.cos(mid) * offsetPx;
-                                    var cy = p.y + Math.sin(mid) * offsetPx;
-                                    var outer = p.innerRadius; //얇은 링의 안쪽 경계에 맞닿게 시작
-                                    var inner = outer - 18; //그만큼 더 안쪽까지 두껍게 확장
+                                    var meta = chart.getDatasetMeta(0);
+                                    var shrinkPx = 8; //바깥쪽으로 이만큼 안쪽으로 줄여서 그림
                                     var ctx = chart.ctx;
-                                    ctx.save();
-                                    ctx.beginPath();
-                                    ctx.arc(cx, cy, outer, p.startAngle, p.endAngle);
-                                    ctx.arc(cx, cy, inner, p.endAngle, p.startAngle, true);
-                                    ctx.closePath();
-                                    ctx.fillStyle = chart.data.datasets[0].backgroundColor[0];
-                                    ctx.fill();
-                                    ctx.restore();
+                                    for (var i = 1; i <= 3; i++) {
+                                        var arc = meta.data[i];
+                                        if (!arc) continue;
+                                        var p = arc.getProps(['x', 'y', 'startAngle', 'endAngle', 'innerRadius', 'outerRadius'], true);
+                                        var outerR = p.outerRadius - shrinkPx;
+                                        var innerR = p.innerRadius;
+                                        ctx.save();
+                                        ctx.beginPath();
+                                        ctx.arc(p.x, p.y, outerR, p.startAngle, p.endAngle);
+                                        ctx.arc(p.x, p.y, innerR, p.endAngle, p.startAngle, true);
+                                        ctx.closePath();
+                                        ctx.fillStyle = categoryColors[i];
+                                        ctx.fill();
+                                        ctx.restore();
+                                    }
                                 }
                             }]
                         });
