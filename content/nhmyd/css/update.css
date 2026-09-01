@@ -1864,3 +1864,12 @@
 .nds .fund-donut__callout {position:absolute;top:16px;left:105px;padding:6px 12px;background-color:var(--primitive-base-0);border-radius:var(--radius-8);box-shadow:0 0 4px rgba(0,0,0,0.1);font-size:11px;font-weight:var(--font-weight-medium);letter-spacing:-0.22px;color:var(--color-font-3);white-space:nowrap;z-index:1}
 .nds .fund-donut__callout::after {content:"";position:absolute;top:50%;right:100%;transform:translateY(-50%);width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-right:6px solid var(--primitive-base-0)}
 .nds .fund-donut__callout strong{color:var(--color1)}
+@keyframes categoryDonutSpinIn {
+    from {
+        transform: rotate(-360deg);opacity: 0;
+    }
+    to {
+        transform: rotate(0deg);opacity: 1;
+    }
+}
+[data-category-donut-chart] {transform-origin: 50% 50%;animation: categoryDonutSpinIn 1s cubic-bezier(0.22, 1, 0.36, 1) both}
