@@ -220,12 +220,25 @@
                                         <!--진단부채-->
                                         <div class="info-card" id="debtCard16">
                                             <div class="debt-card__head">
-                                                <div class="debt-card__row">
+                                                <div class="debt-card__row tooltipWrap">
                                                     <p class="debt-card__label">진단 부채<span class="debt-card__count">38</span></p>
-                                                    <p class="debt-card__amount">85,000,000원</p>
+                                                    <p class="debt-card__amount">
+                                                        85,000,000원
+                                                        <button type="button" class="asset-hero__stat-tooltip" onclick="tooltipOpen($(this));return false;"><span class="blind">진단 부채 안내</span></button>
+                                                    </p>
+                                                    <div class="tooltip-card tooltipCont" style="display:none">
+                                                        <div class="tooltip-card__header">
+                                                            <strong class="tooltip-card__title">진단 부채 확인</strong>
+                                                            <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
+                                                        </div>
+                                                        <ul>
+                                                            <li>진단받을 부채 내역 확인이 필요해요.<br />
+                                                                펼치기 버튼을 눌러 전체 부채 내역을 확인해 보세요.</li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="debt-card__toggle" onclick="var b=this;var d=b.parentNode.querySelector('.debt-detail');if(d){d.remove();b.textContent='펼치기';b.classList.remove('is-open');}else{d=document.createElement('div');d.className='debt-detail';d.innerHTML='<div class=\'list-kv\'><span class=\'list-kv__title\'>선택 부채</span><span class=\'list-kv__data\'>85,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>잔여 부채</span><span class=\'list-kv__data\'>30,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>대상 외 부채</span><span class=\'list-kv__data\'>25,000,000원</span></div><div class=\'list-kv debt-detail__total\'><span class=\'list-kv__title\'>총 부채</span><span class=\'list-kv__data\'>130,000,000원</span></div>';b.parentNode.insertBefore(d,b.parentNode.querySelector('.debt-card__toggle'));b.textContent='접기';b.classList.add('is-open');}return false;">펼치기</button>
+                                            <button type="button" class="debt-card__toggle" onclick="var b=this;var d=b.parentNode.querySelector('.debt-detail');if(d){d.remove();b.textContent='펼치기';b.classList.remove('is-open');}else{d=document.createElement('div');d.className='debt-detail';d.innerHTML='<div class=\'list-kv\'><span class=\'list-kv__title\'>선택 부채</span><span class=\'list-kv__data\'>85,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>잔여 부채</span><span class=\'list-kv__data\'>30,000,000원</span></div><div class=\'list-kv tooltipWrap\'><span class=\'list-kv__title\'>대상 외 부채 <button type=\'button\' class=\'asset-hero__stat-tooltip\' onclick=\'tooltipOpen($(this));return false;\'><span class=\'blind\'>대상 외 부채 안내</span></button></span><span class=\'list-kv__data\'>25,000,000원</span><div class=\'tooltip-card tooltipCont\' style=\'display:none\'><div class=\'tooltip-card__header\'><strong class=\'tooltip-card__title\'>대상 외 부채</strong><button type=\'button\' class=\'tooltip-card__close\' onclick=\'tooltipClose($(this));return false;\'><span class=\'blind\'>닫기</span></button></div><ul class=\'tooltip-card__list\'><li class=\'tooltip-card__item\'>툴팁 문구 입력</li></ul></div></div><div class=\'list-kv debt-detail__total\'><span class=\'list-kv__title\'>총 부채</span><span class=\'list-kv__data\'>130,000,000원</span></div>';b.parentNode.insertBefore(d,b.parentNode.querySelector('.debt-card__toggle'));b.textContent='접기';b.classList.add('is-open');}return false;">펼치기</button>
                                             <div class="debt-card__select-all">
                                                 <label class="check-basic">
                                                     <input type="checkbox" class="check-basic__input" checked />

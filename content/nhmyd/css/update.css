@@ -977,18 +977,23 @@
 .nds .calendar-day--disabled .calendar-day__text {color:var(--color-font-1)}
 .nds .dayPicSet__label {color:var(--color-font-1);font-family:Pretendard;font-size:var(--type-size-16);font-style:normal;font-weight:600;line-height:24px;letter-spacing:-0.32px}
 /* ---- Process:step/horizontal ---- */
-.nds .process-step-h {display:flex;align-items:flex-start;width:100%;margin:var(--spacing-24) 0 var(--spacing-32);padding:0 var(--spacing-12);--color-step-green:var(--primitive-green-accent)}  /* 피그마는 3칸 균등분할이 아니라 아이템은 콘텐츠 폭만큼만 차지(auto), 사이 간격은 라인이 flex-grow로 채움 */
-.nds .process-step-h__line {flex:1 1 auto;min-width:24px;height:2px;margin:11px var(--spacing-8) 0;border-radius:1px;background:var(--color-border-2)} /* num 중심(12px)에 2px 두께를 맞춘 top 여백(11px), 배지와의 여백은 margin 8px */
+/**스텝 텍스트로 변경- 텍스트가 3개 초과일경우 .nds .process-step-h__num 크기 조절 필요 **/
+.nds .process-step-h {display:flex;align-items:flex-start;width:100%;margin:var(--spacing-24) 0 var(--spacing-32);padding:0;--color-step-green:var(--primitive-green-accent)}  /* 피그마는 3칸 균등분할이 아니라 아이템은 콘텐츠 폭만큼만 차지(auto), 사이 간격은 라인이 flex-grow로 채움 */
+.nds .process-step-h__line {min-width:24px;height:2px;margin:11px var(--spacing-8) 0;border-radius:1px;background:var(--color-border-2)} /* num 중심(12px)에 2px 두께를 맞춘 top 여백(11px), 배지와의 여백은 margin 8px */
 .nds .process-step-h__line--done {background:var(--color-step-green)} /* 완료된 구간만 그린으로 표시 */
-.nds .process-step-h__item {position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--spacing-8);flex:0 0 auto;min-width:0} /* 피그마: 배지가 라벨 폭 기준으로 가운데 정렬(items-center), 아이템 자체는 콘텐츠 폭만큼만 */
+.nds .process-step-h__item {position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--spacing-8);flex:1 1 0;min-width:0} /* 피그마: 배지가 라벨 폭 기준으로 가운데 정렬(items-center), 아이템 자체는 콘텐츠 폭만큼만 */
+.nds .process-step-h__item::before{ content:"";position:absolute;z-index:-1;top:50%;transform:translate(0, -50%);width:100%;height:1px;background:var(--primitive-gray-400); }
+.nds .process-step-h__item:has(.process-step-h__num--active):before {background:var(--color-step-green); }
+.nds .process-step-h__item:first-of-type {align-items:flex-start;}
+.nds .process-step-h__item:last-of-type {align-items:flex-end;}
 .nds .process-step-h__item--center {align-items:center}
 .nds .process-step-h__item--end {align-items:center}
-.nds .process-step-h__num {display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:var(--radius-8);font-size:var(--type-size-12);font-weight:var(--font-weight-medium);letter-spacing:-0.24px;line-height:18px;box-sizing:border-box}
+.nds .process-step-h__num {display:flex;align-items:center;justify-content:center;width:80px;height:34px;border-radius:var(--radius-20);font-size:var(--type-size-12);font-weight:var(--font-weight-bold);color:var(--color-font-white);letter-spacing:-0.24px;line-height:34px;box-sizing:border-box;}
 .nds .process-step-h__num--disabled {background:var(--color-bg-tab-bar);border:1px solid var(--color-border-2);color:var(--color-font-5)}
-.nds .process-step-h__num--active {background:var(--color-step-green);outline:3px solid rgba(25,151,60,0.1);color:var(--color-font-white)}
-.nds .process-step-h__num--default {background:var(--color-bg-default);border:1px solid var(--color-border-1);color:var(--color-font-5)}
-.nds .process-step-h__num--complete {background:var(--color-step-green);color:var(--color-font-white);font-size:0} /* 지난 단계: 번호 대신 체크 아이콘 */
-.nds .process-step-h__num--complete::after {content:"";display:block;width:16px;height:16px;background-color:var(--color-font-white);-webkit-mask-image:url("../images/update/ic-check-xs-green.svg");mask-image:url("../images/update/ic-check-xs-green.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .process-step-h__num--active {background:var(--color-step-green);}
+.nds .process-step-h__num--default {background:var(--primitive-gray-400)}
+.nds .process-step-h__num--complete {background:var(--primitive-gray-400);color:var(--color-font-white);} /* 지난 단계: 텍스트 + 체크 아이콘 */
+.nds .process-step-h__num--complete::after {content:"";display:block;width:14px;height:14px;background-color:var(--color-font-white);-webkit-mask-image:url("../images/update/ic-check-xs-green.svg");mask-image:url("../images/update/ic-check-xs-green.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .process-step-h__label {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;white-space:nowrap} /* width:100% 제거: 라벨 폭만큼만 차지해야 아이템이 콘텐츠 기준 auto폭이 됨(피그마와 동일) */
 .nds .process-step-h__label--disabled {color:var(--color-font-4)}
 .nds .process-step-h__label--active {font-weight:var(--font-weight-semibold);color:var(--color-step-green)}
@@ -1763,10 +1768,16 @@
 .nds .debt-card__row {display:flex;align-items:center;justify-content:space-between;width:100%}
 .nds .debt-card__label {display:flex;align-items:center;gap:var(--spacing-4);margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-1)}
 .nds .debt-card__count {color:var(--color-font-point)}
-.nds .debt-card__amount {margin:0;font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-point);text-align:right}
+.nds .debt-card__amount {display:inline-flex;align-items:center;margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;text-align:right}
 .nds .debt-detail {display:flex;flex-direction:column;width:100%;padding:var(--spacing-20) var(--spacing-16);border-radius:var(--radius-8);background-color:var(--color-bg-container);box-sizing:border-box}
 .nds .debt-detail .list-kv {padding:var(--spacing-6) 0}
 .nds .debt-detail .list-kv__title {width:auto;flex:1}
+/* .debt-detail 안에서 레거시 tooltipOpen()/tooltipClose()(nhasset-ui.js) + .tooltip-card(신규 nds) 조합을 쓸 때,
+   nhasset_myd_mb.css의 .nhasset .tooltipWrap .tooltipCont(left:50%·translateX(-50%)·width !important 중앙정렬)와
+   update-ui.js가 넣는 inline width를 눌러, 상세 카드 폭에 맞춰 행 바로 아래에 띄움 (allowance-hero__top과 동일 패턴).
+   .tooltipWrap 기본 규칙(nhasset_com.css)에 position 지정이 없어 앵커가 될 행에 position:relative 보강 */
+.nds .debt-detail .list-kv.tooltipWrap {position:relative}
+.nds .debt-detail .tooltip-card.tooltipCont {position:absolute;top:100% !important;left:0 !important;transform:none !important;width:100% !important;margin-top:var(--spacing-8);z-index:30}
 .nds .debt-detail__total {margin-top:var(--spacing-4);padding-top:var(--spacing-16);border-top:1px solid var(--primitive-gray-300)}
 .nds .debt-detail__total .list-kv__title {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);color:var(--color-font-1)}
 .nds .debt-detail__total .list-kv__data {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold)}
