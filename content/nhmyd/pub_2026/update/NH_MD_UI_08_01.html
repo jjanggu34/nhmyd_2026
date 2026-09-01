@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>[P] 공공기관 연결 안내</title>
+        <script>
+            $(document).ready(function () {
+                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1>공공기관은 따로 연결이 필요해요</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <div class="text-stack mb0">
+                            <p class="text text--body2">
+                                공공기관은 금융기관과 함께 연결할 수 없어요.
+                                <br />
+                                어느 기관을 먼저 연결할까요?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <div class="popBtn half">
+                        <a href="javascript:;" class="confirmBtn" role="button">공공기관 연결</a>
+                        <a href="javascript:;" class="confirmBtn" role="button">금융기관 연결</a>
+                    </div>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
