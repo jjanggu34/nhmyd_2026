@@ -578,9 +578,9 @@
 .nds .list-accordion {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-20);width:100%}
 .nds .list-accordion__divider {width:100%;height:1px;background-color:var(--color-bg-extra-bg);flex-shrink:0}
 .nds .list-accordion__row {display:flex;align-items:center;gap:var(--spacing-4);width:100%}
-.nds .list-accordion__title {flex-shrink:0;width:124px;font-size:var(--type-size-15);font-weight:var(--font-weight-regular);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nds .list-accordion__title {flex-shrink:0;width:124px;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-1);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .nds .list-accordion__data.list-accordion__data-none{ font-size:var(--type-size-15); color:var(--primitive-gray-font-500); font-weight:var(--font-weight-medium); }
-.nds .list-accordion__data {flex:1;min-width:0;font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-1);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nds .list-accordion__data {flex:1;min-width:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-1);text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .nds .list-accordion__toggle {display:inline-flex;align-items:center;gap:var(--spacing-2);padding-top:var(--spacing-4);background:none;border:none;cursor:pointer;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .list-accordion__toggle::after {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-down-24.svg");mask-image:url("../images/update/ic-arrow-down-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;transition:transform var(--transition-base)}
 .nds .list-accordion__toggle.is-open::after {transform:rotate(180deg)}
@@ -830,7 +830,8 @@
 .nds .select-field__prefix::before {content:"";display:block;width:36px;height:36px;background-image:url("../images/update/ic-target-goal.svg");background-size:contain;background-repeat:no-repeat;background-position:center}
 .nds .select-card__name-col {flex:1;min-width:0;display:flex;flex-direction:column}
 .nds .select-card {display:flex;flex-direction:column;gap:var(--spacing-32);width:100%;padding:var(--spacing-20) var(--spacing-16) var(--spacing-20) var(--spacing-20);border:1px solid var(--color-border-2);border-radius:var(--radius-16);background-color:var(--color-bg-default);box-sizing:border-box}
-.nds .select-card__select-row {display:flex;align-items:flex-start;gap:var(--spacing-8);width:100%}
+.nds .select-card__select-row {display:flex;align-items:flex-start;gap:var(--spacing-8);position:relative;width:100%}
+.nds .select-card__select-row .check-basic { position:absolute; right:0; }
 .nds .select-card__select-text {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-8)}
 .nds .select-card__chip {display:inline-flex;align-items:center;justify-content:center;width:fit-content;padding:3px var(--spacing-8) var(--spacing-2);background-color:var(--color-bg-container);border-radius:var(--radius-4);font-size:var(--type-size-10);font-weight:var(--font-weight-regular);letter-spacing:-0.2px;line-height:15px;color:var(--color-font-2)}
 .nds .select-card__logo-row {display:flex;align-items:center;gap:var(--spacing-8);width:100%;padding-right:26px}
@@ -1698,9 +1699,10 @@
    ================================================================================== */
 /* ---- 공용 카드 뼈대(흰 배경 + radius 10 + shadow) — Co006/Co007/CO009 계열이 공유 ---- */
 .nds .info-card {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);border-radius:var(--radius-10);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);box-sizing:border-box}
+.nds .info-card:has(.list-accordion__row--link) .list-accordion__divider { width:calc(100% + 40px) }
 .nds .info-card__text {margin:0;font-size:var(--type-sie-15);font-weight:var(--font-weight-medium);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-3);text-align:left;width:100%}
 .nds .info-card__text strong {font-weight:var(--font-weight-medium);color:var(--color-font-1)}
-.nds .info-card__btn {display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:100%;padding:var(--spacing-12) var(--spacing-16);border-radius:var(--radius-10);background-color:var(--color-bg-container);border:none;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-2);cursor:pointer}
+.nds .info-card__btn {display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:100%;padding:var(--spacing-12) var(--spacing-16);border-radius:var(--radius-10);background-color:var(--color-bg-banner);border:none;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-2);cursor:pointer}
 .nds .info-card__btn::after {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .info-card__split {flex-direction:row;gap:var(--spacing-16);padding:0;box-shadow:none;background:none}
 .nds .info-card__split .info-card {flex:1 0 0;min-width:0}
@@ -1726,12 +1728,12 @@
 .nds .asset-hero__stat {display:flex;flex:1;min-width:0;align-items:center;gap:var(--spacing-6)}
 .nds .asset-hero__stat--right {flex:none;justify-content:flex-end;gap:var(--spacing-4)}
 .nds .asset-hero__chip {flex-shrink:0;width:8px;height:8px;border-radius:2px;background-color:#ff7e7e}
-.nds .asset-hero__stat-label {font-size:var(--type-size-14);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3);white-space:nowrap}
+.nds .asset-hero__stat-label {font-size:var(--type-size-14);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-4);white-space:nowrap}
 .nds .finance-preview.finance-preview__debt--over .asset-hero__stat:first-of-type .asset-hero__stat-value { color:var(--color-font-positive)}
 .nds .finance-preview.finance-preview__debt--under .asset-hero__stat:first-of-type .asset-hero__stat-value { color:#ff7e7e}
 .nds .asset-hero__stat-value {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-1);white-space:nowrap}
 .nds .asset-hero__stat-value--point {color:var(--color-font-positive)}
-.nds .asset-hero__stat-tooltip {display:inline-flex;width:20px;height:20px;flex-shrink:0;background:none;border:none;padding:0;cursor:pointer;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:16px 16px;mask-size:16px 16px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .asset-hero__stat-tooltip {display:inline-flex;width:20px;height:20px;flex-shrink:0;background:none;border:none;padding:0;cursor:pointer;background-color:var(--primitive-gray-500);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:20px 20px;mask-size:20px 20px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 /* ---- 자산연결 유도 배너(보라 그라데이션) — Co007 카드 하단에 붙는 넛지 ---- */
 .nds .connect-nudge {display:flex;align-items:center;gap:var(--spacing-8);width:100%;padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-10);background:linear-gradient(90deg,#727cea 0%,#727cea 100%);box-sizing:border-box}
 .nds .connect-nudge__text {flex:1;min-width:0;margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--primitive-base-0,#fff)}
@@ -1756,8 +1758,8 @@
 /* ---- CO009 진단부채 카드: 배지 · 펼치기 상세내역 · 전체선택 · select-card 행 목록 ---- */
 .nds .debt-card__head {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%;padding:0 var(--spacing-4);box-sizing:border-box}
 .nds .debt-card__row {display:flex;align-items:center;justify-content:space-between;width:100%}
-.nds .debt-card__label {display:flex;align-items:center;gap:var(--spacing-4);margin:0;font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-1)}
-.nds .debt-card__count {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);color:var(--color-font-point)}
+.nds .debt-card__label {display:flex;align-items:center;gap:var(--spacing-4);margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-1)}
+.nds .debt-card__count {color:var(--color-font-point)}
 .nds .debt-card__amount {margin:0;font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);letter-spacing:-0.36px;line-height:26px;color:var(--color-font-point);text-align:right}
 .nds .debt-detail {display:flex;flex-direction:column;width:100%;padding:var(--spacing-20) var(--spacing-16);border-radius:var(--radius-8);background-color:var(--color-bg-container);box-sizing:border-box}
 .nds .debt-detail .list-kv {padding:var(--spacing-6) 0}
