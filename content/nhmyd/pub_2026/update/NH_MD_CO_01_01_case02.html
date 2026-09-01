@@ -108,31 +108,34 @@
 
                                     <div class="stack--20">
                                         <strong class="text text--h4">수입&bull;지출 정보</strong>
-                                         <!--수입지출 없을경우-->
-                                        <div class="info-card">
-                                            <p class="info-card__text"><strong>월수입</strong>과 지출을 알려주시면 <strong>여유자금을 정확히 계산</strong>할 수 있어요.</p>
-                                            <button type="button" class="info-card__btn">수입&bull;지출 정보 입력하기</button>
-                                        </div>
-                                        <!--수입지출 있을경우-->
-                                        <div class="info-card">
-                                            <div class="list-kv">
-                                                <span class="list-kv__title">
-                                                    <img src="../../images/update/ic-deposit.svg" alt="" />
-                                                    월 수입
-                                                </span>
-                                                <span class="list-kv__data">800만원~1,000만원</span>
+                                        <div class="stack--16">
+                                            <!--수입지출 없을경우-->
+                                            <div class="info-card">
+                                                <p class="info-card__text"><strong>월수입</strong>과 지출을 알려주시면 <strong>여유자금을 정확히 계산</strong>할 수 있어요.</p>
+                                                <button type="button" class="info-card__btn">수입&bull;지출 정보 입력하기</button>
                                             </div>
-                                            <div class="list-kv">
-                                                <span class="list-kv__title">
-                                                    <img src="../../images/update/ic-withdraw.svg" alt="" />
-                                                    월 지출
-                                                </span>
-                                                <span class="list-kv__data">560만원</span>
+                                            <!--수입지출 있을경우-->
+                                            <div class="info-card">
+                                                <div class="list-kv">
+                                                    <span class="list-kv__title">
+                                                        <img src="../../images/update/ic-deposit.svg" alt="" />
+                                                        월 수입
+                                                    </span>
+                                                    <span class="list-kv__data">800만원~1,000만원</span>
+                                                </div>
+                                                <div class="list-kv">
+                                                    <span class="list-kv__title">
+                                                        <img src="../../images/update/ic-withdraw.svg" alt="" />
+                                                        월 지출
+                                                    </span>
+                                                    <span class="list-kv__data">560만원</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="connect-nudge">
-                                            <p class="connect-nudge__text">자산을 연결하고 맞춤 리포트를 완성하세요</p>
-                                            <img class="connect-nudge__img" src="../../images/update//img-3d-money-stack.png" alt="" />
+                                            <!--자산연결 배너-->
+                                            <div class="connect-nudge">
+                                                <p class="connect-nudge__text">자산을 연결하고 맞춤 리포트를 완성하세요</p>
+                                                <img class="connect-nudge__img" src="../../images/update//img-3d-money-stack.png" alt="" />
+                                            </div>
                                         </div>
                                     </div>
                                     <!--<p class="qa-case__label"><b>case 3</b> · 일반 Case — 자산은 연결됐지만 계좌&bull;투자&bull;연금 잔액이 모두 0원인 경우(순자산 위젯은 뜨지만 전부 0)</p>-->
@@ -146,187 +149,189 @@
                                             <p class="asset-summary__total-label">순 자산</p>
                                             <p class="asset-summary__total-value">120,000,000원</p>
                                         </div>
-                                        <div class="info-card">
-                                            <div class="list-accordion__row list-accordion__row--link">
-                                                <span class="list-accordion__title">계좌<span class="pension-nudge__count">46</span></span>
-                                                <span class="list-accordion__data">100,000,000원</span>
-                                                <span class="list-accordion__arrow" aria-hidden="true"></span>
-                                            </div>
-                                            <!--투자내역이 없을경우-->
-                                            <div class="pension-nudge">
-                                                <div class="pension-nudge__top">
-                                                    <p class="pension-nudge__title">
-                                                        <span class="pension-nudge__icon" aria-hidden="true">
-                                                            <img src="../../images/update/ic-question-coin.svg" alt="" />
-                                                        </span>
-                                                        찾지 못한 자산이 있을지도 몰라요.
-                                                    </p>
+                                        <div class="stack--16">
+                                            <div class="info-card">
+                                                <div class="list-accordion__row list-accordion__row--link">
+                                                    <span class="list-accordion__title">계좌<span class="pension-nudge__count">46</span></span>
+                                                    <span class="list-accordion__data">100,000,000원</span>
+                                                    <span class="list-accordion__arrow" aria-hidden="true"></span>
                                                 </div>
-                                                <div class="pension-nudge__content">
-                                                    <p class="pension-nudge__desc">계좌를 연결하고 더 정확한 자산정보를<br /> 받아보세요.</p>
-                                                    <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
-                                                </div>
-                                            </div>
-                                            <div class="list-accordion__divider"></div>
-                                            <div class="list-accordion__row list-accordion__row--link">
-                                                <span class="list-accordion__title">투자<span class="pension-nudge__count">12</span></span>
-                                                <span class="list-accordion__data">20,000,000원</span>
-                                                <span class="list-accordion__arrow" aria-hidden="true"></span>
-                                            </div>
-                                             <!--투자내역이 없을경우-->
-                                             <div class="pension-nudge">
-                                                <div class="pension-nudge__top">
-                                                    <p class="pension-nudge__title">
-                                                        <span class="pension-nudge__icon" aria-hidden="true">
-                                                            <img src="../../images/update/ic-question-coin.svg" alt="" />
-                                                        </span>
-                                                        흩어진 투자 자산을 모아보세요.
-                                                    </p>
-                                                </div>
-                                                <div class="pension-nudge__content">
-                                                    <p class="pension-nudge__desc">투자 계좌를 연결하고 맞춤 진단을<br />받아보세요.</p>
-                                                    <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
-                                                </div>
-                                            </div>
-                                            <div class="list-accordion__divider"></div>
-                                            <div class="list-accordion__row">
-                                                <span class="list-accordion__title">연금</span>
-                                                <span class="list-accordion__data list-accordion__data-none">연금 내역이 없습니다</span>
-                                            </div>
-                                            <!--연금내역이 없을경우-->
-                                            <div class="pension-nudge">
-                                                <div class="pension-nudge__top">
-                                                    <p class="pension-nudge__title">
-                                                        <span class="pension-nudge__icon" aria-hidden="true">
-                                                            <img src="../../images/update/ic-question-coin.svg" alt="" />
-                                                        </span>
-                                                        숨은 연금이 있나요?
-                                                    </p>
-                                                </div>
-                                                <div class="pension-nudge__content">
-                                                    <p class="pension-nudge__desc">연금을 연결하고 더 정확한 진단을<br />받아보세요.</p>
-                                                    <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--진단부채-->
-                                        <div class="info-card" id="debtCard16">
-                                            <div class="debt-card__head">
-                                                <div class="debt-card__row">
-                                                    <p class="debt-card__label">진단 부채<span class="debt-card__count">38</span></p>
-                                                    <p class="debt-card__amount">85,000,000원</p>
-                                                </div>
-                                            </div>
-                                            <button type="button" class="debt-card__toggle" onclick="var b=this;var d=b.parentNode.querySelector('.debt-detail');if(d){d.remove();b.textContent='펼치기';b.classList.remove('is-open');}else{d=document.createElement('div');d.className='debt-detail';d.innerHTML='<div class=\'list-kv\'><span class=\'list-kv__title\'>선택 부채</span><span class=\'list-kv__data\'>85,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>잔여 부채</span><span class=\'list-kv__data\'>30,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>대상 외 부채</span><span class=\'list-kv__data\'>25,000,000원</span></div><div class=\'list-kv debt-detail__total\'><span class=\'list-kv__title\'>총 부채</span><span class=\'list-kv__data\'>130,000,000원</span></div>';b.parentNode.insertBefore(d,b.parentNode.querySelector('.debt-card__toggle'));b.textContent='접기';b.classList.add('is-open');}return false;">펼치기</button>
-                                            <div class="debt-card__select-all">
-                                                <label class="check-basic">
-                                                    <input type="checkbox" class="check-basic__input" checked />
-                                                    <span class="check-basic__icon" aria-hidden="true"></span>
-                                                    <span class="check-basic__label">전체선택</span>
-                                                </label>
-                                            </div>
-                                            <div class="debt-card__list">
-                                                <div class="select-card select-card--row">
-                                                    <div class="select-card__select-row">
-                                                        <label class="check-basic">
-                                                            <input type="checkbox" class="check-basic__input" checked />
-                                                            <span class="check-basic__icon" aria-hidden="true"></span>
-                                                        </label>
-                                                        <div class="select-card__select-text">
-                                                            <div class="select-card__logo-row">
-                                                                <span class="select-card__logo"><img src="../../images/logos/AAFO0000.png" alt=""></span>
-                                                                <div class="select-card__name-col">
-                                                                    <p class="select-card__name">장기대출</p>
-                                                                    <p class="select-card__number">현대카드 &middot; 1234-****-****-****</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">500,000원</span></div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">19.9%</span></div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">대출일</span><span class="select-card__list-data">2026.08.31</span></div>
-                                                        </div>
+                                                <!--투자내역이 없을경우-->
+                                                <div class="pension-nudge">
+                                                    <div class="pension-nudge__top">
+                                                        <p class="pension-nudge__title">
+                                                            <span class="pension-nudge__icon" aria-hidden="true">
+                                                                <img src="../../images/update/ic-question-coin.svg" alt="" />
+                                                            </span>
+                                                            찾지 못한 자산이 있을지도 몰라요.
+                                                        </p>
+                                                    </div>
+                                                    <div class="pension-nudge__content">
+                                                        <p class="pension-nudge__desc">계좌를 연결하고 더 정확한 자산정보를<br /> 받아보세요.</p>
+                                                        <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
                                                     </div>
                                                 </div>
-                                                <div class="select-card select-card--row">
-                                                    <div class="select-card__select-row">
-                                                        <label class="check-basic">
-                                                            <input type="checkbox" class="check-basic__input" checked />
-                                                            <span class="check-basic__icon" aria-hidden="true"></span>
-                                                        </label>
-                                                        <div class="select-card__select-text">
-                                                            <div class="select-card__logo-row">
-                                                                <span class="select-card__logo"><img src="../../images/logos/AACT0000.png" alt=""></span>
-                                                                <div class="select-card__name-col">
-                                                                    <p class="select-card__name">ACE 신용대출</p>
-                                                                    <p class="select-card__number">한국투자저축은행</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">50,000,000원</span></div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">12.72%</span></div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2030.12.31</span></div>
-                                                        </div>
+                                                <div class="list-accordion__divider"></div>
+                                                <div class="list-accordion__row list-accordion__row--link">
+                                                    <span class="list-accordion__title">투자<span class="pension-nudge__count">12</span></span>
+                                                    <span class="list-accordion__data">20,000,000원</span>
+                                                    <span class="list-accordion__arrow" aria-hidden="true"></span>
+                                                </div>
+                                                <!--투자내역이 없을경우-->
+                                                <div class="pension-nudge">
+                                                    <div class="pension-nudge__top">
+                                                        <p class="pension-nudge__title">
+                                                            <span class="pension-nudge__icon" aria-hidden="true">
+                                                                <img src="../../images/update/ic-question-coin.svg" alt="" />
+                                                            </span>
+                                                            흩어진 투자 자산을 모아보세요.
+                                                        </p>
+                                                    </div>
+                                                    <div class="pension-nudge__content">
+                                                        <p class="pension-nudge__desc">투자 계좌를 연결하고 맞춤 진단을<br />받아보세요.</p>
+                                                        <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
                                                     </div>
                                                 </div>
-                                                <div class="select-card select-card--row">
-                                                    <div class="select-card__select-row">
-                                                        <label class="check-basic">
-                                                            <input type="checkbox" class="check-basic__input" checked />
-                                                            <span class="check-basic__icon" aria-hidden="true"></span>
-                                                        </label>
-                                                        <div class="select-card__select-text">
-                                                            <div class="select-card__logo-row">
-                                                                <span class="select-card__logo"><img src="../../images/logos/AAFO0000.png" alt=""></span>
-                                                                <div class="select-card__name-col">
-                                                                    <p class="select-card__name">[만료] 장기대출</p>
-                                                                    <p class="select-card__number">현대카드 &middot; 1234-****-****-****</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">500,000원</span></div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">19.9%</span></div>
-                                                        </div>
-                                                    </div>
+                                                <div class="list-accordion__divider"></div>
+                                                <div class="list-accordion__row">
+                                                    <span class="list-accordion__title">연금</span>
+                                                    <span class="list-accordion__data list-accordion__data-none">연금 내역이 없습니다</span>
                                                 </div>
-                                                <div class="select-card select-card--row select-card--disabled">
-                                                    <div class="select-card__select-row">
-                                                        <label class="check-basic">
-                                                            <input type="checkbox" class="check-basic__input" disabled />
-                                                            <span class="check-basic__icon" aria-hidden="true"></span>
-                                                        </label>
-                                                        <div class="select-card__select-text">
-                                                            <div class="select-card__logo-row">
-                                                                <span class="select-card__logo"><img src="../../images/logos/AACQ0000.png" alt=""></span>
-                                                                <div class="select-card__name-col">
-                                                                    <p class="select-card__name">NH모바일주택담보대출(6개월 변동형)</p>
-                                                                    <p class="select-card__number">NH농협은행 &middot; 123-4567-7890-00</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">100,000,000원</span></div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">4.78%</span></div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2045.06.30</span></div>
-                                                        </div>
+                                                <!--연금내역이 없을경우-->
+                                                <div class="pension-nudge">
+                                                    <div class="pension-nudge__top">
+                                                        <p class="pension-nudge__title">
+                                                            <span class="pension-nudge__icon" aria-hidden="true">
+                                                                <img src="../../images/update/ic-question-coin.svg" alt="" />
+                                                            </span>
+                                                            숨은 연금이 있나요?
+                                                        </p>
                                                     </div>
-                                                </div>
-                                                <div class="select-card select-card--row">
-                                                    <div class="select-card__select-row">
-                                                        <label class="check-basic">
-                                                            <input type="checkbox" class="check-basic__input" checked />
-                                                            <span class="check-basic__icon" aria-hidden="true"></span>
-                                                        </label>
-                                                        <div class="select-card__select-text">
-                                                            <div class="select-card__logo-row">
-                                                                <span class="select-card__logo"><img src="../../images/logos/AACT0000.png" alt=""></span>
-                                                                <div class="select-card__name-col">
-                                                                    <p class="select-card__name">ACE 신용대출</p>
-                                                                    <p class="select-card__number">한국투자저축은행</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">50,000,000원</span></div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">12.72%</span></div>
-                                                            <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2030.12.31</span></div>
-                                                        </div>
+                                                    <div class="pension-nudge__content">
+                                                        <p class="pension-nudge__desc">연금을 연결하고 더 정확한 진단을<br />받아보세요.</p>
+                                                        <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="select-card__more">더보기(5/38)</button>
+                                            <!--진단부채-->
+                                            <div class="info-card" id="debtCard16">
+                                                <div class="debt-card__head">
+                                                    <div class="debt-card__row">
+                                                        <p class="debt-card__label">진단 부채<span class="debt-card__count">38</span></p>
+                                                        <p class="debt-card__amount">85,000,000원</p>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="debt-card__toggle" onclick="var b=this;var d=b.parentNode.querySelector('.debt-detail');if(d){d.remove();b.textContent='펼치기';b.classList.remove('is-open');}else{d=document.createElement('div');d.className='debt-detail';d.innerHTML='<div class=\'list-kv\'><span class=\'list-kv__title\'>선택 부채</span><span class=\'list-kv__data\'>85,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>잔여 부채</span><span class=\'list-kv__data\'>30,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>대상 외 부채</span><span class=\'list-kv__data\'>25,000,000원</span></div><div class=\'list-kv debt-detail__total\'><span class=\'list-kv__title\'>총 부채</span><span class=\'list-kv__data\'>130,000,000원</span></div>';b.parentNode.insertBefore(d,b.parentNode.querySelector('.debt-card__toggle'));b.textContent='접기';b.classList.add('is-open');}return false;">펼치기</button>
+                                                <div class="debt-card__select-all">
+                                                    <label class="check-basic">
+                                                        <input type="checkbox" class="check-basic__input" checked />
+                                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                                        <span class="check-basic__label">전체선택</span>
+                                                    </label>
+                                                </div>
+                                                <div class="debt-card__list">
+                                                    <div class="select-card select-card--row">
+                                                        <div class="select-card__select-row">
+                                                            <label class="check-basic">
+                                                                <input type="checkbox" class="check-basic__input" checked />
+                                                                <span class="check-basic__icon" aria-hidden="true"></span>
+                                                            </label>
+                                                            <div class="select-card__select-text">
+                                                                <div class="select-card__logo-row">
+                                                                    <span class="select-card__logo"><img src="../../images/logos/AAFO0000.png" alt=""></span>
+                                                                    <div class="select-card__name-col">
+                                                                        <p class="select-card__name">장기대출</p>
+                                                                        <p class="select-card__number">현대카드 &middot; 1234-****-****-****</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">500,000원</span></div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">19.9%</span></div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">대출일</span><span class="select-card__list-data">2026.08.31</span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="select-card select-card--row">
+                                                        <div class="select-card__select-row">
+                                                            <label class="check-basic">
+                                                                <input type="checkbox" class="check-basic__input" checked />
+                                                                <span class="check-basic__icon" aria-hidden="true"></span>
+                                                            </label>
+                                                            <div class="select-card__select-text">
+                                                                <div class="select-card__logo-row">
+                                                                    <span class="select-card__logo"><img src="../../images/logos/AACT0000.png" alt=""></span>
+                                                                    <div class="select-card__name-col">
+                                                                        <p class="select-card__name">ACE 신용대출</p>
+                                                                        <p class="select-card__number">한국투자저축은행</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">50,000,000원</span></div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">12.72%</span></div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2030.12.31</span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="select-card select-card--row">
+                                                        <div class="select-card__select-row">
+                                                            <label class="check-basic">
+                                                                <input type="checkbox" class="check-basic__input" checked />
+                                                                <span class="check-basic__icon" aria-hidden="true"></span>
+                                                            </label>
+                                                            <div class="select-card__select-text">
+                                                                <div class="select-card__logo-row">
+                                                                    <span class="select-card__logo"><img src="../../images/logos/AAFO0000.png" alt=""></span>
+                                                                    <div class="select-card__name-col">
+                                                                        <p class="select-card__name">[만료] 장기대출</p>
+                                                                        <p class="select-card__number">현대카드 &middot; 1234-****-****-****</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">500,000원</span></div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">19.9%</span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="select-card select-card--row select-card--disabled">
+                                                        <div class="select-card__select-row">
+                                                            <label class="check-basic">
+                                                                <input type="checkbox" class="check-basic__input" disabled />
+                                                                <span class="check-basic__icon" aria-hidden="true"></span>
+                                                            </label>
+                                                            <div class="select-card__select-text">
+                                                                <div class="select-card__logo-row">
+                                                                    <span class="select-card__logo"><img src="../../images/logos/AACQ0000.png" alt=""></span>
+                                                                    <div class="select-card__name-col">
+                                                                        <p class="select-card__name">NH모바일주택담보대출(6개월 변동형)</p>
+                                                                        <p class="select-card__number">NH농협은행 &middot; 123-4567-7890-00</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">100,000,000원</span></div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">4.78%</span></div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2045.06.30</span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="select-card select-card--row">
+                                                        <div class="select-card__select-row">
+                                                            <label class="check-basic">
+                                                                <input type="checkbox" class="check-basic__input" checked />
+                                                                <span class="check-basic__icon" aria-hidden="true"></span>
+                                                            </label>
+                                                            <div class="select-card__select-text">
+                                                                <div class="select-card__logo-row">
+                                                                    <span class="select-card__logo"><img src="../../images/logos/AACT0000.png" alt=""></span>
+                                                                    <div class="select-card__name-col">
+                                                                        <p class="select-card__name">ACE 신용대출</p>
+                                                                        <p class="select-card__number">한국투자저축은행</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금액</span><span class="select-card__list-data">50,000,000원</span></div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">금리</span><span class="select-card__list-data">12.72%</span></div>
+                                                                <div class="select-card__list-row"><span class="select-card__list-title">만기일</span><span class="select-card__list-data">2030.12.31</span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="select-card__more">더보기(5/38)</button>
+                                            </div>
                                         </div>
                                     </div>
                                     <!--E : 순 자산-->
