@@ -1603,7 +1603,19 @@
 .hcb-legend--grid {display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-8) var(--spacing-16)}
 .hcb-hint {margin:var(--spacing-12) 0 0}
 .hcb-chart-box {position:relative;display:flex;flex-direction:column;background:var(--primitive-gray-100);border-radius:var(--radius-16);height:290px;padding:var(--spacing-16) var(--spacing-8) var(--spacing-24);box-sizing:border-box;margin:0}
-.hcb-chart-box canvas {display:block;width:100%;flex:1 1 auto;min-height:0}
+/* [버그 수정] "차트 글자/막대가 찌그러져 보임" — Chart.js(responsive:true)는 캔버스의
+   "부모 엘리먼트"를 관찰해서 크기를 다시 계산하는데, 캔버스 자신이 flex:1 1 auto로
+   flex 아이템이면 그 부모(.hcb-chart-box)는 height:318px로 고정돼 있어 절대 리사이즈되지
+   않습니다. 반면 캔버스의 실제 렌더링 크기는 옆의 범례(.hcb-legend)와 flex로 공간을
+   나눠 갖다 보니 웹폰트 로딩 등으로 범례 높이가 뒤늦게 확정되면서 계속 바뀌는데,
+   Chart.js는 이 변화를 감지할 방법이 없어 처음(범례 높이가 아직 다 안 잡혔을 때) 잰
+   크기로 캔버스 width/height 속성(실제 픽셀 버퍼)을 고정해버립니다. 그 결과 캔버스
+   버퍼의 가로세로 비율과 실제 화면에 그려지는 비율이 어긋나 텍스트/막대가 찌그러져
+   보였습니다. 해결: flex 아이템 역할을 캔버스 대신 이 래퍼(.hcb-chart-canvas-wrap)가
+   맡게 하면, Chart.js가 감시하는 "캔버스의 부모"가 바로 이 래퍼가 되어 범례 높이가
+   확정될 때마다 래퍼 크기 변화를 정상적으로 감지해 다시 리사이즈합니다. */
+.hcb-chart-box .hcb-chart-canvas-wrap {position:relative;flex:1 1 auto;min-height:0}
+.hcb-chart-box canvas {display:block;width:100%;height:100%}
 .hcb-chart-box--tall {height:318px}
 .hcb-chart-box .hcb-legend {flex-shrink:0;margin:var(--spacing-24) 0 0}
 .hcb-legend--dated {align-items:flex-start;justify-content:center;gap:var(--spacing-8)}

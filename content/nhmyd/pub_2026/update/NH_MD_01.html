@@ -33,7 +33,7 @@
                 <div class="asset-hero-swiper-clip">
                     <div class="asset-hero-swiper swiper-container" id="assetHeroSwiper">
                         <div class="swiper-wrapper">
-                            <!-- 예금(유동성) -->
+                            <!-- 예금 -->
                             <div class="swiper-slide" data-category-label="예금" aria-hidden="false">
                                 <div class="hero">
                                     <div class="hero__flip">
@@ -122,7 +122,9 @@
                                                  별개 엘리먼트가 아니라 같은 회색 카드(.hcb-chart-box) 안에 함께 들어있는
                                                  자식입니다 — 형제 엘리먼트로 분리돼 있던 걸 박스 안으로 옮깁니다. -->
                                             <div class="hcb-chart-box hcb-chart-box--tall">
-                                                <canvas data-insight-chart="liquidity" aria-hidden="true"></canvas>
+                                                <div class="hcb-chart-canvas-wrap">
+                                                    <canvas data-insight-chart="liquidity" aria-hidden="true"></canvas>
+                                                </div>
                                                 <ul class="blind">
                                                     <li>입출금: 전월 560,000,000원, 금월 590,500,000원</li>
                                                     <li>예적금: 전월 42,000,000원, 금월 44,500,000원</li>
@@ -252,7 +254,9 @@
                                                 </button>
                                             </div>
                                             <div class="hcb-chart-box hcb-chart-box--tall">
-                                                <canvas data-insight-chart="invest" aria-hidden="true"></canvas>
+                                                <div class="hcb-chart-canvas-wrap">
+                                                    <canvas data-insight-chart="invest" aria-hidden="true"></canvas>
+                                                </div>
                                                 <ul class="blind">
                                                     <li>국내주식: 전월 1,575,000원, 금월 1,500,000원</li>
                                                     <li>해외선진국주식: 전월 525,000원, 금월 500,000원</li>
@@ -265,14 +269,14 @@
                                                     <div class="hcb-legend__col">
                                                         <span class="hcb-legend__item">
                                                             <i style="background: #a1f069;"></i>
-                                                            금월 투자 자산
+                                                            현재 투자 자산
                                                         </span>
                                                         <span class="hcb-legend__date">(2027.06.30 기준)</span>
                                                     </div>
                                                     <div class="hcb-legend__col">
                                                         <span class="hcb-legend__item">
                                                             <i style="background: #c8d2e4;"></i>
-                                                            현재 투자 자산
+                                                            전월 투자 자산
                                                         </span>
                                                         <span class="hcb-legend__date">(2027.07.13 기준)</span>
                                                     </div>
@@ -363,7 +367,9 @@
                                                 </button>
                                             </div>
                                             <div class="hcb-chart-box hcb-chart-box--tall">
-                                                <canvas data-insight-chart="pension" aria-hidden="true"></canvas>
+                                                <div class="hcb-chart-canvas-wrap">
+                                                    <canvas data-insight-chart="pension" aria-hidden="true"></canvas>
+                                                </div>
                                                 <ul class="blind">
                                                     <li>개인연금: 전월 6,300,000원, 금월 6,654,328원</li>
                                                     <li>퇴직연금: 전월 950,000원, 금월 1,000,000원</li>
@@ -373,14 +379,14 @@
                                                     <div class="hcb-legend__col">
                                                         <span class="hcb-legend__item">
                                                             <i style="background: #a1f069;"></i>
-                                                            금월 연금 자산
+                                                            현재 연금 자산
                                                         </span>
                                                         <span class="hcb-legend__date">(2027.06.30 기준)</span>
                                                     </div>
                                                     <div class="hcb-legend__col">
                                                         <span class="hcb-legend__item">
                                                             <i style="background: #c8d2e4;"></i>
-                                                            현재 연금 자산
+                                                            전월 연금 자산
                                                         </span>
                                                         <span class="hcb-legend__date">(2027.07.13 기준)</span>
                                                     </div>
@@ -397,14 +403,6 @@
                                 <div class="hero">
                                     <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
-                                            <!-- [디자인 반영] 피그마(node 3121:33761 herocard_대출)는 다른 3개 탭과
-                                                 그라데이션·본문 구성이 다릅니다: (1) 상단 배경이 청록/그린 단일
-                                                 그라데이션이 아니라 블루→퍼플 레이어가 하나 더 겹친 2중
-                                                 그라데이션이고, 하단도 남색 계열의 별도 그라데이션입니다. (2)
-                                                 차트+범례 대신 2x2 통계 카드(보유 대출 계좌/월 평균 예상 상환액/
-                                                 대출 최대 상환 기간/대출 평균 금리)가 들어갑니다. (3) 하단 CTA
-                                                 라벨도 "대출 자산 변화 보기"가 아니라 "전월 비교 보기"이고 아이콘
-                                                 원형 배경색도 다릅니다. -->
                                             <div class="hc-top hc-top--loan">
                                                 <p class="hc-title">대출 현황</p>
                                                 <p class="hc-date">
@@ -466,11 +464,6 @@
                                             </div>
                                         </div>
 
-                                        <!-- [디자인 반영] 피그마(node 3045:36417, "herocard_대출" Type=Back)는 다른
-                                             3개 탭의 뒷면과 카테고리·범례 표기가 다릅니다: 제목이 "OO 자산 변화"가
-                                             아니라 "계좌별 상환 현황"이고, 대출 종류도 2개(신용대출/주택담보대출)가
-                                             아니라 5개(주택관련대출/신용대출/예적금대출/카드대출/기타대출)이며, 범례
-                                             라벨도 "금월/현재"가 아니라 "현재 대출액(초록)/전월 대출액(회색)"입니다. -->
                                         <div class="hero__face hero__face--back hero__face--back-redesign" aria-hidden="true">
                                             <div class="hcb-head">
                                                 <p class="hcb-title">계좌별 상환 현황</p>
@@ -480,7 +473,9 @@
                                                 </button>
                                             </div>
                                             <div class="hcb-chart-box hcb-chart-box--tall">
-                                                <canvas data-insight-chart="loan" aria-hidden="true"></canvas>
+                                                <div class="hcb-chart-canvas-wrap">
+                                                    <canvas data-insight-chart="loan" aria-hidden="true"></canvas>
+                                                </div>
                                                 <ul class="blind">
                                                     <li>주택관련대출: 전월 372,000,000원, 현재 375,059,500원</li>
                                                     <li>신용대출: 전월 8,200,000원, 현재 8,000,000원</li>
@@ -492,14 +487,14 @@
                                                     <div class="hcb-legend__col">
                                                         <span class="hcb-legend__item">
                                                             <i style="background: #a1f069;"></i>
-                                                            현재 대출액
+                                                            전월 대출액
                                                         </span>
                                                         <span class="hcb-legend__date">(2027.07.13 기준)</span>
                                                     </div>
                                                     <div class="hcb-legend__col">
                                                         <span class="hcb-legend__item">
                                                             <i style="background: #c8d2e4;"></i>
-                                                            전월 대출액
+                                                            현재 대출액
                                                         </span>
                                                         <span class="hcb-legend__date">(2027.06.30 기준)</span>
                                                     </div>
@@ -516,7 +511,6 @@
 
                 <!-- [예금] -->
                 <div class="asset-tab-panel" data-tab-panel="liquidity">
-                    <!-- 인사이트 — 여러 진단 상태를 한번에 보여주는 리스트형 카드로 개편 -->
                     <section class="md-section">
                         <h2 class="md-section__title">인사이트</h2>
                         <div class="md-card insight-list">
@@ -564,7 +558,6 @@
                         </div>
                     </section>
 
-                    <!-- 데일리 브리핑(위클리 브리핑을 AI 에이전트 배지 + 분석 문구로 확장) -->
                     <section class="md-section">
                         <div class="md-section__title-row">
                             <h2 class="md-section__title">데일리 브리핑</h2>
@@ -601,7 +594,6 @@
                         </div>
                     </section>
 
-                    <!-- 자산진단 · 목표설정 프로모 배너 -->
                     <section class="md-section">
                         <div class="deposit-promo-banner" style="background:#E3F3F2">
                             <p class="deposit-promo-banner__sub">현재 나의 여유자금은 얼마나 있을까?</p>
@@ -1465,7 +1457,7 @@
                 buildStackedBarChart('pension', [
                     makeDataset('개인연금', 6654328, '#f4ff3f'),
                     makeDataset('퇴직연금', 1000000, '#ff7e7e'),
-                    makeDataset('공적연금', 0, '#49d8ff')
+                    makeDataset('공적연금', 10000, '#49d8ff')
                 ]);
 
                 buildStackedBarChart('loan', [
@@ -1520,6 +1512,7 @@
                             responsive: true,
                             maintainAspectRatio: false,
                             onResize: function () { syncBackFaceCloneCanvases(categoryKey, 'data-insight-chart'); },
+                            datasets: { bar: { barPercentage: 0.9, categoryPercentage: 0.8 } },
                             events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
                             plugins: {
                                 legend: { display: false }, // 범례는 위 .hcb-legend(HTML)로 대체
@@ -1528,11 +1521,6 @@
                             scales: {
                                 x: {
                                     grid: { display: false },
-                                    // maxRotation/minRotation을 0으로 고정해 피그마처럼 라벨이
-                                    // 항상 가로로만 놓이게 합니다(대출 탭처럼 라벨이 길어 자동
-                                    // 회전되던 문제 방지) — 대신 길어서 안 들어가는 라벨은 호출부에서
-                                    // ['주택관련','대출']처럼 배열로 줘서 2줄로 줄바꿈합니다(Chart.js는
-                                    // 라벨을 배열로 주면 각 요소를 한 줄씩 그립니다).
                                     ticks: { font: { size: 12 }, color: '#4f5359', maxRotation: 0, minRotation: 0 }
                                 },
                                 y: { display: false, beginAtZero: true }
@@ -1553,7 +1541,7 @@
 
                 buildInsightChart(
                     'invest',
-                    ['국내주식', '해외주식', '채권', '펀드', '예수금', '기타'],
+                    [['국내', '주식'], ['해외', '주식'], '채권', '펀드', '예수금', '기타'],
                     [105, 35, 15, 10, 14, 140],
                     [100, 33, 14, 9, 13, 133],
                     [1575000, 525000, 1050, 1050, 1050, 2100000],
@@ -1573,10 +1561,6 @@
 
                 buildInsightChart(
                     'loan',
-                    // [디자인 반영] 피그마(node 3045:34805)는 라벨이 길면(3글자 넘는 접두어 +
-                    // "대출") 회전 없이 2줄로 줄바꿈합니다 — "주택관련대출"→"주택관련"/"대출",
-                    // "예적금대출"→"예적금"/"대출". "신용대출"/"카드대출"/"기타대출"처럼 짧은
-                    // 건 그대로 한 줄입니다.
                     [['주택관련', '대출'], '신용대출', ['예적금', '대출'], '카드대출', '기타대출'],
                     [137, 32, 16, 14, 9],
                     [140, 30, 18, 12, 8],
@@ -1586,7 +1570,6 @@
                 );
             })();
 
-            // 대출자산 탭 — 프로모 배너 캐러셀(스크롤 스냅) 페이지 인디케이터 동기화
             (function () {
                 var track = document.getElementById('loanPromoTrack');
                 if (!track) return;
@@ -1603,8 +1586,6 @@
                 );
             })();
 
-            // 예금 탭 — 서브 프로모 배너 캐러셀(2개 슬라이드, 루프). NH_MD_CO_01_04.html의
-            // AI대출금리케어 프로모 배너와 동일한 Swiper + indicator-number 구성/로직을 그대로 재사용합니다.
             if (typeof Swiper !== 'undefined') {
                 var subPromoTrack = document.getElementById('liquiditySubPromoSwiper');
                 if (subPromoTrack) {
