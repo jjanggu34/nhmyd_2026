@@ -1546,7 +1546,7 @@
 .promo-carousel__dot--active {width:16px;background:var(--primitive-green-500)}
 .promo-carousel__track .indicator-number{position:absolute;bottom:var(--spacing-14);left:var(--spacing-24);z-index:10}
 .hero__face--redesign {border:none;padding:0;gap:0;overflow:visible;background:transparent;box-shadow:none}
-.hc-top {position:relative;z-index:2;height:100%;margin-bottom:-60px;padding:var(--spacing-32) var(--spacing-20) 32px;border-radius:var(--radius-20) var(--radius-20) 60px var(--radius-20);box-shadow:5px 6px 18px rgba(0,0,0,0.1);background-image:url("../images/update/img_nh_logo.svg"), linear-gradient(140.86deg, #046ea3 4.27%, #0e7a5c 108.4%);background-repeat:no-repeat, no-repeat;background-position:right -20px bottom -20px, 0 0;background-size:180px auto, cover;color:var(--primitive-base-0);box-sizing:border-box}
+.hc-top {position:relative;z-index:2;height:100%;margin-bottom:-60px;padding:var(--spacing-32) var(--spacing-20) 32px;border-radius:var(--radius-20) var(--radius-20) 60px var(--radius-20);box-shadow:5px 6px 18px rgba(0,0,0,0.1);background-image:url("../images/update/img_nh_logo.svg"), linear-gradient(140.86deg, #046ea3 4.27%, #0e7a5c 108.4%);background-repeat:no-repeat, no-repeat;background-position:right -20px bottom -10px, 0 0;background-size:180px auto, cover;color:var(--primitive-base-0);box-sizing:border-box}
 .hc-bottom {position:relative;z-index:1;margin-top:auto;padding:64px var(--spacing-20) var(--spacing-20);border-radius:0 0 var(--radius-20) var(--radius-20);background-image:linear-gradient(-34.94deg, #0f3437 4.97%, #4174a3 179.53%);box-sizing:border-box;box-shadow: 5px 6px 18px 0 rgba(0, 0, 0, 0.10)}
 .hc-title {font-size:var(--type-size-18);font-weight:var(--font-weight-bold);letter-spacing:-0.36px;margin:0 0 var(--spacing-24);line-height:1}
 .hc-date {font-size:var(--type-size-13);font-weight:var(--font-weight-semibold);letter-spacing:-0.26px}
@@ -1616,14 +1616,8 @@
 .hcb-legend span {display:inline-flex;align-items:center;gap:var(--spacing-6);font-size:var(--type-size-13);color:var(--primitive-gray-font-700)}
 .hcb-legend i {display:inline-block;width:8px;height:8px;border-radius:var(--radius-2);flex-shrink:0}
 .hcb-legend--grid {display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-8) var(--spacing-16)}
-.hcb-hint {margin:0 0 var(--spacing-16)}
-/* [버그 수정] 피그마(node 3045:34894 예금 / 3045:35026 투자 / 3045:34750 연금 /
-   3045:34805 대출)를 보면 .hcb-legend는 .hcb-chart-box 밖의 별도 형제가 아니라,
-   같은 회색 카드(Frame 2147227171) 안에 막대 차트와 함께 들어있는 자식입니다.
-   차트 박스를 세로 flex로 바꿔 캔버스(가변)+범례(고정)를 안에서 같이 쌓고, 박스
-   높이는 피그마 실측값 그대로 318px을 씁니다(막대+라벨 그룹 177 + 범례 그룹까지
-   포함한 진짜 전체 높이). */
-.hcb-chart-box {position:relative;display:flex;flex-direction:column;background:var(--primitive-gray-100);border-radius:var(--radius-16);height:290px;padding:var(--spacing-16) var(--spacing-8) var(--spacing-8);box-sizing:border-box;margin:0}
+.hcb-hint {margin:var(--spacing-12) 0 0}
+.hcb-chart-box {position:relative;display:flex;flex-direction:column;background:var(--primitive-gray-100);border-radius:var(--radius-16);height:290px;padding:var(--spacing-16) var(--spacing-8) var(--spacing-24);box-sizing:border-box;margin:0}
 .hcb-chart-box canvas {display:block;width:100%;flex:1 1 auto;min-height:0}
 .hcb-chart-box--tall {height:318px}
 .hcb-chart-box .hcb-legend {flex-shrink:0;margin:var(--spacing-24) 0 0}
