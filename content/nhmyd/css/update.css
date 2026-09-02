@@ -251,7 +251,7 @@
 .nds .center {text-align:center !important}
 .nds .left {text-align:left !important}
 .nds .right {text-align:right !important}
-.nds .container {padding-left:var(--spacing-24) !important;padding-right:var(--spacing-24) !important;padding-bottom:var(--sticky-footer-pad, 120px) !important}
+.nds .container {padding-left:var(--spacing-24) !important;padding-right:var(--spacing-24) !important}
 .nds .guide-title {font-size:var(--type-size-15);font-weight:700;margin-bottom:var(--spacing-8)}
 .nds .guide-desc {font-size:var(--type-size-14);font-weight:400;color:var(--primitive-red-200);margin-bottom:var(--spacing-16)}
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
@@ -1395,13 +1395,12 @@
 .hero__issue {background:#ededed;border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);letter-spacing:-0.14px;color:var(--primitive-gray-800)}
 .hero__issue strong {font-weight:600;color:var(--primitive-red-warning)}
 /* ---- 자산 구성비 막대(Chart.js stackedBarChart) ---- */
-.hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;border-radius:var(--radius-full);box-shadow:0 0 2px rgba(0,0,0,0.1);margin-top:var(--spacing-48)}
-.hero__chart-box canvas {display:block;width:100%;height:100%;max-width:100%;border-radius:var(--radius-full)}
-/* [디자인 반영] 피그마(node 3045:34894)에서 예금 탭만 이 박스의 radius가 8px로 바뀝니다.
-   .hc-top은 4개 탭이 공유하는 클래스라 여기 쓰면 전체에 적용되므로, 예금 슬라이드에만
-   달린 data-category-label="예금"으로 scope해 다른 3개 탭(알약 radius)은 그대로 둡니다. */
-.swiper-slide[data-category-label="예금"] .hero__chart-box {border-radius:var(--radius-8)}
-.swiper-slide[data-category-label="예금"] .hero__chart-box canvas {border-radius:var(--radius-8)}
+/* [디자인 반영] 피그마(node 3045:34894 예금 / 3045:35885 투자 / 3045:34410 연금 /
+   3045:34464 대출)에서 4개 탭 모두 이 박스의 radius가 8px로 확인되어, 처음엔 예금
+   슬라이드에만 scope했던 8px radius를 4개 탭 공통 기본값으로 올립니다(예금만 적용하던
+   이전 scope 규칙 제거). */
+.hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;border-radius:var(--radius-8);box-shadow:0 0 2px rgba(0,0,0,0.1);margin-top:var(--spacing-48)}
+.hero__chart-box canvas {display:block;width:100%;height:100%;max-width:100%;border-radius:var(--radius-8)}
 .chartjs-tooltip {position:absolute;pointer-events:none;opacity:0;transition:opacity .12s ease;z-index:10;background:rgba(17,17,17,.92);color:var(--primitive-base-0);border-radius:var(--radius-8);padding:var(--spacing-8) var(--spacing-12);font-size:13px;line-height:1.6;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.18)}
 .chartjs-tooltip::after {content:"";position:absolute;left:var(--tt-arrow-left,50%);bottom:-6px;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(17,17,17,.92)}
 .chartjs-tooltip__title {font-weight:600;margin-bottom:var(--spacing-2);opacity:.85}
@@ -1537,7 +1536,9 @@
 .promo-carousel__track .indicator-number{position:absolute;bottom:var(--spacing-14);left:var(--spacing-24);z-index:10}
 /* ---- 히어로 카드 앞면 — 그라데이션 2단 카드 ---- */
 .hero__face--redesign {border:none;padding:0;gap:0;overflow:visible;background:transparent;box-shadow:none}
-.hc-top {position:relative;z-index:2;height:100%;margin-bottom:-56px;padding:var(--spacing-32) var(--spacing-20) 88px;border-radius:var(--radius-20) var(--radius-20) 60px var(--radius-20);box-shadow:5px 6px 18px rgba(0,0,0,0.1);background-image:linear-gradient(140.86deg, #046ea3 4.27%, #0e7a5c 108.4%);color:var(--primitive-base-0);box-sizing:border-box}
+/* [디자인 반영] .hc-top 배경에 NH 로고 워터마크(img_nh_logo.svg)를 그라데이션 위에
+   레이어로 얹습니다. 4개 탭이 공유하는 클래스라 자동으로 전체에 적용됩니다. */
+.hc-top {position:relative;z-index:2;height:100%;margin-bottom:-56px;padding:var(--spacing-32) var(--spacing-20) 88px;border-radius:var(--radius-20) var(--radius-20) 60px var(--radius-20);box-shadow:5px 6px 18px rgba(0,0,0,0.1);background-image:url("../images/update/img_nh_logo.svg"), linear-gradient(140.86deg, #046ea3 4.27%, #0e7a5c 108.4%);background-repeat:no-repeat, no-repeat;background-position:right -20px bottom -20px, 0 0;background-size:180px auto, cover;color:var(--primitive-base-0);box-sizing:border-box}
 .hc-bottom {position:relative;z-index:1;margin-top:auto;padding:64px var(--spacing-20) var(--spacing-20);border-radius:0 0 var(--radius-20) var(--radius-20);background-image:linear-gradient(-34.94deg, #0f3437 4.97%, #4174a3 179.53%);box-sizing:border-box;box-shadow: 5px 6px 18px 0 rgba(0, 0, 0, 0.10)}
 .hc-title {font-size:var(--type-size-18);font-weight:var(--font-weight-bold);letter-spacing:-0.36px;margin:0 0 var(--spacing-24);line-height:1}
 .hc-date {font-size:var(--type-size-13);font-weight:var(--font-weight-semibold);letter-spacing:-0.26px}
@@ -1582,15 +1583,17 @@
 .hcb-legend span {display:inline-flex;align-items:center;gap:var(--spacing-6);font-size:var(--type-size-13);color:var(--primitive-gray-font-700)}
 .hcb-legend i {display:inline-block;width:8px;height:8px;border-radius:var(--radius-2);flex-shrink:0}
 .hcb-legend--grid {display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-8) var(--spacing-16)}
-/* ---- 예금(유동성) 탭 히어로 카드 뒷면 — 그래프 터치 안내 문구(.widget__caption 재사용) ---- */
+/* ---- 히어로 카드 뒷면 — 그래프 터치 안내 문구(.widget__caption 재사용) ---- */
 .hcb-hint {margin:0 0 var(--spacing-16)}
 .hcb-chart-box {position:relative;background:var(--primitive-gray-100);border-radius:var(--radius-16);height:290px;padding:var(--spacing-16) var(--spacing-8) var(--spacing-8);box-sizing:border-box;margin:0}
 .hcb-chart-box canvas {display:block;width:100%;height:100%;}
-/* [디자인 반영] 예금 탭 뒷면(node 3045:34894)만 박스 높이가 290px -> 318px로 커집니다. */
+/* [디자인 반영] 처음엔 예금 탭 뒷면(node 3045:34894)만 박스 높이가 290px -> 318px로
+   커졌었지만, 이후 투자/연금/대출 뒷면도 같은 318px로 확인되어 4개 탭 모두
+   .hcb-chart-box--tall을 씁니다. */
 .hcb-chart-box--tall {height:318px}
-/* [디자인 반영] 예금 탭 뒷면 범례 — 기존 .hcb-legend(가로 나열)와 달리, 스와치+라벨
-   아래에 기준일 캡션이 한 줄 더 붙는 2열 구성입니다. 다른 탭은 .hcb-legend만 계속 쓰므로
-   영향 없습니다. */
+/* [디자인 반영] 히어로 카드 뒷면 범례 — 기존 .hcb-legend(가로 나열)와 달리, 스와치+라벨
+   아래에 기준일 캡션이 한 줄 더 붙는 2열 구성입니다. 4개 탭 모두 이 --dated 버전을 씁니다
+   (기존 .hcb-legend/.hcb-legend--grid 규칙은 다른 화면에서 계속 쓰일 수 있어 남겨둡니다). */
 .hcb-legend--dated {align-items:flex-start;justify-content:center;gap:var(--spacing-8)}
 .hcb-legend--dated .hcb-legend__col {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-4);flex:1;max-width:98px}
 .hcb-legend--dated .hcb-legend__item {display:inline-flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-12);color:var(--primitive-gray-font-800);white-space:nowrap}

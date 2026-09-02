@@ -30,8 +30,9 @@
                      카드 영역을 직접 스와이프한 경우엔 포커스가 탭에 있지 않으므로 이걸로 보완합니다. -->
                 <p class="blind" id="assetHeroAnnounce" aria-live="polite"></p>
 
-                <!-- 자산 카테고리별 히어로 캐러셀(스와이프) — 유동성 → 투자 → 연금 → 대출 → 유동성
-                     순으로 무한 순환합니다(Swiper loop 모드). 위 탭과 서로 동기화됩니다: 탭을
+                <!-- 자산 카테고리별 히어로 캐러셀(스와이프) — 유동성 → 투자 → 연금 → 대출
+                     순서로 배치되고, loop 모드가 아니라 무한 순환하지 않습니다(맨 앞/맨 뒤에서는
+                     반대쪽 끝 카드가 옆으로 비쳐 보이지 않습니다). 위 탭과 서로 동기화됩니다: 탭을
                      누르면 해당 슬라이드로 이동하고, 반대로 카드를 직접 스와이프해도 탭의
                      선택 상태가 같이 바뀝니다. 각 카드는 기존과 동일한 플립(뒤집기) 인터랙션을
                      그대로 가집니다. -->
@@ -158,22 +159,20 @@
                                     <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
                                             <div class="hc-top">
-                                                <p class="hc-title">내 투자 자산</p>
-                                                <p class="hc-date">2027.07.13일 기준</p>
+                                                <p class="hc-title">자산 현황</p>
+                                                <p class="hc-date">
+                                                    2027.07.13일 기준
+                                                    <span class="hc-date__icon" aria-hidden="true"></span>
+                                                </p>
                                                 <p class="hc-amount">
                                                     18,950,450
                                                     <span>원</span>
                                                 </p>
-                                                <span class="hc-change">
-                                                    <span class="hc-change__icon" aria-hidden="true"></span>
-                                                    50,000원(-2.4%)
-                                                </span>
-                                                <div class="hc-notice">
-                                                    <span class="hc-notice__icon hc-notice__icon--check" aria-hidden="true"></span>
-                                                    <p>
-                                                        <strong class="hc-notice__accent">D-0</strong>
-                                                        배당금이
-                                                        <strong class="hc-notice__accent">입금 되었어요</strong>
+                                                <div class="hc-notice hc-notice--compare">
+                                                    <p class="hc-notice__label">전월 말일기준</p>
+                                                    <p class="hc-notice__value">
+                                                        <span class="hc-change__icon" aria-hidden="true"></span>
+                                                        50,000원(-2.4%)
                                                     </p>
                                                 </div>
                                                 <div class="hero__chart-box">
@@ -243,50 +242,34 @@
                                                     <span class="blind">내 투자 자산 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box">
-                                                <canvas data-trend-chart="invest" aria-hidden="true"></canvas>
+                                            <div class="hcb-chart-box hcb-chart-box--tall">
+                                                <canvas data-insight-chart="invest" aria-hidden="true"></canvas>
                                                 <ul class="blind">
-                                                    <li>27.02: 국내주식 825,000원, 해외선진국주식 275,000원, 해외신흥국주식 550원, 국내채권 550원, 해외채권 550원, 현금 1,100,000원</li>
-                                                    <li>27.03: 국내주식 930,000원, 해외선진국주식 310,000원, 해외신흥국주식 620원, 국내채권 620원, 해외채권 620원, 현금 1,240,000원</li>
-                                                    <li>27.04: 국내주식 1,200,000원, 해외선진국주식 400,000원, 해외신흥국주식 800원, 국내채권 800원, 해외채권 800원, 현금 1,600,000원</li>
-                                                    <li>27.05: 국내주식 1,050,000원, 해외선진국주식 350,000원, 해외신흥국주식 700원, 국내채권 700원, 해외채권 700원, 현금 1,400,000원</li>
-                                                    <li>27.06: 국내주식 1,575,000원, 해외선진국주식 525,000원, 해외신흥국주식 1,050원, 국내채권 1,050원, 해외채권 1,050원, 현금 2,100,000원</li>
-                                                    <li>27.07: 국내주식 1,500,000원, 해외선진국주식 500,000원, 해외신흥국주식 1,000원, 국내채권 1,000원, 해외채권 1,000원, 현금 2,000,000원</li>
+                                                    <li>국내주식: 전월 1,575,000원, 금월 1,500,000원</li>
+                                                    <li>해외선진국주식: 전월 525,000원, 금월 500,000원</li>
+                                                    <li>해외신흥국주식: 전월 1,050원, 금월 1,000원</li>
+                                                    <li>국내채권: 전월 1,050원, 금월 1,000원</li>
+                                                    <li>해외채권: 전월 1,050원, 금월 1,000원</li>
+                                                    <li>현금: 전월 2,100,000원, 금월 2,000,000원</li>
                                                 </ul>
                                             </div>
-                                            <div class="hcb-legend hcb-legend--grid">
-                                                <span>
-                                                    <i style="background: #f4ff3f;"></i>
-                                                    국내주식
-                                                </span>
-                                                <span>
-                                                    <i style="background: #49d8ff;"></i>
-                                                    국내채권
-                                                </span>
-                                                <span>
-                                                    <i style="background: #ffa856;"></i>
-                                                    해외선진국주식
-                                                </span>
-                                                <span>
-                                                    <i style="background: #09b2c5;"></i>
-                                                    해외채권
-                                                </span>
-                                                <span>
-                                                    <i style="background: #ff7e7e;"></i>
-                                                    해외신흥국주식
-                                                </span>
-                                                <span>
-                                                    <i style="background: #08d561;"></i>
-                                                    현금
-                                                </span>
-                                            </div>
-                                            <div class="hcb-promo">
-                                                <div class="hcb-promo__text">
-                                                    <p class="hcb-promo__eyebrow">NH에서 추천하는 상품을 알려드려요</p>
-                                                    <p class="hcb-promo__cta">투자 추천상품 보기</p>
+                                            <div class="hcb-legend hcb-legend--dated">
+                                                <div class="hcb-legend__col">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #a1f069;"></i>
+                                                        금월 투자 자산
+                                                    </span>
+                                                    <span class="hcb-legend__date">(2027.06.30 기준)</span>
                                                 </div>
-                                                <img class="hcb-promo__mascot" src="../../images/update/img-3d-rocket-launch.png" alt="" aria-hidden="true" />
+                                                <div class="hcb-legend__col">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #c8d2e4;"></i>
+                                                        현재 투자 자산
+                                                    </span>
+                                                    <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                </div>
                                             </div>
+                                            <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -298,22 +281,20 @@
                                     <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
                                             <div class="hc-top">
-                                                <p class="hc-title">내 연금 자산</p>
-                                                <p class="hc-date">2027.07.13일 기준</p>
+                                                <p class="hc-title">자산 현황</p>
+                                                <p class="hc-date">
+                                                    2027.07.13일 기준
+                                                    <span class="hc-date__icon" aria-hidden="true"></span>
+                                                </p>
                                                 <p class="hc-amount">
                                                     7,654,328
                                                     <span>원</span>
                                                 </p>
-                                                <span class="hc-change">
-                                                    <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"></span>
-                                                    843,545원(+11.43%)
-                                                </span>
-                                                <div class="hc-notice">
-                                                    <span class="hc-notice__icon hc-notice__icon--check" aria-hidden="true"></span>
-                                                    <p>
-                                                        <strong class="hc-notice__accent">D-30</strong>
-                                                        연금개시
-                                                        <strong class="hc-notice__accent">예정일이에요</strong>
+                                                <div class="hc-notice hc-notice--compare">
+                                                    <p class="hc-notice__label">전월 말일기준</p>
+                                                    <p class="hc-notice__value">
+                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"></span>
+                                                        843,545원(+11.43%)
                                                     </p>
                                                 </div>
                                                 <div class="hero__chart-box">
@@ -355,30 +336,30 @@
                                                     <span class="blind">내 연금 자산 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box">
+                                            <div class="hcb-chart-box hcb-chart-box--tall">
                                                 <canvas data-insight-chart="pension" aria-hidden="true"></canvas>
                                                 <ul class="blind">
                                                     <li>개인연금: 전월 6,300,000원, 금월 6,654,328원</li>
                                                     <li>퇴직연금: 전월 950,000원, 금월 1,000,000원</li>
                                                 </ul>
                                             </div>
-                                            <div class="hcb-legend">
-                                                <span>
-                                                    <i style="background: #8ec567;"></i>
-                                                    금월 연금자산
-                                                </span>
-                                                <span>
-                                                    <i style="background: #a2a8b2;"></i>
-                                                    전월 연금자산
-                                                </span>
-                                            </div>
-                                            <div class="hcb-promo">
-                                                <div class="hcb-promo__text">
-                                                    <p class="hcb-promo__eyebrow">NH에서 추천하는 상품을 알려드려요</p>
-                                                    <p class="hcb-promo__cta">연금 추천상품 보기</p>
+                                            <div class="hcb-legend hcb-legend--dated">
+                                                <div class="hcb-legend__col">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #a1f069;"></i>
+                                                        금월 연금 자산
+                                                    </span>
+                                                    <span class="hcb-legend__date">(2027.06.30 기준)</span>
                                                 </div>
-                                                <img class="hcb-promo__mascot" src="../../images/update/img-3d-rocket-launch.png" alt="" aria-hidden="true" />
+                                                <div class="hcb-legend__col">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #c8d2e4;"></i>
+                                                        현재 연금 자산
+                                                    </span>
+                                                    <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                </div>
                                             </div>
+                                            <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -390,22 +371,20 @@
                                     <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
                                             <div class="hc-top">
-                                                <p class="hc-title">내 대출 자산</p>
-                                                <p class="hc-date">2027.07.13일 기준</p>
+                                                <p class="hc-title">대출 현황</p>
+                                                <p class="hc-date">
+                                                    2027.07.13일 기준
+                                                    <span class="hc-date__icon" aria-hidden="true"></span>
+                                                </p>
                                                 <p class="hc-amount">
                                                     390,654,328
                                                     <span>원</span>
                                                 </p>
-                                                <span class="hc-change">
-                                                    <span class="hc-change__icon" aria-hidden="true"></span>
-                                                    1,058,000원(-16.54%)
-                                                </span>
-                                                <div class="hc-notice">
-                                                    <span class="hc-notice__icon hc-notice__icon--check" aria-hidden="true"></span>
-                                                    <p>
-                                                        <strong class="hc-notice__accent">D-30</strong>
-                                                        주택담보대출 원리금납입
-                                                        <strong class="hc-notice__accent">예정이에요</strong>
+                                                <div class="hc-notice hc-notice--compare">
+                                                    <p class="hc-notice__label">전월 말일기준</p>
+                                                    <p class="hc-notice__value">
+                                                        <span class="hc-change__icon" aria-hidden="true"></span>
+                                                        1,058,000원(-16.54%)
                                                     </p>
                                                 </div>
                                                 <div class="hero__chart-box">
@@ -447,30 +426,30 @@
                                                     <span class="blind">대출 잔액 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box">
+                                            <div class="hcb-chart-box hcb-chart-box--tall">
                                                 <canvas data-insight-chart="loan" aria-hidden="true"></canvas>
                                                 <ul class="blind">
                                                     <li>신용대출: 전월 16,200,000원, 금월 15,580,000원</li>
                                                     <li>주택담보대출: 전월 372,000,000원, 금월 375,059,500원</li>
                                                 </ul>
                                             </div>
-                                            <div class="hcb-legend">
-                                                <span>
-                                                    <i style="background: #8ec567;"></i>
-                                                    금월 대출잔액
-                                                </span>
-                                                <span>
-                                                    <i style="background: #a2a8b2;"></i>
-                                                    전월 대출잔액
-                                                </span>
-                                            </div>
-                                            <div class="hcb-promo">
-                                                <div class="hcb-promo__text">
-                                                    <p class="hcb-promo__eyebrow">NH에서 추천하는 상품을 알려드려요</p>
-                                                    <p class="hcb-promo__cta">대출 추천상품 보기</p>
+                                            <div class="hcb-legend hcb-legend--dated">
+                                                <div class="hcb-legend__col">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #a1f069;"></i>
+                                                        금월 대출잔액
+                                                    </span>
+                                                    <span class="hcb-legend__date">(2027.06.30 기준)</span>
                                                 </div>
-                                                <img class="hcb-promo__mascot" src="../../images/update/img-3d-rocket-launch.png" alt="" aria-hidden="true" />
+                                                <div class="hcb-legend__col">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #c8d2e4;"></i>
+                                                        현재 대출잔액
+                                                    </span>
+                                                    <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                </div>
                                             </div>
+                                            <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1073,15 +1052,15 @@
                     if (!label) return;
                     var realSlideEl = swiperEl.querySelector('.swiper-slide:not(.swiper-slide-duplicate)[data-category-label="' + label + '"]');
                     // [버그 수정] "투자 카드를 뒤집고 한 바퀴 돌아 첫 슬라이드로 오면 그래프가
-                    // 전혀 안 보이다가 한 번 더 스와이프해야 나타남" — 인사이트 차트는 카드마다
-                    // 캔버스 속성이 다릅니다(투자만 data-trend-chart, 나머지 세 카드는
-                    // data-insight-chart). 아래에서 [data-insight-chart]만 찾았더니 투자 카드는
-                    // 매칭되는 캔버스가 없어 복제 슬라이드로 픽셀 동기화가 아예 안 됐고, 복제
-                    // 슬라이드의 캔버스는 애초에 한 번도 그려진 적 없는 빈 캔버스라 그 순간
-                    // 그래프가 완전히 사라진 것처럼 보였습니다(진짜 슬라이드로 순간 이동해야
-                    // 다시 나타남). 두 속성을 모두 찾도록 셀렉터를 합쳐서 투자 카드도 똑같이
-                    // 동기화되게 합니다.
-                    var realInsightCanvas = realSlideEl && realSlideEl.querySelector('[data-insight-chart], [data-trend-chart]');
+                    // 전혀 안 보이다가 한 번 더 스와이프해야 나타남" — 인사이트 차트는 원래 카드마다
+                    // 캔버스 속성이 달랐습니다(투자만 data-trend-chart, 나머지 세 카드는
+                    // data-insight-chart). [data-insight-chart]만 찾았더니 투자 카드는 매칭되는
+                    // 캔버스가 없어 복제 슬라이드로 픽셀 동기화가 아예 안 됐고, 복제 슬라이드의
+                    // 캔버스는 애초에 한 번도 그려진 적 없는 빈 캔버스라 그 순간 그래프가 완전히
+                    // 사라진 것처럼 보였습니다(진짜 슬라이드로 순간 이동해야 다시 나타남). 이후
+                    // 투자 뒷면도 다른 3개 탭과 같은 data-insight-chart로 통일되어 지금은 4개 탭
+                    // 모두 이 셀렉터 하나로 잡힙니다.
+                    var realInsightCanvas = realSlideEl && realSlideEl.querySelector('[data-insight-chart]');
                     var siblingSlides = swiperEl.querySelectorAll('.swiper-slide[data-category-label="' + label + '"]');
                     siblingSlides.forEach(function (otherSlideEl) {
                         if (otherSlideEl === slideEl) return;
@@ -1099,7 +1078,7 @@
                         });
                         // 복제 슬라이드가 뒤집힌 채로 잠깐 보이더라도 빈 캔버스가 아니라 실제
                         // 인사이트 차트의 최신 스냅샷이 보이도록 픽셀을 그대로 복사합니다.
-                        var otherInsightCanvas = otherSlideEl.querySelector('[data-insight-chart], [data-trend-chart]');
+                        var otherInsightCanvas = otherSlideEl.querySelector('[data-insight-chart]');
                         if (realInsightCanvas && otherInsightCanvas && otherSlideEl.classList.contains('swiper-slide-duplicate')) {
                             if (otherInsightCanvas.width !== realInsightCanvas.width) otherInsightCanvas.width = realInsightCanvas.width;
                             if (otherInsightCanvas.height !== realInsightCanvas.height) otherInsightCanvas.height = realInsightCanvas.height;
@@ -1258,10 +1237,12 @@
                     });
                     tab.addEventListener('keydown', function (e) {
                         var targetIndex = null;
+                        // loop가 아니므로 양 끝에서는 순환하지 않고 그 자리에 멈춥니다(마지막
+                        // 탭에서 ArrowRight, 첫 탭에서 ArrowLeft를 눌러도 그대로 유지).
                         if (e.key === 'ArrowRight') {
-                            targetIndex = (i + 1) % tabs.length;
+                            targetIndex = Math.min(i + 1, tabs.length - 1);
                         } else if (e.key === 'ArrowLeft') {
-                            targetIndex = (i - 1 + tabs.length) % tabs.length;
+                            targetIndex = Math.max(i - 1, 0);
                         } else if (e.key === 'Home') {
                             targetIndex = 0;
                         } else if (e.key === 'End') {
@@ -1279,7 +1260,11 @@
                     slidesPerView: 1.08,
                     spaceBetween: 12,
                     centeredSlides: true,
-                    loop: true,
+                    // loop가 아니므로 첫 슬라이드(예금)에서는 왼쪽에, 마지막 슬라이드(대출)에서는
+                    // 오른쪽에 다른 카드가 비쳐 보이지 않습니다(양 끝에서 끊깁니다). slideToLoop()은
+                    // Swiper 내부적으로 loop:false일 때 slideTo()와 동일하게 동작해 탭 클릭/방향키
+                    // 코드는 그대로 둬도 됩니다.
+                    loop: false,
                     a11y: false, // 접근성은 위 커스텀 로직 + aria-hidden/aria-live로 직접 관리
                     // [버그 수정] 카드 4장(유동성/투자/연금/대출)은 인사이트 문구 줄바꿈 등으로
                     // 실제 높이가 서로 다른데, 기본(autoHeight:false) 상태에서는 Swiper가 컨테이너
@@ -1643,11 +1628,12 @@
                     // 현상의 원인). 999처럼 큰 값을 주면 Chart.js가 자동으로 rect 크기의 절반까지만
                     // 클램프하므로, 박스 높이가 몇이든 항상 바깥 박스와 정확히 같은 반원(알약) 모양이
                     // 되게 맞춥니다.
-                    // [디자인 반영] 피그마(node 3045:34894)에서 예금(liquidity) 탭의
-                    // .hero__chart-box만 radius가 8px(update.css --radius-8)로 바뀌어, 세그먼트
-                    // 양 끝도 알약(999 자동 클램프) 대신 그 8px과 맞는 고정값을 써야 곡률이
-                    // 일치합니다. 투자/연금/대출 3개 탭은 기존 디자인(알약) 그대로 유지합니다.
-                    var PILL_RADIUS = categoryKey === 'liquidity' ? 8 : 999;
+                    // [디자인 반영] 피그마(node 3045:34894 예금 / 3045:35885 투자 / 3045:34410
+                    // 연금 / 3045:34464 대출)에서 4개 탭 모두 .hero__chart-box radius가
+                    // 8px(update.css --radius-8)로 통일되어, 세그먼트 양 끝도 알약(999 자동
+                    // 클램프) 대신 그 8px과 맞는 고정값을 씁니다(전 탭 공통 — 예금만 적용하던
+                    // 이전 분기 제거).
+                    var PILL_RADIUS = 8;
                     datasets[0].borderRadius = { topLeft: PILL_RADIUS, bottomLeft: PILL_RADIUS, topRight: 0, bottomRight: 0 };
                     datasets[0].borderSkipped = false;
                     for (var i = 1; i < datasets.length - 1; i++) {
@@ -1803,14 +1789,12 @@
                 function buildInsightChart(categoryKey, labels, visualPrev, visualNow, realPrev, realNow, colors) {
                     var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-insight-chart="' + categoryKey + '"]');
                     if (!canvas) return;
-                    // [디자인 반영] 예금(liquidity) 탭만 새 피그마(node 3045:34894)로 다시
-                    // 그려졌습니다 — 막대 radius가 8px -> 2px로 바뀌고, "그래프 영역을 터치하시면
-                    // 전월 대비 증감액을 확인하실 수 있습니다"라는 기존 안내문(.hcb-hint)이 실제로
-                    //동작하도록 터치 시 증감액(금월-전월) 말풍선을 새로 추가합니다. 투자/연금/대출
-                    // 3개 탭은 아직 이전 디자인(8px, 마우스오버 시 전월/금월 값 두 줄 툴팁) 그대로
-                    // 유지합니다.
-                    var isRedesigned = categoryKey === 'liquidity';
-                    var BAR_RADIUS = isRedesigned ? 2 : 8; // 피그마 --radius/2, /8 토큰과 동일
+                    // [디자인 반영] 처음엔 예금(liquidity) 탭만 새 피그마(node 3045:34894)로
+                    // 다시 그려졌었지만, 이후 투자(3045:35026)/연금(3045:34750)/대출(3045:34805)
+                    // 뒷면도 전부 같은 패턴(막대 radius 2px, 터치 시 증감액(금월-전월) 말풍선,
+                    // .hcb-hint 안내문)으로 확인되어 4개 탭 공통으로 통일합니다(예금만 적용하던
+                    // 이전 분기 제거).
+                    var BAR_RADIUS = 2; // 피그마 --radius/2 토큰과 동일
 
                     function insightDiffTooltipHandler(context) {
                         var chart = context.chart;
@@ -1830,17 +1814,11 @@
                     }
 
                     // [디자인 반영] 피그마 막대 순서는 그룹마다 왼쪽=금월(초록), 오른쪽=현재(회색)
-                    // 입니다. 기존 3개 탭은 반대 순서(전월 먼저)로 이미 만들어져 있어 그대로 두고,
-                    // 예금 탭만 데이터셋 순서를 바꿔 그립니다.
-                    var datasets = isRedesigned
-                        ? [
-                            { label: '금월', data: visualNow, backgroundColor: colors.now, borderRadius: BAR_RADIUS, borderSkipped: false },
-                            { label: '전월', data: visualPrev, backgroundColor: colors.prev, borderRadius: BAR_RADIUS, borderSkipped: false }
-                        ]
-                        : [
-                            { label: '전월', data: visualPrev, backgroundColor: colors.prev, borderRadius: BAR_RADIUS, borderSkipped: false },
-                            { label: '금월', data: visualNow, backgroundColor: colors.now, borderRadius: BAR_RADIUS, borderSkipped: false }
-                        ];
+                    // 입니다(4개 탭 공통).
+                    var datasets = [
+                        { label: '금월', data: visualNow, backgroundColor: colors.now, borderRadius: BAR_RADIUS, borderSkipped: false },
+                        { label: '전월', data: visualPrev, backgroundColor: colors.prev, borderRadius: BAR_RADIUS, borderSkipped: false }
+                    ];
 
                     new Chart(canvas.getContext('2d'), {
                         type: 'bar',
@@ -1850,34 +1828,18 @@
                             maintainAspectRatio: false,
                             onResize: function () { syncBackFaceCloneCanvases(categoryKey, 'data-insight-chart'); },
                             // 스와이프 중 손가락이 캔버스를 스칠 때 touchmove가 hover로 인식돼
-                            // 툴팁이 뜨는 것을 막습니다(위 hero__chart-box와 같은 이유) — 단, 예금
-                            // 탭은 .hcb-hint 안내문대로 터치로 증감액을 확인할 수 있어야 하므로
-                            // touchstart/touchmove도 열어둡니다.
-                            events: isRedesigned
-                                ? ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove']
-                                : ['mousemove', 'mouseout'],
+                            // 툴팁이 뜨는 것을 막습니다(위 hero__chart-box와 같은 이유) — .hcb-hint
+                            // 안내문대로 터치로 증감액을 확인할 수 있어야 하므로 touchstart/touchmove도
+                            // 열어둡니다(4개 탭 공통).
+                            events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
                             plugins: {
                                 legend: { display: false }, // 범례는 위 .hcb-legend(HTML)로 대체
-                                tooltip: isRedesigned
-                                    ? { enabled: false, external: insightDiffTooltipHandler }
-                                    : {
-                                        callbacks: {
-                                            title: function (items) { return items[0].label; },
-                                            label: function (context) {
-                                                var realArr = context.datasetIndex === 0 ? realPrev : realNow;
-                                                var value = realArr[context.dataIndex];
-                                                return context.dataset.label + ': ' + value.toLocaleString() + '원';
-                                            }
-                                        }
-                                    }
+                                tooltip: { enabled: false, external: insightDiffTooltipHandler }
                             },
                             scales: {
                                 x: {
                                     grid: { display: false },
-                                    ticks: {
-                                        font: { size: isRedesigned ? 12 : 11 },
-                                        color: isRedesigned ? '#4f5359' : '#6d6d6d'
-                                    }
+                                    ticks: { font: { size: 12 }, color: '#4f5359' }
                                 },
                                 y: { display: false, beginAtZero: true }
                             }
@@ -1908,7 +1870,7 @@
                     [140, 21],
                     [6300000, 950000],
                     [6654328, 1000000],
-                    { prev: '#a2a8b2', now: '#8ec567' }
+                    { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
                 buildInsightChart(
@@ -1918,82 +1880,24 @@
                     [15, 137],
                     [16200000, 372000000],
                     [15580000, 375059500],
-                    { prev: '#a2a8b2', now: '#8ec567' }
+                    { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
-                // 투자 뒷면 — 다른 3개 탭과 달리 전월/금월 2시점 비교가 아니라, 최근 6개월간
-                // 자산 구성비 추이를 누적(stacked) 세로 막대로 보여줍니다(피그마 herocard_01
-                // back, node 1267:16786). 앞면과 같은 6개 색상 팔레트를 그대로 사용합니다.
-                function buildTrendChart(categoryKey, months, series) {
-                    var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-trend-chart="' + categoryKey + '"]');
-                    if (!canvas) return;
-                    // [디자인 반영] 피그마(node 1267:16786)는 누적 막대 전체를 하나의 알약(pill)
-                    // 모양으로 표현합니다 — 각 구간(segment)마다 둥글리는 게 아니라, 맨 아래(첫
-                    // 데이터셋)만 아래쪽 두 모서리를, 맨 위(마지막 데이터셋)만 위쪽 두 모서리를
-                    // 막대 두께의 절반만큼 둥글리고 나머지 중간 구간은 각지게 둡니다. Chart.js는
-                    // 코너별 반지름 객체를 지원하므로 데이터셋 위치에 따라 다르게 줍니다.
-                    var barThickness = 14;
-                    var capRadius = barThickness / 2;
-                    // [버그 수정] "차트도 모든 컬러가 나오도록 데이터도 수정해줘" — 해외신흥국주식/
-                    // 국내채권/해외채권 실제 금액(550~1050원)이 국내주식/현금(수십~수백만원)에 비해
-                    // 너무 작아서 누적 막대에서 실제 비율대로 그리면 두께가 1px도 안 돼 사실상 안
-                    // 보였습니다(위 buildInsightChart의 "시각 높이 vs 실제 금액" 분리와 같은 문제).
-                    // 같은 해법으로, 작은 값 시리즈에는 실제 값과 비례 관계(추세 모양)는 유지하되
-                    // 최소한의 가시성을 보장하는 별도의 visual 배열을 두고, 툴팁에는 원래의 실제
-                    // 금액(data)을 그대로 보여줍니다.
-                    var datasets = series.map(function (s, i) {
-                        var isFirst = i === 0;
-                        var isLast = i === series.length - 1;
-                        return {
-                            label: s.label,
-                            data: s.visual || s.data,
-                            backgroundColor: s.color,
-                            borderRadius: {
-                                topLeft: isLast ? capRadius : 0,
-                                topRight: isLast ? capRadius : 0,
-                                bottomLeft: isFirst ? capRadius : 0,
-                                bottomRight: isFirst ? capRadius : 0
-                            },
-                            borderSkipped: false,
-                            barThickness: barThickness
-                        };
-                    });
-                    new Chart(canvas.getContext('2d'), {
-                        type: 'bar',
-                        data: { labels: months, datasets: datasets },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            onResize: function () { syncBackFaceCloneCanvases(categoryKey, 'data-trend-chart'); },
-                            events: ['mousemove', 'mouseout'],
-                            plugins: {
-                                legend: { display: false }, // 범례는 아래 .hcb-legend--grid(HTML)로 대체
-                                tooltip: {
-                                    callbacks: {
-                                        label: function (context) {
-                                            // 시각 높이가 아니라 실제 금액(series[i].data)을 보여줍니다.
-                                            var real = series[context.datasetIndex].data[context.dataIndex];
-                                            return context.dataset.label + ': ' + real.toLocaleString() + '원';
-                                        }
-                                    }
-                                }
-                            },
-                            scales: {
-                                x: { stacked: true, grid: { display: false }, ticks: { font: { size: 11 }, color: '#6d6d6d' } },
-                                y: { stacked: true, display: false, beginAtZero: true }
-                            }
-                        }
-                    });
-                }
-
-                buildTrendChart('invest', ['27.02', '27.03', '27.04', '27.05', '27.06', '27.07'], [
-                    { label: '국내주식', color: '#f4ff3f', data: [825000, 930000, 1200000, 1050000, 1575000, 1500000] },
-                    { label: '해외선진국주식', color: '#ffa856', data: [275000, 310000, 400000, 350000, 525000, 500000] },
-                    { label: '해외신흥국주식', color: '#ff7e7e', data: [550, 620, 800, 700, 1050, 1000], visual: [120000, 135000, 174000, 153000, 229000, 218000] },
-                    { label: '국내채권', color: '#49d8ff', data: [550, 620, 800, 700, 1050, 1000], visual: [80000, 90000, 116000, 101500, 152000, 145000] },
-                    { label: '해외채권', color: '#09b2c5', data: [550, 620, 800, 700, 1050, 1000], visual: [107000, 121000, 156000, 136500, 205000, 195000] },
-                    { label: '현금', color: '#08d561', data: [1100000, 1240000, 1600000, 1400000, 2100000, 2000000] }
-                ]);
+                // [디자인 반영] 투자 탭 뒷면도 피그마(node 3045:35026)에서 다른 3개 탭과 같은
+                // "전월/금월 비교 막대" 패턴으로 확인되어(예전엔 6개월 추이 누적 막대였음),
+                // 위 buildInsightChart로 통일합니다. 카테고리별 전월 값은 별도 이력 데이터가
+                // 없어, 기존에 6개월 추이용으로 써 두었던 시리즈의 직전월(27.06) 값을 그대로
+                // 전월 실제 금액으로 재사용합니다(작은 금액 3종은 그때 만들어 둔 visual 보정값도
+                // 그대로 재사용해 최소 시각 폭을 확보합니다).
+                buildInsightChart(
+                    'invest',
+                    ['국내주식', '해외선진국주식', '해외신흥국주식', '국내채권', '해외채권', '현금'],
+                    [105, 35, 15, 10, 14, 140],
+                    [100, 33, 14, 9, 13, 133],
+                    [1575000, 525000, 1050, 1050, 1050, 2100000],
+                    [1500000, 500000, 1000, 1000, 1000, 2000000],
+                    { prev: '#c8d2e4', now: '#a1f069' }
+                );
             })();
 
             // 대출자산 탭 — 프로모 배너 캐러셀(스크롤 스냅) 페이지 인디케이터 동기화
