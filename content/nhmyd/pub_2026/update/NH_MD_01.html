@@ -49,11 +49,18 @@
                                                     2027.07.13일 기준
                                                     <span class="hc-date__icon" aria-hidden="true"></span>
                                                 </p>
-                                                <p class="hc-amount">
+                                                <div class="hc-amount tooltipWrap">
                                                     1,090,548,000
                                                     <span>원</span>
-                                                    <span class="hc-amount__tooltip" aria-hidden="true"></span>
-                                                </p>
+                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">외화 계좌 안내 보기</span></a>
+                                                    <div class="tooltipCont" style="display: none">
+                                                        <h3>외화 계좌 안내</h3>
+                                                        <ul>
+                                                            <li>외화 계좌는 전일 환율을 반영하여, 자산 금액이 다를 수 있습니다.</li>
+                                                        </ul>
+                                                        <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                                                    </div>
+                                                </div>
                                                 <div class="hc-notice hc-notice--compare">
                                                     <p class="hc-notice__label">전월 말일기준</p>
                                                     <p class="hc-notice__value">
@@ -114,33 +121,32 @@
                                                     <span class="blind">자산 현황 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box">
+                                            <div class="hcb-chart-box hcb-chart-box--tall">
                                                 <canvas data-insight-chart="liquidity" aria-hidden="true"></canvas>
                                                 <ul class="blind">
                                                     <li>입출금: 전월 560,000,000원, 금월 590,500,000원</li>
-                                                    <li>예금: 전월 42,000,000원, 금월 44,500,000원</li>
-                                                    <li>적금: 전월 52,000,000원, 금월 55,048,000원</li>
-                                                    <li>외화: 전월 380,000,000원, 금월 400,000,000원</li>
+                                                    <li>예적금: 전월 42,000,000원, 금월 44,500,000원</li>
+                                                    <li>외화: 전월 52,000,000원, 금월 55,048,000원</li>
+                                                    <li>기타: 전월 450,000원, 금월 500,000원</li>
                                                 </ul>
                                             </div>
-                                            <div class="hcb-legend">
-                                                <span>
-                                                    <i style="background: #8ec567;"></i>
-                                                    금월 예금 자산
-                                                </span>
-                                                <span>
-                                                    <i style="background: #a2a8b2;"></i>
-                                                    현재 예금 자산
-                                                </span>
+                                            <div class="hcb-legend hcb-legend--dated">
+                                                <div class="hcb-legend__col">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #a1f069;"></i>
+                                                        금월 예금 자산
+                                                    </span>
+                                                    <span class="hcb-legend__date">(2027.06.30 기준)</span>
+                                                </div>
+                                                <div class="hcb-legend__col">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #c8d2e4;"></i>
+                                                        현재 예금 자산
+                                                    </span>
+                                                    <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                </div>
                                             </div>
                                             <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
-                                            <div class="hcb-promo">
-                                                <div class="hcb-promo__text">
-                                                    <p class="hcb-promo__eyebrow">NH에서 추천하는 상품을 알려드려요</p>
-                                                    <p class="hcb-promo__cta">예금 추천상품 보기</p>
-                                                </div>
-                                                <img class="hcb-promo__mascot" src="../../images/update/img-3d-rocket-launch.png" alt="" aria-hidden="true" />
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1543,6 +1549,14 @@
                         tooltipEl.innerHTML = innerHtml;
                     }
 
+                    positionChartTooltip(tooltipEl, chart, tooltip);
+                }
+
+                // externalTooltipHandler와 뒷면 insightDiffTooltipHandler(아래 buildInsightChart
+                // 안)가 공통으로 쓰는 말풍선 위치 계산 — 캔버스 기준 캐럿(caret) 좌표에 맞춰
+                // 띄우고, 화면 좌우 끝에 닿으면 안쪽으로 밀어주되 화살표(::after, --tt-arrow-left)는
+                // 원래 캐럿 위치를 계속 가리키도록 보정합니다.
+                function positionChartTooltip(tooltipEl, chart, tooltip) {
                     var positionX = chart.canvas.offsetLeft;
                     var positionY = chart.canvas.offsetTop;
                     tooltipEl.style.opacity = 1;
@@ -1629,7 +1643,11 @@
                     // 현상의 원인). 999처럼 큰 값을 주면 Chart.js가 자동으로 rect 크기의 절반까지만
                     // 클램프하므로, 박스 높이가 몇이든 항상 바깥 박스와 정확히 같은 반원(알약) 모양이
                     // 되게 맞춥니다.
-                    var PILL_RADIUS = 999;
+                    // [디자인 반영] 피그마(node 3045:34894)에서 예금(liquidity) 탭의
+                    // .hero__chart-box만 radius가 8px(update.css --radius-8)로 바뀌어, 세그먼트
+                    // 양 끝도 알약(999 자동 클램프) 대신 그 8px과 맞는 고정값을 써야 곡률이
+                    // 일치합니다. 투자/연금/대출 3개 탭은 기존 디자인(알약) 그대로 유지합니다.
+                    var PILL_RADIUS = categoryKey === 'liquidity' ? 8 : 999;
                     datasets[0].borderRadius = { topLeft: PILL_RADIUS, bottomLeft: PILL_RADIUS, topRight: 0, bottomRight: 0 };
                     datasets[0].borderSkipped = false;
                     for (var i = 1; i < datasets.length - 1; i++) {
@@ -1717,11 +1735,13 @@
                 // 안 보입니다. chart.html의 Stacked Bar Chart 샘플에서 쓴 것과 같은 방식으로,
                 // 차트에 넘기는 값만 최소 시각 폭을 위해 보정하고(아래 각 값), 하단
                 // .hero__legend에 표시되는 실제 금액(10,000원/1,482원)은 그대로 둡니다.
+                // [디자인 반영] 피그마(node 3045:34894)의 예금 탭 앞면은 5개가 아니라 4개
+                // 세그먼트(입출금/예적금/외화/기타)로 재구성되어 있어, 위 .hero__legend(HTML,
+                // 이미 4개로 반영됨)와 맞춰 여기 데이터도 4개로 줄입니다.
                 buildStackedBarChart('liquidity', [
                     makeDataset('입출금', 590500000, '#f4ff3f'),
-                    makeDataset('예금', 44500000, '#ff7e7e'),
-                    makeDataset('적금', 55048000, '#49d8ff'),
-                    makeDataset('외화', 400000000, '#08d561'),
+                    makeDataset('예적금', 44500000, '#ff7e7e'),
+                    makeDataset('외화', 55048000, '#49d8ff'),
                     makeDataset('기타', 500000, '#ffa856')
                 ]);
 
@@ -1783,56 +1803,102 @@
                 function buildInsightChart(categoryKey, labels, visualPrev, visualNow, realPrev, realNow, colors) {
                     var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-insight-chart="' + categoryKey + '"]');
                     if (!canvas) return;
-                    // [디자인 반영] 피그마(herocard_04 back, node 1267:16612)의 막대 radius를
-                    // 그대로 맞춥니다 — 각 막대(전월/금월 둘 다) 네 모서리 전부 rounded-[var(--radius/8,8px)],
-                    // 즉 update.css의 --radius-8(8px) 토큰과 동일한 8px입니다. borderSkipped:false는
-                    // 이미 있던 설정으로 위/아래 네 모서리를 전부 둥글립니다(Chart.js 기본값은 위쪽만).
-                    var BAR_RADIUS = 8; // update.css --radius-8 / 피그마 --radius/8 토큰과 동일
+                    // [디자인 반영] 예금(liquidity) 탭만 새 피그마(node 3045:34894)로 다시
+                    // 그려졌습니다 — 막대 radius가 8px -> 2px로 바뀌고, "그래프 영역을 터치하시면
+                    // 전월 대비 증감액을 확인하실 수 있습니다"라는 기존 안내문(.hcb-hint)이 실제로
+                    //동작하도록 터치 시 증감액(금월-전월) 말풍선을 새로 추가합니다. 투자/연금/대출
+                    // 3개 탭은 아직 이전 디자인(8px, 마우스오버 시 전월/금월 값 두 줄 툴팁) 그대로
+                    // 유지합니다.
+                    var isRedesigned = categoryKey === 'liquidity';
+                    var BAR_RADIUS = isRedesigned ? 2 : 8; // 피그마 --radius/2, /8 토큰과 동일
+
+                    function insightDiffTooltipHandler(context) {
+                        var chart = context.chart;
+                        var tooltip = context.tooltip;
+                        var tooltipEl = getOrCreateTooltip(chart);
+                        if (tooltip.opacity === 0) {
+                            tooltipEl.style.opacity = 0;
+                            return;
+                        }
+                        if (tooltip.dataPoints && tooltip.dataPoints.length) {
+                            var idx = tooltip.dataPoints[0].dataIndex;
+                            var diff = realNow[idx] - realPrev[idx];
+                            var sign = diff >= 0 ? '+' : '-';
+                            tooltipEl.innerHTML = '<div class="chartjs-tooltip__row">' + sign + Math.abs(diff).toLocaleString() + '원</div>';
+                        }
+                        positionChartTooltip(tooltipEl, chart, tooltip);
+                    }
+
+                    // [디자인 반영] 피그마 막대 순서는 그룹마다 왼쪽=금월(초록), 오른쪽=현재(회색)
+                    // 입니다. 기존 3개 탭은 반대 순서(전월 먼저)로 이미 만들어져 있어 그대로 두고,
+                    // 예금 탭만 데이터셋 순서를 바꿔 그립니다.
+                    var datasets = isRedesigned
+                        ? [
+                            { label: '금월', data: visualNow, backgroundColor: colors.now, borderRadius: BAR_RADIUS, borderSkipped: false },
+                            { label: '전월', data: visualPrev, backgroundColor: colors.prev, borderRadius: BAR_RADIUS, borderSkipped: false }
+                        ]
+                        : [
+                            { label: '전월', data: visualPrev, backgroundColor: colors.prev, borderRadius: BAR_RADIUS, borderSkipped: false },
+                            { label: '금월', data: visualNow, backgroundColor: colors.now, borderRadius: BAR_RADIUS, borderSkipped: false }
+                        ];
+
                     new Chart(canvas.getContext('2d'), {
                         type: 'bar',
-                        data: {
-                            labels: labels,
-                            datasets: [
-                                { label: '전월', data: visualPrev, backgroundColor: colors.prev, borderRadius: BAR_RADIUS, borderSkipped: false },
-                                { label: '금월', data: visualNow, backgroundColor: colors.now, borderRadius: BAR_RADIUS, borderSkipped: false }
-                            ]
-                        },
+                        data: { labels: labels, datasets: datasets },
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
                             onResize: function () { syncBackFaceCloneCanvases(categoryKey, 'data-insight-chart'); },
                             // 스와이프 중 손가락이 캔버스를 스칠 때 touchmove가 hover로 인식돼
-                            // 툴팁이 뜨는 것을 막습니다(위 hero__chart-box와 같은 이유).
-                            events: ['mousemove', 'mouseout'],
+                            // 툴팁이 뜨는 것을 막습니다(위 hero__chart-box와 같은 이유) — 단, 예금
+                            // 탭은 .hcb-hint 안내문대로 터치로 증감액을 확인할 수 있어야 하므로
+                            // touchstart/touchmove도 열어둡니다.
+                            events: isRedesigned
+                                ? ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove']
+                                : ['mousemove', 'mouseout'],
                             plugins: {
-                                legend: { display: false }, // 범례는 위 .hero__insight-legend(HTML)로 대체
-                                tooltip: {
-                                    callbacks: {
-                                        title: function (items) { return items[0].label; },
-                                        label: function (context) {
-                                            var realArr = context.datasetIndex === 0 ? realPrev : realNow;
-                                            var value = realArr[context.dataIndex];
-                                            return context.dataset.label + ': ' + value.toLocaleString() + '원';
+                                legend: { display: false }, // 범례는 위 .hcb-legend(HTML)로 대체
+                                tooltip: isRedesigned
+                                    ? { enabled: false, external: insightDiffTooltipHandler }
+                                    : {
+                                        callbacks: {
+                                            title: function (items) { return items[0].label; },
+                                            label: function (context) {
+                                                var realArr = context.datasetIndex === 0 ? realPrev : realNow;
+                                                var value = realArr[context.dataIndex];
+                                                return context.dataset.label + ': ' + value.toLocaleString() + '원';
+                                            }
                                         }
                                     }
-                                }
                             },
                             scales: {
-                                x: { grid: { display: false }, ticks: { font: { size: 11 }, color: '#6d6d6d' } },
+                                x: {
+                                    grid: { display: false },
+                                    ticks: {
+                                        font: { size: isRedesigned ? 12 : 11 },
+                                        color: isRedesigned ? '#4f5359' : '#6d6d6d'
+                                    }
+                                },
                                 y: { display: false, beginAtZero: true }
                             }
                         }
                     });
                 }
 
+                // [디자인 반영] 위 buildStackedBarChart('liquidity', ...)와 같은 4개 카테고리
+                // (입출금/예적금/외화/기타)로 맞추고, 색상도 피그마 --component/chart/chart_now
+                // (#a1f069)·chart_before(#c8d2e4)로 갱신합니다. 전월 실제 금액은 별도 이력
+                // 데이터가 없어, 기존 예금/적금 전월 값을 그대로 예적금/외화 전월 값으로 이어
+                // 쓰고(각각 42,000,000원, 52,000,000원 — 이미 있던 값과 동일), 기타는 금월
+                // 500,000원 대비 약 10% 적은 450,000원으로 둡니다.
                 buildInsightChart(
                     'liquidity',
-                    ['입출금', '예금', '적금', '외화'],
-                    [126, 10, 12, 90],
-                    [140, 9, 11, 85],
-                    [560000000, 42000000, 52000000, 380000000],
-                    [590500000, 44500000, 55048000, 400000000],
-                    { prev: '#a2a8b2', now: '#8ec567' }
+                    ['입출금', '예적금', '외화', '기타'],
+                    [124, 30, 36, 6],
+                    [132, 33, 38, 7],
+                    [560000000, 42000000, 52000000, 450000],
+                    [590500000, 44500000, 55048000, 500000],
+                    { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
                 buildInsightChart(

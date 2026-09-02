@@ -257,6 +257,7 @@
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
 .nds .note {margin:var(--spacing-20) 0;background-color:var(--color-bg-banner);border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);line-height:20px;color:var(--color-font-3)}
 .nds .bt-1{border-top:1px solid var(--color-border-3) !important}
+.nds.nhasset .tooltipWrap .tooltipCont{width:100% !important;border:1px solid var(--color-bg-default)}
 /* ---- 간격 가이드(세로 스택, 클래스명 = gap 값) ---- */
 [class^="stack--"] {display:flex;flex-direction:column;width:100%}
 .nds .stack--8 {gap:var(--spacing-8)}
@@ -1396,6 +1397,11 @@
 /* ---- 자산 구성비 막대(Chart.js stackedBarChart) ---- */
 .hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;border-radius:var(--radius-full);box-shadow:0 0 2px rgba(0,0,0,0.1);margin-top:var(--spacing-48)}
 .hero__chart-box canvas {display:block;width:100%;height:100%;max-width:100%;border-radius:var(--radius-full)}
+/* [디자인 반영] 피그마(node 3045:34894)에서 예금 탭만 이 박스의 radius가 8px로 바뀝니다.
+   .hc-top은 4개 탭이 공유하는 클래스라 여기 쓰면 전체에 적용되므로, 예금 슬라이드에만
+   달린 data-category-label="예금"으로 scope해 다른 3개 탭(알약 radius)은 그대로 둡니다. */
+.swiper-slide[data-category-label="예금"] .hero__chart-box {border-radius:var(--radius-8)}
+.swiper-slide[data-category-label="예금"] .hero__chart-box canvas {border-radius:var(--radius-8)}
 .chartjs-tooltip {position:absolute;pointer-events:none;opacity:0;transition:opacity .12s ease;z-index:10;background:rgba(17,17,17,.92);color:var(--primitive-base-0);border-radius:var(--radius-8);padding:var(--spacing-8) var(--spacing-12);font-size:13px;line-height:1.6;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.18)}
 .chartjs-tooltip::after {content:"";position:absolute;left:var(--tt-arrow-left,50%);bottom:-6px;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(17,17,17,.92)}
 .chartjs-tooltip__title {font-weight:600;margin-bottom:var(--spacing-2);opacity:.85}
@@ -1420,8 +1426,8 @@
 /* ---- 위클리 브리핑 / 대출 금리 케어 / 조기 은퇴 진단 위젯 카드 ---- */
 .widget__desc {font-size:var(--type-size-16);font-weight:400;letter-spacing:-0.32px;color:var(--primitive-gray-800);line-height:1.4;margin:0 0 var(--spacing-8)}
 .widget__desc strong {display:block;font-weight:500;color:var(--primitive-gray-900);line-height:1.7;margin-top:var(--spacing-8)}
-.widget__caption {display:flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-12);font-weight:300;letter-spacing:-0.12px;color:var(--primitive-gray-600);margin:0 0 var(--spacing-20)}
-.widget__caption::before {content:"";display:block;width:16px;height:16px;flex-shrink:0;background:url("../images/update/ic-alert-mark.svg") no-repeat center/contain}
+.widget__caption {display:flex;align-items:flex-start;gap:var(--spacing-4);font-size:var(--type-size-12);font-weight:300;letter-spacing:-0.12px;color:var(--primitive-gray-600);margin:0 0 var(--spacing-20)}
+.widget__caption::before {content:"";display:block;width:14px;height:14px;flex-shrink:0;background:url("../images/update/ic-warning-circle.svg") no-repeat center/contain;margin-top:2px}
 .widget__cta {display:block;width:100%;background:#eff1f9;border:none;border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);font-weight:500;letter-spacing:-0.35px;color:#3e4c59;text-align:center;cursor:pointer}
 /* ---- 자산 카테고리 탭 콘텐츠(투자/유동성/연금/대출자산) — 탭별로 표시되는 인사이트/시황 카드 ---- */
 .asset-tab-panel[hidden] {display:none}
@@ -1549,7 +1555,7 @@
 /* ---- 예금(유동성) 탭 히어로 카드 리뉴얼 — 새로고침/툴팁 아이콘, 전월 대비 비교 박스 ---- */
 .hc-date {display:inline-flex;align-items:center;gap:var(--spacing-4)}
 .hc-date__icon {display:block;width:16px;height:16px;flex-shrink:0;background:url("../images/update/ic_refresh.svg") no-repeat center/contain}
-.hc-amount__tooltip {display:block;width:20px;height:20px;flex-shrink:0;align-self:center;background-color:var(--primitive-base-0);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.hc-amount .toolTipBtn {width:20px !important;height:20px !important;flex-shrink:0;align-self:center;background:var(--primitive-base-0) !important;-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg") ;mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .hc-notice--compare {justify-content:space-between}
 .hc-notice__label {margin:0}
 .hc-notice__value {display:inline-flex;align-items:center;gap:3px;font-weight:var(--font-weight-bold);font-size:var(--type-size-13)}
@@ -1580,6 +1586,16 @@
 .hcb-hint {margin:0 0 var(--spacing-16)}
 .hcb-chart-box {position:relative;background:var(--primitive-gray-100);border-radius:var(--radius-16);height:290px;padding:var(--spacing-16) var(--spacing-8) var(--spacing-8);box-sizing:border-box;margin:0}
 .hcb-chart-box canvas {display:block;width:100%;height:100%;}
+/* [디자인 반영] 예금 탭 뒷면(node 3045:34894)만 박스 높이가 290px -> 318px로 커집니다. */
+.hcb-chart-box--tall {height:318px}
+/* [디자인 반영] 예금 탭 뒷면 범례 — 기존 .hcb-legend(가로 나열)와 달리, 스와치+라벨
+   아래에 기준일 캡션이 한 줄 더 붙는 2열 구성입니다. 다른 탭은 .hcb-legend만 계속 쓰므로
+   영향 없습니다. */
+.hcb-legend--dated {align-items:flex-start;justify-content:center;gap:var(--spacing-8)}
+.hcb-legend--dated .hcb-legend__col {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-4);flex:1;max-width:98px}
+.hcb-legend--dated .hcb-legend__item {display:inline-flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-12);color:var(--primitive-gray-font-800);white-space:nowrap}
+.hcb-legend--dated .hcb-legend__item i {display:inline-block;width:8px;height:8px;border-radius:var(--radius-2);flex-shrink:0}
+.hcb-legend--dated .hcb-legend__date {font-size:var(--type-size-12);color:var(--primitive-gray-font-600)}
 .hcb-promo {display:flex;align-items:center;gap:var(--spacing-12);background:rgba(232,248,255,0.5);border-radius:var(--radius-12);padding:var(--spacing-12) var(--spacing-16);box-sizing:border-box}
 .hcb-promo__text {flex:1;min-width:0}
 .hcb-promo__eyebrow {font-size:var(--type-size-12);color:#023e58;margin:0 0 var(--spacing-2)}
