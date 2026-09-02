@@ -49,6 +49,29 @@
                 </div>
                 <div id="panel-bar-1" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-1" tabindex="0" hidden>추천기관</div>
                 <div id="panel-bar-2" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-2" tabindex="0">
+                    <!-- 
+                    마이데이터 기가입자가 자산 추가시, 
+                    기관 미선택이 Default 
+                    (가입기관 불러오기, 기관명 검색 추가 노출) 
+                    class="subscriber-nudge" 부분 제어
+                    -->
+                    <div id="preJoinedSearch" class="subscriber-nudge">
+                        <button type="button" class="subscriber-nudge__btn">
+                            <p class="subscriber-nudge__text">
+                                <img class="subscriber-nudge__img" src="../../images/update//ic-bank-building.svg" alt="">
+                                가입기관 불러오기
+                            </p>
+                        </button>
+                        <div class="input-box">
+                            <label class="input-box__label blind" for="search-box-1">기관명</label>
+                            <div class="input-box__field">
+                                <input type="text" id="search-box-1" class="input-box__input" placeholder="기관명을 입력하세요" autocomplete="off" />
+                                <button type="button" class="input-box__icon input-box__icon--clear" id="searchClear1" aria-label="검색어 지우기" hidden></button>
+                                <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="chips chips--sticky">
                         <div class="chip-accordion__chips">
                             <button type="button" class="chip-single chip-single--active" aria-pressed="true">
