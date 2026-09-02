@@ -165,10 +165,18 @@
                                                         <span class="blind">최신 정보로 새로고침</span>
                                                     </button>
                                                 </p>
-                                                <p class="hc-amount">
+                                                <div class="hc-amount tooltipWrap">
                                                     18,950,450
                                                     <span>원</span>
-                                                </p>
+                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">외화 계좌 안내 보기</span></a>
+                                                    <div class="tooltipCont" style="display: none">
+                                                        <h3>외화 계좌 안내</h3>
+                                                        <ul>
+                                                            <li>외화 계좌는 전일 환율을 반영하여, 자산 금액이 다를 수 있습니다.</li>
+                                                        </ul>
+                                                        <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                                                    </div>
+                                                </div>
                                                 <div class="hc-notice hc-notice--compare">
                                                     <p class="hc-notice__label">전월 말일기준</p>
                                                     <p class="hc-notice__value">
@@ -289,10 +297,18 @@
                                                         <span class="blind">최신 정보로 새로고침</span>
                                                     </button>
                                                 </p>
-                                                <p class="hc-amount">
+                                                <div class="hc-amount tooltipWrap">
                                                     7,654,328
                                                     <span>원</span>
-                                                </p>
+                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">외화 계좌 안내 보기</span></a>
+                                                    <div class="tooltipCont" style="display: none">
+                                                        <h3>외화 계좌 안내</h3>
+                                                        <ul>
+                                                            <li>외화 계좌는 전일 환율을 반영하여, 자산 금액이 다를 수 있습니다.</li>
+                                                        </ul>
+                                                        <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                                                    </div>
+                                                </div>
                                                 <div class="hc-notice hc-notice--compare">
                                                     <p class="hc-notice__label">전월 말일기준</p>
                                                     <p class="hc-notice__value">
@@ -397,10 +413,18 @@
                                                         <span class="blind">최신 정보로 새로고침</span>
                                                     </button>
                                                 </p>
-                                                <p class="hc-amount">
+                                                <div class="hc-amount tooltipWrap">
                                                     390,654,328
                                                     <span>원</span>
-                                                </p>
+                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">외화 계좌 안내 보기</span></a>
+                                                    <div class="tooltipCont" style="display: none">
+                                                        <h3>외화 계좌 안내</h3>
+                                                        <ul>
+                                                            <li>외화 계좌는 전일 환율을 반영하여, 자산 금액이 다를 수 있습니다.</li>
+                                                        </ul>
+                                                        <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                                                    </div>
+                                                </div>
                                                 <div class="hc-notice hc-notice--compare">
                                                     <p class="hc-notice__label">전월 말일기준</p>
                                                     <p class="hc-notice__value">
@@ -1504,7 +1528,12 @@
                             scales: {
                                 x: {
                                     grid: { display: false },
-                                    ticks: { font: { size: 12 }, color: '#4f5359' }
+                                    // maxRotation/minRotation을 0으로 고정해 피그마처럼 라벨이
+                                    // 항상 가로로만 놓이게 합니다(대출 탭처럼 라벨이 길어 자동
+                                    // 회전되던 문제 방지) — 대신 길어서 안 들어가는 라벨은 호출부에서
+                                    // ['주택관련','대출']처럼 배열로 줘서 2줄로 줄바꿈합니다(Chart.js는
+                                    // 라벨을 배열로 주면 각 요소를 한 줄씩 그립니다).
+                                    ticks: { font: { size: 12 }, color: '#4f5359', maxRotation: 0, minRotation: 0 }
                                 },
                                 y: { display: false, beginAtZero: true }
                             }
@@ -1544,7 +1573,11 @@
 
                 buildInsightChart(
                     'loan',
-                    ['주택관련대출', '신용대출', '예적금대출', '카드대출', '기타대출'],
+                    // [디자인 반영] 피그마(node 3045:34805)는 라벨이 길면(3글자 넘는 접두어 +
+                    // "대출") 회전 없이 2줄로 줄바꿈합니다 — "주택관련대출"→"주택관련"/"대출",
+                    // "예적금대출"→"예적금"/"대출". "신용대출"/"카드대출"/"기타대출"처럼 짧은
+                    // 건 그대로 한 줄입니다.
+                    [['주택관련', '대출'], '신용대출', ['예적금', '대출'], '카드대출', '기타대출'],
                     [137, 32, 16, 14, 9],
                     [140, 30, 18, 12, 8],
                     [372000000, 8200000, 3900000, 2100000, 1600000],
