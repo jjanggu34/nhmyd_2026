@@ -1631,25 +1631,22 @@
 .hcb-promo__eyebrow {font-size:var(--type-size-12);color:#023e58;margin:0 0 var(--spacing-2)}
 .hcb-promo__cta {font-size:var(--type-size-15);font-weight:var(--font-weight-semibold);color:#095778;margin:0}
 .hcb-promo__mascot {width:54px;height:58px;object-fit:contain;flex-shrink:0}
-
-/* [디자인 반영] 피그마 herocard_samll(node 3045:36931 투자 / 3045:37358 대출, 320px
-   이하 전용 변형)를 보면 히어로 카드 안 텍스트가 지금 폰트보다 전체적으로 작습니다.
-   다만 프레임 두 개를 직접 재보면 같은 hc-title인데도 투자 카드는 18px→15.18px
-   (0.843배), 대출 카드는 18px→14.7px(0.817배)로 요소마다 비율이 미묘하게 달랐는데,
-   이건 각 프레임을 손으로 리사이즈하면서 생긴 오차로 보고 두 비율의 평균인 약
-   0.83배 하나로 통일해서 반영합니다(카드 안 모든 텍스트에 동일 비율 — 탭마다
-   글자 크기가 들쭉날쭉해지는 것을 피하기 위함). 320px보다 넓으면 위에서 이미
-   정의한 원래 크기 그대로입니다. */
 @media (max-width:320px) {
-    .hc-title, .hcb-title {font-size:15px}
+    .hc-title, .hcb-title {font-size:15px;margin:0 0 var(--spacing-18)}
     .hc-date, .hc-notice__value, .hcb-legend span {font-size:11px}
-    .hc-amount {font-size:23px}
+    .hc-amount {font-size:23px;line-height:32px}
     .hc-amount span {font-size:20px}
     .hc-notice p, .hc-top .hero__legend li, .hc-stats__label,
     .hcb-legend--dated .hcb-legend__item, .hcb-legend--dated .hcb-legend__date {font-size:10px}
     .hc-cta__label, .hc-stats__value {font-size:12px}
+    .hc-stats__item{padding:11px;gap:var(--spacing-4)}
+    .hc-notice{padding:10px;margin:0 0 var(--spacing-16)}
+    .hc-notice::after{bottom:-16px}
+    .hcb-chart-box{padding:var(--spacing-12)}
+    .hcb-chart-box--tall{height:280px}
+    .hcb-chart-box .hcb-legend{margin:var(--spacing-12) 0 0}
+    .hero__chart-box, .hc-stats{margin:var(--spacing-32) 0 0}
 }
-
 .insight-list {display:flex;flex-direction:column}
 .insight-list__item {width:100%}
 .insight-list__row {display:flex;align-items:center;gap:var(--spacing-8);width:100%;background:none;border:none;padding:0;margin:0;cursor:pointer;text-align:left;font:inherit}
