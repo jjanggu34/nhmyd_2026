@@ -727,7 +727,8 @@
 .nds .accordion-gray__row-icons::after {-webkit-mask-image:url("../images/update/ic-arrow-right-24.svg");mask-image:url("../images/update/ic-arrow-right-24.svg")}
 /* ---- inst-list ---- */
 .nds .inst-list {width:100%;display:flex;flex-direction:column}
-.nds .item__summary {display:flex;align-items:center;justify-content:space-between;justify-content:flex-end;padding:var(--spacing-24) 0 var(--spacing-16)}
+.nds .item__summary {display:flex;align-items:center;justify-content:space-between;padding:var(--spacing-24) 0 var(--spacing-16)}
+.nds .item__summary:has(> :only-child) {justify-content:flex-end}
 .nds .inst-list__count {font-size:var(--type-size-16);line-height:24px;font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-3)}
 .nds .inst-list__count em{color:var(--primitive-green-500);font-weight:var(--font-weight-medium)}
 .nds .inst-list__group {display:flex;flex-wrap:wrap;align-items:center;padding:var(--spacing-16) 0;}
