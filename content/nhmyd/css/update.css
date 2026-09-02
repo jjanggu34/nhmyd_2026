@@ -1710,7 +1710,7 @@
 .nds .allowance-hero__mascot-wrap {display:flex;justify-content:space-between;align-items:flex-start;margin:10px 0 -31px}
 .nds .allowance-hero__mascot {width:120px;height:auto;filter:drop-shadow(-24px -16px 40px rgba(68,120,233,0.45));pointer-events:none}
 .nds .allowance-hero__glass {position:relative;backdrop-filter:blur(5.5px);-webkit-backdrop-filter:blur(5.5px);background:rgba(211,220,235,0.4);border:1px solid rgba(202,221,252,0.29);border-radius:var(--radius-12);padding:var(--spacing-16)}
-.nds .allowance-hero__glass-link {color:var(--color-icon-1);margin-top:8px;line-height:20px}
+.nds .allowance-hero__glass-link {color:var(--color-icon-1);margin-top:8px;font-weight:var();line-height:20px}
 .nds .allowance-hero__glass-label {margin:0;font-size:13px;line-height:20px;letter-spacing:-0.26px;color:var(--color-font-2)}
 .nds .allowance-hero__glass-amount {margin:0;font-size:20px;line-height:32px;color:var(--color-font-2)}
 .nds .allowance-hero__glass-amount strong {font-size:24px;font-weight:var(--font-weight-bold);letter-spacing:-0.96px;color:#002259}
@@ -1733,8 +1733,8 @@
 .nds .allowance-sender-card__icon::before {content:"";display:block;width:24px;height:24px;background:url("../images/update/ic-piggy-bank.svg") no-repeat center/contain}
 .nds .allowance-sender-card__info {flex:1;min-width:0}
 .nds .allowance-sender-card__name {margin:0;font-size:10px;line-height:15px;letter-spacing:-0.2px;color:var(--color-font-4)}
-.nds .allowance-sender-card__amount {margin:0;font-size:var(--type-size-14);color:var(--color-font-1)}
-.nds .allowance-sender-card__amount em {font-style:normal;font-weight:var(--font-weight-regular);color:var(--color-font-3)}
+.nds .allowance-sender-card__amount {margin:0;font-size:var(--type-size-14);color:var(--color-font-3)}
+.nds .allowance-sender-card__amount em {font-style:normal;font-weight:var(--font-weight-regular);color:var(--color-font-1)}
 .nds .allowance-nudge__card {display:flex;align-items:center;height:72px;padding:var(--spacing-16);border-radius:12px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);background:linear-gradient(90deg, rgba(221,242,228,0.7) 0%, rgba(221,242,228,0.7) 100%)}
 .nds .allowance-nudge__text {flex:1;min-width:0}
 .nds .allowance-nudge__sub {margin:0;font-size:var(--type-size-12);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-1)}
@@ -1753,24 +1753,25 @@
 .nds .allowance-spend__info {flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--spacing-8)}
 .nds .allowance-spend__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);line-height:22px}
 .nds .allowance-spend__label {margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-1)}
-.nds .allowance-spend__label span {font-weight:var(--font-weight-regular);color:var(--color-font-4);margin-left:var(--spacing-4)}
+.nds .allowance-spend__label span {font-weight:var(--font-weight-regular);color:var(--color-font-4);margin-left:var(--spacing-4);font-weight:var(--font-weight-medium)}
 .nds .allowance-spend__amount {margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-1)}
 .nds .allowance-spend__amount em {font-style:normal;font-weight:var(--font-weight-regular);color:#505050}
 .nds .allowance-spend__bar {position:relative;width:100%;height:8px;border-radius:var(--radius-full);background:rgba(0,0,0,0.1);overflow:hidden}
 .nds .allowance-spend__bar-fill {height:100%;border-radius:var(--radius-full)}
 .nds .allowance-spend__bar-fill--food {background:#ffa856}
 .nds .allowance-spend__bar-fill--edu {background:#49d8ff}
-.nds .allowance-spend__bar-fill--bus {background:#8ec567}
+.nds .allowance-spend__bar-fill--bus {background:#A1F069}
 .nds .allowance-peers__grid {display:flex;gap:var(--spacing-8)}
 .nds .allowance-peers__card {position:relative;flex:1;min-width:0;height:172px;background:var(--color-bg-default);border-radius:var(--radius-16);padding:var(--spacing-20);overflow:hidden}
 .nds .allowance-peers__label {margin:0 0 var(--spacing-2);font-size:20px;font-weight:var(--font-weight-semibold);line-height:28px;letter-spacing:-0.4px;color:var(--primitive-blue-500)}
 .nds .allowance-peers__desc {margin:0;font-size:var(--type-size-12);line-height:16px;letter-spacing:-0.24px;color:var(--color-font-4)}
+.nds .allowance-peers__desc span {color:var(--color-font-1);}
 .nds .allowance-peers__desc br + br {display:none}
 .nds .allowance-peers__icon {position:absolute;right:12px;bottom:12px;width:64px;height:64px;background-size:contain;background-repeat:no-repeat;background-position:center}
 .nds .allowance-peers__icon--shopping {background-image:url("../images/update/ic-bag-star-blue.svg")}
 .nds .allowance-peers__icon--health {background-image:url("../images/update/ic-shield-health.svg")}
 .nds .allowance-calendar-banner__card {position:relative;background:#e4eeff;border-radius:16px;padding:22px 24px 14px;min-height:190px;box-sizing:border-box;overflow:hidden}
-.nds .allowance-calendar-banner__text {position:relative;z-index:1;display:flex;flex-direction:column;gap:var(--spacing-8);max-width:60%}
+.nds .allowance-calendar-banner__text {position:relative;z-index:1;display:flex;flex-direction:column;gap:var(--spacing-8);max-width:77%}
 .nds .allowance-calendar-banner__title {margin:0;font-size:22px;font-weight:var(--font-weight-semibold);line-height:28px;letter-spacing:-0.44px;color:var(--color-font-1)}
 .nds .allowance-calendar-banner__link {color:var(--color-text-button-etc)}
 .nds .allowance-calendar-banner__img {position:absolute;right:20px;bottom:20px;width:120px;height:106px;object-fit:contain;pointer-events:none}
