@@ -6,34 +6,6 @@
  * DOM 참조는 반드시 DOMContentLoaded 이후에 실행합니다.
  */
 
-/*
- * popClose() / calendarAlign() 오버라이드
- * ---------------------------------------------------------------
- * 레거시 common_ui.js/nhasset-ui.js의 popClose()/calendarAlign()은 다음을 하드코딩한다:
- *   - popClose(): $(".dim")로 페이지 내 모든 dim을 한번에 닫음 (팝업이 한 번에 하나만 뜬다는 가정)
- *   - calendarAlign(): .yearSet의 행 높이를 40px로 하드코딩(scrollTop = index*40)
- * 두 가정 모두 NH_MD_UI_05_05(bottomsheet + centerLayer 동시 노출, yearSet 커스텀 padding)에서
- * 깨졌다. common_ui.js/nhasset-ui.js는 사이트 전역 250여개 레거시 페이지가 그 가정에 맞춰 쓰고
- * 있으므로 그대로 두고, 여기 nds-ui.js(= head-mb-update.js를 쓰는 update/·sample_update/ 화면만
- * 로드, 현재 5개 페이지)에서만 재정의해서 .nds 화면 전체가 이 개선된 동작을 공유하도록 한다.
- * (처음에는 NH_MD_UI_05_05.html 페이지 로컬 <script>에 있었으나, 다른 .nds 화면에서도 재사용
- * 가능하도록 여기로 옮김.)
- */
-
-/*
- * .nds 스코프 판별
- * ---------------------------------------------------------------
- * update-ui.js는 head-mb-update.js를 통해 update/ 화면에서만 로드되긴 하지만, 이 파일이 덮어쓰는
- * popClose()/calendarAlign() 같은 전역 함수는 레거시 공용 파일(common_ui.js)의 것과 이름이 같아서
- * 실행 시점의 실제 대상이 .nds 화면(또는 .nds 팝업)이 맞는지 한 번 더 확인한 뒤에만 개선된 동작을
- * 태우고, 아니면 레거시 원본 동작으로 그대로 넘깁니다. 이 화면군은 두 가지 마크업 패턴이 섞여
- * 있어(전체 화면형은 <div class="wrapper nds">, 팝업 단독형은 바닥페이지 wrapper엔 nds가 없고
- * 실제 팝업 <div class="popWrap nds ...">에만 nds가 붙음) 스코프 판정도 그 둘을 모두 봅니다.
- *   1) 처리 대상 팝업의 .popWrap이 nds 클래스를 가진 경우
- *   2) 화면 전체를 감싸는 .wrapper가 nds 클래스를 가진 경우
- * $target에 특정 팝업(.popWrap 또는 그 하위 요소)을 넘기면 1)을 우선 검사하고, 넘기지 않거나
- * 1)에 해당하지 않으면 2) 및(페이지 어딘가에 열려 있을 수 있는) nds 팝업 존재 여부로 판단합니다.
- */
 function isNdsScope($target) {
     if ($target && $target.length) {
         var $popWrap = $target.hasClass("popWrap") ? $target : $target.closest(".popWrap");
@@ -44,8 +16,6 @@ function isNdsScope($target) {
     return false;
 }
 
-// popClose()를 덮어쓰기 전에 레거시(common_ui.js) 원본을 붙잡아 둡니다 — nds 스코프가 아닐 때는
-// 이 원본으로 그대로 위임합니다.
 var legacyPopClose = window.popClose;
 
 window.popClose = function (e) {
@@ -59,8 +29,6 @@ window.popClose = function (e) {
     var $slidePopInner = $popWrap.find(".popInner");
     var isSlidePop = $popWrap.hasClass("slidePopOption") || $popWrap.hasClass("slidePopConfirm") || $popWrap.hasClass("bankSetWrap");
 
-    // 클릭한 popWrap 자신의 dim만 닫는다(전역 $(".dim") 대신 스코프 적용) —
-    // 다른 popWrap(예: 뒤에 남은 bottomsheet)이 열려있어도 그쪽 dim은 그대로 유지된다.
     $popWrap.find(".dim").fadeOut(100);
 
     if (isSlidePop) {
@@ -71,8 +39,6 @@ window.popClose = function (e) {
         $popWrap.hide();
     }
 
-    // 다른 popWrap이 아직 열려있으면 scrollUnlock하지 않는다 —
-    // 그렇지 않으면 뒤에 남은 popWrap이 모달인데도 배경 스크롤이 풀려버린다.
     if ($(".popWrap:visible").not($popWrap).length === 0) {
         scrollUnlock(scrollPosY);
     }
@@ -81,8 +47,6 @@ window.popClose = function (e) {
     $("#popupLayer_div").children(".fullLayerPop").attr("aria-hidden", false).removeAttr("inert");
 };
 
-// calendarAlign()도 popClose()와 동일하게 레거시 원본을 붙잡아 두고 nds 스코프에서만 개선된
-// 동작(실측 행 높이 기준 센터링)을 태웁니다.
 var legacyCalendarAlign = window.calendarAlign;
 
 window.calendarAlign = function () {
@@ -101,18 +65,13 @@ window.calendarAlign = function () {
 
     $(".yearSet > ol").each(function () {
         var $ol = $(this);
-        var rowH = $ol.children("li").first().outerHeight(); // 실제 행 높이 측정(하드코딩 40 대신)
+        var rowH = $ol.children("li").first().outerHeight();
         if (!rowH) {
             return;
         }
-        // box-sizing:border-box인 <ol>에 jQuery .height()를 쓰면 "현재 padding을 뺀"
-        // content-height가 나와서(예: 200px 박스에 padding:80px 0이 남아있으면 40으로 잘못
-        // 측정됨) 실제 고정 뷰포트 높이(200px)를 얻으려면 .outerHeight()를 써야 한다.
         var viewH = $ol.outerHeight();
-        var padY = Math.max(0, (viewH - rowH) / 2); // 실측 행 높이 기준으로 센터링 여백 계산
-        // update.css의 ".yearSet > ol{padding:80px 0 !important}" 폴백 규칙을 이겨야 하므로
-        // jQuery .css() 대신 !important를 직접 지정한다(인라인 스타일이라도 !important 없이는
-        // 스타일시트의 !important 규칙을 이길 수 없다).
+        var padY = Math.max(0, (viewH - rowH) / 2);
+
         this.style.setProperty("padding", padY + "px 0", "important");
         $ol.data("rowH", rowH);
 
@@ -167,17 +126,6 @@ window.calendarAlign = function () {
     }, 500);
 };
 
-/*
- * tooltipOpen()/tooltipClose() 오버라이드
- * ---------------------------------------------------------------
- * 레거시 tooltipOpen()(nhasset-ui.js)은 트리거 바로 아래(.tooltipWrap 기준 top:100%)에 항상
- * 툴팁을 띄운다. NH_MD_CO_01_02처럼 슬라이드팝업 하단부(두 번째 "매월 얼마나 소비하고
- * 있나요" 트리거 등)에 가까운 트리거를 클릭하면, 아래로 펼쳐진 툴팁이 화면 하단에 고정된
- * CTA 버튼(.popBtnWrap)에 가려지거나 팝업 영역 밖으로 잘릴 수 있다.
- * nds 스코프에서만: 열고 나서 실제로 그려진 위치를 측정해, 툴팁 아래쪽 끝이 CTA 버튼(있으면)
- * 또는 뷰포트 하단을 넘어가면 .tooltipCont--top 클래스를 붙여 트리거 위쪽으로 뒤집어 띄운다.
- * (레거시 tooltipOpen() 원본 함수 자체는 그대로 두고, 여기서만 위치 보정을 추가한다.)
- */
 var legacyTooltipOpen = window.tooltipOpen;
 
 window.tooltipOpen = function ($obj) {
@@ -191,8 +139,6 @@ window.tooltipOpen = function ($obj) {
     $tooltipCont.css({ width: $(window).width() - 32 });
     $tooltipCont.show();
 
-    // 실제로 그려진 위치를 측정해, 아래쪽 끝이 팝업 CTA 버튼(있으면 그 상단)이나 뷰포트 하단을
-    // 넘어가면 트리거 위쪽으로 뒤집습니다.
     var contRect = $tooltipCont[0].getBoundingClientRect();
     var $ctaWrap = $obj.closest(".popWrap").find(".popBtnWrap");
     var blockBottom = $ctaWrap.length ? $ctaWrap[0].getBoundingClientRect().top : $(window).height();
@@ -202,8 +148,6 @@ window.tooltipOpen = function ($obj) {
     }
 };
 
-// tooltipClose()는 스코프와 무관하게 뒤집힘 상태 클래스만 정리하고, 레거시 원본 동작(hide,
-// 트리거 포커스 복원)에 그대로 위임합니다.
 var legacyTooltipClose = window.tooltipClose;
 
 window.tooltipClose = function ($obj) {
@@ -211,7 +155,6 @@ window.tooltipClose = function ($obj) {
     if (typeof legacyTooltipClose === "function") legacyTooltipClose($obj);
 };
 
-/* --- slidePopConfirm() 오버라이드 --- */
 function syncSlidePopConfirmHeight(animate) {
     $(".slidePopConfirm:visible").each(function () {
         var $pop = $(this);
@@ -222,8 +165,6 @@ function syncSlidePopConfirmHeight(animate) {
         var confirmTit = $pop.find(".popInner h1").length > 0 ? $pop.find(".popInner h1").outerHeight() : $pop.find(".popInner h2").outerHeight();
         var confirmBtnAra = $pop.find(".popBtnWrap .popBtn").length > 0 ? $pop.find(".popBtnWrap").outerHeight() : 0;
 
-        // 자연 높이를 다시 재는 동안은 기존 제약(maxHeight/overflow)을 풀어야 정확한 콘텐츠
-        // 높이가 나옵니다(popCont/tab-panel/bottomsheet-list 전부).
         $popCont.css({ maxHeight: "none", overflowY: "visible" });
         $tabPanels.css({ maxHeight: "none", overflowY: "visible" });
         $bottomsheetLists.css({ maxHeight: "none", overflowY: "visible" });
@@ -241,18 +182,13 @@ function syncSlidePopConfirmHeight(animate) {
 
         var maxContH = targetPopInnerH - confirmTit - confirmBtnAra;
         if (naturalContH <= maxContH) {
-            // 넘치지 않으면 아무것도 제약하지 않고 그대로 둡니다(위에서 이미 리셋됨).
             return;
         }
 
-        // 가장 안쪽(목록)부터 우선순위대로 스크롤 대상을 고릅니다: bottomsheet-list가 실제로
-        // 보이고 있으면 그것부터, 없으면 활성 tab-panel, 그것도 없으면 popCont 전체.
         var $scrollTarget = $bottomsheetLists.filter(":visible");
         if ($scrollTarget.length === 0) $scrollTarget = $tabPanels.not("[hidden]");
 
         if ($scrollTarget.length > 0) {
-            // popCont에 배정된 공간(maxContH)에서 스크롤 대상이 아닌 나머지(탭바/검색창/문구 등)가
-            // 차지하는 높이를 뺀 만큼만 스크롤 대상의 최대 높이로 주고, 그 안에서만 스크롤시킵니다.
             var otherH = naturalContH - $scrollTarget.outerHeight();
             var maxScrollTargetH = Math.max(maxContH - otherH, 0);
             $scrollTarget.css({ maxHeight: maxScrollTargetH, overflowY: "auto" });
@@ -271,17 +207,6 @@ window.slidePopConfirm = function () {
     }, 100);
 };
 
-// 화면 회전/리사이즈 시에도 80% 제한을 다시 계산합니다(열려 있는 팝업이 없으면 각 화면 내부에서
-// 조용히 아무 일도 하지 않고 끝납니다 — :visible 셀렉터가 걸러줌).
-//
-// [버그 수정] .fullLayerPop(common_ui.js의 레거시 fullLayerPop()/fullLayerHeight())은 팝업을 열 때
-// $(window).height() 기준으로 .popCont 높이를 인라인 px로 "한 번만" 고정하고, 그 이후 리사이즈에
-// 다시 맞추는 로직이 어디에도 없었습니다. 같은 .nds 화면군인 .slidePopConfirm은 아래에서 이미
-// resize마다 재계산하는데 .fullLayerPop만 빠져 있던 것 — 폴더블 기기(예: 갤럭시 Z 폴드 시리즈)처럼
-// 화면을 펼치거나 접어 뷰포트 가로세로 비율이 크게 바뀌는 경우, 팝업이 열려 있는 동안 접거나 펴면
-// .popCont가 옛 화면 크기 기준의 높이를 그대로 들고 있어 하단 popBtnWrap(닫기 버튼 등)이 화면
-// 밖으로 밀려 잘려 보일 수 있었습니다. .slidePopConfirm과 동일하게 resize/orientationchange마다
-// 다시 맞춥니다(레거시 원본 fullLayerHeight() 함수 자체는 그대로 두고 여기서 재호출만 추가).
 $(window).on("resize orientationchange", function () {
     if (!isNdsScope()) return; // nds 화면/nds 팝업이 아니면 관여하지 않습니다.
     syncSlidePopConfirmHeight(false);
@@ -290,22 +215,6 @@ $(window).on("resize orientationchange", function () {
     }
 });
 
-// Bottomsheet 단일선택 리스트 렌더링(.bottomsheet-list, role="listbox"/[role="option"] 패턴) —
-// 검색 결과처럼 데이터가 바뀔 때마다 새로 그려야 하는 단일 선택 리스트 공통 렌더러입니다.
-// MSAR3110P_01(권유직원 검색) 화면 안에 인라인으로 있던 renderList()를, 검색/선택 화면이
-// 더 생길 걸 대비해 여기로 옮겼습니다(.bottomsheet-list 자체는 update.css 기준 NH_MD_PM_03/
-// NH_MD_UI_05_0[1-3] 등 여러 화면이 이미 공유하는 nds 컴포넌트입니다).
-// check 아이콘(.bottomsheet-list__check)은 항상 DOM에 두고 부모의 --selected 클래스로만
-// 노출 여부를 CSS에서 제어합니다(매번 append/remove하지 않음).
-//
-// options:
-//   container     [role="listbox"] 요소 또는 그 id 문자열
-//   items         렌더링할 배열
-//   selectedIndex 현재 선택된 index(-1이면 선택 없음)
-//   getLabel      (item) => 화면에 보여줄 문자열. 생략 시 item.label을 사용
-//   onSelect      (index, item) => 항목 클릭 시 호출. 재렌더링/버튼 활성화/팝업 높이 재계산 등
-//                 클릭 이후 화면 갱신은 전부 호출부(각 화면)의 책임입니다 — 이 함수는 순수하게
-//                 "현재 상태를 DOM에 그리는" 역할만 합니다.
 window.renderBottomsheetList = function (options) {
     options = options || {};
     var container = typeof options.container === "string" ? document.getElementById(options.container) : options.container;
@@ -349,8 +258,6 @@ window.renderBottomsheetList = function (options) {
 (function () {
     "use strict";
 
-    // aria-controls용 id 자동 부여 — 토글 버튼이 제어하는 대상 요소에 id가 없으면
-    // 하나 만들어 붙이고, 있으면 그대로 재사용합니다(중복 id 생성 방지).
     var autoIdSeq = 0;
     function ensureId(el, prefix) {
         if (!el.id) {
@@ -360,20 +267,13 @@ window.renderBottomsheetList = function (options) {
         return el.id;
     }
 
-    // Accordion (notice / box / line / gray 공통)
-    // 레거시 [data-toggle="wrap/btn/con"] 방식(nhasset-ui-myd.js)과 동일하게
-    // jQuery slideUp/slideDown('fast')로 부드럽게 열고 닫습니다.
     function initAccordion() {
         document.querySelectorAll("[data-acc-toggle]").forEach(function (btn) {
             var body = btn.parentElement.querySelector('[class$="__body"], [class$="__list"]');
             if (!body) return;
 
-            // aria-expanded만으로는 버튼이 "무엇을" 펼치고 접는지 스크린리더가 알 수 없어서,
-            // 대상 요소를 aria-controls로 명시적으로 연결합니다(4.1.2 Name, Role, Value).
             btn.setAttribute("aria-controls", ensureId(body, "acc-body"));
 
-            // hidden 속성은 jQuery의 display 애니메이션과 충돌하므로
-            // 최초 1회만 display:none으로 치환해 이후 상태를 jQuery에 위임합니다.
             if (body.hasAttribute("hidden")) {
                 body.removeAttribute("hidden");
                 body.style.display = "none";
@@ -392,10 +292,6 @@ window.renderBottomsheetList = function (options) {
         });
     }
 
-    // Terms 아코디언(.terms-card, 유의사항 등) — [data-terms-toggle] 버튼을 눌러
-    // 같은 .terms-card 안의 divider/body를 펼치고/접습니다. initAccordion()과 달리
-    // terms-card는 body가 항상 아니라 접힘 상태 마크업만 문서 흐름에 있을 수도 있어
-    // [class$="__body"] 셀렉터 하나로는 부족해서(divider도 같이 접어야 함) 전용 함수로 분리합니다.
     function initTermsToggle() {
         document.querySelectorAll("[data-terms-toggle]").forEach(function (btn) {
             var card = btn.closest(".terms-card");
@@ -404,11 +300,8 @@ window.renderBottomsheetList = function (options) {
             var body = card.querySelector(".terms-card__body");
             if (!divider || !body) return;
 
-            // 버튼이 펼치고 접는 실제 내용(body)을 aria-controls로 연결합니다.
             btn.setAttribute("aria-controls", ensureId(body, "terms-body"));
 
-            // hidden 속성은 jQuery의 display 애니메이션과 충돌하므로
-            // 최초 1회만 display:none으로 치환해 이후 상태를 jQuery에 위임합니다.
             [divider, body].forEach(function (el) {
                 if (el.hasAttribute("hidden")) {
                     el.removeAttribute("hidden");
@@ -423,11 +316,6 @@ window.renderBottomsheetList = function (options) {
                 btn.setAttribute("aria-label", open ? "펼치기" : "접기");
 
                 if (window.jQuery) {
-                    // slideUp/slideDown은 height만 애니메이션하고 margin은 건드리지 않아서,
-                    // .terms-card > *:not(:first-child)의 margin-top:20px(gap 대체)이
-                    // 애니메이션 없이 즉시 붙었다 떨어지며 부자연스럽게 튀는 원인이었다.
-                    // height/marginTop/opacity를 한 번에 같이 애니메이션해서 간격까지
-                    // 자연스럽게 늘고 줄게 한다.
                     jQuery([divider, body]).stop(true, true).animate({ height: "toggle", marginTop: "toggle", opacity: "toggle" }, { duration: 250, easing: "swing" });
                 } else {
                     divider.style.display = open ? "none" : "";
@@ -437,12 +325,6 @@ window.renderBottomsheetList = function (options) {
         });
     }
 
-    // Terms 전체동의 연동(.terms-card) — 헤더의 마스터 체크박스를 누르면 목록(.terms-card__list)의
-    // 개별 약관 체크박스가 모두 같이 켜지고/꺼지고, 반대로 개별 항목을 하나씩 누르면 일부만 선택된
-    // 상태를 마스터 체크박스의 indeterminate로 반영합니다(스크린리더 안내용). 시각적으로는 일부러
-    // 선택 전과 동일하게 두므로(요청사항) CSS에 :indeterminate/.is-indeterminate 스타일이 없고,
-    // 아래 is-indeterminate 클래스 토글도 순수 훅(hook) 용도일 뿐 현재는 아무 효과가 없습니다.
-    // list가 없는 카드(안내문 아코디언 등)는 대상이 아니라서 건너뜁니다.
     function initTermsSelectAll() {
         document.querySelectorAll(".terms-card").forEach(function (card) {
             var master = card.querySelector(".terms-card__header .check-basic__input");
@@ -474,15 +356,10 @@ window.renderBottomsheetList = function (options) {
                 c.addEventListener("change", syncMasterFromChildren);
             });
 
-            syncMasterFromChildren(); // 데모/초기값이 이미 checked인 개별 항목이 있으면 마스터도 맞춰서 시작
+            syncMasterFromChildren();
         });
     }
 
-    // terms-link 체크박스 연동 아코디언(.terms-accordion) — "개인(신용)정보 수집·이용 동의
-    // (상품서비스 안내 등)"처럼, 상위 동의 체크박스에 체크해야만 전화/문자메세지/우편물/이메일
-    // 같은 세부 수신채널을 고를 수 있는 패턴(Figma node 1008:35375). .terms-link 바로 다음
-    // 형제로 .terms-accordion이 있으면, 그 .terms-link의 체크박스 change에 맞춰 패널을
-    // 열고/닫습니다(initTermsToggle과 같은 jQuery slideDown/slideUp 방식).
     function initTermsAccordionCheck() {
         document.querySelectorAll(".terms-link").forEach(function (link) {
             var panel = link.nextElementSibling;
@@ -490,11 +367,8 @@ window.renderBottomsheetList = function (options) {
             var input = link.querySelector(".terms-link__check .check-basic__input");
             if (!input) return;
 
-            // aria-controls로 체크박스와 패널을 명시적으로 연결합니다(4.1.2 Name, Role, Value).
             input.setAttribute("aria-controls", ensureId(panel, "terms-accordion"));
 
-            // hidden 속성은 jQuery의 display 애니메이션과 충돌하므로
-            // 최초 1회만 display:none으로 치환해 이후 상태를 jQuery에 위임합니다.
             if (panel.hasAttribute("hidden")) {
                 panel.removeAttribute("hidden");
                 panel.style.display = "none";
@@ -514,29 +388,15 @@ window.renderBottomsheetList = function (options) {
                 sync(true);
             });
 
-            sync(false); // 초기 체크 상태에 맞춰 애니메이션 없이 시작
+            sync(false);
         });
     }
 
-    // Tab(tab-line/tab-chip/tab-bar/tab-text 공통) — WAI-ARIA APG의 Tabs(automatic activation)
-    // 패턴을 그대로 구현합니다. [role="tablist"] 안의 [role="tab"] 버튼들에 대해:
-    //  - 클릭 또는 방향키(←/→, ↑/↓, Home/End)로 탭을 바꾸면 aria-selected/aria-controls로
-    //    연결된 [role="tabpanel"]이 즉시 전환됩니다(automatic activation).
-    //  - 포커스 이동은 방향키에서만 일어나고(roving tabindex: 선택된 탭만 tabindex="0",
-    //    나머지는 "-1"), Tab 키로는 탭리스트 전체를 한 번에 드나들 수 있습니다.
-    //  - 활성 스타일 클래스명(예: tab-line__item--active)은 탭마다 하드코딩하지 않고, 첫 번째
-    //    탭의 class 목록에서 "__item"으로 끝나는 블록 클래스를 찾아 "그 클래스--active"로
-    //    자동 유도합니다 — tab-line/tab-chip/tab-bar/tab-text 4종 모두 이 함수 하나로 동작합니다.
     function initTabs() {
         document.querySelectorAll('[role="tablist"]').forEach(function (tablist) {
             var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
             if (!tabs.length) return;
 
-            // nhasset-ui-myd-mb.js가 DOMContentLoaded에서 document 전역의 [role="tab"]에
-            // 자기 changeTabs 핸들러를 이미 붙여둔다(레거시 .mbTabs 탭 전용, 여기 .nds 탭 마크업엔
-            // .mbTabs 래퍼가 없어 클릭 시 tabContainer가 null이라 그대로 두면 예외가 난다). update-ui.js는
-            // 항상 그 스크립트보다 늦게 로드되므로(head-mb-update.js 순서), 여기서 레거시 핸들러를
-            // 먼저 떼어내고 아래 우리 핸들러로 교체한다.
             if (typeof window.changeTabs === "function") {
                 tabs.forEach(function (t) {
                     t.removeEventListener("click", window.changeTabs);
@@ -584,9 +444,7 @@ window.renderBottomsheetList = function (options) {
                         return;
                     }
                     e.preventDefault();
-                    // nhasset-ui-myd-mb.js가 페이지의 첫 번째 [role="tablist"]에도 자기 방향키
-                    // 핸들러를 붙여두고 있어(레거시, 페이지 전체에서 tablist를 하나만 가정), 버블링으로
-                    // 그 핸들러까지 같이 실행되면 포커스가 우리 로직과 충돌한다. 여기서 막는다.
+
                     e.stopPropagation();
                     activate(tabs[targetIndex], true);
                 });
@@ -594,20 +452,6 @@ window.renderBottomsheetList = function (options) {
         });
     }
 
-    // common_ui.js(레거시 공용 파일)의 aria-selected 접근성 보정 로직 대응.
-    //
-    // common_ui.js는 [role='tab']에 대해 (1) 페이지 로드 시 1회, (2) 탭을 클릭할 때마다,
-    // aria-selected를 전부 false로 리셋했다가 1000ms 뒤 ".active" 클래스가 붙은 탭만 다시
-    // true로 복원한다(레거시 코드라 li 래퍼 + ".active"/"li.on" 클래스 컨벤션만 인식). 하지만
-    // nds 탭 컴포넌트(tab-line/tab-chip/tab-bar/tab-text 등, initTabs()가 관리하는 탭 포함)는
-    // 전부 "__item--active" 같은 BEM 접미사 클래스를 쓰기 때문에, common_ui.js의 1000ms 복원
-    // 로직이 이 탭들을 인식하지 못하고 aria-selected="false"인 채로 방치한다 — 실제 선택된
-    // 슬라이드/패널은 맞는데 스크린리더에는 "선택 안 됨"으로 보이는 접근성 버그.
-    //
-    // common_ui.js는 여러 화면이 공유하는 레거시 파일이라 직접 고치는 대신, 여기서 같은
-    // 시점(1000ms) "직후"에 한 번 더 보정한다 — 현재 "--active"로 끝나는 클래스가 붙은
-    // [role='tab']은 모두 aria-selected="true"로 다시 맞춘다. 페이지 로드 1회 + 탭 클릭마다
-    // 한 번씩, 총 두 지점에서 common_ui.js와 동일한 타이밍으로 실행한다.
     function initLegacyAriaSelectedFix() {
         function restoreActiveAriaSelected() {
             document.querySelectorAll("[role='tab'][class*='--active']").forEach(function (tab) {
@@ -615,13 +459,8 @@ window.renderBottomsheetList = function (options) {
             });
         }
 
-        // (1) 페이지 로드 시 common_ui.js의 1회성 리셋(1000ms) 직후 보정
         window.setTimeout(restoreActiveAriaSelected, 1050);
 
-        // (2) common_ui.js가 모든 [role='tab']에 붙이는 클릭 리스너의 1000ms 리셋 직후 보정.
-        // 캡처 단계에서 감지만 하고 실제 처리는 그대로 두므로, 다른 클릭 핸들러(예: 이 파일의
-        // initTabs(), 각 화면의 탭↔스와이프 동기화 로직)와 순서 충돌 없이 나중에 한 번 더
-        // 덧씌우는 방식으로만 동작한다.
         document.addEventListener(
             "click",
             function (e) {
@@ -632,23 +471,12 @@ window.renderBottomsheetList = function (options) {
         );
     }
 
-    // Sticky footer(.sticky-footer) — 화면이 짧아도 하단 콘텐츠(알아두세요 아코디언 + CTA 버튼
-    // 등)가 항상 뷰포트 바닥에 붙어 있도록 position:fixed로 띄운 뒤, 그 실제 높이만큼
-    // .container에 padding-bottom을 채워 스크롤 콘텐츠가 가려지지 않게 합니다. ResizeObserver로
-    // 감시하므로 안쪽 아코디언을 펼치고/접어 푸터 높이가 바뀌면(애니메이션 도중 포함) 자동으로
-    // 다시 맞춰집니다.
     function initStickyFooter() {
         document.querySelectorAll(".sticky-footer").forEach(function (footer) {
             var container = document.querySelector(".container");
             if (!container) return;
 
             function sync() {
-                // .nds .container의 padding-bottom은 레거시 규칙과 계속 충돌해서
-                // !important로 고정돼 있는데(update.css), !important 붙은 CSS 규칙은
-                // 항상 인라인 style보다 우선이라 container.style.paddingBottom = '...' 는
-                // 아무 효과가 없었습니다(값은 바뀌어도 실제 렌더링엔 반영 안 됨). 대신 CSS
-                // 변수(--sticky-footer-pad)를 인라인으로 갱신하면 !important 규칙이 그 변수를
-                // 그대로 참조하므로 값이 정상 반영됩니다.
                 container.style.setProperty("--sticky-footer-pad", footer.offsetHeight + "px");
             }
             sync();
@@ -659,10 +487,6 @@ window.renderBottomsheetList = function (options) {
                 window.addEventListener("resize", sync);
             }
 
-            // ResizeObserver 콜백은 브라우저 렌더링 사이클에 맞춰 비동기로 실행되는데, 환경에
-            // 따라 안쪽 아코디언이 jQuery slideUp/slideDown('fast', 약 200ms)으로 애니메이션되는
-            // 동안 콜백이 늦게 실행되거나 누락될 수 있어, 토글 버튼 클릭 시점에 애니메이션이
-            // 끝나는 시점(250ms)에도 한 번 더 확실히 다시 맞춰줍니다.
             footer.querySelectorAll("[data-acc-toggle]").forEach(function (btn) {
                 btn.addEventListener("click", function () {
                     setTimeout(sync, 250);
@@ -671,15 +495,11 @@ window.renderBottomsheetList = function (options) {
         });
     }
 
-    // Chip Accordion(.chip-accordion) — [펼치기/접기] 버튼(.chip-accordion__toggle)을 누르면
-    // 부모 .chip-accordion에 is-open 클래스를 토글합니다. is-open 여부에 따라 CSS가 칩 목록을
-    // 가로 스크롤(닫힘) ↔ 여러 줄로 줄바꿈(열림, 높이 auto)으로 전환합니다.
     function initChipAccordion() {
         document.querySelectorAll(".chip-accordion__toggle").forEach(function (btn) {
             var wrap = btn.closest(".chip-accordion");
             if (!wrap) return;
 
-            // 버튼이 펼치고 접는 칩 목록(.chip-accordion__chips)을 aria-controls로 연결합니다.
             var chips = wrap.querySelector(".chip-accordion__chips");
             if (chips) btn.setAttribute("aria-controls", ensureId(chips, "chip-list"));
 
@@ -691,11 +511,6 @@ window.renderBottomsheetList = function (options) {
         });
     }
 
-    // Chip 단일선택(.chip-single) — 업권 필터 등 같은 부모 요소 아래 나란히 있는 .chip-single
-    // 버튼들 중 하나를 클릭하면 그 버튼만 active(.chip-single--active, aria-pressed="true")가 되고
-    // 나머지 형제 버튼은 모두 해제됩니다(라디오 그룹처럼 상호 배타적 단일 선택). 부모 클래스명을
-    // 하드코딩하지 않고 같은 parentElement를 공유하는 .chip-single끼리 자동으로 그룹을 구성하므로,
-    // .chip-accordion__chips 안이든 밖이든 동일하게 동작합니다.
     function initChipSingle() {
         var seenParents = [];
         document.querySelectorAll(".chip-single").forEach(function (chip) {
@@ -719,16 +534,6 @@ window.renderBottomsheetList = function (options) {
         });
     }
 
-    // Bottomsheet 단일선택 리스트(.bottomsheet-list, 정적 마크업 + aria-pressed 패턴) — NH_MD_PM_03
-    // (한 달 시작일 설정)이나 가이드 문서(NH_MD_UI_05_01~03)처럼 처음부터 HTML에 [aria-pressed]
-    // 옵션이 다 박혀 있는 목록에서, 버튼 하나를 누르면 그 버튼만 선택되고(aria-pressed="true" +
-    // --selected 클래스) 같은 .bottomsheet-list 안의 나머지 버튼은 선택 해제됩니다(initChipSingle()과
-    // 동일하게 라디오 그룹처럼 상호 배타적 — "월 시작일"처럼 항상 하나는 선택돼 있어야 하는 설정값이라
-    // 이미 선택된 걸 다시 눌러도 해제되지 않습니다). NH_MD_PM_03은 이 버튼들에 클릭 핸들러가 아예
-    // 없어서(정적 마크업만 있고 뒤에 JS가 없던 상태) 눌러도 아무 반응이 없었던 것이 원인입니다.
-    // MSAR3110P_01(검색 결과)처럼 renderBottomsheetList()로 매번 새로 그리는 [role="option"] 마크업은
-    // 그쪽 onSelect 콜백에서 이미 직접 선택 상태를 처리하므로, 여기서는 건드리지 않고
-    // [aria-pressed]가 붙은 정적 마크업만 대상으로 합니다.
     function initBottomsheetList() {
         document.querySelectorAll(".bottomsheet-list").forEach(function (list) {
             var items = Array.prototype.filter.call(list.children, function (el) {
@@ -748,14 +553,6 @@ window.renderBottomsheetList = function (options) {
         });
     }
 
-    // Chip 앵커 이동 + 스크롤 스파이(.chips--sticky) — MSPS3120(기관선택) 등에서 업권 칩을
-    // 클릭하면 같은 부모(.chips--sticky의 부모) 아래 있는 .inst-list__group 목록 중 같은
-    // 순서(index)의 그룹으로 스크롤 이동하고, 반대로 스크롤해서 어떤 그룹이 화면에 보이는지에
-    // 따라 해당 칩이 자동으로 chip-single--active가 됩니다(레거시 content/nhmyd/pub/ps/
-    // MSPS3120.html의 anchorWrap() 스크롤 앵커+스크롤스파이와 동일한 동작). 칩 active 토글
-    // 자체는 initChipSingle()이 이미 클릭 시 처리하므로, 여기서는 (1) 클릭 시 스크롤 이동과
-    // (2) 스크롤 중 active 판정만 추가로 담당합니다. 칩 개수와 그룹 개수가 다르면(예: chip.html
-    // 가이드의 독립 데모처럼 짝지을 목록이 없는 경우) 안전하게 아무 것도 하지 않습니다.
     function initChipAnchorScroll() {
         document.querySelectorAll(".chips--sticky").forEach(function (chipsEl) {
             var chips = Array.prototype.slice.call(chipsEl.querySelectorAll(".chip-single"));
@@ -783,9 +580,6 @@ window.renderBottomsheetList = function (options) {
                     var target = groups[i];
                     var top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset() - 8;
                     window.scrollTo({ top: top, behavior: "smooth" });
-                    // 칩 목록 자체도 가로 스크롤이라 방금 누른 칩이 화면 밖으로 밀려있을 수
-                    // 있어 가로 방향으로도 보이는 위치까지 맞춰줍니다(레거시의 anchorSubjectWrap
-                    // 가로 스크롤 보정과 동일한 목적).
                     chip.scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
                 });
             });
@@ -819,9 +613,6 @@ window.renderBottomsheetList = function (options) {
         });
     }
 
-    // .wrapper(.nhasset)에 nds 클래스가 있는 화면(= 이 update-ui.js를 쓰는 .nds 화면)이면
-    // <html>에도 같은 nds 클래스를 추가합니다. html.nds 스코프로 걸어야 하는 전역 스타일
-    // (예: 뷰포트/세이프에어리어 보정 등)이 .nds 화면에서만 적용되도록 하기 위함입니다.
     function syncNdsClassToHtml() {
         var wrapper = document.querySelector(".wrapper");
         if (wrapper && wrapper.classList.contains("nds")) {
@@ -830,8 +621,6 @@ window.renderBottomsheetList = function (options) {
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-        // 이 IIFE의 초기화 함수들(아코디언/탭/칩/스티키푸터 등)도 nds 스코프(.wrapper.nds 또는
-        // .popWrap.nds)가 아니면 아무 것도 하지 않습니다.
         if (!isNdsScope()) return;
 
         syncNdsClassToHtml();
