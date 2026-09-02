@@ -1232,6 +1232,21 @@
                         var peekScaleY = Math.max(0.8, (maxHeight - peekShrinkPx) / maxHeight);
                         swiperEl.style.setProperty('--hero-peek-scale-y', peekScaleY.toFixed(4));
                     }
+                    // [버그 수정] "모바일 사이즈를 바꾸면 스와이퍼가 깨지고 새로고침해야 돌아옴" —
+                    // Swiper는 기본 옵션(resizeObserver:true)으로 컨테이너 크기를 스스로도
+                    // 감시해서 슬라이드 폭/이동거리(translate)를 다시 계산하는데, 이 코드가
+                    // 위에서 height를 auto로 껐다가 새 값으로 다시 정하는 것도 Swiper 입장에선
+                    // "컨테이너가 또 바뀌었다"는 신호라 Swiper 자신의 리사이즈 계산과 경합이
+                    // 생깁니다. 리사이즈 도중(드래그로 계속 크기가 바뀌는 중)엔 이 경합의 타이밍에
+                    // 따라 Swiper가 예전 폭 기준으로 계산한 translate 값을 그대로 들고 있는 채로
+                    // 멈춰버려 슬라이드가 잘리거나 어긋나 보일 수 있고, 새로고침하면 처음부터
+                    // 최종 크기로 다시 초기화되니 멀쩡해 보였던 것입니다. 높이를 최종 확정한
+                    // "직후"에 swiper.update()를 명시로 한 번 더 호출해서, Swiper가 항상 지금
+                    // 이 순간의 실제 DOM 크기 기준으로 슬라이드 폭/translate를 다시 맞추게
+                    // 강제합니다.
+                    if (swiper && !swiper.destroyed && typeof swiper.update === 'function') {
+                        swiper.update();
+                    }
                 }
 
                 if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === 'function') {
