@@ -49,13 +49,13 @@
                 </div>
                 <div id="panel-bar-1" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-1" tabindex="0" hidden>추천기관</div>
                 <div id="panel-bar-2" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-2" tabindex="0">
-                    <!-- 
+                     <!-- 
                     마이데이터 기가입자가 자산 추가시, 
                     기관 미선택이 Default 
                     (가입기관 불러오기, 기관명 검색 추가 노출) 
                     class="subscriber-nudge" 부분 제어
                     -->
-                    <div id="preJoinedSearch" class="subscriber-nudge">
+                    <div class="subscriber-nudge">
                         <button type="button" class="subscriber-nudge__btn">
                             <p class="subscriber-nudge__text">
                                 <img class="subscriber-nudge__img" src="../../images/update//ic-bank-building.svg" alt="">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="chips chips--sticky">
                         <div class="chip-accordion__chips">
                             <button type="button" class="chip-single chip-single--active" aria-pressed="true">
@@ -114,16 +114,14 @@
                         <!-- <button type="button" class="chip-accordion__toggle" aria-label="펼치기" aria-expanded="false"></button> -->
                     </div>
                     <div class="inst-list inst-list--flat">
+                        <!--
+                        마이데이터 기가입자 일시 추천기관 전체 선택 숨김
+                        -->
                         <div class="item__summary">
-                            <span class="inst-list__count">
-                                총
-                                <em>174</em>
-                                건
-                            </span>
                             <label class="check-basic">
+                                <span class="check-basic__label">추천기관 전체선택</span>
                                 <input type="checkbox" class="check-basic__input" checked />
                                 <span class="check-basic__icon"></span>
-                                <span class="check-basic__label">추천기관 전체선택</span>
                             </label>
                         </div>
                         <div class="inst-list__group">
@@ -131,7 +129,7 @@
                                 <input type="checkbox" class="check-basic__input" checked aria-label="은행 전체선택" />
                                 <span class="check-basic__icon"></span>
                                 <span class="inst-list__group-title">은행</span>
-                                <span class="inst-list__group-count">41개</span>
+                                <span class="inst-list__group-count"><em>41</em>개</span>
                             </label>
                             <div class="inst-list__grid">
                                 <!-- checked , linked -->
@@ -436,9 +434,9 @@
                         <div class="inst-list__group">
                             <label class="check-basic inst-list__group-check">
                                 <input type="checkbox" class="check-basic__input" aria-label="카드 전체선택" />
-                                <span class="check-basic__icon"></span>
                                 <span class="inst-list__group-title">카드</span>
-                                <span class="inst-list__group-count">0개</span>
+                                <span class="inst-list__group-count"><em>0</em>개</span>
+                                <span class="check-basic__icon"></span>
                             </label>
                             <div class="inst-list__grid">
                                 <label class="inst-list__grid-item">
@@ -637,7 +635,7 @@
                                 <input type="checkbox" class="check-basic__input" checked aria-label="증권 전체선택" />
                                 <span class="check-basic__icon"></span>
                                 <span class="inst-list__group-title">증권</span>
-                                <span class="inst-list__group-count">25개</span>
+                                <span class="inst-list__group-count"><em>25</em>개</span>
                             </label>
                             <div class="inst-list__grid">
                                 <label class="inst-list__grid-item">
@@ -822,7 +820,7 @@
                                 <input type="checkbox" class="check-basic__input" checked aria-label="보험 전체선택" />
                                 <span class="check-basic__icon"></span>
                                 <span class="inst-list__group-title">보험</span>
-                                <span class="inst-list__group-count">31개</span>
+                                <span class="inst-list__group-count"><em>31</em>개</span>
                             </label>
                             <div class="inst-list__grid">
                                 <label class="inst-list__grid-item">
@@ -1049,7 +1047,7 @@
                                 <input type="checkbox" class="check-basic__input" checked aria-label="할부금융 전체선택" />
                                 <span class="check-basic__icon"></span>
                                 <span class="inst-list__group-title">할부금융</span>
-                                <span class="inst-list__group-count">18개</span>
+                                <span class="inst-list__group-count"><em>18</em>개</span>
                             </label>
                             <div class="inst-list__grid">
                                 <label class="inst-list__grid-item">
@@ -1185,7 +1183,7 @@
                                 <input type="checkbox" class="check-basic__input" checked aria-label="전자금융 전체선택" />
                                 <span class="check-basic__icon"></span>
                                 <span class="inst-list__group-title">전자금융</span>
-                                <span class="inst-list__group-count">22개</span>
+                                <span class="inst-list__group-count"><em>22</em>개</span>
                             </label>
                             <div class="inst-list__grid">
                                 <label class="inst-list__grid-item">
@@ -1349,7 +1347,7 @@
                                 <input type="checkbox" class="check-basic__input" checked aria-label="통신 전체선택" />
                                 <span class="check-basic__icon"></span>
                                 <span class="inst-list__group-title">통신</span>
-                                <span class="inst-list__group-count">6개</span>
+                                <span class="inst-list__group-count"><em>6</em>개</span>
                             </label>
                             <div class="inst-list__grid">
                                 <label class="inst-list__grid-item">
@@ -1401,7 +1399,7 @@
                                 <input type="checkbox" class="check-basic__input" checked aria-label="공공 전체선택" />
                                 <span class="check-basic__icon"></span>
                                 <span class="inst-list__group-title">공공</span>
-                                <span class="inst-list__group-count">3개</span>
+                                <span class="inst-list__group-count"><em>3</em>개</span>
                             </label>
                             <div class="inst-list__grid">
                                 <label class="inst-list__grid-item">
@@ -1432,7 +1430,7 @@
                                 <input type="checkbox" class="check-basic__input" checked aria-label="서민금융진흥원 전체선택" />
                                 <span class="check-basic__icon"></span>
                                 <span class="inst-list__group-title">서민금융진흥원</span>
-                                <span class="inst-list__group-count">1개</span>
+                                <span class="inst-list__group-count"><em>1</em>개</span>
                             </label>
                             <div class="inst-list__grid">
                                 <label class="inst-list__grid-item">
