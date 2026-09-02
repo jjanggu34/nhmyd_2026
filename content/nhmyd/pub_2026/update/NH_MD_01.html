@@ -30,12 +30,6 @@
                      카드 영역을 직접 스와이프한 경우엔 포커스가 탭에 있지 않으므로 이걸로 보완합니다. -->
                 <p class="blind" id="assetHeroAnnounce" aria-live="polite"></p>
 
-                <!-- 자산 카테고리별 히어로 캐러셀(스와이프) — 유동성 → 투자 → 연금 → 대출
-                     순서로 배치되고, loop 모드가 아니라 무한 순환하지 않습니다(맨 앞/맨 뒤에서는
-                     반대쪽 끝 카드가 옆으로 비쳐 보이지 않습니다). 위 탭과 서로 동기화됩니다: 탭을
-                     누르면 해당 슬라이드로 이동하고, 반대로 카드를 직접 스와이프해도 탭의
-                     선택 상태가 같이 바뀝니다. 각 카드는 기존과 동일한 플립(뒤집기) 인터랙션을
-                     그대로 가집니다. -->
                 <div class="asset-hero-swiper-clip">
                     <div class="asset-hero-swiper swiper-container" id="assetHeroSwiper">
                         <div class="swiper-wrapper">
@@ -188,35 +182,35 @@
                                                     </li>
                                                     <li>
                                                         <span class="hero__legend-label">
-                                                            <span class="hero__dot" style="background: #ffa856;"></span>
+                                                            <span class="hero__dot" style="background: #ff7e7e;"></span>
                                                             해외선진국주식
                                                         </span>
                                                         <b>500,000원</b>
                                                     </li>
                                                     <li>
                                                         <span class="hero__legend-label">
-                                                            <span class="hero__dot" style="background: #ff7e7e;"></span>
+                                                            <span class="hero__dot" style="background: #49d8ff;"></span>
                                                             해외신흥국주식
                                                         </span>
                                                         <b>1,000원</b>
                                                     </li>
                                                     <li>
                                                         <span class="hero__legend-label">
-                                                            <span class="hero__dot" style="background: #49d8ff;"></span>
+                                                            <span class="hero__dot" style="background: #ffa856;"></span>
                                                             국내채권
                                                         </span>
                                                         <b>1,000원</b>
                                                     </li>
                                                     <li>
                                                         <span class="hero__legend-label">
-                                                            <span class="hero__dot" style="background: #09b2c5;"></span>
+                                                            <span class="hero__dot" style="background: #38e784;"></span>
                                                             해외채권
                                                         </span>
                                                         <b>1,000원</b>
                                                     </li>
                                                     <li>
                                                         <span class="hero__legend-label">
-                                                            <span class="hero__dot" style="background: #08d561;"></span>
+                                                            <span class="hero__dot" style="background: #c8d2e4;"></span>
                                                             현금
                                                         </span>
                                                         <b>2,000,000원</b>
@@ -310,10 +304,17 @@
                                                     </li>
                                                     <li>
                                                         <span class="hero__legend-label">
-                                                            <span class="hero__dot" style="background: #08d561;"></span>
+                                                            <span class="hero__dot" style="background: #ff7e7e;"></span>
                                                             퇴직연금
                                                         </span>
                                                         <b>1,000,000원</b>
+                                                    </li>
+                                                    <li>
+                                                        <span class="hero__legend-label">
+                                                            <span class="hero__dot" style="background: #49d8ff;"></span>
+                                                            공적연금
+                                                        </span>
+                                                        <b>0원</b>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -341,6 +342,7 @@
                                                 <ul class="blind">
                                                     <li>개인연금: 전월 6,300,000원, 금월 6,654,328원</li>
                                                     <li>퇴직연금: 전월 950,000원, 금월 1,000,000원</li>
+                                                    <li>공적연금: 전월 0원, 금월 0원</li>
                                                 </ul>
                                             </div>
                                             <div class="hcb-legend hcb-legend--dated">
@@ -370,7 +372,15 @@
                                 <div class="hero">
                                     <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
-                                            <div class="hc-top">
+                                            <!-- [디자인 반영] 피그마(node 3121:33761 herocard_대출)는 다른 3개 탭과
+                                                 그라데이션·본문 구성이 다릅니다: (1) 상단 배경이 청록/그린 단일
+                                                 그라데이션이 아니라 블루→퍼플 레이어가 하나 더 겹친 2중
+                                                 그라데이션이고, 하단도 남색 계열의 별도 그라데이션입니다. (2)
+                                                 차트+범례 대신 2x2 통계 카드(보유 대출 계좌/월 평균 예상 상환액/
+                                                 대출 최대 상환 기간/대출 평균 금리)가 들어갑니다. (3) 하단 CTA
+                                                 라벨도 "대출 자산 변화 보기"가 아니라 "전월 비교 보기"이고 아이콘
+                                                 원형 배경색도 다릅니다. -->
+                                            <div class="hc-top hc-top--loan">
                                                 <p class="hc-title">대출 현황</p>
                                                 <p class="hc-date">
                                                     2027.07.13일 기준
@@ -387,31 +397,34 @@
                                                         1,058,000원(-16.54%)
                                                     </p>
                                                 </div>
-                                                <div class="hero__chart-box">
-                                                    <canvas data-chart-canvas="loan" aria-hidden="true"></canvas>
+                                                <div class="hc-stats">
+                                                    <div class="hc-stats__row">
+                                                        <div class="hc-stats__item">
+                                                            <p class="hc-stats__label">보유 대출 계좌</p>
+                                                            <p class="hc-stats__value">2 건</p>
+                                                        </div>
+                                                        <div class="hc-stats__item">
+                                                            <p class="hc-stats__label">월 평균 예상 상환액</p>
+                                                            <p class="hc-stats__value">3,840,316 원</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hc-stats__row">
+                                                        <div class="hc-stats__item">
+                                                            <p class="hc-stats__label">대출 최대 상환 기간</p>
+                                                            <p class="hc-stats__value">178 개월</p>
+                                                        </div>
+                                                        <div class="hc-stats__item">
+                                                            <p class="hc-stats__label">대출 평균 금리</p>
+                                                            <p class="hc-stats__value">6.30 %</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <ul class="hero__legend" style="margin-top: 12px;">
-                                                    <li>
-                                                        <span class="hero__legend-label">
-                                                            <span class="hero__dot" style="background: #f4ff3f;"></span>
-                                                            신용대출
-                                                        </span>
-                                                        <b>15,580,000원</b>
-                                                    </li>
-                                                    <li>
-                                                        <span class="hero__legend-label">
-                                                            <span class="hero__dot" style="background: #08d561;"></span>
-                                                            주택담보대출
-                                                        </span>
-                                                        <b>375,059,500원</b>
-                                                    </li>
-                                                </ul>
                                             </div>
-                                            <div class="hc-bottom">
+                                            <div class="hc-bottom hc-bottom--loan">
                                                 <button type="button" class="hc-cta" data-flip-toggle aria-pressed="false">
                                                     <span class="hc-cta__left">
-                                                        <span class="hc-cta__icon" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
-                                                        <span class="hc-cta__label">대출 자산 변화 보기</span>
+                                                        <span class="hc-cta__icon hc-cta__icon--loan" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
+                                                        <span class="hc-cta__label">전월 비교 보기</span>
                                                     </span>
                                                     <span class="hc-cta__flip" aria-hidden="true"><span class="hc-cta__flip-glyph"></span></span>
                                                 </button>
@@ -458,193 +471,8 @@
                     </div>
                 </div>
 
-                <!-- ==============================================================
-                     탭별 콘텐츠 — 카테고리(유동성/투자/연금/대출)마다 서로 다른 인사이트/시황
-                     카드 세트를 보여줍니다. 현재는 "투자" 탭만 피그마 신규 디자인이 반영되어
-                     있고, 나머지 3개 탭은 기존 위젯(위클리 브리핑/대출 금리 케어/조기 은퇴 진단)을
-                     그대로 공유해서 보여줍니다(추후 탭별로 순차 교체 예정). 전환 로직은 하단
-                     스크립트의 updateAssetTabPanels()가 담당하며, 히어로 스와이퍼의 slideChange와
-                     같은 시점에 함께 갱신됩니다.
-                     ============================================================== -->
-
-                <!-- [투자] 자산 인사이트 -->
-                <div class="asset-tab-panel" data-tab-panel="invest">
-                    <section class="md-section">
-                        <h2 class="md-section__title">투자 자산 인사이트</h2>
-                        <div class="md-card insight-hero">
-                            <p class="insight-hero__greeting">
-                                김농협님의
-                                <br />
-                                <strong>투자 자산</strong>
-                                관리상태입니다.
-                            </p>
-                            <p class="insight-hero__date">2027.11.07 기준</p>
-                            <div class="insight-hero__panel">
-                                <img class="insight-hero__mascot" src="../../images/update/img-ally-laptop-right.png" alt="" aria-hidden="true" />
-                                <div class="insight-hero__tags">
-                                    <span class="insight-hero__tag insight-hero__tag--accent">투자 자산</span>
-                                    <span class="insight-hero__tag insight-hero__tag--outline">인사이트</span>
-                                </div>
-                                <p class="insight-hero__headline">
-                                    최적포트폴리오에 비해
-                                    <br />
-                                    <strong>기대수익율</strong>
-                                    과
-                                    <strong>투자위험도</strong>
-                                    가
-                                    <br />
-                                    <span class="insight-hero__highlight">낮은편이에요!</span>
-                                </p>
-                                <hr class="insight-hero__divider" />
-                                <p class="insight-hero__body">
-                                    장기적으로 수익 기회가 제한되어
-                                    <span class="insight-hero__highlight">목표지향적인 투자로 일부 옮겨보시는건</span>
-                                    어떨까요?
-                                </p>
-                                <button type="button" class="insight-hero__cta">
-                                    AI포트폴리오 진단결과 보기
-                                    <span class="insight-hero__cta-icon" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                            <div class="insight-hero__status">
-                                <span class="insight-hero__status-icon insight-hero__status-icon--mint" aria-hidden="true"></span>
-                                <div class="insight-hero__status-body">
-                                    <p class="insight-hero__status-title">투자를 잘하고 있어요!!</p>
-                                    <p class="insight-hero__status-desc">포트폴리오를 기반으로 투자 자산 추천 상품을 확인해보세요.</p>
-                                    <button type="button" class="insight-hero__status-btn">투자 추천상품 보기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- [투자] 자산 인사이트 - 진단 전 (AI포트폴리오 미진단 고객에게 노출되는 예시,
-                         피그마 "MC_Insight_none" 컴포넌트). 안의 패널은 실제 진단 결과가 아니라
-                         장식용 미리보기라 흐리게 처리하고 aria-hidden으로 숨기며, 실제로 전달할
-                         정보는 오버레이의 안내 문구와 진단 유도 버튼에만 담습니다. -->
-                    <section class="md-section">
-                        <h2 class="md-section__title">투자 자산 인사이트 (진단 전)</h2>
-                        <div class="md-card insight-hero insight-hero--locked">
-                            <div class="insight-hero__panel" aria-hidden="true">
-                                <img class="insight-hero__mascot" src="../../images/update/img-ally-laptop-right.png" alt="" aria-hidden="true" />
-                                <div class="insight-hero__tags">
-                                    <span class="insight-hero__tag insight-hero__tag--accent">투자 자산</span>
-                                    <span class="insight-hero__tag insight-hero__tag--outline">인사이트</span>
-                                </div>
-                                <p class="insight-hero__headline">
-                                    최적포트폴리오에 비해
-                                    <br />
-                                    <strong>기대수익율</strong>
-                                    과
-                                    <strong>투자위험도</strong>
-                                    가
-                                    <br />
-                                    <span class="insight-hero__highlight">낮은편이에요!</span>
-                                </p>
-                                <hr class="insight-hero__divider" />
-                                <p class="insight-hero__body">
-                                    장기적으로 수익 기회가 제한되어
-                                    <span class="insight-hero__highlight">목표지향적인 투자로 일부 옮겨보시는건</span>
-                                    어떨까요?
-                                </p>
-                                <button type="button" class="insight-hero__cta" tabindex="-1">
-                                    AI포트폴리오 진단결과 보기
-                                    <span class="insight-hero__cta-icon" aria-hidden="true"></span>
-                                </button>
-                            </div>
-                            <div class="insight-hero__lock">
-                                <div class="insight-hero__lock-inner">
-                                    <p class="insight-hero__lock-desc">
-                                        AI 포트폴리오 진단 받고, 수익을 높이는
-                                        <br />
-                                        인사이트 정보를 확인해보세요!
-                                    </p>
-                                    <button type="button" class="insight-hero__lock-cta">AI포트폴리오 진단하기</button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- 위클리 브리핑 -->
-                    <section class="md-section">
-                        <h2 class="md-section__title">위클리 브리핑</h2>
-                        <div class="md-card">
-                            <div class="accordion-gray">
-                                <div class="accordion-gray__item">
-                                    <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="true">
-                                        <span class="accordion-gray__icon accordion-gray__icon--sun" aria-hidden="true"></span>
-                                        <span class="accordion-gray__title-col">
-                                            <span class="accordion-gray__title">호재</span>
-                                            <span class="accordion-gray__sub">시장에 긍정적인 소식입니다</span>
-                                        </span>
-                                    </button>
-                                    <div class="accordion-gray__body">KOSPI, 5월 6일 종가 7,000선 첫 돌파, AI 데이터 센터 수요 폭증과 HBM 공급부족이 견인했습니다.</div>
-                                </div>
-                                <div class="accordion-gray__item">
-                                    <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="false">
-                                        <span class="accordion-gray__icon accordion-gray__icon--rain" aria-hidden="true"></span>
-                                        <span class="accordion-gray__title-col">
-                                            <span class="accordion-gray__title">주의</span>
-                                            <span class="accordion-gray__sub">위험요인이 되는 소식입니다</span>
-                                        </span>
-                                    </button>
-                                    <div class="accordion-gray__body" hidden>이번 주 별도의 위험 이슈는 확인되지 않았습니다.</div>
-                                </div>
-                            </div>
-                            <hr class="md-card__divider" />
-                            <p class="briefing-notice">
-                                <span class="briefing-notice__icon" aria-hidden="true"></span>
-                                KOSPI 7,000선 첫 돌파와 미·이란 갈등 격화가 동시에 작용한 한주 였어요.
-                            </p>
-                            <button type="button" class="btn btn--primary btn--md btn--full">브리핑 상세보기</button>
-                        </div>
-                    </section>
-
-                    <!-- 주요증시 -->
-                    <section class="md-section">
-                        <h2 class="md-section__title">주요 증시</h2>
-                        <div class="market-index__grid">
-                            <div class="market-index__item">
-                                <span class="market-index__icon market-index__icon--green" aria-hidden="true"></span>
-                                <p class="market-index__label">KOSPI</p>
-                                <p class="market-index__value">8,049.26</p>
-                                <p class="market-index__change market-index__change--up">+5.25%</p>
-                            </div>
-                            <div class="market-index__item">
-                                <span class="market-index__icon market-index__icon--green" aria-hidden="true"></span>
-                                <p class="market-index__label">KOSDAQ</p>
-                                <p class="market-index__value">861.59</p>
-                                <p class="market-index__change market-index__change--up">+0.59%</p>
-                            </div>
-                            <div class="market-index__item">
-                                <span class="market-index__icon market-index__icon--pink" aria-hidden="true"></span>
-                                <p class="market-index__label">NASDAQ</p>
-                                <p class="market-index__value">8,049.51</p>
-                                <p class="market-index__change market-index__change--down">-10.54%</p>
-                            </div>
-                            <div class="market-index__item">
-                                <span class="market-index__icon market-index__icon--blue" aria-hidden="true"></span>
-                                <p class="market-index__label">S&amp;P500</p>
-                                <p class="market-index__value">546.54</p>
-                                <p class="market-index__change market-index__change--flat">0%</p>
-                            </div>
-                            <div class="market-index__item">
-                                <span class="market-index__icon market-index__icon--green" aria-hidden="true"></span>
-                                <p class="market-index__label">국고채(3년)</p>
-                                <p class="market-index__value">3.95</p>
-                                <p class="market-index__change market-index__change--up">+0.04%</p>
-                            </div>
-                            <div class="market-index__item">
-                                <span class="market-index__icon market-index__icon--pink" aria-hidden="true"></span>
-                                <p class="market-index__label">원/달러</p>
-                                <p class="market-index__value">1,460.80</p>
-                                <p class="market-index__change market-index__change--down">-248.50(0.9%)</p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-                <!-- [예금] 자산 인사이트 -->
-                <div class="asset-tab-panel" data-tab-panel="liquidity" hidden>
+                <!-- [예금] -->
+                <div class="asset-tab-panel" data-tab-panel="liquidity">
                     <!-- 인사이트 — 여러 진단 상태를 한번에 보여주는 리스트형 카드로 개편 -->
                     <section class="md-section">
                         <h2 class="md-section__title">인사이트</h2>
@@ -732,42 +560,39 @@
 
                     <!-- 자산진단 · 목표설정 프로모 배너 -->
                     <section class="md-section">
-                        <div class="deposit-promo-banner deposit-promo-banner--check">
-                            <p class="deposit-promo-banner__eyebrow">현재 나의 여유자금은 얼마나 있을까?</p>
+                        <div class="deposit-promo-banner" style="background:#E3F3F2">
+                            <p class="deposit-promo-banner__sub">현재 나의 여유자금은 얼마나 있을까?</p>
                             <p class="deposit-promo-banner__title">자산진단에서 확인해보세요!</p>
-                            <img class="deposit-promo-banner__img" src="../../images/update/img-3d-target-goal.png" alt="" aria-hidden="true" />
-                        </div>
-                    </section>
-                    <section class="md-section">
-                        <div class="deposit-promo-banner deposit-promo-banner--goal">
-                            <p class="deposit-promo-banner__eyebrow">나만의 목표를 위해 목돈 만들기</p>
-                            <p class="deposit-promo-banner__title">목표설정을 해보세요!</p>
                             <img class="deposit-promo-banner__img" src="../../images/update/img-3d-money-bag.png" alt="" aria-hidden="true" />
                         </div>
-                    </section>
+                        <div class="deposit-promo-banner mt12" style="background:#F8EAE1">
+                            <p class="deposit-promo-banner__sub">나만의 목표를 위해 목돈 만들기</p>
+                            <p class="deposit-promo-banner__title">목표설정을 해보세요!</p>
+                            <img class="deposit-promo-banner__img" src="../../images/update/img-3d-target-goal.png" alt="" aria-hidden="true" />
+                        </div>
 
-                    <!-- 서브 프로모 배너 캐러셀(NH_MD_CO_01_04.html의 promo-carousel과 동일한 Swiper 구조 재사용) -->
-                    <section class="md-section">
-                        <div class="promo-carousel">
+                        <div class="promo-carousel mt32">
                             <div class="promo-carousel__track swiper-container" id="liquiditySubPromoSwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="promo-carousel__slide promo-carousel__slide--moneygame swiper-slide">
+                                    <div class="promo-carousel__slide  swiper-slide">
                                         <p class="promo-carousel__title">
                                             머니포용 게임으로 청년금융
                                             <br />
                                             생활을 미리 체험해보세요
                                         </p>
-                                        <p class="promo-carousel__tags">#머니포용 #서민금융진흥원</p>
+                                        <p class="promo-carousel__tags">
+                                            <span>#머니포용</span>
+                                            <span>#서민금융진흥원</span>
+                                        </p>
                                         <img class="promo-carousel__illust" src="../../images/update/img-elephant-welcome.png" alt="" aria-hidden="true" />
                                     </div>
-                                    <div class="promo-carousel__slide promo-carousel__slide--nh-brand swiper-slide">
-                                        <p class="promo-carousel__title">
-                                            NH와 함께하는 금융생활,
-                                            <br />
-                                            더 다양한 혜택을 만나보세요
+                                    <div class="promo-carousel__slide swiper-slide">
+                                        <p class="promo-carousel__title">청년 자금지원을 위한 햇살론 유스를 확인해보세요!</p>
+                                        <p class="promo-carousel__tags">
+                                            <span>#청년자금지원</span>
+                                            <span>#서민금융진흥원</span>
                                         </p>
-                                        <p class="promo-carousel__tags">#NH농협은행 #앱테크 #금융혜택</p>
-                                        <img class="promo-carousel__watermark" src="../../images/update/img_nh_logo.svg" alt="" aria-hidden="true" />
+                                        <img class="promo-carousel__illust" src="../../images/update/img-elephant-welcome.png" alt="" aria-hidden="true" />
                                     </div>
                                 </div>
                                 <div class="indicator-number">
@@ -784,213 +609,347 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
 
-                    <!-- NH 안심알림 서비스 -->
-                    <section class="md-section">
-                        <button type="button" class="thin-link-banner">
+                        <button type="button" class="thin-link-banner mt32">
                             내 자산을 지키는 든든한 알림서비스
                             <span class="thin-link-banner__arrow" aria-hidden="true"></span>
                         </button>
                     </section>
                 </div>
 
-                <!-- [연금] 자산 인사이트 -->
-                <div class="asset-tab-panel" data-tab-panel="pension" hidden>
-                    <section class="md-section pension">
-                        <h2 class="md-section__title">연금 자산 인사이트</h2>
-                        <div class="md-card insight-hero">
-                            <p class="insight-hero__greeting">
-                                김농협님의
-                                <br />
-                                <strong>연금 자산</strong>
-                                관리상태입니다.
-                            </p>
-                            <p class="insight-hero__date">2027.11.07 기준</p>
-                            <div class="insight-hero__panel">
-                                <img class="insight-hero__mascot" src="../../images/update/img-ally-running.png" alt="" aria-hidden="true" />
-                                <div class="insight-hero__tags">
-                                    <span class="insight-hero__tag insight-hero__tag--accent">연금 자산</span>
-                                    <span class="insight-hero__tag insight-hero__tag--outline">인사이트</span>
+                <!-- [투자] -->
+                <div class="asset-tab-panel" data-tab-panel="invest" hidden>
+                    <section class="md-section">
+                        <h2 class="md-section__title">인사이트</h2>
+                        <div class="md-card insight-list">
+                            <div class="insight-list__item">
+                                <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="true">
+                                    <span class="insight-hero__status-icon insight-hero__status-icon--blue" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-body">
+                                        <p class="insight-hero__status-title">정말 잘하고 있어요!</p>
+                                        <p class="insight-hero__status-desc">포트폴리오 진단을 받아보세요</p>
+                                    </span>
+                                    <span class="insight-list__arrow" aria-hidden="true"></span>
+                                </button>
+                                <div class="insight-list__body">
+                                    <p>어쨌든 매우매우 좋아서 매우매우 좋아서어쨌든 매우매우 좋아서 매우매우 좋아서어쨌든 매우매우 좋아서 매우매우 좋아서 좋아요.</p>
                                 </div>
-                                <p class="insight-hero__headline">
-                                    희망생활비 대비 65세부터 80세까지 월 평균,
-                                    <br />
-                                    <span class="insight-hero__highlight">67만원 부족해요!</span>
-                                </p>
-                                <hr class="insight-hero__divider" />
-                                <p class="insight-hero__body">퇴직연금이 적어요. 개인 연금 저축으로 꾸준히 모아보세요. 모아놓은 돈은 소득이 발생할 수 있는 형태로 바꿔보세요.</p>
-                                <button type="button" class="insight-hero__cta">연금 진단 결과 보기</button>
                             </div>
-                            <div class="insight-hero__status">
-                                <span class="insight-hero__status-icon insight-hero__status-icon--pink" aria-hidden="true"></span>
-                                <div class="insight-hero__status-body">
-                                    <p class="insight-hero__status-title">노후준비가 필요해요!</p>
-                                    <p class="insight-hero__status-desc">연금 진단을 통해 노후준비 계획을 세워보세요</p>
-                                    <button type="button" class="insight-hero__status-btn">연금자산 추천상품 보기</button>
+                            <hr class="insight-list__divider" />
+                            <div class="insight-list__item">
+                                <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
+                                    <span class="insight-hero__status-icon insight-hero__status-icon--mint" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-body">
+                                        <p class="insight-hero__status-title">투자를 잘하고 있어요!</p>
+                                        <p class="insight-hero__status-desc">포트폴리오 계획을 세워보세요</p>
+                                    </span>
+                                    <span class="insight-list__arrow" aria-hidden="true"></span>
+                                </button>
+                                <div class="insight-list__body" hidden>
+                                    <p>투자 성향에 맞는 포트폴리오를 꾸준히 잘 유지하고 있어요.</p>
+                                </div>
+                            </div>
+                            <hr class="insight-list__divider" />
+                            <div class="insight-list__item">
+                                <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
+                                    <span class="insight-hero__status-icon insight-hero__status-icon--pink" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-body">
+                                        <p class="insight-hero__status-title">자산이 위험해요!</p>
+                                        <p class="insight-hero__status-desc">투자자산 비율을 줄이세요</p>
+                                    </span>
+                                    <span class="insight-list__arrow" aria-hidden="true"></span>
+                                </button>
+                                <div class="insight-list__body" hidden>
+                                    <p>투자자산 비중이 높아지고 있어요. 목표 비중에 맞게 조정해보세요.</p>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <!-- 조기 은퇴 진단 -->
+                    <section class="md-section">
+                        <div class="md-section__title-row">
+                            <h2 class="md-section__title">데일리 브리핑</h2>
+                            <span class="ai-badge">에이전트 AI</span>
+                        </div>
+                        <div class="md-card">
+                            <div class="accordion-gray">
+                                <div class="accordion-gray__item">
+                                    <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="true">
+                                        <span class="accordion-gray__icon accordion-gray__icon--sun" aria-hidden="true"></span>
+                                        <span class="accordion-gray__title-col">
+                                            <span class="accordion-gray__title">호재</span>
+                                            <span class="accordion-gray__sub">시장에 긍정적인 소식입니다</span>
+                                        </span>
+                                    </button>
+                                    <div class="accordion-gray__body">KOSPI, 5월 6일 종가 7,000선 첫 돌파, AI 데이터 센터 수요 폭증과 HBM 공급부족이 견인했습니다.</div>
+                                </div>
+                                <div class="accordion-gray__item">
+                                    <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="false">
+                                        <span class="accordion-gray__icon accordion-gray__icon--rain" aria-hidden="true"></span>
+                                        <span class="accordion-gray__title-col">
+                                            <span class="accordion-gray__title">주의</span>
+                                            <span class="accordion-gray__sub">위험요인이 되는 소식입니다</span>
+                                        </span>
+                                    </button>
+                                    <div class="accordion-gray__body" hidden>이번 주 별도의 위험 이슈는 확인되지 않았습니다.</div>
+                                </div>
+                            </div>
+                            <p class="briefing-notice">
+                                <span class="briefing-notice__icon" aria-hidden="true"></span>
+                                김*협님의 포트폴리오는 국내주식 22%(반도체 직접보유 포함)로 상승 모멘텀 직접 수혜 구간에 있으나, 동시에 국내·해외채권 35%, 해외주식형 18%로 금리 상승 및 유가 변동성 노출도 상당합니다.
+                            </p>
+                            <button type="button" class="btn btn--primary btn--md btn--full">브리핑 상세보기</button>
+                        </div>
+                    </section>
+
+                    <section class="md-section">
+                        <h2 class="md-section__title">자산진단</h2>
+                        <div class="md-card style-diag">
+                            <div class="style-diag__top">
+                                <div class="style-diag__q">
+                                    <p class="style-diag__q-title">나의 투자 스타일은?</p>
+                                    <p class="style-diag__q-desc">
+                                        AI전문가가 분석한 내 투자스타일을
+                                        <br />
+                                        알려드려요!
+                                    </p>
+                                </div>
+                                <img class="style-diag__mascot" src="../../images/update/img-ally-question.png" alt="" aria-hidden="true" />
+                            </div>
+                            <p class="style-diag__result">천진난만한 활동가</p>
+                            <div class="style-diag__tags">
+                                <span>#신중한</span>
+                                <span>#긍정적으로 바라보는</span>
+                                <span class="style-diag__tag--accent">#수익을 끝없이 갈망하는</span>
+                                <span>#장기적인 투자혜안</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="md-section">
+                        <div class="deposit-promo-banner" style="background:#E3F3F2">
+                            <p class="deposit-promo-banner__sub">나의 투자 수익률은 어떨까?</p>
+                            <p class="deposit-promo-banner__title">자산진단에서 확인해보세요!</p>
+                            <img class="deposit-promo-banner__img" src="../../images/update/img-3d-money-bag.png" alt="" aria-hidden="true" />
+                        </div>
+
+                        <div class="deposit-promo-banner mt32" style="background:#EBEFF6">
+                            <p class="deposit-promo-banner__title">또래비교 내 자산은?</p>
+                            <p class="deposit-promo-banner__sub">
+                                또래와 비교한 나의 투자자산을
+                                <br />
+                                알아보세요!
+                            </p>
+                            <p class="deposit-promo-banner__tags">
+                                <span>#자산진단</span>
+                                <span>#또래자산비교</span>
+                            </p>
+                            <img class="deposit-promo-banner__img" src="../../images/update/img-3d-balance.png" alt="" aria-hidden="true" />
+                        </div>
+
+                        <button type="button" class="thin-link-banner mt32">
+                            해외주식 거래를 위한 양도소득세 계산기
+                            <span class="thin-link-banner__arrow" aria-hidden="true"></span>
+                        </button>
+                    </section>
+                </div>
+
+                <!-- [연금] -->
+                <div class="asset-tab-panel" data-tab-panel="pension" hidden>
+                    <section class="md-section pension">
+                        <h2 class="md-section__title">인사이트</h2>
+                        <div class="md-card insight-list">
+                            <div class="insight-list__item">
+                                <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="true">
+                                    <span class="insight-hero__status-icon insight-hero__status-icon--blue" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-body">
+                                        <p class="insight-hero__status-title">노후준비를 잘하고 있어요!</p>
+                                        <p class="insight-hero__status-desc">연금진단으로 수익을 높여보세요</p>
+                                    </span>
+                                    <span class="insight-list__arrow" aria-hidden="true"></span>
+                                </button>
+                                <div class="insight-list__body">
+                                    <p>어쨌든 매우매우 좋아서 매우매우 좋아서어쨌든 매우매우 좋아서 매우매우 좋아서어쨌든 매우매우 좋아서 매우매우 좋아서 좋아요.</p>
+                                </div>
+                            </div>
+                            <hr class="insight-list__divider" />
+                            <div class="insight-list__item">
+                                <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
+                                    <span class="insight-hero__status-icon insight-hero__status-icon--mint" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-body">
+                                        <p class="insight-hero__status-title">노후준비를 대비해주세요!</p>
+                                        <p class="insight-hero__status-desc">연금진단을 통해 계획을 세워보세요</p>
+                                    </span>
+                                    <span class="insight-list__arrow" aria-hidden="true"></span>
+                                </button>
+                                <div class="insight-list__body" hidden>
+                                    <p>노후준비를 위한 연금 계획을 꾸준히 잘 유지하고 있어요.</p>
+                                </div>
+                            </div>
+                            <hr class="insight-list__divider" />
+                            <div class="insight-list__item">
+                                <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
+                                    <span class="insight-hero__status-icon insight-hero__status-icon--pink" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-body">
+                                        <p class="insight-hero__status-title">노후준비가 필요해요!</p>
+                                        <p class="insight-hero__status-desc">연금진단 받고 노후준비를 해보세요</p>
+                                    </span>
+                                    <span class="insight-list__arrow" aria-hidden="true"></span>
+                                </button>
+                                <div class="insight-list__body" hidden>
+                                    <p>퇴직연금이 적어요. 개인 연금 저축으로 꾸준히 모아보세요. 모아놓은 돈은 소득이 발생할 수 있는 형태로 바꿔보세요.</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn--primary btn--md btn--full">연금 진단하기</button>
+                        </div>
+                    </section>
+
                     <section class="md-section">
                         <h2 class="md-section__title">조기 은퇴 진단</h2>
                         <div class="md-card retire-check">
                             <p class="retire-check__headline">
-                                김농협님의 은퇴준비율은
+                                <!-- prettier-ignore -->
+                                <strong>김농협</strong>
+                                님의 은퇴준비율은
                                 <br />
                                 <strong class="retire-check__percent">32%</strong>
                                 입니다.
                             </p>
-                            <img class="retire-check__mascot" src="../../images/update/img-oney-suitcase.png" alt="" aria-hidden="true" />
-                            <div class="retire-check__bar" role="img" aria-label="은퇴준비율 32%">
-                                <div class="retire-check__bar-fill" style="width:36%"></div>
+                            <div class="retire-check__track">
+                                <span class="retire-check__bubble">아직은 열심히 일할 때예요!</span>
+                                <img class="retire-check__mascot" src="../../images/update/img-oney-suitcase.png" alt="" aria-hidden="true" />
+                                <span class="retire-check__flag" aria-hidden="true"></span>
+                                <div class="retire-check__bar" role="img" aria-label="은퇴준비율 32%">
+                                    <div class="retire-check__bar-fill" style="width:36%"></div>
+                                </div>
                             </div>
-                            <p class="retire-check__caption">
-                                마련된 총 은퇴생활비
-                                <strong>4,447</strong>
-                                만원
-                            </p>
-                            <dl class="retire-check__rows">
-                                <div class="retire-check__row">
-                                    <dt>은퇴 후 월 희망생활비</dt>
-                                    <dd>250만원</dd>
-                                </div>
-                                <div class="retire-check__row">
-                                    <dt>마련된 월 은퇴생활비</dt>
-                                    <dd>75만원</dd>
-                                </div>
-                                <div class="retire-check__row">
-                                    <dt>연금(공적/개인/퇴직포함)</dt>
-                                    <dd>3,895만원</dd>
-                                </div>
-                                <div class="retire-check__row retire-check__row--highlight">
-                                    <dt>모자른 월 은퇴 생활비</dt>
-                                    <dd>175만원</dd>
-                                </div>
-                            </dl>
-                            <button type="button" class="btn btn--primary btn--md btn--full">조기은퇴 결과보기</button>
                         </div>
                     </section>
 
-                    <!-- NH 안심알림 서비스 -->
                     <section class="md-section">
-                        <div class="alert-banner">
-                            <p class="alert-banner__title">NH 안심알림 서비스</p>
-                            <p class="alert-banner__subtitle">내 자산을 지키는 알림 서비스</p>
-                            <p class="alert-banner__tags">#안심알림 #알림서비스 #피싱</p>
-                            <img class="alert-banner__illust" src="../../images/update/img-3d-bell-alert.png" alt="" aria-hidden="true" />
+                        <div class="deposit-promo-banner type" style="background:#E1E8F8">
+                            <p class="deposit-promo-banner__title">청년 맞춤 재무상담</p>
+                            <p class="deposit-promo-banner__sub">
+                                국민연금공단 청년 맞춤형
+                                <br />
+                                재무상담 서비스를 받아보세요!
+                            </p>
+                            <img class="deposit-promo-banner__img" src="../../images/update/img-3d-contract.png" alt="" aria-hidden="true" />
                         </div>
                     </section>
                 </div>
 
-                <!-- [대출자산] 자산 인사이트 -->
+                <!-- [대출자산] -->
                 <div class="asset-tab-panel" data-tab-panel="loan" hidden>
                     <section class="md-section">
-                        <h2 class="md-section__title">대출 자산 인사이트</h2>
-                        <div class="md-card insight-hero">
-                            <p class="insight-hero__greeting">
-                                김농협님의
-                                <br />
-                                <strong>대출 자산</strong>
-                                관리상태입니다.
-                            </p>
-                            <p class="insight-hero__date">2027.11.07 기준</p>
-                            <div class="insight-hero__panel">
-                                <img class="insight-hero__mascot" src="../../images/update/img-oney-suitcase.png" alt="" aria-hidden="true" />
-                                <div class="insight-hero__tags">
-                                    <span class="insight-hero__tag insight-hero__tag--accent">대출 자산</span>
-                                    <span class="insight-hero__tag insight-hero__tag--outline">인사이트</span>
-                                </div>
-                                <p class="insight-hero__headline">
-                                    신용대출을 상환하여 대출액이줄었어요, 또한 또래에 비해
-                                    <br />
-                                    <span class="insight-hero__highlight">대출액이 매우 적어요!</span>
-                                </p>
-                                <hr class="insight-hero__divider" />
-                                <p class="insight-hero__body">
-                                    노후 준비를 위해 대출 상환을 완료한 후
-                                    <span class="insight-hero__highlight">ETF 상품에도 관심을 가져보시는 것을 추천드려요.</span>
-                                </p>
-                                <button type="button" class="insight-hero__cta">AI포트폴리오 진단결과 보기</button>
-                            </div>
-                            <div class="insight-hero__status">
-                                <span class="insight-hero__status-icon insight-hero__status-icon--blue" aria-hidden="true"></span>
-                                <div class="insight-hero__status-body">
-                                    <p class="insight-hero__status-title">대출 상환을 잘 하고 있어요!</p>
-                                    <p class="insight-hero__status-desc">포트폴리오 진단을 기반으로 대출 금액을 줄여보세요.</p>
-                                    <button type="button" class="insight-hero__status-btn">대환 대출 추천상품 보기</button>
+                        <h2 class="md-section__title">인사이트</h2>
+                        <div class="md-card insight-list">
+                            <div class="insight-list__item">
+                                <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="true">
+                                    <span class="insight-hero__status-icon insight-hero__status-icon--blue" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-body">
+                                        <p class="insight-hero__status-title">대출상환을 잘하고 있어요!</p>
+                                        <p class="insight-hero__status-desc">포트폴리오 진단으로 자산을 늘리세요</p>
+                                    </span>
+                                    <span class="insight-list__arrow" aria-hidden="true"></span>
+                                </button>
+                                <div class="insight-list__body">
+                                    <p>신용대출을 상환하여 대출액이 줄었어요, 또한 또래에 비해 대출액이 매우 적어요. 노후 준비를 위해 대출 상환을 완료한 후 ETF 상품에도 관심을 가져보시는 것을 추천드려요.</p>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-
-                    <!-- 프로모 배너 캐러셀 -->
-                    <section class="md-section">
-                        <div class="promo-carousel">
-                            <div class="promo-carousel__track" id="loanPromoTrack">
-                                <div class="promo-carousel__slide" style="background:#dce4f5">
-                                    <p class="promo-carousel__eyebrow">AI대출금리케어+</p>
-                                    <p class="promo-carousel__title">
-                                        AI대출금리 케어로
-                                        <br />
-                                        대출이자를 줄여보세요!
-                                    </p>
-                                    <p class="promo-carousel__tags">#AI금리인하 #AI대환대출</p>
-                                    <img class="promo-carousel__illust" src="../../images/update/img-3d-rocket-launch.png" alt="" aria-hidden="true" />
-                                </div>
-                                <div class="promo-carousel__slide" style="background:#ddf2e4">
-                                    <p class="promo-carousel__eyebrow">대출 계획이 있으시다면??</p>
-                                    <p class="promo-carousel__title">
-                                        DSR 계산기로
-                                        <br />
-                                        확인해보세요!
-                                    </p>
-                                    <span class="promo-carousel__icon" aria-hidden="true"></span>
+                            <hr class="insight-list__divider" />
+                            <div class="insight-list__item">
+                                <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
+                                    <span class="insight-hero__status-icon insight-hero__status-icon--mint" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-body">
+                                        <p class="insight-hero__status-title">대출계획을 세워보세요!</p>
+                                        <p class="insight-hero__status-desc">자산부채 진단으로 계획을 세워보세요</p>
+                                    </span>
+                                    <span class="insight-list__arrow" aria-hidden="true"></span>
+                                </button>
+                                <div class="insight-list__body" hidden>
+                                    <p>대출 상환 계획을 꾸준히 잘 유지하고 있어요.</p>
                                 </div>
                             </div>
-                            <div class="promo-carousel__dots" id="loanPromoDots">
-                                <span class="promo-carousel__dot promo-carousel__dot--active"></span>
-                                <span class="promo-carousel__dot"></span>
+                            <hr class="insight-list__divider" />
+                            <div class="insight-list__item">
+                                <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
+                                    <span class="insight-hero__status-icon insight-hero__status-icon--pink" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-body">
+                                        <p class="insight-hero__status-title">자산부채 통합분석이 필요해요!</p>
+                                        <p class="insight-hero__status-desc">부채비율을 확인해보세요</p>
+                                    </span>
+                                    <span class="insight-list__arrow" aria-hidden="true"></span>
+                                </button>
+                                <div class="insight-list__body" hidden>
+                                    <p>대출 상환을 잘 하고 있어요! 포트폴리오 진단을 기반으로 대출 금액을 줄여보세요.</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn--primary btn--md btn--full">자산·부채 통합 분석하기</button>
+                        </div>
+                    </section>
+                    <section class="md-section">
+                        <div class="deposit-promo-banner" style="background:#F8EAE1">
+                            <p class="deposit-promo-banner__sub">대출금리가 부담이 되신다면</p>
+                            <p class="deposit-promo-banner__title">AI 대출금리케어 받기</p>
+                            <img class="deposit-promo-banner__img" src="../../images/update/img-bot-doc.png" alt="" aria-hidden="true" />
+                        </div>
+
+                        <div class="deposit-promo-banner mt12" style="background:#E3F3F2">
+                            <p class="deposit-promo-banner__sub">더 좋은 조건의 대출이 있는지 알고싶다면?</p>
+                            <p class="deposit-promo-banner__title">나에게 맞는 대출 찾기</p>
+                            <img class="deposit-promo-banner__img" src="../../images/update/img-3d-money-bag.png" alt="" aria-hidden="true" />
+                        </div>
+
+                        <div class="deposit-promo-banner mt12" style="background:#DFE3F4">
+                            <p class="deposit-promo-banner__sub">상환할 대출 선택하고</p>
+                            <p class="deposit-promo-banner__title">대출을 줄여나가는 목표등록하기</p>
+                            <img class="deposit-promo-banner__img" src="../../images/update/img-3d-target-goal.png" alt="" aria-hidden="true" />
+                        </div>
+
+                        <div class="promo-carousel mt32">
+                            <div class="promo-carousel__track swiper-container" id="liquiditySubPromoSwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="promo-carousel__slide  swiper-slide">
+                                        <p class="promo-carousel__title">
+                                            머니포용 게임으로 청년금융
+                                            <br />
+                                            생활을 미리 체험해보세요
+                                        </p>
+                                        <p class="promo-carousel__tags">
+                                            <span>#머니포용</span>
+                                            <span>#서민금융진흥원</span>
+                                        </p>
+                                        <img class="promo-carousel__illust" src="../../images/update/img-elephant-welcome.png" alt="" aria-hidden="true" />
+                                    </div>
+                                    <div class="promo-carousel__slide swiper-slide">
+                                        <p class="promo-carousel__title">청년 자금지원을 위한 햇살론 유스를 확인해보세요!</p>
+                                        <p class="promo-carousel__tags">
+                                            <span>#청년자금지원</span>
+                                            <span>#서민금융진흥원</span>
+                                        </p>
+                                        <img class="promo-carousel__illust" src="../../images/update/img-elephant-welcome.png" alt="" aria-hidden="true" />
+                                    </div>
+                                </div>
+                                <div class="indicator-number">
+                                    <div class="indicator-number__paging">
+                                        <button type="button" class="indicator-number__arrow" aria-label="이전"></button>
+                                        <span class="indicator-number__count">
+                                            <span class="indicator-number__current">1</span>
+                                            <span class="indicator-number__dash" aria-hidden="true"></span>
+                                            <span class="indicator-number__total">2</span>
+                                        </span>
+                                        <button type="button" class="indicator-number__arrow" aria-label="다음"></button>
+                                    </div>
+                                    <button type="button" class="indicator-number__control" aria-label="일시정지"></button>
+                                </div>
                             </div>
                         </div>
-                    </section>
-                </div>
 
-                <!-- [예비] 아직 탭 전용 디자인 반영 전인 카테고리를 위한 공용 위젯 폴백(현재 모든 탭에 전용 디자인 적용됨) -->
-                <div class="asset-tab-panel" data-tab-panel="generic" hidden>
-                    <!-- 위클리 브리핑 -->
-                    <section class="md-section">
-                        <h2 class="md-section__title">위클리 브리핑</h2>
-                        <div class="md-card">
-                            <p class="widget__desc">
-                                AI Agent 가 김*협님의 보유자산 정보를 분석하여 이번 주 시장 변화 중 영향이 큰 이슈만을 골라 정리해드려요.
-                                <strong>KOSPI 7,000선 첫 돌파와 미·이란 갈등 격화가 동시에 작용한 한주 였어요.</strong>
-                            </p>
-                            <p class="widget__caption">2026.06.15 기준</p>
-                            <button type="button" class="widget__cta">위클리 브리핑 상세보기</button>
-                        </div>
-                    </section>
-
-                    <!-- 대출 금리 케어 -->
-                    <section class="md-section">
-                        <h2 class="md-section__title">대출 금리 케어</h2>
-                        <div class="md-card">
-                            <p class="widget__desc">AI대출금리 케어로 대출상환 이자를 줄여보세요~!</p>
-                            <p class="widget__caption">상세 분석을 통해 금리 인하를 신청해 보세요.</p>
-                            <button type="button" class="widget__cta">AI대출금리케어 신청하기</button>
-                        </div>
-                    </section>
-
-                    <!-- 조기 은퇴 진단 -->
-                    <section class="md-section">
-                        <h2 class="md-section__title">조기 은퇴 진단</h2>
-                        <div class="md-card">
-                            <p class="widget__desc">조기 은퇴를 위해 어떤 준비가 필요한지 궁금하다면?</p>
-                            <p class="widget__caption">상세 분석을 통해 조기은퇴를 진단해보세요.</p>
-                            <button type="button" class="widget__cta">조기은퇴 진단하기</button>
-                        </div>
+                        <button type="button" class="thin-link-banner mt32">
+                            대출 계획시 유용한, DSR계산기
+                            <span class="thin-link-banner__arrow" aria-hidden="true"></span>
+                        </button>
                     </section>
                 </div>
             </div>
@@ -1731,20 +1690,34 @@
                     makeDataset('기타', 500000, '#ffa856')
                 ]);
 
+                // [디자인 반영] 피그마(node 3045:35885)의 6개 세그먼트 색상 순서
+                // (#f4ff3f/#ff7e7e/#49d8ff/#ffa856/#38e784/#c8d2e4 — 예금 탭과 같은
+                // --component/chart 팔레트)를 그대로 따르되, 카테고리 이름/금액은 피그마의
+                // 임시 목업(국내주식/해외주식/채권/펀드/예수금/기타)이 아니라 기존 실제
+                // 6개 카테고리를 그대로 유지합니다(같은 개수라 위치별로 1:1 매칭).
                 buildStackedBarChart('invest', [
                     makeDataset('국내주식', 1500000, '#f4ff3f'),
-                    makeDataset('해외선진국주식', 500000, '#ffa856'),
-                    makeDataset('해외신흥국주식', 1000, '#ff7e7e'),
-                    makeDataset('국내채권', 1000, '#49d8ff'),
-                    makeDataset('해외채권', 1000, '#09b2c5'),
-                    makeDataset('현금', 2000000, '#08d561')
+                    makeDataset('해외선진국주식', 500000, '#ff7e7e'),
+                    makeDataset('해외신흥국주식', 1000, '#49d8ff'),
+                    makeDataset('국내채권', 1000, '#ffa856'),
+                    makeDataset('해외채권', 1000, '#38e784'),
+                    makeDataset('현금', 2000000, '#c8d2e4')
                 ]);
 
+                // [디자인 반영] 피그마(node 3045:34410)는 개인연금/퇴직연금 외에 공적연금
+                // 항목이 하나 더 있습니다(실제 값 0원 — 막대에선 거의 안 보이지만 범례·
+                // 접근성 목록엔 그대로 노출). 색상도 위 투자 탭과 같은 팔레트 순서로 맞춥니다.
                 buildStackedBarChart('pension', [
                     makeDataset('개인연금', 6654328, '#f4ff3f'),
-                    makeDataset('퇴직연금', 1000000, '#08d561')
+                    makeDataset('퇴직연금', 1000000, '#ff7e7e'),
+                    makeDataset('공적연금', 0, '#49d8ff')
                 ]);
 
+                // [디자인 반영] 피그마(node 3121:33761)는 대출 탭 앞면에 차트+범례 대신 통계
+                // 카드(.hc-stats) 4개를 씁니다 — data-chart-canvas="loan" 캔버스를 앞면 HTML에서
+                // 제거했으므로 이 호출은 buildStackedBarChart 안의 "if (!canvas) return;" 가드에
+                // 걸려 조용히 아무 일도 하지 않습니다(안전). 대출 자산 구성비 데이터는 뒷면 인사이트
+                // 카드(향후 재사용 가능성 대비)를 위해 남겨둡니다.
                 buildStackedBarChart('loan', [
                     makeDataset('신용대출', 15580000, '#f4ff3f'),
                     makeDataset('주택담보대출', 375059500, '#08d561')
@@ -1863,13 +1836,15 @@
                     { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
+                // [디자인 반영] 앞면과 마찬가지로 뒷면(node 3045:34750)도 공적연금(실제 0원)이
+                // 세 번째 항목으로 포함됩니다.
                 buildInsightChart(
                     'pension',
-                    ['개인연금', '퇴직연금'],
-                    [128, 20],
-                    [140, 21],
-                    [6300000, 950000],
-                    [6654328, 1000000],
+                    ['개인연금', '퇴직연금', '공적연금'],
+                    [128, 20, 0],
+                    [140, 21, 0],
+                    [6300000, 950000, 0],
+                    [6654328, 1000000, 0],
                     { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
