@@ -42,7 +42,9 @@
                                                 <p class="hc-title">자산 현황</p>
                                                 <p class="hc-date">
                                                     2027.07.13일 기준
-                                                    <span class="hc-date__icon" aria-hidden="true"></span>
+                                                    <button type="button" class="hc-date__icon" data-refresh-date>
+                                                        <span class="blind">최신 정보로 새로고침</span>
+                                                    </button>
                                                 </p>
                                                 <div class="hc-amount tooltipWrap">
                                                     1,090,548,000
@@ -116,6 +118,9 @@
                                                     <span class="blind">자산 현황 보기</span>
                                                 </button>
                                             </div>
+                                            <!-- [버그 수정] 피그마(node 3045:34894)에서 범례(.hcb-legend)는 차트 박스와
+                                                 별개 엘리먼트가 아니라 같은 회색 카드(.hcb-chart-box) 안에 함께 들어있는
+                                                 자식입니다 — 형제 엘리먼트로 분리돼 있던 걸 박스 안으로 옮깁니다. -->
                                             <div class="hcb-chart-box hcb-chart-box--tall">
                                                 <canvas data-insight-chart="liquidity" aria-hidden="true"></canvas>
                                                 <ul class="blind">
@@ -124,21 +129,21 @@
                                                     <li>외화: 전월 52,000,000원, 금월 55,048,000원</li>
                                                     <li>기타: 전월 450,000원, 금월 500,000원</li>
                                                 </ul>
-                                            </div>
-                                            <div class="hcb-legend hcb-legend--dated">
-                                                <div class="hcb-legend__col">
-                                                    <span class="hcb-legend__item">
-                                                        <i style="background: #a1f069;"></i>
-                                                        금월 예금 자산
-                                                    </span>
-                                                    <span class="hcb-legend__date">(2027.06.30 기준)</span>
-                                                </div>
-                                                <div class="hcb-legend__col">
-                                                    <span class="hcb-legend__item">
-                                                        <i style="background: #c8d2e4;"></i>
-                                                        현재 예금 자산
-                                                    </span>
-                                                    <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                <div class="hcb-legend hcb-legend--dated">
+                                                    <div class="hcb-legend__col">
+                                                        <span class="hcb-legend__item">
+                                                            <i style="background: #a1f069;"></i>
+                                                            금월 예금 자산
+                                                        </span>
+                                                        <span class="hcb-legend__date">(2027.06.30 기준)</span>
+                                                    </div>
+                                                    <div class="hcb-legend__col">
+                                                        <span class="hcb-legend__item">
+                                                            <i style="background: #c8d2e4;"></i>
+                                                            현재 예금 자산
+                                                        </span>
+                                                        <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
@@ -156,7 +161,9 @@
                                                 <p class="hc-title">자산 현황</p>
                                                 <p class="hc-date">
                                                     2027.07.13일 기준
-                                                    <span class="hc-date__icon" aria-hidden="true"></span>
+                                                    <button type="button" class="hc-date__icon" data-refresh-date>
+                                                        <span class="blind">최신 정보로 새로고침</span>
+                                                    </button>
                                                 </p>
                                                 <p class="hc-amount">
                                                     18,950,450
@@ -246,21 +253,21 @@
                                                     <li>해외채권: 전월 1,050원, 금월 1,000원</li>
                                                     <li>현금: 전월 2,100,000원, 금월 2,000,000원</li>
                                                 </ul>
-                                            </div>
-                                            <div class="hcb-legend hcb-legend--dated">
-                                                <div class="hcb-legend__col">
-                                                    <span class="hcb-legend__item">
-                                                        <i style="background: #a1f069;"></i>
-                                                        금월 투자 자산
-                                                    </span>
-                                                    <span class="hcb-legend__date">(2027.06.30 기준)</span>
-                                                </div>
-                                                <div class="hcb-legend__col">
-                                                    <span class="hcb-legend__item">
-                                                        <i style="background: #c8d2e4;"></i>
-                                                        현재 투자 자산
-                                                    </span>
-                                                    <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                <div class="hcb-legend hcb-legend--dated">
+                                                    <div class="hcb-legend__col">
+                                                        <span class="hcb-legend__item">
+                                                            <i style="background: #a1f069;"></i>
+                                                            금월 투자 자산
+                                                        </span>
+                                                        <span class="hcb-legend__date">(2027.06.30 기준)</span>
+                                                    </div>
+                                                    <div class="hcb-legend__col">
+                                                        <span class="hcb-legend__item">
+                                                            <i style="background: #c8d2e4;"></i>
+                                                            현재 투자 자산
+                                                        </span>
+                                                        <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
@@ -278,7 +285,9 @@
                                                 <p class="hc-title">자산 현황</p>
                                                 <p class="hc-date">
                                                     2027.07.13일 기준
-                                                    <span class="hc-date__icon" aria-hidden="true"></span>
+                                                    <button type="button" class="hc-date__icon" data-refresh-date>
+                                                        <span class="blind">최신 정보로 새로고침</span>
+                                                    </button>
                                                 </p>
                                                 <p class="hc-amount">
                                                     7,654,328
@@ -344,21 +353,21 @@
                                                     <li>퇴직연금: 전월 950,000원, 금월 1,000,000원</li>
                                                     <li>공적연금: 전월 0원, 금월 0원</li>
                                                 </ul>
-                                            </div>
-                                            <div class="hcb-legend hcb-legend--dated">
-                                                <div class="hcb-legend__col">
-                                                    <span class="hcb-legend__item">
-                                                        <i style="background: #a1f069;"></i>
-                                                        금월 연금 자산
-                                                    </span>
-                                                    <span class="hcb-legend__date">(2027.06.30 기준)</span>
-                                                </div>
-                                                <div class="hcb-legend__col">
-                                                    <span class="hcb-legend__item">
-                                                        <i style="background: #c8d2e4;"></i>
-                                                        현재 연금 자산
-                                                    </span>
-                                                    <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                <div class="hcb-legend hcb-legend--dated">
+                                                    <div class="hcb-legend__col">
+                                                        <span class="hcb-legend__item">
+                                                            <i style="background: #a1f069;"></i>
+                                                            금월 연금 자산
+                                                        </span>
+                                                        <span class="hcb-legend__date">(2027.06.30 기준)</span>
+                                                    </div>
+                                                    <div class="hcb-legend__col">
+                                                        <span class="hcb-legend__item">
+                                                            <i style="background: #c8d2e4;"></i>
+                                                            현재 연금 자산
+                                                        </span>
+                                                        <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
@@ -384,7 +393,9 @@
                                                 <p class="hc-title">대출 현황</p>
                                                 <p class="hc-date">
                                                     2027.07.13일 기준
-                                                    <span class="hc-date__icon" aria-hidden="true"></span>
+                                                    <button type="button" class="hc-date__icon" data-refresh-date>
+                                                        <span class="blind">최신 정보로 새로고침</span>
+                                                    </button>
                                                 </p>
                                                 <p class="hc-amount">
                                                     390,654,328
@@ -431,9 +442,14 @@
                                             </div>
                                         </div>
 
+                                        <!-- [디자인 반영] 피그마(node 3045:36417, "herocard_대출" Type=Back)는 다른
+                                             3개 탭의 뒷면과 카테고리·범례 표기가 다릅니다: 제목이 "OO 자산 변화"가
+                                             아니라 "계좌별 상환 현황"이고, 대출 종류도 2개(신용대출/주택담보대출)가
+                                             아니라 5개(주택관련대출/신용대출/예적금대출/카드대출/기타대출)이며, 범례
+                                             라벨도 "금월/현재"가 아니라 "현재 대출액(초록)/전월 대출액(회색)"입니다. -->
                                         <div class="hero__face hero__face--back hero__face--back-redesign" aria-hidden="true">
                                             <div class="hcb-head">
-                                                <p class="hcb-title">대출 자산 변화</p>
+                                                <p class="hcb-title">계좌별 상환 현황</p>
                                                 <button type="button" class="hcb-flip" data-flip-toggle aria-pressed="true" tabindex="-1">
                                                     <span class="hcb-flip-glyph" aria-hidden="true"></span>
                                                     <span class="blind">대출 잔액 보기</span>
@@ -442,24 +458,27 @@
                                             <div class="hcb-chart-box hcb-chart-box--tall">
                                                 <canvas data-insight-chart="loan" aria-hidden="true"></canvas>
                                                 <ul class="blind">
-                                                    <li>신용대출: 전월 16,200,000원, 금월 15,580,000원</li>
-                                                    <li>주택담보대출: 전월 372,000,000원, 금월 375,059,500원</li>
+                                                    <li>주택관련대출: 전월 372,000,000원, 현재 375,059,500원</li>
+                                                    <li>신용대출: 전월 8,200,000원, 현재 8,000,000원</li>
+                                                    <li>예적금대출: 전월 3,900,000원, 현재 4,000,000원</li>
+                                                    <li>카드대출: 전월 2,100,000원, 현재 2,000,000원</li>
+                                                    <li>기타대출: 전월 1,600,000원, 현재 1,594,828원</li>
                                                 </ul>
-                                            </div>
-                                            <div class="hcb-legend hcb-legend--dated">
-                                                <div class="hcb-legend__col">
-                                                    <span class="hcb-legend__item">
-                                                        <i style="background: #a1f069;"></i>
-                                                        금월 대출잔액
-                                                    </span>
-                                                    <span class="hcb-legend__date">(2027.06.30 기준)</span>
-                                                </div>
-                                                <div class="hcb-legend__col">
-                                                    <span class="hcb-legend__item">
-                                                        <i style="background: #c8d2e4;"></i>
-                                                        현재 대출잔액
-                                                    </span>
-                                                    <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                <div class="hcb-legend hcb-legend--dated">
+                                                    <div class="hcb-legend__col">
+                                                        <span class="hcb-legend__item">
+                                                            <i style="background: #a1f069;"></i>
+                                                            현재 대출액
+                                                        </span>
+                                                        <span class="hcb-legend__date">(2027.07.13 기준)</span>
+                                                    </div>
+                                                    <div class="hcb-legend__col">
+                                                        <span class="hcb-legend__item">
+                                                            <i style="background: #c8d2e4;"></i>
+                                                            전월 대출액
+                                                        </span>
+                                                        <span class="hcb-legend__date">(2027.06.30 기준)</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
@@ -1106,6 +1125,39 @@
                     var flipEl = toggleBtn.closest('.hero__flip');
                     if (!flipEl) return;
                     playFlip(flipEl);
+                });
+            })();
+
+            // [기능 추가] '기준일자' 옆 새로고침 아이콘(.hc-date__icon, data-refresh-date) 클릭 시
+            // 최신 정보로 새로고침된 것 같은 시각 피드백을 줍니다. 실제로 서버에서 값을 다시
+            // 받아오는 API가 아직 없어서, 이미 있는 앞면 자산 구성비 막대의 0→실제값 재생
+            // 애니메이션(window.replayHeroBarChart, 원래는 탭 전환 시에만 쓰였습니다)을 그대로
+            // 재사용해 "방금 갱신됐다"는 신호를 주고, 아이콘 자체도 한 바퀴 회전시킵니다
+            // (.is-refreshing, 위 update.css의 @keyframes hc-date-icon-spin 참고). 위
+            // hero__cta/hcb-flip 버튼과 같은 이유로(Swiper loop:true가 만드는
+            // .swiper-slide-duplicate 복제 슬라이드에도 새로고침 버튼이 그대로 존재) 개별
+            // 버튼에 리스너를 직접 달지 않고 스와이퍼 컨테이너 하나에 위임합니다.
+            (function () {
+                var container = document.getElementById('assetHeroSwiper') || document;
+                container.addEventListener('click', function (e) {
+                    var btn = e.target.closest && e.target.closest('[data-refresh-date]');
+                    if (!btn) return;
+                    var flipEl = btn.closest('.hero__flip');
+                    var canvas = flipEl && flipEl.querySelector('[data-chart-canvas]');
+                    var categoryKey = canvas && canvas.getAttribute('data-chart-canvas');
+                    if (categoryKey && typeof window.replayHeroBarChart === 'function') {
+                        window.replayHeroBarChart(categoryKey);
+                    }
+                    // 연속 클릭 시에도 매번 회전 애니메이션이 처음부터 다시 재생되도록, 클래스를
+                    // 뗐다가 강제 리플로우 후 다시 붙입니다.
+                    btn.classList.remove('is-refreshing');
+                    void btn.offsetWidth;
+                    btn.classList.add('is-refreshing');
+                });
+                container.addEventListener('animationend', function (e) {
+                    if (e.target && e.target.classList && e.target.classList.contains('hc-date__icon')) {
+                        e.target.classList.remove('is-refreshing');
+                    }
                 });
             })();
 
@@ -1848,13 +1900,18 @@
                     { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
+                // [디자인 반영] 피그마(node 3045:36417)는 대출 탭 뒷면만 2개(신용대출/주택담보대출)가
+                // 아니라 5개 카테고리(주택관련대출/신용대출/예적금대출/카드대출/기타대출)로 나뉩니다.
+                // 현재(금월) 합계는 앞면 hc-amount와 같은 390,654,328원을 그대로 유지하도록
+                // 나머지 4개 소액 카테고리 값을 배분했습니다(주택관련대출은 기존 주택담보대출
+                // 금액을 그대로 재사용).
                 buildInsightChart(
                     'loan',
-                    ['신용대출', '주택담보대출'],
-                    [16, 140],
-                    [15, 137],
-                    [16200000, 372000000],
-                    [15580000, 375059500],
+                    ['주택관련대출', '신용대출', '예적금대출', '카드대출', '기타대출'],
+                    [137, 32, 16, 14, 9],
+                    [140, 30, 18, 12, 8],
+                    [372000000, 8200000, 3900000, 2100000, 1600000],
+                    [375059500, 8000000, 4000000, 2000000, 1594828],
                     { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
