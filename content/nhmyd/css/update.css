@@ -1640,13 +1640,15 @@
    글자 크기가 들쭉날쭉해지는 것을 피하기 위함). 320px보다 넓으면 위에서 이미
    정의한 원래 크기 그대로입니다. */
 @media (max-width:320px) {
-    .hc-title, .hcb-title {font-size:15px}
+    .hc-title, .hcb-title {font-size:15px;margin:0 0 var(--spacing-18)}
     .hc-date, .hc-notice__value, .hcb-legend span {font-size:11px}
-    .hc-amount {font-size:23px}
+    .hc-amount {font-size:23px;line-height:32px}
     .hc-amount span {font-size:20px}
     .hc-notice p, .hc-top .hero__legend li, .hc-stats__label,
     .hcb-legend--dated .hcb-legend__item, .hcb-legend--dated .hcb-legend__date {font-size:10px}
     .hc-cta__label, .hc-stats__value {font-size:12px}
+    .hc-stats__item{padding:11px;gap:var(--spacing-4)}
+    .hc-notice{padding:10px}
 }
 
 .insight-list {display:flex;flex-direction:column}
