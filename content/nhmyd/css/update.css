@@ -713,6 +713,7 @@
 .nds .accordion-gray__item {border-radius:var(--radius-10);background-color:#F7F9FB;padding:var(--spacing-16);overflow:hidden}
 .nds .accordion-gray__item > button {display:flex;align-items:center;width:100%;padding:0;background:none;border:none;cursor:pointer;text-align:left;gap:var(--spacing-12);position:relative}
 .nds .accordion-gray__title {flex:1;font-size:var(--type-size-14);font-weight:var(--font-weight-bold);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-1)}
+.nds .accordion-gray__date{font-size:var(--type-size-12);font-weight:var(--font-weight-regular);letter-spacing:-0.24px;line-height:1;color:var(--color-font-4);text-align:right}
 .nds .accordion-gray__item > button::after {content:"";display:block;position:absolute;top:50%;right:12px;width:24px;height:24px;transform:translateY(-50%);background-color:var(--color-icon-4);transition:transform 0.2s ease;-webkit-mask-image:url("../images/update/ic-arrow-down-24.svg");mask-image:url("../images/update/ic-arrow-down-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .accordion-gray__item > button[aria-expanded="true"]::after {transform:translateY(-50%) rotate(180deg)}
 .nds .accordion-gray__body {padding:var(--spacing-24) var(--spacing-8) var(--spacing-8);font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
@@ -1414,7 +1415,7 @@
    히어로 카드 4장 중 가장 큰 자연 높이를 그대로 따라가는 구조(위 JS syncCardHeight()
    참고)라 이 24px 초과분이 카드 전체 높이에 그대로 누적되어 피그마 기본값(카드
    490px + .hero 상단 여백 24px = 514px)보다 훨씬 높게 나오는 원인 중 하나였습니다. */
-.hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;border-radius:var(--radius-8);box-shadow:0 0 2px rgba(0,0,0,0.1);margin-top:var(--spacing-24)}
+.hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;border-radius:var(--radius-8);box-shadow:0 0 2px rgba(0,0,0,0.1);margin-top:var(--spacing-48)}
 .hero__chart-box canvas {display:block;width:100%;height:100%;max-width:100%;border-radius:var(--radius-8)}
 .chartjs-tooltip {position:absolute;pointer-events:none;opacity:0;transition:opacity .12s ease;z-index:10;background:rgba(17,17,17,.92);color:var(--primitive-base-0);border-radius:var(--radius-8);padding:var(--spacing-8) var(--spacing-12);font-size:13px;line-height:1.6;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.18)}
 .chartjs-tooltip::after {content:"";position:absolute;left:var(--tt-arrow-left,50%);bottom:-6px;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(17,17,17,.92)}
@@ -1522,8 +1523,9 @@
 .alert-banner__tags {font-size:var(--type-size-14);color:rgba(255,255,255,0.8);margin:0}
 .alert-banner__illust {position:absolute;right:12px;bottom:12px;width:72px;height:72px;object-fit:contain;pointer-events:none}
 .retire-check {text-align:left;position:relative}
-.retire-check__headline {font-size:var(--type-size-20);font-weight:var(--font-weight-medium);line-height:1.4;color:var(--primitive-gray-font-900);margin:0;text-align:left;position:relative;padding-bottom:var(--spacing-20);margin-bottom:var(--spacing-32)}
+.retire-check__headline {font-size:var(--type-size-20);font-weight:var(--font-weight-light);line-height:1.4;color:var(--primitive-gray-font-900);margin:0;text-align:left;position:relative;padding-bottom:var(--spacing-20);margin-bottom:var(--spacing-32)}
 .retire-check__headline::after{display:block;content:"";position:absolute;bottom:0;width:100%;height:1px;background:url("../images/update/bg_dash_line.png") repeat-x center;background-size:auto 1px}
+.retire-check__headline strong {font-weight:var(--font-weight-semibold)}
 .retire-check__percent {color:var(--primitive-green-500);font-weight:var(--font-weight-semibold)}
 .retire-check__track {position:relative;padding-top:88px}
 .retire-check__bubble {position:absolute;top:0;left:24px;z-index:2;background:var(--primitive-gray-900);color:var(--primitive-base-0);font-size:var(--type-size-13);font-weight:var(--font-weight-medium);white-space:nowrap;padding:8px 12px;border-radius:var(--radius-8)}
@@ -1539,14 +1541,14 @@
 .promo-carousel__title {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);color:var(--primitive-gray-font-900);line-height:1.4;margin:0 0 var(--spacing-8)}
 .promo-carousel__tags {font-size:var(--type-size-13);color:var(--primitive-gray-font-600);margin:0}
 .promo-carousel__tags span {display:inline-flex;align-items:center;margin:0 8px 0 0}
-.promo-carousel__illust {position:absolute;right:20px;bottom:20px;width:75px;height:83px;object-fit:contain;pointer-events:none}
+.promo-carousel__illust {position:absolute;right:24px;bottom:14px;width:100px;height:100px;object-fit:contain;pointer-events:none}
 .promo-carousel__icon {position:absolute;right:20px;bottom:20px;width:48px;height:48px;background-color:#27a588;-webkit-mask-image:url("../images/update/ic-chart-board.svg");mask-image:url("../images/update/ic-chart-board.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .promo-carousel__dots {display:flex;justify-content:center;gap:var(--spacing-6);margin-top:var(--spacing-12)}
 .promo-carousel__dot {width:6px;height:6px;border-radius:var(--radius-full);background:var(--primitive-gray-400);transition:width 0.2s,background 0.2s}
 .promo-carousel__dot--active {width:16px;background:var(--primitive-green-500)}
 .promo-carousel__track .indicator-number{position:absolute;bottom:var(--spacing-14);left:var(--spacing-24);z-index:10}
 .hero__face--redesign {border:none;padding:0;gap:0;overflow:visible;background:transparent;box-shadow:none}
-.hc-top {position:relative;z-index:2;height:100%;margin-bottom:-60px;padding:var(--spacing-32) var(--spacing-20) 32px;border-radius:var(--radius-20) var(--radius-20) 60px var(--radius-20);box-shadow:5px 6px 18px rgba(0,0,0,0.1);background-image:url("../images/update/img_nh_logo.svg"), linear-gradient(140.86deg, #046ea3 4.27%, #0e7a5c 108.4%);background-repeat:no-repeat, no-repeat;background-position:right -20px bottom -20px, 0 0;background-size:180px auto, cover;color:var(--primitive-base-0);box-sizing:border-box}
+.hc-top {position:relative;z-index:2;height:100%;margin-bottom:-60px;padding:var(--spacing-32) var(--spacing-20) 32px;border-radius:var(--radius-20) var(--radius-20) 60px var(--radius-20);box-shadow:5px 6px 18px rgba(0,0,0,0.1);background-image:url("../images/update/img_nh_logo.svg"), linear-gradient(140.86deg, #046ea3 4.27%, #0e7a5c 108.4%);background-repeat:no-repeat, no-repeat;background-position:right -20px bottom -10px, 0 0;background-size:180px auto, cover;color:var(--primitive-base-0);box-sizing:border-box}
 .hc-bottom {position:relative;z-index:1;margin-top:auto;padding:64px var(--spacing-20) var(--spacing-20);border-radius:0 0 var(--radius-20) var(--radius-20);background-image:linear-gradient(-34.94deg, #0f3437 4.97%, #4174a3 179.53%);box-sizing:border-box;box-shadow: 5px 6px 18px 0 rgba(0, 0, 0, 0.10)}
 .hc-title {font-size:var(--type-size-18);font-weight:var(--font-weight-bold);letter-spacing:-0.36px;margin:0 0 var(--spacing-24);line-height:1}
 .hc-date {font-size:var(--type-size-13);font-weight:var(--font-weight-semibold);letter-spacing:-0.26px}
@@ -1555,7 +1557,7 @@
 .hc-change {display:inline-flex;align-items:center;gap:3px;border:1px solid rgba(240,240,240,0.24);border-radius:var(--radius-4);padding:var(--spacing-8) 11px;font-size:var(--type-size-13);font-weight:var(--font-weight-bold);letter-spacing:-0.26px;line-height:20px;margin:0 0 var(--spacing-24)}
 .hc-change__icon {width:12px;height:12px;flex-shrink:0;background-color:var(--primitive-base-0);-webkit-mask-image:url("../images/update/ic-graph-stock-blue.svg");mask-image:url("../images/update/ic-graph-stock-blue.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .hc-notice {position:relative;display:flex;align-items:center;gap:var(--spacing-4);background:rgba(14,54,69,0.6);border-radius:var(--radius-8);padding:var(--spacing-12);margin:0 0 var(--spacing-24);box-sizing:border-box}
-.hc-notice::after{content:"";display:block;clear:both;height:1px;width:100%;border-bottom:1px dashed rgba(255,255,255,0.16);margin-top:var(--spacing-12);position:absolute;left:0;bottom:-24px}
+.hc-notice::after{content:"";display:block;clear:both;height:1px;width:100%;margin-top:var(--spacing-12);position:absolute;left:0;bottom:-24px; background-color:rgba(255, 255, 255, 0.14);-webkit-mask-image:url("../images/update/bg_dash_line.png");mask-image:url("../images/update/bg_dash_line.png");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:repeat;mask-repeat:repeat}
 .hc-top .hc-divider{margin:0 0 var(--spacing-24)}
 .hc-notice__icon {display:block;width:16px;height:15px;flex-shrink:0;background:url("../images/update/ic-calendar.svg") no-repeat center/contain}
 .hc-notice__icon--check {background-image:url("../images/update/ic-calendar-check.svg")}
@@ -1565,31 +1567,16 @@
 .hc-bottom--loan {background-image:linear-gradient(-34.94deg, #1b1a55 4.97%, #40468a 179.53%)}
 .hc-cta__icon--loan {background:#4071bd !important}
 .hc-cta__icon--loan .hc-cta__icon-glyph{background:url("../images/update/ic-chart-board_.svg") no-repeat center/contain}
-.hc-stats {display:flex;flex-direction:column;gap:5px;width:100%;margin-top:var(--spacing-24)}
+.hc-stats {display:flex;flex-direction:column;gap:5px;width:100%;margin-top:var(--spacing-48)}
 .hc-stats__row {display:flex;gap:4px}
 .hc-stats__item {flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-8);min-width:0;padding:var(--spacing-16);border-radius:var(--radius-10);background:#1c2655;-webkit-backdrop-filter:blur(3.5px);backdrop-filter:blur(3.5px);box-sizing:border-box}
 .hc-stats__label {margin:0;width:100%;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--primitive-base-0)}
 .hc-stats__value {margin:0;width:100%;text-align:right;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--primitive-base-0)}
 .hc-date {display:inline-flex;align-items:center;gap:var(--spacing-4)}
-/* [버그 수정] 새로고침 아이콘이 클릭 가능해야 하는데 지금까지 aria-hidden 처리된 장식용
-   <span>이라 클릭도, 스크린리더 접근도 안 됐습니다. <button>으로 바꾸면서 브라우저 기본
-   버튼 크롬(테두리/배경/여백)을 지우고, 실제 클릭 시 아이콘이 한 바퀴 돌면서(.is-refreshing)
-   눌렀다는 시각 피드백을 주도록 했습니다(동작은 아래 JS data-refresh-date 클릭 핸들러 참고 —
-   앞면 자산 구성비 막대의 기존 replayHeroBarChart() 0→실제값 애니메이션을 재사용합니다). */
 .hc-date__icon {display:block;width:16px;height:16px;flex-shrink:0;background:url("../images/update/ic_refresh.svg") no-repeat center/contain;border:none;margin:0;padding:0;-webkit-appearance:none;appearance:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .hc-date__icon.is-refreshing {animation:hc-date-icon-spin 0.5s linear}
 @keyframes hc-date-icon-spin {from {transform:rotate(0deg)} to {transform:rotate(360deg)}}
 .hc-amount .toolTipBtn {width:20px !important;height:20px !important;flex-shrink:0;align-self:center;background:var(--primitive-base-0) !important;-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg") ;mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-/* [버그 수정] 예금 탭의 금액(.hc-amount)만 레거시 툴팁 컴포넌트(.tooltipWrap, 외화 계좌
-   안내 말풍선)를 같이 씁니다 — nhasset_com.css의 ".nhasset .tooltipWrap{display:inline-block}"
-   규칙(클래스 2개, 우선순위 0,0,2,0)이 update.css의 ".hc-amount{display:flex}"(클래스
-   1개, 0,0,1,0)보다 우선순위가 높아 flex가 깨지고 있었습니다. 그 결과 금액 숫자·"원"·
-   말풍선 아이콘이 한 줄에 나란히 배치되지 못하고 좁은 카드 폭(268px)에서 줄바꿈되어
-   77px(2줄)까지 늘어났는데, 원래 의도한 한 줄 높이는 약 36px입니다 — 이 41px 초과분이
-   위 asset-hero-swiper 전체 높이 문제의 나머지 원인이었습니다(예금 탭에만 해당,
-   투자/연금/대출은 이 레거시 툴팁을 쓰지 않아 영향 없음). ".hc-top .hc-amount"로
-   클래스 2개를 맞춰 같은 우선순위를 만들고, update.css가 나중에 로드되는 소스 순서로
-   이기게 합니다. */
 .hc-top .hc-amount {display:flex}
 .hc-notice--compare {justify-content:space-between}
 .hc-notice__label {margin:0}
@@ -1616,15 +1603,21 @@
 .hcb-legend span {display:inline-flex;align-items:center;gap:var(--spacing-6);font-size:var(--type-size-13);color:var(--primitive-gray-font-700)}
 .hcb-legend i {display:inline-block;width:8px;height:8px;border-radius:var(--radius-2);flex-shrink:0}
 .hcb-legend--grid {display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-8) var(--spacing-16)}
-.hcb-hint {margin:0 0 var(--spacing-16)}
-/* [버그 수정] 피그마(node 3045:34894 예금 / 3045:35026 투자 / 3045:34750 연금 /
-   3045:34805 대출)를 보면 .hcb-legend는 .hcb-chart-box 밖의 별도 형제가 아니라,
-   같은 회색 카드(Frame 2147227171) 안에 막대 차트와 함께 들어있는 자식입니다.
-   차트 박스를 세로 flex로 바꿔 캔버스(가변)+범례(고정)를 안에서 같이 쌓고, 박스
-   높이는 피그마 실측값 그대로 318px을 씁니다(막대+라벨 그룹 177 + 범례 그룹까지
-   포함한 진짜 전체 높이). */
-.hcb-chart-box {position:relative;display:flex;flex-direction:column;background:var(--primitive-gray-100);border-radius:var(--radius-16);height:290px;padding:var(--spacing-16) var(--spacing-8) var(--spacing-8);box-sizing:border-box;margin:0}
-.hcb-chart-box canvas {display:block;width:100%;flex:1 1 auto;min-height:0}
+.hcb-hint {margin:var(--spacing-12) 0 0}
+.hcb-chart-box {position:relative;display:flex;flex-direction:column;background:var(--primitive-gray-100);border-radius:var(--radius-16);height:290px;padding:var(--spacing-16) var(--spacing-8) var(--spacing-24);box-sizing:border-box;margin:0}
+/* [버그 수정] "차트 글자/막대가 찌그러져 보임" — Chart.js(responsive:true)는 캔버스의
+   "부모 엘리먼트"를 관찰해서 크기를 다시 계산하는데, 캔버스 자신이 flex:1 1 auto로
+   flex 아이템이면 그 부모(.hcb-chart-box)는 height:318px로 고정돼 있어 절대 리사이즈되지
+   않습니다. 반면 캔버스의 실제 렌더링 크기는 옆의 범례(.hcb-legend)와 flex로 공간을
+   나눠 갖다 보니 웹폰트 로딩 등으로 범례 높이가 뒤늦게 확정되면서 계속 바뀌는데,
+   Chart.js는 이 변화를 감지할 방법이 없어 처음(범례 높이가 아직 다 안 잡혔을 때) 잰
+   크기로 캔버스 width/height 속성(실제 픽셀 버퍼)을 고정해버립니다. 그 결과 캔버스
+   버퍼의 가로세로 비율과 실제 화면에 그려지는 비율이 어긋나 텍스트/막대가 찌그러져
+   보였습니다. 해결: flex 아이템 역할을 캔버스 대신 이 래퍼(.hcb-chart-canvas-wrap)가
+   맡게 하면, Chart.js가 감시하는 "캔버스의 부모"가 바로 이 래퍼가 되어 범례 높이가
+   확정될 때마다 래퍼 크기 변화를 정상적으로 감지해 다시 리사이즈합니다. */
+.hcb-chart-box .hcb-chart-canvas-wrap {position:relative;flex:1 1 auto;min-height:0}
+.hcb-chart-box canvas {display:block;width:100%;height:100%}
 .hcb-chart-box--tall {height:318px}
 .hcb-chart-box .hcb-legend {flex-shrink:0;margin:var(--spacing-24) 0 0}
 .hcb-legend--dated {align-items:flex-start;justify-content:center;gap:var(--spacing-8)}
@@ -1637,6 +1630,25 @@
 .hcb-promo__eyebrow {font-size:var(--type-size-12);color:#023e58;margin:0 0 var(--spacing-2)}
 .hcb-promo__cta {font-size:var(--type-size-15);font-weight:var(--font-weight-semibold);color:#095778;margin:0}
 .hcb-promo__mascot {width:54px;height:58px;object-fit:contain;flex-shrink:0}
+
+/* [디자인 반영] 피그마 herocard_samll(node 3045:36931 투자 / 3045:37358 대출, 320px
+   이하 전용 변형)를 보면 히어로 카드 안 텍스트가 지금 폰트보다 전체적으로 작습니다.
+   다만 프레임 두 개를 직접 재보면 같은 hc-title인데도 투자 카드는 18px→15.18px
+   (0.843배), 대출 카드는 18px→14.7px(0.817배)로 요소마다 비율이 미묘하게 달랐는데,
+   이건 각 프레임을 손으로 리사이즈하면서 생긴 오차로 보고 두 비율의 평균인 약
+   0.83배 하나로 통일해서 반영합니다(카드 안 모든 텍스트에 동일 비율 — 탭마다
+   글자 크기가 들쭉날쭉해지는 것을 피하기 위함). 320px보다 넓으면 위에서 이미
+   정의한 원래 크기 그대로입니다. */
+@media (max-width:320px) {
+    .hc-title, .hcb-title {font-size:15px}
+    .hc-date, .hc-notice__value, .hcb-legend span {font-size:11px}
+    .hc-amount {font-size:23px}
+    .hc-amount span {font-size:20px}
+    .hc-notice p, .hc-top .hero__legend li, .hc-stats__label,
+    .hcb-legend--dated .hcb-legend__item, .hcb-legend--dated .hcb-legend__date {font-size:10px}
+    .hc-cta__label, .hc-stats__value {font-size:12px}
+}
+
 .insight-list {display:flex;flex-direction:column}
 .insight-list__item {width:100%}
 .insight-list__row {display:flex;align-items:center;gap:var(--spacing-8);width:100%;background:none;border:none;padding:0;margin:0;cursor:pointer;text-align:left;font:inherit}
@@ -1655,7 +1667,7 @@
 .style-diag__q-title {font-size:var(--type-size-20);font-weight:var(--font-weight-semibold);color:var(--primitive-gray-font-900)}
 .style-diag__q-desc {margin:0;font-size:var(--type-size-13);color:var(--primitive-gray-font-600);line-height:20px}
 .style-diag__mascot {width:56px;height:56px;object-fit:contain;flex-shrink:0}
-.style-diag__result {margin:0 0 var(--spacing-24);font-size:var(--type-size-24);font-weight:var(--font-weight-semibold);color:var(--primitive-teal-grade)}
+.style-diag__result {margin:0 0 var(--spacing-24);font-size:var(--type-size-24);font-weight:var(--font-weight-semibold);color:var(--primitive-teal-grade);padding-top:var(--spacing-24);border-top:1px solid var(--primitive-gray-200)}
 .style-diag__tags {display:flex;flex-wrap:wrap;gap:var(--spacing-8)}
 .style-diag__tags span {display:inline-flex;align-items:center;padding:2px 8px;border-radius:var(--radius-4);background:var(--primitive-gray-100);font-size:var(--type-size-13);color:var(--primitive-gray-font-800)}
 .style-diag__tags span.style-diag__tag--accent {background:#2B9AC9;color:var(--primitive-gray-font-50)}
@@ -1667,11 +1679,12 @@
 .deposit-promo-banner__sub {margin:0;font-size:var(--type-size-12);letter-spacing:-0.24px;color:var(--primitive-gray-font-800)}
 .deposit-promo-banner__title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-medium);letter-spacing:-0.32px;color:var(--primitive-gray-font-900)}
 .deposit-promo-banner.type .deposit-promo-banner__title{font-size:var(--type-size-22);font-weight:var(--font-weight-semibold)}
-.deposit-promo-banner.type .deposit-promo-banner__sub{margin-top:var(--spacing-8);font-size:var(--type-size-15)}
+.deposit-promo-banner.type .deposit-promo-banner__sub{margin-top:var(--spacing-4);font-size:var(--type-size-15)}
 .deposit-promo-banner__tags{margin-top:var(--spacing-8)}
-.deposit-promo-banner__tags span {display:inline-flex;align-items:center;margin:0 8px 0 0}
-.deposit-promo-banner__img {position:absolute;right:36px;top:50%;transform:translateY(-50%); width:auto;height:36px;object-fit:contain;pointer-events:none}
-.deposit-promo-banner.type .deposit-promo-banner__img{top:auto;transform:none;bottom:20px;height:45px;right:24px}
+.deposit-promo-banner__tags span {display:inline-flex;align-items:center;margin:0 8px 0 0;color:var(--primitive-gray-font-700)}
+.deposit-promo-banner__img {position:absolute;right:16px;top:50%;transform:translateY(-50%);width:72px;height:56px;object-fit:contain;pointer-events:none}
+.deposit-promo-banner.type .deposit-promo-banner__img{top:auto;transform:none;bottom:16px;width:100px;height:98px;right:16px}
+.deposit-promo-banner.type .deposit-promo-banner__img.vertical{bottom:20px;right:24px;width:84px;height:100px;}
 .promo-carousel__watermark {position:absolute;top:-18px;right:-28px;width:150px;height:auto;pointer-events:none}
 .thin-link-banner {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-4);width:100%;background:var(--primitive-base-0);border:none;border-radius:var(--radius-12);padding:var(--spacing-16) var(--spacing-20);box-sizing:border-box;box-shadow:0 3px 3px rgba(0,0,0,0.05);font-size:var(--type-size-15);font-weight:var(--font-weight-medium);letter-spacing:-0.3px;color:var(--primitive-gray-font-900);cursor:pointer;text-align:left}
 .thin-link-banner__arrow {flex-shrink:0;width:24px;height:24px;background-color:var(--primitive-gray-font-900);-webkit-mask-image:url("../images/update/ic-arrow-right-24.svg");mask-image:url("../images/update/ic-arrow-right-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
