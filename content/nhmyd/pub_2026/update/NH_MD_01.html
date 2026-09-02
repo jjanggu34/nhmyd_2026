@@ -565,6 +565,7 @@
                         </div>
                         <div class="md-card">
                             <div class="accordion-gray">
+                                <p class="accordion-gray__date">2026.08.27일 기준</p>
                                 <div class="accordion-gray__item">
                                     <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="true">
                                         <span class="accordion-gray__icon accordion-gray__icon--sun" aria-hidden="true"></span>
@@ -708,6 +709,7 @@
                         </div>
                         <div class="md-card">
                             <div class="accordion-gray">
+                                <p class="accordion-gray__date">2026.08.27일 기준</p>
                                 <div class="accordion-gray__item">
                                     <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="true">
                                         <span class="accordion-gray__icon accordion-gray__icon--sun" aria-hidden="true"></span>
@@ -768,7 +770,7 @@
                             <img class="deposit-promo-banner__img" src="../../images/update/img-3d-money-bag.png" alt="" aria-hidden="true" />
                         </div>
 
-                        <div class="deposit-promo-banner mt32" style="background:#EBEFF6">
+                        <div class="deposit-promo-banner type mt32" style="background:#EBEFF6">
                             <p class="deposit-promo-banner__title">또래비교 내 자산은?</p>
                             <p class="deposit-promo-banner__sub">
                                 또래와 비교한 나의 투자자산을
@@ -1520,7 +1522,11 @@
                             },
                             scales: {
                                 x: {
+                                    // grid.display:false는 세로 눈금선만 지웁니다 — 축 자체의 테두리
+                                    // 선(가로 베이스라인)은 Chart.js v4에서 grid와 별개인 border
+                                    // 옵션이 그려서, 그것도 꺼야 하단 라인이 완전히 사라집니다.
                                     grid: { display: false },
+                                    border: { display: false },
                                     ticks: { font: { size: 12 }, color: '#4f5359', maxRotation: 0, minRotation: 0 }
                                 },
                                 y: { display: false, beginAtZero: true }
