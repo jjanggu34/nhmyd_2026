@@ -5,27 +5,105 @@
         <script src="../pub-assets/js/head-mb-update.js"></script>
         <title>[P] AI 포트폴리오</title>
         <script>
-            $(document).ready(function() {
-            	fullLayerPop();
+            $(document).ready(function () {
+                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
             });
         </script>
     </head>
 
     <body>
         <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
-        <div class="nhasset popWrap nds fullLayerPop">
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
             <div class="popInner">
-                <h1>AI 포트폴리오</h1>
+                <h1>AI 포트폴리오 서비스 이용동의</h1>
                 <div class="popCont">
-                    <div class="popCont__inner"></div>
+                    <div class="popCont__inner">
+                        <div class="terms-card">
+                            <div class="terms-card__header">
+                                <div class="terms-card__check">
+                                    <label class="check-basic">
+                                        <input type="checkbox" class="check-basic__input" id="agreeTerms0" />
+                                        <span class="check-basic__icon"></span>
+                                        <span class="terms-card__title">[필수] 전체 동의</span>
+                                    </label>
+                                </div>
+                                <button type="button" class="terms-card__toggle" aria-label="약관 상세로 이동"></button>
+                            </div>
+                            <hr class="terms-card__divider" />
+                            <div class="terms-card__list">
+                                <div class="terms-link">
+                                    <div class="terms-link__check">
+                                        <label class="check-basic check-basic--xs">
+                                            <input type="checkbox" class="check-basic__input" id="agreeTerms1" />
+                                            <span class="check-basic__icon"></span>
+                                            <span class="terms-link__text">[필수] NH마이데이터 「AI 포트폴리오」 서비스 이용약관</span>
+                                        </label>
+                                    </div>
+                                    <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
+                                </div>
+                                <div class="terms-link">
+                                    <div class="terms-link__check">
+                                        <label class="check-basic check-basic--xs">
+                                            <input type="checkbox" class="check-basic__input" id="agreeTerms2" />
+                                            <span class="check-basic__icon"></span>
+                                            <span class="terms-link__text">[선택] 개인(신용)정보 수집·이용 동의서(상품 서비스 안내 등)</span>
+                                        </label>
+                                    </div>
+                                    <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
+                                </div>
+                                <div class="terms-link">
+                                    <div class="terms-link__check">
+                                        <label class="check-basic check-basic--xs">
+                                            <input type="checkbox" class="check-basic__input" id="agreeTerms3" />
+                                            <span class="check-basic__icon"></span>
+                                            <span class="terms-link__text">[선택] 개인(신용)정보 수집·이용 동의서(상품 서비스 안내 등)(NH마이데이터)</span>
+                                        </label>
+                                    </div>
+                                    <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="popBtnWrap">
-                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
-                    <div class="areaBtnDefault">
-                        <a href="javascript:;" class="btnPressPoint" role="button">확인</a>
+                    <div class="popBtn">
+                        <a href="javascript:;" id="btnTermsConfirm" class="btnPressPoint disabled" role="button" aria-disabled="true">시작하기</a>
                     </div>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
                 </div>
             </div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                //두 필수 약관에 모두 동의해야 '서비스 가입' 버튼이 활성화됩니다.
+                //a 태그는 disabled 속성이 없으므로 class + aria-disabled로 상태를 관리합니다.
+                var checkboxes = [document.getElementById('agreeTerms0'),document.getElementById('agreeTerms1'), document.getElementById('agreeTerms2'), document.getElementById('agreeTerms3')];
+                var joinBtn = document.getElementById('btnTermsConfirm');
+
+                function syncJoinButton() {
+                    if (!joinBtn) return;
+                    var allChecked = checkboxes.every(function (c) { return c && c.checked; });
+                    joinBtn.classList.toggle('disabled', !allChecked);
+                    if (allChecked) {
+                        joinBtn.removeAttribute('aria-disabled');
+                    } else {
+                        joinBtn.setAttribute('aria-disabled', 'true');
+                    }
+                }
+
+                joinBtn && joinBtn.addEventListener('click', function (e) {
+                    if (joinBtn.classList.contains('disabled')) e.preventDefault();
+                });
+
+                checkboxes.forEach(function (c) {
+                    if (c) c.addEventListener('change', syncJoinButton);
+                });
+                syncJoinButton();
+            });
+        </script>
     </body>
 </html>
