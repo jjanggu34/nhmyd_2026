@@ -258,7 +258,8 @@
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
 .nds .note {margin:var(--spacing-20) 0;background-color:var(--color-bg-banner);border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);line-height:20px;color:var(--color-font-3)}
 .nds .bt-1{border-top:1px solid var(--color-border-3) !important}
-.nds.nhasset .tooltipWrap .tooltipCont{width:100% !important;border:1px solid var(--color-bg-default)}
+.nds.nhasset .tooltipWrap .tooltipCont > h3, .nds.nhasset .tooltipWrap .tooltipCont > ul > li {color:var(--color-font-1)}
+.nds.nhasset .tooltipWrap .tooltipCont{width:100% !important;border:1px solid var(--color-bg-default);color:var(--color-font-1)}
 /* ---- 간격 가이드(세로 스택, 클래스명 = gap 값) ---- */
 [class^="stack--"] {display:flex;flex-direction:column;width:100%}
 .nds .stack--8 {gap:var(--spacing-8)}
@@ -1408,7 +1409,7 @@
 .hero__change img {width:12px;height:7px}
 .hero__issue {background:#ededed;border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);letter-spacing:-0.14px;color:var(--primitive-gray-800)}
 .hero__issue strong {font-weight:600;color:var(--primitive-red-warning)}
-.hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;border-radius:var(--radius-8);box-shadow:0 0 2px rgba(0,0,0,0.1);margin-top:var(--spacing-24)}
+.hero__chart-box {position:relative;width:100%;height:22px;overflow:hidden;border-radius:var(--radius-8);box-shadow:0 0 2px rgba(0,0,0,0.1);margin-top:var(--spacing-48)}
 .hero__chart-box canvas {display:block;width:100%;height:100%;max-width:100%;border-radius:var(--radius-8)}
 .chartjs-tooltip {position:absolute;pointer-events:none;opacity:0;transition:opacity .12s ease;z-index:10;background:rgba(17,17,17,.92);color:var(--primitive-base-0);border-radius:var(--radius-8);padding:var(--spacing-8) var(--spacing-12);font-size:13px;line-height:1.6;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.18)}
 .chartjs-tooltip::after {content:"";position:absolute;left:var(--tt-arrow-left,50%);bottom:-6px;transform:translateX(-50%);border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(17,17,17,.92)}
@@ -1560,7 +1561,7 @@
 .hc-bottom--loan {background-image:linear-gradient(-34.94deg, #1b1a55 4.97%, #40468a 179.53%)}
 .hc-cta__icon--loan {background:#4071bd !important}
 .hc-cta__icon--loan .hc-cta__icon-glyph{background:url("../images/update/ic-chart-board_.svg") no-repeat center/contain}
-.hc-stats {display:flex;flex-direction:column;gap:4px;width:100%;margin-top:var(--spacing-24)}
+.hc-stats {display:flex;flex-direction:column;gap:4px;width:100%;margin-top:var(--spacing-48)}
 .hc-stats__row {display:flex;gap:4px}
 .hc-stats__item {flex:1;display:flex;flex-direction:column;align-items:end;justify-content:center;gap:var(--spacing-8);min-width:0;padding:var(--spacing-16) var(--spacing-12);border-radius:var(--radius-12);background:#1c2655;-webkit-backdrop-filter:blur(3.5px);backdrop-filter:blur(3.5px);box-sizing:border-box}
 .hc-stats__label {margin:0;width:100%;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--primitive-base-0)}
