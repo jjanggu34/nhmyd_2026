@@ -15,7 +15,7 @@
                 <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
             </div>
 
-            <div class="container">
+            <div class="container bgcolor">
                 <!-- 자산 카테고리 탭 -->
                 <div class="tab-line">
                     <div class="tab-line__list" role="tablist" aria-label="자산 카테고리" id="assetTabList">
@@ -49,9 +49,9 @@
                                                 <div class="hc-amount tooltipWrap">
                                                     1,090,548,000
                                                     <span>원</span>
-                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">외화 계좌 안내 보기</span></a>
+                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">예금 자산 안내 보기</span></a>
                                                     <div class="tooltipCont" style="display: none">
-                                                        <h3>외화 계좌 안내</h3>
+                                                        <h3>예금 자산 안내</h3>
                                                         <ul>
                                                             <li>외화 계좌는 전일 환율을 반영하여, 자산 금액이 다를 수 있습니다.</li>
                                                         </ul>
@@ -170,11 +170,11 @@
                                                 <div class="hc-amount tooltipWrap">
                                                     18,950,450
                                                     <span>원</span>
-                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">외화 계좌 안내 보기</span></a>
+                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">투자 자산 안내 보기</span></a>
                                                     <div class="tooltipCont" style="display: none">
-                                                        <h3>외화 계좌 안내</h3>
+                                                        <h3>투자 자산 안내</h3>
                                                         <ul>
-                                                            <li>외화 계좌는 전일 환율을 반영하여, 자산 금액이 다를 수 있습니다.</li>
+                                                            <li>평가금액은 증시 전일 종가를 반영하여, 자산금액이 다를 수 있습니다.</li>
                                                         </ul>
                                                         <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
                                                     </div>
@@ -304,11 +304,11 @@
                                                 <div class="hc-amount tooltipWrap">
                                                     7,654,328
                                                     <span>원</span>
-                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">외화 계좌 안내 보기</span></a>
+                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">연금 자산 안내 보기</span></a>
                                                     <div class="tooltipCont" style="display: none">
-                                                        <h3>외화 계좌 안내</h3>
+                                                        <h3>연금 자산 안내</h3>
                                                         <ul>
-                                                            <li>외화 계좌는 전일 환율을 반영하여, 자산 금액이 다를 수 있습니다.</li>
+                                                            <li>연금금액은 증시 전일 종가를 반영하여, 자산금액이 다를 수 있습니다.</li>
                                                         </ul>
                                                         <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
                                                     </div>
@@ -414,11 +414,17 @@
                                                 <div class="hc-amount tooltipWrap">
                                                     390,654,328
                                                     <span>원</span>
-                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">외화 계좌 안내 보기</span></a>
+                                                    <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">대출 현황 안내 보기</span></a>
                                                     <div class="tooltipCont" style="display: none">
-                                                        <h3>외화 계좌 안내</h3>
+                                                        <h3>대출 현황 안내</h3>
                                                         <ul>
-                                                            <li>외화 계좌는 전일 환율을 반영하여, 자산 금액이 다를 수 있습니다.</li>
+                                                            <li>
+                                                                이번 달 상환 예정 금액은 추정치로, 실제 청구 금액과 차이가 있을 수 있습니다.
+                                                                <br />
+                                                                대출 중도 상환, 자동이체 휴일 출금일 지정 등 해당기관 개별 설정에 따라 내용이 변동될 수 있습니다.
+                                                                <br />
+                                                                타금융기관 대출상품은 원금균등, 원리금균등, 만기예정일시 상환방식에 한하여 제공하며 상환금액 및 상환일은 차이가 있을 수 있습니다.
+                                                            </li>
                                                         </ul>
                                                         <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
                                                     </div>
@@ -990,13 +996,13 @@
                     </section>
                 </div>
             </div>
-            <div class="linked-bottom-menu alloneFooterNew">
+            <!-- <div class="linked-bottom-menu alloneFooterNew">
                 <a href="javascript:void(0);" class="linked-finance">홈</a>
                 <a href="javascript:void(0);" class="linked-mall">금융상품</a>
                 <a href="javascript:void(0);" class="linked-mydata">내 자산</a>
                 <a href="javascript:void(0);" class="linked-point">포인트쌓기</a>
                 <a href="javascript:void(0);" class="linked-life">생활혜택</a>
-            </div>
+            </div> -->
         </div>
 
         <script>
