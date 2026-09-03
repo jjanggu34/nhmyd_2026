@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>[P] 투자성향 미진단 시</title>
+        <script>
+            $(document).ready(function () {
+                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
+        <div class="nhasset popWrap nds slidePopConfirm">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1><span class="blind">투자성향 미진단</span></h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <p>
+                            투자성향 진단 결과에 따라 위험 수준을 설정할 수 있어요.
+                            <br />
+                            투자성향진단 페이지로 이동하시겠습니까?
+                        </p>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <div class="popBtn">
+                        <a href="javascript:;" role="button">다음에</a>
+                        <a href="javascript:;" class="confirmBtn" role="button">이동하기</a>
+                    </div>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
