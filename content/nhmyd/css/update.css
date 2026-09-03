@@ -1538,7 +1538,7 @@
 .hc-amount {display:flex;align-items:baseline;gap:var(--spacing-4);font-size:var(--type-size-28);font-weight:var(--font-weight-bold);letter-spacing:-0.56px;line-height:38px;margin:0 0 var(--spacing-8)}
 .hc-amount span {font-size:var(--type-size-24);font-weight:var(--font-weight-regular)}
 .hc-change {display:inline-flex;align-items:center;gap:3px;border:1px solid rgba(240,240,240,0.24);border-radius:var(--radius-4);padding:var(--spacing-8) 11px;font-size:var(--type-size-13);font-weight:var(--font-weight-bold);letter-spacing:-0.26px;line-height:20px;margin:0 0 var(--spacing-24)}
-.hc-change__icon {display:inline-block;width:12px;height:12px;flex-shrink:0;background-color:var(--primitive-base-0);-webkit-mask-image:url("../images/update/ic-graph-stock-blue.svg");mask-image:url("../images/update/ic-graph-stock-blue.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.hc-change__icon {display:inline-block;width:12px;height:12px;flex-shrink:0;background-color:var(--primitive-base-0);-webkit-mask-image:url("../images/update/ic-graph-stock-blue.svg");mask-image:url("../images/update/ic-graph-stock-blue.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;vertical-align:middle}
 .hc-change__icon.hc-change__icon--up{-webkit-mask-image:url("../images/update/ic-graph-stock-red.svg");mask-image:url("../images/update/ic-graph-stock-red.svg");background-color:var(--primitive-red-warning)}
 .hc-change__icon.hc-change__icon--down{-webkit-mask-image:url("../images/update/ic-graph-stock-blue.svg");mask-image:url("../images/update/ic-graph-stock-blue.svg");background-color:#49d8ff}
 
@@ -1573,19 +1573,22 @@
 .hc-top .hero__legend li {font-size:var(--type-size-12);letter-spacing:-0.24px;color:var(--primitive-base-0)}
 .hc-top .hero__dot {width:8px;height:8px;border-radius:var(--radius-2)}
 .hc-top .hero__legend b {font-weight:var(--font-weight-semibold)}
-.hc-cta {display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;padding:0;cursor:pointer;color:var(--primitive-base-0);margin-top:var(--spacing-8)}
+.hc-cta {display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;padding:0;cursor:pointer;color:var(--primitive-base-0);margin-top:var(--spacing-8);min-height:40px}
+.hc-cta.center{justify-content:center}
+.hc-cta .btn-arrow{color:var(--primitive-base-0);gap:var(--spacing-4)}
+.hc-cta .btn-arrow .btn-arrow__icon{width:24px;height:24px}
 .hc-cta__left {display:flex;align-items:center;gap:var(--spacing-8)}
 .hc-cta__icon {display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#467b97;flex-shrink:0}
 .hc-cta__icon-glyph {width:14px;height:13px;background:url("../images/update/ic-chart-board.svg") no-repeat center/contain}
-.hc-cta__label {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px}
+.hc-cta__label {font-size:var(--type-size-15);font-weight:var(--font-weight-medium);letter-spacing:-0.28px}
 .hc-cta__flip {display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.63);flex-shrink:0}
 .hc-cta__flip-glyph {width:14px;height:14px;background:url("../images/update/ic-card-change.svg") no-repeat center/contain}
 .hero__face--back-redesign {display:flex;flex-direction:column;border:none;padding:var(--spacing-24) var(--spacing-20);gap:0;background:var(--primitive-base-0);border-radius:var(--radius-20);box-shadow:5px 6px 18px rgba(0,0,0,0.1);box-sizing:border-box;overflow:visible}
 .hero__face--back-redesign .hcb-promo {margin-top:auto}
 .hcb-head {display:flex;align-items:center;justify-content:space-between;margin:0 0 var(--spacing-20)}
 .hcb-title {font-size:var(--type-size-18);font-weight:var(--font-weight-bold);letter-spacing:-0.36px;color:var(--primitive-gray-font-900);margin:0}
-.hcb-flip {display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--primitive-blue-soft-bg);flex-shrink:0;border:none;padding:0;cursor:pointer}
-.hcb-flip-glyph {width:14px;height:14px;background-color:var(--primitive-gray-font-600);-webkit-mask-image:url("../images/update/ic-card-change.svg");mask-image:url("../images/update/ic-card-change.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.hcb-flip {display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--color-bg-default);flex-shrink:0;border:none;padding:0;cursor:pointer;border:1px solid rgba(51, 51, 51, 0.20)}
+.hcb-flip-glyph {width:14px;height:14px;background-color:var(--primitive-gray-font-900);-webkit-mask-image:url("../images/update/ic-card-change.svg");mask-image:url("../images/update/ic-card-change.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .hcb-legend {display:flex;align-items:center;gap:var(--spacing-16);margin:var(--spacing-16) 0 var(--spacing-20)}
 .hcb-legend span {display:inline-flex;align-items:center;gap:var(--spacing-6);font-size:var(--type-size-13);color:var(--primitive-gray-font-700)}
 .hcb-legend i {display:inline-block;width:8px;height:8px;border-radius:var(--radius-2);flex-shrink:0}
@@ -1601,6 +1604,19 @@
 .hcb-legend--dated .hcb-legend__item {display:inline-flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-12);color:var(--primitive-gray-font-800);white-space:nowrap}
 .hcb-legend--dated .hcb-legend__item i {display:inline-block;width:8px;height:8px;border-radius:var(--radius-2);flex-shrink:0}
 .hcb-legend--dated .hcb-legend__date {font-size:var(--type-size-12);color:var(--primitive-gray-font-600)}
+/* 피그마 node 3173:8121 — 예금 탭 뒷면 "이전 자산 비교" 가로 막대 차트 영역 */
+.hcb-chart-box--compare {height:auto;padding:var(--spacing-20) var(--spacing-16)}
+.hcb-chart-meta {display:flex;align-items:center;justify-content:space-between;flex-shrink:0;font-size:var(--type-size-10);line-height:10px;color:var(--primitive-gray-font-600)}
+.hcb-chart-box--compare .hcb-chart-canvas-wrap {flex:0 0 auto;height:170px;margin:var(--spacing-16) 0 0}
+.hcb-legend--compare {justify-content:center;gap:var(--spacing-20);margin:var(--spacing-16) 0 0}
+.hcb-legend--compare .hcb-legend__item {display:inline-flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-12);color:var(--primitive-gray-font-800);white-space:nowrap}
+.hcb-legend--compare .hcb-legend__item i {display:inline-block;width:8px;height:8px;border-radius:var(--radius-2);flex-shrink:0}
+/* ic-alert-mark.svg는 회색 원 + 흰 느낌표라 색이 두 개입니다 — mask로 쓰면 단색으로
+   뭉개지므로 background-image로 그대로 깔아 씁니다. */
+.hcb-notice {display:flex;align-items:flex-start;gap:var(--spacing-4);margin:var(--spacing-24) var(--spacing-4) 0;padding:var(--spacing-24) 0 0;border-top:1px solid var(--primitive-blue-soft-border);font-size:var(--type-size-12);line-height:18px;color:var(--primitive-gray-font-600)}
+.hcb-notice__icon {flex-shrink:0;width:14px;height:14px;margin-top:1px;background:url("../images/update/ic-warning-circle.svg") no-repeat center / contain}
+.hcb-actions {margin:var(--spacing-24) 0 0}
+.hcb-report-btn {display:flex;align-items:center;justify-content:center;height:40px;border-radius:var(--radius-10);background:var(--primitive-blue-soft-border);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--primitive-gray-font-900);text-decoration:none}
 .hcb-promo {display:flex;align-items:center;gap:var(--spacing-12);background:rgba(232,248,255,0.5);border-radius:var(--radius-12);padding:var(--spacing-12) var(--spacing-16);box-sizing:border-box}
 .hcb-promo__text {flex:1;min-width:0}
 .hcb-promo__eyebrow {font-size:var(--type-size-12);color:#023e58;margin:0 0 var(--spacing-2)}
