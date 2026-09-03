@@ -1581,6 +1581,7 @@
                     if (!canvas) return;
 
                     var MAN = 10000; // 피그마 '단위:만원'
+                    var BAR_H = 11; // 피그마 막대 두께
                     var prev = prevWon.map(function (v) { return -(v / MAN); });
                     var now = nowWon.map(function (v) { return v / MAN; });
 
@@ -1610,13 +1611,58 @@
                         positionChartTooltip(tooltipEl, chart, tooltip);
                     }
 
+                    // Chart.js의 borderRadius는 "막대 너비의 절반"을 넘지 못하게 잘라내기 때문에,
+                    // 값이 0에 가까운 짧은 막대에서는 반원이 아니라 살짝 둥근 사각형이 됩니다.
+                    // 피그마는 0에 붙는 안쪽 끝만 각지고 바깥쪽 끝은 항상 반원(=짧을수록 반원 그 자체)이라,
+                    // 좌/우 그루터기가 가운데서 맞붙어 하나의 원으로 보입니다. 그 모양을 정확히 내려고
+                    // 기본 막대는 투명으로 두고 여기서 직접 그립니다.
+                    var barCapPlugin = {
+                        id: 'compareBarCaps',
+                        afterDatasetsDraw: function (chart) {
+                            var ctx = chart.ctx;
+                            // 기준점은 항상 x축의 0 픽셀입니다. 요소의 base를 쓰면 stacked 축에서
+                            // 데이터셋마다 base가 달라져 방향이 뒤집히는 경우가 있어서 직접 계산합니다.
+                            var zeroPx = chart.scales.x.getPixelForValue(0);
+                            chart.data.datasets.forEach(function (ds, di) {
+                                var meta = chart.getDatasetMeta(di);
+                                if (meta.hidden) return;
+                                var dir = di === 0 ? -1 : 1; // 0번=이전(왼쪽), 1번=현재(오른쪽)
+                                meta.data.forEach(function (bar) {
+                                    var props = bar.getProps(['x', 'y', 'height'], true);
+                                    var h = props.height;
+                                    if (!h) return;
+                                    var r = h / 2;
+                                    var top = props.y - r;
+                                    // 막대 길이는 최소 반원(=r)까지 보장 — 0이어도 반쪽 원은 남습니다.
+                                    var len = Math.max(Math.abs(props.x - zeroPx), r);
+                                    var x0 = zeroPx;              // 0 쪽 (각진 끝)
+                                    var xTip = x0 + dir * len;    // 바깥 쪽 (반원 끝)
+                                    var xArc = xTip - dir * r;    // 반원 중심
+                                    ctx.save();
+                                    ctx.fillStyle = ds.barColor;
+                                    ctx.beginPath();
+                                    ctx.moveTo(x0, top);
+                                    ctx.lineTo(xArc, top);
+                                    ctx.arc(xArc, top + r, r, -Math.PI / 2, Math.PI / 2, dir < 0);
+                                    ctx.lineTo(x0, top + h);
+                                    ctx.closePath();
+                                    ctx.fill();
+                                    ctx.restore();
+                                });
+                            });
+                        }
+                    };
+
                     new Chart(canvas.getContext('2d'), {
                         type: 'bar',
+                        plugins: [barCapPlugin],
                         data: {
                             labels: labels,
                             datasets: [
-                                { label: '이전', data: prev, backgroundColor: colors.prev, borderRadius: 5.5, borderSkipped: false, minBarLength: 6 },
-                                { label: '현재', data: now, backgroundColor: colors.now, borderRadius: 5.5, borderSkipped: false, minBarLength: 6 }
+                                // 실제 색은 barCapPlugin이 그립니다(아래 주석 참고). 기본 막대는
+                                // 투명으로 두되, 툴팁 히트영역은 그대로 살아있어야 하므로 데이터셋 자체는 유지합니다.
+                                { label: '이전', data: prev, backgroundColor: 'transparent', barColor: colors.prev, borderSkipped: false },
+                                { label: '현재', data: now, backgroundColor: 'transparent', barColor: colors.now, borderSkipped: false }
                             ]
                         },
                         options: {
@@ -1625,7 +1671,7 @@
                             maintainAspectRatio: false,
                             onResize: function () { syncBackFaceCloneCanvases(categoryKey, 'data-insight-chart'); },
                             // 피그마 막대 두께 11px, 줄 간격 32px
-                            datasets: { bar: { barThickness: 11 } },
+                            datasets: { bar: { barThickness: BAR_H } },
                             events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
                             plugins: {
                                 legend: { display: false }, // 범례는 .hcb-legend(HTML)로 대체
