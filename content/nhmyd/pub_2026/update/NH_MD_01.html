@@ -61,7 +61,8 @@
                                                 <div class="hc-notice hc-notice--compare">
                                                     <p class="hc-notice__label">전월 말일기준</p>
                                                     <p class="hc-notice__value">
-                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"></span>
+                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"><span class="blind">상승</span></span>
+                                                        <!-- <span class="hc-change__icon hc-change__icon--down" aria-hidden="true"><span class="blind">하락</span></span> -->
                                                         1,540,545원(+10%)
                                                     </p>
                                                 </div>
@@ -100,55 +101,70 @@
                                                 </ul>
                                             </div>
                                             <div class="hc-bottom">
-                                                <button type="button" class="hc-cta" data-flip-toggle aria-pressed="false">
+                                                <div class="hc-cta">
                                                     <span class="hc-cta__left">
                                                         <span class="hc-cta__icon" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
                                                         <span class="hc-cta__label">전월 비교 보기</span>
                                                     </span>
-                                                    <span class="hc-cta__flip" aria-hidden="true"><span class="hc-cta__flip-glyph"></span></span>
-                                                </button>
+                                                    <button type="button" class="hc-cta__flip" data-flip-toggle aria-pressed="false"><span class="hc-cta__flip-glyph"></span></button>
+                                                </div>
+
+                                                <!-- <div class="hc-cta">
+                                                    <span class="hc-cta__left">
+                                                        <span class="hc-cta__icon" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
+                                                        <span class="hc-cta__label">다음달부터 전월비교를 확인하실 수 있어요</span>
+                                                    </span>
+                                                </div> -->
+
+                                                <!-- <div class="hc-cta center">
+                                                    <button type="button" class="btn-arrow">
+                                                        <span>자산연결하기</span>
+                                                        <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                                                    </button>
+                                                </div> -->
                                             </div>
                                         </div>
 
                                         <div class="hero__face hero__face--back hero__face--back-redesign" aria-hidden="true">
                                             <div class="hcb-head">
-                                                <p class="hcb-title">전월 비교 보기</p>
+                                                <p class="hcb-title">이전 자산 비교</p>
                                                 <button type="button" class="hcb-flip" data-flip-toggle aria-pressed="true" tabindex="-1">
                                                     <span class="hcb-flip-glyph" aria-hidden="true"></span>
                                                     <span class="blind">자산 현황 보기</span>
                                                 </button>
                                             </div>
-                                            <!-- [버그 수정] 피그마(node 3045:34894)에서 범례(.hcb-legend)는 차트 박스와
-                                                 별개 엘리먼트가 아니라 같은 회색 카드(.hcb-chart-box) 안에 함께 들어있는
-                                                 자식입니다 — 형제 엘리먼트로 분리돼 있던 걸 박스 안으로 옮깁니다. -->
-                                            <div class="hcb-chart-box hcb-chart-box--tall">
+                                            <div class="hcb-chart-box hcb-chart-box--compare" style="--compare-rows:4">
+                                                <div class="hcb-chart-meta">
+                                                    <span class="hcb-chart-meta__date">2026.08.26 기준</span>
+                                                    <span class="hcb-chart-meta__unit">단위:만원</span>
+                                                </div>
                                                 <div class="hcb-chart-canvas-wrap">
                                                     <canvas data-insight-chart="liquidity" aria-hidden="true"></canvas>
                                                 </div>
                                                 <ul class="blind">
-                                                    <li>입출금: 전월 560,000,000원, 금월 590,500,000원</li>
-                                                    <li>예적금: 전월 42,000,000원, 금월 44,500,000원</li>
-                                                    <li>외화: 전월 52,000,000원, 금월 55,048,000원</li>
-                                                    <li>기타: 전월 450,000원, 금월 500,000원</li>
+                                                    <li>입출금: 이전 560,000,000원, 현재 590,500,000원</li>
+                                                    <li>예적금: 이전 42,000,000원, 현재 44,500,000원</li>
+                                                    <li>외화: 이전 52,000,000원, 현재 55,048,000원</li>
+                                                    <li>기타: 이전 450,000원, 현재 500,000원</li>
                                                 </ul>
-                                                <div class="hcb-legend hcb-legend--dated">
-                                                    <div class="hcb-legend__col">
-                                                        <span class="hcb-legend__item">
-                                                            <i style="background: #a1f069;"></i>
-                                                            금월 예금 자산
-                                                        </span>
-                                                        <span class="hcb-legend__date">(2027.06.30 기준)</span>
-                                                    </div>
-                                                    <div class="hcb-legend__col">
-                                                        <span class="hcb-legend__item">
-                                                            <i style="background: #c8d2e4;"></i>
-                                                            현재 예금 자산
-                                                        </span>
-                                                        <span class="hcb-legend__date">(2027.07.13 기준)</span>
-                                                    </div>
+                                                <div class="hcb-legend hcb-legend--compare">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #c8d2e4;"></i>
+                                                        이전 예금 자산
+                                                    </span>
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #a1f069;"></i>
+                                                        현재 예금 자산
+                                                    </span>
                                                 </div>
+                                                <p class="hcb-notice">
+                                                    <span class="hcb-notice__icon" aria-hidden="true"></span>
+                                                    예금 유형을 터치하시면 증감액을 확인하실 수 있어요.
+                                                </p>
                                             </div>
-                                            <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
+                                            <div class="hcb-actions">
+                                                <a href="javascript:;" class="hcb-report-btn" role="button">월간 보고서 보기</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -182,7 +198,7 @@
                                                 <div class="hc-notice hc-notice--compare">
                                                     <p class="hc-notice__label">전월 말일기준</p>
                                                     <p class="hc-notice__value">
-                                                        <span class="hc-change__icon" aria-hidden="true"></span>
+                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"><span class="blind">상승</span></span>
                                                         50,000원(-2.4%)
                                                     </p>
                                                 </div>
@@ -235,54 +251,55 @@
                                                 </ul>
                                             </div>
                                             <div class="hc-bottom">
-                                                <button type="button" class="hc-cta" data-flip-toggle aria-pressed="false">
+                                                <div class="hc-cta">
                                                     <span class="hc-cta__left">
                                                         <span class="hc-cta__icon" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
                                                         <span class="hc-cta__label">투자 자산 변화 보기</span>
                                                     </span>
-                                                    <span class="hc-cta__flip" aria-hidden="true"><span class="hc-cta__flip-glyph"></span></span>
-                                                </button>
+                                                    <button type="button" class="hc-cta__flip" data-flip-toggle aria-pressed="false"><span class="hc-cta__flip-glyph"></span></button>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="hero__face hero__face--back hero__face--back-redesign" aria-hidden="true">
                                             <div class="hcb-head">
-                                                <p class="hcb-title">투자 자산 변화</p>
+                                                <p class="hcb-title">이전 자산 비교</p>
                                                 <button type="button" class="hcb-flip" data-flip-toggle aria-pressed="true" tabindex="-1">
                                                     <span class="hcb-flip-glyph" aria-hidden="true"></span>
                                                     <span class="blind">내 투자 자산 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box hcb-chart-box--tall">
+                                            <div class="hcb-chart-box hcb-chart-box--compare" style="--compare-rows:6">
+                                                <div class="hcb-chart-meta">
+                                                    <span class="hcb-chart-meta__date">2026.08.26 기준</span>
+                                                    <span class="hcb-chart-meta__unit">단위:만원</span>
+                                                </div>
                                                 <div class="hcb-chart-canvas-wrap">
                                                     <canvas data-insight-chart="invest" aria-hidden="true"></canvas>
                                                 </div>
                                                 <ul class="blind">
-                                                    <li>국내주식: 전월 1,575,000원, 금월 1,500,000원</li>
-                                                    <li>해외선진국주식: 전월 525,000원, 금월 500,000원</li>
-                                                    <li>해외신흥국주식: 전월 1,050원, 금월 1,000원</li>
-                                                    <li>국내채권: 전월 1,050원, 금월 1,000원</li>
-                                                    <li>해외채권: 전월 1,050원, 금월 1,000원</li>
-                                                    <li>현금: 전월 2,100,000원, 금월 2,000,000원</li>
+                                                    <li>국내주식: 이전 1,575,000원, 현재 1,500,000원</li>
+                                                    <li>해외주식: 이전 525,000원, 현재 500,000원</li>
+                                                    <li>채권: 이전 1,050원, 현재 1,000원</li>
+                                                    <li>펀드: 이전 1,050원, 현재 1,000원</li>
+                                                    <li>예수금: 이전 1,050원, 현재 1,000원</li>
+                                                    <li>기타: 이전 2,100,000원, 현재 2,000,000원</li>
                                                 </ul>
-                                                <div class="hcb-legend hcb-legend--dated">
-                                                    <div class="hcb-legend__col">
-                                                        <span class="hcb-legend__item">
-                                                            <i style="background: #a1f069;"></i>
-                                                            현재 투자 자산
-                                                        </span>
-                                                        <span class="hcb-legend__date">(2027.06.30 기준)</span>
-                                                    </div>
-                                                    <div class="hcb-legend__col">
-                                                        <span class="hcb-legend__item">
-                                                            <i style="background: #c8d2e4;"></i>
-                                                            전월 투자 자산
-                                                        </span>
-                                                        <span class="hcb-legend__date">(2027.07.13 기준)</span>
-                                                    </div>
+                                                <div class="hcb-legend hcb-legend--compare">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #c8d2e4;"></i>
+                                                        이전 투자 자산
+                                                    </span>
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #a1f069;"></i>
+                                                        현재 투자 자산
+                                                    </span>
                                                 </div>
+                                                <p class="hcb-notice">
+                                                    <span class="hcb-notice__icon" aria-hidden="true"></span>
+                                                    투자 유형을 터치하시면 증감액을 확인하실 수 있어요.
+                                                </p>
                                             </div>
-                                            <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -316,7 +333,7 @@
                                                 <div class="hc-notice hc-notice--compare">
                                                     <p class="hc-notice__label">전월 말일기준</p>
                                                     <p class="hc-notice__value">
-                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"></span>
+                                                        <span class="hc-change__icon hc-change__icon--down" aria-hidden="true"><span class="blind">하락</span></span>
                                                         843,545원(+11.43%)
                                                     </p>
                                                 </div>
@@ -348,51 +365,52 @@
                                                 </ul>
                                             </div>
                                             <div class="hc-bottom">
-                                                <button type="button" class="hc-cta" data-flip-toggle aria-pressed="false">
+                                                <div class="hc-cta">
                                                     <span class="hc-cta__left">
                                                         <span class="hc-cta__icon" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
                                                         <span class="hc-cta__label">연금 자산 변화 보기</span>
                                                     </span>
-                                                    <span class="hc-cta__flip" aria-hidden="true"><span class="hc-cta__flip-glyph"></span></span>
-                                                </button>
+                                                    <button type="button" class="hc-cta__flip" data-flip-toggle aria-pressed="false"><span class="hc-cta__flip-glyph"></span></button>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="hero__face hero__face--back hero__face--back-redesign" aria-hidden="true">
                                             <div class="hcb-head">
-                                                <p class="hcb-title">연금 자산 변화</p>
+                                                <p class="hcb-title">이전 자산 비교</p>
                                                 <button type="button" class="hcb-flip" data-flip-toggle aria-pressed="true" tabindex="-1">
                                                     <span class="hcb-flip-glyph" aria-hidden="true"></span>
                                                     <span class="blind">내 연금 자산 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box hcb-chart-box--tall">
+                                            <div class="hcb-chart-box hcb-chart-box--compare" style="--compare-rows:3">
+                                                <div class="hcb-chart-meta">
+                                                    <span class="hcb-chart-meta__date">2026.08.26 기준</span>
+                                                    <span class="hcb-chart-meta__unit">단위:만원</span>
+                                                </div>
                                                 <div class="hcb-chart-canvas-wrap">
                                                     <canvas data-insight-chart="pension" aria-hidden="true"></canvas>
                                                 </div>
                                                 <ul class="blind">
-                                                    <li>개인연금: 전월 6,300,000원, 금월 6,654,328원</li>
-                                                    <li>퇴직연금: 전월 950,000원, 금월 1,000,000원</li>
-                                                    <li>공적연금: 전월 0원, 금월 0원</li>
+                                                    <li>개인연금: 이전 6,300,000원, 현재 6,654,328원</li>
+                                                    <li>퇴직연금: 이전 950,000원, 현재 1,000,000원</li>
+                                                    <li>공적연금: 이전 0원, 현재 10,000원</li>
                                                 </ul>
-                                                <div class="hcb-legend hcb-legend--dated">
-                                                    <div class="hcb-legend__col">
-                                                        <span class="hcb-legend__item">
-                                                            <i style="background: #a1f069;"></i>
-                                                            현재 연금 자산
-                                                        </span>
-                                                        <span class="hcb-legend__date">(2027.06.30 기준)</span>
-                                                    </div>
-                                                    <div class="hcb-legend__col">
-                                                        <span class="hcb-legend__item">
-                                                            <i style="background: #c8d2e4;"></i>
-                                                            전월 연금 자산
-                                                        </span>
-                                                        <span class="hcb-legend__date">(2027.07.13 기준)</span>
-                                                    </div>
+                                                <div class="hcb-legend hcb-legend--compare">
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #c8d2e4;"></i>
+                                                        이전 연금 자산
+                                                    </span>
+                                                    <span class="hcb-legend__item">
+                                                        <i style="background: #a1f069;"></i>
+                                                        현재 연금 자산
+                                                    </span>
                                                 </div>
+                                                <p class="hcb-notice">
+                                                    <span class="hcb-notice__icon" aria-hidden="true"></span>
+                                                    연금 유형을 터치하시면 증감액을 확인하실 수 있어요.
+                                                </p>
                                             </div>
-                                            <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -432,7 +450,7 @@
                                                 <div class="hc-notice hc-notice--compare">
                                                     <p class="hc-notice__label">전월 말일기준</p>
                                                     <p class="hc-notice__value">
-                                                        <span class="hc-change__icon" aria-hidden="true"></span>
+                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"><span class="blind">상승</span></span>
                                                         1,058,000원(-16.54%)
                                                     </p>
                                                 </div>
@@ -440,7 +458,8 @@
                                                     <div class="hc-stats__row">
                                                         <div class="hc-stats__item">
                                                             <p class="hc-stats__label">보유 대출 계좌</p>
-                                                            <p class="hc-stats__value">2 건</p>
+                                                            <!-- <p class="hc-stats__value">2 건</p> -->
+                                                            <a href="javascript:;" class="hc-stats__link" role="button">추가</a>
                                                         </div>
                                                         <div class="hc-stats__item">
                                                             <p class="hc-stats__label">월 평균 예상 상환액</p>
@@ -460,13 +479,19 @@
                                                 </div>
                                             </div>
                                             <div class="hc-bottom hc-bottom--loan">
-                                                <button type="button" class="hc-cta" data-flip-toggle aria-pressed="false">
+                                                <div class="hc-cta">
                                                     <span class="hc-cta__left">
                                                         <span class="hc-cta__icon hc-cta__icon--loan" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
-                                                        <span class="hc-cta__label">전월 비교 보기</span>
+                                                        <span class="hc-cta__label">계좌별 상환 현황 보기</span>
                                                     </span>
-                                                    <span class="hc-cta__flip" aria-hidden="true"><span class="hc-cta__flip-glyph"></span></span>
-                                                </button>
+                                                    <button type="button" class="hc-cta__flip" data-flip-toggle aria-pressed="false"><span class="hc-cta__flip-glyph"></span></button>
+                                                </div>
+                                                <!-- <div class="hc-cta center">
+                                                    <button type="button" class="btn-arrow">
+                                                        <span>자산연결하기</span>
+                                                        <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                                                    </button>
+                                                </div> -->
                                             </div>
                                         </div>
 
@@ -478,35 +503,66 @@
                                                     <span class="blind">대출 잔액 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box hcb-chart-box--tall">
-                                                <div class="hcb-chart-canvas-wrap">
-                                                    <canvas data-insight-chart="loan" aria-hidden="true"></canvas>
+                                            <div class="loan-repay">
+                                                <button type="button" class="loan-repay__select" data-loan-account-trigger aria-haspopup="listbox" aria-expanded="false">
+                                                    <span class="loan-repay__select-text">신한 MY CAR 신차대출</span>
+                                                    <span class="loan-repay__select-arrow" aria-hidden="true"></span>
+                                                </button>
+                                                <p class="loan-repay__help">계좌를 선택하시면 상환현황을 확인하실 수 있어요</p>
+
+                                                <div class="loan-repay__meta">
+                                                    <span>2026.08.26 기준</span>
+                                                    <span>단위:만원</span>
                                                 </div>
-                                                <ul class="blind">
-                                                    <li>주택관련대출: 전월 372,000,000원, 현재 375,059,500원</li>
-                                                    <li>신용대출: 전월 8,200,000원, 현재 8,000,000원</li>
-                                                    <li>예적금대출: 전월 3,900,000원, 현재 4,000,000원</li>
-                                                    <li>카드대출: 전월 2,100,000원, 현재 2,000,000원</li>
-                                                    <li>기타대출: 전월 1,600,000원, 현재 1,594,828원</li>
-                                                </ul>
-                                                <div class="hcb-legend hcb-legend--dated">
-                                                    <div class="hcb-legend__col">
-                                                        <span class="hcb-legend__item">
-                                                            <i style="background: #a1f069;"></i>
-                                                            전월 대출액
-                                                        </span>
-                                                        <span class="hcb-legend__date">(2027.07.13 기준)</span>
+
+                                                <!-- 막대 비율은 피그마 시안 값(초록 155 / 전체 268)을 그대로 옮겼습니다.
+                                                     시안의 예시 금액(갚은 3,043,036 / 대출 200,000,000)과는 비율이 맞지
+                                                     않는데, 실제 서비스에서는 금액으로 width를 계산해 넣으면 됩니다. -->
+                                                <div class="loan-repay__bar">
+                                                    <span class="loan-repay__bar-fill" style="width: 57.8%"></span>
+                                                </div>
+
+                                                <div class="loan-repay__total">
+                                                    <span class="loan-repay__total-label">대출금액</span>
+                                                    <span class="loan-repay__total-value">200,000,000 원</span>
+                                                </div>
+
+                                                <dl class="loan-repay__amounts">
+                                                    <div class="loan-repay__row">
+                                                        <dt>
+                                                            <i style="background: #38e784;"></i>
+                                                            갚은 금액
+                                                        </dt>
+                                                        <dd>3,043,036 원</dd>
                                                     </div>
-                                                    <div class="hcb-legend__col">
-                                                        <span class="hcb-legend__item">
+                                                    <div class="loan-repay__row">
+                                                        <dt>
                                                             <i style="background: #c8d2e4;"></i>
-                                                            현재 대출액
-                                                        </span>
-                                                        <span class="hcb-legend__date">(2027.06.30 기준)</span>
+                                                            남은 금액
+                                                        </dt>
+                                                        <dd>196,956,964 원</dd>
                                                     </div>
-                                                </div>
+                                                </dl>
+
+                                                <dl class="loan-repay__detail">
+                                                    <div class="loan-repay__row">
+                                                        <dt>상환방식</dt>
+                                                        <dd>원리금 균등상환</dd>
+                                                    </div>
+                                                    <div class="loan-repay__row">
+                                                        <dt>금리</dt>
+                                                        <dd>3.56 %</dd>
+                                                    </div>
+                                                    <div class="loan-repay__row">
+                                                        <dt>상환 잔여 회차</dt>
+                                                        <dd>354 / 360 회</dd>
+                                                    </div>
+                                                    <div class="loan-repay__row">
+                                                        <dt>월 예상 상환액</dt>
+                                                        <dd>1,020,518 원</dd>
+                                                    </div>
+                                                </dl>
                                             </div>
-                                            <p class="widget__caption hcb-hint">그래프 영역을 터치하시면 전월 대비 증감액을 확인하실 수 있습니다.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -776,17 +832,9 @@
                             <img class="deposit-promo-banner__img" src="../../images/update/img-3d-money-bag.png" alt="" aria-hidden="true" />
                         </div>
 
-                        <div class="deposit-promo-banner type mt32" style="background:#EBEFF6">
-                            <p class="deposit-promo-banner__title">또래비교 내 자산은?</p>
-                            <p class="deposit-promo-banner__sub">
-                                또래와 비교한 나의 투자자산을
-                                <br />
-                                알아보세요!
-                            </p>
-                            <p class="deposit-promo-banner__tags">
-                                <span>#자산진단</span>
-                                <span>#또래자산비교</span>
-                            </p>
+                        <div class="deposit-promo-banner mt12" style="background:#EBEFF6">
+                            <p class="deposit-promo-banner__sub">또래와 비교한 나의 투자자산을 알아보세요</p>
+                            <p class="deposit-promo-banner__title">또래비교 내 투자 자산은?</p>
                             <img class="deposit-promo-banner__img" src="../../images/update/img-3d-balance.png" alt="" aria-hidden="true" />
                         </div>
 
@@ -852,7 +900,8 @@
                         <div class="md-card retire-check">
                             <p class="retire-check__headline">
                                 <!-- prettier-ignore -->
-                                <strong>김농협</strong>님의 은퇴준비율은
+                                <strong>김농협</strong>
+                                님의 은퇴준비율은
                                 <br />
                                 <strong class="retire-check__percent">32%</strong>
                                 입니다.
@@ -1002,6 +1051,32 @@
                 <a href="javascript:void(0);" class="linked-point">포인트쌓기</a>
                 <a href="javascript:void(0);" class="linked-life">생활혜택</a>
             </div> -->
+        </div>
+
+        <!-- 대출 계좌 선택 바텀시트 (피그마 node 3263:55761)
+             레거시 슬라이드 팝업 구조 그대로 사용합니다: .popWrap.slidePopConfirm > .dim + .popInner,
+             열기는 common_ui.js/update-ui.js의 slidePopConfirm(), 닫기는 popClose(this).
+             선택 표시(.bottomsheet-list__item--selected) 토글은 update-ui.js의
+             initBottomsheetList()가 이미 처리합니다. -->
+        <div class="nhasset popWrap nds slidePopConfirm" id="loanAccountSheet" style="display: none">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1>대출 계좌 선택</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <div class="bottomsheet-list" data-loan-account-list>
+                            <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>NH직장인 대출 V</span></button>
+                            <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected" aria-pressed="true"><span>NH주택담보대출_변동</span></button>
+                            <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>신한 MY CAR 신차 대출</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                </div>
+            </div>
         </div>
 
         <script>
@@ -1229,12 +1304,50 @@
                     swiperEl.style.height = 'auto';
                     var maxHeight = 0;
                     realSlides.forEach(function (slideEl) {
-                        maxHeight = Math.max(maxHeight, slideEl.scrollHeight);
+                        // 슬라이드가 아니라 그 안의 .hero를 잽니다. .swiper-wrapper는 align-items:stretch라
+                        // 슬라이드 하나가 크면(루프용 복제 슬라이드 포함) 나머지 슬라이드도 같이 늘어나서,
+                        // slideEl.scrollHeight로 재면 이미 늘어난 값이 그대로 다시 최대값이 됩니다.
+                        // .hero는 그 영향을 받지 않는 실제 콘텐츠 높이입니다. 또 비활성 카드는 scaleY로
+                        // 축소돼 있어서 getBoundingClientRect가 아니라 변형을 무시하는 offsetHeight를 씁니다.
+                        var heroEl = slideEl.querySelector('.hero');
+                        var flipEl = slideEl.querySelector('.hero__flip');
+                        var slideH = slideEl.scrollHeight;
+                        if (heroEl && flipEl) {
+                            // 앞/뒤 면은 .hero__flip의 같은 그리드 칸을 공유해서 서로 높이에 영향을 줍니다.
+                            // (.hc-top의 flex 성장 + .hc-bottom의 -60px 겹침이 맞물려, 두 면이 같이 있으면
+                            //  카드가 실제 내용보다 커진 값으로 잡힙니다.) 한 면만 남기고 각각 재야
+                            // 진짜 필요한 높이를 얻습니다.
+                            // .hero__flip은 height:100%라 그대로 재면 부모(.hero) 높이를 되돌려줍니다.
+                            // 재는 동안만 auto로 풀어야 면의 실제 내용 높이가 나옵니다.
+                            var faces = flipEl.querySelectorAll('.hero__face');
+                            var flipPrevH = flipEl.style.height;
+                            flipEl.style.height = 'auto';
+                            var need = 0;
+                            for (var i = 0; i < faces.length; i++) {
+                                var saved = [];
+                                for (var j = 0; j < faces.length; j++) {
+                                    saved.push(faces[j].style.display);
+                                    if (j !== i) faces[j].style.display = 'none';
+                                }
+                                need = Math.max(need, faces[i].offsetHeight);
+                                for (var k = 0; k < faces.length; k++) faces[k].style.display = saved[k];
+                            }
+                            flipEl.style.height = flipPrevH;
+                            var heroCS = window.getComputedStyle(heroEl);
+                            slideH = need + (parseFloat(heroCS.marginTop) || 0) + (parseFloat(heroCS.marginBottom) || 0);
+                        }
+                        maxHeight = Math.max(maxHeight, slideH);
                     });
                     if (maxHeight) {
                         swiperEl.style.height = maxHeight + 'px';
-                        var peekShrinkPx = 48; // 위 24px + 아래 24px
-                        var peekScaleY = Math.max(0.8, (maxHeight - peekShrinkPx) / maxHeight);
+                        // 피그마(node 3173:8117 외) 기준 활성 카드 506px / 비활성 카드 422px — 차이 84px.
+                        var peekShrinkPx = 84;
+                        // maxHeight는 슬라이드 스크롤높이라 카드 위/아래 여백(--spacing-24)이
+                        // 포함돼 있습니다. 실제 카드(.hero__flip) 높이는 그만큼 뺀 값이라, 이 값으로
+                        // 나눠야 화면에서 줄어드는 양이 정확히 84px이 됩니다. maxHeight로 나누면
+                        // 여백만큼 덜 줄어듭니다. (이 차이는 320/360/390 어느 폭에서도 24px로 일정)
+                        var cardHeight = maxHeight - 24;
+                        var peekScaleY = cardHeight > peekShrinkPx ? (cardHeight - peekShrinkPx) / cardHeight : 0.8;
                         swiperEl.style.setProperty('--hero-peek-scale-y', peekScaleY.toFixed(4));
                     }
                     // [버그 수정] "모바일 사이즈를 바꾸면 스와이퍼가 깨지고 새로고침해야 돌아옴" —
@@ -1555,45 +1668,198 @@
                     });
                 }
 
-                buildInsightChart(
+                // 피그마(node 3173:8121) 예금 탭 뒷면 '이전 자산 비교' — 0을 가운데 두고
+                // 이전(왼쪽) / 현재(오른쪽)로 뻗어나가는 가로 막대(버터플라이) 차트입니다.
+                // Chart.js에는 이 차트 타입이 따로 없어서, 이전 값을 음수로 넣고 x축을
+                // stacked로 두면 두 데이터셋이 같은 줄에서 좌우로 갈라지게 됩니다.
+                function buildCompareBarChart(categoryKey, labels, prevWon, nowWon, colors) {
+                    var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-insight-chart="' + categoryKey + '"]');
+                    if (!canvas) return;
+
+                    var MAN = 10000; // 피그마 '단위:만원'
+                    var BAR_H = 11; // 피그마 막대 두께
+                    var prev = prevWon.map(function (v) { return -(v / MAN); });
+                    var now = nowWon.map(function (v) { return v / MAN; });
+
+                    // 축 최대값은 데이터에서 뽑아 '깔끔한 수'로 올림합니다(예: 59,050 -> 60,000).
+                    // 좌우가 같은 눈금을 써야 이전/현재 막대 길이를 그대로 비교할 수 있습니다.
+                    var peak = Math.max.apply(
+                        null,
+                        prevWon.map(function (v) { return v / MAN; }).concat(nowWon.map(function (v) { return v / MAN; }))
+                    );
+                    var step = Math.pow(10, Math.floor(Math.log10(peak || 1))) / 2;
+                    var axisMax = Math.ceil(peak / step) * step;
+
+                    function compareDiffTooltipHandler(context) {
+                        var chart = context.chart;
+                        var tooltip = context.tooltip;
+                        var tooltipEl = getOrCreateTooltip(chart);
+                        if (tooltip.opacity === 0) {
+                            tooltipEl.style.opacity = 0;
+                            return;
+                        }
+                        if (tooltip.dataPoints && tooltip.dataPoints.length) {
+                            var idx = tooltip.dataPoints[0].dataIndex;
+                            var diff = nowWon[idx] - prevWon[idx];
+                            var sign = diff >= 0 ? '+' : '-';
+                            tooltipEl.innerHTML = '<div class="chartjs-tooltip__row">' + sign + Math.abs(diff).toLocaleString() + '원</div>';
+                        }
+                        positionChartTooltip(tooltipEl, chart, tooltip);
+                    }
+
+                    // Chart.js의 borderRadius는 "막대 너비의 절반"을 넘지 못하게 잘라내기 때문에,
+                    // 값이 0에 가까운 짧은 막대에서는 반원이 아니라 살짝 둥근 사각형이 됩니다.
+                    // 피그마는 0에 붙는 안쪽 끝만 각지고 바깥쪽 끝은 항상 반원(=짧을수록 반원 그 자체)이라,
+                    // 좌/우 그루터기가 가운데서 맞붙어 하나의 원으로 보입니다. 그 모양을 정확히 내려고
+                    // 기본 막대는 투명으로 두고 여기서 직접 그립니다.
+                    var barCapPlugin = {
+                        id: 'compareBarCaps',
+                        afterDatasetsDraw: function (chart) {
+                            var ctx = chart.ctx;
+                            // 기준점은 항상 x축의 0 픽셀입니다. 요소의 base를 쓰면 stacked 축에서
+                            // 데이터셋마다 base가 달라져 방향이 뒤집히는 경우가 있어서 직접 계산합니다.
+                            var zeroPx = chart.scales.x.getPixelForValue(0);
+                            chart.data.datasets.forEach(function (ds, di) {
+                                var meta = chart.getDatasetMeta(di);
+                                if (meta.hidden) return;
+                                var dir = di === 0 ? -1 : 1; // 0번=이전(왼쪽), 1번=현재(오른쪽)
+                                meta.data.forEach(function (bar) {
+                                    var props = bar.getProps(['x', 'y', 'height'], true);
+                                    var h = props.height;
+                                    if (!h) return;
+                                    var r = h / 2;
+                                    var top = props.y - r;
+                                    // 막대 길이는 최소 반원(=r)까지 보장 — 0이어도 반쪽 원은 남습니다.
+                                    var len = Math.max(Math.abs(props.x - zeroPx), r);
+                                    var x0 = zeroPx;              // 0 쪽 (각진 끝)
+                                    var xTip = x0 + dir * len;    // 바깥 쪽 (반원 끝)
+                                    var xArc = xTip - dir * r;    // 반원 중심
+                                    ctx.save();
+                                    ctx.fillStyle = ds.barColor;
+                                    ctx.beginPath();
+                                    ctx.moveTo(x0, top);
+                                    ctx.lineTo(xArc, top);
+                                    ctx.arc(xArc, top + r, r, -Math.PI / 2, Math.PI / 2, dir < 0);
+                                    ctx.lineTo(x0, top + h);
+                                    ctx.closePath();
+                                    ctx.fill();
+                                    ctx.restore();
+                                });
+                            });
+                        }
+                    };
+
+                    new Chart(canvas.getContext('2d'), {
+                        type: 'bar',
+                        plugins: [barCapPlugin],
+                        data: {
+                            labels: labels,
+                            datasets: [
+                                // 실제 색은 barCapPlugin이 그립니다(아래 주석 참고). 기본 막대는
+                                // 투명으로 두되, 툴팁 히트영역은 그대로 살아있어야 하므로 데이터셋 자체는 유지합니다.
+                                { label: '이전', data: prev, backgroundColor: 'transparent', barColor: colors.prev, borderSkipped: false },
+                                { label: '현재', data: now, backgroundColor: 'transparent', barColor: colors.now, borderSkipped: false }
+                            ]
+                        },
+                        options: {
+                            indexAxis: 'y',
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            onResize: function () { syncBackFaceCloneCanvases(categoryKey, 'data-insight-chart'); },
+                            // 피그마 막대 두께 11px, 줄 간격 32px
+                            datasets: { bar: { barThickness: BAR_H } },
+                            events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
+                            plugins: {
+                                legend: { display: false }, // 범례는 .hcb-legend(HTML)로 대체
+                                tooltip: { enabled: false, external: compareDiffTooltipHandler }
+                            },
+                            scales: {
+                                x: {
+                                    stacked: true,
+                                    min: -axisMax,
+                                    max: axisMax,
+                                    grid: { color: '#f0f0f0', drawTicks: false },
+                                    border: { display: false },
+                                    ticks: {
+                                        stepSize: axisMax / 2, // 눈금선 5개(-max, -max/2, 0, max/2, max)
+                                        font: { size: 10 },
+                                        color: '#767676',
+                                        padding: 6,
+                                        // 눈금선은 5개지만 숫자는 피그마처럼 양끝과 0에만 노출합니다.
+                                        callback: function (value) {
+                                            if (value === 0) return '0';
+                                            if (Math.abs(value) === axisMax) return Math.abs(value).toLocaleString();
+                                            return '';
+                                        }
+                                    }
+                                },
+                                y: {
+                                    stacked: true,
+                                    grid: { display: false },
+                                    border: { display: false },
+                                    ticks: { font: { size: 12 }, color: '#4f5359', padding: 10, crossAlign: 'far' }
+                                }
+                            }
+                        }
+                    });
+                }
+
+                buildCompareBarChart(
                     'liquidity',
                     ['입출금', '예적금', '외화', '기타'],
-                    [124, 30, 36, 6],
-                    [132, 33, 38, 7],
                     [560000000, 42000000, 52000000, 450000],
                     [590500000, 44500000, 55048000, 500000],
                     { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
-                buildInsightChart(
+                buildCompareBarChart(
                     'invest',
-                    [['국내', '주식'], ['해외', '주식'], '채권', '펀드', '예수금', '기타'],
-                    [105, 35, 15, 10, 14, 140],
-                    [100, 33, 14, 9, 13, 133],
+                    ['국내주식', '해외주식', '채권', '펀드', '예수금', '기타'],
                     [1575000, 525000, 1050, 1050, 1050, 2100000],
                     [1500000, 500000, 1000, 1000, 1000, 2000000],
                     { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
-                buildInsightChart(
+                buildCompareBarChart(
                     'pension',
                     ['개인연금', '퇴직연금', '공적연금'],
-                    [128, 20, 0],
-                    [140, 21, 0],
                     [6300000, 950000, 0],
-                    [6654328, 1000000, 0],
+                    [6654328, 1000000, 10000],
                     { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
-                buildInsightChart(
-                    'loan',
-                    [['주택관련', '대출'], '신용대출', ['예적금', '대출'], '카드대출', '기타대출'],
-                    [137, 32, 16, 14, 9],
-                    [140, 30, 18, 12, 8],
-                    [372000000, 8200000, 3900000, 2100000, 1600000],
-                    [375059500, 8000000, 4000000, 2000000, 1594828],
-                    { prev: '#c8d2e4', now: '#a1f069' }
-                );
+                // 대출 탭 뒷면은 피그마(node 3198:29596)에서 비교 차트가 아니라
+                // '계좌별 상환 현황'(진행 막대 + 상환 정보)으로 바뀌어 차트를 만들지 않습니다.
+            })();
+
+            (function () {
+                // 대출 뒷면 계좌 셀렉트 -> 레거시 바텀시트(.slidePopConfirm) 열기/선택 반영
+                var sheet = document.getElementById('loanAccountSheet');
+                if (!sheet) return;
+                var list = sheet.querySelector('[data-loan-account-list]');
+
+                document.addEventListener('click', function (e) {
+                    var trigger = e.target.closest && e.target.closest('[data-loan-account-trigger]');
+                    if (!trigger) return;
+                    // 열기는 레거시 공통 함수를 그대로 씁니다(높이 계산 + 스크롤 잠금 포함).
+                    if (typeof window.slidePopConfirm === 'function') window.slidePopConfirm();
+                    trigger.setAttribute('aria-expanded', 'true');
+                });
+
+                if (list) {
+                    list.addEventListener('click', function (e) {
+                        var item = e.target.closest && e.target.closest('.bottomsheet-list__item');
+                        if (!item) return;
+                        var label = item.textContent.trim();
+                        document.querySelectorAll('[data-loan-account-trigger]').forEach(function (btn) {
+                            var textEl = btn.querySelector('.loan-repay__select-text');
+                            if (textEl) textEl.textContent = label;
+                            btn.setAttribute('aria-expanded', 'false');
+                        });
+                        var closeBtn = sheet.querySelector('.popClose');
+                        if (closeBtn && typeof window.popClose === 'function') window.popClose(closeBtn);
+                    });
+                }
             })();
 
             (function () {
