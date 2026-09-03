@@ -47,7 +47,7 @@
                                         <label class="check-basic check-basic--xs">
                                             <input type="checkbox" class="check-basic__input" id="agreeTerms2" />
                                             <span class="check-basic__icon"></span>
-                                            <span class="terms-link__text">[선택] 개인(신용)정보 수집·이용 동의서(상품 서비스 안내 등)</span>
+                                            <span class="terms-link__text">[필수] 개인(신용)정보 수집·이용 동의서(상품 서비스 안내 등)</span>
                                         </label>
                                     </div>
                                     <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
@@ -57,7 +57,7 @@
                                         <label class="check-basic check-basic--xs">
                                             <input type="checkbox" class="check-basic__input" id="agreeTerms3" />
                                             <span class="check-basic__icon"></span>
-                                            <span class="terms-link__text">[선택] 개인(신용)정보 수집·이용 동의서(상품 서비스 안내 등)(NH마이데이터)</span>
+                                            <span class="terms-link__text">[필수] 개인(신용)정보 수집·이용 동의서(상품 서비스 안내 등)(NH마이데이터)</span>
                                         </label>
                                     </div>
                                     <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="popBtnWrap">
                     <div class="popBtn">
-                        <a href="javascript:;" id="btnTermsConfirm" class="btnPressPoint disabled" role="button" aria-disabled="true">시작하기</a>
+                        <a href="javascript:;" id="btnTermsConfirm" class="btnPressPoint confirmBtn disabled" role="button" aria-disabled="true">시작하기</a>
                     </div>
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
                         <img src="../../images/common/btn_popClose.png" alt="닫기" />
@@ -81,12 +81,18 @@
             document.addEventListener('DOMContentLoaded', function () {
                 //두 필수 약관에 모두 동의해야 '서비스 가입' 버튼이 활성화됩니다.
                 //a 태그는 disabled 속성이 없으므로 class + aria-disabled로 상태를 관리합니다.
-                var checkboxes = [document.getElementById('agreeTerms0'),document.getElementById('agreeTerms1'), document.getElementById('agreeTerms2'), document.getElementById('agreeTerms3')];
+                //판정 대상은 개별 필수 약관(agreeTerms1~3)뿐입니다. agreeTerms0(전체 동의)은
+                //update-ui.js의 initTermsSelectAll()이 개별 약관 상태를 보고 .checked를 "대입"해 맞춰주는
+                //파생 상태인데, 스크립트로 .checked를 대입하면 change 이벤트가 발생하지 않습니다.
+                //그래서 전체 동의까지 판정 대상에 넣으면 두 스크립트의 리스너 등록 순서에 따라
+                //버튼이 끝까지 활성화되지 않을 수 있습니다.
+                var required = [document.getElementById('agreeTerms1'), document.getElementById('agreeTerms2'), document.getElementById('agreeTerms3')];
+                var agreeAll = document.getElementById('agreeTerms0');
                 var joinBtn = document.getElementById('btnTermsConfirm');
 
                 function syncJoinButton() {
                     if (!joinBtn) return;
-                    var allChecked = checkboxes.every(function (c) { return c && c.checked; });
+                    var allChecked = required.every(function (c) { return c && c.checked; });
                     joinBtn.classList.toggle('disabled', !allChecked);
                     if (allChecked) {
                         joinBtn.removeAttribute('aria-disabled');
@@ -99,8 +105,16 @@
                     if (joinBtn.classList.contains('disabled')) e.preventDefault();
                 });
 
-                checkboxes.forEach(function (c) {
-                    if (c) c.addEventListener('change', syncJoinButton);
+                //전체 동의를 눌렀을 때는 개별 약관의 .checked가 스크립트로 대입되므로 change가 안 터집니다.
+                //또 다른 스크립트가 .checked를 대입하는 시점이 이 핸들러보다 늦을 수도 있어서,
+                //동기 처리가 모두 끝난 뒤(setTimeout 0) 한 번 더 판정해 등록 순서에 의존하지 않게 합니다.
+                function syncJoinButtonDeferred() {
+                    syncJoinButton();
+                    setTimeout(syncJoinButton, 0);
+                }
+
+                required.concat([agreeAll]).forEach(function (c) {
+                    if (c) c.addEventListener('change', syncJoinButtonDeferred);
                 });
                 syncJoinButton();
             });
