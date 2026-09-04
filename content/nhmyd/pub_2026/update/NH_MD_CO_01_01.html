@@ -28,10 +28,15 @@
             <div class="container bgcolor">
                 <div class="stack--32 mt24">
                     <!-- ============================================================
-                        그룹 A. [부채=0, 자산=0일 때]  (피그마 case 1~3)
+                        [부채=0, 자산=0일 때] / [부채=0, 자산>0일 때]- 자산=0 and 진단 부채=0인 경우 : 나의 부채, 금융정보, 수입•지출 정보만 노출
+                        [부채=0, 자산>0일 때] : 순자산 노출 (순자산은 데이터가 있을때와 없을때 구분 필요- 아래 순자산 쪽 주석 확인
+                        [부채=0, 자산>0일 때] :finance-preview__debt--over 클래스 추가 sample : NH_MD_CO_01_01_case02.html 확인
+                        [총 자산/총 부채] :finance-preview__debt--under 클래스 추가 sample : NH_MD_CO_01_01_case03.html 확인
                         ============================================================ -->
+
                         <div class="finance-preview">
                             <div class="stack--40">
+                                <!--나의부책-->
                                 <div class="asset-hero">
                                     <div class="asset-hero__top">
                                         <strong class="text text--h2 asset-hero__title">나의 부채</strong>
@@ -57,16 +62,14 @@
                                                             <strong class="tooltip-card__title">총 자산 제외 내역</strong>
                                                             <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
                                                         </div>
-                                                        <ul>
-                                                            <li>보험은 해지환급금 확인이 어려워 총 자산에서 제외됩니다.</li>
-                                                        </ul>
+                                                        <p class="tooltip-card__body">보험은 해지환급금 확인이 어려워 총 자산에서 제외됩니다.</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+                                <!--금융정보-->
                                 <div class="stack--20">
                                     <strong class="text text--h4">금융 정보</strong>
                                     <!--금융정보가 없을경우-->
@@ -75,7 +78,7 @@
                                         <button type="button" class="info-card__btn">내 부채 연결하러 가기</button>
                                     </div>
                                     <!--금융정보가 있을경우-->
-                                    <div class="info-card info-card__split" style="display:none;">
+                                    <div class="info-card info-card__split">
                                         <div class="info-card__pair tooltipWrap">
                                             <p class="info-card__label">이번 달 예상 상환 금액</p>
                                             <p class="info-card__value">12만원
@@ -88,7 +91,8 @@
                                                     <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
                                                 </div>
                                                 <ul class="tooltip-card__list">
-                                                    <li class="tooltip-card__item">이번 달 상환 예정 금액은 추정치로, 실제 청구 금액과 차이가 있을 수 있습니다.</li>
+                                                    <li class="tooltip-card__item pointColor22
+                                                    ">이번 달 상환 예정 금액은 추정치로, 실제 청구 금액과 차이가 있을 수 있습니다.</li>
                                                     <li class="tooltip-card__item">대출 중도 상환, 자동이체 휴일 출금일 지정 등 해당기관 개별 설정에 따라 내용이 변동될 수 있습니다.</li>
                                                     <li class="tooltip-card__item">타금융기관 대출상품은 원금균등, 원리금균등, 만기예정일시 상환방식에 한하여 제공하며 상환금액 및 상환일은 차이가 있을 수 있습니다.</li>
                                                 </ul>
@@ -100,7 +104,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                <!--수입•지출 정보-->
                                 <div class="stack--20">
                                     <strong class="text text--h4">수입&bull;지출 정보</strong>
                                     <div class="stack--16">
@@ -110,7 +114,7 @@
                                             <button type="button" class="info-card__btn">수입&bull;지출 정보 입력하기</button>
                                         </div>
                                         <!--수입지출 있을경우-->
-                                        <div class="info-card" style="display:none;">
+                                        <div class="info-card">
                                             <div class="list-kv">
                                                 <span class="list-kv__title">
                                                     <img src="../../images/update/ic-deposit.svg" alt="" />
@@ -134,27 +138,26 @@
                                     </div>
                                 </div>
                                 <!--<p class="qa-case__label"><b>case 3</b> · 일반 Case — 자산은 연결됐지만 계좌&bull;투자&bull;연금 잔액이 모두 0원인 경우(순자산 위젯은 뜨지만 전부 0)</p>-->
-                                 <!--S :순 자산-->
-                                 <!--순자산 계좌/투자/연금-->
-                                 <!--
+                                <!--순 자산-->
+                                <!--
                                     순자산 데이터가 없을 경우 : list-accordion에 list-accordion--empty 클래스 추가
-                                    계좌 등 자산이 없을 경우 : list-accordion__data-none 클래스 추가 연금쪽 확인
-                                 -->
-                                 <div class="list-accordion list-accordion--empty">
+                                    계좌 투자 연금 내역이 없을 경우 : list-accordion__data-none 클래스 추가 연금쪽 확인
+                                -->
+                                <div class="list-accordion list-accordion--empty">
                                     <div class="asset-summary__total">
                                         <p class="asset-summary__total-label">순 자산</p>
                                         <p class="asset-summary__total-value">120,000,000원</p>
                                     </div>
                                     <div class="stack--16">
                                         <!--순자산이 있을 경우-->
-                                        <div class="info-card" style="display:none">
+                                        <div class="info-card">
                                             <div class="list-accordion__row list-accordion__row--link">
                                                 <span class="list-accordion__title">계좌<span class="pension-nudge__count">46</span></span>
                                                 <span class="list-accordion__data">100,000,000원</span>
                                                 <span class="list-accordion__arrow" aria-hidden="true"></span>
                                             </div>
                                             <!--계좌내역이 없을경우-->
-                                            <div class="pension-nudge" style="display:none">
+                                            <div class="pension-nudge">
                                                 <div class="pension-nudge__top">
                                                     <p class="pension-nudge__title">
                                                         <span class="pension-nudge__icon" aria-hidden="true">
@@ -165,7 +168,7 @@
                                                 </div>
                                                 <div class="pension-nudge__content">
                                                     <p class="pension-nudge__desc">계좌를 연결하고 더 정확한 자산정보를<br /> 받아보세요.</p>
-                                                    <button type="button" class="info-card__btn">내 연금 연결하러가기</button>
+                                                    <button type="button" class="info-card__btn">내 계좌 연결하러가기</button>
                                                 </div>
                                             </div>
                                             <div class="list-accordion__divider"></div>
@@ -175,7 +178,7 @@
                                                 <span class="list-accordion__arrow" aria-hidden="true"></span>
                                             </div>
                                             <!--투자내역이 없을경우-->
-                                            <div class="pension-nudge" style="display:none">
+                                            <div class="pension-nudge">
                                                 <div class="pension-nudge__top">
                                                     <p class="pension-nudge__title">
                                                         <span class="pension-nudge__icon" aria-hidden="true">
@@ -218,7 +221,7 @@
                                             <button type="button" class="info-card__btn">내 자산 연결하러 가기</button>
                                         </div>
                                         <!--진단부채-->
-                                        <div class="info-card" id="debtCard16">
+                                        <div class="info-card stack--0" id="debtCard16">
                                             <div class="debt-card__head">
                                                 <div class="debt-card__row tooltipWrap">
                                                     <p class="debt-card__label">진단 부채<span class="debt-card__count">38</span></p>
@@ -232,13 +235,13 @@
                                                             <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
                                                         </div>
                                                         <ul>
-                                                            <li>진단받을 부채 내역 확인이 필요해요.<br />
+                                                            <li class="text--body3">진단받을 부채 내역 확인이 필요해요.<br />
                                                                 펼치기 버튼을 눌러 전체 부채 내역을 확인해 보세요.</li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="button" class="debt-card__toggle" onclick="var b=this;var d=b.parentNode.querySelector('.debt-detail');if(d){d.remove();b.textContent='펼치기';b.classList.remove('is-open');}else{d=document.createElement('div');d.className='debt-detail';d.innerHTML='<div class=\'list-kv\'><span class=\'list-kv__title\'>선택 부채</span><span class=\'list-kv__data\'>85,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>잔여 부채</span><span class=\'list-kv__data\'>30,000,000원</span></div><div class=\'list-kv tooltipWrap\'><span class=\'list-kv__title\'>대상 외 부채 <button type=\'button\' class=\'asset-hero__stat-tooltip\' onclick=\'tooltipOpen($(this));return false;\'><span class=\'blind\'>대상 외 부채 안내</span></button></span><span class=\'list-kv__data\'>25,000,000원</span><div class=\'tooltip-card tooltipCont\' style=\'display:none\'><div class=\'tooltip-card__header\'><strong class=\'tooltip-card__title\'>대상 외 부채</strong><button type=\'button\' class=\'tooltip-card__close\' onclick=\'tooltipClose($(this));return false;\'><span class=\'blind\'>닫기</span></button></div><ul class=\'tooltip-card__list\'><li class=\'tooltip-card__item\'>툴팁 문구 입력</li></ul></div></div><div class=\'list-kv debt-detail__total\'><span class=\'list-kv__title\'>총 부채</span><span class=\'list-kv__data\'>130,000,000원</span></div>';b.parentNode.insertBefore(d,b.parentNode.querySelector('.debt-card__toggle'));b.textContent='접기';b.classList.add('is-open');}return false;">펼치기</button>
+                                            <button type="button" class="debt-card__toggle" onclick="var b=this;var d=b.parentNode.querySelector('.debt-detail');if(d){d.remove();b.textContent='펼치기';b.classList.remove('is-open');}else{d=document.createElement('div');d.className='debt-detail';d.innerHTML='<div class=\'list-kv\'><span class=\'list-kv__title\'>선택 부채</span><span class=\'list-kv__data\'>85,000,000원</span></div><div class=\'list-kv\'><span class=\'list-kv__title\'>잔여 부채</span><span class=\'list-kv__data\'>30,000,000원</span></div><div class=\'list-kv tooltipWrap\'><span class=\'list-kv__title\'>대상 외 부채 <button type=\'button\' class=\'asset-hero__stat-tooltip\' onclick=\'tooltipOpen($(this));return false;\'><span class=\'blind\'>대상 외 부채 안내</span></button></span><span class=\'list-kv__data\'>25,000,000원</span><div class=\'tooltip-card tooltipCont\' style=\'display:none\'><div class=\'tooltip-card__header\'><strong class=\'tooltip-card__title\'>대상 외 부채</strong><button type=\'button\' class=\'tooltip-card__close\' onclick=\'tooltipClose($(this));return false;\'><span class=\'blind\'>닫기</span></button></div><p class=\'tooltip-card__body\'>주택관련대출, 학자금대출, 전세자금대출, 단기대출, 운영리스는 진단대상에서 제외되어 선택하실 수 없습니다.(단, 신용대출로 대출 받으신 전세자금대출은 진단대상에 포함됩니다.)</p></div></div><div class=\'list-kv debt-detail__total\'><span class=\'list-kv__title\'>총 부채</span><span class=\'list-kv__data\'>130,000,000원</span></div>';b.parentNode.insertBefore(d,b.parentNode.querySelector('.debt-card__toggle'));b.textContent='접기';b.classList.add('is-open');}return false;">펼치기</button>
                                             <div class="debt-card__select-all">
                                                 <label class="check-basic">
                                                     <input type="checkbox" class="check-basic__input" checked />
@@ -351,7 +354,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--E : 순 자산-->
                             </div>
                         </div>
 
