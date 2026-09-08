@@ -19,8 +19,8 @@
                 <!-- 자산 카테고리 탭 -->
                 <div class="tab-line">
                     <div class="tab-line__list" role="tablist" aria-label="자산 카테고리" id="assetTabList">
-                        <button type="button" id="assetTab-liquidity" class="tab-line__item tab-line__item--active" role="tab" aria-selected="true" tabindex="0">예금</button>
-                        <button type="button" id="assetTab-invest" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">투자</button>
+                        <button type="button" id="assetTab-liquidity" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">예금</button>
+                        <button type="button" id="assetTab-invest" class="tab-line__item tab-line__item--active" role="tab" aria-selected="true" tabindex="0">투자</button>
                         <button type="button" id="assetTab-pension" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">연금</button>
                         <button type="button" id="assetTab-loan" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">대출</button>
                     </div>
@@ -34,7 +34,7 @@
                     <div class="asset-hero-swiper swiper-container" id="assetHeroSwiper">
                         <div class="swiper-wrapper">
                             <!-- 예금 -->
-                            <div class="swiper-slide" data-category-label="예금" aria-hidden="false">
+                            <div class="swiper-slide" data-category-label="예금" aria-hidden="true">
                                 <div class="hero">
                                     <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
@@ -47,7 +47,7 @@
                                                     </button>
                                                 </p>
                                                 <div class="hc-amount tooltipWrap">
-                                                    1,090,548,000
+                                                    0
                                                     <span>원</span>
                                                     <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">예금 자산 안내 보기</span></a>
                                                     <div class="tooltipCont" style="display: none">
@@ -59,12 +59,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="hc-notice hc-notice--compare">
-                                                    <p class="hc-notice__label">전월 말일기준</p>
-                                                    <p class="hc-notice__value">
-                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"><span class="blind">상승</span></span>
-                                                        <!-- <span class="hc-change__icon hc-change__icon--down" aria-hidden="true"><span class="blind">하락</span></span> -->
-                                                        1,540,545원(+10%)
-                                                    </p>
+                                                    <p class="hc-notice__text">자산 증감률은 다음달에 확인하실 수 있어요</p>
                                                 </div>
                                                 <div class="hero__chart-box">
                                                     <canvas data-chart-canvas="liquidity" aria-hidden="true"></canvas>
@@ -101,20 +96,20 @@
                                                 </ul>
                                             </div>
                                             <div class="hc-bottom">
-                                                <div class="hc-cta">
+                                                <!-- <div class="hc-cta">
                                                     <span class="hc-cta__left">
                                                         <span class="hc-cta__icon" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
                                                         <span class="hc-cta__label">전월 비교 보기</span>
                                                     </span>
                                                     <button type="button" class="hc-cta__flip" data-flip-toggle aria-pressed="false"><span class="hc-cta__flip-glyph"></span></button>
-                                                </div>
+                                                </div> -->
 
-                                                <!-- <div class="hc-cta">
+                                                <div class="hc-cta">
                                                     <span class="hc-cta__left">
                                                         <span class="hc-cta__icon" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
-                                                        <span class="hc-cta__label">다음달부터 전월비교를 확인하실 수 있어요</span>
+                                                        <span class="hc-cta__label small">다음달부터 전월비교를 확인하실 수 있어요</span>
                                                     </span>
-                                                </div> -->
+                                                </div>
 
                                                 <!-- <div class="hc-cta">
                                                     <button type="button" class="btn-arrow">
@@ -171,7 +166,7 @@
                             </div>
 
                             <!-- 투자 -->
-                            <div class="swiper-slide" data-category-label="투자" aria-hidden="true">
+                            <div class="swiper-slide" data-category-label="투자" aria-hidden="false">
                                 <div class="hero">
                                     <div class="hero__flip">
                                         <div class="hero__face hero__face--front hero__face--redesign">
@@ -569,7 +564,7 @@
                 </div>
 
                 <!-- [예금] -->
-                <div class="asset-tab-panel" data-tab-panel="liquidity">
+                <div class="asset-tab-panel" data-tab-panel="liquidity" hidden>
                     <section class="md-section">
                         <h2 class="md-section__title">인사이트</h2>
                         <div class="md-card insight-list">
@@ -713,7 +708,7 @@
                 </div>
 
                 <!-- [투자] -->
-                <div class="asset-tab-panel" data-tab-panel="invest" hidden>
+                <div class="asset-tab-panel" data-tab-panel="invest">
                     <section class="md-section">
                         <h2 class="md-section__title">인사이트</h2>
                         <div class="md-card insight-list">
@@ -1193,9 +1188,9 @@
                 if (!tabs.length) return;
 
                 // 시작 슬라이드는 마크업에서 활성으로 지정된 탭을 따릅니다. Swiper의 initialSlide
-                // 기본값이 0이라 이걸 안 주면 탭/하단 패널과 히어로 카드가 어긋난 채로 시작합니다.
-                // 이 화면은 활성 탭이 첫 번째(예금)라 지금은 우연히 맞지만, NH_MD_01~04가 같은
-                // 스크립트를 쓰고 페이지마다 활성 탭이 달라서 마크업에서 읽도록 통일합니다.
+                // 기본값이 0이라 이걸 안 주면 탭/하단 패널은 대출인데 히어로 카드만 첫 번째(예금)가
+                // 보이는 상태로 시작합니다. NH_MD_01~04가 같은 스크립트를 쓰고 페이지마다 활성 탭이
+                // 달라서, 숫자를 박지 않고 마크업에서 읽습니다.
                 var initialTabIndex = 0;
                 tabs.forEach(function (t, i) {
                     if (t.classList.contains('tab-line__item--active') || t.getAttribute('aria-selected') === 'true') {
