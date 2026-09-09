@@ -22,23 +22,22 @@
                         <div class="period">
                             <p class="bottomsheet-option__label">조회기간</p>
                             <div class="radio-box-row">
-                                <input type="radio" name="coConsumeQuick1" id="coConsumeQuick1-10" class="radio-hidden-input radio-box-input" />
-                                <label for="coConsumeQuick1-10" class="radio-box radio-box--sm radio-box--center">3개월</label>
-                                <input type="radio" name="coConsumeQuick1" id="coConsumeQuick1-50" class="radio-hidden-input radio-box-input" />
-                                <label for="coConsumeQuick1-50" class="radio-box radio-box--sm radio-box--center">6개월</label>
-                                <input type="radio" name="coConsumeQuick1" id="coConsumeQuick1-100" class="radio-hidden-input radio-box-input" />
-                                <label for="coConsumeQuick1-100" class="radio-box radio-box--sm radio-box--center">1년</label>
-                                <input type="radio" name="coConsumeQuick1" id="coConsumeQuick1-300" class="radio-hidden-input radio-box-input" />
-                                <label for="coConsumeQuick1-300" class="radio-box radio-box--sm radio-box--center">2년</label>
+                                <input type="radio" name="period" id="period-12m" class="radio-hidden-input radio-box-input" />
+                                <label for="period-12m" class="radio-box radio-box--sm radio-box--center">12개월</label>
+                                <input type="radio" name="period" id="period-direct" class="radio-hidden-input radio-box-input"
+                                    checked />
+                                <label for="period-direct" class="radio-box radio-box--sm radio-box--center">직접입력</label>
                             </div>
-
+            
                             <div class="calendar-period mt12">
                                 <div class="calendar-period__field">
                                     <span class="calendar-period__text">2026.07.13</span>
-                                    <button type="button" class="calendar-period__icon" aria-label="시작일 날짜선택"></button>
+                                    <button type="button" class="calendar-period__icon" aria-label="시작일 날짜선택"
+                                        onclick="popCenter();calendarAlign();"></button>
                                     <span class="calendar-period__sep">~</span>
                                     <span class="calendar-period__text">2027.07.13</span>
-                                    <button type="button" class="calendar-period__icon" aria-label="종료일 날짜선택"></button>
+                                    <button type="button" class="calendar-period__icon" aria-label="종료일 날짜선택"
+                                        onclick="popCenter();calendarAlign();"></button>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +47,8 @@
                     <div class="popBtn">
                         <a href="javascript:;" class="confirmBtn" role="button">확인</a>
                     </div>
-                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다."
+                        role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
                 </div>
             </div>
         </div>
