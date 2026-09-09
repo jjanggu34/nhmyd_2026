@@ -1563,6 +1563,7 @@
 .promo-carousel__slide {position:relative;display:flex;flex-direction: column;justify-content: space-between;min-height:190px;border-radius:var(--radius-16);padding:22px var(--spacing-24) 42px;box-sizing:border-box;overflow:hidden;background-color:#ebeff6}
 .promo-carousel__eyebrow {font-size:var(--type-size-13);font-weight:var(--font-weight-medium);color:var(--primitive-gray-font-700);margin:0 0 var(--spacing-8)}
 .promo-carousel__title {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);color:var(--primitive-gray-font-900);line-height:1.4;margin:0 0 var(--spacing-8)}
+.promo-carousel__title .promo-carousel__title-text {  display:block;color:var(--color-font-1);font-size:var(--type-size-15);font-weight:var(--font-weight-regular);letter-spacing:-0.3px }
 .promo-carousel__tags {margin:0;font-size:var(--type-size-14);color:var(--color-font-3);line-height:18px}
 .promo-carousel__tags span {display:inline-flex;align-items:center;margin:0 8px 0 0}
 .promo-carousel__illust {position:absolute;right:17px;bottom:14px;width:100px;height:100px;object-fit:contain;pointer-events:none}
@@ -1899,7 +1900,8 @@
 .nds .analysis-section .info-card__head p { display:flex;justify-content:space-between;gap:var(--spacing-10)}
 .nds .analysis-section .info-card__head-title { font-weight:var(--font-weight-regular);color:var(--color-font-10) !important }
 .nds .analysis-section .info-card__head-data {  font-weight:var(--font-weight-semibold);color:var(--color-font-10) !important }
-.nds .analysis-section .info-card__list{ display:flex;flex-direction:column;border-radius:var(--radius-10);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07); }
+.nds .analysis-section .info-card__list{ display:flex;flex-direction:column;border-radius:var(--radius-10);/*background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);*/ }
+.nds .analysis-section .info-card--group .info-card__list { background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07); }
 .nds .analysis-section .info-card__list > ul > li { display:flex;flex-direction:column;gap:var(--spacing-8);padding:var(--spacing-16) var(--spacing-20); border-bottom:1px solid var(--color-border-3); }
 .nds .analysis-section .info-card__list > ul > li:last-of-type,
 .nds .analysis-section .info-card__list:has(li.info-card__graph) > ul > li { border-bottom:0; }
@@ -1922,6 +1924,7 @@
 
 .nds .analysis-section .info-card__bar-wrap {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .analysis-section .info-card__stats { display:flex;justify-content:space-between; }
+.nds .analysis-section .info-card__graph { position:relative; }
 .nds .analysis-section .info-card__graph-bar {position:relative;width:100%;height:16px;border-radius:var(--radius-full);background-color:#e6e9eb;overflow:hidden}
 .nds .analysis-section .info-card__graph-bar-fill {position:absolute;left:0;top:0;height:100%;border-radius:var(--radius-full);width:0%;background-color:#FF7E7E}
 .nds .analysis-section .info-card__amount { display:flex;justify-content:space-between;font-size:var(--type-sie-15); }
@@ -1954,11 +1957,20 @@
 .nds .analysis-section .connect-nudge__img {flex-shrink:0;width:34px;height:32px;object-fit:contain}
 
 .nds .analysis-section .info-card:has(.info-card__list-graph) { padding:0;box-shadow:none;}
-.nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__graph,
-.nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__list ul.select-card__list-row { margin-top:12px; }
+
 .nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__stat-label,
 .nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__stat-value { color:var(--color-font-4); font-size:var(--type-size-13) }
-.nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__graph-bar-fill { background-color:#09B2C5 }
+
+.nds .analysis-section .info-card__graph.bubble .info-card__graph-bar-fill { background-color:#001b33 }
+.nds .analysis-section .info-card__graph.bubble .info-card__graph-bar-fill { border-top-right-radius:0; border-bottom-right-radius:0; }
+.nds .analysis-section .info-card__graph.bubble.is-full .info-card__graph-bar-fill { background-color:#09B2C5; }
+.nds .analysis-section .info-card__graph.bubble { padding-top:34px }
+.nds .analysis-section .info-card__graph.bubble.is-full { padding-top:0 }
+.nds .analysis-section .info-card__graph.is-full .info-card__progress-bubble { display:none }
+.nds .analysis-section .info-card__progress-bubble {position:absolute;top:0;left:0;transform:translateX(-50%);background-color:var(--primitive-gray-900);color:var(--color-font-10);font-size:12px;font-weight:var(--font-weight-semibold);letter-spacing:-0.24px;line-height:18px;padding:4px 10px;border-radius:var(--radius-8);box-shadow:0 2px 6px rgba(0,0,0,0.14);white-space:nowrap;z-index:1}
+.nds .analysis-section .info-card__progress-bubble::after {content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--primitive-gray-900)}
+.nds .analysis-section .info-card__graph.bubble,
+.nds .analysis-section .info-card__graph + ul.select-card__list-row { margin-top:12px; }
 
 .nds .swiper-section { margin-top:40px; }
 
