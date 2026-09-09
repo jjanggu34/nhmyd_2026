@@ -1870,14 +1870,17 @@
 .nds .analysis-section [class*="edit-btn"]::before { content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-edit-mark_16.svg");mask-image:url("../images/update/ic-edit-mark_16.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
 .nds .analysis-section [class*="-title"] { font-size:var(--type-size-16);color:var(--color-font-1);font-weight:var(--font-weight-bold) }
 .nds .analysis-section [class*="-data"] { font-size:var(--type-size-16);color:var(--color-font-1);font-weight:var(--font-weight-semibold) }
-.nds .analysis-section h2[class*="__title"] { display:flex;align-items:center;font-size:var(--type-size-18);line-height:26px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.36px;color:var(--color-font-1) }
+.nds .analysis-section h2[class*="__title"] { display:block;align-items:center;font-size:var(--type-size-18);line-height:26px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.36px;color:var(--color-font-1) }
 .nds .analysis-section [class*="__title"] { font-size:var(--type-size-15);color:var(--color-font-3);font-weight:var(--font-weight-regular) }
 .nds .analysis-section [class*="__data"] { font-size:var(--type-size-15);color:var(--color-font-1);font-weight:var(--font-weight-medium) }
 .nds .analysis-section [class*="-none"] { color:var(--color-font-3) }
 .nds .analysis-section [class*="__updated"] {flex-shrink:0;font-size:var(--type-size-12);letter-spacing:-0.24px;line-height:18px;color:rgba(30,30,30,0.6)}
 .nds .analysis-section [class*="__updated"]::before { content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic_clock_line_12.svg");mask-image:url("../images/update/ic_clock_line_12.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
 
+
+.nds .analysis-section h2[class*="__title"]:has(.asset-title__tooltip-btn) { display:flex;align-items:center; }
 .nds .analysis-section:has(.brief-top) + .analysis-section { margin-top:8px }
+
 
 .nds .analysis-section .brief-top { display:flex;justify-content:flex-end }
 .nds .analysis-section .brief-top .brief-top__updated { display:inline-flex;align-items:center }
@@ -1899,7 +1902,7 @@
 .nds .analysis-section .info-card__list{ display:flex;flex-direction:column;border-radius:var(--radius-10);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07); }
 .nds .analysis-section .info-card__list > ul > li { display:flex;flex-direction:column;gap:var(--spacing-8);padding:var(--spacing-16) var(--spacing-20); border-bottom:1px solid var(--color-border-3); }
 .nds .analysis-section .info-card__list > ul > li:last-of-type,
-.nds .analysis-section .info-card__list:has(.info-card__graph) > ul > li { border-bottom:0; }
+.nds .analysis-section .info-card__list:has(li.info-card__graph) > ul > li { border-bottom:0; }
 .nds .analysis-section .info-card__list > ul > li:has(.info-card__amount) { padding-top:var(--spacing-4) }
 .nds .analysis-section .info-card__list-link { display:flex;justify-content:space-between;gap:var(--spacing-2);font-size:var(--type-size-16);font-weight:var(--font-weight-bold);color:var(--color-font-1) }
 .nds .analysis-section .info-card__list-link .normal { font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);color:var(--color-font-3);letter-spacing:-0.28px }
@@ -1950,7 +1953,16 @@
 .nds .analysis-section .connect-nudge__text {flex:1;min-width:0;margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--primitive-base-0,#fff)}
 .nds .analysis-section .connect-nudge__img {flex-shrink:0;width:34px;height:32px;object-fit:contain}
 
+.nds .analysis-section .info-card:has(.info-card__list-graph) { padding:0;box-shadow:none;}
+.nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__graph,
+.nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__list ul.select-card__list-row { margin-top:12px; }
+.nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__stat-label,
+.nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__stat-value { color:var(--color-font-4); font-size:var(--type-size-13) }
+.nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__graph-bar-fill { background-color:#09B2C5 }
+
 .nds .swiper-section { margin-top:40px; }
+
+
 
 /*.nds .asset-hero {display:flex;flex-direction:column;gap:var(--spacing-16);align-items:center;width:100%}
 .nds .asset-hero__top {display:flex;align-items:center;justify-content:flex-end;gap:var(--spacing-10);width:100%}
@@ -1958,13 +1970,13 @@
 .nds .asset-hero__updated {flex-shrink:0;font-size:var(--type-size-12);letter-spacing:-0.24px;line-height:18px;color:rgba(30,30,30,0.6)}
 .nds .asset-hero__graph {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
 .nds .asset-hero__amount {margin:0;text-align:right;font-size:var(--type-size-26);font-weight:var(--font-weight-semibold);letter-spacing:-0.52px;line-height:38px;color:#132333}
-.nds .asset-hero__amount .unit {font-size:var(--type-size-22);font-weight:var(--font-weight-medium);letter-spacing:-0.44px;line-height:32px}
+.nds .asset-hero__amount .unit {font-size:var(--type-size-22);font-weight:var(--font-weight-medium);letter-spacing:-0.44px;line-height:32px}*/
 .nds .asset-hero__bar-wrap {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .asset-hero__bar {position:relative;width:100%;height:16px;border-radius:var(--radius-full);background-color:#e6e9eb;overflow:hidden}
 .nds .asset-hero__bar-fill {position:absolute;left:0;top:0;height:100%;border-radius:var(--radius-full);width:0%}
 .nds .finance-preview.finance-preview__debt--over .asset-hero__bar-fill { background-color:var(--color-font-positive);}
 .nds .finance-preview.finance-preview__debt--under .asset-hero__bar-fill { background-color:#ff7e7e;}
-.nds .asset-hero__stats {display:flex;align-items:center;justify-content:center;gap:var(--spacing-10);width:100%}
+/*.nds .asset-hero__stats {display:flex;align-items:center;justify-content:center;gap:var(--spacing-10);width:100%}
 .nds .asset-hero__stat {display:flex;flex:1;min-width:0;align-items:center;gap:var(--spacing-6)}
 .nds .asset-hero__stat--right {flex:none;justify-content:flex-end;gap:var(--spacing-4)}
 .nds .asset-hero__chip {flex-shrink:0;width:8px;height:8px;border-radius:2px;background-color:#ff7e7e}
@@ -2021,6 +2033,11 @@
 .nds .debt-card__list + .select-card__more { padding-bottom:0;margin:0;width:100% }
 
 /* --- NH_MD_CO_01_07 --- */
+.nds  .compare-title {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);line-height:28px;color:var(--color-font-3)}
+.nds .compare-title span {color:var(--color-font-1)}
+
+
+
 .nds .asset-list-card {display:flex;flex-direction:column;width:100%;border-radius:var(--radius-16);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);overflow:hidden;box-sizing:border-box}
 .nds .asset-list-card__head {display:flex;flex-direction:column;gap:var(--spacing-2);width:100%;padding:var(--spacing-20);border-bottom:1px solid var(--color-border-3);box-sizing:border-box}
 .nds .asset-list-card__head + .asset-list-card__list .select-card--row{padding:0 0 var(--spacing-32)}
@@ -2066,8 +2083,7 @@
 .nds .fund-donut__chip {flex-shrink:0;width:10px;height:10px;border-radius:2px}
 .nds .fund-donut__legend-label {font-size:12px;letter-spacing:-0.24px;line-height:18px;color:#383b40}
 .nds .fund-donut__legend-value {flex:1;min-width:0;text-align:right;font-size:12px;font-weight:var(--font-weight-medium);letter-spacing:-0.24px;line-height:18px;color:var(--color-font-1)}
-.nds .compare-title {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);line-height:28px;color:var(--color-font-3)}
-.nds .compare-title span {color:var(--color-font-1)}
+
 .nds .compare-scroll {width:100%;padding:0 4px 16px;margin:0 -4px;box-sizing:content-box}
 .nds .compare-scroll .swiper-wrapper {height:auto}
 .nds .compare-scroll__pagination.swiper-pagination {position:relative;bottom:auto;display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);margin-top:var(--spacing-16);line-height:0}
