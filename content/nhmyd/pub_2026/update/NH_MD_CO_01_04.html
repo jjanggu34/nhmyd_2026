@@ -16,391 +16,408 @@
             </div>
 
             <div class="container bgcolor">
-                <div class="stack--24 mt24">
-                    <!--
+                <!--
                         AI 분석 로딩 중인 경우 insight-hero에 insight-hero--loading 추가
                     -->
-                    <div class="stack--20 pb16">
-                        <p class="text--h4">종합 진단 결과</p>
-                        <div class="md-card insight-hero insight-hero--loading">
-                            <p class="insight-hero__greeting">
-                                <!-- prettier-ignore -->
-                                <strong>$김농협$</strong>님의
-                                <br />
-                                종합진단 결과입니다.
-                            </p>
-                            <div class="insight-hero__panel mt30">
-                                <img class="insight-hero__mascot" src="../../images/update/img-ally-laptop-right.png" alt="" aria-hidden="true" />
-                                <div class="insight-hero__tags">
-                                    <span class="insight-hero__tag insight-hero__tag--accent">AI진단</span>
-                                    <span class="insight-hero__tag insight-hero__tag--outline">통합분석</span>
-                                </div>
-                                <p class="insight-hero__headline">
-                                    <strong>
-                                        상환을 고려해보는건
-                                        <br />
-                                        어떠세요?
-                                    </strong>
-                                </p>
-                                <hr class="insight-hero__divider" />
-                                <p class="insight-hero__body">AI가 현재 부채를 금리와 잔액 기준으로 분석해보니, 금리가 높은 부채부터 우선 상환하는 전략이 가장 효과적이에요. 지금 여유자금으로 고금리 부채를 먼저 줄이면 원금이 낮아지는 만큼 매달 내는 이자도 함께 줄어들고,
-                                이후 상환에 사용할 수 있는 여유자금도 더 커질 수 있어요.</p>
-                            </div>
-                            <div class="insight-hero__loading" role="status" aria-atomic="true">
-                                <div class="insight-hero__loading-text">AI 의견이 준비중이에요
-                                    <p class="insight-hero__loading-sub-text">현재 자산과 부채를 기준으로 AI가 열심히 분석하고 있어요. 조금만 기다려 주세요.</p>
-                                </div>
-                                <span class="insight-hero__spinner" aria-hidden="true"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stack--20">
-                        <p class="text--h4">총 자산 &middot; 총 부채</p>
-                        <div class="compare-chart">
-                            <div class="compare-chart__card compare-chart__card--asset">
-                                <p class="compare-chart__title">총 자산</p>
-                                <p class="blind">상환 전 12,000만원, 상환 후 9,370만원</p>
-                                <div class="compare-chart__box">
-                                    <div class="compare-chart__legend" aria-hidden="true">
-                                        <span class="compare-chart__legend-item compare-chart__legend-item--after">상환 후</span>
-                                        <span class="compare-chart__legend-item compare-chart__legend-item--before">상환 전</span>
-                                    </div>
-                                    <div class="compare-chart__bars">
-                                        <span class="compare-chart__bar compare-chart__bar--after" data-value="9,370만원" style="width:78%;background-color:#219D93" aria-hidden="true"></span>
-                                        <span class="compare-chart__bar" data-value="12,000만원" style="width:100%;background:linear-gradient(to right, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 78%, transparent 78%, transparent 100%) #C8D2E4" aria-hidden="true"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="compare-chart__card compare-chart__card--debt">
-                                <p class="compare-chart__title">총 부채</p>
-                                <p class="blind">상환 전 13,000만원, 상환 후 10,370만원</p>
-                                <div class="compare-chart__box">
-                                    <div class="compare-chart__legend" aria-hidden="true">
-                                        <span class="compare-chart__legend-item compare-chart__legend-item--after">상환 후</span>
-                                        <span class="compare-chart__legend-item compare-chart__legend-item--before">상환 전</span>
-                                    </div>
-                                    <div class="compare-chart__bars">
-                                        <span class="compare-chart__bar compare-chart__bar--after" data-value="10,370만원"
-                                            style="width:79%;background-color:#FF7E7E" aria-hidden="true"></span>
-                                        <span class="compare-chart__bar" data-value="13,000만원"
-                                            style="width:100%;background:linear-gradient(to right, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 79%, transparent 79%, transparent 100%) #C8D2E4"
-                                            aria-hidden="true"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="stack--20">
-                        <p class="compare-title">
-                            부채를 상환하면
+                <!--종합진단 결과-->        
+                <section class="analysis-section">
+                    <h2 class="analysis-section__title">종합 진단 결과</h2>
+                    <div class="md-card insight-hero insight-hero--loading">
+                        <p class="insight-hero__greeting">
+                            <!-- prettier-ignore -->
+                            <strong>$김농협$</strong>님의
                             <br />
-                            여유자금이 <span>31만원</span>이 생겨요
+                            종합진단 결과입니다.
                         </p>
-                        <div class="compare-scroll swiper-container">
-                            <div class="swiper-wrapper">
-                                <div class="compare-card swiper-slide">
-                                    <p class="compare-card__title">월 예상 상환액</p>
-                                    <div class="compare-card__row mb8">
-                                        <span class="compare-card__stat-value">65만원</span>
-                                        <span class="compare-card__arr" aria-hidden="true"></span>
-                                        <span class="compare-card__stat-value--after">34만원</span>
-                                    </div>
-                                    <p class="compare-card__title">완납까지</p>
-                                    <div class="compare-card__row mb8">
-                                        <span class="compare-card__stat-value">34개월</span>
-                                        <span class="compare-card__arr" aria-hidden="true"></span>
-                                        <span class="compare-card__stat-value--after">30개월</span>
-                                    </div>
-                                </div>
-                                <div class="compare-card swiper-slide">
-                                    <p class="compare-card__title">평균 적용 금리</p>
-                                    <div class="compare-card__row mb8">
-                                        <span class="compare-card__stat-value">12.53%</span>
-                                        <span class="compare-card__arr" aria-hidden="true"></span>
-                                        <span class="compare-card__stat-value--after">10.24%</span>
-                                    </div>
-                                    <p class="compare-card__title">부채 비율</p>
-                                    <div class="compare-card__row mb8">
-                                        <span class="compare-card__stat-value">41%</span>
-                                        <span class="compare-card__arr" aria-hidden="true"></span>
-                                        <span class="compare-card__stat-value--after">37%</span>
-                                    </div>
-                                </div>
+                        <div class="insight-hero__panel mt30">
+                            <img class="insight-hero__mascot" src="../../images/update/img-ally-laptop-right.png" alt="" aria-hidden="true" />
+                            <div class="insight-hero__tags">
+                                <span class="insight-hero__tag insight-hero__tag--accent">AI진단</span>
+                                <span class="insight-hero__tag insight-hero__tag--outline">통합분석</span>
                             </div>
-                            <div class="compare-scroll__pagination swiper-pagination"></div>
+                            <p class="insight-hero__headline">
+                                <strong>
+                                    상환을 고려해보는건
+                                    <br />
+                                    어떠세요?
+                                </strong>
+                            </p>
+                            <hr class="insight-hero__divider" />
+                            <p class="insight-hero__body">AI가 현재 부채를 금리와 잔액 기준으로 분석해보니, 금리가 높은 부채부터 우선 상환하는 전략이 가장 효과적이에요. 지금 여유자금으로 고금리 부채를 먼저 줄이면 원금이 낮아지는 만큼 매달 내는 이자도 함께 줄어들고,
+                            이후 상환에 사용할 수 있는 여유자금도 더 커질 수 있어요.</p>
+                        </div>
+                        <div class="insight-hero__loading" role="status" aria-atomic="true">
+                            <div class="insight-hero__loading-text">AI 의견이 준비중이에요
+                                <p class="insight-hero__loading-sub-text">현재 자산과 부채를 기준으로 AI가 열심히 분석하고 있어요. 조금만 기다려 주세요.</p>
+                            </div>
+                            <span class="insight-hero__spinner" aria-hidden="true"></span>
                         </div>
                     </div>
-
-                    <div class="stack--20 pb16">
-                        <p class="text--h4">부채는 이렇게 줄어들어요.</p>
-                        <div class="asset-list-card">
-                            <div class="asset-list-card__list">
-                                <div class="select-card select-card--row">
+                </section>
+                <!--총 자산 총부채-->
+                <section class="analysis-section">
+                    <h2 class="analysis-section__title">종합 진단 결과</h2>
+                    <div class="compare-chart">
+                        <div class="compare-chart__card compare-chart__card--asset">
+                            <p class="compare-chart__title">총 자산</p>
+                            <p class="blind">상환 전 12,000만원, 상환 후 9,370만원</p>
+                            <div class="compare-chart__box">
+                                <div class="compare-chart__legend" aria-hidden="true">
+                                    <span class="compare-chart__legend-item compare-chart__legend-item--after">상환 후</span>
+                                    <span class="compare-chart__legend-item compare-chart__legend-item--before">상환 전</span>
+                                </div>
+                                <div class="compare-chart__bars">
+                                    <span class="compare-chart__bar compare-chart__bar--after" data-value="9,370만원" style="width:78%;background-color:#219D93" aria-hidden="true"></span>
+                                    <span class="compare-chart__bar" data-value="12,000만원" style="width:100%;background:linear-gradient(to right, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 78%, transparent 78%, transparent 100%) #C8D2E4" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="compare-chart__card compare-chart__card--debt">
+                            <p class="compare-chart__title">총 부채</p>
+                            <p class="blind">상환 전 13,000만원, 상환 후 10,370만원</p>
+                            <div class="compare-chart__box">
+                                <div class="compare-chart__legend" aria-hidden="true">
+                                    <span class="compare-chart__legend-item compare-chart__legend-item--after">상환 후</span>
+                                    <span class="compare-chart__legend-item compare-chart__legend-item--before">상환 전</span>
+                                </div>
+                                <div class="compare-chart__bars">
+                                    <span class="compare-chart__bar compare-chart__bar--after" data-value="10,370만원"
+                                        style="width:79%;background-color:#FF7E7E" aria-hidden="true"></span>
+                                    <span class="compare-chart__bar" data-value="13,000만원"
+                                        style="width:100%;background:linear-gradient(to right, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 79%, transparent 79%, transparent 100%) #C8D2E4"
+                                        aria-hidden="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--부채자산 스와이프 -->
+                <section class="analysis-section">
+                    <h2 class="compare-chart__title">부채를 상환하면
+                        <br />
+                        여유자금이 <span>31만원</span>이 생겨요
+                    </h2>
+                    <div class="compare-scroll swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="compare-card swiper-slide">
+                                <p class="compare-card__title">월 예상 상환액</p>
+                                <div class="compare-card__row mb8">
+                                    <span class="compare-card__stat-value">65만원</span>
+                                    <span class="compare-card__arr" aria-hidden="true"></span>
+                                    <span class="compare-card__stat-value--after">34만원</span>
+                                </div>
+                                <p class="compare-card__title">완납까지</p>
+                                <div class="compare-card__row mb8">
+                                    <span class="compare-card__stat-value">34개월</span>
+                                    <span class="compare-card__arr" aria-hidden="true"></span>
+                                    <span class="compare-card__stat-value--after">30개월</span>
+                                </div>
+                            </div>
+                            <div class="compare-card swiper-slide">
+                                <p class="compare-card__title">평균 적용 금리</p>
+                                <div class="compare-card__row mb8">
+                                    <span class="compare-card__stat-value">12.53%</span>
+                                    <span class="compare-card__arr" aria-hidden="true"></span>
+                                    <span class="compare-card__stat-value--after">10.24%</span>
+                                </div>
+                                <p class="compare-card__title">부채 비율</p>
+                                <div class="compare-card__row mb8">
+                                    <span class="compare-card__stat-value">41%</span>
+                                    <span class="compare-card__arr" aria-hidden="true"></span>
+                                    <span class="compare-card__stat-value--after">37%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="compare-scroll__pagination swiper-pagination"></div>
+                    </div>
+                </section>
+                <!--부채는 이렇게 줄어들어요 -->
+                <!--
+                    그래프가 full로 찼을때 info-card__graph부분에 is-full 클래스 추가
+                -->
+                <section class="analysis-section">
+                    <h2 class="analysis-section__title">부채는 이렇게 줄어들어요</h2>
+                    <div class="info-card">
+                        <div class="info-card__list select-card__list">
+                            <ul class="info-card__list-graph">
+                                <li>
                                     <div class="select-card__select-row">
                                         <div class="select-card__select-text">
                                             <div class="select-card__logo-row">
-                                                <span class="select-card__logo"><img src="../../images/logos/AACT0000.png" alt="한국투자저축은행 로고이미지" /></span>
+                                                <span class="select-card__logo"><img src="../../images/logos/AACT0000.png" alt=""></span>
                                                 <div class="select-card__name-col">
                                                     <p class="select-card__name">한국투자저축은행 파인로얄론</p>
-                                                    <p class="select-card__number">한국투자저축은행 501-88-123456</p>
+                                                    <p class="select-card__number">
+                                                        <span>한국투자저축은행</span>
+                                                        <span>501-88-123456</span>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="select-card__progress">
-                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
-                                                <div class="select-card__progress-detail">
-                                                    <span>500,000원 상환</span>
-                                                    <span>상환 후 잔액 0원</span>
+                                            <div class="info-card__graph bubble is-full">
+                                                <div class="info-card__graph-bar">
+                                                    <span class="info-card__graph-bar-fill" style="width:100%"></span>
+                                                </div>
+                                                <div class="info-card__stats">
+                                                    <span class="info-card__stat-label">500,000원 상환</span>
+                                                    <span class="info-card__stat-value">상환 후 잔액 0원</span>
                                                 </div>
                                             </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">상환방식</span>
-                                                <span class="select-card__list-data">일시상환</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">만기일</span>
-                                                <span class="select-card__list-data">2026.08.31</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">잔액</span>
-                                                <span class="select-card__list-data">500,000원</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금리</span>
-                                                <span class="select-card__list-data">17.21%</span>
-                                            </div>
+                                            <ul class="select-card__list-row">
+                                                <li>
+                                                    <span class="select-card__title">상환방식</span>
+                                                    <span class="select-card__data">일시상환</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">만기일</span>
+                                                    <span class="select-card__data">2026.08.31</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">잔액</span>
+                                                    <span class="select-card__data">500,000원</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">금리</span>
+                                                    <span class="select-card__data">17.21%</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="select-card select-card--row">
+                                </li>
+                                <li>
                                     <div class="select-card__select-row">
                                         <div class="select-card__select-text">
                                             <div class="select-card__logo-row">
-                                                <span class="select-card__logo"><img src="../../images/logos/AAEV0000.png" alt="삼성카드 로고이미지" /></span>
+                                                <span class="select-card__logo"><img src="../../images/logos/AAEV0000.png" alt=""></span>
                                                 <div class="select-card__name-col">
                                                     <p class="select-card__name">삼성카드 카드론(장기카드대출)</p>
-                                                    <p class="select-card__number">삼성카드 123456******1234</p>
+                                                    <p class="select-card__number">
+                                                        <span>삼성카드</span>
+                                                        <span>123456******1234</span>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="select-card__progress">
-                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span>
+                                            <div class="info-card__graph bubble is-full">
+                                                <div class="info-card__graph-bar">
+                                                    <span class="info-card__graph-bar-fill" style="width:100%"></span>
                                                 </div>
-                                                <div class="select-card__progress-detail">
-                                                    <span>500,000원 상환</span>
-                                                    <span>상환 후 잔액 0원</span>
+                                                <div class="info-card__stats">
+                                                    <span class="info-card__stat-label">500,000원 상환</span>
+                                                    <span class="info-card__stat-value">상환 후 잔액 0원</span>
                                                 </div>
                                             </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">상환방식</span>
-                                                <span class="select-card__list-data">원금균등분할상환</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">만기일</span>
-                                                <span class="select-card__list-data">2026.12.31</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금액</span>
-                                                <span class="select-card__list-data">50,000,000원</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금리</span>
-                                                <span class="select-card__list-data">12.9%</span>
-                                            </div>
+                                            <ul class="select-card__list-row">
+                                                <li>
+                                                    <span class="select-card__title">상환방식</span>
+                                                    <span class="select-card__data">원금균등분할상환</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">만기일</span>
+                                                    <span class="select-card__data">2026.12.31</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">잔액</span>
+                                                    <span class="select-card__data">500,000원</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">금리</span>
+                                                    <span class="select-card__data">12.9%</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-
-                    <div class="stack--20 pb16">
-                        <p class="text--h4">자산은 이렇게 사용돼요</p>
-                        <div class="asset-list-card">
-                            <div class="asset-list-card__list">
-                                <div class="select-card select-card--row">
+                </section>
+                <!--자산은 이렇게 사용돼요 -->
+                <!--
+                    그래프가 full로 찼을때 info-card__graph부분에 is-full 클래스 추가
+                -->
+                <section class="analysis-section">
+                    <h2 class="analysis-section__title">자산은 이렇게 사용돼요</h2>
+                    <div class="info-card">
+                        <div class="info-card__list select-card__list">
+                            <ul class="info-card__list-graph">
+                                <li>
                                     <div class="select-card__select-row">
                                         <div class="select-card__select-text">
                                             <div class="select-card__logo-row">
-                                                <span class="select-card__logo"><img src="../../images/logos/AAIM0000.png" alt="경남은행 로고이미지" /></span>
+                                                <span class="select-card__logo"><img src="../../images/logos/AAIM0000.png" alt=""></span>
                                                 <div class="select-card__name-col">
                                                     <p class="select-card__name">BNK 공공 드림 통장</p>
-                                                    <p class="select-card__number">경남은행  123-1234-4567-00</p>
+                                                    <p class="select-card__number">
+                                                        <span>경남은행</span>
+                                                        <span>123-1234-4567-00</span>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="select-card__progress">
-                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
-                                                <div class="select-card__progress-detail">
-                                                    <span>50,000,000원 사용</span>
-                                                    <span>상환 후 잔액 0원</span>
+                                            <div class="info-card__graph bubble is-full">
+                                                <div class="info-card__graph-bar">
+                                                    <span class="info-card__graph-bar-fill" style="width:100%"></span>
+                                                </div>
+                                                <div class="info-card__stats">
+                                                    <span class="info-card__stat-label">500,000원 상환</span>
+                                                    <span class="info-card__stat-value">상환 후 잔액 0원</span>
                                                 </div>
                                             </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금액</span>
-                                                <span class="select-card__list-data">50,000,000원</span>
-                                            </div>
+                                            <ul class="select-card__list-row">
+                                                <li>
+                                                    <span class="select-card__title">금액</span>
+                                                    <span class="select-card__data">500,000원</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="select-card select-card--row">
+                                </li>
+                                <li>
                                     <div class="select-card__select-row">
                                         <div class="select-card__select-text">
                                             <div class="select-card__logo-row">
-                                                <span class="select-card__logo"><img src="../../images/logos/AACQ0000.png" alt="NH농협은행 로고이미지" /></span>
+                                                <span class="select-card__logo"><img src="../../images/logos/AAOB0000.png" alt=""></span>
                                                 <div class="select-card__name-col">
                                                     <p class="select-card__name">NH고향사람기부예금</p>
-                                                    <p class="select-card__number">NH농협은행  342-12534-56788-90</p>
+                                                    <p class="select-card__number">
+                                                        <span>NH농협은행</span>
+                                                        <span>342-12534-5678-90</span>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="select-card__progress">
-                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
-                                                <div class="select-card__progress-detail">
-                                                    <span>1,000,000원 사용</span>
-                                                    <span>상환 후 잔액 0원</span>
+                                            <div class="info-card__graph bubble is-full">
+                                                <div class="info-card__graph-bar">
+                                                    <span class="info-card__graph-bar-fill" style="width:100%"></span>
+                                                </div>
+                                                <div class="info-card__stats">
+                                                    <span class="info-card__stat-label">10,000원 사용</span>
+                                                    <span class="info-card__stat-value">상환 후 잔액 0원</span>
                                                 </div>
                                             </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금액</span>
-                                                <span class="select-card__list-data">1,000,000원</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금리</span>
-                                                <span class="select-card__list-data">2.45%</span>
-                                            </div>
+                                            <ul class="select-card__list-row">
+                                                <li>
+                                                    <span class="select-card__title">금액</span>
+                                                    <span class="select-card__data">500,000원</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">금리</span>
+                                                    <span class="select-card__data">2.45%</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="select-card select-card--row">
+                                </li>
+                                <li>
                                     <div class="select-card__select-row">
                                         <div class="select-card__select-text">
                                             <div class="select-card__logo-row">
-                                                <span class="select-card__logo"><img src="../../images/logos/AAER0000.png" alt="신한은행 로고이미지" /></span>
+                                                <span class="select-card__logo"><img src="../../images/logos/AAER0000.png" alt=""></span>
                                                 <div class="select-card__name-col">
                                                     <p class="select-card__name">신한 운동화 적금</p>
-                                                    <p class="select-card__number">신한은행  342-12534-56788-90</p>
+                                                    <p class="select-card__number">
+                                                        <span>신한 운동화 적금</span>
+                                                        <span>342-12534-5678-90</span>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="select-card__progress">
-                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
-                                                <div class="select-card__progress-detail">
-                                                    <span>4,000,000원 사용</span>
-                                                    <span>상환 후 잔액 30,000,000원</span>
+                                            <div class="info-card__graph bubble is-full">
+                                                <div class="info-card__graph-bar">
+                                                    <span class="info-card__graph-bar-fill" style="width:100%"></span>
+                                                </div>
+                                                <div class="info-card__stats">
+                                                    <span class="info-card__stat-label">30,000원 사용</span>
+                                                    <span class="info-card__stat-value">상환 후 잔액 0원</span>
                                                 </div>
                                             </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금액</span>
-                                                <span class="select-card__list-data">300,000원</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금리</span>
-                                                <span class="select-card__list-data">2.5%</span>
-                                            </div>
+                                            <ul class="select-card__list-row">
+                                                <li>
+                                                    <span class="select-card__title">금액</span>
+                                                    <span class="select-card__data">500,000원</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">금리</span>
+                                                    <span class="select-card__data">2.45%</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="select-card select-card--row">
+                                </li>
+
+                                <li>
                                     <div class="select-card__select-row">
                                         <div class="select-card__select-text">
                                             <div class="select-card__logo-row">
-                                                <span class="select-card__logo"><img src="../../images/logos/AAHS0000.png" alt="iM뱅크 로고이미지" /></span>
+                                                <span class="select-card__logo"><img src="../../images/logos/AAHS0000.png" alt=""></span>
                                                 <div class="select-card__name-col">
                                                     <p class="select-card__name">더쿠폰예금</p>
-                                                    <p class="select-card__number">iM뱅크 123-12534-5678-90</p>
+                                                    <p class="select-card__number">
+                                                        <span>iM뱅크</span>
+                                                        <span>123-4567-7890-00</span>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="select-card__progress">
-                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:100%;background-color:#09b2c5"></span></div>
-                                                <div class="select-card__progress-detail">
-                                                    <span>4,000,000원 사용</span>
-                                                    <span>상환 후 잔액 30,000,000원</span>
+                                            <div class="info-card__graph bubble is-full">
+                                                <div class="info-card__graph-bar">
+                                                    <span class="info-card__graph-bar-fill" style="width:100%"></span>
+                                                </div>
+                                                <div class="info-card__stats">
+                                                    <span class="info-card__stat-label">150,000원 사용</span>
+                                                    <span class="info-card__stat-value">상환 후 잔액 0원</span>
                                                 </div>
                                             </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금액</span>
-                                                <span class="select-card__list-data">150,000원</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금리</span>
-                                                <span class="select-card__list-data">4.5%</span>
-                                            </div>
+                                            <ul class="select-card__list-row">
+                                                <li>
+                                                    <span class="select-card__title">금액</span>
+                                                    <span class="select-card__data">150,000원</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">금리</span>
+                                                    <span class="select-card__data">4.5%</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="select-card select-card--row">
+                                </li>
+
+                                <li>
                                     <div class="select-card__select-row">
                                         <div class="select-card__select-text">
                                             <div class="select-card__logo-row">
-                                                <span class="select-card__logo"><img src="../../images/logos/AACQ0000.png" alt="NH농협은행 로고이미지" /></span>
+                                                <span class="select-card__logo"><img src="../../images/logos/AACQ0000.png" alt=""></span>
                                                 <div class="select-card__name-col">
                                                     <p class="select-card__name">NH올원e 미니적금</p>
-                                                    <p class="select-card__number">NH농협은행 &middot; 342-12534-56788-90</p>
+                                                    <p class="select-card__number">
+                                                        <span>NH농협은행</span>
+                                                        <span>123-4567-7890-00</span>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <div class="select-card__progress select-card__progress--bubble">
-                                                <span class="select-card__progress-bubble" style="left:30.5%">40만원</span>
-                                                <div class="asset-hero__bar"><span class="asset-hero__bar-fill" style="width:30.5%;background-color:#001b33"></span>
+                                            <div class="info-card__graph bubble">
+                                                <span class="info-card__progress-bubble" style="left:30.5%">40만원</span>
+                                                <div class="info-card__graph-bar">
+                                                    <span class="info-card__graph-bar-fill" style="width:30.5%"></span>
                                                 </div>
-                                                <div class="select-card__progress-detail">
-                                                    <span>8,430,000원 상환</span>
-                                                    <span>상환 후 잔액 41,570,000원</span>
+                                                <div class="info-card__stats">
+                                                    <span class="info-card__stat-label">150,000원 사용</span>
+                                                    <span class="info-card__stat-value">상환 후 잔액 0원</span>
                                                 </div>
                                             </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금액</span>
-                                                <span class="select-card__list-data">34,000,000원</span>
-                                            </div>
-                                            <div class="select-card__list-row">
-                                                <span class="select-card__list-title">금리</span>
-                                                <span class="select-card__list-data">4.15%</span>
-                                            </div>
+                                            <ul class="select-card__list-row">
+                                                <li>
+                                                    <span class="select-card__title">금액</span>
+                                                    <span class="select-card__data">3,400,000원</span>
+                                                </li>
+                                                <li>
+                                                    <span class="select-card__title">금리</span>
+                                                    <span class="select-card__data">4.5%</span>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <button type="button" class="select-card__more">더보기(5/7)</button>
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                </section>
 
-                    <div class="promo-carousel mb40">
-                        <p class="text--h4 mb20">부채 관리, 이것부터 시작해보세요</p>
-                        <div class="promo-carousel__track swiper-container" id="fundPromoSwiper">
-                            <div class="swiper-wrapper">
-                                <div class="promo-carousel__slide promo-carousel__slide--fund swiper-slide">
-                                    <p class="promo-carousel__title">
-                                        AI가 제안하는 스마트한
-                                        <br />
-                                        포트폴리오를 확인해 보세요!
-                                    </p>
-                                    <p class="promo-carousel__tags"><span>#AI</span><span>#포트폴리오</span>
-                                    </p>
-                                    <img class="promo-carousel__illust" src="../../images/update/img-ally-ai-report.png" alt="" aria-hidden="true" />
-                                </div>
-                                <div class="promo-carousel__slide promo-carousel__slide--fund swiper-slide">
-                                    <p class="promo-carousel__title">
-                                        AI가 제안하는 스마트한
-                                        <br />
-                                        포트폴리오를 확인해 보세요!
-                                    </p>
-                                    <p class="promo-carousel__tags"><span>#AI</span><span>#포트폴리오</span>
-                                    </p>
-                                    <img class="promo-carousel__illust" src="../../images/update/img-ally-ai-report.png" alt="" aria-hidden="true" />
-                                </div>
-                            </div>
-                            <div class="indicator-number">
-                                <div class="indicator-number__paging">
-                                    <button type="button" class="indicator-number__arrow" aria-label="이전"></button>
-                                    <span class="indicator-number__count">
-                                        <span class="indicator-number__current">1</span>
-                                        <span class="indicator-number__dash" aria-hidden="true"></span>
-                                        <span class="indicator-number__total">2</span>
-                                    </span>
-                                    <button type="button" class="indicator-number__arrow" aria-label="다음"></button>
-                                </div>
-                                <button type="button" class="indicator-number__control" aria-label="일시정지"></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="sticky-footer">
                 <div class="accordion-notice">
