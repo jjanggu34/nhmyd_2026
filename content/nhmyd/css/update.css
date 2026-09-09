@@ -1533,13 +1533,18 @@
 .brief-highlight__medal {flex-shrink:0;font-size:16px;line-height:1}
 .brief-schedule__month {margin-left:auto;font-size:var(--type-size-13);line-height:20px;letter-spacing:-0.26px;color:var(--primitive-gray-font-600)}
 .brief-week {display:flex;align-items:stretch;gap:var(--spacing-4);margin:0;padding:0;list-style:none}
-.brief-week__day {flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-4);padding:var(--spacing-16) 0;border:1px solid transparent;border-radius:10px;box-sizing:border-box}
+/* 날짜는 눌러서 아래 일정 내용을 바꾸는 버튼이라 li가 폭을 나눠 갖고, 버튼이 그 칸을 채웁니다. */
+.brief-week__item {flex:1;min-width:0;display:flex}
+.brief-week__day {flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-4);padding:var(--spacing-16) 0;border:1px solid transparent;border-radius:10px;box-sizing:border-box;background:none;font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .brief-week__date {font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);line-height:20px;color:var(--primitive-gray-400)}
 .brief-week__name {font-size:var(--type-size-10);line-height:15px;letter-spacing:-0.2px;color:var(--primitive-gray-400)}
 .brief-week__day--active {border-color:var(--primitive-navy-grade);background:var(--color-bg-default)}
 .brief-week__day--active .brief-week__date {color:#00274C}
 .brief-week__day--active .brief-week__name {color:#001B33;font-weight:var(--font-weight-bold)}
 .brief-schedule__box {margin:var(--spacing-16) 0 0;padding:var(--spacing-16);border-radius:var(--radius-16);background:#f3f5f8}
+/* 일정이 없는 날은 "일정내용" 라벨을 숨기고 안내 문구만 보여줍니다. */
+.brief-schedule__box--empty .label {display:none}
+.brief-schedule__box--empty .brief-schedule__text {margin:0;color:var(--primitive-gray-font-600)}
 .brief-schedule__text {margin:var(--spacing-8) 0 0;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);line-height:22px;letter-spacing:-0.28px;color:var(--primitive-gray-font-900)}
 .alert-banner {position:relative;background:var(--primitive-cobalt-500);border-radius:var(--radius-16);padding:var(--spacing-24) 96px var(--spacing-24) var(--spacing-20);overflow:hidden;color:var(--primitive-base-0)}
 .alert-banner__title {font-size:var(--type-size-22);font-weight:var(--font-weight-semibold);margin:0 0 var(--spacing-8);line-height:1.3}

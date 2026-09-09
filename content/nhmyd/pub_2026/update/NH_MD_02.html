@@ -191,7 +191,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="hc-notice hc-notice--compare">
-                                                    <p class="hc-notice__label">전월 말일기준</p>
+                                                    <p class="hc-notice__label">2025.11.07대비</p>
                                                     <p class="hc-notice__value">
                                                         <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"><span class="blind">상승</span></span>
                                                         50,000원(-2.4%)
@@ -326,7 +326,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="hc-notice hc-notice--compare">
-                                                    <p class="hc-notice__label">전월 말일기준</p>
+                                                    <p class="hc-notice__label">2025.11.07대비</p>
                                                     <p class="hc-notice__value">
                                                         <span class="hc-change__icon hc-change__icon--down" aria-hidden="true"><span class="blind">하락</span></span>
                                                         843,545원(+11.43%)
@@ -443,7 +443,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="hc-notice hc-notice--compare">
-                                                    <p class="hc-notice__label">전월 말일기준</p>
+                                                    <p class="hc-notice__label">2025.11.07대비</p>
                                                     <p class="hc-notice__value">
                                                         <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"><span class="blind">상승</span></span>
                                                         1,058,000원(-16.54%)
@@ -609,43 +609,6 @@
                                     <p>투자자산 비중이 높아지고 있어요. 목표 비중에 맞게 조정해보세요.</p>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-
-                    <section class="md-section">
-                        <div class="md-section__title-row">
-                            <h2 class="md-section__title">데일리 브리핑</h2>
-                            <span class="ai-badge">에이전트 AI</span>
-                        </div>
-                        <div class="md-card">
-                            <div class="accordion-gray">
-                                <p class="accordion-gray__date">2026.08.27일 기준</p>
-                                <div class="accordion-gray__item">
-                                    <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="true">
-                                        <span class="accordion-gray__icon accordion-gray__icon--sun" aria-hidden="true"></span>
-                                        <span class="accordion-gray__title-col">
-                                            <span class="accordion-gray__title">호재</span>
-                                            <span class="accordion-gray__sub">시장에 긍정적인 소식입니다</span>
-                                        </span>
-                                    </button>
-                                    <div class="accordion-gray__body">KOSPI, 5월 6일 종가 7,000선 첫 돌파, AI 데이터 센터 수요 폭증과 HBM 공급부족이 견인했습니다.</div>
-                                </div>
-                                <div class="accordion-gray__item">
-                                    <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="false">
-                                        <span class="accordion-gray__icon accordion-gray__icon--rain" aria-hidden="true"></span>
-                                        <span class="accordion-gray__title-col">
-                                            <span class="accordion-gray__title">주의</span>
-                                            <span class="accordion-gray__sub">위험요인이 되는 소식입니다</span>
-                                        </span>
-                                    </button>
-                                    <div class="accordion-gray__body" hidden>이번 주 별도의 위험 이슈는 확인되지 않았습니다.</div>
-                                </div>
-                            </div>
-                            <p class="briefing-notice">
-                                <span class="briefing-notice__icon" aria-hidden="true"></span>
-                                김농협님의 예·적금은 전체 자산 대비 비중이 높은 편으로, 금리 변동기에는 분산도 함께 고려해보시는 걸 추천드려요.
-                            </p>
-                            <button type="button" class="btn btn--primary btn--md btn--full">브리핑 상세보기</button>
                         </div>
                     </section>
 
@@ -1546,20 +1509,14 @@
                             datasets: {
                                 bar: { categoryPercentage: 1, barPercentage: 1 }
                             },
-                            events: ['mousemove', 'mouseout'],
+                            // 이 막대(.hero__chart-box)는 자산 구성 비율만 보여주는 영역이라
+                            // 터치/클릭해도 말풍선이 뜨지 않게 합니다. events를 비우면 Chart.js가
+                            // 포인터 이벤트를 아예 처리하지 않아 툴팁이 만들어지지 않습니다.
+                            // (모바일에서는 탭이 mousemove로 전달돼 '클릭하면 뜨는' 것처럼 보였습니다.)
+                            events: [],
                             plugins: {
                                 legend: { display: false }, // 범례는 아래 .hero__legend(HTML)로 대체
-                                tooltip: {
-                                    enabled: false,
-                                    external: externalTooltipHandler,
-                                    callbacks: {
-                                        label: function (context) {
-                                            var label = context.dataset.label || '';
-                                            var value = context.dataset.realValue != null ? context.dataset.realValue : (context.parsed.x || 0);
-                                            return label + ': ' + value.toLocaleString() + '원';
-                                        }
-                                    }
-                                }
+                                tooltip: { enabled: false }
                             },
                             layout: { padding: 0 },
                             scales: {
