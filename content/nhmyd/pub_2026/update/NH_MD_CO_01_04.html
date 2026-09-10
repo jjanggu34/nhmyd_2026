@@ -16,15 +16,14 @@
             </div>
 
             <div class="container bgcolor">
-                <!--
-                        AI 분석 로딩 중인 경우 insight-hero에 insight-hero--loading 추가
-                    -->
-                <!--종합진단 결과-->        
+                <!-- 종합 진단 결과 -->
                 <section class="analysis-section">
+                    <!-- ============================================================
+                        AI 분석 로딩 중인 경우 insight-hero에 insight-hero--loading 추가
+                    ============================================================ -->
                     <h2 class="analysis-section__title">종합 진단 결과</h2>
-                    <div class="md-card insight-hero insight-hero--loading">
+                    <div class="md-card insight-hero">
                         <p class="insight-hero__greeting">
-                            <!-- prettier-ignore -->
                             <strong>$김농협$</strong>님의
                             <br />
                             종합진단 결과입니다.
@@ -54,9 +53,10 @@
                         </div>
                     </div>
                 </section>
-                <!--총 자산 총부채-->
+
+                <!-- 총 자산 · 총 부채 -->
                 <section class="analysis-section">
-                    <h2 class="analysis-section__title">종합 진단 결과</h2>
+                    <h2 class="analysis-section__title">총 자산 &middot; 총 부채</h2>
                     <div class="compare-chart">
                         <div class="compare-chart__card compare-chart__card--asset">
                             <p class="compare-chart__title">총 자산</p>
@@ -91,9 +91,11 @@
                         </div>
                     </div>
                 </section>
-                <!--부채자산 스와이프 -->
+
+                <!-- 상환 전/후 비교 -->
                 <section class="analysis-section">
-                    <h2 class="compare-chart__title">부채를 상환하면
+                    <h2 class="compare-subtitle">
+                        부채를 상환하면
                         <br />
                         여유자금이 <span>31만원</span>이 생겨요
                     </h2>
@@ -154,7 +156,7 @@
                                                 </div>
                                             </div>
                                             <div class="info-card__graph bubble is-full">
-                                                <div class="info-card__graph-bar">
+                                                <div class="info-card__graph-bar mb8">
                                                     <span class="info-card__graph-bar-fill" style="width:100%"></span>
                                                 </div>
                                                 <div class="info-card__stats">
@@ -197,7 +199,7 @@
                                                 </div>
                                             </div>
                                             <div class="info-card__graph bubble is-full">
-                                                <div class="info-card__graph-bar">
+                                                <div class="info-card__graph-bar  mb8">
                                                     <span class="info-card__graph-bar-fill" style="width:100%"></span>
                                                 </div>
                                                 <div class="info-card__stats">
@@ -253,7 +255,7 @@
                                                 </div>
                                             </div>
                                             <div class="info-card__graph bubble is-full">
-                                                <div class="info-card__graph-bar">
+                                                <div class="info-card__graph-bar  mb8">
                                                     <span class="info-card__graph-bar-fill" style="width:100%"></span>
                                                 </div>
                                                 <div class="info-card__stats">
@@ -284,7 +286,7 @@
                                                 </div>
                                             </div>
                                             <div class="info-card__graph bubble is-full">
-                                                <div class="info-card__graph-bar">
+                                                <div class="info-card__graph-bar  mb8">
                                                     <span class="info-card__graph-bar-fill" style="width:100%"></span>
                                                 </div>
                                                 <div class="info-card__stats">
@@ -319,7 +321,7 @@
                                                 </div>
                                             </div>
                                             <div class="info-card__graph bubble is-full">
-                                                <div class="info-card__graph-bar">
+                                                <div class="info-card__graph-bar  mb8">
                                                     <span class="info-card__graph-bar-fill" style="width:100%"></span>
                                                 </div>
                                                 <div class="info-card__stats">
@@ -355,7 +357,7 @@
                                                 </div>
                                             </div>
                                             <div class="info-card__graph bubble is-full">
-                                                <div class="info-card__graph-bar">
+                                                <div class="info-card__graph-bar  mb8">
                                                     <span class="info-card__graph-bar-fill" style="width:100%"></span>
                                                 </div>
                                                 <div class="info-card__stats">
@@ -392,7 +394,7 @@
                                             </div>
                                             <div class="info-card__graph bubble">
                                                 <span class="info-card__progress-bubble" style="left:30.5%">40만원</span>
-                                                <div class="info-card__graph-bar">
+                                                <div class="info-card__graph-bar  mb8">
                                                     <span class="info-card__graph-bar-fill" style="width:30.5%"></span>
                                                 </div>
                                                 <div class="info-card__stats">
@@ -414,10 +416,52 @@
                                     </div>
                                 </li>
                             </ul>
+                            <button type="button" class="select-card__more">더보기(5/7)</button>
                         </div>
                     </div>
                 </section>
 
+                <section class="swiper-section">
+                    <div class="promo-carousel mb40">
+                        <p class="text--h4 mb20">부채 관리, 이것부터 시작해보세요</p>
+                        <div class="promo-carousel__track swiper-container" id="fundPromoSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="promo-carousel__slide promo-carousel__slide--fund swiper-slide">
+                                    <p class="promo-carousel__title">
+                                        AI가 제안하는 스마트한
+                                        <br />
+                                        포트폴리오를 확인해 보세요!
+                                    </p>
+                                    <p class="promo-carousel__tags"><span>#AI</span><span>#포트폴리오</span>
+                                    </p>
+                                    <img class="promo-carousel__illust" src="../../images/update/img-ally-ai-report.png" alt="" aria-hidden="true" />
+                                </div>
+                                <div class="promo-carousel__slide promo-carousel__slide--fund swiper-slide">
+                                    <p class="promo-carousel__title">
+                                        또래와 비교해보고
+                                        <br />
+                                        자산 관리 팁을 받아보세요!
+                                    </p>
+                                    <p class="promo-carousel__tags"><span>#자산진단</span><span>#자산관리</span>
+                                    </p>
+                                    <img class="promo-carousel__illust" src="../../images/update/img-ally-ai-report.png" alt="" aria-hidden="true" />
+                                </div>
+                            </div>
+                            <div class="indicator-number">
+                                <div class="indicator-number__paging">
+                                    <button type="button" class="indicator-number__arrow" aria-label="이전"></button>
+                                    <span class="indicator-number__count">
+                                        <span class="indicator-number__current">1</span>
+                                        <span class="indicator-number__dash" aria-hidden="true"></span>
+                                        <span class="indicator-number__total">2</span>
+                                    </span>
+                                    <button type="button" class="indicator-number__arrow" aria-label="다음"></button>
+                                </div>
+                                <button type="button" class="indicator-number__control" aria-label="일시정지"></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
             <div class="sticky-footer">
                 <div class="accordion-notice">
@@ -442,9 +486,8 @@
                         var pagination = this.querySelector('.compare-scroll__pagination');
 
                         new Swiper(this, {
-                            slidesPerView: 1,
+                            slidesPerView: 1.2,
                             spaceBetween: 16,
-                            autoHeight: true,
                             watchOverflow: true,
                             pagination: {
                                 el: pagination,
