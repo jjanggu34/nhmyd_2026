@@ -105,6 +105,9 @@
     --ai03-neon-bg:#38e784;
     --ai03-sub-font:#656a73;
     --ai03-more-font:#4f5359;
+    --ai0301-line-bg:#d9dfeb;
+    --ai0301-legend-font:#383b40;
+    --ai0301-now-bg:#c8d2e4;
     --primitive-lime-accent:#e6ff58;
     --primitive-green-accent:#218659;
     --primitive-green-bright:#08d561;
@@ -2295,20 +2298,75 @@
    레거시 .tooltipWrap .tooltipCont 는 left:50%/translateX(-50%) + width:100vw-32 라서
    (1) 기준이 될 positioned 조상이 없고 (2) 카드보다 넓게 잡힙니다. 둘 다 여기서 재정의합니다. */
 .nds .ai03-card--curve .tooltipWrap,
-.nds .ai03-card--opt .tooltipWrap {position:relative}
+.nds .ai03-card--opt .tooltipWrap,
+.nds .ai0301-card .tooltipWrap {position:relative}
 .nds .ai03-card--curve .tooltipWrap > .tooltipCont,
-.nds .ai03-card--opt .tooltipWrap > .tooltipCont {position:absolute !important;top:100% !important;bottom:auto;left:calc(var(--spacing-20) * -1) !important;right:calc(var(--spacing-20) * -1) !important;width:auto !important;margin:0;padding:var(--spacing-20);box-sizing:border-box;transform:none !important;background:var(--color-bg-default);border:1px solid var(--color-border-3) !important;border-radius:var(--radius-16);box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.05);z-index:30}
+.nds .ai03-card--opt .tooltipWrap > .tooltipCont,
+.nds .ai0301-card .tooltipWrap > .tooltipCont {position:absolute !important;top:100% !important;bottom:auto;left:calc(var(--spacing-20) * -1) !important;right:calc(var(--spacing-20) * -1) !important;width:auto !important;margin:0;padding:var(--spacing-20);box-sizing:border-box;transform:none !important;background:var(--color-bg-default);border:1px solid var(--color-border-3) !important;border-radius:var(--radius-16);box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.05);z-index:30}
 /* update-ui.js 의 tooltipOpen() 이 아래 공간이 부족할 때 붙이는 클래스 — 트리거 위쪽으로 뒤집어 띄움 */
 .nds .ai03-card--curve .tooltipWrap > .tooltipCont.tooltipCont--top,
-.nds .ai03-card--opt .tooltipWrap > .tooltipCont.tooltipCont--top {top:auto !important;bottom:100% !important}
+.nds .ai03-card--opt .tooltipWrap > .tooltipCont.tooltipCont--top,
+.nds .ai0301-card .tooltipWrap > .tooltipCont.tooltipCont--top {top:auto !important;bottom:100% !important}
 .nds .ai03-card--curve .tooltipWrap > .tooltipCont > h3,
-.nds .ai03-card--opt .tooltipWrap > .tooltipCont > h3 {padding-right:36px;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
+.nds .ai03-card--opt .tooltipWrap > .tooltipCont > h3,
+.nds .ai0301-card .tooltipWrap > .tooltipCont > h3 {padding-right:36px;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
 .nds .ai03-card--curve .tooltipWrap > .tooltipCont > ul > li,
-.nds .ai03-card--opt .tooltipWrap > .tooltipCont > ul > li {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);line-height:22px;letter-spacing:-0.28px}
+.nds .ai03-card--opt .tooltipWrap > .tooltipCont > ul > li,
+.nds .ai0301-card .tooltipWrap > .tooltipCont > ul > li {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);line-height:22px;letter-spacing:-0.28px}
 .nds .ai03-card--curve .tooltipWrap > .tooltipCont > ul > li:first-child,
-.nds .ai03-card--opt .tooltipWrap > .tooltipCont > ul > li:first-child {margin-top:var(--spacing-12)}
+.nds .ai03-card--opt .tooltipWrap > .tooltipCont > ul > li:first-child,
+.nds .ai0301-card .tooltipWrap > .tooltipCont > ul > li:first-child {margin-top:var(--spacing-12)}
 .nds .ai03-card--curve .tooltipWrap > .tooltipCont .close,
-.nds .ai03-card--opt .tooltipWrap > .tooltipCont .close {position:absolute;top:var(--spacing-20);right:var(--spacing-20);width:24px;height:24px}
+.nds .ai03-card--opt .tooltipWrap > .tooltipCont .close,
+.nds .ai0301-card .tooltipWrap > .tooltipCont .close {position:absolute;top:var(--spacing-20);right:var(--spacing-20);width:24px;height:24px}
 /* 성과지표 비교 : 트리거가 제목 줄 안에 있으므로 기준 박스는 머리글 줄 전체(.ai03-perf__head) */
 .nds .ai03-perf__head.tooltipWrap {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
 .nds .toolTipBtn--sm {width:16px !important;height:16px !important;background-size:16px auto !important}
+
+/* -- NH_MD_AI_03_01 : 기간별 성과 예측(팝업) -- */
+/* 상단 안내 바 : popCont__inner 의 좌우 여백(24) 밖까지 꽉 채웁니다 */
+.nds .popCont > .pop-guide-bar {display:flex;align-items:center;gap:var(--spacing-4);margin:-16px 0 0;padding:var(--spacing-16) var(--spacing-24);box-sizing:border-box;border-bottom:1px solid var(--ai0301-line-bg);background:var(--primitive-blue-soft-border);font-size:var(--type-size-14);font-weight:var(--font-weight-light);line-height:20px;letter-spacing:-0.14px;color:var(--color-font-3)}
+.nds .pop-guide-bar__icon {flex-shrink:0;display:block;width:24px;height:24px;background:url("../images/update/ic_period-calendar.svg") no-repeat center / contain}
+.nds .pop-guide-bar__text {flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.nds .ai0301-card {margin-top:var(--spacing-24);padding:var(--spacing-16) var(--spacing-20);box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
+.nds .ai0301-head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
+.nds .ai0301-divider {margin:var(--spacing-32) 0}
+.nds .ai0301-divider--mid {margin:var(--spacing-24) 0}
+.nds .ai0301-divider--sm {margin:var(--spacing-12) 0}
+.nds .ai0301-sub-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
+
+/* 현재평가금액 / 기간 선택 */
+.nds .ai0301-amount {display:flex;flex-direction:column;margin:var(--spacing-24) 0 0}
+.nds .ai0301-amount__label {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
+.nds .ai0301-amount__value {font-size:var(--type-size-24);font-weight:var(--font-weight-semibold);line-height:32px;letter-spacing:0;text-align:right;color:var(--color-font-1)}
+.nds .ai0301-period {margin:var(--spacing-8) 0 0}
+.nds .ai0301-period__label {display:flex;align-items:center;height:24px;margin:0 0 var(--spacing-8);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-3)}
+.nds .ai0301-period .radio-box-row > label {flex:1 1 0;min-width:0}
+
+/* 성과 요약 그래프(Chart.js) */
+.nds .ai0301-chart {margin:var(--spacing-16) 0 0}
+.nds .ai0301-chart__unit {margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
+.nds .ai0301-chart__body {display:flex;align-items:stretch;gap:var(--spacing-8);margin:var(--spacing-8) 0 0}
+.nds .ai0301-chart__yaxis {flex-shrink:0;display:flex;flex-direction:column;justify-content:space-between;width:30px;height:178px;margin:0;padding:0;list-style:none;font-size:var(--type-size-10);font-weight:var(--font-weight-regular);line-height:1;letter-spacing:-0.2px;text-align:right;color:var(--color-font-4)}
+.nds .ai0301-chart__box {position:relative;flex:1 1 auto;min-width:0;height:178px;box-sizing:border-box;background:var(--ai03-chart-bg);border-left:1px solid var(--primitive-blue-soft-border);border-bottom:1px solid var(--primitive-blue-soft-border)}
+.nds .ai0301-chart__box canvas {display:block;width:100%;height:100%}
+.nds .ai0301-chart__xaxis {display:flex;align-items:center;justify-content:space-between;margin:var(--spacing-8) 0 0;padding-left:38px;font-size:var(--type-size-10);font-weight:var(--font-weight-regular);line-height:1;letter-spacing:-0.2px;color:var(--color-font-4)}
+
+/* 범례 */
+.nds .ai0301-legend {display:flex;align-items:center;justify-content:center;gap:var(--spacing-12);margin:var(--spacing-16) 0 0;padding:0;list-style:none}
+.nds .ai0301-legend li {display:inline-flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:46px;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--ai0301-legend-font)}
+.nds .ai0301-legend__swatch {flex-shrink:0;display:block;width:8px;height:8px;border-radius:2px}
+.nds .ai0301-legend__swatch--good {background:var(--ai03-neon-bg)}
+.nds .ai0301-legend__swatch--avg {background:var(--ai03-safe-bg)}
+.nds .ai0301-legend__swatch--bad {background:var(--ai03-danger-bg)}
+.nds .ai0301-legend__swatch--now {background:var(--ai0301-now-bg)}
+
+/* 예상 성과 */
+.nds .ai0301-result {display:flex;flex-direction:column;gap:var(--spacing-4);margin:var(--spacing-16) 0 0;padding:0;list-style:none}
+.nds .ai0301-result__row {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
+.nds .ai0301-result__label {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
+.nds .ai0301-result__value {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;text-align:right;color:var(--color-font-1)}
+.nds .ai0301-total {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);margin:0}
+.nds .ai0301-total__label {font-size:var(--type-size-15);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.3px;color:var(--color-font-3)}
+.nds .ai0301-total__value {font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;text-align:right;color:var(--color-font-1)}
