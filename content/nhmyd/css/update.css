@@ -93,6 +93,18 @@
     --diag-bar-bg:#bcc2cf;
     --diag-point-font:#2357a9;
     --diag-badge-bg:#fbf1f1;
+    --ai03-focus-font:#219d93;
+    --ai03-chart-bg:#f8f9fb;
+    --ai03-track-bg:#f3f5f8;
+    --ai03-up-bg:#f2546d;
+    --ai03-up-font:#ec0c0c;
+    --ai03-down-bg:#8fbbff;
+    --ai03-down-font:#2c6dd4;
+    --ai03-safe-bg:#09b2c5;
+    --ai03-danger-bg:#ff7e7e;
+    --ai03-neon-bg:#38e784;
+    --ai03-sub-font:#656a73;
+    --ai03-more-font:#4f5359;
     --primitive-lime-accent:#e6ff58;
     --primitive-green-accent:#218659;
     --primitive-green-bright:#08d561;
@@ -1332,6 +1344,7 @@
 .nds .btn-icon[aria-label="plus"]::before {width:18px;height:18px;-webkit-mask-image:url("../images/update/ic-plus.svg");mask-image:url("../images/update/ic-plus.svg")}
 /* --- sticky-footer --- */
 .nds .sticky-footer {position:fixed;left:0;right:0;bottom:0;z-index:1100;width:100%;background:var(--color-bg-default)}
+.nds .sticky-footer .btn-cta{margin-top:32px}
 .nds .btn-cta {display:flex;gap:var(--spacing-8);padding:0;background:linear-gradient(to top, var(--primitive-base-0) 90%, rgba(255, 255, 255, 0) 100%)}
 .nds .btn-cta .btn {min-width:0;width:70%}
 .nds .btn-cta:not(.half) [class^="btn"]:first-child:not(:last-child){width:calc(100%/3)}
@@ -2180,3 +2193,82 @@
 .nds .diag-connect {display:flex;align-items:center;gap:var(--spacing-4);margin:var(--spacing-40) 0 0;padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-12);background:var(--color-bg-default);box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
 .nds .diag-connect__text {flex:1 1 auto;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-1)}
 .nds .diag-connect + .areaBtnDefault {margin-top:var(--spacing-32)}
+
+/* -- NH_MD_AI_03 : AI 포트폴리오 진단(제안 대상 진단) -- */
+/* 하단 CTA : half 클래스가 없으면 레거시 popBtn 처럼 1/3 : 70% 로 나눕니다(단독 버튼은 100%) */
+.nds .btn-cta .btn:only-child {width:100%}
+.nds .btn-cta--column .btn {width:100%}
+
+/* sticky-footer 높이는 update-ui.js가 --sticky-footer-pad 로 내려줍니다 */
+.nds .ai03-container {padding-bottom:calc(var(--sticky-footer-pad, 0px) + var(--spacing-40)) !important}
+.nds .ai03-card {margin-top:var(--spacing-40);box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
+.nds .ai03-card--curve {padding:var(--spacing-20)}
+.nds .ai03-card--opt {padding:var(--spacing-16) var(--spacing-20)}
+.nds .ai03-card--opinion {padding:var(--spacing-24) var(--spacing-20)}
+.nds .ai03-divider {margin:var(--spacing-24) 0}
+
+/* 카드 헤더(제목 + 우측 요소) */
+.nds .ai03-head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
+.nds .ai03-tip {flex-shrink:0;display:block;width:24px;height:24px;padding:0;margin:0;border:none;cursor:pointer;background-color:var(--primitive-gray-600);-webkit-mask-image:url("../images/update/ic-tooltip-mark.svg");mask-image:url("../images/update/ic-tooltip-mark.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .ai03-tip--sm {width:16px;height:16px}
+.nds .ai03-desc {margin:var(--spacing-12) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
+.nds .ai03-highlight {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
+.nds .ai03-highlight em {font-style:normal;color:var(--ai03-focus-font)}
+.nds .ai03-highlight--sub {margin-top:var(--spacing-16)}
+
+/* 기대수익 그래프(Chart.js) */
+.nds .ai03-chart {margin:var(--spacing-20) 0 0}
+.nds .ai03-chart__axis-name {margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-1)}
+.nds .ai03-chart__axis-name--right {margin-top:var(--spacing-8);text-align:right}
+.nds .ai03-chart__axis-top {margin:var(--spacing-8) 0 0;font-size:var(--type-size-10);font-weight:var(--font-weight-regular);line-height:1;letter-spacing:-0.2px;color:var(--color-font-4)}
+.nds .ai03-chart__box {position:relative;width:100%;height:164px;margin:var(--spacing-8) 0 0;box-sizing:border-box;background:var(--ai03-chart-bg);border-left:1px solid var(--primitive-blue-soft-border);border-bottom:1px solid var(--primitive-blue-soft-border)}
+.nds .ai03-chart__box canvas {display:block;width:100%;height:100%}
+.nds .ai03-chart__axis-bottom {display:flex;align-items:center;justify-content:space-between;margin:var(--spacing-8) 0 0;font-size:var(--type-size-10);font-weight:var(--font-weight-regular);line-height:1;letter-spacing:-0.2px;color:var(--color-font-4)}
+
+/* 자산군별 조정 막대 */
+.nds .ai03-alloc {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-24) 0 0;padding:0;list-style:none}
+.nds .ai03-alloc__item {display:flex;flex-direction:column;gap:var(--spacing-4)}
+.nds .ai03-alloc__bar {display:flex;align-items:stretch;width:100%;height:12px;border-radius:var(--radius-4);background:var(--ai03-track-bg);overflow:hidden}
+.nds .ai03-alloc__base {display:block;height:100%;background:var(--primitive-gray-dark-600)}
+.nds .ai03-alloc__delta {display:block;height:100%}
+.nds .ai03-alloc__delta--down {background:var(--ai03-down-bg)}
+.nds .ai03-alloc__delta--up {background:var(--ai03-up-bg)}
+.nds .ai03-alloc__row {display:flex;align-items:flex-end;justify-content:space-between;gap:var(--spacing-8)}
+.nds .ai03-alloc__name {font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-1)}
+.nds .ai03-alloc__change {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;text-align:right;color:var(--color-font-2)}
+.nds .ai03-alloc__change em {font-style:normal}
+.nds .ai03-alloc__up {color:var(--ai03-up-font)}
+.nds .ai03-alloc__down {color:var(--ai03-down-font)}
+
+/* 안전 / 위험 자산 비교 */
+.nds .ai03-risk {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-24) 0 0}
+.nds .ai03-risk__item {display:flex;flex-direction:column;gap:var(--spacing-4)}
+.nds .ai03-risk__label {margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-medium);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-1)}
+.nds .ai03-risk__bar {display:flex;align-items:stretch;width:100%;height:12px;border-radius:var(--radius-4);overflow:hidden}
+.nds .ai03-risk__safe {display:block;flex-shrink:0;height:100%;background:var(--ai03-safe-bg)}
+.nds .ai03-risk__danger {display:block;flex:1 1 auto;height:100%;background:var(--ai03-danger-bg)}
+.nds .ai03-risk__legend {display:flex;align-items:flex-end;justify-content:space-between;gap:var(--spacing-8);margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px}
+.nds .ai03-risk__safe-text {color:var(--ai03-down-font)}
+.nds .ai03-risk__danger-text {color:var(--ai03-up-font)}
+
+/* 성과지표 비교 */
+.nds .ai03-perf {margin:var(--spacing-24) 0 0}
+.nds .ai03-perf__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
+.nds .ai03-perf__title {display:inline-flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
+.nds .ai03-perf__unit {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--ai03-sub-font)}
+.nds .ai03-perf__group {margin:var(--spacing-24) 0 0}
+.nds .ai03-perf__name {display:flex;align-items:center;gap:var(--spacing-4);margin:0 0 var(--spacing-4);font-size:var(--type-size-13);font-weight:var(--font-weight-medium);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-1)}
+.nds .ai03-perf__gap {font-style:normal;color:var(--color-font-4)}
+.nds .ai03-perf__row {display:flex;align-items:center;gap:var(--spacing-8);margin:0}
+.nds .ai03-perf__row-label {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
+.nds .ai03-perf__row-bar {flex:1 1 auto;min-width:0;display:block;height:12px}
+.nds .ai03-perf__fill {display:block;height:100%;border-radius:0 var(--radius-4) var(--radius-4) 0;background:var(--primitive-gray-dark-600)}
+.nds .ai03-perf__fill--opt {background:var(--ai03-neon-bg)}
+.nds .ai03-perf__row-value {flex-shrink:0;min-width:40px;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;text-align:right;color:var(--color-font-1)}
+.nds .ai03-divider--perf {margin:var(--spacing-20) 0 var(--spacing-24)}
+.nds .ai03-note-strong {font-style:normal;font-weight:var(--font-weight-medium);color:var(--color-font-1)}
+.nds .ai03-more {display:flex;align-items:center;justify-content:center;width:100%;height:36px;margin:var(--spacing-24) 0 0;padding:0 var(--spacing-12);border:none;border-radius:var(--radius-8);cursor:pointer;background:var(--primitive-blue-soft-border);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--ai03-more-font)}
+
+/* AI 의견 */
+.nds .ai03-quote {display:flex;gap:var(--spacing-12);margin:var(--spacing-16) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-3)}
+.nds .ai03-quote::before {content:"";flex-shrink:0;display:block;width:2px;margin:var(--spacing-4) 0;border-radius:2px;background:var(--diag-bar-bg)}
