@@ -8,17 +8,18 @@
 
     <body class="bgcolor">
         <div class="wrapper nhasset nds">
-            <div class="header bgcolor">
+            <div class="header bgcolor" role="banner">
                 <a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
                 <h1>AI 포트폴리오 진단</h1>
-                <a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+                <a href="javascript:;" role="button" class="btnCancle" aria-label="취소"><span class="blind">취소</span></a>
             </div>
 
-            <div class="container bgcolor">
+            <div class="container bgcolor" role="main">
                 <!-- STEP 표시: 가이드 process-progress-number 사용(배경 없는 형태) -->
                 <div class="diag-step">
                     <span class="text text--body3-medium text--font3">진단 준비</span>
-                    <span class="diag-step__progress">
+                    <span class="blind">전체 3단계 중 1단계</span>
+                    <span class="diag-step__progress" aria-hidden="true">
                         <span class="process-progress-number process-progress-number--plain">
                             <span class="process-progress-number__current">STEP</span>
                         </span>
@@ -37,10 +38,12 @@
 
                 <!-- 진단 대상 전체자산 -->
                 <div class="md-card diag-card">
-                    <button type="button" class="diag-card__head">
-                        <span class="text text--h4">진단 대상 전체자산이에요</span>
-                        <span class="diag-card__head-arrow" aria-hidden="true"></span>
-                    </button>
+                    <h3 class="diag-card__title">
+                        <button type="button" class="diag-card__head">
+                            <span class="text text--h4">진단 대상 전체자산이에요</span>
+                            <span class="diag-card__head-arrow" aria-hidden="true"></span>
+                        </button>
+                    </h3>
 
                     <div class="diag-total">
                         <div class="diag-total__group">
@@ -57,7 +60,7 @@
                     </div>
 
                     <!-- 비중기준 / 금액기준: 누르면 아래 범례 수치만 바뀝니다 -->
-                    <div class="diag-unit">
+                    <div class="diag-unit" role="group" aria-label="자산 표기 기준">
                         <button type="button" class="diag-unit__btn diag-unit__btn--active" data-diag-unit="ratio" aria-pressed="true">비중기준</button>
                         <span class="diag-unit__dash" aria-hidden="true"></span>
                         <button type="button" class="diag-unit__btn" data-diag-unit="amount" aria-pressed="false">금액기준</button>
@@ -133,12 +136,12 @@
 
                 <!-- 진단 포트폴리오 구성 -->
                 <div class="md-card diag-portfolio">
-                    <strong class="text text--h4">진단 포트폴리오 구성</strong>
+                    <h3 class="text text--h4 ai-heading">진단 포트폴리오 구성</h3>
                     <div class="diag-portfolio__body">
                         <div class="diag-portfolio__field">
-                            <p class="diag-portfolio__question">진단포트폴리오를 어떤 기준으로 구성할까요?</p>
+                            <p class="diag-portfolio__question" id="diagPortfolioQuestion">진단포트폴리오를 어떤 기준으로 구성할까요?</p>
                             <!-- 셋 중 하나만 선택되는 라디오 그룹(가이드 radio-box 사용) -->
-                            <div class="radio-box-row">
+                            <div class="radio-box-row" role="radiogroup" aria-labelledby="diagPortfolioQuestion">
                                 <label>
                                     <input type="radio" name="diagPortfolioType" class="radio-hidden-input radio-box-input" value="종합형" checked />
                                     <span class="radio-box radio-box--sm radio-box--center">종합형</span>

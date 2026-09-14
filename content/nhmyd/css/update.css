@@ -1344,6 +1344,8 @@
 .nds .btn-icon[aria-label="plus"]::before {width:18px;height:18px;-webkit-mask-image:url("../images/update/ic-plus.svg");mask-image:url("../images/update/ic-plus.svg")}
 /* --- sticky-footer --- */
 .nds .sticky-footer {position:fixed;left:0;right:0;bottom:0;z-index:1100;width:100%;background:var(--color-bg-default)}
+/* sticky-footer가 있는 화면은 footer 높이만큼 본문 아래 여백을 확보합니다. 높이는 update-ui.js가 .container에 --sticky-footer-pad 로 내려줍니다 */
+.nds:has(> .sticky-footer) > .container {padding-bottom:calc(var(--sticky-footer-pad, 0px) + var(--spacing-40)) !important}
 .nds .sticky-footer .btn-cta{margin-top:32px}
 .nds .btn-cta {display:flex;gap:var(--spacing-8);padding:0;background:linear-gradient(to top, var(--primitive-base-0) 90%, rgba(255, 255, 255, 0) 100%)}
 .nds .btn-cta .btn {min-width:0;width:70%}
@@ -2198,13 +2200,9 @@
 /* 하단 CTA : half 클래스가 없으면 레거시 popBtn 처럼 1/3 : 70% 로 나눕니다(단독 버튼은 100%) */
 .nds .btn-cta .btn:only-child {width:100%}
 .nds .btn-cta--column .btn {width:100%}
-
-/* sticky-footer 높이는 update-ui.js가 --sticky-footer-pad 로 내려줍니다 */
-.nds .ai03-container {padding-bottom:calc(var(--sticky-footer-pad, 0px) + var(--spacing-40)) !important}
-.nds .ai03-card {margin-top:var(--spacing-40);box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
-.nds .ai03-card--curve {padding:var(--spacing-20)}
-.nds .ai03-card--opt {padding:var(--spacing-16) var(--spacing-20)}
-.nds .ai03-card--opinion {padding:var(--spacing-24) var(--spacing-20)}
+.nds .ai03-card--curve {margin-top:var(--spacing-24);padding:var(--spacing-20)}
+.nds .ai03-card--opt {margin-top:var(--spacing-40);padding:var(--spacing-16) var(--spacing-20)}
+.nds .ai03-card--opinion {margin-top:var(--spacing-40);padding:var(--spacing-24) var(--spacing-20)}
 .nds .ai03-divider {margin:var(--spacing-24) 0}
 
 /* 카드 헤더(제목 + 우측 요소) */
@@ -2272,3 +2270,23 @@
 /* AI 의견 */
 .nds .ai03-quote {display:flex;gap:var(--spacing-12);margin:var(--spacing-16) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-3)}
 .nds .ai03-quote::before {content:"";flex-shrink:0;display:block;width:2px;margin:var(--spacing-4) 0;border-radius:2px;background:var(--diag-bar-bg)}
+
+/* -- 접근성 공통 보강 -- */
+/* nh_base.css 가 *:focus{outline:none} 으로 포커스 표시를 지워서, 키보드 사용 시에만 다시 보이게 합니다 */
+.nds a:focus-visible,
+.nds button:focus-visible,
+.nds [role="button"]:focus-visible,
+.nds input:focus-visible,
+.nds select:focus-visible,
+.nds textarea:focus-visible,
+.nds summary:focus-visible {outline:2px solid var(--color-border-point) !important;outline-offset:2px}
+.nds .radio-hidden-input:focus-visible + .radio-box,
+.nds .check-basic__input:focus-visible + .check-basic__icon {outline:2px solid var(--color-border-point);outline-offset:2px}
+
+/* 제목을 heading 요소로 쓰기 위한 여백 초기화 */
+.nds .ai-heading {margin:0}
+.nds .diag-card__title {margin:0}
+
+/* 새로고침 버튼 : 보이는 크기는 16px 이지만 터치 영역은 24px 확보 (WCAG 2.5.8) */
+.nds .diag-total__refresh {position:relative}
+.nds .diag-total__refresh::after {content:"";position:absolute;top:50%;left:50%;width:24px;height:24px;transform:translate(-50%, -50%)}

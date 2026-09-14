@@ -8,17 +8,18 @@
 
     <body class="bgcolor">
         <div class="wrapper nhasset nds">
-            <div class="header bgcolor">
+            <div class="header bgcolor" role="banner">
                 <a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
                 <h1>AI 포트폴리오 진단</h1>
-                <a href="javascript:;" role="button" class="btnCancle"><span class="blind">취소</span></a>
+                <a href="javascript:;" role="button" class="btnCancle" aria-label="취소"><span class="blind">취소</span></a>
             </div>
 
-            <div class="container bgcolor ai03-container">
+            <div class="container bgcolor" role="main">
                 <!-- STEP 표시 : 가이드 process-progress-number 사용(배경 없는 형태) -->
                 <div class="diag-step">
                     <span class="text text--body3-medium text--font3">제안 대상 진단</span>
-                    <span class="diag-step__progress">
+                    <span class="blind">전체 3단계 중 2단계</span>
+                    <span class="diag-step__progress" aria-hidden="true">
                         <span class="process-progress-number process-progress-number--plain">
                             <span class="process-progress-number__current">STEP</span>
                         </span>
@@ -36,11 +37,20 @@
                 </h2>
 
                 <!-- 내 투자성향 기대수익 제안 자산 -->
-                <div class="md-card ai03-card ai03-card--curve">
-                    <div class="ai03-head">
-                        <strong class="text text--h4">내 투자성향 기대수익 제안 자산</strong>
-                        <button type="button" class="ai03-tip"><span class="blind">도움말 보기</span></button>
+                <div class="md-card ai03-card--curve">
+                    <div class="ai03-head tooltipWrap">
+                        <h3 class="text text--h4 ai-heading">내 투자성향 기대수익 제안 자산</h3>
+                        <!-- <button type="button" class="ai03-tip"><span class="blind">내 투자성향 기대수익 제안 자산 도움말</span></button> -->
+                        <button class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">내 투자성향 기대수익 제안 자산 도움말</span></button>
+                        <div class="tooltipCont" style="display: none">
+                            <h3>안내사항</h3>
+                            <ul>
+                                <li>그래프 내의 선은 위험이 같을 때 기대수익이 가장 높은 자산배분을 이은 선이에요. 두 점은 제안 포트폴리오와 최적 포트폴리오의 위치를 통해 얼만큼 서로 차이가 있는지 보여줘요.</li>
+                            </ul>
+                            <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                        </div>
                     </div>
+
                     <p class="ai03-desc">기대수익이 가장 높은 선 위에 내 투자성향 중 최적의 위치와 내 자산의 위치를 표시했어요.</p>
 
                     <hr class="divider divider--page ai03-divider" />
@@ -51,7 +61,7 @@
                         <em>{기대수익과 투자위험}이 조정됐어요.</em>
                     </p>
 
-                    <div class="ai03-chart">
+                    <div class="ai03-chart" aria-hidden="true">
                         <p class="ai03-chart__axis-name">기대수익</p>
                         <p class="ai03-chart__axis-top">높음</p>
                         <div class="ai03-chart__box">
@@ -63,12 +73,12 @@
                         </p>
                         <p class="ai03-chart__axis-name ai03-chart__axis-name--right">투자위험</p>
                     </div>
-                    <p class="blind">최적 위치는 기대수익 곡선 위, 제안 위치는 곡선 아래에 표시됩니다.</p>
+                    <p class="blind">기대수익과 투자위험의 관계를 나타낸 그래프입니다. 가로축은 투자위험이 낮음에서 높음으로, 세로축은 기대수익이 낮음에서 높음으로 올라갑니다. 기대수익이 가장 높은 곡선 위에 최적 위치가 있고, 제안 위치는 그보다 기대수익이 낮은 곡선 아래에 있습니다.</p>
                 </div>
 
                 <!-- 최적 포트폴리오 -->
-                <div class="md-card ai03-card ai03-card--opt">
-                    <strong class="text text--h4">최적 포트폴리오</strong>
+                <div class="md-card ai03-card--opt">
+                    <h3 class="text text--h4 ai-heading">최적 포트폴리오</h3>
 
                     <p class="ai03-highlight ai03-highlight--sub">
                         최적 포트폴리오에 맞춰 조종하려면
@@ -79,67 +89,85 @@
                     <!-- 자산군별 조정 : 막대는 최적비중(진회색) + 조정분(파랑=줄임 / 빨강=늘림) -->
                     <ul class="ai03-alloc">
                         <li class="ai03-alloc__item">
-                            <span class="ai03-alloc__bar">
+                            <span class="ai03-alloc__bar" aria-hidden="true">
                                 <i class="ai03-alloc__base" style="width: 1.5%"></i>
                                 <i class="ai03-alloc__delta ai03-alloc__delta--down" style="width: 24.3%"></i>
                             </span>
                             <span class="ai03-alloc__row">
                                 <span class="ai03-alloc__name">현금성 1%</span>
-                                <span class="ai03-alloc__change"><em class="ai03-alloc__down">-32% 줄여요</em> (-115,200,000 원)</span>
+                                <span class="ai03-alloc__change">
+                                    <em class="ai03-alloc__down">-32% 줄여요</em>
+                                    (-115,200,000 원)
+                                </span>
                             </span>
                         </li>
                         <li class="ai03-alloc__item">
-                            <span class="ai03-alloc__bar">
+                            <span class="ai03-alloc__bar" aria-hidden="true">
                                 <i class="ai03-alloc__base" style="width: 1.5%"></i>
                                 <i class="ai03-alloc__delta ai03-alloc__delta--down" style="width: 9.2%"></i>
                             </span>
                             <span class="ai03-alloc__row">
                                 <span class="ai03-alloc__name">국내채권 1%</span>
-                                <span class="ai03-alloc__change"><em class="ai03-alloc__down">-12% 줄여요</em> (-43,200,000 원)</span>
+                                <span class="ai03-alloc__change">
+                                    <em class="ai03-alloc__down">-12% 줄여요</em>
+                                    (-43,200,000 원)
+                                </span>
                             </span>
                         </li>
                         <li class="ai03-alloc__item">
-                            <span class="ai03-alloc__bar">
+                            <span class="ai03-alloc__bar" aria-hidden="true">
                                 <i class="ai03-alloc__base" style="width: 1.5%"></i>
                                 <i class="ai03-alloc__delta ai03-alloc__delta--down" style="width: 4%"></i>
                             </span>
                             <span class="ai03-alloc__row">
                                 <span class="ai03-alloc__name">해외채권 1%</span>
-                                <span class="ai03-alloc__change"><em class="ai03-alloc__down">-5% 줄여요</em> (-18,200,000 원)</span>
+                                <span class="ai03-alloc__change">
+                                    <em class="ai03-alloc__down">-5% 줄여요</em>
+                                    (-18,200,000 원)
+                                </span>
                             </span>
                         </li>
                         <li class="ai03-alloc__item">
-                            <span class="ai03-alloc__bar">
+                            <span class="ai03-alloc__bar" aria-hidden="true">
                                 <i class="ai03-alloc__base" style="width: 34.9%"></i>
                                 <i class="ai03-alloc__delta ai03-alloc__delta--up" style="width: 9.2%"></i>
                             </span>
                             <span class="ai03-alloc__row">
                                 <span class="ai03-alloc__name">국내주식 48%</span>
-                                <span class="ai03-alloc__change"><em class="ai03-alloc__up">+17% 늘려요</em> (+61,200,000 원)</span>
+                                <span class="ai03-alloc__change">
+                                    <em class="ai03-alloc__up">+17% 늘려요</em>
+                                    (+61,200,000 원)
+                                </span>
                             </span>
                         </li>
                         <li class="ai03-alloc__item">
-                            <span class="ai03-alloc__bar">
+                            <span class="ai03-alloc__bar" aria-hidden="true">
                                 <i class="ai03-alloc__base" style="width: 9.2%"></i>
                                 <i class="ai03-alloc__delta ai03-alloc__delta--up" style="width: 16.2%"></i>
                             </span>
                             <span class="ai03-alloc__row">
                                 <span class="ai03-alloc__name">해외선진국 34%</span>
-                                <span class="ai03-alloc__change"><em class="ai03-alloc__up">+20% 늘려요</em> (+72,000,000 원)</span>
+                                <span class="ai03-alloc__change">
+                                    <em class="ai03-alloc__up">+20% 늘려요</em>
+                                    (+72,000,000 원)
+                                </span>
                             </span>
                         </li>
                         <li class="ai03-alloc__item">
-                            <span class="ai03-alloc__bar">
+                            <span class="ai03-alloc__bar" aria-hidden="true">
                                 <i class="ai03-alloc__base" style="width: 2.9%"></i>
                                 <i class="ai03-alloc__delta ai03-alloc__delta--up" style="width: 2.2%"></i>
                             </span>
                             <span class="ai03-alloc__row">
                                 <span class="ai03-alloc__name">해외신흥국 15%</span>
-                                <span class="ai03-alloc__change"><em class="ai03-alloc__up">12% 늘려요</em> (+43,200,000 원)</span>
+                                <span class="ai03-alloc__change">
+                                    <em class="ai03-alloc__up">12% 늘려요</em>
+                                    (+43,200,000 원)
+                                </span>
                             </span>
                         </li>
                         <li class="ai03-alloc__item">
-                            <span class="ai03-alloc__bar">
+                            <span class="ai03-alloc__bar" aria-hidden="true">
                                 <i class="ai03-alloc__base" style="width: 0%"></i>
                                 <i class="ai03-alloc__delta" style="width: 0%"></i>
                             </span>
@@ -161,7 +189,7 @@
                     <div class="ai03-risk">
                         <div class="ai03-risk__item">
                             <p class="ai03-risk__label">현재 포트폴리오</p>
-                            <span class="ai03-risk__bar">
+                            <span class="ai03-risk__bar" aria-hidden="true">
                                 <i class="ai03-risk__safe" style="width: 51.7%"></i>
                                 <i class="ai03-risk__danger"></i>
                             </span>
@@ -172,7 +200,7 @@
                         </div>
                         <div class="ai03-risk__item">
                             <p class="ai03-risk__label">최적 포트폴리오</p>
-                            <span class="ai03-risk__bar">
+                            <span class="ai03-risk__bar" aria-hidden="true">
                                 <i class="ai03-risk__safe" style="width: 3%"></i>
                                 <i class="ai03-risk__danger"></i>
                             </span>
@@ -187,10 +215,10 @@
 
                     <div class="ai03-perf">
                         <div class="ai03-perf__head">
-                            <span class="ai03-perf__title">
+                            <h4 class="ai03-perf__title">
                                 성과지표 비교
-                                <button type="button" class="ai03-tip ai03-tip--sm"><span class="blind">도움말 보기</span></button>
-                            </span>
+                                <button type="button" class="ai03-tip ai03-tip--sm"><span class="blind">성과지표 비교 도움말</span></button>
+                            </h4>
                             <span class="ai03-perf__unit">(년 기준, %)</span>
                         </div>
 
@@ -201,12 +229,12 @@
                             </p>
                             <p class="ai03-perf__row">
                                 <span class="ai03-perf__row-label">현재</span>
-                                <span class="ai03-perf__row-bar"><i class="ai03-perf__fill" style="width: 44.3%"></i></span>
+                                <span class="ai03-perf__row-bar" aria-hidden="true"><i class="ai03-perf__fill" style="width: 44.3%"></i></span>
                                 <span class="ai03-perf__row-value">6.6%</span>
                             </p>
                             <p class="ai03-perf__row">
                                 <span class="ai03-perf__row-label">최적</span>
-                                <span class="ai03-perf__row-bar"><i class="ai03-perf__fill ai03-perf__fill--opt" style="width: 59.7%"></i></span>
+                                <span class="ai03-perf__row-bar" aria-hidden="true"><i class="ai03-perf__fill ai03-perf__fill--opt" style="width: 59.7%"></i></span>
                                 <span class="ai03-perf__row-value">8.9%</span>
                             </p>
                         </div>
@@ -218,12 +246,12 @@
                             </p>
                             <p class="ai03-perf__row">
                                 <span class="ai03-perf__row-label">현재</span>
-                                <span class="ai03-perf__row-bar"><i class="ai03-perf__fill" style="width: 81.9%"></i></span>
+                                <span class="ai03-perf__row-bar" aria-hidden="true"><i class="ai03-perf__fill" style="width: 81.9%"></i></span>
                                 <span class="ai03-perf__row-value">12.2%</span>
                             </p>
                             <p class="ai03-perf__row">
                                 <span class="ai03-perf__row-label">최적</span>
-                                <span class="ai03-perf__row-bar"><i class="ai03-perf__fill ai03-perf__fill--opt" style="width: 100%"></i></span>
+                                <span class="ai03-perf__row-bar" aria-hidden="true"><i class="ai03-perf__fill ai03-perf__fill--opt" style="width: 100%"></i></span>
                                 <span class="ai03-perf__row-value">14.9%</span>
                             </p>
                         </div>
@@ -232,7 +260,11 @@
 
                         <p class="diag-note">
                             <span class="diag-note__icon" aria-hidden="true"></span>
-                            <span class="diag-note__text">최적 포트폴리오에 비교해서, <em class="ai03-note-strong">{기대수익, 투자위험}</em>이 낮아요.</span>
+                            <span class="diag-note__text">
+                                최적 포트폴리오에 비교해서,
+                                <em class="ai03-note-strong">{기대수익, 투자위험}</em>
+                                이 낮아요.
+                            </span>
                         </p>
 
                         <button type="button" class="ai03-more">기간별 성과 예측</button>
@@ -240,16 +272,16 @@
                 </div>
 
                 <!-- AI 의견 -->
-                <div class="md-card ai03-card ai03-card--opinion">
+                <div class="md-card ai03-card--opinion">
                     <div class="ai03-head">
-                        <strong class="text text--h4">AI 의견이 준비됐어요</strong>
+                        <h3 class="text text--h4 ai-heading">AI 의견이 준비됐어요</h3>
                         <span class="ai-badge">에이전트 AI</span>
                     </div>
                     <p class="ai03-quote">지금은 현금성 33%·국내주식 31%로 현금과 국내 자산에 몰려 있어요. 해외 비중을 늘리면 최적 포트폴리오에 더 가까워지고, 한곳에 쏠린 위험도 조정됩니다.</p>
                 </div>
             </div>
 
-            <div class="sticky-footer">
+            <div class="sticky-footer" role="contentinfo">
                 <div class="accordion-notice">
                     <div class="accordion-notice__item">
                         <button type="button" aria-expanded="true" data-acc-toggle>
