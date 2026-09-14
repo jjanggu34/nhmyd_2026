@@ -88,6 +88,11 @@
     --primitive-navy-grade:#015aac;
     --primitive-blue-soft-bg:#f5f6f8;
     --primitive-blue-soft-border:#ebeff6;
+    --diag-total-bg:#f3f6fb;
+    --diag-sub-font:#656a73;
+    --diag-bar-bg:#bcc2cf;
+    --diag-point-font:#2357a9;
+    --diag-badge-bg:#fbf1f1;
     --primitive-lime-accent:#e6ff58;
     --primitive-green-accent:#218659;
     --primitive-green-bright:#08d561;
@@ -1328,7 +1333,8 @@
 /* --- sticky-footer --- */
 .nds .sticky-footer {position:fixed;left:0;right:0;bottom:0;z-index:1100;width:100%;background:var(--color-bg-default)}
 .nds .btn-cta {display:flex;gap:var(--spacing-8);padding:0;background:linear-gradient(to top, var(--primitive-base-0) 90%, rgba(255, 255, 255, 0) 100%)}
-.nds .btn-cta .btn {flex:1;min-width:0}
+.nds .btn-cta .btn {min-width:0;width:70%}
+.nds .btn-cta:not(.half) [class^="btn"]:first-child:not(:last-child){width:calc(100%/3)}
 .nds .btn-cta__item--fixed {flex:none !important;width:100px}
 .nds .btn-cta--basic {padding:0 var(--spacing-24) var(--spacing-32)}
 .nds .btn-cta--column {flex-direction:column;align-items:stretch;gap:var(--spacing-12);padding-bottom:var(--spacing-32)}
@@ -2108,3 +2114,69 @@
 .nds .subscriber-nudge .subscriber-nudge__btn {display:flex;align-items:center;justify-content:space-between;width:100%;height:48px;background:rgba(44, 109, 212, 0.05);padding:var(--spacing-12) var(--spacing-16) var(--spacing-12) var(--spacing-20);border-radius:var(--radius-10); }
 .nds .subscriber-nudge .subscriber-nudge__text {display:flex;align-items:center;gap:12px;font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);color:var(--color-font-2)}
 .nds .subscriber-nudge .subscriber-nudge__btn::after{content:"";display:block;width:20px;height:20px;flex-shrink:0;background-color:var(--primitive-gray-600);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+
+/* -- NH_MD_AI_01 : AI 포트폴리오 진단(진단 준비) -- */
+/* 상단 STEP 표시 : 가이드의 process-progress-number를 배경 없는 형태로만 확장 */
+.nds .diag-step {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);margin:var(--spacing-16) 0 0}
+.nds .diag-step__progress {display:inline-flex;align-items:center;gap:var(--spacing-2)}
+.nds .process-progress-number--plain {padding:0;background:none}
+.nds .diag-lead {margin:var(--spacing-24) 0 0}
+
+/* 카드 공통 : 시안의 카드 간격 40, 그림자 0 5px 8px */
+.nds .diag-card, .nds .diag-type, .nds .diag-portfolio {margin:var(--spacing-40) 0 0;box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
+.nds .diag-card {margin-top:var(--spacing-24);padding:var(--spacing-20)}
+.nds .diag-type, .nds .diag-portfolio {padding:var(--spacing-16)}
+
+/* 진단 대상 전체자산 */
+.nds .diag-card__head {display:flex;align-items:center;gap:var(--spacing-2);width:auto;padding:0;margin:0;background:none;border:none;text-align:left;cursor:pointer}
+.nds .diag-card__head-arrow {flex-shrink:0;display:block;width:24px;height:24px;background-color:var(--color-font-1);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .diag-total {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-16) 0 0;padding:var(--spacing-20);border-radius:var(--radius-10);background:var(--diag-total-bg)}
+.nds .diag-total__group {display:flex;flex-direction:column;gap:var(--spacing-8)}
+.nds .diag-total__base {display:flex;align-items:center;gap:var(--spacing-2);margin:0;padding:var(--spacing-2) 0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:12px;letter-spacing:-0.24px;color:var(--diag-sub-font)}
+.nds .diag-total__refresh {flex-shrink:0;display:block;width:16px;height:16px;padding:0;margin:0;border:none;cursor:pointer;background-color:var(--diag-sub-font);-webkit-mask-image:url("../images/update/ic_refresh.svg");mask-image:url("../images/update/ic_refresh.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .diag-total__sum {display:flex;flex-direction:column;align-items:stretch}
+.nds .diag-total__label {font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-1)}
+.nds .diag-total__amount {font-size:var(--type-size-24);font-weight:var(--font-weight-semibold);line-height:32px;letter-spacing:0;text-align:right;color:var(--diag-point-font)}
+.nds .diag-total__note {display:flex;gap:var(--spacing-12);margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--diag-sub-font)}
+.nds .diag-total__note::before {content:"";flex-shrink:0;display:block;width:2px;margin:var(--spacing-4) 0;border-radius:2px;background:var(--diag-bar-bg)}
+
+/* 비중기준 / 금액기준 전환 */
+.nds .diag-unit {display:flex;align-items:center;justify-content:flex-end;gap:var(--spacing-8);margin:var(--spacing-24) 0 0}
+.nds .diag-unit__btn {padding:0;margin:0;background:none;border:none;cursor:pointer;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-5)}
+.nds .diag-unit__btn--active {font-weight:var(--font-weight-medium);color:var(--color-font-1);text-decoration:underline;text-underline-position:from-font}
+.nds .diag-unit__dash {flex-shrink:0;display:block;width:1px;height:10px;background:var(--primitive-gray-300)}
+
+/* 도넛 차트(Chart.js) */
+.nds .diag-donut {position:relative;width:134px;height:134px;margin:var(--spacing-20) auto 0}
+.nds .diag-donut canvas {display:block;width:134px !important;height:134px !important}
+
+/* 범례 : 4개 그룹을 1px 선으로 구분 */
+.nds .diag-legend {display:flex;flex-direction:column;gap:var(--spacing-6);margin:var(--spacing-16) 0 0}
+.nds .diag-legend__group {display:flex;flex-direction:column;gap:var(--spacing-2);margin:0;padding:0;list-style:none}
+.nds .diag-legend__group + .diag-legend__group {padding-top:5px;border-top:1px solid var(--primitive-gray-300)}
+.nds .diag-legend__row {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
+.nds .diag-legend__name {display:inline-flex;align-items:center;gap:var(--spacing-6);min-width:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-3)}
+.nds .diag-legend__swatch {flex-shrink:0;display:block;width:8px;height:8px;border-radius:2px}
+.nds .diag-legend__value {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-semibold);line-height:18px;letter-spacing:-0.24px;text-align:right;color:var(--color-font-3)}
+
+/* 나의 투자성향 */
+.nds .diag-type__row {display:flex;align-items:center;gap:var(--spacing-8);margin:0}
+.nds .diag-type__badge {flex-shrink:0;display:block;width:40px;height:40px;border-radius:var(--radius-16);background:var(--diag-badge-bg) url("../images/update/ic_investor-gage.svg") no-repeat center / 24px 24px}
+.nds .diag-type__label {font-size:var(--type-size-16);font-weight:var(--font-weight-regular);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
+.nds .diag-type__value {font-size:var(--type-size-16);font-weight:var(--font-weight-bold);line-height:24px;letter-spacing:-0.32px;color:var(--primitive-red-grade)}
+.nds .diag-type__more {display:flex;justify-content:flex-end;margin:0}
+.nds .btn-arrow--caption {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px}
+
+/* 진단 포트폴리오 구성 */
+.nds .diag-portfolio__body {display:flex;flex-direction:column;gap:var(--spacing-20);margin:var(--spacing-16) 0 0}
+.nds .diag-portfolio__field {display:flex;flex-direction:column;gap:var(--spacing-16)}
+.nds .diag-portfolio__question {margin:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-3)}
+.nds .diag-portfolio__divider {margin:0}
+.nds .diag-portfolio .radio-box-row > label {flex:1 1 0;min-width:0}
+.nds .diag-note {display:flex;gap:var(--spacing-6);margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
+.nds .diag-note__icon {flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("../images/update/ic-warning-circle.svg") no-repeat center / contain}
+
+/* 더 정확한 결과를 원하시나요? (Banner_thin) */
+.nds .diag-connect {display:flex;align-items:center;gap:var(--spacing-4);margin:var(--spacing-40) 0 0;padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-12);background:var(--color-bg-default);box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
+.nds .diag-connect__text {flex:1 1 auto;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-1)}
+.nds .diag-connect + .areaBtnDefault {margin-top:var(--spacing-32)}
