@@ -41,7 +41,7 @@
                     <div class="ai03-head tooltipWrap">
                         <h3 class="text text--h4 ai-heading">내 투자성향 기대수익 제안 자산</h3>
                         <!-- <button type="button" class="ai03-tip"><span class="blind">내 투자성향 기대수익 제안 자산 도움말</span></button> -->
-                        <button class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">내 투자성향 기대수익 제안 자산 도움말</span></button>
+                        <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">내 투자성향 기대수익 제안 자산 도움말</span></button>
                         <div class="tooltipCont" style="display: none">
                             <h3>안내사항</h3>
                             <ul>
@@ -214,12 +214,19 @@
                     <hr class="divider divider--page ai03-divider" />
 
                     <div class="ai03-perf">
-                        <div class="ai03-perf__head">
+                        <div class="ai03-perf__head tooltipWrap">
                             <h4 class="ai03-perf__title">
                                 성과지표 비교
-                                <button type="button" class="ai03-tip ai03-tip--sm"><span class="blind">성과지표 비교 도움말</span></button>
+                                <button type="button" class="toolTipBtn toolTipBtn--sm" onclick="tooltipOpen($(this));return false;"><span class="blind">성과지표 비교 도움말</span></button>
                             </h4>
                             <span class="ai03-perf__unit">(년 기준, %)</span>
+                            <div class="tooltipCont" style="display: none">
+                                <h3>안내사항</h3>
+                                <ul>
+                                    <li>기대수익은 1년 동안 기대할 수 있는 평균 수익률, 투자위험은 수익률이 흔들리는 정도(변동성)를 뜻해요. 현재와 최적 포트폴리오의 값을 나란히 비교해서 보여줘요.</li>
+                                </ul>
+                                <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                            </div>
                         </div>
 
                         <div class="ai03-perf__group">
