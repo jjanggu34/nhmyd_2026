@@ -258,9 +258,10 @@
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
 .nds .note {margin:var(--spacing-20) 0;background-color:var(--color-bg-banner);border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);line-height:20px;color:var(--color-font-3)}
 .nds .bt-1{border-top:1px solid var(--color-border-3) !important}
+.nds.nhasset .tooltipWrap { position:relative }
 .nds.nhasset .tooltipWrap .tooltipCont > h3 {color:var(--color-font-1)}
 .nds.nhasset .tooltipWrap .tooltipCont > ul > li{line-height:22px; color:var(--color-font-3)}
-.nds.nhasset .tooltipWrap .tooltipCont{width:100% !important;border:1px solid var(--color-bg-default);color:var(--color-font-1)}
+.nds.nhasset .tooltipWrap .tooltipCont{width:100% !important;border:1px solid var(--color-bg-extra-bg);color:var(--color-font-1)}
 /* ---- 간격 가이드(세로 스택, 클래스명 = gap 값) ---- */
 [class^="stack--"] {display:flex;flex-direction:column;width:100%}
 .nds .stack--8 {gap:var(--spacing-8)}
@@ -513,7 +514,7 @@
 .nds .link-divide.pd { padding:7px 8px 7px 20px }
 .nds .link-divide__item {display:flex;align-items:center;gap:var(--spacing-8);width:100%;height:52px;background:none;border:none;padding:0;margin:0;font:inherit;text-align:left;color:inherit;text-decoration:none;cursor:pointer;position:relative}
 .nds .link-divide__text {display:flex;flex:1;min-width:0;flex-direction:column;gap:var(--spacing-2)}
-.nds .link-divide__title {width:100%;font-size:var(--type-size-18);font-weight:var(--font-weight-medium);letter-spacing:-0.02em;color:var(--color-font-1);line-height:24px}
+.nds .link-divide__title {width:100%;overflow:hidden;font-size:var(--type-size-18);font-weight:var(--font-weight-medium);white-space:nowrap;letter-spacing:-0.02em;color:var(--color-font-1);line-height:24px}
 .nds .link-divide__title.placeholder {  color:var(--color-font-5) }
 .nds .link-divide__btn { padding:0 12px;border-radius:12px;font-weight:500 !important;white-space:nowrap;line-height:36px;border-radius:var(--spacing-8);border:1px solid var(--color-border-2)}
 .nds .link-divide__sub {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);letter-spacing:-0.02em;color:var(--color-font-4);line-height:20px}
@@ -1149,8 +1150,7 @@
 .nds .pmAlert .stack--12 .bottomsheet-option__label {margin:0}
 .nds .pmAlert .input-box__input {transition:background-color var(--transition-base)}
 .nds .result-icon {display:block;width:68px;height:68px}
-.nds .intro-hero {margin:48px 0 32px;padding:20px 4px} /* MSCO9100 */
-.nds .intro-hero img {display:block}
+.nds .intro-hero {margin:32px 0;}
 /* ---- 성인 축하 안내(NH_MD_YO_05) ---- */
 .nds .celebrate {position:relative;display:flex;flex-direction:column;gap:var(--spacing-32);align-items:flex-start;width:100%}
 .nds .celebrate__glow {position:absolute;top:4px;right:0;width:120px;height:120px;pointer-events:none} 
@@ -1249,6 +1249,7 @@
 .nds .input-line--error .input-line__field {border-color:var(--color-border-error)}
 .nds .input-line--error .input-line__message {color:var(--color-font-error)}
 .nds .input-box__ghost {flex:1;min-width:0;font-size:var(--type-size-18);font-weight:var(--font-weight-medium);letter-spacing:-0.02em;color:var(--color-font-5);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nds .input-box__ghost--filled{ color:var(--color-font-1); }
 .nds .input-box__ghost--right {text-align:right}
 .nds .input-box__ghost--fixed {flex:none;width:120px}
 .nds .input-box__inline-select,
@@ -1889,11 +1890,11 @@
 .nds .analysis-section [class*="__updated"] {flex-shrink:0;font-size:var(--type-size-12);letter-spacing:-0.24px;line-height:18px;color:rgba(30,30,30,0.6)}
 .nds .analysis-section [class*="__updated"]::before { content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic_clock_line_12.svg");mask-image:url("../images/update/ic_clock_line_12.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
 
+.nds .analysis-section .tooltipWrap .tooltipCont { top:100% !important }
+.nds .analysis-section .info-card--group .info-card__list .tooltipWrap .tooltipCont { width:calc(100% + 40px ) !important }
 
 .nds .analysis-section h2[class*="__title"]:has(.asset-title__tooltip-btn) { display:flex;align-items:center; }
 .nds .analysis-section:has(.brief-top) + .analysis-section { margin-top:8px }
-
-
 .nds .analysis-section .brief-top { display:flex;justify-content:flex-end }
 .nds .analysis-section .brief-top .brief-top__updated { display:inline-flex;align-items:center }
 .nds .analysis-section .analysis-title { display:flex;justify-content:space-between;align-items:center;position:relative }
