@@ -279,7 +279,8 @@
 .nds .note {margin:var(--spacing-20) 0;background-color:var(--color-bg-banner);border-radius:var(--radius-8);padding:var(--spacing-12) var(--spacing-16);font-size:var(--type-size-14);line-height:20px;color:var(--color-font-3)}
 .nds .bt-1{border-top:1px solid var(--color-border-3) !important}
 .nds.nhasset .tooltipWrap .tooltipCont > h3, .nds.nhasset .tooltipWrap .tooltipCont > ul > li {color:var(--color-font-1)}
-.nds.nhasset .tooltipWrap .tooltipCont > ul > li{line-height:22px}
+.nds.nhasset .tooltipWrap .tooltipCont > ul > li{font-size:var(--type-size-14);font-weight:var(--font-weight-regular);line-height:22px;letter-spacing:-0.28px}
+.nds.nhasset .tooltipWrap > .tooltipCont > ul > li:first-child{margin-top:var(--spacing-12)}
 .nds.nhasset .tooltipWrap .tooltipCont{width:100% !important;border:1px solid var(--color-bg-default);color:var(--color-font-1)}
 .nds .blind{min-height:0 !important;padding:0 !important}
 /* ---- 간격 가이드(세로 스택, 클래스명 = gap 값) ---- */
@@ -1625,7 +1626,6 @@
 .hc-change__icon {display:inline-block;width:12px;height:12px;flex-shrink:0;background-color:var(--primitive-base-0);-webkit-mask-image:url("../images/update/ic-graph-stock-blue.svg");mask-image:url("../images/update/ic-graph-stock-blue.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;vertical-align:middle}
 .hc-change__icon.hc-change__icon--up{-webkit-mask-image:url("../images/update/ic-graph-stock-red.svg");mask-image:url("../images/update/ic-graph-stock-red.svg");background-color:var(--primitive-red-warning)}
 .hc-change__icon.hc-change__icon--down{-webkit-mask-image:url("../images/update/ic-graph-stock-blue.svg");mask-image:url("../images/update/ic-graph-stock-blue.svg");background-color:#49d8ff}
-
 .hc-notice {display:flex;flex-direction:column;justify-content:center;position:relative;min-height:57px;gap:var(--spacing-4);background:rgba(14,54,69,0.6);border-radius:var(--radius-8);padding:14px 10px;margin:0 0 var(--spacing-24);box-sizing:border-box}
 .hc-top--loan .hc-notice{background: rgba(27, 28, 89, 0.60)}
 .hc-notice::after{content:"";display:block;clear:both;height:1px;width:100%;margin-top:var(--spacing-12);position:absolute;left:0;bottom:-24px; background-color:rgba(255, 255, 255, 0.14);-webkit-mask-image:url("../images/update/bg_dash_line.png");mask-image:url("../images/update/bg_dash_line.png");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:repeat;mask-repeat:repeat}
@@ -1915,12 +1915,8 @@
 .nds .analysis-section [class*="-none"] { color:var(--color-font-3) }
 .nds .analysis-section [class*="__updated"] {flex-shrink:0;font-size:var(--type-size-12);letter-spacing:-0.24px;line-height:18px;color:rgba(30,30,30,0.6)}
 .nds .analysis-section [class*="__updated"]::before { content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic_clock_line_12.svg");mask-image:url("../images/update/ic_clock_line_12.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
-
-
 .nds .analysis-section h2[class*="__title"]:has(.asset-title__tooltip-btn) { display:flex;align-items:center; }
 .nds .analysis-section:has(.brief-top) + .analysis-section { margin-top:8px }
-
-
 .nds .analysis-section .brief-top { display:flex;justify-content:flex-end }
 .nds .analysis-section .brief-top .brief-top__updated { display:inline-flex;align-items:center }
 .nds .analysis-section .analysis-title { display:flex;justify-content:space-between;align-items:center;position:relative }
@@ -1928,7 +1924,6 @@
 .nds .analysis-section .average-list-title,
 .nds .analysis-section .analysis-title strong,
 .nds .analysis-section .info-card a.link { display:inline-flex;align-items:center;gap:var(--spacing-2) }
-
 .nds .analysis-section .info-card .positive { color:var(--primitive-blue-500); }
 .nds .analysis-section .info-card .negative { color:var(--primitive-red-500); }
 .nds .analysis-section .info-card a.link::after  { content: "";display:block;width:16px;height:16px;flex-shrink:0;background-color:var(--color-icon-1);-webkit-mask-image: url("../images/update/ic-arrow-right-short.svg");mask-image: url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size: contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
@@ -1946,20 +1941,16 @@
 .nds .analysis-section .info-card__list > ul > li:has(.info-card__amount) { padding-top:var(--spacing-4) }
 .nds .analysis-section .info-card__list-link { display:flex;justify-content:space-between;gap:var(--spacing-2);font-size:var(--type-size-16);font-weight:var(--font-weight-bold);color:var(--color-font-1) }
 .nds .analysis-section .info-card__list-link .normal { font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);color:var(--color-font-3);letter-spacing:-0.28px }
-
 .nds .analysis-section .info-card__list.select-card__list { padding:0 var(--spacing-20) }
 .nds .analysis-section .info-card__list.select-card__list > ul > li { padding:var(--spacing-20) 0 }
 .nds .analysis-section .info-card__list ul.select-card__list-row { display:flex;flex-direction:column;margin-top:32px;width:100% }
 .nds .analysis-section .info-card__list ul.select-card__list-row > li { display:flex;justify-content:space-between;width:100%; }
 .nds .analysis-section .info-card__nodate { display:flex; }
-
 .nds .analysis-section .average-list > li {display:flex;justify-content:space-between;color:var(--color-font-3) }
 .nds .analysis-section .average-list__title { display:inline-flex;align-items:center;font-size:var(--type-size-14); }
 .nds .analysis-section .average-list__title [class*="tooltip-btn"] { width:20px;height:20px;background-color:var(--color-icon-5)}
 .nds .analysis-section .average-list__data { font-size:var(--type-size-14) }
-
 .nds .analysis-section .average-list > li.info-card__average--big { font-size:var(--type-size-15) }
-
 .nds .analysis-section .info-card__bar-wrap {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%}
 .nds .analysis-section .info-card__stats { display:flex;justify-content:space-between; }
 .nds .analysis-section .info-card__graph { position:relative; }
@@ -1967,11 +1958,9 @@
 .nds .analysis-section .info-card__graph-bar-fill {position:absolute;left:0;top:0;height:100%;border-radius:var(--radius-full);width:0%;background-color:#FF7E7E}
 .nds .analysis-section .info-card__amount { display:flex;justify-content:space-between;font-size:var(--type-sie-15); }
 .nds .analysis-section .info-card__amount-title { display:flex;align-items:center; }
-
 .nds .analysis-section .list-kv-row { display:flex;flex-direction:column;gap:var(--spacing-16) }
 .nds .analysis-section .list-kv__title { font-size:var(--type-size-15); }
 .nds .analysis-section .list-kv__data { color:var(--color-font-1);font-size:var(--type-size-16);font-weight:var(--font-weight-bold) }
-
 .nds .analysis-section .info-card__text {margin:0;font-size:var(--type-sie-15);font-weight:var(--font-weight-medium);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-4);text-align:left;width:100%}
 .nds .analysis-section .info-card__text strong {font-weight:var(--font-weight-medium);color:var(--color-font-1)}
 .nds .analysis-section .info-card__link-btn {display:flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:100%;padding:var(--spacing-12) var(--spacing-16);border-radius:var(--radius-10);background-color:var(--color-bg-banner);border:none;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:#383B40;cursor:pointer}
@@ -1982,23 +1971,18 @@
 .nds .analysis-section .info-card__label {margin:0;font-size:var(--type-size-12);letter-spacing:-0.24px;line-height:18px;color:var(--color-font-3);text-align:center}
 .nds .analysis-section .info-card__value {display:flex;align-items:center;gap:var(--spacing-2);font-size:var(--type-size-20);font-weight:var(--font-weight-semibold);letter-spacing:-0.4px;line-height:28px;color:#219D93;}
 .nds .analysis-section .info-card__value-tooltip {display:inline-flex;width:20px;height:20px;flex-shrink:0;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:20px 20px;mask-size:20px 20px;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;border:none;padding:0;cursor:pointer}
-
 .nds .analysis-section .debt-list p.select-card-none em,
 .nds .analysis-section .debt-list p.select-card-none .check-basic__data { color:var(--color-font-3) !important }
 .nds .analysis-section .debt-list { display:flex;flex-direction:column;gap:var(--spacing-8);padding:var(--spacing-20) 0;border-bottom:1px solid var(--color-border-2); }
 .nds .analysis-section .debt-list p { display:flex;justify-content:space-between;width:100% }
 .nds .analysis-section .debt-list p:last-of-type{ padding-left:30px }
 .nds .analysis-section .check-basic__data { font-size:var(--type-size-16);font-weight:var(--font-weight-bold); }
-
 .nds .analysis-section .connect-nudge {display:flex;align-items:center;gap:var(--spacing-8);width:100%;padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-10);background:linear-gradient(90deg,#727cea 0%,#727cea 100%);box-sizing:border-box}
 .nds .analysis-section .connect-nudge__text {flex:1;min-width:0;margin:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--primitive-base-0,#fff)}
 .nds .analysis-section .connect-nudge__img {flex-shrink:0;width:34px;height:32px;object-fit:contain}
-
 .nds .analysis-section .info-card:has(.info-card__list-graph) { padding:0;box-shadow:none;}
-
 .nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__stat-label,
 .nds .analysis-section .info-card:has(.info-card__list-graph) .info-card__stat-value { color:var(--color-font-4); font-size:var(--type-size-13) }
-
 .nds .analysis-section .info-card__graph.bubble .info-card__graph-bar-fill { background-color:#001b33 }
 .nds .analysis-section .info-card__graph.bubble .info-card__graph-bar-fill { border-top-right-radius:0; border-bottom-right-radius:0; }
 .nds .analysis-section .info-card__graph.bubble.is-full .info-card__graph-bar-fill { background-color:#09B2C5; }
@@ -2009,27 +1993,22 @@
 .nds .analysis-section .info-card__progress-bubble::after {content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--primitive-gray-900)}
 .nds .analysis-section .info-card__graph.bubble,
 .nds .analysis-section .info-card__graph + ul.select-card__list-row { margin-top:12px; }
-
 .nds .swiper-section { margin-top:40px; }
-
 .nds .select-card--row {gap:var(--spacing-16);padding:0 0 var(--spacing-16);border:none;border-radius:0;}
 .nds .select-card--row + .select-card--row {border-top:1px solid var(--primitive-gray-100);padding:var(--spacing-16) 0}
 .nds .select-card--row:last-child {padding-bottom:0}
 .nds .select-card__more {display:flex;align-items:center;justify-content:center; padding:0 0 var(--spacing-20) 0;margin:0;background:none;border:none;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;color:var(--color-font-3);cursor:pointer;}
 .nds .select-card__more::after {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-plus-24.svg");mask-image:url("../images/update/ic-plus-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .debt-card__list + .select-card__more { padding-bottom:0;margin:0;width:100% }
-
 /* --- NH_MD_CO_01_07 --- */
 .nds  .compare-title {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);line-height:28px;color:var(--color-font-3)}
 .nds .compare-title span {color:var(--color-font-1)}
-
 .nds .popCont__inner .analysis-section { gap:var(--spacing-16);margin-top:16px }
 .nds .analysis-section .info-card--pop { width: 100%;padding:0;border-radius: var(--radius-16);background-color: var(--color-bg-default);box-shadow: 0px 5px 16px rgba(0, 0, 0, 0.07);overflow: hidden;box-sizing: border-box; }
 .nds .analysis-section .info-card--pop .info-card__head { display:flex;flex-direction: column;gap: var(--spacing-2);width: 100%;padding: var(--spacing-20);border-bottom: 1px solid var(--color-border-2);box-sizing: border-box }
 .nds .analysis-section .info-card--pop .info-card__head [class*="__title"] {display:block;font-size: var(--type-size-16);font-weight: var(--font-weight-medium);letter-spacing: -0.32px;line-height: 24px;color:var(--color-font-1)}
 .nds .info-card__head__title em { padding-left:var(--spacing-4);font-weight: var(--font-weight-semibold);color: var(--color-font-point) }
 .nds .info-card__head__total { margin: 0;font-size: var(--type-size-20);font-weight: var(--font-weight-semibold);letter-spacing: -0.4px;line-height: 28px;color: #132333 }
-
 .nds .analysis-section .info-card--pop .info-card__list { box-shadow:none }
 /* --- NH_MD_CO_01_04 --- */
 .nds .md-card.insight-hero {padding: var(--spacing-24) var(--spacing-20);}
@@ -2044,14 +2023,12 @@
 .nds .insight-hero__spinner::after {-webkit-mask:radial-gradient(circle at calc(100% - 2px) 50%, #000 1.75px, transparent 2.25px),radial-gradient(circle at 50% 2px, #000 1.75px, transparent 2.25px);mask:radial-gradient(circle at calc(100% - 2px) 50%, #000 1.75px, transparent 2.25px),radial-gradient(circle at 50% 2px, #000 1.75px, transparent 2.25px)}
 @keyframes insight-hero-spin {to {transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce) {.nds .insight-hero__spinner {animation:none}}
-
 .nds .select-card__progress {display:flex;flex-direction:column;gap:var(--spacing-4);width:100%}
 .nds .select-card__progress .asset-hero__bar-fill {border-top-right-radius:0;border-bottom-right-radius:0}
 .nds .select-card__progress-detail {display:flex;align-items:center;justify-content:space-between;width:100%;font-size:var(--type-size-13);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-4)}
 .nds .select-card__progress--bubble {position:relative;padding-top:34px}
 .nds .select-card__progress-bubble {position:absolute;top:0;left:0;transform:translateX(-50%);background-color:var(--primitive-gray-900);color:var(--color-font-10);font-size:12px;font-weight:var(--font-weight-semibold);letter-spacing:-0.24px;line-height:18px;padding:4px 10px;border-radius:var(--radius-8);box-shadow:0 2px 6px rgba(0,0,0,0.14);white-space:nowrap;z-index:1}
 .nds .select-card__progress-bubble::after {content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid var(--primitive-gray-900)}
-
 .nds .fund-donut {display:flex;align-items:center;gap:var(--spacing-24);width:100%}
 .nds .fund-donut__chart {flex-shrink:0;position:relative;width:120px;height:120px}
 .nds .fund-donut__chart canvas {display:block;width:100%;height:100%}
@@ -2063,7 +2040,6 @@
 .nds .fund-donut__chip {flex-shrink:0;width:10px;height:10px;border-radius:2px}
 .nds .fund-donut__legend-label {font-size:12px;letter-spacing:-0.24px;line-height:18px;color:#383b40}
 .nds .fund-donut__legend-value {flex:1;min-width:0;text-align:right;font-size:12px;font-weight:var(--font-weight-medium);letter-spacing:-0.24px;line-height:18px;color:var(--color-font-1)}
-
 .nds .compare-subtitle {display:block;font-size: var(--type-size-18);line-height: 26px;font-weight: var(--font-weight-semibold) !important;letter-spacing: -0.36px;color:var(--color-font-3)}
 .nds .compare-subtitle span {color:var(--color-font-1)}
 .nds .compare-scroll {width:100%;box-sizing:content-box}
@@ -2127,25 +2103,21 @@
     }
 }
 [data-category-donut-chart] {transform-origin: 50% 50%;animation: categoryDonutSpinIn 1s cubic-bezier(0.22, 1, 0.36, 1) both}
-
 /* -- MSSB5110R -- */
 .nds .subscriber-nudge { display:flex;flex-direction:column;gap:24px;padding:var(--spacing-12) 0; }
 .nds .subscriber-nudge .subscriber-nudge__btn {display:flex;align-items:center;justify-content:space-between;width:100%;height:48px;background:rgba(44, 109, 212, 0.05);padding:var(--spacing-12) var(--spacing-16) var(--spacing-12) var(--spacing-20);border-radius:var(--radius-10); }
 .nds .subscriber-nudge .subscriber-nudge__text {display:flex;align-items:center;gap:12px;font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);color:var(--color-font-2)}
 .nds .subscriber-nudge .subscriber-nudge__btn::after{content:"";display:block;width:20px;height:20px;flex-shrink:0;background-color:var(--primitive-gray-600);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-
 /* -- NH_MD_AI_01 : AI 포트폴리오 진단(진단 준비) -- */
 /* 상단 STEP 표시 : 가이드의 process-progress-number를 배경 없는 형태로만 확장 */
 .nds .diag-step {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);margin:var(--spacing-16) 0 0}
 .nds .diag-step__progress {display:inline-flex;align-items:center;gap:var(--spacing-2)}
 .nds .process-progress-number--plain {padding:0;background:none}
 .nds .diag-lead {margin:var(--spacing-24) 0 0}
-
 /* 카드 공통 : 시안의 카드 간격 40, 그림자 0 5px 8px */
 .nds .diag-card, .nds .diag-type, .nds .diag-portfolio {margin:var(--spacing-40) 0 0;box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
 .nds .diag-card {margin-top:var(--spacing-24);padding:var(--spacing-20)}
 .nds .diag-type, .nds .diag-portfolio {padding:var(--spacing-16)}
-
 /* 진단 대상 전체자산 */
 .nds .diag-card__head {display:flex;align-items:center;gap:var(--spacing-2);width:auto;padding:0;margin:0;background:none;border:none;text-align:left;cursor:pointer}
 .nds .diag-card__head-arrow {flex-shrink:0;display:block;width:24px;height:24px;background-color:var(--color-font-1);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
@@ -2158,17 +2130,14 @@
 .nds .diag-total__amount {font-size:var(--type-size-24);font-weight:var(--font-weight-semibold);line-height:32px;letter-spacing:0;text-align:right;color:var(--diag-point-font)}
 .nds .diag-total__note {display:flex;gap:var(--spacing-12);margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--diag-sub-font)}
 .nds .diag-total__note::before {content:"";flex-shrink:0;display:block;width:2px;margin:var(--spacing-4) 0;border-radius:2px;background:var(--diag-bar-bg)}
-
 /* 비중기준 / 금액기준 전환 */
 .nds .diag-unit {display:flex;align-items:center;justify-content:flex-end;gap:var(--spacing-8);margin:var(--spacing-24) 0 0}
 .nds .diag-unit__btn {padding:0;margin:0;background:none;border:none;cursor:pointer;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-5)}
 .nds .diag-unit__btn--active {font-weight:var(--font-weight-medium);color:var(--color-font-1);text-decoration:underline;text-underline-position:from-font}
 .nds .diag-unit__dash {flex-shrink:0;display:block;width:1px;height:10px;background:var(--primitive-gray-300)}
-
 /* 도넛 차트(Chart.js) */
 .nds .diag-donut {position:relative;width:134px;height:134px;margin:var(--spacing-20) auto 0}
 .nds .diag-donut canvas {display:block;width:134px !important;height:134px !important}
-
 /* 범례 : 4개 그룹을 1px 선으로 구분 */
 .nds .diag-legend {display:flex;flex-direction:column;gap:var(--spacing-6);margin:var(--spacing-16) 0 0}
 .nds .diag-legend__group {display:flex;flex-direction:column;gap:var(--spacing-2);margin:0;padding:0;list-style:none}
@@ -2177,7 +2146,6 @@
 .nds .diag-legend__name {display:inline-flex;align-items:center;gap:var(--spacing-6);min-width:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-3)}
 .nds .diag-legend__swatch {flex-shrink:0;display:block;width:8px;height:8px;border-radius:2px}
 .nds .diag-legend__value {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-semibold);line-height:18px;letter-spacing:-0.24px;text-align:right;color:var(--color-font-3)}
-
 /* 나의 투자성향 */
 .nds .diag-type__row {display:flex;align-items:center;gap:var(--spacing-8);margin:0}
 .nds .diag-type__badge {flex-shrink:0;display:block;width:40px;height:40px;border-radius:var(--radius-16);background:var(--diag-badge-bg) url("../images/update/ic_investor-gage.svg") no-repeat center / 24px 24px}
@@ -2185,7 +2153,6 @@
 .nds .diag-type__value {font-size:var(--type-size-16);font-weight:var(--font-weight-bold);line-height:24px;letter-spacing:-0.32px;color:var(--primitive-red-grade)}
 .nds .diag-type__more {display:flex;justify-content:flex-end;margin:0}
 .nds .btn-arrow--caption {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px}
-
 /* 진단 포트폴리오 구성 */
 .nds .diag-portfolio__body {display:flex;flex-direction:column;gap:var(--spacing-20);margin:var(--spacing-16) 0 0}
 .nds .diag-portfolio__field {display:flex;flex-direction:column;gap:var(--spacing-16)}
@@ -2194,12 +2161,10 @@
 .nds .diag-portfolio .radio-box-row > label {flex:1 1 0;min-width:0}
 .nds .diag-note {display:flex;gap:var(--spacing-6);margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
 .nds .diag-note__icon {flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("../images/update/ic-warning-circle.svg") no-repeat center / contain}
-
 /* 더 정확한 결과를 원하시나요? (Banner_thin) */
 .nds .diag-connect {display:flex;align-items:center;gap:var(--spacing-4);margin:var(--spacing-40) 0 0;padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-12);background:var(--color-bg-default);box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
 .nds .diag-connect__text {flex:1 1 auto;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-1)}
 .nds .diag-connect + .areaBtnDefault {margin-top:var(--spacing-32)}
-
 /* -- NH_MD_AI_03 : AI 포트폴리오 진단(제안 대상 진단) -- */
 /* 하단 CTA : half 클래스가 없으면 레거시 popBtn 처럼 1/3 : 70% 로 나눕니다(단독 버튼은 100%) */
 .nds .btn-cta .btn:only-child {width:100%}
@@ -2208,7 +2173,6 @@
 .nds .ai03-card--opt {margin-top:var(--spacing-40);padding:var(--spacing-16) var(--spacing-20)}
 .nds .ai03-card--opinion {margin-top:var(--spacing-40);padding:var(--spacing-24) var(--spacing-20)}
 .nds .ai03-divider {margin:var(--spacing-24) 0}
-
 /* 카드 헤더(제목 + 우측 요소) */
 .nds .ai03-head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
 .nds .ai03-tip {flex-shrink:0;display:block;width:24px;height:24px;padding:0;margin:0;border:none;cursor:pointer;background-color:var(--primitive-gray-600);-webkit-mask-image:url("../images/update/ic-tooltip-mark.svg");mask-image:url("../images/update/ic-tooltip-mark.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
@@ -2217,7 +2181,6 @@
 .nds .ai03-highlight {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
 .nds .ai03-highlight em {font-style:normal;color:var(--ai03-focus-font)}
 .nds .ai03-highlight--sub {margin-top:var(--spacing-16)}
-
 /* 기대수익 그래프(Chart.js) */
 .nds .ai03-chart {margin:var(--spacing-20) 0 0}
 .nds .ai03-chart__axis-name {margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-1)}
@@ -2226,7 +2189,6 @@
 .nds .ai03-chart__box {position:relative;width:100%;height:164px;margin:var(--spacing-8) 0 0;box-sizing:border-box;background:var(--ai03-chart-bg);border-left:1px solid var(--primitive-blue-soft-border);border-bottom:1px solid var(--primitive-blue-soft-border)}
 .nds .ai03-chart__box canvas {display:block;width:100%;height:100%}
 .nds .ai03-chart__axis-bottom {display:flex;align-items:center;justify-content:space-between;margin:var(--spacing-8) 0 0;font-size:var(--type-size-10);font-weight:var(--font-weight-regular);line-height:1;letter-spacing:-0.2px;color:var(--color-font-4)}
-
 /* 자산군별 조정 막대 */
 .nds .ai03-alloc {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-24) 0 0;padding:0;list-style:none}
 .nds .ai03-alloc__item {display:flex;flex-direction:column;gap:var(--spacing-4)}
@@ -2241,7 +2203,6 @@
 .nds .ai03-alloc__change em {font-style:normal}
 .nds .ai03-alloc__up {color:var(--ai03-up-font)}
 .nds .ai03-alloc__down {color:var(--ai03-down-font)}
-
 /* 안전 / 위험 자산 비교 */
 .nds .ai03-risk {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-24) 0 0}
 .nds .ai03-risk__item {display:flex;flex-direction:column;gap:var(--spacing-4)}
@@ -2252,7 +2213,6 @@
 .nds .ai03-risk__legend {display:flex;align-items:flex-end;justify-content:space-between;gap:var(--spacing-8);margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px}
 .nds .ai03-risk__safe-text {color:var(--ai03-down-font)}
 .nds .ai03-risk__danger-text {color:var(--ai03-up-font)}
-
 /* 성과지표 비교 */
 .nds .ai03-perf {margin:var(--spacing-24) 0 0}
 .nds .ai03-perf__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
@@ -2270,11 +2230,9 @@
 .nds .ai03-divider--perf {margin:var(--spacing-20) 0 var(--spacing-24)}
 .nds .ai03-note-strong {font-style:normal;font-weight:var(--font-weight-medium);color:var(--color-font-1)}
 .nds .ai03-more {display:flex;align-items:center;justify-content:center;width:100%;height:36px;margin:var(--spacing-24) 0 0;padding:0 var(--spacing-12);border:none;border-radius:var(--radius-8);cursor:pointer;background:var(--primitive-blue-soft-border);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--ai03-more-font)}
-
 /* AI 의견 */
 .nds .ai03-quote {display:flex;gap:var(--spacing-12);margin:var(--spacing-16) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-3)}
 .nds .ai03-quote::before {content:"";flex-shrink:0;display:block;width:2px;margin:var(--spacing-4) 0;border-radius:2px;background:var(--diag-bar-bg)}
-
 /* -- 접근성 공통 보강 -- */
 /* nh_base.css 가 *:focus{outline:none} 으로 포커스 표시를 지워서, 키보드 사용 시에만 다시 보이게 합니다 */
 .nds a:focus-visible,
@@ -2286,15 +2244,12 @@
 .nds summary:focus-visible {outline:2px solid var(--color-border-point) !important;outline-offset:2px}
 .nds .radio-hidden-input:focus-visible + .radio-box,
 .nds .check-basic__input:focus-visible + .check-basic__icon {outline:2px solid var(--color-border-point);outline-offset:2px}
-
 /* 제목을 heading 요소로 쓰기 위한 여백 초기화 */
 .nds .ai-heading {margin:0}
 .nds .diag-card__title {margin:0}
-
 /* 새로고침 버튼 : 보이는 크기는 16px 이지만 터치 영역은 24px 확보 (WCAG 2.5.8) */
 .nds .diag-total__refresh {position:relative}
 .nds .diag-total__refresh::after {content:"";position:absolute;top:50%;left:50%;width:24px;height:24px;transform:translate(-50%, -50%)}
-
 /* NH_MD_AI_03 도움말 툴팁 : 카드 폭(312) 전체를 쓰고 제목 줄 바로 아래에 붙습니다.
    레거시 .tooltipWrap .tooltipCont 는 left:50%/translateX(-50%) + width:100vw-32 라서
    (1) 기준이 될 positioned 조상이 없고 (2) 카드보다 넓게 잡힙니다. 둘 다 여기서 재정의합니다. */
@@ -2311,12 +2266,6 @@
 .nds .ai03-card--curve .tooltipWrap > .tooltipCont > h3,
 .nds .ai03-card--opt .tooltipWrap > .tooltipCont > h3,
 .nds .ai0301-card .tooltipWrap > .tooltipCont > h3 {padding-right:36px;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
-.nds .ai03-card--curve .tooltipWrap > .tooltipCont > ul > li,
-.nds .ai03-card--opt .tooltipWrap > .tooltipCont > ul > li,
-.nds .ai0301-card .tooltipWrap > .tooltipCont > ul > li {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);line-height:22px;letter-spacing:-0.28px}
-.nds .ai03-card--curve .tooltipWrap > .tooltipCont > ul > li:first-child,
-.nds .ai03-card--opt .tooltipWrap > .tooltipCont > ul > li:first-child,
-.nds .ai0301-card .tooltipWrap > .tooltipCont > ul > li:first-child {margin-top:var(--spacing-12)}
 .nds .ai03-card--curve .tooltipWrap > .tooltipCont .close,
 .nds .ai03-card--opt .tooltipWrap > .tooltipCont .close,
 .nds .ai0301-card .tooltipWrap > .tooltipCont .close {position:absolute;top:var(--spacing-20);right:var(--spacing-20);width:24px;height:24px}
@@ -2334,7 +2283,6 @@
 .nds .ai0301-divider--mid {margin:var(--spacing-24) 0}
 .nds .ai0301-divider--sm {margin:var(--spacing-12) 0}
 .nds .ai0301-sub-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
-
 /* 현재평가금액 / 기간 선택 */
 .nds .ai0301-amount {display:flex;flex-direction:column;margin:var(--spacing-24) 0 0}
 .nds .ai0301-amount__label {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
@@ -2342,7 +2290,6 @@
 .nds .ai0301-period {margin:var(--spacing-8) 0 0}
 .nds .ai0301-period__label {display:flex;align-items:center;height:24px;margin:0 0 var(--spacing-8);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-3)}
 .nds .ai0301-period .radio-box-row > label {flex:1 1 0;min-width:0}
-
 /* 성과 요약 그래프(Chart.js) */
 .nds .ai0301-chart {margin:var(--spacing-16) 0 0}
 .nds .ai0301-chart__unit {margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
@@ -2351,7 +2298,6 @@
 .nds .ai0301-chart__box {position:relative;flex:1 1 auto;min-width:0;height:178px;box-sizing:border-box;background:var(--ai03-chart-bg);border-left:1px solid var(--primitive-blue-soft-border);border-bottom:1px solid var(--primitive-blue-soft-border)}
 .nds .ai0301-chart__box canvas {display:block;width:100%;height:100%}
 .nds .ai0301-chart__xaxis {display:flex;align-items:center;justify-content:space-between;margin:var(--spacing-8) 0 0;padding-left:38px;font-size:var(--type-size-10);font-weight:var(--font-weight-regular);line-height:1;letter-spacing:-0.2px;color:var(--color-font-4)}
-
 /* 범례 */
 .nds .ai0301-legend {display:flex;align-items:center;justify-content:center;gap:var(--spacing-12);margin:var(--spacing-16) 0 0;padding:0;list-style:none}
 .nds .ai0301-legend li {display:inline-flex;align-items:center;justify-content:center;gap:var(--spacing-4);width:46px;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--ai0301-legend-font)}
@@ -2360,7 +2306,6 @@
 .nds .ai0301-legend__swatch--avg {background:var(--ai03-safe-bg)}
 .nds .ai0301-legend__swatch--bad {background:var(--ai03-danger-bg)}
 .nds .ai0301-legend__swatch--now {background:var(--ai0301-now-bg)}
-
 /* 예상 성과 */
 .nds .ai0301-result {display:flex;flex-direction:column;gap:var(--spacing-4);margin:var(--spacing-16) 0 0;padding:0;list-style:none}
 .nds .ai0301-result__row {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
