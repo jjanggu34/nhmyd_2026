@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <script src="../pub-assets/js/head-mb-update.js"></script>
-        <title>안전 자산 확보 - AI 포트폴리오</title>
+        <title>AI 포트폴리오 진단</title>
     </head>
 
     <body class="bgcolor">
@@ -15,10 +15,267 @@
             </div>
 
             <div class="container bgcolor" role="main">
+                <!-- STEP 표시: NH_MD_AI_01 과 같은 diag-step 사용 -->
+                <div class="diag-step">
+                    <span class="text text--body3-medium text--font3">안전자산확보</span>
+                    <span class="blind">전체 3단계 중 1단계</span>
+                    <span class="diag-step__progress" aria-hidden="true">
+                        <span class="process-progress-number process-progress-number--plain">
+                            <span class="process-progress-number__current">STEP</span>
+                        </span>
+                        <span class="process-progress-number process-progress-number--plain">
+                            <span class="process-progress-number__current">01</span>
+                            <span class="process-progress-number__divider"></span>
+                            <span class="process-progress-number__total">03</span>
+                        </span>
+                    </span>
+                </div>
+
+                <!-- 리드 문구 + 도움말 툴팁(공통 tooltipWrap--card) -->
+                <div class="diag-lead card-head card-head--top tooltipWrap tooltipWrap--card">
+                    <!-- prettier-ignore -->
+                    <h2 class="text text--h2 ai-heading">안전자산확보 사용가능 금액이<br /><em>96,000,000원</em>이 있어요.</h2>
+                    <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">안전자산확보 사용가능 금액 도움말</span></button>
+                    <div class="tooltipCont" style="display: none">
+                        <h3>안전자산확보 안내</h3>
+                        <ul>
+                            <li>만기가 예정된 대출과 예·적금을 합해, 지금 안전자산으로 확보할 수 있는 금액이에요.</li>
+                        </ul>
+                        <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                    </div>
+                </div>
+
+                <!-- 만기 예정 대출 -->
+                <div class="md-card ai06-card">
+                    <div class="card-head tooltipWrap tooltipWrap--card">
+                        <h3 class="text text--h4 ai-heading">만기 예정 대출</h3>
+                        <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">만기 예정 대출 도움말</span></button>
+                        <div class="tooltipCont" style="display: none">
+                            <h3>만기 예정 대출 안내</h3>
+                            <ul>
+                                <li>만기가 도래하는 대출을 상환하지 않고 두면, 그만큼을 안전자산(현금성)으로 확보할 수 있어요.</li>
+                            </ul>
+                            <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                        </div>
+                    </div>
+
+                    <p class="card-lead">
+                        만기가 예정되어 있는 대출이
+                        <br />
+                        <em>58,800,000원이 있어요.</em>
+                    </p>
+
+                    <p class="notice-box">
+                        <span class="notice-box__icon" aria-hidden="true"></span>
+                        <span class="notice-box__text">안전자산(현금성)을 얼만큼 확보하실래요?</span>
+                    </p>
+
+                    <!-- 확보금액 슬라이더 : 채움 비율은 --amount-slider-percent 한 곳만 바꾸면 됩니다 -->
+                    <div class="amount-slider" style="--amount-slider-percent: 61.8%">
+                        <div class="amount-slider__body">
+                            <p class="amount-slider__head">
+                                <span class="amount-slider__label">확보금액</span>
+                                <strong class="amount-slider__value">+58,800,000원</strong>
+                            </p>
+                            <div class="amount-slider__track">
+                                <i class="amount-slider__fill" aria-hidden="true"></i>
+                                <span class="amount-slider__thumb" aria-hidden="true"></span>
+                                <span class="amount-slider__popover" aria-hidden="true">
+                                    확보금액
+                                    <br />
+                                    58,800,000원
+                                </span>
+                            </div>
+                        </div>
+                        <p class="amount-slider__foot">
+                            <span class="amount-slider__foot-label">확보가능 금액</span>
+                            <strong class="amount-slider__foot-value">37,200,000원</strong>
+                        </p>
+                    </div>
+
+                    <hr class="divider divider--page" />
+
+                    <p class="card-note">
+                        <span class="card-note__icon" aria-hidden="true"></span>
+                        <span class="card-note__text">나머지 금액은 투자에 활용됩니다.</span>
+                    </p>
+                </div>
+
+                <!-- 안전자산 확보시 참고할 목록 -->
+                <div class="md-card ai06-card">
+                    <div class="card-head card-head--top tooltipWrap tooltipWrap--card">
+                        <h3 class="text text--h4 ai-heading">안전자산 확보시 참고할 목록이에요</h3>
+                        <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">안전자산 확보시 참고할 목록 도움말</span></button>
+                        <div class="tooltipCont" style="display: none">
+                            <h3>참고할 목록 안내</h3>
+                            <ul>
+                                <li>만기가 가까운 순서로 보여드려요. 상환방식과 금리를 함께 확인하고 확보금액을 정해보세요.</li>
+                            </ul>
+                            <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                        </div>
+                    </div>
+
+                    <!-- prettier-ignore -->
+                    <p class="card-sub">롯데캐피탈 엘론(일반신용대출) 외 <em>4건</em></p>
+
+                    <ul class="asset-list">
+                        <li class="asset-list__item">
+                            <span class="label label--sm label--line label--gray">만료</span>
+                            <div class="list-account">
+                                <span class="list-account__logo"><img src="../../images/logos/AACT0000.png" alt="" /></span>
+                                <span class="list-account__text">
+                                    <span class="list-account__name">{상품명 or 별명}</span>
+                                    <span class="list-account__number">
+                                        <span>{기관명}</span>
+                                        <span>{계좌번호}</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <ul class="asset-list__data">
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">만기일</span>
+                                    <span class="asset-list__row-value">{만기날짜}</span>
+                                </li>
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">{상환방식}</span>
+                                    <span class="asset-list__row-value">연 {금리}</span>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="asset-list__item">
+                            <span class="label label--sm label--line label--lightblue">부채진단</span>
+                            <div class="list-account">
+                                <span class="list-account__logo"><img src="../../images/logos/AAOB0000.png" alt="" /></span>
+                                <span class="list-account__text">
+                                    <span class="list-account__name">농협은행 직장인 신용대출</span>
+                                    <span class="list-account__number">
+                                        <span>농협은행</span>
+                                        <span>000333366999</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <ul class="asset-list__data">
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">만기일</span>
+                                    <span class="asset-list__row-value">2027.01.23</span>
+                                </li>
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">원리금균등분할상환</span>
+                                    <span class="asset-list__row-value">연 19.9%</span>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="asset-list__item">
+                            <span class="label label--sm label--line label--lightblue">부채진단</span>
+                            <div class="list-account">
+                                <span class="list-account__logo"><img src="../../images/logos/logo_null_06_capital.png" alt="" /></span>
+                                <span class="list-account__text">
+                                    <span class="list-account__name">롯데캐피탈 엘론(일반신용대출)</span>
+                                    <span class="list-account__number">
+                                        <span>롯데캐피탈</span>
+                                        <span>000333366999</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <ul class="asset-list__data">
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">만기일</span>
+                                    <span class="asset-list__row-value">2027.02.12</span>
+                                </li>
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">원리금균등분할상환</span>
+                                    <span class="asset-list__row-value">연 19.9%</span>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="asset-list__item">
+                            <span class="label label--sm label--line label--lightblue">부채진단</span>
+                            <div class="list-account">
+                                <span class="list-account__logo"><img src="../../images/logos/AACT0000.png" alt="" /></span>
+                                <span class="list-account__text">
+                                    <span class="list-account__name">한국투자저축은행 파인로얄론</span>
+                                    <span class="list-account__number">
+                                        <span>한국투자저축은행</span>
+                                        <span>2222444455556</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <ul class="asset-list__data">
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">만기일</span>
+                                    <span class="asset-list__row-value">2028.06.27</span>
+                                </li>
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">일시상환</span>
+                                    <span class="asset-list__row-value">연 17.21%</span>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="asset-list__item">
+                            <div class="list-account">
+                                <span class="list-account__logo"><img src="../../images/logos/AAAZ0000.png" alt="" /></span>
+                                <span class="list-account__text">
+                                    <span class="list-account__name">전세자금대출</span>
+                                    <span class="list-account__number">
+                                        <span>농축협은행</span>
+                                        <span>2222444455556</span>
+                                    </span>
+                                </span>
+                            </div>
+                            <ul class="asset-list__data">
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">만기일</span>
+                                    <span class="asset-list__row-value">2028.04.12</span>
+                                </li>
+                                <li class="asset-list__row">
+                                    <span class="asset-list__row-label">원리금균등분할상환</span>
+                                    <span class="asset-list__row-value">연 9.21%</span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <p class="asset-list__more">
+                        <!-- prettier-ignore -->
+                        <button type="button" class="btn-arrow" data-ai06-more><span>더보기(<span data-ai06-shown>5</span>/6)</span><span class="btn-arrow__icon btn-arrow__icon--plus" aria-hidden="true"></span></button>
+                    </p>
+
+                    <button type="button" class="card-btn card-btn--line" data-ai06-fold aria-expanded="true">
+                        <span data-ai06-fold-label>접기</span>
+                        <span class="btn-arrow__icon btn-arrow__icon--chevron-up" aria-hidden="true"></span>
+                    </button>
+                </div>
+
                 <div class="areaBtnDefault bgcolor">
                     <a href="javascript:;" class="btnPressPoint" role="button">제안 보기</a>
                 </div>
             </div>
         </div>
+        <script>
+            (function () {
+                // 목록 접기 / 펼치기 — 접으면 목록과 더보기를 감춥니다.
+                var foldBtn = document.querySelector('[data-ai06-fold]');
+                if (!foldBtn) return;
+                var card = foldBtn.closest('.ai06-card');
+                var list = card.querySelector('.asset-list');
+                var more = card.querySelector('.asset-list__more');
+                var label = foldBtn.querySelector('[data-ai06-fold-label]');
+                var icon = foldBtn.querySelector('.btn-arrow__icon');
+
+                foldBtn.addEventListener('click', function () {
+                    var opened = foldBtn.getAttribute('aria-expanded') === 'true';
+                    foldBtn.setAttribute('aria-expanded', opened ? 'false' : 'true');
+                    list.hidden = opened;
+                    more.hidden = opened;
+                    label.textContent = opened ? '펼치기' : '접기';
+                    icon.classList.toggle('btn-arrow__icon--chevron-up', !opened);
+                    icon.classList.toggle('btn-arrow__icon--chevron-down', opened);
+                });
+            })();
+        </script>
     </body>
 </html>
