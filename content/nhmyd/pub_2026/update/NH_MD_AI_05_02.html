@@ -13,22 +13,30 @@
 
     <body>
         <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
-        <div class="nhasset popWrap nds slidePopConfirm">
+        <div class="nhasset popWrap nds slidePopConfirm" role="dialog" aria-modal="true" aria-labelledby="popTitle">
             <div class="dim"></div>
             <div class="popInner">
-                <h1>투자성향진단 결과가 달라졌어요!</h1>
+                <h1 id="popTitle" class="blind">투자성향진단 결과</h1>
                 <div class="popCont">
                     <div class="popCont__inner">
-                        <p>AI 포트폴리오 진단을 다시 받아보세요.</p>
-                        <div class="mt30">
-                            <input type="checkbox" id="listAll" class="chekTypeOther" name="" />
-                            <label for="listAll">오늘 다시 보지 않기</label>
+                        <div class="text-stack pop-guide">
+                            <p class="text text--h1">
+                                투자성향진단 결과가
+                                <br />
+                                달라졌어요!
+                            </p>
+                            <p class="text text--body1-medium">
+                                AI포트폴리오 진단을
+                                <br />
+                                다시 받아보세요.
+                            </p>
+                            <img class="illust" src="../../images/update/img-ally-picture-frame.png" alt="" />
                         </div>
                     </div>
                 </div>
                 <div class="popBtnWrap">
-                    <div class="popBtn">
-                        <a href="javascript:;" role="button">다음에</a>
+                    <div class="popBtn half">
+                        <a href="javascript:;" class="confirmBtn" role="button">다음에</a>
                         <a href="javascript:;" class="confirmBtn" role="button">다시하기</a>
                     </div>
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
