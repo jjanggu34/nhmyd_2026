@@ -30,130 +30,133 @@
                         </span>
                     </span>
                 </div>
-                <h2 class="text text--h2 diag-lead">
-                    내 자산의 구성상품까지 고려하여,
-                    <br />
-                    진단을 진행해요.
-                </h2>
-
                 <!-- 진단 대상 전체자산 -->
-                <div class="md-card diag-card">
-                    <h3 class="diag-card__title">
-                        <button type="button" class="diag-card__head">
-                            <span class="text text--h4">진단 대상 전체자산이에요</span>
-                            <span class="diag-card__head-arrow" aria-hidden="true"></span>
-                        </button>
-                    </h3>
+                <section class="ai-section">
+                    <h2 class="text text--h2 diag-lead">
+                        내 자산의 구성상품까지 고려하여,
+                        <br />
+                        진단을 진행해요.
+                    </h2>
+                    <div class="info-card diag-card">
+                        <h3 class="diag-card__title">
+                            <button type="button" class="diag-card__head">
+                                <span class="text text--h4">진단 대상 전체자산이에요</span>
+                                <span class="diag-card__head-arrow" aria-hidden="true"></span>
+                            </button>
+                        </h3>
 
-                    <div class="diag-total">
-                        <div class="diag-total__group">
-                            <p class="diag-total__base">
-                                2026.08.24 마이데이터 기준
-                                <button type="button" class="diag-total__refresh"><span class="blind">최신 정보로 새로고침</span></button>
-                            </p>
-                            <div class="diag-total__sum">
-                                <span class="diag-total__label">전체자산 총 금액</span>
-                                <strong class="diag-total__amount">364,000,000원</strong>
+                        <div class="diag-total">
+                            <div class="diag-total__group">
+                                <p class="diag-total__base">
+                                    2026.08.24 마이데이터 기준
+                                    <button type="button" class="diag-total__refresh"><span class="blind">최신 정보로 새로고침</span></button>
+                                </p>
+                                <div class="diag-total__sum">
+                                    <span class="diag-total__label">전체자산 총 금액</span>
+                                    <strong class="diag-total__amount">364,000,000원</strong>
+                                </div>
                             </div>
+                            <p class="diag-total__note">간접투자(펀드, ETF 등)처럼 여러 자산군이 섞인 상품까지 나눠 실제 자산군 기준으로 반영했어요.</p>
                         </div>
-                        <p class="diag-total__note">간접투자(펀드, ETF 등)처럼 여러 자산군이 섞인 상품까지 나눠 실제 자산군 기준으로 반영했어요.</p>
-                    </div>
 
-                    <!-- 비중기준 / 금액기준: 누르면 아래 범례 수치만 바뀝니다 -->
-                    <div class="diag-unit" role="group" aria-label="자산 표기 기준">
-                        <button type="button" class="diag-unit__btn diag-unit__btn--active" data-diag-unit="ratio" aria-pressed="true">비중기준</button>
-                        <span class="diag-unit__dash" aria-hidden="true"></span>
-                        <button type="button" class="diag-unit__btn" data-diag-unit="amount" aria-pressed="false">금액기준</button>
-                    </div>
+                        <!-- 비중기준 / 금액기준: 누르면 아래 범례 수치만 바뀝니다 -->
+                        <div class="diag-unit" role="group" aria-label="자산 표기 기준">
+                            <button type="button" class="diag-unit__btn diag-unit__btn--active" data-diag-unit="ratio" aria-pressed="true">비중기준</button>
+                            <span class="diag-unit__dash" aria-hidden="true"></span>
+                            <button type="button" class="diag-unit__btn" data-diag-unit="amount" aria-pressed="false">금액기준</button>
+                        </div>
 
-                    <div class="diag-donut">
-                        <canvas id="diagDonutChart" aria-hidden="true"></canvas>
-                    </div>
-                    <ul class="blind">
-                        <li>해외채권 33%, 120,000,000원</li>
-                        <li>국내채권 13%, 46,000,000원</li>
-                        <li>해외채권 5%, 20,000,000원</li>
-                        <li>국내주식 31%, 112,000,000원</li>
-                        <li>해외선진국주식 14%, 49,600,000원</li>
-                        <li>해외신흥국주식 3%, 12,400,000원</li>
-                        <li>대체자산 1%, 4,000,000원</li>
-                    </ul>
+                        <div class="diag-donut">
+                            <canvas id="diagDonutChart" aria-hidden="true"></canvas>
+                        </div>
+                        <ul class="blind">
+                            <li>해외채권 33%, 120,000,000원</li>
+                            <li>국내채권 13%, 46,000,000원</li>
+                            <li>해외채권 5%, 20,000,000원</li>
+                            <li>국내주식 31%, 112,000,000원</li>
+                            <li>해외선진국주식 14%, 49,600,000원</li>
+                            <li>해외신흥국주식 3%, 12,400,000원</li>
+                            <li>대체자산 1%, 4,000,000원</li>
+                        </ul>
 
-                    <div class="diag-legend" aria-hidden="true">
-                        <ul class="diag-legend__group">
-                            <li class="diag-legend__row">
-                                <span class="diag-legend__name">
-                                    <i class="diag-legend__swatch" style="background:#22d3ee"></i>
-                                    해외채권
-                                </span>
-                                <span class="diag-legend__value" data-ratio="33 %" data-amount="120,000,000 원">33 %</span>
-                            </li>
-                        </ul>
-                        <ul class="diag-legend__group">
-                            <li class="diag-legend__row">
-                                <span class="diag-legend__name">
-                                    <i class="diag-legend__swatch" style="background:#a3e635"></i>
-                                    국내채권
-                                </span>
-                                <span class="diag-legend__value" data-ratio="13 %" data-amount="46,000,000 원">13 %</span>
-                            </li>
-                            <li class="diag-legend__row">
-                                <span class="diag-legend__name">
-                                    <i class="diag-legend__swatch" style="background:#f472b6"></i>
-                                    해외채권
-                                </span>
-                                <span class="diag-legend__value" data-ratio="5 %" data-amount="20,000,000 원">5 %</span>
-                            </li>
-                        </ul>
-                        <ul class="diag-legend__group">
-                            <li class="diag-legend__row">
-                                <span class="diag-legend__name">
-                                    <i class="diag-legend__swatch" style="background:#facc15"></i>
-                                    국내주식
-                                </span>
-                                <span class="diag-legend__value" data-ratio="31 %" data-amount="112,000,000 원">31 %</span>
-                            </li>
-                            <li class="diag-legend__row">
-                                <span class="diag-legend__name">
-                                    <i class="diag-legend__swatch" style="background:#facc15"></i>
-                                    해외선진국주식
-                                </span>
-                                <span class="diag-legend__value" data-ratio="14 %" data-amount="49,600,000 원">14 %</span>
-                            </li>
-                            <li class="diag-legend__row">
-                                <span class="diag-legend__name">
-                                    <i class="diag-legend__swatch" style="background:#4c6ce0"></i>
-                                    해외신흥국주식
-                                </span>
-                                <span class="diag-legend__value" data-ratio="3 %" data-amount="12,400,000 원">3 %</span>
-                            </li>
-                        </ul>
-                        <ul class="diag-legend__group">
-                            <li class="diag-legend__row">
-                                <span class="diag-legend__name">
-                                    <i class="diag-legend__swatch" style="background:#d7d7d7"></i>
-                                    대체자산
-                                </span>
-                                <span class="diag-legend__value" data-ratio="1 %" data-amount="4,000,000 원">1 %</span>
-                            </li>
-                        </ul>
+                        <div class="diag-legend" aria-hidden="true">
+                            <ul class="diag-legend__group">
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name">
+                                        <i class="diag-legend__swatch" style="background:#22d3ee"></i>
+                                        해외채권
+                                    </span>
+                                    <span class="diag-legend__value" data-ratio="33 %" data-amount="120,000,000 원">33 %</span>
+                                </li>
+                            </ul>
+                            <ul class="diag-legend__group">
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name">
+                                        <i class="diag-legend__swatch" style="background:#a3e635"></i>
+                                        국내채권
+                                    </span>
+                                    <span class="diag-legend__value" data-ratio="13 %" data-amount="46,000,000 원">13 %</span>
+                                </li>
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name">
+                                        <i class="diag-legend__swatch" style="background:#f472b6"></i>
+                                        해외채권
+                                    </span>
+                                    <span class="diag-legend__value" data-ratio="5 %" data-amount="20,000,000 원">5 %</span>
+                                </li>
+                            </ul>
+                            <ul class="diag-legend__group">
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name">
+                                        <i class="diag-legend__swatch" style="background:#facc15"></i>
+                                        국내주식
+                                    </span>
+                                    <span class="diag-legend__value" data-ratio="31 %" data-amount="112,000,000 원">31 %</span>
+                                </li>
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name">
+                                        <i class="diag-legend__swatch" style="background:#facc15"></i>
+                                        해외선진국주식
+                                    </span>
+                                    <span class="diag-legend__value" data-ratio="14 %" data-amount="49,600,000 원">14 %</span>
+                                </li>
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name">
+                                        <i class="diag-legend__swatch" style="background:#4c6ce0"></i>
+                                        해외신흥국주식
+                                    </span>
+                                    <span class="diag-legend__value" data-ratio="3 %" data-amount="12,400,000 원">3 %</span>
+                                </li>
+                            </ul>
+                            <ul class="diag-legend__group">
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name">
+                                        <i class="diag-legend__swatch" style="background:#d7d7d7"></i>
+                                        대체자산
+                                    </span>
+                                    <span class="diag-legend__value" data-ratio="1 %" data-amount="4,000,000 원">1 %</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                </section>
 
                 <!-- 나의 투자성향 -->
-                <div class="md-card diag-type">
-                    <p class="diag-type__row">
-                        <span class="diag-type__badge" aria-hidden="true"></span>
-                        <span class="diag-type__label">나의 투자성향</span>
-                        <strong class="diag-type__value">적극 투자형</strong>
-                    </p>
-                    <p class="diag-type__more">
-                        <button type="button" class="btn-arrow btn-arrow--caption">
-                            투자성향 진단 다시하기
-                            <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
-                        </button>
-                    </p>
-                </div>
+                <section class="ai-section">
+                    <div class="info-card diag-type">
+                        <p class="diag-type__row">
+                            <span class="diag-type__badge" aria-hidden="true"></span>
+                            <span class="diag-type__label">나의 투자성향</span>
+                            <strong class="diag-type__value">적극 투자형</strong>
+                        </p>
+                        <p class="diag-type__more">
+                            <button type="button" class="btn-arrow btn-arrow--caption">
+                                투자성향 진단 다시하기
+                                <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                            </button>
+                        </p>
+                    </div>
+                </section>
 
                 <!-- 진단 포트폴리오 구성 -->
                 <div class="md-card diag-portfolio">
@@ -186,19 +189,23 @@
                 </div>
 
                 <!-- 더 정확한 결과 -->
-                <div class="diag-connect">
-                    <span class="diag-connect__text">더 정확한 결과를 원하시나요?</span>
-                    <button type="button" class="btn-arrow">
-                        자산 연결
-                        <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
-                    </button>
-                </div>
+                <section class="ai-section">
+                    <div class="info-card diag-connect">
+                        <span class="diag-connect__text">더 정확한 결과를 원하시나요?</span>
+                        <button type="button" class="btn-arrow">
+                            자산 연결
+                            <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </section>
 
                 <div class="areaBtnDefault bgcolor">
                     <a href="javascript:;" class="btnPressPoint" role="button">진단 대상 확인</a>
                 </div>
             </div>
         </div>
+
+        <script src="../../js/chart.js"></script>
         <script>
             (function () {
                 // 가운데 도넛 차트(Chart.js) — 범례와 같은 순서/색을 씁니다.
