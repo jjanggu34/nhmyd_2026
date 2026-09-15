@@ -428,13 +428,13 @@
 .nds .infobox__title--sm {font-size:var(--type-size-14);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-3);}
 .nds .infobox--outline {background-color:var(--color-bg-default);border:1px solid var(--color-border-2)}
 .nds .infobox__button {display:flex;align-items:center;gap:var(--spacing-2);width:100%;background:none;border:none;padding:0;cursor:pointer;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-3)}
-.nds .infobox__button::after {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .infobox__button::after {content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:var(--ico-arr);mask-image:var(--ico-arr);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 /* ---- Indicator (Number/Dot) ---- */
 .nds .indicator-number {display:inline-flex;align-items:center;gap:var(--spacing-4)}
 .nds .indicator-number__paging {position:relative;display:inline-flex;align-items:center;gap:var(--spacing-2);padding:1px var(--spacing-4);border-radius:var(--border-radius-circle)}
 .nds .indicator-number__paging::before {content:"";position:absolute;inset:0;background-color:var(--primitive-gray-900);opacity:0.4;border-radius:var(--border-radius-circle)}
 .nds .indicator-number__arrow {position:relative;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;background:none;border:none;padding:0;cursor:pointer;color:var(--primitive-base-0)}
-.nds .indicator-number__arrow::before {content:"";display:block;width:16px;height:16px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .indicator-number__arrow::before {content:"";display:block;width:16px;height:16px;background-color:currentColor;-webkit-mask-image:var(--ico-arr);mask-image:var(--ico-arr);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .indicator-number__arrow[aria-label="이전"]::before {transform:translateY(-50%) scaleX(-1)}
 .nds .indicator-number__count {position:relative;display:inline-flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-12);font-weight:var(--font-weight-regular);letter-spacing:-0.02em;line-height:18px}
 .nds .indicator-number__current {color:var(--color-text-indicator-default)}
@@ -1427,7 +1427,7 @@
 /* ---- NH_MD_01 ---- */
 .md-section {margin-top:56px}
 .md-section__title {font-size:var(--type-size-18);font-weight:600;line-height:26px;letter-spacing:-0.45px;color:var(--primitive-gray-font-900);text-align:left;margin:0 0 var(--spacing-20) var(--spacing-8)}
-.md-card {background:var(--primitive-base-0);border-radius:var(--radius-16);padding:var(--spacing-32) var(--spacing-20);box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.07)}
+/*.md-card {background:var(--primitive-base-0);border-radius:var(--radius-16);padding:var(--spacing-32) var(--spacing-20);box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.07)}*/
 .nds .linked-bottom-menu.alloneFooterNew{box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.05)}
 /* ---- 자산 카테고리 탭 + 스와이프 히어로 캐러셀(유동성/투자/연금/대출) ---- */
 .asset-hero-swiper-clip {overflow:hidden;margin:-24px;padding:var(--spacing-24) var(--spacing-16)}
@@ -1906,11 +1906,47 @@
 .nds .finance-preview__gauge-goal::before {content:"";display:block;width:24px;height:24px;background-image:url("../images/update/ic-flag-pink.svg");background-size:contain;background-repeat:no-repeat;background-position:center}
 .nds .finance-preview__gauge-labels {display:flex;justify-content:space-between;margin-top:var(--spacing-8);font-size:12px;letter-spacing:-0.24px;color:var(--color-font-4)}
 /* --- NH_MD_CO_01_01 ---- */
-.nds .analysis-section {display:flex;flex-direction:column;gap:var(--spacing-20);margin-top:40px;}
-.nds .analysis-section:first-of-type { margin-top:24px }
-.nds .analysis-section [class*="tooltip-btn"] { display:inline-flex;width:24px;height:24px;flex-shrink:0;border:none;padding:0;cursor:pointer;background-color:var(--color-icon-4);-webkit-mask-image:url("../images/update/ic-tooltip-mark_16.svg");mask-image:url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size:100%;mask-size:100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
-.nds .analysis-section [class*="link-btn"]::after { content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
-.nds .analysis-section [class*="edit-btn"]::before { content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-edit-mark_16.svg");mask-image:url("../images/update/ic-edit-mark_16.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
+
+/* ------ icon 모음 ---------- */
+:root {
+    --ico-arr:url("../images/update/ic-arrow-right-short.svg");
+    --ico-note:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z' fill='%23888888'/%3E%3Cpath d='M7 7.75V3.75' stroke='white' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='7' cy='10.5' r='.75' fill='white'/%3E%3C/svg%3E");
+}
+
+.nds .info-card,
+.nds .md-card { flex-direction:column;align-items:center;gap:var(--spacing-16);position:relative;width:100%;padding:var(--spacing-20);border-radius:var(--radius-10);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);box-sizing:border-box;}
+.nds .info-card a.link { display:inline-flex;align-items:center;gap:var(--spacing-2) }
+.nds .info-card .positive { color:var(--primitive-blue-500); }
+.nds .info-card .negative { color:var(--primitive-red-500); }
+.nds .analysis-section .info-card a.link::after  { content: "";display:block;width:16px;height:16px;flex-shrink:0;background-color:var(--color-icon-1);-webkit-mask-image:var(--ico-arr);mask-image:var(--ico-arr);-webkit-mask-size: contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
+.nds .analysis-section .info-card--group { margin-top:calc(var(--spacing-12) - var(--spacing-20));padding:0;background-color:#685EFD;padding:0;box-shadow:none; }
+.nds .analysis-section .info-card__head { width:100%;padding:var(--spacing-16) var(--spacing-20) var(--spacing-12);font-size:var(--type-size-16); }
+.nds .analysis-section .info-card__head p { display:flex;justify-content:space-between;gap:var(--spacing-10)}
+.nds .analysis-section .info-card__head-title { font-weight:var(--font-weight-regular);color:var(--color-font-10) !important }
+.nds .analysis-section .info-card__head-data {  font-weight:var(--font-weight-semibold);color:var(--color-font-10) !important }
+.nds .analysis-section .info-card__list{ display:flex;flex-direction:column;border-radius:var(--radius-10);/*background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);*/ }
+.nds .analysis-section .info-card--group .info-card__list { background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07); }
+.nds .analysis-section .info-card__list > ul > li { display:flex;flex-direction:column;gap:var(--spacing-8);position:static;padding:var(--spacing-16) var(--spacing-20); border-bottom:1px solid var(--color-border-3); }
+.nds .analysis-section .info-card__list > ul > li:last-of-type,
+.nds .analysis-section .info-card__list:has(li.info-card__graph) > ul > li { border-bottom:0; }
+.nds .analysis-section .info-card__list > ul > li:has(.info-card__amount) { padding-top:var(--spacing-4) }
+.nds .analysis-section .info-card__list-link { display:flex;justify-content:space-between;gap:var(--spacing-2);font-size:var(--type-size-16);font-weight:var(--font-weight-bold);color:var(--color-font-1) }
+.nds .analysis-section .info-card__list-link .normal { font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);color:var(--color-font-3);letter-spacing:-0.28px }
+.nds .analysis-section .info-card__list.select-card__list { padding:0 var(--spacing-20) }
+.nds .analysis-section .info-card__list.select-card__list > ul > li { padding:var(--spacing-20) 0 }
+.nds .analysis-section .info-card__list ul.select-card__list-row { display:flex;flex-direction:column;margin-top:32px;width:100% }
+.nds .analysis-section .info-card__list ul.select-card__list-row > li { display:flex;justify-content:space-between;width:100%; }
+.nds .analysis-section .info-card__nodate { display:flex; }
+
+
+
+.nds .analysis-section, 
+.nds .ai-section {display:flex;flex-direction:column;gap:var(--spacing-20);margin-top:40px;}
+.nds .analysis-section:first-of-type,
+.nds .ai-section:first-of-type { margin-top:24px }
+.nds .analysis-section [class*="tooltip-btn"] { display:inline-flex;width:24px;height:24px;flex-shrink:0;border:none;padding:0;cursor:pointer;background-color:var(--color-icon-4);-webkit-mask-image:var(--ico-arr);mask-image:var(--ico-arr);-webkit-mask-size:100%;mask-size:100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
+.nds .analysis-section [class*="link-btn"]::after { content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:var(--ico-arr);mask-image:var(--ico-arr);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
+.nds .analysis-section [class*="edit-btn"]::before { content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:var(--ico-arr);mask-image:var(--ico-arr);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
 .nds .analysis-section [class*="-title"] { font-size:var(--type-size-16);color:var(--color-font-1);font-weight:var(--font-weight-bold) }
 .nds .analysis-section [class*="-data"] { font-size:var(--type-size-16);color:var(--color-font-1);font-weight:var(--font-weight-semibold) }
 .nds .analysis-section h2[class*="__title"] { display:block;align-items:center;font-size:var(--type-size-18);line-height:26px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.36px;color:var(--color-font-1) }
@@ -1930,29 +1966,7 @@
 .nds .analysis-section .analysis-title__edit-btn { display:flex;align-items:center;gap:var(--spacing-2);font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);color:var(--color-font-3) }
 .nds .analysis-section .average-list-title,
 .nds .analysis-section .analysis-title strong,
-.nds .analysis-section .info-card a.link { display:inline-flex;align-items:center;gap:var(--spacing-2) }
-.nds .analysis-section .info-card .positive { color:var(--primitive-blue-500); }
-.nds .analysis-section .info-card .negative { color:var(--primitive-red-500); }
-.nds .analysis-section .info-card a.link::after  { content: "";display:block;width:16px;height:16px;flex-shrink:0;background-color:var(--color-icon-1);-webkit-mask-image: url("../images/update/ic-arrow-right-short.svg");mask-image: url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size: contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
-.nds .analysis-section .info-card { flex-direction:column;align-items:center;gap:var(--spacing-16);position:relative;width:100%;padding:var(--spacing-20);border-radius:var(--radius-10);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);box-sizing:border-box;}
-.nds .analysis-section .info-card--group { margin-top:calc(var(--spacing-12) - var(--spacing-20));padding:0;background-color:#685EFD;padding:0;box-shadow:none; }
-.nds .analysis-section .info-card__head { width:100%;padding:var(--spacing-16) var(--spacing-20) var(--spacing-12);font-size:var(--type-size-16); }
-.nds .analysis-section .info-card__head p { display:flex;justify-content:space-between;gap:var(--spacing-10)}
-.nds .analysis-section .info-card__head-title { font-weight:var(--font-weight-regular);color:var(--color-font-10) !important }
-.nds .analysis-section .info-card__head-data {  font-weight:var(--font-weight-semibold);color:var(--color-font-10) !important }
-.nds .analysis-section .info-card__list{ display:flex;flex-direction:column;border-radius:var(--radius-10);/*background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);*/ }
-.nds .analysis-section .info-card--group .info-card__list { background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07); }
-.nds .analysis-section .info-card__list > ul > li { display:flex;flex-direction:column;gap:var(--spacing-8);position:static;padding:var(--spacing-16) var(--spacing-20); border-bottom:1px solid var(--color-border-3); }
-.nds .analysis-section .info-card__list > ul > li:last-of-type,
-.nds .analysis-section .info-card__list:has(li.info-card__graph) > ul > li { border-bottom:0; }
-.nds .analysis-section .info-card__list > ul > li:has(.info-card__amount) { padding-top:var(--spacing-4) }
-.nds .analysis-section .info-card__list-link { display:flex;justify-content:space-between;gap:var(--spacing-2);font-size:var(--type-size-16);font-weight:var(--font-weight-bold);color:var(--color-font-1) }
-.nds .analysis-section .info-card__list-link .normal { font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);color:var(--color-font-3);letter-spacing:-0.28px }
-.nds .analysis-section .info-card__list.select-card__list { padding:0 var(--spacing-20) }
-.nds .analysis-section .info-card__list.select-card__list > ul > li { padding:var(--spacing-20) 0 }
-.nds .analysis-section .info-card__list ul.select-card__list-row { display:flex;flex-direction:column;margin-top:32px;width:100% }
-.nds .analysis-section .info-card__list ul.select-card__list-row > li { display:flex;justify-content:space-between;width:100%; }
-.nds .analysis-section .info-card__nodate { display:flex; }
+
 .nds .analysis-section .average-list > li {display:flex;justify-content:space-between;color:var(--color-font-3) }
 .nds .analysis-section .average-list > li > .tooltipCont { width:calc(100% + 40px) !important }
 
@@ -2124,14 +2138,15 @@
 .nds .diag-step {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);margin:var(--spacing-16) 0 0}
 .nds .diag-step__progress {display:inline-flex;align-items:center;gap:var(--spacing-2)}
 .nds .process-progress-number--plain {padding:0;background:none}
-.nds .diag-lead {margin:var(--spacing-24) 0 0}
+/*.nds .diag-lead {margin:var(--spacing-24) 0 0}*/
 /* 카드 공통 : 시안의 카드 간격 40, 그림자 0 5px 8px */
-.nds .diag-card, .nds .diag-type, .nds .diag-portfolio {margin:var(--spacing-40) 0 0;box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
-.nds .diag-card {margin-top:var(--spacing-24);padding:var(--spacing-20)}
+/*.nds .diag-card, .nds .diag-type, .nds .diag-portfolio {margin:var(--spacing-40) 0 0;box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
+.nds .diag-card {margin-top:var(--spacing-24);padding:var(--spacing-20)}*/
 .nds .diag-type, .nds .diag-portfolio {padding:var(--spacing-16)}
 /* 진단 대상 전체자산 */
-.nds .diag-card__head {display:flex;align-items:center;gap:var(--spacing-2);width:auto;padding:0;margin:0;background:none;border:none;text-align:left;cursor:pointer}
-.nds .diag-card__head-arrow {flex-shrink:0;display:block;width:24px;height:24px;background-color:var(--color-font-1);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .diag-card__head {display:flex;align-items:center;gap:var(--spacing-2);width:auto;padding:0;margin:0;font-size:inherit;background:none;border:none;text-align:left;cursor:pointer}
+.nds .diag-card__head-arrow {flex-shrink:0;display:block;width:24px;height:24px;background-color:var(--color-font-1);-webkit-mask-image:var(--ico-arr);mask-image:var(--ico-arr);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .diag-card__head-arrow:before { display:none }
 .nds .diag-total {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-16) 0 0;padding:var(--spacing-20);border-radius:var(--radius-10);background:var(--diag-total-bg)}
 .nds .diag-total__group {display:flex;flex-direction:column;gap:var(--spacing-8)}
 .nds .diag-total__base {display:flex;align-items:center;gap:var(--spacing-2);margin:0;padding:var(--spacing-2) 0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:12px;letter-spacing:-0.24px;color:var(--diag-sub-font)}
@@ -2161,7 +2176,7 @@
 .nds .diag-type__row {display:flex;align-items:center;gap:var(--spacing-8);margin:0}
 .nds .diag-type__badge {flex-shrink:0;display:block;width:40px;height:40px;border-radius:var(--radius-16);background:var(--diag-badge-bg) url("../images/update/ic_investor-gage.svg") no-repeat center / 24px 24px}
 .nds .diag-type__label {font-size:var(--type-size-16);font-weight:var(--font-weight-regular);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
-.nds .diag-type__value {font-size:var(--type-size-16);font-weight:var(--font-weight-bold);line-height:24px;letter-spacing:-0.32px;color:var(--primitive-red-grade)}
+.nds .diag-type__value {font-size:var(--type-size-16);font-weight:var(--font-weight-bold) !important;line-height:24px;letter-spacing:-0.32px;color:var(--primitive-red-grade)}
 .nds .diag-type__more {display:flex;justify-content:flex-end;margin:0}
 .nds .btn-arrow--caption {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px}
 /* 진단 포트폴리오 구성 */
@@ -2171,9 +2186,9 @@
 .nds .diag-portfolio__divider {margin:0}
 .nds .diag-portfolio .radio-box-row > label {flex:1 1 0;min-width:0}
 .nds .diag-note {display:flex;gap:var(--spacing-6);margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
-.nds .diag-note__icon {flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("../images/update/ic-warning-circle.svg") no-repeat center / contain}
+.nds .diag-note__icon {flex-shrink:0;width:14px;height:14px;margin-top:3px;background-color:#BCC2CF;-webkit-mask-image:url("../images/update/ic-warning-circle.svg");mask-image:url("../images/update/ic-warning-circle.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 /* 더 정확한 결과를 원하시나요? (Banner_thin) */
-.nds .diag-connect {display:flex;align-items:center;gap:var(--spacing-4);margin:var(--spacing-40) 0 0;padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-12);background:var(--color-bg-default);box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
+.nds .diag-connect {display:flex;flex-direction:row;align-items:center;gap:var(--spacing-4);padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-12);}
 .nds .diag-connect__text {flex:1 1 auto;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-1)}
 .nds .diag-connect + .areaBtnDefault {margin-top:var(--spacing-32)}
 /* -- NH_MD_AI_03 : AI 포트폴리오 진단(제안 대상 진단) -- */
