@@ -6,60 +6,61 @@
         <title>AI 포트폴리오</title>
     </head>
 
-    <body>
+    <body class="bgcolor">
         <div class="wrapper nhasset nds">
-            <div class="header">
+            <div class="header bgcolor" role="banner">
                 <a href="javascript:;" role="button" class="btnBack"><span class="blind">이전화면으로</span></a>
                 <h1>AI 포트폴리오</h1>
                 <a href="javascript:;" class="btnAll" role="button"><span class="blind">전체메뉴</span></a>
             </div>
 
-            <div class="container">
-                <div class="swiper-container" id="fundPromoSwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <p>
-                                성공적인 투자를 위한 첫걸음,
-                                <br />
-                                현재 투자 가능한
-                                <br />
-                                나의 자산은 얼마일까?
-                            </p>
-                            <!-- <img src="../../images/update/img-ally-laptop-cash.png" alt="" aria-hidden="true" /> -->
+            <div class="container bgcolor" role="main">
+                <div class="onboard">
+                    <!-- 인디케이터 : Swiper bullets(공통 dots-pagination) -->
+                    <div class="swiper-pagination dots-pagination onboard__dots"></div>
+
+                    <div class="swiper-container onboard__swiper" id="fundPromoSwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide onboard__slide">
+                                <!-- prettier-ignore -->
+                                <p class="onboard__title">내 투자 성향에 맞춘 최적<br /><strong>포트폴리오를 확인</strong>해 보세요.</p>
+                                <div class="onboard__visual">
+                                    <!-- 가운데 뚫린 영역 : 아래에 <img src="../../images/update/..." alt="" /> 를 넣으면 프레임에 맞춰 채워집니다 -->
+                                    <div class="onboard__frame" aria-hidden="true"></div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide onboard__slide">
+                                <!-- prettier-ignore -->
+                                <p class="onboard__title">펀드 속 자산까지 나눠 보면<br /><strong>내 자산은 실제로 어떤 모습</strong>일까?</p>
+                                <div class="onboard__visual">
+                                    <!-- 가운데 뚫린 영역 -->
+                                    <div class="onboard__frame" aria-hidden="true"></div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide onboard__slide">
+                                <!-- prettier-ignore -->
+                                <p class="onboard__title">투자하고자 하는 조건에 맞춰<br /><strong>포트폴리오를 조정</strong>해볼까?</p>
+                                <div class="onboard__visual">
+                                    <!-- 가운데 뚫린 영역 -->
+                                    <div class="onboard__frame" aria-hidden="true"></div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide onboard__slide">
+                                <!-- prettier-ignore -->
+                                <p class="onboard__title">성공적인 투자를 위한 나만의 맞춤Tip! <strong>AI의 조언을 확인하세요.</strong></p>
+                                <div class="onboard__visual">
+                                    <!-- 가운데 뚫린 영역 -->
+                                    <div class="onboard__frame" aria-hidden="true"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="swiper-slide">
-                            <p>
-                                투자하고자 하는
-                                <br />
-                                조건에 맞춰
-                                <br />
-                                포트폴리오를 조정해볼까?
-                            </p>
-                        </div>
-                        <div class="swiper-slide">
-                            <p>
-                                성공적인
-                                <br />
-                                투자를 위한 나만의 맞춤Tip!
-                                <br />
-                                AI의 조언을 확인하세요.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="indicator-number">
-                        <div class="indicator-number__paging">
-                            <button type="button" class="indicator-number__arrow" aria-label="이전"></button>
-                            <span class="indicator-number__count">
-                                <span class="indicator-number__current">1</span>
-                                <span class="indicator-number__dash" aria-hidden="true"></span>
-                                <span class="indicator-number__total">3</span>
-                            </span>
-                            <button type="button" class="indicator-number__arrow" aria-label="다음"></button>
-                        </div>
-                        <button type="button" class="indicator-number__control" aria-label="일시정지"></button>
                     </div>
                 </div>
-                <div class="areaBtnDefault">
+
+                <div class="areaBtnDefault bgcolor">
                     <a href="javascript:;" class="btnPressPoint" role="button">AI 포트폴리오 시작</a>
                 </div>
             </div>
@@ -67,61 +68,28 @@
 
         <script>
             $(document).ready(function () {
-                if (typeof Swiper !== 'undefined') {
-                    var promoTrack = document.getElementById('fundPromoSwiper');
-                    if (promoTrack) {
-                        var indicatorEl = promoTrack.querySelector('.indicator-number');
-                        var currentEl = indicatorEl ? indicatorEl.querySelector('.indicator-number__current') : null;
-                        var prevBtn = indicatorEl ? indicatorEl.querySelector('.indicator-number__arrow[aria-label="이전"]') : null;
-                        var nextBtn = indicatorEl ? indicatorEl.querySelector('.indicator-number__arrow[aria-label="다음"]') : null;
-                        var pauseBtn = indicatorEl ? indicatorEl.querySelector('.indicator-number__control') : null;
+                if (typeof Swiper === 'undefined') return;
+                var promoTrack = document.getElementById('fundPromoSwiper');
+                if (!promoTrack) return;
 
-                        function syncPromoIndicator() {
-                            if (!currentEl) return;
-                            var activeSlide = promoTrack.querySelector('.swiper-slide-active');
-                            if (!activeSlide) return;
-                            var dataIdx = activeSlide.getAttribute('data-swiper-slide-index');
-                            var idx = dataIdx !== null ? parseInt(dataIdx, 10) : -1;
-                            if (isNaN(idx) || idx < 0) {
-                                var originals = Array.prototype.slice.call(promoTrack.querySelectorAll('.swiper-wrapper > .swiper-slide:not(.swiper-slide-duplicate)'));
-                                idx = originals.indexOf(activeSlide);
-                            }
-                            if (idx > -1) currentEl.textContent = idx + 1;
-                        }
-
-                        var promoSwiper = new Swiper('#fundPromoSwiper', {
-                            slidesPerView: 1,
-                            spaceBetween: 0,
-                            loop: true,
-                            a11y: false,
-                            autoplay: { delay: 4000, disableOnInteraction: false },
-                            on: {
-                                init: syncPromoIndicator,
-                                slideChange: syncPromoIndicator,
-                                slideChangeTransitionEnd: syncPromoIndicator
-                            }
-                        });
-
-                        // 클릭 직후 바로 한 번 더 동기화합니다 — Swiper의 slideChange 이벤트는
-                        // 전환 애니메이션 완료 시점에 묶여 있어서(느린 기기/백그라운드 탭 등
-                        // 트랜지션이 늦게 끝나는 환경) 화살표를 여러 번 빠르게 눌렀을 때 인디케이터가
-                        // 잠깐 실제 슬라이드보다 늦게 따라갈 수 있습니다. activeIndex 자체는 slideTo
-                        // 호출과 동시에 갱신되므로, 클릭 즉시 동기화하면 이 지연 없이 항상 정확합니다.
-                        if (prevBtn) prevBtn.addEventListener('click', function () { promoSwiper.slidePrev(); syncPromoIndicator(); });
-                        if (nextBtn) nextBtn.addEventListener('click', function () { promoSwiper.slideNext(); syncPromoIndicator(); });
-                        if (pauseBtn) {
-                            pauseBtn.addEventListener('click', function () {
-                                if (pauseBtn.getAttribute('aria-label') === '재생') {
-                                    promoSwiper.autoplay.start();
-                                    pauseBtn.setAttribute('aria-label', '일시정지');
-                                } else {
-                                    promoSwiper.autoplay.stop();
-                                    pauseBtn.setAttribute('aria-label', '재생');
-                                }
-                            });
-                        }
+                new Swiper('#fundPromoSwiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    loop: true,
+                    autoHeight: true,
+                    a11y: {
+                        enabled: true,
+                        prevSlideMessage: '이전 안내',
+                        nextSlideMessage: '다음 안내',
+                        paginationBulletMessage: '{{index}}번째 안내로 이동'
+                    },
+                    autoplay: { delay: 4000, disableOnInteraction: false },
+                    pagination: {
+                        el: '.onboard__dots',
+                        type: 'bullets',
+                        clickable: true
                     }
-                }
+                });
             });
         </script>
     </body>
