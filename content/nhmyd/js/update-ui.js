@@ -135,7 +135,7 @@ window.tooltipOpen = function ($obj) {
     }
 
     var $tooltipCont = $obj.closest(".tooltipWrap").find(".tooltipCont");
-    $(".tooltipCont").removeClass("tooltipCont--top").hide(); // 매번 기본(아래로 열림) 상태로 리셋 후 재측정
+    $(".tooltipCont").removeClass("is-top").hide(); // 매번 기본(아래로 열림) 상태로 리셋 후 재측정
     $tooltipCont.css({ width: $(window).width() - 32 });
     $tooltipCont.show();
 
@@ -144,14 +144,14 @@ window.tooltipOpen = function ($obj) {
     var blockBottom = $ctaWrap.length ? $ctaWrap[0].getBoundingClientRect().top : $(window).height();
 
     if (contRect.bottom > blockBottom) {
-        $tooltipCont.addClass("tooltipCont--top");
+        $tooltipCont.addClass("is-top");
     }
 };
 
 var legacyTooltipClose = window.tooltipClose;
 
 window.tooltipClose = function ($obj) {
-    $obj.closest(".tooltipCont").removeClass("tooltipCont--top");
+    $obj.closest(".tooltipCont").removeClass("is-top");
     if (typeof legacyTooltipClose === "function") legacyTooltipClose($obj);
 };
 
@@ -199,11 +199,46 @@ function syncSlidePopConfirmHeight(animate) {
 }
 window.syncSlidePopConfirmHeight = syncSlidePopConfirmHeight;
 
+/* 시트를 연 뒤에 내용 높이가 바뀌는 경우(약관 아코디언 열기, 웹폰트 적용, 이미지 로드 등)
+   popInner 는 처음 한 번 계산한 높이에 묶여 있어서 내용이 시트 밖으로 넘칩니다.
+   화면이 길어 80% 상한에 걸리지 않는 기기(예: iPhone 12 Pro 390x844)에서는
+   .popCont 에 max-height 도 걸리지 않아 스크롤조차 생기지 않으므로 그대로 잘려 보입니다.
+   그래서 내용 영역을 관찰해 높이가 바뀔 때마다 다시 계산합니다. */
+var slidePopContentObserver = null;
+var slidePopSyncScheduled = false;
+
+function scheduleSlidePopConfirmSync() {
+    if (slidePopSyncScheduled) return;
+    slidePopSyncScheduled = true;
+    window.requestAnimationFrame(function () {
+        slidePopSyncScheduled = false;
+        syncSlidePopConfirmHeight(false);
+    });
+}
+
+function observeSlidePopConfirmContent() {
+    if (typeof ResizeObserver !== "function") return;
+    if (!slidePopContentObserver) slidePopContentObserver = new ResizeObserver(scheduleSlidePopConfirmSync);
+    slidePopContentObserver.disconnect();
+
+    // .popCont 는 우리가 max-height 를 직접 건드리므로 관찰 대상에서 빼고 내용 래퍼만 봅니다.
+    $(".slidePopConfirm.nds .popCont").each(function () {
+        var inner = this.querySelector(".popCont__inner");
+        if (inner) {
+            slidePopContentObserver.observe(inner);
+            return;
+        }
+        for (var i = 0; i < this.children.length; i++) slidePopContentObserver.observe(this.children[i]);
+    });
+}
+window.observeSlidePopConfirmContent = observeSlidePopConfirmContent;
+
 window.slidePopConfirm = function () {
     scrollLock();
     $(".slidePopConfirm").show();
     setTimeout(function () {
         syncSlidePopConfirmHeight(true);
+        observeSlidePopConfirmContent();
     }, 100);
 };
 
@@ -234,7 +269,7 @@ window.renderBottomsheetList = function (options) {
         var selected = i === selectedIndex;
         var btn = document.createElement("button");
         btn.type = "button";
-        btn.className = "bottomsheet-list__item" + (selected ? " bottomsheet-list__item--selected" : "");
+        btn.className = "bottomsheet-list__item" + (selected ? " is-selected" : "");
         btn.setAttribute("role", "option");
         btn.setAttribute("aria-selected", selected ? "true" : "false");
 
@@ -528,7 +563,7 @@ window.renderBottomsheetList = function (options) {
                 btn.addEventListener("click", function () {
                     group.forEach(function (c) {
                         var active = c === btn;
-                        c.classList.toggle("chip-single--active", active);
+                        c.classList.toggle("is-active", active);
                         c.setAttribute("aria-pressed", active ? "true" : "false");
                     });
                 });
@@ -547,7 +582,7 @@ window.renderBottomsheetList = function (options) {
                 btn.addEventListener("click", function () {
                     items.forEach(function (b) {
                         var active = b === btn;
-                        b.classList.toggle("bottomsheet-list__item--selected", active);
+                        b.classList.toggle("is-selected", active);
                         b.setAttribute("aria-pressed", active ? "true" : "false");
                     });
                 });
@@ -556,7 +591,7 @@ window.renderBottomsheetList = function (options) {
     }
 
     function initChipAnchorScroll() {
-        document.querySelectorAll(".chips--sticky").forEach(function (chipsEl) {
+        document.querySelectorAll(".chips.is-sticky").forEach(function (chipsEl) {
             var chips = Array.prototype.slice.call(chipsEl.querySelectorAll(".chip-single"));
             var scope = chipsEl.parentElement;
             if (!scope) return;
@@ -572,7 +607,7 @@ window.renderBottomsheetList = function (options) {
             function setActive(index) {
                 chips.forEach(function (c, i) {
                     var active = i === index;
-                    c.classList.toggle("chip-single--active", active);
+                    c.classList.toggle("is-active", active);
                     c.setAttribute("aria-pressed", active ? "true" : "false");
                 });
             }
@@ -637,5 +672,13 @@ window.renderBottomsheetList = function (options) {
         initBottomsheetList();
         initChipAnchorScroll();
         initStickyFooter();
+        observeSlidePopConfirmContent();
+
+        // 웹폰트가 늦게 적용되면 글자 줄바꿈이 달라져 시트 높이가 틀어집니다(ResizeObserver 미지원 대비).
+        if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === "function") {
+            document.fonts.ready.then(function () {
+                if ($(".slidePopConfirm.nds:visible").length > 0) syncSlidePopConfirmHeight(false);
+            });
+        }
     });
 })();

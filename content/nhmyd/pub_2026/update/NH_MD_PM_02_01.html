@@ -37,18 +37,18 @@
                                     <p class="bottomsheet-option__label">알림 기준 금액</p>
                                     <div class="radio-box-row">
                                         <input type="radio" name="pmAlertAmount" id="pmAmount-5" class="radio-hidden-input radio-box-input" data-amount="50000" checked />
-                                        <label for="pmAmount-5" class="radio-box radio-box--sm radio-box--center">5만원</label>
+                                        <label for="pmAmount-5" class="radio-box is-sm is-center">5만원</label>
                                         <input type="radio" name="pmAlertAmount" id="pmAmount-10" class="radio-hidden-input radio-box-input" data-amount="100000" />
-                                        <label for="pmAmount-10" class="radio-box radio-box--sm radio-box--center">10만원</label>
+                                        <label for="pmAmount-10" class="radio-box is-sm is-center">10만원</label>
                                         <input type="radio" name="pmAlertAmount" id="pmAmount-20" class="radio-hidden-input radio-box-input" data-amount="200000" />
-                                        <label for="pmAmount-20" class="radio-box radio-box--sm radio-box--center">20만원</label>
+                                        <label for="pmAmount-20" class="radio-box is-sm is-center">20만원</label>
                                         <input type="radio" name="pmAlertAmount" id="pmAmount-direct" class="radio-hidden-input radio-box-input" data-amount="direct" />
-                                        <label for="pmAmount-direct" class="radio-box radio-box--sm radio-box--center">직접입력</label>
+                                        <label for="pmAmount-direct" class="radio-box is-sm is-center">직접입력</label>
                                     </div>
-                                    <div class="input-box input-box--readonly" id="pmAmountBox">
+                                    <div class="input-box is-readonly" id="pmAmountBox">
                                         <label for="pmAmountInput" class="blind">알림 기준 금액 입력</label>
                                         <div class="input-box__field">
-                                            <input type="text" inputmode="numeric" class="input-box__input input-box__input--right" id="pmAmountInput" value="50,000원" readonly />
+                                            <input type="text" inputmode="numeric" class="input-box__input is-right" id="pmAmountInput" value="50,000원" readonly />
                                         </div>
                                     </div>
                                 </div>
@@ -57,9 +57,9 @@
                                     <p class="bottomsheet-option__label">알림 기준</p>
                                     <div class="radio-box-row">
                                         <input type="radio" name="pmAlertBasis" id="pmBasis-month" class="radio-hidden-input radio-box-input" checked />
-                                        <label for="pmBasis-month" class="radio-box radio-box--sm radio-box--center">이번 달 누적</label>
+                                        <label for="pmBasis-month" class="radio-box is-sm is-center">이번 달 누적</label>
                                         <input type="radio" name="pmAlertBasis" id="pmBasis-remain" class="radio-hidden-input radio-box-input" />
-                                        <label for="pmBasis-remain" class="radio-box radio-box--sm radio-box--center">남은 용돈 기준</label>
+                                        <label for="pmBasis-remain" class="radio-box is-sm is-center">남은 용돈 기준</label>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
             $(function () {
                 // 피그마(node 1436:34473)의 "지출 알림 받기" 토글 Off일 때는 아래 금액/기준
                 // 선택 영역 전체가 비활성(회색) 상태로 보입니다. .radio-box-input:disabled와
-                // .input-box--disabled는 이미 update.css에 정의돼 있는 공용 규칙이라, disabled
+                // .input-box.is-disabled는 이미 update.css에 정의돼 있는 공용 규칙이라, disabled
                 // 속성만 여닫아주면 별도 CSS 없이 그 스타일이 그대로 적용됩니다.
                 var $switch = $('#pmAlertSwitch');
                 var $radios = $('#pmAlert .radio-box-input');
@@ -96,7 +96,7 @@
                     var on = $switch.is(':checked');
                     $radios.prop('disabled', !on);
                     $amountInput.prop('disabled', !on);
-                    $amountBox.toggleClass('input-box--disabled', !on);
+                    $amountBox.toggleClass('is-disabled', !on);
                 }
 
                 function syncAmountField() {
@@ -106,14 +106,14 @@
                         // 직접입력 선택 시: 읽기전용을 풀고 실제 입력창으로 전환합니다(네이티브
                         // 숫자 키패드는 inputmode="numeric"이 알아서 띄워주므로 커스텀 키패드는
                         // 만들지 않습니다 — 피그마 목업의 키보드는 OS 키보드를 그대로 보여준 것).
-                        $amountBox.removeClass('input-box--readonly');
+                        $amountBox.removeClass('is-readonly');
                         $amountInput.prop('readonly', false);
                         if ($amountInput.data('wasPreset') !== false) {
                             $amountInput.val('').data('wasPreset', false);
                         }
                         $amountInput.trigger('focus');
                     } else {
-                        $amountBox.addClass('input-box--readonly');
+                        $amountBox.addClass('is-readonly');
                         $amountInput.prop('readonly', true).data('wasPreset', true);
                         $amountInput.val(formatWon(Number(amount)));
                     }

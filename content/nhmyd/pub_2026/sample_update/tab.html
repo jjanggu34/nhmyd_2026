@@ -25,7 +25,7 @@
                 <h2 class="guide-title">tab-line — 하단 선 밑줄 탭</h2>
                 <div class="tab-line">
                     <div class="tab-line__list" role="tablist" aria-label="tab-line 예시">
-                        <button type="button" id="tab-line-1" class="tab-line__item tab-line__item--active" role="tab" aria-selected="true" aria-controls="panel-line-1" tabindex="0">메뉴 1</button>
+                        <button type="button" id="tab-line-1" class="tab-line__item is-active" role="tab" aria-selected="true" aria-controls="panel-line-1" tabindex="0">메뉴 1</button>
                         <button type="button" id="tab-line-2" class="tab-line__item" role="tab" aria-selected="false" aria-controls="panel-line-2" tabindex="-1">메뉴 2</button>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
 
                 <h2 class="guide-title">tab-chip — 가로 스크롤 알약형 탭</h2>
                 <div class="tab-chip" role="tablist" aria-label="tab-chip 예시">
-                    <button type="button" id="tab-chip-1" class="tab-chip__item tab-chip__item--active" role="tab" aria-selected="true" aria-controls="panel-chip-1" tabindex="0">메뉴 1</button>
+                    <button type="button" id="tab-chip-1" class="tab-chip__item is-active" role="tab" aria-selected="true" aria-controls="panel-chip-1" tabindex="0">메뉴 1</button>
                     <button type="button" id="tab-chip-2" class="tab-chip__item" role="tab" aria-selected="false" aria-controls="panel-chip-2" tabindex="-1">메뉴 2</button>
                     <button type="button" id="tab-chip-3" class="tab-chip__item" role="tab" aria-selected="false" aria-controls="panel-chip-3" tabindex="-1">메뉴 3</button>
                     <button type="button" id="tab-chip-4" class="tab-chip__item" role="tab" aria-selected="false" aria-controls="panel-chip-4" tabindex="-1">메뉴 4</button>
@@ -54,7 +54,7 @@
 
                 <h2 class="guide-title">tab-bar — 세그먼트 컨트롤형 탭</h2>
                 <div class="tab-bar" role="tablist" aria-label="tab-bar 예시">
-                    <button type="button" id="tab-bar-1" class="tab-bar__item tab-bar__item--active" role="tab" aria-selected="true" aria-controls="panel-bar-1" tabindex="0">메뉴 1</button>
+                    <button type="button" id="tab-bar-1" class="tab-bar__item is-active" role="tab" aria-selected="true" aria-controls="panel-bar-1" tabindex="0">메뉴 1</button>
                     <button type="button" id="tab-bar-2" class="tab-bar__item" role="tab" aria-selected="false" aria-controls="panel-bar-2" tabindex="-1">메뉴 2</button>
                 </div>
                 <div id="panel-bar-1" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-1" tabindex="0">메뉴 1콘텐츠 영역입니다.</div>
@@ -64,7 +64,7 @@
 
                 <h2 class="guide-title">tab-text — 구분선(|)으로 나뉜 텍스트 탭</h2>
                 <div class="tab-text" role="tablist" aria-label="tab-text 예시">
-                    <button type="button" id="tab-text-1" class="tab-text__item tab-text__item--active" role="tab" aria-selected="true" aria-controls="panel-text-1" tabindex="0">메뉴 1</button>
+                    <button type="button" id="tab-text-1" class="tab-text__item is-active" role="tab" aria-selected="true" aria-controls="panel-text-1" tabindex="0">메뉴 1</button>
                     <span class="tab-text__dash" aria-hidden="true"></span>
                     <button type="button" id="tab-text-2" class="tab-text__item" role="tab" aria-selected="false" aria-controls="panel-text-2" tabindex="-1">메뉴 2</button>
                 </div>
@@ -76,7 +76,7 @@
                 <h2 class="guide-title">tab-chip — 패널 없이 사용(탭 선택이 다른 영역의 리스트를 필터링, 탭 하단에 전용 콘텐츠 영역 없음)</h2>
                 <p class="note">예: 아래 탭으로 거래내역 리스트를 필터링하되, 리스트 자체는 tabpanel이 아니라 별도의 일반 리스트 영역인 경우. aria-controls를 생략하고 role="tab"/aria-selected/tabindex만 사용합니다.</p>
                 <div class="tab-chip" role="tablist" aria-label="거래내역 필터">
-                    <button type="button" id="tab-filter-1" class="tab-chip__item tab-chip__item--active" role="tab" aria-selected="true" tabindex="0">전체</button>
+                    <button type="button" id="tab-filter-1" class="tab-chip__item is-active" role="tab" aria-selected="true" tabindex="0">전체</button>
                     <button type="button" id="tab-filter-2" class="tab-chip__item" role="tab" aria-selected="false" tabindex="-1">입금</button>
                     <button type="button" id="tab-filter-3" class="tab-chip__item" role="tab" aria-selected="false" tabindex="-1">출금</button>
                 </div>

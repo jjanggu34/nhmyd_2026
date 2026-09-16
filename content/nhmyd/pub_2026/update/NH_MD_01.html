@@ -19,7 +19,7 @@
                 <!-- 자산 카테고리 탭 -->
                 <div class="tab-line">
                     <div class="tab-line__list" role="tablist" aria-label="자산 카테고리" id="assetTabList">
-                        <button type="button" id="assetTab-liquidity" class="tab-line__item tab-line__item--active" role="tab" aria-selected="true" tabindex="0">예금</button>
+                        <button type="button" id="assetTab-liquidity" class="tab-line__item is-active" role="tab" aria-selected="true" tabindex="0">예금</button>
                         <button type="button" id="assetTab-invest" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">투자</button>
                         <button type="button" id="assetTab-pension" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">연금</button>
                         <button type="button" id="assetTab-loan" class="tab-line__item" role="tab" aria-selected="false" tabindex="-1">대출</button>
@@ -37,7 +37,7 @@
                             <div class="swiper-slide" data-category-label="예금" aria-hidden="false">
                                 <div class="hero">
                                     <div class="hero__flip">
-                                        <div class="hero__face hero__face--front hero__face--redesign">
+                                        <div class="hero__face is-front is-redesign">
                                             <div class="hc-top">
                                                 <p class="hc-title">자산 현황</p>
                                                 <p class="hc-date">
@@ -58,11 +58,11 @@
                                                         <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
                                                     </div>
                                                 </div>
-                                                <div class="hc-notice hc-notice--compare">
+                                                <div class="hc-notice is-compare">
                                                     <p class="hc-notice__label">2025.11.07대비</p>
                                                     <p class="hc-notice__value">
-                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"><span class="blind">상승</span></span>
-                                                        <!-- <span class="hc-change__icon hc-change__icon--down" aria-hidden="true"><span class="blind">하락</span></span> -->
+                                                        <span class="hc-change__icon is-up" aria-hidden="true"><span class="blind">상승</span></span>
+                                                        <!-- <span class="hc-change__icon is-down" aria-hidden="true"><span class="blind">하락</span></span> -->
                                                         1,540,545원(+10%)
                                                     </p>
                                                 </div>
@@ -119,13 +119,13 @@
                                                 <!-- <div class="hc-cta">
                                                     <button type="button" class="btn-arrow">
                                                         <span>자산연결하기</span>
-                                                        <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                                                        <span class="btn-arrow__icon is-right" aria-hidden="true"></span>
                                                     </button>
                                                 </div> -->
                                             </div>
                                         </div>
 
-                                        <div class="hero__face hero__face--back hero__face--back-redesign" aria-hidden="true">
+                                        <div class="hero__face is-back is-back-redesign" aria-hidden="true">
                                             <div class="hcb-head">
                                                 <p class="hcb-title">이전 자산 비교</p>
                                                 <button type="button" class="hcb-flip" data-flip-toggle aria-pressed="true" tabindex="-1">
@@ -133,7 +133,7 @@
                                                     <span class="blind">자산 현황 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box hcb-chart-box--compare" style="--compare-rows:4">
+                                            <div class="hcb-chart-box is-compare" style="--compare-rows:4">
                                                 <div class="hcb-chart-meta">
                                                     <span class="hcb-chart-meta__date">2026.08.26 기준</span>
                                                     <span class="hcb-chart-meta__unit">단위:만원</span>
@@ -147,7 +147,7 @@
                                                     <li>외화: 이전 52,000,000원, 현재 55,048,000원</li>
                                                     <li>기타: 이전 450,000원, 현재 500,000원</li>
                                                 </ul>
-                                                <div class="hcb-legend hcb-legend--compare">
+                                                <div class="hcb-legend is-compare">
                                                     <span class="hcb-legend__item">
                                                         <i style="background: #c8d2e4;"></i>
                                                         이전 예금 자산
@@ -174,7 +174,7 @@
                             <div class="swiper-slide" data-category-label="투자" aria-hidden="true">
                                 <div class="hero">
                                     <div class="hero__flip">
-                                        <div class="hero__face hero__face--front hero__face--redesign">
+                                        <div class="hero__face is-front is-redesign">
                                             <div class="hc-top">
                                                 <p class="hc-title">자산 현황</p>
                                                 <p class="hc-date">
@@ -195,10 +195,10 @@
                                                         <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
                                                     </div>
                                                 </div>
-                                                <div class="hc-notice hc-notice--compare">
+                                                <div class="hc-notice is-compare">
                                                     <p class="hc-notice__label">2025.11.07대비</p>
                                                     <p class="hc-notice__value">
-                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"><span class="blind">상승</span></span>
+                                                        <span class="hc-change__icon is-up" aria-hidden="true"><span class="blind">상승</span></span>
                                                         50,000원(-2.4%)
                                                     </p>
                                                 </div>
@@ -261,7 +261,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="hero__face hero__face--back hero__face--back-redesign" aria-hidden="true">
+                                        <div class="hero__face is-back is-back-redesign" aria-hidden="true">
                                             <div class="hcb-head">
                                                 <p class="hcb-title">이전 자산 비교</p>
                                                 <button type="button" class="hcb-flip" data-flip-toggle aria-pressed="true" tabindex="-1">
@@ -269,7 +269,7 @@
                                                     <span class="blind">내 투자 자산 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box hcb-chart-box--compare" style="--compare-rows:6">
+                                            <div class="hcb-chart-box is-compare" style="--compare-rows:6">
                                                 <div class="hcb-chart-meta">
                                                     <span class="hcb-chart-meta__date">2026.08.26 기준</span>
                                                     <span class="hcb-chart-meta__unit">단위:만원</span>
@@ -285,7 +285,7 @@
                                                     <li>예수금: 이전 1,050원, 현재 1,000원</li>
                                                     <li>기타: 이전 2,100,000원, 현재 2,000,000원</li>
                                                 </ul>
-                                                <div class="hcb-legend hcb-legend--compare">
+                                                <div class="hcb-legend is-compare">
                                                     <span class="hcb-legend__item">
                                                         <i style="background: #c8d2e4;"></i>
                                                         이전 투자 자산
@@ -309,7 +309,7 @@
                             <div class="swiper-slide" data-category-label="연금" aria-hidden="true">
                                 <div class="hero">
                                     <div class="hero__flip">
-                                        <div class="hero__face hero__face--front hero__face--redesign">
+                                        <div class="hero__face is-front is-redesign">
                                             <div class="hc-top">
                                                 <p class="hc-title">자산 현황</p>
                                                 <p class="hc-date">
@@ -330,10 +330,10 @@
                                                         <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
                                                     </div>
                                                 </div>
-                                                <div class="hc-notice hc-notice--compare">
+                                                <div class="hc-notice is-compare">
                                                     <p class="hc-notice__label">2025.11.07대비</p>
                                                     <p class="hc-notice__value">
-                                                        <span class="hc-change__icon hc-change__icon--down" aria-hidden="true"><span class="blind">하락</span></span>
+                                                        <span class="hc-change__icon is-down" aria-hidden="true"><span class="blind">하락</span></span>
                                                         843,545원(+11.43%)
                                                     </p>
                                                 </div>
@@ -375,7 +375,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="hero__face hero__face--back hero__face--back-redesign" aria-hidden="true">
+                                        <div class="hero__face is-back is-back-redesign" aria-hidden="true">
                                             <div class="hcb-head">
                                                 <p class="hcb-title">이전 자산 비교</p>
                                                 <button type="button" class="hcb-flip" data-flip-toggle aria-pressed="true" tabindex="-1">
@@ -383,7 +383,7 @@
                                                     <span class="blind">내 연금 자산 보기</span>
                                                 </button>
                                             </div>
-                                            <div class="hcb-chart-box hcb-chart-box--compare" style="--compare-rows:3">
+                                            <div class="hcb-chart-box is-compare" style="--compare-rows:3">
                                                 <div class="hcb-chart-meta">
                                                     <span class="hcb-chart-meta__date">2026.08.26 기준</span>
                                                     <span class="hcb-chart-meta__unit">단위:만원</span>
@@ -396,7 +396,7 @@
                                                     <li>퇴직연금: 이전 950,000원, 현재 1,000,000원</li>
                                                     <li>공적연금: 이전 0원, 현재 10,000원</li>
                                                 </ul>
-                                                <div class="hcb-legend hcb-legend--compare">
+                                                <div class="hcb-legend is-compare">
                                                     <span class="hcb-legend__item">
                                                         <i style="background: #c8d2e4;"></i>
                                                         이전 연금 자산
@@ -420,8 +420,8 @@
                             <div class="swiper-slide" data-category-label="대출" aria-hidden="true">
                                 <div class="hero">
                                     <div class="hero__flip">
-                                        <div class="hero__face hero__face--front hero__face--redesign">
-                                            <div class="hc-top hc-top--loan">
+                                        <div class="hero__face is-front is-redesign">
+                                            <div class="hc-top is-loan">
                                                 <p class="hc-title">대출 현황</p>
                                                 <p class="hc-date">
                                                     2027.07.13일 기준
@@ -447,10 +447,10 @@
                                                         <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
                                                     </div>
                                                 </div>
-                                                <div class="hc-notice hc-notice--compare">
+                                                <div class="hc-notice is-compare">
                                                     <p class="hc-notice__label">2025.11.07대비</p>
                                                     <p class="hc-notice__value">
-                                                        <span class="hc-change__icon hc-change__icon--up" aria-hidden="true"><span class="blind">상승</span></span>
+                                                        <span class="hc-change__icon is-up" aria-hidden="true"><span class="blind">상승</span></span>
                                                         1,058,000원(-16.54%)
                                                     </p>
                                                 </div>
@@ -478,10 +478,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="hc-bottom hc-bottom--loan">
+                                            <div class="hc-bottom is-loan">
                                                 <div class="hc-cta">
                                                     <span class="hc-cta__left">
-                                                        <span class="hc-cta__icon hc-cta__icon--loan" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
+                                                        <span class="hc-cta__icon is-loan" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
                                                         <span class="hc-cta__label">계좌별 상환 현황 보기</span>
                                                     </span>
                                                     <button type="button" class="hc-cta__flip" data-flip-toggle aria-pressed="false"><span class="hc-cta__flip-glyph"></span></button>
@@ -489,13 +489,13 @@
                                                 <!-- <div class="hc-cta">
                                                     <button type="button" class="btn-arrow">
                                                         <span>자산연결하기</span>
-                                                        <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                                                        <span class="btn-arrow__icon is-right" aria-hidden="true"></span>
                                                     </button>
                                                 </div> -->
                                             </div>
                                         </div>
 
-                                        <div class="hero__face hero__face--back hero__face--back-redesign" aria-hidden="true">
+                                        <div class="hero__face is-back is-back-redesign" aria-hidden="true">
                                             <div class="hcb-head">
                                                 <p class="hcb-title">계좌별 상환 현황</p>
                                                 <button type="button" class="hcb-flip" data-flip-toggle aria-pressed="true" tabindex="-1">
@@ -575,7 +575,7 @@
                         <div class="md-card insight-list">
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="true">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--blue" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-blue" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">잘 모으고 있어요</p>
                                         <p class="insight-hero__status-desc">AI진단으로 수익을 높여보세요</p>
@@ -589,7 +589,7 @@
                             <hr class="insight-list__divider" />
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--mint" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-mint" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">투자를 잘하고 있어요!</p>
                                         <p class="insight-hero__status-desc">포트폴리오 계획을 세워보세요</p>
@@ -603,7 +603,7 @@
                             <hr class="insight-list__divider" />
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--pink" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-pink" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">자산이 위험해요!</p>
                                         <p class="insight-hero__status-desc">투자자산 비율을 줄이세요</p>
@@ -632,7 +632,7 @@
                         <div class="promo-carousel mt32">
                             <div class="promo-carousel__track swiper-container" id="liquiditySubPromoSwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="promo-carousel__slide  swiper-slide">
+                                    <div class="promo-carousel__slide swiper-slide">
                                         <p class="promo-carousel__title">
                                             머니포용 게임으로 청년금융
                                             <br />
@@ -682,7 +682,7 @@
                         <div class="md-card insight-list">
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="true">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--blue" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-blue" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">정말 잘하고 있어요!</p>
                                         <p class="insight-hero__status-desc">포트폴리오 진단을 받아보세요</p>
@@ -696,7 +696,7 @@
                             <hr class="insight-list__divider" />
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--mint" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-mint" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">투자를 잘하고 있어요!</p>
                                         <p class="insight-hero__status-desc">포트폴리오 계획을 세워보세요</p>
@@ -710,7 +710,7 @@
                             <hr class="insight-list__divider" />
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--pink" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-pink" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">자산이 위험해요!</p>
                                         <p class="insight-hero__status-desc">투자자산 비율을 줄이세요</p>
@@ -734,7 +734,7 @@
                                 <p class="accordion-gray__date">2026.08.27일 기준</p>
                                 <div class="accordion-gray__item">
                                     <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="true">
-                                        <span class="accordion-gray__icon accordion-gray__icon--sun" aria-hidden="true"></span>
+                                        <span class="accordion-gray__icon is-sun" aria-hidden="true"></span>
                                         <span class="accordion-gray__title-col">
                                             <span class="accordion-gray__title">호재</span>
                                             <span class="accordion-gray__sub">시장에 긍정적인 소식입니다</span>
@@ -744,7 +744,7 @@
                                 </div>
                                 <div class="accordion-gray__item">
                                     <button type="button" class="accordion-gray__button--with-icon" data-acc-toggle aria-expanded="false">
-                                        <span class="accordion-gray__icon accordion-gray__icon--rain" aria-hidden="true"></span>
+                                        <span class="accordion-gray__icon is-rain" aria-hidden="true"></span>
                                         <span class="accordion-gray__title-col">
                                             <span class="accordion-gray__title">주의</span>
                                             <span class="accordion-gray__sub">위험요인이 되는 소식입니다</span>
@@ -757,7 +757,7 @@
                                 <span class="briefing-notice__icon" aria-hidden="true"></span>
                                 김*협님의 포트폴리오는 국내주식 22%(반도체 직접보유 포함)로 상승 모멘텀 직접 수혜 구간에 있으나, 동시에 국내·해외채권 35%, 해외주식형 18%로 금리 상승 및 유가 변동성 노출도 상당합니다.
                             </p>
-                            <button type="button" class="btn btn--primary btn--md btn--full">브리핑 상세보기</button>
+                            <button type="button" class="btn is-primary is-md is-full">브리핑 상세보기</button>
                         </div>
                     </section>
 
@@ -812,7 +812,7 @@
                         <div class="md-card insight-list">
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="true">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--blue" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-blue" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">노후준비를 잘하고 있어요!</p>
                                         <p class="insight-hero__status-desc">연금진단으로 수익을 높여보세요</p>
@@ -826,7 +826,7 @@
                             <hr class="insight-list__divider" />
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--mint" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-mint" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">노후준비를 대비해주세요!</p>
                                         <p class="insight-hero__status-desc">연금진단을 통해 계획을 세워보세요</p>
@@ -840,7 +840,7 @@
                             <hr class="insight-list__divider" />
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--pink" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-pink" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">노후준비가 필요해요!</p>
                                         <p class="insight-hero__status-desc">연금진단 받고 노후준비를 해보세요</p>
@@ -851,7 +851,7 @@
                                     <p>퇴직연금이 적어요. 개인 연금 저축으로 꾸준히 모아보세요. 모아놓은 돈은 소득이 발생할 수 있는 형태로 바꿔보세요.</p>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn--primary btn--md btn--full">연금 진단하기</button>
+                            <button type="button" class="btn is-primary is-md is-full">연금 진단하기</button>
                         </div>
                     </section>
 
@@ -896,7 +896,7 @@
                         <div class="md-card insight-list">
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="true">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--blue" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-blue" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">대출상환을 잘하고 있어요!</p>
                                         <p class="insight-hero__status-desc">포트폴리오 진단으로 자산을 늘리세요</p>
@@ -910,7 +910,7 @@
                             <hr class="insight-list__divider" />
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--mint" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-mint" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">대출계획을 세워보세요!</p>
                                         <p class="insight-hero__status-desc">자산부채 진단으로 계획을 세워보세요</p>
@@ -924,7 +924,7 @@
                             <hr class="insight-list__divider" />
                             <div class="insight-list__item">
                                 <button type="button" class="insight-list__row" data-acc-toggle aria-expanded="false">
-                                    <span class="insight-hero__status-icon insight-hero__status-icon--pink" aria-hidden="true"></span>
+                                    <span class="insight-hero__status-icon is-pink" aria-hidden="true"></span>
                                     <span class="insight-hero__status-body">
                                         <p class="insight-hero__status-title">자산부채 통합분석이 필요해요!</p>
                                         <p class="insight-hero__status-desc">부채비율을 확인해보세요</p>
@@ -935,7 +935,7 @@
                                     <p>대출 상환을 잘 하고 있어요! 포트폴리오 진단을 기반으로 대출 금액을 줄여보세요.</p>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn--primary btn--md btn--full">자산·부채 통합 분석하기</button>
+                            <button type="button" class="btn is-primary is-md is-full">자산·부채 통합 분석하기</button>
                         </div>
                     </section>
                     <section class="md-section">
@@ -960,7 +960,7 @@
                         <div class="promo-carousel mt32">
                             <div class="promo-carousel__track swiper-container" id="liquiditySubPromoSwiper">
                                 <div class="swiper-wrapper">
-                                    <div class="promo-carousel__slide  swiper-slide">
+                                    <div class="promo-carousel__slide swiper-slide">
                                         <p class="promo-carousel__title">
                                             머니포용 게임으로 청년금융
                                             <br />
@@ -1020,7 +1020,7 @@
                     <div class="popCont__inner">
                         <div class="bottomsheet-list" data-loan-account-list>
                             <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>NH직장인 대출 V</span></button>
-                            <button type="button" class="bottomsheet-list__item bottomsheet-list__item--selected" aria-pressed="true"><span>NH주택담보대출_변동</span></button>
+                            <button type="button" class="bottomsheet-list__item is-selected" aria-pressed="true"><span>NH주택담보대출_변동</span></button>
                             <button type="button" class="bottomsheet-list__item" aria-pressed="false"><span>신한 MY CAR 신차 대출</span></button>
                         </div>
                     </div>
@@ -1051,8 +1051,8 @@
                         if (otherSlideEl === slideEl) return;
                         var otherFlip = otherSlideEl.querySelector('.hero__flip');
                         if (!otherFlip) return;
-                        var oFront = otherFlip.querySelector('.hero__face--front');
-                        var oBack = otherFlip.querySelector('.hero__face--back');
+                        var oFront = otherFlip.querySelector('.hero__face.is-front');
+                        var oBack = otherFlip.querySelector('.hero__face.is-back');
                         otherFlip.classList.toggle('is-flipped', flipped);
                         oFront.setAttribute('aria-hidden', flipped ? 'true' : 'false');
                         oBack.setAttribute('aria-hidden', flipped ? 'false' : 'true');
@@ -1099,8 +1099,8 @@
                     if (turningFlips.has(flipEl)) return;
                     turningFlips.add(flipEl);
 
-                    var front = flipEl.querySelector('.hero__face--front');
-                    var back = flipEl.querySelector('.hero__face--back');
+                    var front = flipEl.querySelector('.hero__face.is-front');
+                    var back = flipEl.querySelector('.hero__face.is-back');
                     var toggles = flipEl.querySelectorAll('[data-flip-toggle]');
                     var nextFlipped = !flipEl.classList.contains('is-flipped');
                     flipEl.classList.add('is-turning'); // 0deg -> 90deg, 카드가 옆에서 보이듯 납작해짐
@@ -1160,7 +1160,7 @@
                 // 스크립트를 쓰고 페이지마다 활성 탭이 달라서 마크업에서 읽도록 통일합니다.
                 var initialTabIndex = 0;
                 tabs.forEach(function (t, i) {
-                    if (t.classList.contains('tab-line__item--active') || t.getAttribute('aria-selected') === 'true') {
+                    if (t.classList.contains('is-active') || t.getAttribute('aria-selected') === 'true') {
                         initialTabIndex = i;
                     }
                 });
@@ -1184,7 +1184,7 @@
                         var selected = i === index;
                         t.setAttribute('aria-selected', selected ? 'true' : 'false');
                         t.setAttribute('tabindex', selected ? '0' : '-1');
-                        t.classList.toggle('tab-line__item--active', selected);
+                        t.classList.toggle('is-active', selected);
                     });
                     updateAssetTabPanels(categoryKeys[index]);
                     if (moveFocus) tabs[index].focus();
@@ -1834,7 +1834,7 @@
                     function () {
                         var index = Math.round(track.scrollLeft / track.clientWidth);
                         dots.forEach(function (d, i) {
-                            d.classList.toggle('promo-carousel__dot--active', i === index);
+                            d.classList.toggle('is-active', i === index);
                         });
                     },
                     { passive: true }
