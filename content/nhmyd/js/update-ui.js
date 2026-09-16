@@ -473,7 +473,9 @@ window.renderBottomsheetList = function (options) {
 
     function initStickyFooter() {
         document.querySelectorAll(".sticky-footer").forEach(function (footer) {
-            var container = document.querySelector(".container");
+            // 일반 화면은 .container, 팝업(fullLayerPop)은 .popCont 가 스크롤 영역입니다
+            var pop = footer.closest(".popWrap");
+            var container = pop ? pop.querySelector(".popCont") : document.querySelector(".container");
             if (!container) return;
 
             function sync() {
