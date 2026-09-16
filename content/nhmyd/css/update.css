@@ -846,10 +846,6 @@
 .nds.popWrap.fullLayerPop .popInner:has(.popBtnWrap .areaBtnDefault) .popCont {padding-bottom:112px !important}
 .nds.popWrap .popInner h1.normal{font-weight:var(--font-weight-light)}
 .nds.popWrap .popInner h1.normal strong{font-weight:var(--font-weight-semibold)}
-.nds .pop-guide {position:relative;min-height:228px;margin-bottom:0 !important}
-.nds .pop-guide .text--h1 {font-size:var(--type-size-28) !important;line-height:38px !important;letter-spacing:-0.56px;margin-top:26px;min-height:0 !important;padding:0 !important}
-.nds .pop-guide .text--body1-medium {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.32px;color:var(--primitive-gray-font-700)}
-.nds .pop-guide .illust {position:absolute;right:0;bottom:0;width:180px;height:130px;object-fit:contain;pointer-events:none}
 
 /* ---- yearSet ---- */
 .nds .yearSet > ol {padding:80px 0 !important}
@@ -1367,6 +1363,7 @@
 .nds .sticky-footer {position:fixed;left:0;right:0;bottom:0;z-index:1100;width:100%;background:var(--color-bg-default)}
 /* sticky-footer가 있는 화면은 footer 높이만큼 본문 아래 여백을 확보합니다. 높이는 update-ui.js가 .container에 --sticky-footer-pad 로 내려줍니다 */
 .nds:has(> .sticky-footer) > .container {padding-bottom:calc(var(--sticky-footer-pad, 0px) + var(--spacing-40)) !important}
+.nds .sticky-footer .areaBtnDefault {position:static;padding-top:var(--spacing-32)}
 .nds .sticky-footer .btn-cta{margin-top:32px}
 .nds .btn-cta {display:flex;gap:var(--spacing-8);padding:0;background:linear-gradient(to top, var(--primitive-base-0) 90%, rgba(255, 255, 255, 0) 100%)}
 .nds .btn-cta .btn {min-width:0;width:70%}
@@ -1783,7 +1780,7 @@
 .style-diag__tags span.style-diag__tag--accent {background:#2B9AC9;color:var(--primitive-gray-font-50)}
 .md-section__title-row {display:flex;align-items:center;gap:var(--spacing-4);margin:0 0 var(--spacing-20) var(--spacing-8)}
 .md-section__title-row .md-section__title {margin:0}
-.ai-badge {display:inline-flex;align-items:center;justify-content:center;height:19px;padding:0 var(--spacing-8);border-radius:var(--radius-10);background-image:linear-gradient(-35deg, #e3c1fe 22%, #516fff 95%);font-size:10px;font-weight:var(--font-weight-bold);color:var(--primitive-base-0);letter-spacing:-0.2px}
+.ai-badge {display:inline-flex;align-items:center;justify-content:center;height:20px;padding:0 var(--spacing-8);border-radius:var(--radius-10);background: linear-gradient(294.37deg, #E3C1FE -22.06%, #516FFF 95.24%);font-size:10px;font-weight:var(--font-weight-bold);color:var(--primitive-base-0);letter-spacing:-0.2px}
 .deposit-promo-banner {position:relative;border-radius:var(--radius-12);padding:var(--spacing-16) 88px var(--spacing-16) var(--spacing-16);min-height:56px;box-sizing:border-box;overflow:hidden}
 .deposit-promo-banner.type{padding:var(--spacing-20) var(--spacing-24)}
 .deposit-promo-banner__sub {margin:0;font-size:var(--type-size-12);letter-spacing:-0.24px;color:var(--primitive-gray-font-800)}
@@ -2331,16 +2328,26 @@
 .nds .diag-connect {display:flex;flex-direction:row;align-items:center;gap:var(--spacing-4);padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-12);}
 .nds .diag-connect__text {flex:1 1 auto;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-1)}
 .nds .diag-connect + .areaBtnDefault {margin-top:var(--spacing-32)}
+
+/* --- NH_MD_AI_05_02 ---- */
+.nds .invest {min-height:228px;margin-bottom:0 !important}
+.nds .invest .text--h1 {font-size:var(--type-size-28) !important; line-height:38px;margin-top:26px}
+.nds .invest .illust {position:absolute;right:0;bottom:0;width:180px;height:130px;object-fit:contain;pointer-events:none}
+
 /* -- NH_MD_AI_03 : AI 포트폴리오 진단(제안 대상 진단) -- */
-/* 하단 CTA : half 클래스가 없으면 레거시 popBtn 처럼 1/3 : 70% 로 나눕니다(단독 버튼은 100%) */
 .nds .btn-cta .btn:only-child {width:100%}
 .nds .btn-cta--column .btn {width:100%}
-.nds .ai03-card--curve {margin-top:var(--spacing-24);padding:var(--spacing-20)}
-.nds .ai03-card--opt {margin-top:var(--spacing-40);padding:var(--spacing-16) var(--spacing-20)}
-.nds .ai03-card--opinion {margin-top:var(--spacing-40);padding:var(--spacing-24) var(--spacing-20)}
-.nds .ai03-divider {margin:var(--spacing-24) 0}
+
+.nds .ai-divider {margin:var(--spacing-24) 0; border-color:var(--primitive-gray-200);}
+.nds .ai-divider--sm {margin:var(--spacing-12) 0; height:1px; background-color: var(--primitive-gray-400);}
+.nds .ai-dash-divider--f0 {margin:var(--spacing-24) 0; width:100%;height:1px;background:url("../images/update/bg_dash_line_f0.png") repeat-x center;background-size:auto 1px}
+.nds .ai-dash-divider {margin:var(--spacing-24) 0; width:100%;height:1px;background:url("../images/update/bg_dash_line.png") repeat-x center;background-size:auto 1px}
+
+.nds.nhasset .ai .tooltipWrap .tooltipCont>ul>li {color:#404351 }
+
 .nds .ai03-tip {flex-shrink:0;display:block;width:24px;height:24px;padding:0;margin:0;border:none;cursor:pointer;background-color:var(--primitive-gray-600);-webkit-mask-image:url("../images/update/ic-tooltip-mark.svg");mask-image:url("../images/update/ic-tooltip-mark.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .ai03-tip--sm {width:16px;height:16px}
+
 .nds .ai03-desc {margin:var(--spacing-12) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
 /* 기대수익 그래프(Chart.js) */
 .nds .ai03-chart {margin:var(--spacing-16) 0 0}
@@ -2351,7 +2358,7 @@
 .nds .ai03-chart__box canvas {display:block;width:100%;height:100%}
 .nds .ai03-chart__axis-bottom {display:flex;align-items:center;justify-content:space-between;margin:var(--spacing-8) 0 0;font-size:var(--type-size-10);font-weight:var(--font-weight-regular);line-height:1;letter-spacing:-0.2px;color:var(--color-font-4)}
 /* 자산군별 조정 막대 */
-.nds .ai03-alloc {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-24) 0 0;padding:0;list-style:none}
+.nds .ai03-alloc {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-16) 0 0;padding:0;list-style:none}
 .nds .ai03-alloc__item {display:flex;flex-direction:column;gap:var(--spacing-4)}
 .nds .ai03-alloc__bar {display:flex;align-items:stretch;width:100%;height:12px;border-radius:var(--radius-4);background:var(--chart-track-bg);overflow:hidden}
 .nds .ai03-alloc__base {display:block;height:100%;background:var(--diag-sub-font)}
@@ -2375,10 +2382,9 @@
 .nds .ai03-risk__safe-text {color:var(--chart-down-font)}
 .nds .ai03-risk__danger-text {color:var(--chart-up-font)}
 /* 성과지표 비교 */
-.nds .ai03-perf {margin:var(--spacing-24) 0 0}
+.nds .ai03-perf {display:flex; gap:24px;flex-direction: column; margin:var(--spacing-16) 0 0}
 .nds .ai03-perf__title {display:inline-flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
 .nds .ai03-perf__unit {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--ai03-sub-font)}
-.nds .ai03-perf__group {margin:var(--spacing-24) 0 0}
 .nds .ai03-perf__name {display:flex;align-items:center;gap:var(--spacing-4);margin:0 0 var(--spacing-4);font-size:var(--type-size-13);font-weight:var(--font-weight-medium);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-1)}
 .nds .ai03-perf__gap {font-style:normal;color:var(--color-font-4)}
 .nds .ai03-perf__row {display:flex;align-items:center;gap:var(--spacing-8);margin:0}
@@ -2387,10 +2393,9 @@
 .nds .ai03-perf__fill {display:block;height:100%;border-radius:0 var(--radius-4) var(--radius-4) 0;background:var(--diag-sub-font)}
 .nds .ai03-perf__fill--opt {background:var(--chart-neon-bg)}
 .nds .ai03-perf__row-value {flex-shrink:0;min-width:40px;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;text-align:right;color:var(--color-font-1)}
-.nds .ai03-divider--perf {margin:var(--spacing-20) 0 var(--spacing-24)}
 .nds .ai03-note-strong {font-style:normal;font-weight:var(--font-weight-medium);color:var(--color-font-1)}
 /* AI 의견 */
-.nds .ai03-quote {display:flex;gap:var(--spacing-12);margin:var(--spacing-16) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-3)}
+.nds .ai03-quote {display:flex;gap:var(--spacing-12);margin:var(--spacing-24) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-3)}
 .nds .ai03-quote::before {content:"";flex-shrink:0;display:block;width:2px;margin:var(--spacing-4) 0;border-radius:2px;background:var(--diag-bar-bg)}
 /* -- 접근성 공통 보강 -- */
 /* nh_base.css 가 *:focus{outline:none} 으로 포커스 표시를 지워서, 키보드 사용 시에만 다시 보이게 합니다 */
@@ -2409,20 +2414,16 @@
 /* 새로고침 버튼 : 보이는 크기는 16px 이지만 터치 영역은 24px 확보 (WCAG 2.5.8) */
 .nds .diag-total__refresh {position:relative}
 .nds .diag-total__refresh::after {content:"";position:absolute;top:50%;left:50%;width:24px;height:24px;transform:translate(-50%, -50%)}
-.nds .toolTipBtn--sm {width:16px !important;height:16px !important;background-size:16px auto !important}
+.nds .toolTipBtn--sm {width:18px !important;height:18px !important;background-size:18px auto !important}
 /* -- NH_MD_AI_03_01 : 기간별 성과 예측(팝업) -- */
-.nds .ai0301-card {margin-top:var(--spacing-24);padding:var(--spacing-16) var(--spacing-20);box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
-.nds .ai0301-divider {margin:var(--spacing-32) 0}
-.nds .ai0301-divider--mid {margin:var(--spacing-24) 0}
-.nds .ai0301-divider--sm {margin:var(--spacing-12) 0}
 .nds .ai0301-sub-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
 /* 현재평가금액 / 기간 선택 */
 .nds .ai0301-amount {display:flex;flex-direction:column;margin:var(--spacing-24) 0 0}
-.nds .ai0301-amount__label {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
 .nds .ai0301-amount__value {font-size:var(--type-size-24);font-weight:var(--font-weight-semibold);line-height:32px;letter-spacing:0;text-align:right;color:var(--color-font-1)}
 .nds .ai0301-period {margin:var(--spacing-8) 0 0}
 .nds .ai0301-period__label {display:flex;align-items:center;height:24px;margin:0 0 var(--spacing-8);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-3)}
 .nds .ai0301-period .radio-box-row > label {flex:1 1 0;min-width:0}
+
 /* 성과 요약 그래프(Chart.js) */
 .nds .ai0301-chart {margin:var(--spacing-16) 0 0}
 .nds .ai0301-chart__unit {margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
