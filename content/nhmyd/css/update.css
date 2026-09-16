@@ -1153,6 +1153,7 @@
 .nds .text {display:block;word-break:break-word;overflow-wrap:break-word}
 .nds .text--h1 {font-size:var(--type-size-26);line-height:38px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.52px;color:var(--color-font-1)}
 .nds .text--h2 {font-size:var(--type-size-22);line-height:32px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.44px;color:var(--color-font-1)}
+.nds .text--h2-regular {font-size:var(--type-size-22);line-height:32px;font-weight:var(--font-weight-regular) !important;letter-spacing:-0.44px;color:var(--color-font-1)}
 .nds .text--h3 {font-size:var(--type-size-20);line-height:28px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.4px;color:var(--color-font-1)}
 .nds .text--h4 {font-size:var(--type-size-18);line-height:26px;font-weight:var(--font-weight-semibold) !important;letter-spacing:-0.36px;color:var(--color-font-1)}
 .nds .text--h4-regular {font-size:var(--type-size-18);line-height:26px;font-weight:var(--font-weight-regular) !important;letter-spacing:-0.36px;color:var(--color-font-1)}
@@ -1180,8 +1181,7 @@
 .nds .text-stack[hidden] {display:none} /* MSAR3110P_01 */
 .nds .text-stack--lg {gap:var(--spacing-32);margin:48px 0 40px}
 .nds .text-stack--lg .text-stack:last-child{margin-bottom:0}
-.nds .text-stack__figure {width:124px;margin:0 auto;padding-top:var(--spacing-4)}
-.nds .text-stack__figure img {display:inline-block;width:124px}
+.nds .text-stack__figure {width:124px;margin:0 auto;padding-top:var(--spacing-4);line-height:0}
 /* ---- 소비 경고 알림 설정(NH_MD_PM_02_01) ---- */
 .nds .pmAlert {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
 .nds .pmAlert__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);width:100%}
@@ -1206,7 +1206,7 @@
 .nds .bullet--dot.celebrate__info-list .bullet__item::before {background-color:#002259}
 /* ---- 자산연결 안내(NH_MD_CO_04_01) ---- */
 .nds .asset-connect {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-32);width:100%;text-align:center}
-.nds .asset-connect__visual {position:relative;overflow:hidden;width:148px;height:104px}
+.nds .asset-connect__visual {position:relative;overflow:hidden;line-height:0}
 .nds .asset-connect__title {margin:0}
 .nds .asset-connect__regular {font-weight:var(--font-weight-regular)}
 .nds .asset-connect__desc {margin:0}
