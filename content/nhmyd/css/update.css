@@ -719,7 +719,7 @@
 .nds .popBtnWrap .popBtn.half > a:link {width:50% !important}
 .nds .popBtnWrap .popBtn > a.confirmBtn {width:calc(100% - 100px) !important}
 .nds .areaBtnDefault {table-layout:auto !important;border-width:0 16px 32px !important;border-spacing:8px 0 !important;background:var(--background) !important}
-.bgcolor .nds .areaBtnDefault{padding-top:32px}
+/* .bgcolor .nds .areaBtnDefault{padding-top:32px} */
 /* ---- Accordion (notice/box/line/gray) --- */
 .nds .accordion-notice {width:100%;background:var(--color-bg-default)}
 .nds .accordion-notice__item {position:relative}
@@ -841,7 +841,6 @@
 .nds.popWrap.fullLayerPop .popInner h1{text-align:left;padding:0 var(--spacing-24) !important}
 .nds.popWrap.fullLayerPop .popInner .popCont{padding:16px 0 40px !important}
 .nds.popWrap.fullLayerPop .popInner .popCont.popCont--row { display:flex;flex-direction:column;justify-content:space-between;min-height:calc(100% - 50px); }
-
 .nds.popWrap.fullLayerPop .popInner .popCont{padding-bottom:60px !important}
 .nds.popWrap.fullLayerPop .popInner:has(.popBtnWrap .areaBtnDefault) .popCont {padding-bottom:112px !important}
 .nds.popWrap .popInner h1.normal{font-weight:var(--font-weight-light)}
@@ -1178,14 +1177,13 @@
 .nds .text-stack[hidden] {display:none} /* MSAR3110P_01 */
 .nds .text-stack--lg {gap:var(--spacing-32);margin:48px 0 40px}
 .nds .text-stack--lg .text-stack:last-child{margin-bottom:0}
-.nds .text-stack__figure {width:124px;margin:0 auto;padding-top:var(--spacing-4);line-height:0}
+.nds .text-stack .stack-visual {position:relative;overflow:hidden;line-height:0}
 /* ---- 소비 경고 알림 설정(NH_MD_PM_02_01) ---- */
 .nds .pmAlert {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
 .nds .pmAlert__head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);width:100%}
 .nds .pmAlert .stack--12 .bottomsheet-option__label {margin:0}
 .nds .pmAlert .input-box__input {transition:background-color var(--transition-base)}
 .nds .result-icon {display:block;width:68px;height:68px}
-.nds .intro-hero {margin:32px 0;}
 /* ---- 성인 축하 안내(NH_MD_YO_05) ---- */
 .nds .celebrate {position:relative;display:flex;flex-direction:column;gap:var(--spacing-32);align-items:flex-start;width:100%}
 .nds .celebrate__glow {position:absolute;top:4px;right:0;width:120px;height:120px;pointer-events:none} 
@@ -1201,12 +1199,7 @@
 .nds .celebrate__info-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:#002259}
 .nds .bullet--dot.celebrate__info-list .bullet__item {color:#002259}
 .nds .bullet--dot.celebrate__info-list .bullet__item::before {background-color:#002259}
-/* ---- 자산연결 안내(NH_MD_CO_04_01) ---- */
-.nds .asset-connect {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-32);width:100%;text-align:center}
-.nds .asset-connect__visual {position:relative;overflow:hidden;line-height:0}
-.nds .asset-connect__title {margin:0}
-.nds .asset-connect__regular {font-weight:var(--font-weight-regular)}
-.nds .asset-connect__desc {margin:0}
+
 /* ---- 소득/소비정보 등록(NH_MD_CO_01_02) ---- */
 .nds .income-consume__title {position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:2px;width:100%}
 .nds .income-consume__title .tooltipCont {position:absolute !important;top:100% !important;left:0 !important;transform:none !important;width:100% !important;margin-top:var(--spacing-12);box-sizing:border-box;z-index:30} /* 절대 위치로 라벨 바로 아래에 띄움(레거시 .tooltipWrap .tooltipCont의 left:50%/translateX(-50%) 중앙정렬만 좁은 바텀시트에 맞게 재정의) — nhasset_myd_mb.css 최상단 @import url("update.css") 때문에 이 파일 규칙이 캐스케이드상 먼저 배치되어, 동일 특이도(0,3,0) 레거시 규칙에 소스 순서로 밀리므로 top/left/transform/width에 !important 필요 */
@@ -1918,8 +1911,7 @@
 
 /* ------ icon 모음 ---------- */
 :root {
-    --ico-note: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z' fill='%23BCC2CF'/%3E%3Cpath d='M7 7.75V3.75' stroke='white' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='7' cy='10.5' r='.75' fill='white'/%3E%3C/svg%3E");}
-
+--ico-note: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpath d='M7 14C10.866 14 14 10.866 14 7C14 3.13401 10.866 0 7 0C3.13401 0 0 3.13401 0 7C0 10.866 3.13401 14 7 14Z' fill='%23BCC2CF'/%3E%3Cpath d='M7 7.75V3.75' stroke='white' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='7' cy='10.5' r='.75' fill='white'/%3E%3C/svg%3E");}
 .nds .info-card,
 .nds .md-card { flex-direction:column;align-items:center;gap:var(--spacing-16);position:relative;width:100%;padding:var(--spacing-20);border-radius:var(--radius-10);background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);box-sizing:border-box;}
 .nds .info-card a.link { display:inline-flex;align-items:center;gap:var(--spacing-2) }
@@ -1945,8 +1937,6 @@
 .nds .analysis-section .info-card__list ul.select-card__list-row > li { display:flex;justify-content:space-between;width:100%; }
 .nds .analysis-section .info-card__nodate { display:flex; }
 
-
-
 .nds .analysis-section, 
 .nds .ai-section {display:flex;flex-direction:column;gap:var(--spacing-20);margin-top:40px;}
 .nds .analysis-section:first-of-type,
@@ -1964,8 +1954,6 @@
 .nds .analysis-section [class*="__updated"]::before { content:"";display:block;width:16px;height:16px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic_clock_line_12.svg");mask-image:url("../images/update/ic_clock_line_12.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center }
 .nds .analysis-section .tooltipWrap { position:relative }
 .nds .analysis-section .tooltipWrap .tooltipCont { top:100% !important }
-
-
 .nds .analysis-section h2[class*="__title"]:has(.asset-title__tooltip-btn) { display:flex;align-items:center; }
 .nds .analysis-section:has(.brief-top) + .analysis-section { margin-top:8px }
 .nds .analysis-section .brief-top { display:flex;justify-content:flex-end }
@@ -1974,10 +1962,8 @@
 .nds .analysis-section .analysis-title__edit-btn { display:flex;align-items:center;gap:var(--spacing-2);font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);color:var(--color-font-3) }
 .nds .analysis-section .average-list-title,
 .nds .analysis-section .analysis-title strong,
-
 .nds .analysis-section .average-list > li {display:flex;justify-content:space-between;color:var(--color-font-3) }
 .nds .analysis-section .average-list > li > .tooltipCont { width:calc(100% + 40px) !important }
-
 .nds .analysis-section .average-list__title { display:inline-flex;align-items:center;font-size:var(--type-size-14); }
 .nds .analysis-section .average-list__title [class*="tooltip-btn"] { width:20px;height:20px;background-color:var(--color-icon-5)}
 .nds .analysis-section .average-list__data { font-size:var(--type-size-14) }
