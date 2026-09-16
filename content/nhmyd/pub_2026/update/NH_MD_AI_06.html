@@ -20,10 +20,10 @@
                     <span class="text text--body3-medium text--font3">안전자산확보</span>
                     <span class="blind">전체 3단계 중 1단계</span>
                     <span class="diag-step__progress" aria-hidden="true">
-                        <span class="process-progress-number process-progress-number--plain">
+                        <span class="process-progress-number is-plain">
                             <span class="process-progress-number__current">STEP</span>
                         </span>
-                        <span class="process-progress-number process-progress-number--plain">
+                        <span class="process-progress-number is-plain">
                             <span class="process-progress-number__current">01</span>
                             <span class="process-progress-number__divider"></span>
                             <span class="process-progress-number__total">03</span>
@@ -31,8 +31,8 @@
                     </span>
                 </div>
 
-                <!-- 리드 문구 + 도움말 툴팁(공통 tooltipWrap--card) -->
-                <div class="diag-lead card-head card-head--top tooltipWrap tooltipWrap--card">
+                <!-- 리드 문구 + 도움말 툴팁(공통 is-card) -->
+                <div class="diag-lead card-head is-top tooltipWrap is-card">
                     <!-- prettier-ignore -->
                     <h2 class="text text--h2 ai-heading">안전자산확보 사용가능 금액이<br /><em>96,000,000원</em>이 있어요.</h2>
                     <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">안전자산확보 사용가능 금액 도움말</span></button>
@@ -46,8 +46,8 @@
                 </div>
 
                 <!-- 만기 예정 대출 -->
-                <div class="md-card ai06-card">
-                    <div class="card-head tooltipWrap tooltipWrap--card">
+                <div class="md-card safe-card">
+                    <div class="card-head tooltipWrap is-card">
                         <h3 class="text text--h4 ai-heading">만기 예정 대출</h3>
                         <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">만기 예정 대출 도움말</span></button>
                         <div class="tooltipCont" style="display: none">
@@ -70,30 +70,27 @@
                         <span class="notice-box__text">안전자산(현금성)을 얼만큼 확보하실래요?</span>
                     </p>
 
-                    <!-- 확보금액 슬라이더 : 채움 비율은 --amount-slider-percent 한 곳만 바꾸면 됩니다 -->
-                    <div class="amount-slider" style="--amount-slider-percent: 61.8%">
+                    <!-- 확보금액 슬라이더 : 값은 input[type=range] 가 갖고, 아래 스크립트가 채움·말풍선·금액을 맞춥니다 -->
+                    <div class="amount-slider" data-amount-slider>
                         <div class="amount-slider__body">
                             <p class="amount-slider__head">
-                                <span class="amount-slider__label">확보금액</span>
-                                <strong class="amount-slider__value">+58,800,000원</strong>
+                                <span class="amount-slider__label" id="ai06AmountLabel">확보금액</span>
+                                <strong class="amount-slider__value" data-amount-slider-value>+58,800,000원</strong>
                             </p>
                             <div class="amount-slider__track">
                                 <i class="amount-slider__fill" aria-hidden="true"></i>
-                                <span class="amount-slider__thumb" aria-hidden="true"></span>
-                                <span class="amount-slider__popover" aria-hidden="true">
-                                    확보금액
-                                    <br />
-                                    58,800,000원
-                                </span>
+                                <!-- prettier-ignore -->
+                                <span class="amount-slider__popover" aria-hidden="true">확보금액<br /><span data-amount-slider-popover>58,800,000원</span></span>
+                                <input type="range" class="amount-slider__input" id="ai06AmountRange" min="0" max="96000000" step="100000" value="58800000" aria-labelledby="ai06AmountLabel" aria-valuetext="58,800,000원" data-amount-slider-input />
                             </div>
                         </div>
                         <p class="amount-slider__foot">
                             <span class="amount-slider__foot-label">확보가능 금액</span>
-                            <strong class="amount-slider__foot-value">37,200,000원</strong>
+                            <strong class="amount-slider__foot-value" data-amount-slider-rest>37,200,000원</strong>
                         </p>
                     </div>
 
-                    <hr class="divider divider--page" />
+                    <hr class="divider is-page" />
 
                     <p class="card-note">
                         <span class="card-note__icon" aria-hidden="true"></span>
@@ -102,8 +99,8 @@
                 </div>
 
                 <!-- 안전자산 확보시 참고할 목록 -->
-                <div class="md-card ai06-card">
-                    <div class="card-head card-head--top tooltipWrap tooltipWrap--card">
+                <div class="md-card safe-card">
+                    <div class="card-head is-top tooltipWrap is-card">
                         <h3 class="text text--h4 ai-heading">안전자산 확보시 참고할 목록이에요</h3>
                         <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">안전자산 확보시 참고할 목록 도움말</span></button>
                         <div class="tooltipCont" style="display: none">
@@ -120,7 +117,7 @@
 
                     <ul class="asset-list">
                         <li class="asset-list__item">
-                            <span class="label label--sm label--line label--gray">만료</span>
+                            <span class="label is-sm is-line is-gray">만료</span>
                             <div class="list-account">
                                 <span class="list-account__logo"><img src="../../images/logos/AACT0000.png" alt="" /></span>
                                 <span class="list-account__text">
@@ -144,7 +141,7 @@
                         </li>
 
                         <li class="asset-list__item">
-                            <span class="label label--sm label--line label--lightblue">부채진단</span>
+                            <span class="label is-sm is-line is-lightblue">부채진단</span>
                             <div class="list-account">
                                 <span class="list-account__logo"><img src="../../images/logos/AAOB0000.png" alt="" /></span>
                                 <span class="list-account__text">
@@ -168,7 +165,7 @@
                         </li>
 
                         <li class="asset-list__item">
-                            <span class="label label--sm label--line label--lightblue">부채진단</span>
+                            <span class="label is-sm is-line is-lightblue">부채진단</span>
                             <div class="list-account">
                                 <span class="list-account__logo"><img src="../../images/logos/logo_null_06_capital.png" alt="" /></span>
                                 <span class="list-account__text">
@@ -192,7 +189,7 @@
                         </li>
 
                         <li class="asset-list__item">
-                            <span class="label label--sm label--line label--lightblue">부채진단</span>
+                            <span class="label is-sm is-line is-lightblue">부채진단</span>
                             <div class="list-account">
                                 <span class="list-account__logo"><img src="../../images/logos/AACT0000.png" alt="" /></span>
                                 <span class="list-account__text">
@@ -241,12 +238,12 @@
 
                     <p class="asset-list__more">
                         <!-- prettier-ignore -->
-                        <button type="button" class="btn-arrow" data-ai06-more><span>더보기(<span data-ai06-shown>5</span>/6)</span><span class="btn-arrow__icon btn-arrow__icon--plus" aria-hidden="true"></span></button>
+                        <button type="button" class="btn-arrow" data-ai06-more><span>더보기(<span data-ai06-shown>5</span>/6)</span><span class="btn-arrow__icon is-plus" aria-hidden="true"></span></button>
                     </p>
 
-                    <button type="button" class="card-btn card-btn--line" data-ai06-fold aria-expanded="true">
+                    <button type="button" class="card-btn is-line" data-ai06-fold aria-expanded="true">
                         <span data-ai06-fold-label>접기</span>
-                        <span class="btn-arrow__icon btn-arrow__icon--chevron-up" aria-hidden="true"></span>
+                        <span class="btn-arrow__icon is-chevron-up" aria-hidden="true"></span>
                     </button>
                 </div>
 
@@ -256,6 +253,34 @@
             </div>
         </div>
         <script>
+            (function () {
+                // 확보금액 슬라이더 — input[type=range] 값에 맞춰 채움 폭(--amount-slider-ratio), 말풍선, 금액을 갱신합니다.
+                var input = document.querySelector('[data-amount-slider-input]');
+                if (!input) return;
+                var wrap = input.closest('[data-amount-slider]');
+                var valueEl = wrap.querySelector('[data-amount-slider-value]');
+                var popEl = wrap.querySelector('[data-amount-slider-popover]');
+                var restEl = wrap.querySelector('[data-amount-slider-rest]');
+                var total = Number(input.max) || 0;
+
+                function won(n) {
+                    return Math.round(n).toLocaleString('ko-KR') + '원';
+                }
+
+                function sync() {
+                    var value = Number(input.value);
+                    wrap.style.setProperty('--amount-slider-ratio', total ? value / total : 0);
+                    if (valueEl) valueEl.textContent = '+' + won(value);
+                    if (popEl) popEl.textContent = won(value);
+                    if (restEl) restEl.textContent = won(total - value);
+                    // 스크린리더가 "58800000" 대신 "58,800,000원" 으로 읽도록 합니다.
+                    input.setAttribute('aria-valuetext', won(value));
+                }
+
+                input.addEventListener('input', sync);
+                sync();
+            })();
+
             (function () {
                 // 목록 접기 / 펼치기 — 접으면 목록과 더보기를 감춥니다.
                 var foldBtn = document.querySelector('[data-ai06-fold]');
@@ -272,8 +297,8 @@
                     list.hidden = opened;
                     more.hidden = opened;
                     label.textContent = opened ? '펼치기' : '접기';
-                    icon.classList.toggle('btn-arrow__icon--chevron-up', !opened);
-                    icon.classList.toggle('btn-arrow__icon--chevron-down', opened);
+                    icon.classList.toggle('is-chevron-up', !opened);
+                    icon.classList.toggle('is-chevron-down', opened);
                 });
             })();
         </script>

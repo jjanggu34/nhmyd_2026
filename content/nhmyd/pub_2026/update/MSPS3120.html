@@ -25,13 +25,13 @@
                 </div> -->
                 <div class="process-step-h" role="img" aria-label="총 3단계 중 1번째 단계: 기관선택">
                     <div class="process-step-h__item">
-                        <span class="process-step-h__num process-step-h__num--active">기관선택</span>
+                        <span class="process-step-h__num is-active">기관선택</span>
                     </div>
-                    <div class="process-step-h__item process-step-h__item--center">
-                        <span class="process-step-h__num process-step-h__num--default">연결동의</span>
+                    <div class="process-step-h__item is-center">
+                        <span class="process-step-h__num is-default">연결동의</span>
                     </div>
-                    <div class="process-step-h__item process-step-h__item--end">
-                        <span class="process-step-h__num process-step-h__num--default">본인인증</span>
+                    <div class="process-step-h__item is-end">
+                        <span class="process-step-h__num is-default">본인인증</span>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
 
                 <div class="tab-bar" role="tablist" aria-label="기관 선택 방법">
                     <button type="button" id="tab-bar-1" class="tab-bar__item" role="tab" aria-selected="false" aria-controls="panel-bar-1" tabindex="-1">추천기관</button>
-                    <button type="button" id="tab-bar-2" class="tab-bar__item tab-bar__item--active" role="tab" aria-selected="true" aria-controls="panel-bar-2" tabindex="0">직접선택</button>
+                    <button type="button" id="tab-bar-2" class="tab-bar__item is-active" role="tab" aria-selected="true" aria-controls="panel-bar-2" tabindex="0">직접선택</button>
                 </div>
                 <div id="panel-bar-1" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-1" tabindex="0" hidden>추천기관</div>
                 <div id="panel-bar-2" class="tab-panel" role="tabpanel" aria-labelledby="tab-bar-2" tabindex="0">
@@ -66,15 +66,15 @@
                             <label class="input-box__label blind" for="search-box-1">기관명</label>
                             <div class="input-box__field">
                                 <input type="text" id="search-box-1" class="input-box__input" placeholder="기관명을 입력하세요" autocomplete="off" />
-                                <button type="button" class="input-box__icon input-box__icon--clear" id="searchClear1" aria-label="검색어 지우기" hidden></button>
-                                <span class="input-box__icon input-box__icon--search" aria-hidden="true"></span>
+                                <button type="button" class="input-box__icon is-clear" id="searchClear1" aria-label="검색어 지우기" hidden></button>
+                                <span class="input-box__icon is-search" aria-hidden="true"></span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="chips chips--sticky">
+                    <div class="chips is-sticky">
                         <div class="chip-accordion__chips">
-                            <button type="button" class="chip-single chip-single--active" aria-pressed="true">
+                            <button type="button" class="chip-single is-active" aria-pressed="true">
                                 은행
                                 <span>41</span>
                             </button>
@@ -163,7 +163,7 @@
                                         <img class="inst-list__grid-logo" src="../../images/logos/AAEM0000.png" alt="" />
                                         <span class="inst-list__grid-label">우리은행</span>
                                         <!-- disabled -->
-                                        <span class="label label--red">점검중</span>
+                                        <span class="label is-red">점검중</span>
                                     </span>
                                 </label>
                                 <!-- linked, checked -->
@@ -172,7 +172,7 @@
                                     <span class="inst-list__grid-card">
                                         <img class="inst-list__grid-logo" src="../../images/logos/AAES0000.png" alt="" />
                                         <span class="inst-list__grid-label">하나은행</span>
-                                        <span class="label label--gray">만료</span>
+                                        <span class="label is-gray">만료</span>
                                     </span>
                                 </label>
                                 <!-- linked, checked -->
@@ -1442,7 +1442,7 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="empty empty--result mt32">
+                        <div class="empty is-result mt32">
                             <span class="empty__icon" aria-hidden="true"></span>
                             <p class="empty__text">검색결과가 없습니다</p>
                         </div>

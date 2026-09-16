@@ -20,10 +20,10 @@
                     <span class="text text--body3-medium text--font3">진단 준비</span>
                     <span class="blind">전체 3단계 중 1단계</span>
                     <span class="diag-step__progress" aria-hidden="true">
-                        <span class="process-progress-number process-progress-number--plain">
+                        <span class="process-progress-number is-plain">
                             <span class="process-progress-number__current">STEP</span>
                         </span>
-                        <span class="process-progress-number process-progress-number--plain">
+                        <span class="process-progress-number is-plain">
                             <span class="process-progress-number__current">01</span>
                             <span class="process-progress-number__divider"></span>
                             <span class="process-progress-number__total">03</span>
@@ -61,7 +61,7 @@
 
                         <!-- 비중기준 / 금액기준: 누르면 아래 범례 수치만 바뀝니다 -->
                         <div class="diag-unit" role="group" aria-label="자산 표기 기준">
-                            <button type="button" class="diag-unit__btn diag-unit__btn--active" data-diag-unit="ratio" aria-pressed="true">비중기준</button>
+                            <button type="button" class="diag-unit__btn is-active" data-diag-unit="ratio" aria-pressed="true">비중기준</button>
                             <span class="diag-unit__dash" aria-hidden="true"></span>
                             <button type="button" class="diag-unit__btn" data-diag-unit="amount" aria-pressed="false">금액기준</button>
                         </div>
@@ -150,9 +150,9 @@
                             <strong class="diag-type__value">적극 투자형</strong>
                         </p>
                         <p class="diag-type__more">
-                            <button type="button" class="btn-arrow btn-arrow--caption">
+                            <button type="button" class="btn-arrow is-caption">
                                 투자성향 진단 다시하기
-                                <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                                <span class="btn-arrow__icon is-right" aria-hidden="true"></span>
                             </button>
                         </p>
                     </div>
@@ -168,19 +168,19 @@
                             <div class="radio-box-row" role="radiogroup" aria-labelledby="diagPortfolioQuestion">
                                 <label>
                                     <input type="radio" name="diagPortfolioType" class="radio-hidden-input radio-box-input" value="종합형" checked />
-                                    <span class="radio-box radio-box--sm radio-box--center">종합형</span>
+                                    <span class="radio-box is-sm is-center">종합형</span>
                                 </label>
                                 <label>
                                     <input type="radio" name="diagPortfolioType" class="radio-hidden-input radio-box-input" value="국내형" />
-                                    <span class="radio-box radio-box--sm radio-box--center">국내형</span>
+                                    <span class="radio-box is-sm is-center">국내형</span>
                                 </label>
                                 <label>
                                     <input type="radio" name="diagPortfolioType" class="radio-hidden-input radio-box-input" value="해외형" />
-                                    <span class="radio-box radio-box--sm radio-box--center">해외형</span>
+                                    <span class="radio-box is-sm is-center">해외형</span>
                                 </label>
                             </div>
                         </div>
-                        <hr class="divider divider--page diag-portfolio__divider" />
+                        <hr class="divider is-page diag-portfolio__divider" />
                         <p class="card-note">
                             <span class="card-note__icon" aria-hidden="true"></span>
                             <span class="card-note__text" data-diag-note>종합형은 국내·해외 6개 자산군 전체를 말해요. 한쪽으로 치우치지 않게 포트폴리오를 제안할 수 있어요.</span>
@@ -194,7 +194,7 @@
                         <span class="diag-connect__text">더 정확한 결과를 원하시나요?</span>
                         <button type="button" class="btn-arrow">
                             자산 연결
-                            <span class="btn-arrow__icon btn-arrow__icon--right" aria-hidden="true"></span>
+                            <span class="btn-arrow__icon is-right" aria-hidden="true"></span>
                         </button>
                     </div>
                 </section>
@@ -242,7 +242,7 @@
                         var unit = btn.getAttribute('data-diag-unit');
                         unitBtns.forEach(function (b) {
                             var active = b === btn;
-                            b.classList.toggle('diag-unit__btn--active', active);
+                            b.classList.toggle('is-active', active);
                             b.setAttribute('aria-pressed', active ? 'true' : 'false');
                         });
                         valueEls.forEach(function (el) {

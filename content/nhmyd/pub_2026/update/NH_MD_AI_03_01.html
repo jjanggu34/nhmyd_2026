@@ -18,15 +18,15 @@
         <div class="popInner">
             <h1 id="popTitle">기간별 성과 예측</h1>
             <div class="popCont bgcolor">
-                <p class="notice-box notice-box--bar">
-                    <span class="notice-box__icon notice-box__icon--calendar" aria-hidden="true"></span>
+                <p class="notice-box is-bar">
+                    <span class="notice-box__icon is-calendar" aria-hidden="true"></span>
                     <span class="notice-box__text">기간에 따라 성과가 어떻게 될지 미리 볼 수 있어요.</span>
                 </p>
 
                 <div class="popCont__inner">
                     <section class="ai-section">
                         <div class="info-card">
-                            <div class="card-head tooltipWrap tooltipWrap--card">
+                            <div class="card-head tooltipWrap is-card">
                                 <h2 class="text text--h4 ai-heading">기간별 성과예측을 살펴볼까요?</h2>
                                 <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span
                                         class="blind">기간별 성과예측 도움말</span></button>
@@ -41,33 +41,33 @@
                             </div>
     
                             <!-- 현재평가금액 + 기간 선택 -->
-                            <p class="ai0301-amount">
-                                <span class="ai0301-sub-title">현재평가금액</span>
-                                <strong class="ai0301-amount__value">30,000,000 원</strong>
+                            <p class="predict-amount">
+                                <span class="predict-title">현재평가금액</span>
+                                <strong class="predict-amount__value">30,000,000 원</strong>
                             </p>
-                            <div class="ai0301-period">
-                                <p class="ai0301-period__label" id="ai0301PeriodLabel">기간 선택(연)</p>
+                            <div class="predict-period">
+                                <p class="predict-period__label" id="ai0301PeriodLabel">기간 선택(연)</p>
                                 <!-- 넷 중 하나만 선택되는 라디오 그룹(가이드 radio-box 사용) -->
                                 <div class="radio-box-row" role="radiogroup" aria-labelledby="ai0301PeriodLabel">
                                     <label>
                                         <input type="radio" name="ai0301Period" class="radio-hidden-input radio-box-input"
                                             value="5" />
-                                        <span class="radio-box radio-box--sm radio-box--center">5</span>
+                                        <span class="radio-box is-sm is-center">5</span>
                                     </label>
                                     <label>
                                         <input type="radio" name="ai0301Period" class="radio-hidden-input radio-box-input"
                                             value="10" checked />
-                                        <span class="radio-box radio-box--sm radio-box--center">10</span>
+                                        <span class="radio-box is-sm is-center">10</span>
                                     </label>
                                     <label>
                                         <input type="radio" name="ai0301Period" class="radio-hidden-input radio-box-input"
                                             value="20" />
-                                        <span class="radio-box radio-box--sm radio-box--center">20</span>
+                                        <span class="radio-box is-sm is-center">20</span>
                                     </label>
                                     <label>
                                         <input type="radio" name="ai0301Period" class="radio-hidden-input radio-box-input"
                                             value="30" />
-                                        <span class="radio-box radio-box--sm radio-box--center">30</span>
+                                        <span class="radio-box is-sm is-center">30</span>
                                     </label>
                                 </div>
                             </div>
@@ -76,42 +76,42 @@
                             <hr class="divider ai-dash-divider mt32 mb32" />
     
                             <!-- 성과 요약 그래프 (Chart.js) -->
-                            <h3 class="ai0301-sub-title">성과 요약 그래프</h3>
-                            <div class="ai0301-chart" aria-hidden="true">
-                                <p class="ai0301-chart__unit">단위 : 만원</p>
-                                <div class="ai0301-chart__body">
-                                    <ul class="ai0301-chart__yaxis" data-ai0301-yaxis>
+                            <h3 class="predict-title">성과 요약 그래프</h3>
+                            <div class="predict-chart" aria-hidden="true">
+                                <p class="predict-chart__unit">단위 : 만원</p>
+                                <div class="predict-chart__body">
+                                    <ul class="predict-chart__yaxis" data-ai0301-yaxis>
                                         <li>10,000</li>
                                         <li>7,500</li>
                                         <li>5,000</li>
                                         <li>2,500</li>
                                         <li>0</li>
                                     </ul>
-                                    <div class="ai0301-chart__box">
+                                    <div class="predict-chart__box">
                                         <canvas id="ai0301Chart"></canvas>
                                     </div>
-                                    <p class="ai0301-chart__xaxis">
+                                    <p class="predict-chart__xaxis">
                                         <span>1년</span>
                                         <span>5년</span>
                                         <span data-ai0301-xlast>10년</span>
                                     </p>
                                 </div>
                             </div>
-                            <ul class="ai0301-legend" aria-hidden="true">
+                            <ul class="predict-legend" aria-hidden="true">
                                 <li>
-                                    <i class="ai0301-legend__swatch ai0301-legend__swatch--good"></i>
+                                    <i class="predict-legend__swatch is-good"></i>
                                     좋을 때
                                 </li>
                                 <li>
-                                    <i class="ai0301-legend__swatch ai0301-legend__swatch--avg"></i>
+                                    <i class="predict-legend__swatch is-avg"></i>
                                     평균
                                 </li>
                                 <li>
-                                    <i class="ai0301-legend__swatch ai0301-legend__swatch--bad"></i>
+                                    <i class="predict-legend__swatch is-bad"></i>
                                     나쁠때
                                 </li>
                                 <li>
-                                    <i class="ai0301-legend__swatch ai0301-legend__swatch--now"></i>
+                                    <i class="predict-legend__swatch is-now"></i>
                                     현재
                                 </li>
                             </ul>
@@ -122,29 +122,29 @@
     
                             <!-- 예상 성과 -->
                             <!-- prettier-ignore -->
-                            <h3 class="ai0301-sub-title"><span data-ai0301-years>10</span>년 후 예상 성과는 다음과 같아요.</h3>
-                            <ul class="ai0301-result">
-                                <li class="ai0301-result__row">
-                                    <span class="ai0301-result__label">현재 유지 시</span>
-                                    <strong class="ai0301-result__value">90,000,000 원</strong>
+                            <h3 class="predict-title"><span data-ai0301-years>10</span>년 후 예상 성과는 다음과 같아요.</h3>
+                            <ul class="predict-result">
+                                <li class="predict-result__row">
+                                    <span class="predict-result__label">현재 유지 시</span>
+                                    <strong class="predict-result__value">90,000,000 원</strong>
                                 </li>
-                                <li class="ai0301-result__row">
-                                    <span class="ai0301-result__label">시장이 좋을 시</span>
-                                    <strong class="ai0301-result__value">138,000,000 원</strong>
+                                <li class="predict-result__row">
+                                    <span class="predict-result__label">시장이 좋을 시</span>
+                                    <strong class="predict-result__value">138,000,000 원</strong>
                                 </li>
-                                <li class="ai0301-result__row">
-                                    <span class="ai0301-result__label">시장이 보통 시</span>
-                                    <strong class="ai0301-result__value">100,000,000 원</strong>
+                                <li class="predict-result__row">
+                                    <span class="predict-result__label">시장이 보통 시</span>
+                                    <strong class="predict-result__value">100,000,000 원</strong>
                                 </li>
-                                <li class="ai0301-result__row">
-                                    <span class="ai0301-result__label">시장이 나쁠 시</span>
-                                    <strong class="ai0301-result__value">70,000,000 원</strong>
+                                <li class="predict-result__row">
+                                    <span class="predict-result__label">시장이 나쁠 시</span>
+                                    <strong class="predict-result__value">70,000,000 원</strong>
                                 </li>
                             </ul>
                             <hr class="divider ai-divider--sm" />
-                            <p class="ai0301-total">
-                                <span class="ai0301-total__label">연환산 수익률(보통)</span>
-                                <strong class="ai0301-total__value">7.0 %</strong>
+                            <p class="predict-total">
+                                <span class="predict-total__label">연환산 수익률(보통)</span>
+                                <strong class="predict-total__value">7.0 %</strong>
                             </p>
                         </div>
                     </section>
