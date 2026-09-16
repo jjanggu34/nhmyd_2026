@@ -719,6 +719,7 @@
 .nds .popBtnWrap .popBtn.half > a:link {width:50% !important}
 .nds .popBtnWrap .popBtn > a.confirmBtn {width:calc(100% - 100px) !important}
 .nds .areaBtnDefault {table-layout:auto !important;border-width:0 16px 32px !important;border-spacing:8px 0 !important;background:var(--background) !important}
+.bgcolor .nds .areaBtnDefault{padding-top:32px}
 /* ---- Accordion (notice/box/line/gray) --- */
 .nds .accordion-notice {width:100%;background:var(--color-bg-default)}
 .nds .accordion-notice__item {position:relative}
@@ -2079,9 +2080,14 @@
 .nds .compare-subtitle span {color:var(--color-font-1)}
 .nds .compare-scroll {width:100%;box-sizing:content-box}
 .nds .compare-scroll .swiper-wrapper {height:auto}
-.nds .compare-scroll__pagination.swiper-pagination {position:relative;bottom:auto;display:flex;align-items:center;justify-content:center;gap:var(--spacing-8);margin-top:var(--spacing-20);line-height:0}
+/* 점 인디케이터(Swiper bullets 공용) — 레거시 .swiper-pagination 의 absolute 배치를 흐름 안으로 되돌립니다 */
+.nds .dots-pagination.swiper-pagination,
+.nds .compare-scroll__pagination.swiper-pagination {position:relative;bottom:auto;left:auto;display:flex;align-items:center;justify-content:center;gap:var(--spacing-8);width:100%;line-height:0}
+.nds .dots-pagination .swiper-pagination-bullet,
 .nds .compare-scroll__pagination .swiper-pagination-bullet {width:8px;height:8px;margin:0;border-radius:var(--radius-full);background-color:var(--primitive-gray-400);opacity:1;transition:background-color 0.2s, width 0.2s}
+.nds .dots-pagination .swiper-pagination-bullet-active,
 .nds .compare-scroll__pagination .swiper-pagination-bullet-active {width:16px;background-color:#212121}
+.nds .compare-scroll__pagination.swiper-pagination {margin-top:var(--spacing-20)}
 .nds .compare-card {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%;height:auto;padding:var(--spacing-20);background-color:var(--primitive-base-0);border-radius:var(--radius-10);box-shadow:0 5px 16px 0 rgba(0,0,0,0.07);box-sizing:border-box}
 .nds .compare-card__title {margin:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1)}
 .nds .compare-card__row {display:flex;align-items:center;justify-content:space-evenly;gap:var(--spacing-16);padding:var(--spacing-16);width:100%;border-radius: var(--radius-8);box-sizing:border-box;background-color: #F3F5F8;}
@@ -2450,3 +2456,20 @@
 .nds .ai06-card .notice-box,
 .nds .ai06-card .amount-slider {margin-top:var(--spacing-24)}
 .nds .ai06-card .divider {margin:var(--spacing-24) 0}
+/* -- NH_MD_AI_05 : AI 포트폴리오 서비스 안내(온보딩 캐러셀) -- */
+/* .container 의 좌우 여백(24)을 빼서 비주얼 영역만 화면 폭을 꽉 채웁니다 */
+/* --onboard-chrome : 비주얼 영역을 뺀 위아래 고정 높이 합 */
+/* 헤더 50 + 위 여백 32 + 인디케이터 12 + 간격 32 + 타이틀 72(24/36 2줄) + 간격 24 + 하단 CTA 120 = 342 */
+.nds .onboard {--onboard-chrome:342px;display:flex;flex-direction:column;gap:var(--spacing-32);margin:0 calc(var(--spacing-24) * -1);padding-top:var(--spacing-32)}
+.nds .onboard__dots {height:12px}
+.nds .onboard__swiper {width:100%}
+.nds .onboard__slide {display:flex;flex-direction:column;gap:var(--spacing-24);height:auto}
+.nds .onboard__title {margin:0;padding:0 var(--spacing-24);font-size:var(--type-size-24);font-weight:var(--font-weight-regular);line-height:36px;letter-spacing:-0.32px;text-align:center;word-break:keep-all;color:var(--color-font-1)}
+.nds .onboard__title strong {font-weight:var(--font-weight-bold)}
+/* 가운데 뚫린 프레임 : 안쪽에 <img> 를 넣으면 프레임 크기에 맞춰 채워집니다 */
+/* 스크롤이 생기지 않는 최대 높이. 360x760(시안)에서 정확히 418px 이 됩니다 */
+.nds .onboard__visual {position:relative;width:100%;min-height:calc(100vh - var(--onboard-chrome));min-height:calc(100dvh - var(--onboard-chrome));overflow:hidden;background:var(--color-bg-container)}
+.nds .onboard__frame {position:absolute;top:26px;left:50%;transform:translateX(-50%);width:260px;height:calc(100% - 21px);box-sizing:border-box;border:5px solid var(--primitive-base-0);border-bottom:0;border-radius:50px 50px 0 0;box-shadow:0 1px 26px 0 rgba(0, 0, 0, 0.1);overflow:hidden}
+.nds .onboard__frame img {display:block;width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:top center;object-position:top center}
+/* 하단 CTA(고정) 만큼만 여백을 두고, 온보딩은 스크롤이 생기지 않게 합니다 */
+.nds .container:has(> .onboard) {padding-bottom:120px !important}
