@@ -96,6 +96,14 @@
     --chart-focus-font:#219d93;
     --chart-bg:#f8f9fb;
     --chart-track-bg:#f3f5f8;
+    --chart-yellow-bg:#ede100;
+    --chart-sky-bg:#49d8ff;
+    --chart-orange-bg:#ffa856;
+    --chart-blue-bg:#66a1ff;
+    --chart-before-bg:#c8d2e4;
+    --primitive-navy-800:#00274c;
+    --asset-detail-bg:#f7f8fb;
+    --asset-detail-line:#e6ebf2;
     --chart-up-font:#ec0c0c;
     --chart-down-bg:#66A1FF;
     --chart-down-font:#2c6dd4;
@@ -464,7 +472,9 @@
 .nds .label--red {color:var(--color-icon-error)}
 .nds .label--skyblue {color:var(--primitive-skyblue-grade)}
 .nds .label--yellow {color:var(--primitive-yellow-grade)}
+.nds .label--dark {color:var(--color-font-1)}
 .nds .label--line.label--gray {border-color:var(--primitive-gray-600)}
+.nds .label--line.label--dark {border-color:var(--primitive-gray-800)}
 .nds .label--grade1 {color:var(--primitive-red-grade)}
 .nds .label--grade2 {color:var(--primitive-orange-grade)}
 .nds .label--grade3 {color:var(--primitive-yellow-grade)}
@@ -599,6 +609,10 @@
 .nds .list-account__price strong {font-weight:var(--font-weight-medium);color:var(--color-font-1)}
 .nds .list-account__fav {flex-shrink:0;display:flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;background:none;border:none;cursor:pointer;color:var(--color-icon-4)}
 .nds .list-account__fav::before {content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-star-favorite.svg");mask-image:url("../images/update/ic-star-favorite.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+/* --sm : 로고 32px, 상품명만 한 줄로 쓰는 좁은 형태 */
+.nds .list-account--sm {gap:var(--spacing-8)}
+.nds .list-account--sm .list-account__logo {width:32px;padding:0}
+.nds .list-account--sm .list-account__logo img {width:32px;height:32px}
 .nds .list-continue {display:flex;align-items:center;gap:var(--spacing-12);width:100%;border:1px solid var(--color-border-2);border-radius:var(--radius-12);padding:13px var(--spacing-16) 13px var(--spacing-20)}
 .nds .list-continue__text {flex:1;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);letter-spacing:-0.3px;line-height:24px;color:var(--color-font-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nds .list-continue__actions {flex-shrink:0;display:flex;align-items:center;gap:var(--spacing-8);height:30px}
@@ -2189,16 +2203,65 @@
 .nds .amount-slider__foot-value {flex-shrink:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;text-align:right;color:var(--primitive-blue-500)}
 /* 자산 목록 : 가이드의 list-account + label 을 그대로 쓰고, 구분선만 카드 폭 전체로 뺍니다 */
 .nds .asset-list {margin:var(--spacing-24) calc(var(--spacing-20) * -1) 0;padding:0;list-style:none}
-.nds .asset-list__item {display:flex;flex-direction:column;gap:var(--spacing-8);padding:var(--spacing-16) var(--spacing-20)}
-.nds .asset-list__item > .label {align-self:flex-start}
+.nds .asset-list__item {display:flex;flex-direction:column;padding:var(--spacing-16) var(--spacing-20)}
+.nds .asset-list__item > .label {align-self:flex-start;margin:0 0 var(--spacing-8)}
 .nds .asset-list__item + .asset-list__item {border-top:1px solid var(--primitive-blue-soft-border)}
 .nds .asset-list__item:first-child {padding-top:0}
 .nds .asset-list .list-account__number {display:flex;align-items:center;gap:var(--spacing-4);min-width:0}
 .nds .asset-list .list-account__number span {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.nds .asset-list__data {display:flex;flex-direction:column;gap:var(--spacing-2);margin:var(--spacing-8) 0 0;padding:0;list-style:none}
+.nds .asset-list__data {display:flex;flex-direction:column;gap:var(--spacing-2);margin:var(--spacing-16) 0 0;padding:0;list-style:none}
+/* --sm : 라벨 13/20, 값 14/22, 행 사이 여백 없음 */
+.nds .asset-list__data--sm {gap:0;margin-top:var(--spacing-12)}
+.nds .asset-list__data--sm .asset-list__row-label {font-size:var(--type-size-13);font-weight:var(--font-weight-medium);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
+.nds .asset-list__data--sm .asset-list__row-value {font-size:var(--type-size-14);line-height:22px;letter-spacing:-0.28px}
 .nds .asset-list__row {display:flex;align-items:flex-start;justify-content:space-between;gap:var(--spacing-8)}
 .nds .asset-list__row-label {flex:1 1 auto;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-regular);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-3)}
 .nds .asset-list__row-value {flex-shrink:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;text-align:right;color:var(--color-font-1)}
+.nds .asset-list__row-value--up {color:var(--chart-up-font)}
+.nds .asset-list__row-value--down {color:var(--chart-down-font)}
+/* 라벨 하나에 계좌 여러 개가 묶이는 그룹 */
+.nds .asset-list__group + .asset-list__group {margin-top:var(--spacing-24)}
+.nds .asset-list__group > .label {margin:0 0 var(--spacing-16)}
+.nds .asset-list__items {margin:0;padding:0;list-style:none}
+/* --sm : 구분선을 카드 좌우 여백 안쪽에 둡니다(전체 폭으로 빼지 않음) */
+.nds .asset-list--sm {margin-left:0;margin-right:0}
+.nds .asset-list--sm .asset-list__item {padding-left:0;padding-right:0}
+/* 누적 가로 막대(자산 구성) : 세그먼트 폭·색은 인라인 style 로 지정합니다 */
+.nds .asset-bar {display:flex;align-items:stretch;width:100%;height:12px;margin:var(--spacing-20) 0 0;border-radius:var(--radius-4);overflow:hidden}
+.nds .asset-bar--sm {height:8px}
+.nds .asset-bar__seg {display:block;flex-shrink:0;height:100%}
+.nds .asset-bar__seg:last-child {flex:1 1 auto;min-width:0}
+/* 막대 아래 요약행(진단 자산 / 진단 외 자산) */
+.nds .asset-sum {display:flex;flex-direction:column;margin:var(--spacing-4) 0 0;padding:0;list-style:none}
+.nds .asset-sum__row {display:flex;align-items:flex-end;justify-content:space-between;gap:var(--spacing-8)}
+.nds .asset-sum__label {font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
+.nds .asset-sum__value {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;text-align:right;color:var(--color-font-2)}
+/* 계좌 안 보유 상품 목록 : 한 단계 들여쓴 연회색 박스 */
+.nds .asset-detail {margin:var(--spacing-24) 0 0;padding:var(--spacing-20);border-radius:var(--radius-8);background:var(--asset-detail-bg)}
+.nds p.asset-detail {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;text-align:center;color:var(--color-font-4)}
+.nds .asset-detail__list {display:flex;flex-direction:column;margin:var(--spacing-16) 0 0;padding:0;list-style:none}
+.nds .asset-detail__item + .asset-detail__item {margin-top:var(--spacing-16);padding-top:var(--spacing-16);border-top:1px solid var(--asset-detail-line)}
+.nds .asset-detail__name {margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--primitive-navy-800)}
+.nds .asset-detail .asset-list__data {margin-top:var(--spacing-4)}
+.nds .asset-detail .asset-bar {margin-top:var(--spacing-12)}
+/* 자산군 아코디언 카드(현금 / 투자 / 연금) — update-ui.js 의 [data-acc-toggle] 를 그대로 씁니다 */
+.nds .asset-group {margin-top:var(--spacing-24);padding:var(--spacing-12) 0;box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
+.nds .asset-group + .asset-group {margin-top:var(--spacing-12)}
+.nds .asset-group__head {display:flex;align-items:center;gap:var(--spacing-2);width:100%;height:32px;padding:0 var(--spacing-20);margin:0;background:none;border:none;cursor:pointer;text-align:left}
+.nds .asset-group__icon {flex-shrink:0;display:block;width:32px;height:32px;border-radius:var(--radius-12)}
+.nds .asset-group__icon.item01{background:url("../images/update/ic_money_bag.svg") no-repeat center / 24px 24px}
+.nds .asset-group__icon.item02{background:url("../images/update/ic-repayment-chart.svg") no-repeat center / 24px 24px}
+.nds .asset-group__icon.item03{background:url("../images/update/ic-person-retiree.svg") no-repeat center / 24px 24px}
+.nds .asset-group__name {flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--type-size-16);font-weight:var(--font-weight-regular);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
+.nds .asset-group__amount {flex-shrink:0;font-size:var(--type-size-16);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.32px;text-align:right;color:var(--color-font-1)}
+.nds .asset-group__arrow {flex-shrink:0;display:block;width:24px;height:24px;margin-left:var(--spacing-6);background-color:var(--color-icon-4);transition:transform 0.2s ease;-webkit-mask-image:url("../images/update/ic-arrow-down-24.svg");mask-image:url("../images/update/ic-arrow-down-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nds .asset-group__head[aria-expanded="true"] .asset-group__arrow {transform:rotate(180deg)}
+.nds .asset-group__body {padding:var(--spacing-24) var(--spacing-20) var(--spacing-4)}
+.nds .asset-group__body > .asset-list {margin-top:0}
+/* 팝업(fullLayerPop)에서도 일반 화면과 같은 sticky-footer 를 씁니다 */
+.nds .popBtnWrap > .sticky-footer {z-index:1000}
+.nds .sticky-footer .areaBtnDefault {position:static !important}
+.nds.popWrap.fullLayerPop .popInner .popCont:has(~ .popBtnWrap .sticky-footer) {padding-bottom:calc(var(--sticky-footer-pad, 112px) + var(--spacing-24)) !important}
 .nds .asset-list__more {display:flex;justify-content:center;margin:var(--spacing-24) 0 0}
 /* 접기/펼치기 화살표(가이드 btn-arrow 아이콘 세트에 추가) */
 .nds .btn-arrow__icon--chevron-down {-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg")}
@@ -2209,6 +2272,7 @@
 .nds .diag-step__progress {display:inline-flex;align-items:center;gap:var(--spacing-2)}
 .nds .process-progress-number--plain {padding:0;background:none}
 /*.nds .diag-lead {margin:var(--spacing-24) 0 0}*/
+.nds .diag-lead em {font-style:normal;color:var(--chart-focus-font)}
 /* 카드 공통 : 시안의 카드 간격 40, 그림자 0 5px 8px */
 /*.nds .diag-card, .nds .diag-type, .nds .diag-portfolio {margin:var(--spacing-40) 0 0;box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
 .nds .diag-card {margin-top:var(--spacing-24);padding:var(--spacing-20)}*/
