@@ -296,7 +296,9 @@
 .nds .stack--32 {gap:var(--spacing-32)}
 .nds .stack--40 {gap:var(--spacing-40)}
 /* --- divider --- */
-.nds .divider {display:block;width:100%;border:none;margin:var(--spacing-20) auto;flex-shrink:0}
+.nds hr{display:block;width:100%}
+.nds .divider {display:block;width:100%;border:none;margin:var(--spacing-24) auto;flex-shrink:0}
+.nds .divider:where(.is-space32){margin:var(--spacing-32) auto}
 .nds .divider:where(.is-content) {height:8px;background-color:var(--color-bg-container);margin:40px -24px;width:auto}
 .nds .divider:where(.is-page) {height:1px;background-color:var(--color-bg-container)}
 .nds .divider:where(.is-list1) {height:1px;background-color:var(--primitive-gray-300)}
@@ -1449,7 +1451,7 @@
 .insight-hero__status-icon::before {content:"";display:block;width:22px;height:22px;background-size:contain;background-repeat:no-repeat;background-position:center}
 .insight-hero__status-icon:where(.is-mint) {background:rgba(221,242,228,0.7)}
 /* .insight-hero__status-icon:where(.is-mint)::before {background-image:url("../images/update/ic-shield-check-mint.svg")} */
-.insight-hero__status-icon:where(.is-blue) {background:rgba(229,239,255,0.7)}
+.insight-hero__status-icon:where(.is-blue) {background:#2D5DA1}
 /* .insight-hero__status-icon:where(.is-blue)::before {background-image:url("../images/update/ic-shield-check-blue.svg")} */
 .insight-hero__status-icon:where(.is-pink) {background:rgba(255,229,229,0.7)}
 /* .insight-hero__status-icon:where(.is-pink)::before {background-image:url("../images/update/ic-shield-warning-pink.svg")} */
@@ -1632,10 +1634,9 @@
     .hcb-chart-box .hcb-legend{margin:var(--spacing-12) 0 0}
     .hero__chart-box, .hc-stats{margin:var(--spacing-32) 0 0}
 }
-.insight-list {display:flex;flex-direction:column}
+.insight-list {display:flex;flex-direction:column;gap:0 !important}
 .insight-list__item {width:100%}
 .insight-list__row {display:flex;align-items:center;gap:var(--spacing-8);width:100%;background:none;border:none;padding:0;margin:0;cursor:pointer;text-align:left;font:inherit}
-.insight-list__divider {border:none;border-top:1px solid var(--primitive-gray-200);margin:var(--spacing-24) 0}
 .insight-list .insight-hero__status-icon {border-radius:var(--radius-16)}
 .insight-list .insight-hero__status-body {flex:1;min-width:0}
 .insight-list .insight-hero__status-title {margin:0 0 var(--spacing-4);font-size:var(--type-size-15);font-weight:var(--font-weight-bold);line-height:1;color:var(--primitive-gray-font-900)}
