@@ -47,7 +47,6 @@
                             </p>
                             <div class="predict-period">
                                 <p class="predict-period__label" id="ai0301PeriodLabel">기간 선택(연)</p>
-                                <!-- 넷 중 하나만 선택되는 라디오 그룹(가이드 radio-box 사용) -->
                                 <div class="radio-box-row" role="radiogroup" aria-labelledby="ai0301PeriodLabel">
                                     <label>
                                         <input type="radio" name="ai0301Period" class="radio-hidden-input radio-box-input"
@@ -164,9 +163,8 @@
             var canvas = document.getElementById('ai0301Chart');
             if (!canvas || typeof Chart === 'undefined') return;
 
-            // 표시 단위는 만원. 실제 값은 개발 연동 시 교체하세요.
-            var START = 3000; // 현재평가금액 30,000,000원 = 3,000만원
-            var TARGET = { good: 13800, avg: 10000, bad: 7000, now: 9000 }; // 10년 후 값(만원)
+            var START = 3000;
+            var TARGET = { good: 13800, avg: 10000, bad: 7000, now: 9000 };
             var SERIES = [
                 { key: 'good', color: '#38e784' },
                 { key: 'avg', color: '#09b2c5' },
@@ -177,7 +175,6 @@
             var years = 10;
             var yLabelEls = document.querySelectorAll('[data-ai0301-yaxis] li');
 
-            // 1년 -> N년까지 복리로 완만하게 이어지는 곡선을 만듭니다.
             function buildSeries(target) {
                 var rate = Math.pow(target / START, 1 / (years - 1));
                 var data = [];
@@ -185,7 +182,6 @@
                 return data;
             }
 
-            // y축 눈금은 데이터 최대값 기준으로 4등분해서 라벨과 스케일을 항상 맞춥니다.
             function niceMax(v) {
                 var step = Math.pow(10, String(Math.round(v / 4)).length - 1);
                 return Math.ceil(v / (4 * step)) * 4 * step;
@@ -196,7 +192,6 @@
                 yLabelEls[i].textContent = Math.round((yMax * (4 - i)) / 4).toLocaleString('ko-KR');
             }
 
-            // 그래프 박스 : 안쪽 여백(가로 2 / 세로 24)만큼 스케일을 넓혀 선이 잘리지 않게 합니다.
             var BOX_W = 234;
             var BOX_H = 178;
             var padX = ((years - 1) * 2) / (BOX_W - 4);
@@ -219,7 +214,7 @@
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    events: [], // 시안에 말풍선이 없어 포인터 이벤트를 받지 않습니다
+                    events: [],
                     layout: { padding: 0 },
                     scales: {
                         x: { type: 'linear', min: 1 - padX, max: years + padX, display: false, grid: { display: false } },

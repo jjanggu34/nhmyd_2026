@@ -87,16 +87,11 @@
         </div>
 
         <script>
-            // 카드1의 --point 막대(data-bar-anim)와 카드2의 게이지(data-gauge)가 화면에 스크롤되어
-            // 들어올 때 각각 0 -> 목표치까지 차오르는 애니메이션을 적용합니다. 실제 채움 값은
-            // .finance-preview__bar.is-point/.finance-preview__gauge-fill의 CSS transition이 담당하고,
-            // 여기서는 트리거 시점에 is-animated 클래스만 붙입니다.
             document.addEventListener('DOMContentLoaded', function () {
                 var targets = document.querySelectorAll('.finance-preview__bars[data-bar-anim], .finance-preview__gauge[data-gauge]');
                 if (!targets.length) return;
 
                 if (!('IntersectionObserver' in window)) {
-                    // 구형 브라우저 폴백: 옵저버 없이 바로 채움
                     targets.forEach(function (el) { el.classList.add('is-animated'); });
                     return;
                 }

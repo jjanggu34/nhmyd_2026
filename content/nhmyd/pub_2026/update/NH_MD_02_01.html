@@ -124,9 +124,6 @@
                                     <h2 class="md-section__title">향후 일정</h2>
                                     <span class="brief-schedule__month">2026.09</span>
                                 </div>
-                                <!-- 날짜를 누르면 아래 .brief-schedule__box 내용이 바뀝니다.
-                                     각 날짜의 문구는 data-schedule-text에 담고, 일정이 없는 날은
-                                     이 속성을 비워두면 안내 문구가 대신 나옵니다. -->
                                 <ul class="brief-week">
                                     <li class="brief-week__item">
                                         <button type="button" class="brief-week__day" data-brief-day data-schedule-text="한국은행 금통위 의사록이 공개돼요">
@@ -169,16 +166,12 @@
                 </div>
                 <div class="popBtnWrap">
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
-                    <!-- <div class="areaBtnDefault">
-                        <a href="javascript:;" id="btnTermsConfirm" class="btnPressPoint" role="button">아래로 내려보기</a>
-                    </div> -->
                 </div>
             </div>
         </div>
 
         <script>
             (function () {
-                // 향후 일정: 날짜 버튼을 누르면 아래 일정 내용 영역이 그 날짜 내용으로 바뀝니다.
                 var days = Array.prototype.slice.call(document.querySelectorAll('[data-brief-day]'));
                 var box = document.querySelector('[data-brief-schedule]');
                 var textEl = box && box.querySelector('[data-brief-schedule-text]');
@@ -190,7 +183,6 @@
                     days.forEach(function (d) {
                         var active = d === btn;
                         d.classList.toggle('is-active', active);
-                        // 선택된 날짜만 aria-current를 남깁니다(스크린리더가 '현재 날짜'로 읽습니다).
                         if (active) {
                             d.setAttribute('aria-current', 'date');
                         } else {
@@ -201,7 +193,6 @@
                     var text = btn.getAttribute('data-schedule-text') || '';
                     var hasSchedule = text.trim() !== '';
                     textEl.textContent = hasSchedule ? text : EMPTY_TEXT;
-                    // 일정이 없는 날은 '일정내용' 라벨을 감춥니다.
                     box.classList.toggle('is-empty', !hasSchedule);
                 }
 
@@ -211,7 +202,6 @@
                     });
                 });
 
-                // 처음 상태(마크업에서 active로 지정된 날짜)도 같은 로직으로 한 번 맞춥니다.
                 var initial = days.filter(function (d) {
                     return d.classList.contains('is-active');
                 })[0] || days[0];

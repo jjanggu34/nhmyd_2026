@@ -270,7 +270,6 @@
         --type-size-30:30px
     }
 }
-/* 전체 페이지 기본 폰트 및 form 요소 적용 */
 .nds {font-family:"Pretendard",-apple-system,BlinkMacSystemFont,system-ui,Roboto,"Helvetica Neue","Segoe UI","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol",sans-serif}
 /** ---- 공통 유틸리티 클래스 ---- */
 .nds * {box-sizing:border-box}
@@ -343,7 +342,7 @@
 .nds .controls-controller:disabled {color:var(--primitive-gray-400);cursor:not-allowed}
 /* ---- Empty ---- */
 .nds .empty {display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.nds .empty[hidden] {display:none} /* MSAR3110P_01 */
+.nds .empty[hidden] {display:none}
 .nds .empty__icon {width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background-image:url("../images/update/ic-dots-horizontal.svg");background-size:contain;background-repeat:no-repeat;background-position:center}
 .nds .empty__text {letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .empty:where(.is-result) {padding:40px var(--spacing-24);gap:var(--spacing-16)}
@@ -409,6 +408,11 @@
 .nds .textarea:where(.is-error) .textarea__wrap {border-color:var(--color-border-error)}
 .nds .textarea:where(.is-error) .textarea__msg {color:var(--color-font-error)}
 .nds .textarea__clear::before {color:var(--color-font-5);content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-cancel-fill.svg");mask-image:url("../images/update/ic-cancel-fill.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+/* ---- Lottie : update-ui.js 의 initLottie() 가 data-lottie-json 을 읽어 재생합니다 ---- */
+.nds .lottie-anim {display:block;width:var(--lottie-size, 160px);height:var(--lottie-size, 160px);flex-shrink:0}
+.nds .lottie-anim svg {display:block;width:100% !important;height:100% !important}
+.nds .lottie-anim:where(.is-failed) {display:flex;align-items:center;justify-content:center;border:1px dashed var(--color-border-1);border-radius:var(--radius-8);box-sizing:border-box}
+.nds .lottie-anim:where(.is-failed)::before {content:"JSON을 불러오지 못했어요";font-size:var(--type-size-13);line-height:20px;color:var(--color-font-4);text-align:center}
 /* ---- Tooltip ---- */
 .nds .toolTipBtn, .nds .boxTypeWrap .toolTipBtn{margin:0 !important;background: url('../images/update/ic-tooltip-mark_16.svg') no-repeat center / 24px auto !important}
 .nds .tooltip-card {display:flex;flex-direction:column;gap:var(--spacing-12);border:1px solid var(--color-border-3);border-radius:var(--radius-16);background-color:var(--color-bg-default);box-shadow:0px 3px 6px rgba(0, 0, 0, 0.05);padding:var(--spacing-20);box-sizing:border-box;width:100%}
@@ -537,7 +541,7 @@
 .nds .link-category2__sub {display:flex;align-items:center;gap:var(--spacing-8);width:100%}
 .nds .link-category2__sub-text {flex:1;min-width:0;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.02em;color:var(--color-font-4);line-height:22px}
 .nds .link-category2__sub-spacer {width:24px;flex-shrink:0}
-.nds .link-divide {display:flex;flex-direction:column;/* gap:var(--spacing-20); MSPS3600 */padding:var(--spacing-20) var(--spacing-16) var(--spacing-20) var(--spacing-20);background:var(--color-bg-default);border:1px solid var(--color-border-2);border-radius:var(--radius-16);width:100%;box-sizing:border-box}
+.nds .link-divide {display:flex;flex-direction:column;padding:var(--spacing-20) var(--spacing-16) var(--spacing-20) var(--spacing-20);background:var(--color-bg-default);border:1px solid var(--color-border-2);border-radius:var(--radius-16);width:100%;box-sizing:border-box}
 .nds .link-divide__item {display:flex;align-items:center;gap:var(--spacing-8);width:100%;height:52px;background:none;border:none;padding:0;margin:0;font:inherit;text-align:left;color:inherit;text-decoration:none;cursor:pointer;position:relative}
 .nds .link-divide__text {display:flex;flex:1;min-width:0;flex-direction:column;gap:var(--spacing-2)}
 .nds .link-divide__title {width:100%;overflow:hidden;font-size:var(--type-size-18);font-weight:var(--font-weight-medium);white-space:nowrap;letter-spacing:-0.02em;color:var(--color-font-1);line-height:24px}
@@ -606,7 +610,6 @@
 .nds .list-account__price strong {font-weight:var(--font-weight-medium);color:var(--color-font-1)}
 .nds .list-account__fav {flex-shrink:0;display:flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;background:none;border:none;cursor:pointer;color:var(--color-icon-4)}
 .nds .list-account__fav::before {content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-star-favorite.svg");mask-image:url("../images/update/ic-star-favorite.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-/* --sm : 로고 32px, 상품명만 한 줄로 쓰는 좁은 형태 */
 .nds .list-account:where(.is-sm) {gap:var(--spacing-8)}
 .nds .list-account:where(.is-sm) .list-account__logo {width:32px;padding:0}
 .nds .list-account:where(.is-sm) .list-account__logo img {width:32px;height:32px}
@@ -659,7 +662,6 @@
 .nds .header .btnCancle,
 .nds .header .btnAcAdmin,
 .nds .header .btnHidden {order:3}
-/* 아이콘형 버튼:24x24 mask-image, currentColor */
 .nds .header .btnBack::before,
 .nds .header .btnGoHome::before,
 .nds .header .btnAlram::before,
@@ -693,7 +695,7 @@
 .nds .bottomsheet-list__item {display:flex;align-items:center;justify-content:center;gap:var(--spacing-16);width:100%;padding:var(--spacing-16) var(--spacing-4);border-radius:var(--radius-10);font-size:var(--type-size-16);font-weight:var(--font-weight-regular);letter-spacing:-0.02em;line-height:24px;color:var(--color-font-1);background:none;border:none;cursor:pointer;text-align:left;font-family:inherit}
 .nds .bottomsheet-list__item:where(.is-selected) {font-weight:var(--font-weight-semibold);color:var(--color-font-point)}
 .nds .bottomsheet-list__item > span:first-child {flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.nds .bottomsheet-list__check {display:none;flex-shrink:0;width:24px;height:24px;color:var(--color-font-point);background-color:currentColor;-webkit-mask-image:url("../images/update/ic-check-xs.svg");mask-image:url("../images/update/ic-check-xs.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center} /* 기본은 숨김+비공간, 선택 시에만 노출+공간 차지 */
+.nds .bottomsheet-list__check {display:none;flex-shrink:0;width:24px;height:24px;color:var(--color-font-point);background-color:currentColor;-webkit-mask-image:url("../images/update/ic-check-xs.svg");mask-image:url("../images/update/ic-check-xs.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .bottomsheet-list__item:where(.is-selected) .bottomsheet-list__check {display:block}
 /* ---- Popup:레거시 규칙과 계속 충돌하므로 !important ---- */
 .nds .popCont {padding-top:var(--spacing-24) !important}
@@ -714,7 +716,6 @@
 .nds .popBtnWrap .popBtn.half > a:link {width:50% !important}
 .nds .popBtnWrap .popBtn > a.confirmBtn {width:calc(100% - 100px) !important}
 .nds .areaBtnDefault {table-layout:auto !important;border-width:0 16px 32px !important;border-spacing:8px 0 !important;background:var(--background) !important}
-/* .bgcolor .nds .areaBtnDefault{padding-top:32px} */
 /* ---- Accordion (notice/box/line/gray) --- */
 .nds .accordion-notice {width:100%;background:var(--color-bg-default)}
 .nds .accordion-notice__item {position:relative}
@@ -1014,10 +1015,10 @@
 .nds .calendar-day:where(.is-disabled) .calendar-day__text {color:var(--color-font-1)}
 .nds .dayPicSet__label {color:var(--color-font-1);font-family:Pretendard;font-size:var(--type-size-16);font-style:normal;font-weight:600;line-height:24px;letter-spacing:-0.32px}
 /* ---- Process:step/horizontal ---- */
-.nds .process-step-h {display:flex;align-items:flex-start;width:100%;margin:var(--spacing-24) 0 var(--spacing-32);padding:0;--color-step-green:var(--primitive-green-accent)}  /* 피그마는 3칸 균등분할이 아니라 아이템은 콘텐츠 폭만큼만 차지(auto), 사이 간격은 라인이 flex-grow로 채움 */
-.nds .process-step-h__line {min-width:24px;height:2px;margin:11px var(--spacing-8) 0;border-radius:1px;background:var(--color-border-2)} /* num 중심(12px)에 2px 두께를 맞춘 top 여백(11px), 배지와의 여백은 margin 8px */
-.nds .process-step-h__line:where(.is-done) {background:var(--color-step-green)} /* 완료된 구간만 그린으로 표시 */
-.nds .process-step-h__item {position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--spacing-8);flex:1 1 0;min-width:0} /* 피그마: 배지가 라벨 폭 기준으로 가운데 정렬(items-center), 아이템 자체는 콘텐츠 폭만큼만 */
+.nds .process-step-h {display:flex;align-items:flex-start;width:100%;margin:var(--spacing-24) 0 var(--spacing-32);padding:0;--color-step-green:var(--primitive-green-accent)}
+.nds .process-step-h__line {min-width:24px;height:2px;margin:11px var(--spacing-8) 0;border-radius:1px;background:var(--color-border-2)}
+.nds .process-step-h__line:where(.is-done) {background:var(--color-step-green)}
+.nds .process-step-h__item {position:relative;display:flex;flex-direction:column;align-items:center;gap:var(--spacing-8);flex:1 1 0;min-width:0}
 .nds .process-step-h__item::before{ content:"";position:absolute;z-index:-1;top:50%;transform:translate(0, -50%);width:100%;height:1px;background:var(--primitive-gray-400); }
 .nds .process-step-h__item:has(.process-step-h__num:where(.is-active)):before {background:var(--color-step-green); }
 .nds .process-step-h__item:first-of-type {align-items:flex-start;}
@@ -1027,10 +1028,10 @@
 .nds .process-step-h__num {display:flex;align-items:center;justify-content:center;width:80px;height:34px;border-radius:var(--radius-20);font-size:var(--type-size-12);font-weight:var(--font-weight-bold);color:var(--color-font-white);letter-spacing:-0.24px;line-height:34px;box-sizing:border-box;}
 .nds .process-step-h__num:where(.is-active) {background:var(--color-step-green);}
 .nds .process-step-h__num:where(.is-default) {background:var(--primitive-gray-400)}
-.nds .process-step-h__num:where(.is-complete) {background:var(--color-step-green);color:var(--color-font-white);} /* 지난 단계: 텍스트 + 체크 아이콘 */
+.nds .process-step-h__num:where(.is-complete) {background:var(--color-step-green);color:var(--color-font-white);}
 .nds .process-step-h__item:has(.process-step-h__num:where(.is-complete)):before { background:var(--color-step-green) }
 .nds .process-step-h__num:where(.is-complete)::after {content:"";display:block;width:14px;height:14px;background-color:var(--color-font-white);-webkit-mask-image:url("../images/update/ic-check-xs-green.svg");mask-image:url("../images/update/ic-check-xs-green.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
-.nds .process-step-h__label {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;white-space:nowrap} /* width:100% 제거: 라벨 폭만큼만 차지해야 아이템이 콘텐츠 기준 auto폭이 됨(피그마와 동일) */
+.nds .process-step-h__label {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;white-space:nowrap}
 .nds .process-step-h__label:where(.is-active) {font-weight:var(--font-weight-semibold);color:var(--color-step-green)}
 .nds .process-step-h__label:where(.is-default) {color:var(--color-font-4)}
 .nds .process-step-h__label:where(.is-complete) {font-weight:var(--font-weight-medium);color:var(--color-font-3)}
@@ -1048,7 +1049,6 @@
 .nds .table__td {border-top:1px solid var(--color-border-2);border-right:1px solid var(--color-border-2);box-sizing:border-box;text-align:left;vertical-align:middle}
 .nds .table__row > *:last-child {border-right:none}
 .nds .table__row:last-child > * {border-bottom:1px solid var(--color-border-2)}
-/* rowspan 셀이 마지막 행까지 걸친 경우: 해당 tr이 last-child가 아니라 하단선이 빠지므로 보정 */
 .nds .table__row:has(+ .table__row:last-child) > [rowspan="2"],
 .nds .table__row:has(+ .table__row + .table__row:last-child) > [rowspan="3"] {border-bottom:1px solid var(--color-border-2)}
 .nds .table__th {min-height:40px;padding:9px var(--spacing-8);background-color:var(--color-bg-container);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-1)}
@@ -1155,7 +1155,7 @@
 .nds .text--point-h2 {color:var(--primitive-green-accent)}
 .nds .text--visual {color:var(--color-font-visual)}
 .nds .text-stack {display:flex;flex-direction:column;gap:var(--spacing-12);position:relative;width:100%;margin-bottom:var(--spacing-24)}
-.nds .text-stack[hidden] {display:none} /* MSAR3110P_01 */
+.nds .text-stack[hidden] {display:none}
 .nds .text-stack:where(.is-lg) {gap:var(--spacing-32);margin:48px 0 40px}
 .nds .text-stack:where(.is-lg) .text-stack:last-child{margin-bottom:0}
 .nds .text-stack .stack-visual {position:relative;overflow:hidden;line-height:0}
@@ -1181,9 +1181,9 @@
 
 /* ---- 소득/소비정보 등록(NH_MD_CO_01_02) ---- */
 .nds .income-consume__title {position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:2px;width:100%}
-.nds .income-consume__title .tooltipCont {position:absolute !important;top:100% !important;left:0 !important;transform:none !important;width:100% !important;margin-top:var(--spacing-12);box-sizing:border-box;z-index:30} /* 절대 위치로 라벨 바로 아래에 띄움(레거시 .tooltipWrap .tooltipCont의 left:50%/translateX(-50%) 중앙정렬만 좁은 바텀시트에 맞게 재정의) — nhasset_myd_mb.css 최상단 @import url("update.css") 때문에 이 파일 규칙이 캐스케이드상 먼저 배치되어, 동일 특이도(0,3,0) 레거시 규칙에 소스 순서로 밀리므로 top/left/transform/width에 !important 필요 */
-.nds .income-consume__title .tooltipCont .close {position:absolute} /* 레거시 규칙(nhasset_myd_mb.css)에 top/right/배경만 있고 position 지정이 빠져 있어 보강 */
-.nds .income-consume__title .tooltipCont.tooltipCont:where(.is-top) {top:auto !important;bottom:100% !important;margin-top:0;margin-bottom:var(--spacing-12)} /* update-ui.js의 tooltipOpen() 오버라이드가 트리거 아래쪽 공간이 부족(팝업 CTA 버튼에 가려짐 등)할 때 붙이는 클래스 — 트리거 위쪽으로 뒤집어 띄움 */
+.nds .income-consume__title .tooltipCont {position:absolute !important;top:100% !important;left:0 !important;transform:none !important;width:100% !important;margin-top:var(--spacing-12);box-sizing:border-box;z-index:30}
+.nds .income-consume__title .tooltipCont .close {position:absolute}
+.nds .income-consume__title .tooltipCont.tooltipCont:where(.is-top) {top:auto !important;bottom:100% !important;margin-top:0;margin-bottom:var(--spacing-12)}
 /* ---- Tab (line/chip/bar/text 4종) ---- */
 .nds .tab-line {display:flex;align-items:center;width:100%;background-color:var(--color-bg-default)}
 .nds .tab-line__list {display:flex;align-items:stretch;flex:1 0 0;min-width:0;border-bottom:1px solid var(--color-border-2);height:48px}
@@ -1261,7 +1261,7 @@
 .nds .input-box__inline-select::after,
 .nds .input-line__inline-select::after {content:"";display:block;width:24px;height:24px;flex-shrink:0;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-down-24.svg");mask-image:url("../images/update/ic-arrow-down-24.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;flex-shrink:0}
 .nds .input-box__icon {display:flex;align-items:center;justify-content:center;width:24px;height:24px;flex-shrink:0;color:var(--color-font-5)}
-.nds .input-box__icon[hidden] {display:none} /* MSAR3110P_01 */
+.nds .input-box__icon[hidden] {display:none}
 .nds .input-box__icon svg,
 .nds .input-box__icon img {width:100%;height:100%;display:block}
 .nds .input-box__icon:where(.is-search)::before,
@@ -1325,12 +1325,15 @@
 .nds .btn-icon::before {content:"";display:block;background-color:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .btn-icon[aria-label="알림"]::before {width:20px;height:20px;-webkit-mask-image:url("../images/update/ic-alarm-notice.svg");mask-image:url("../images/update/ic-alarm-notice.svg")}
 .nds .btn-icon[aria-label="plus"]::before {width:18px;height:18px;-webkit-mask-image:url("../images/update/ic-plus.svg");mask-image:url("../images/update/ic-plus.svg")}
-/* --- sticky-footer --- */
+/* --- 화면 하단 고정 CTA --- */
+.nds .btn-cta:where(.is-fixed) {position:fixed;left:0;right:0;bottom:0;z-index:1100}
+.nds .accordion-notice:has(~ .areaBtnDefault) {padding-bottom:90px}
+.nds .accordion-notice:has(~ .btn-cta:where(.is-fixed)) {padding-bottom:88px}
+/* --- sticky-footer
 .nds .sticky-footer {position:fixed;left:0;right:0;bottom:0;z-index:1100;width:100%;background:var(--color-bg-default)}
-/* sticky-footer가 있는 화면은 footer 높이만큼 본문 아래 여백을 확보합니다. 높이는 update-ui.js가 .container에 --sticky-footer-pad 로 내려줍니다 */
 .nds:has(> .sticky-footer) > .container {padding-bottom:calc(var(--sticky-footer-pad, 0px) + var(--spacing-40)) !important}
 .nds .sticky-footer .areaBtnDefault {position:static;padding-top:var(--spacing-32)}
-.nds .sticky-footer .btn-cta{margin-top:32px}
+.nds .sticky-footer .btn-cta{margin-top:32px} --- */
 .nds .btn-cta {display:flex;gap:var(--spacing-8);padding:0;background:linear-gradient(to top, var(--primitive-base-0) 90%, rgba(255, 255, 255, 0) 100%)}
 .nds .btn-cta .btn {min-width:0;width:70%}
 .nds .btn-cta:not(.half) [class^="btn"]:first-child:not(:last-child){width:calc(100%/3)}
@@ -1400,7 +1403,6 @@
 /* ---- NH_MD_01 ---- */
 .md-section {margin-top:56px}
 .md-section__title {font-size:var(--type-size-18);font-weight:600;line-height:26px;letter-spacing:-0.45px;color:var(--primitive-gray-font-900);text-align:left;margin:0 0 var(--spacing-20) var(--spacing-8)}
-/*.md-card {background:var(--primitive-base-0);border-radius:var(--radius-16);padding:var(--spacing-32) var(--spacing-20);box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.07)}*/
 .nds .linked-bottom-menu.alloneFooterNew{box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.05)}
 /* ---- 자산 카테고리 탭 + 스와이프 히어로 캐러셀(유동성/투자/연금/대출) ---- */
 .asset-hero-swiper-clip {overflow:hidden;margin:-24px;padding:var(--spacing-24) var(--spacing-16)}
@@ -1446,11 +1448,11 @@
 .insight-hero__status-icon {flex-shrink:0;width:40px;height:40px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center}
 .insight-hero__status-icon::before {content:"";display:block;width:22px;height:22px;background-size:contain;background-repeat:no-repeat;background-position:center}
 .insight-hero__status-icon:where(.is-mint) {background:rgba(221,242,228,0.7)}
-.insight-hero__status-icon:where(.is-mint)::before {background-image:url("../images/update/ic-shield-check-mint.svg")}
+/* .insight-hero__status-icon:where(.is-mint)::before {background-image:url("../images/update/ic-shield-check-mint.svg")} */
 .insight-hero__status-icon:where(.is-blue) {background:rgba(229,239,255,0.7)}
-.insight-hero__status-icon:where(.is-blue)::before {background-image:url("../images/update/ic-shield-check-blue.svg")}
+/* .insight-hero__status-icon:where(.is-blue)::before {background-image:url("../images/update/ic-shield-check-blue.svg")} */
 .insight-hero__status-icon:where(.is-pink) {background:rgba(255,229,229,0.7)}
-.insight-hero__status-icon:where(.is-pink)::before {background-image:url("../images/update/ic-shield-warning-pink.svg")}
+/* .insight-hero__status-icon:where(.is-pink)::before {background-image:url("../images/update/ic-shield-warning-pink.svg")} */
 .insight-hero__status-body {flex:1;min-width:0}
 .insight-hero__status-title {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);color:var(--primitive-gray-font-900);margin:var(--spacing-8) 0;line-height:24px}
 .insight-hero__status-desc {font-size:var(--type-size-14);color:var(--primitive-gray-font-600);line-height:22px;margin:var(--spacing-16) 0 var(--spacing-12)}
@@ -1490,7 +1492,6 @@
 .brief-highlight__medal {flex-shrink:0;font-size:16px;line-height:1}
 .brief-schedule__month {margin-left:auto;font-size:var(--type-size-13);line-height:20px;letter-spacing:-0.26px;color:var(--primitive-gray-font-600)}
 .brief-week {display:flex;align-items:stretch;gap:var(--spacing-4);margin:0;padding:0;list-style:none}
-/* 날짜는 눌러서 아래 일정 내용을 바꾸는 버튼이라 li가 폭을 나눠 갖고, 버튼이 그 칸을 채웁니다. */
 .brief-week__item {flex:1;min-width:0;display:flex}
 .brief-week__day {flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing-4);padding:var(--spacing-16) 0;border:1px solid transparent;border-radius:10px;box-sizing:border-box;background:none;font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .brief-week__date {font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);line-height:20px;color:var(--primitive-gray-400)}
@@ -1499,7 +1500,6 @@
 .brief-week__day:where(.is-active) .brief-week__date {color:#00274C}
 .brief-week__day:where(.is-active) .brief-week__name {color:#001B33;font-weight:var(--font-weight-bold)}
 .brief-schedule__box {margin:var(--spacing-16) 0 0;padding:var(--spacing-16);border-radius:var(--radius-16);background:#f3f5f8}
-/* 일정이 없는 날은 "일정내용" 라벨을 숨기고 안내 문구만 보여줍니다. */
 .brief-schedule__box:where(.is-empty) .label {display:none}
 .brief-schedule__box:where(.is-empty) .brief-schedule__text {margin:0;color:var(--primitive-gray-font-600)}
 .brief-schedule__text {margin:var(--spacing-8) 0 0;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);line-height:22px;letter-spacing:-0.28px;color:var(--primitive-gray-font-900)}
@@ -1527,10 +1527,6 @@
 .promo-carousel__dot:where(.is-active) {width:16px;background:var(--primitive-green-500)}
 .promo-carousel__track .indicator-number{position:absolute;bottom:var(--spacing-14);left:var(--spacing-24);z-index:10}
 .hero__face:where(.is-redesign) {border:none;padding:0;gap:0;overflow:visible;background:transparent;box-shadow:none}
-/* height:100%는 순환 계산을 만듭니다 — .hero__face(그리드 칸) 높이는 앞/뒤 면 중 큰 쪽으로
-   정해지는데, .hc-top이 그 칸 높이를 100%로 다시 받아가면 거기에 .hc-bottom이 더해져 앞면이
-   칸보다 커지고, 그 값이 다시 칸 높이가 되면서 카드가 실제 내용보다 부풀었습니다.
-   flex:1로 남는 공간만 채우면 같은 효과(짧은 면에서 여백 채우기)를 내면서 순환이 없습니다. */
 .hc-top {position:relative;z-index:2;flex:1 1 auto;min-height:0;margin-bottom:-60px;padding:var(--spacing-32) var(--spacing-20) 32px;border-radius:var(--radius-20) var(--radius-20) 60px var(--radius-20);box-shadow:5px 6px 18px rgba(0,0,0,0.1);background-image:url("../images/update/img_nh_logo.svg"), linear-gradient(140.86deg, #046ea3 4.27%, #0e7a5c 108.4%);background-repeat:no-repeat, no-repeat;background-position:right -20px bottom -10px, 0 0;background-size:180px auto, cover;color:var(--primitive-base-0);box-sizing:border-box}
 .hc-bottom {position:relative;z-index:1;margin-top:auto;padding:60px var(--spacing-20) var(--spacing-16);border-radius:0 0 var(--radius-20) var(--radius-20);background-image:linear-gradient(-34.94deg, #0f3437 4.97%, #4174a3 179.53%);box-sizing:border-box;box-shadow: 5px 6px 18px 0 rgba(0, 0, 0, 0.10)}
 .hc-title {font-size:var(--type-size-18);font-weight:var(--font-weight-bold);letter-spacing:-0.36px;margin:0 0 var(--spacing-24);line-height:1}
@@ -1807,7 +1803,7 @@
 .nds .analysis-section .info-card__head p { display:flex;justify-content:space-between;gap:var(--spacing-10)}
 .nds .analysis-section .info-card__head-title { font-weight:var(--font-weight-regular);color:var(--color-font-10) !important }
 .nds .analysis-section .info-card__head-data {  font-weight:var(--font-weight-semibold);color:var(--color-font-10) !important }
-.nds .analysis-section .info-card__list{ display:flex;flex-direction:column;border-radius:var(--radius-10);/*background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07);*/ }
+.nds .analysis-section .info-card__list{ display:flex;flex-direction:column;border-radius:var(--radius-10); }
 .nds .analysis-section .info-card:where(.is-group) .info-card__list { background-color:var(--color-bg-default);box-shadow:0px 5px 16px rgba(0,0,0,0.07); }
 .nds .analysis-section .info-card__list > ul > li { display:flex;flex-direction:column;gap:var(--spacing-8);position:static;padding:var(--spacing-16) var(--spacing-20); border-bottom:1px solid var(--color-border-3); }
 .nds .analysis-section .info-card__list > ul > li:last-of-type,
@@ -1923,7 +1919,6 @@
 .nds .compare-subtitle span {color:var(--color-font-1)}
 .nds .compare-scroll {width:100%;box-sizing:content-box}
 .nds .compare-scroll .swiper-wrapper {height:auto}
-/* 점 인디케이터(Swiper bullets 공용) — 레거시 .swiper-pagination 의 absolute 배치를 흐름 안으로 되돌립니다 */
 .nds .dots-pagination.swiper-pagination,
 .nds .compare-scroll__pagination.swiper-pagination {position:relative;bottom:auto;left:auto;display:flex;align-items:center;justify-content:center;gap:var(--spacing-8);width:100%;line-height:0}
 .nds .dots-pagination .swiper-pagination-bullet,
@@ -1989,61 +1984,42 @@
 .nds .subscriber-nudge .subscriber-nudge__text {display:flex;align-items:center;gap:12px;font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);color:var(--color-font-2)}
 .nds .subscriber-nudge .subscriber-nudge__btn::after{content:"";display:block;width:20px;height:20px;flex-shrink:0;background-color:var(--primitive-gray-600);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 /* -- 카드 공통 요소 : AI 진단 화면(NH_MD_AI_01/03/03_01/06)이 함께 씁니다 -- */
-/* 카드 머리글 : 제목 + 우측 요소(툴팁 버튼, 배지, 단위 표기 등) */
 .nds .card-head {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
-/* --top : 제목이 2줄일 때 우측 요소를 첫 줄에 맞춰 붙입니다 */
 .nds .card-head:where(.is-top) {align-items:flex-start}
-/* .nds .card-head--top > .toolTipBtn {margin-top:4px !important} */
-/* 카드 리드 문구 : 2줄, 강조 부분은 <em> */
 .nds .card-lead {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
 .nds .card-lead em {font-style:normal;color:var(--chart-focus-font)}
 .nds .card-lead:where(.is-sub) {margin-top:var(--spacing-16)}
-/* 카드 보조 설명 : 머리글 아래 한 줄 요약(강조는 <em>) */
 .nds .card-sub {margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-2)}
 .nds .card-sub em {font-style:normal;color:var(--color-icon-error)}
-/* 카드 안쪽 버튼 : 기본(연한 배경) / --line(테두리형 tertiary) */
 .nds .card-btn {display:flex;align-items:center;justify-content:center;gap:var(--spacing-2);width:100%;height:36px;margin:var(--spacing-24) 0 0;padding:0 var(--spacing-12);border:none;border-radius:var(--radius-8);cursor:pointer;background:var(--primitive-blue-soft-border);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--card-btn-font)}
 .nds .card-btn:where(.is-line) {background:var(--color-bg-default);border:1px solid var(--primitive-gray-400);color:var(--color-font-1)}
-/* 카드 하단 주석 : 아이콘 + 문구 */
 .nds .card-note {display:flex;gap:var(--spacing-6);margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
 .nds .card-note__icon {flex-shrink:0;width:14px;height:14px;margin-top:3px;background:url("../images/update/ic-warning-circle.svg") no-repeat center / contain}
-/* 안내 박스 : 카드 안(기본, 라운드) / 팝업 상단 꽉 찬 바(--bar) */
 .nds .notice-box {display:flex;align-items:center;gap:var(--spacing-2);margin:0;padding:var(--spacing-12) var(--spacing-16);box-sizing:border-box;border-radius:var(--radius-10);background:var(--chart-track-bg);font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-3)}
 .nds .notice-box__icon {flex-shrink:0;display:block;width:20px;height:20px;background:url("../images/update/ic_money_bag.svg") no-repeat center / contain}
 .nds .notice-box__icon:where(.is-calendar) {width:24px;height:24px;background-image:url("../images/update/ic_period-calendar.svg")}
 .nds .notice-box__text {flex:1 1 auto;min-width:0}
-/* --bar : popCont__inner 의 좌우 여백(24) 밖까지 꽉 채웁니다 */
 .nds .popCont > .notice-box:where(.is-bar) {gap:var(--spacing-4);margin:-16px 0 0;padding:var(--spacing-16) var(--spacing-24);border-radius:0;border-bottom:1px solid var(--predict-line-bg);background:var(--primitive-blue-soft-border);font-size:var(--type-size-14);font-weight:var(--font-weight-light);line-height:20px;letter-spacing:-0.14px}
 .nds .notice-box:where(.is-bar) .notice-box__text {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-/* 카드 안 도움말 툴팁 : 카드 폭 전체를 쓰고 트리거 줄 바로 아래에 붙습니다.
-   레거시 .tooltipWrap .tooltipCont 는 left:50%/translateX(-50%) + width:100vw-32 라서
-   (1) 기준이 될 positioned 조상이 없고 (2) 카드보다 넓게 잡힙니다. 둘 다 여기서 재정의합니다.
-   좌우로 삐져나올 폭은 --tooltip-bleed (기본값 = 카드 좌우 여백 20) 로 조절합니다. */
 .nds .tooltipWrap:where(.is-card) {position:relative;--tooltip-bleed:var(--spacing-20)}
 .nds.nhasset .tooltipWrap.tooltipWrap:where(.is-card) > .tooltipCont {position:absolute !important;top:100% !important;bottom:auto;left:calc(var(--tooltip-bleed) * -1) !important;right:calc(var(--tooltip-bleed) * -1) !important;width:auto !important;margin:0;padding:var(--spacing-20);box-sizing:border-box;transform:none !important;box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.05);z-index:30}
-/* update-ui.js 의 tooltipOpen() 이 아래 공간이 부족할 때 붙이는 클래스 — 트리거 위쪽으로 뒤집어 띄움 */
 .nds.nhasset .tooltipWrap.tooltipWrap:where(.is-card) > .tooltipCont.tooltipCont:where(.is-top) {top:auto !important;bottom:100% !important}
 .nds.nhasset .tooltipWrap.tooltipWrap:where(.is-card) > .tooltipCont > h3 {padding-right:36px;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
 .nds.nhasset .tooltipWrap.tooltipWrap:where(.is-card) > .tooltipCont .close {position:absolute;top:var(--spacing-20);right:var(--spacing-20);width:24px;height:24px}
-/* 본문(카드 밖) 리드 문구 안에서 쓰면 컨테이너 좌우 여백(24)만큼 넓힙니다 */
 .nds .diag-lead.tooltipWrap:where(.is-card) {--tooltip-bleed:var(--spacing-24)}
-/* 금액 슬라이더 : 확보금액처럼 "현재 값 + 트랙 + 말풍선"이 함께 움직이는 표시용 컴포넌트.
-   값은 input[type=range] 가 갖고, JS 가 --amount-slider-ratio(0~1) 를 내려주면 채움/말풍선이 손잡이를 따라갑니다. */
+.nds .diag-lead.tooltipWrap:where(.is-card):not(.card-head) > .toolTipBtn {position:absolute;top:4px;right:0}
 .nds .amount-slider {--amount-slider-ratio:0.6;--amount-slider-thumb:32px;display:flex;flex-direction:column;gap:var(--spacing-16)}
 .nds .amount-slider__body {display:flex;flex-direction:column;gap:88px}
 .nds .amount-slider__head {display:flex;flex-direction:column;align-items:center;gap:var(--spacing-4);margin:0}
 .nds .amount-slider__label {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-3)}
 .nds .amount-slider__value {font-size:var(--type-size-26);font-weight:var(--font-weight-semibold);line-height:38px;letter-spacing:-0.52px;color:var(--primitive-red-200)}
 .nds .amount-slider__track {position:relative;display:flex;align-items:stretch;width:100%;height:10px;border-radius:var(--radius-8);background:var(--primitive-blue-soft-border)}
-/* 네이티브 range 의 손잡이는 트랙 양끝에서 반지름만큼 안쪽에 서므로, 채움 폭도 같은 식으로 계산합니다 */
 .nds .amount-slider__fill {display:block;width:calc(var(--amount-slider-thumb) / 2 + (100% - var(--amount-slider-thumb)) * var(--amount-slider-ratio));height:100%;border-radius:var(--radius-8) 0 0 var(--radius-8);background:var(--chart-focus-font)}
-/* 손잡이 = 실제 input[type=range]. 트랙 위에 투명하게 겹쳐 두고 thumb 만 그립니다 */
 .nds .amount-slider__input {position:absolute;top:50%;left:0;z-index:1;width:100%;height:var(--amount-slider-thumb);margin:calc(var(--amount-slider-thumb) / -2) 0 0;padding:0;background:none;border:none;border-radius:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;cursor:pointer;touch-action:pan-y}
 .nds .amount-slider__input::-webkit-slider-runnable-track {height:var(--amount-slider-thumb);background:none;border:none}
 .nds .amount-slider__input::-moz-range-track {height:var(--amount-slider-thumb);background:none;border:none}
 .nds .amount-slider__input::-webkit-slider-thumb {-webkit-appearance:none;appearance:none;width:32px;height:32px;padding:0;border:none;border-radius:50%;background:var(--color-bg-default) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='12' viewBox='0 0 26 12'%3E%3Cpath d='M9 2 5 6l4 4' fill='none' stroke='%23b3b3b3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='m17 2 4 4-4 4' fill='none' stroke='%23b3b3b3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 26px 12px;box-shadow:0 0 8px 0 rgba(0, 0, 0, 0.15);cursor:pointer}
 .nds .amount-slider__input::-moz-range-thumb {width:32px;height:32px;padding:0;border:none;border-radius:50%;background:var(--color-bg-default) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='12' viewBox='0 0 26 12'%3E%3Cpath d='M9 2 5 6l4 4' fill='none' stroke='%23b3b3b3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='m17 2 4 4-4 4' fill='none' stroke='%23b3b3b3' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center / 26px 12px;box-shadow:0 0 8px 0 rgba(0, 0, 0, 0.15);cursor:pointer}
-/* 포커스는 트랙 전체가 아니라 손잡이에만 표시합니다(공통 focus-visible 규칙이 !important 라 여기도 !important) */
 .nds .amount-slider__input:focus-visible {outline:none !important}
 .nds .amount-slider__input:focus-visible::-webkit-slider-thumb {box-shadow:0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 0 3px var(--color-border-point)}
 .nds .amount-slider__input:focus-visible::-moz-range-thumb {box-shadow:0 0 8px 0 rgba(0, 0, 0, 0.15), 0 0 0 3px var(--color-border-point)}
@@ -2052,7 +2028,6 @@
 .nds .amount-slider__foot {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);margin:0}
 .nds .amount-slider__foot-label {font-size:var(--type-size-14);font-weight:var(--font-weight-regular);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-1)}
 .nds .amount-slider__foot-value {flex-shrink:0;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;text-align:right;color:var(--primitive-blue-500)}
-/* 자산 목록 : 가이드의 list-account + label 을 그대로 쓰고, 구분선만 카드 폭 전체로 뺍니다 */
 .nds .asset-list {margin:var(--spacing-24) calc(var(--spacing-20) * -1) 0;padding:0;list-style:none}
 .nds .asset-list__item {display:flex;flex-direction:column;padding:var(--spacing-16) var(--spacing-20)}
 .nds .asset-list__item > .label {align-self:flex-start;margin:0 0 var(--spacing-8)}
@@ -2061,33 +2036,40 @@
 .nds .asset-list .list-account__number {display:flex;align-items:center;gap:var(--spacing-4);min-width:0}
 .nds .asset-list .list-account__number span {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .nds .asset-list__data {display:flex;flex-direction:column;gap:var(--spacing-2);margin:var(--spacing-16) 0 0;padding:0;list-style:none}
-/* --sm : 라벨 13/20, 값 14/22, 행 사이 여백 없음 */
+.nds .info-card > .asset-list__data:only-child {gap:var(--spacing-8);margin:0}
+.nds .info-card:has(> .asset-list__data:only-child) {padding-top:var(--spacing-16);padding-bottom:var(--spacing-16)}
 .nds .asset-list__data:where(.is-sm) {gap:0;margin-top:var(--spacing-12)}
 .nds .asset-list__data:where(.is-sm) .asset-list__row-label {font-size:var(--type-size-13);font-weight:var(--font-weight-medium);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
 .nds .asset-list__data:where(.is-sm) .asset-list__row-value {font-size:var(--type-size-14);line-height:22px;letter-spacing:-0.28px}
+.nds .asset-list__data:where(.is-stat) {gap:var(--spacing-4);margin-top:var(--spacing-20);padding-top:var(--spacing-16);border-top:1px solid var(--primitive-blue-soft-border)}
+.nds .asset-list__data:where(.is-stat) .asset-list__row-label {font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px}
 .nds .asset-list__row {display:flex;align-items:flex-start;justify-content:space-between;gap:var(--spacing-8)}
 .nds .asset-list__row-label {flex:1 1 auto;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-regular);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-3)}
 .nds .asset-list__row-value {flex-shrink:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;text-align:right;color:var(--color-font-1)}
 .nds .asset-list__row-value:where(.is-up) {color:var(--chart-up-font)}
 .nds .asset-list__row-value:where(.is-down) {color:var(--chart-down-font)}
-/* 라벨 하나에 계좌 여러 개가 묶이는 그룹 */
+.nds .asset-list__row-value:where(.is-point) {color:var(--chart-focus-font)}
+.nds .asset-list__row-value:where(.is-total) {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);color:var(--chart-focus-font)}
+.nds .asset-list__row-value:where(.is-grade) {display:inline-flex;align-items:center;gap:var(--spacing-4);color:var(--primitive-red-grade)}
 .nds .asset-list__group + .asset-list__group {margin-top:var(--spacing-24)}
 .nds .asset-list__group > .label {margin:0 0 var(--spacing-16)}
 .nds .asset-list__items {margin:0;padding:0;list-style:none}
-/* --sm : 구분선을 카드 좌우 여백 안쪽에 둡니다(전체 폭으로 빼지 않음) */
 .nds .asset-list:where(.is-sm) {margin-left:0;margin-right:0}
 .nds .asset-list:where(.is-sm) .asset-list__item {padding-left:0;padding-right:0}
-/* 누적 가로 막대(자산 구성) : 세그먼트 폭·색은 인라인 style 로 지정합니다 */
+.nds .asset-list:where(.is-pick) {display:flex;flex-direction:column;gap:var(--spacing-20);margin:0}
+.nds .asset-list:where(.is-pick) .asset-list__item {padding:0}
+.nds .asset-list:where(.is-pick) .asset-list__item + .asset-list__item {padding-top:calc(var(--spacing-20) - 1px)}
+.nds .asset-list__pick {display:flex;align-items:flex-start;justify-content:space-between;gap:var(--spacing-8);margin:0 0 var(--spacing-8)}
+.nds .asset-list__pick .check-basic {margin-left:auto}
+.nds .asset-list:where(.is-pick) .asset-list__item > .card-btn {margin-top:var(--spacing-12)}
 .nds .asset-bar {display:flex;align-items:stretch;width:100%;height:12px;margin:var(--spacing-20) 0 0;border-radius:var(--radius-4);overflow:hidden}
 .nds .asset-bar:where(.is-sm) {height:8px}
 .nds .asset-bar__seg {display:block;flex-shrink:0;height:100%}
 .nds .asset-bar__seg:last-child {flex:1 1 auto;min-width:0}
-/* 막대 아래 요약행(진단 자산 / 진단 외 자산) */
 .nds .asset-sum {display:flex;flex-direction:column;margin:var(--spacing-4) 0 0;padding:0;list-style:none}
 .nds .asset-sum__row {display:flex;align-items:flex-end;justify-content:space-between;gap:var(--spacing-8)}
 .nds .asset-sum__label {font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
 .nds .asset-sum__value {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;text-align:right;color:var(--color-font-2)}
-/* 계좌 안 보유 상품 목록 : 한 단계 들여쓴 연회색 박스 */
 .nds .asset-detail {margin:var(--spacing-24) 0 0;padding:var(--spacing-20);border-radius:var(--radius-8);background:var(--asset-detail-bg)}
 .nds p.asset-detail {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;text-align:center;color:var(--color-font-4)}
 .nds .asset-detail__list {display:flex;flex-direction:column;margin:var(--spacing-16) 0 0;padding:0;list-style:none}
@@ -2095,7 +2077,8 @@
 .nds .asset-detail__name {margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--primitive-navy-800)}
 .nds .asset-detail .asset-list__data {margin-top:var(--spacing-4)}
 .nds .asset-detail .asset-bar {margin-top:var(--spacing-12)}
-/* 자산군 아코디언 카드(현금 / 투자 / 연금) — update-ui.js 의 [data-acc-toggle] 를 그대로 씁니다 */
+.nds .info-card > .asset-detail__list {margin-top:var(--spacing-24)}
+.nds .info-card > .asset-detail__list .asset-list__data {margin-top:var(--spacing-4)}
 .nds .asset-group {margin-top:var(--spacing-24);padding:var(--spacing-12) 0;box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
 .nds .asset-group + .asset-group {margin-top:var(--spacing-12)}
 .nds .asset-group__head {display:flex;align-items:center;gap:var(--spacing-2);width:100%;height:32px;padding:0 var(--spacing-20);margin:0;background:none;border:none;cursor:pointer;text-align:left}
@@ -2109,26 +2092,16 @@
 .nds .asset-group__head[aria-expanded="true"] .asset-group__arrow {transform:rotate(180deg)}
 .nds .asset-group__body {padding:var(--spacing-24) var(--spacing-20) var(--spacing-4)}
 .nds .asset-group__body > .asset-list {margin-top:0}
-/* 팝업(fullLayerPop)에서도 일반 화면과 같은 sticky-footer 를 씁니다 */
-.nds .popBtnWrap > .sticky-footer {z-index:1000}
-.nds .sticky-footer .areaBtnDefault {position:static !important}
-.nds.popWrap.fullLayerPop .popInner .popCont:has(~ .popBtnWrap .sticky-footer) {padding-bottom:calc(var(--sticky-footer-pad, 112px) + var(--spacing-24)) !important}
+.nds .popCont > .accordion-notice {margin-top:var(--spacing-32)}
 .nds .asset-list__more {display:flex;justify-content:center;margin:var(--spacing-24) 0 0}
-/* 접기/펼치기 화살표(가이드 btn-arrow 아이콘 세트에 추가) */
 .nds .btn-arrow__icon:where(.is-chevron-down) {-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg")}
 .nds .btn-arrow__icon:where(.is-chevron-up) {-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg");transform:rotate(180deg)}
 /* -- NH_MD_AI_01 : AI 포트폴리오 진단(진단 준비) -- */
-/* 상단 STEP 표시 : 가이드의 process-progress-number를 배경 없는 형태로만 확장 */
 .nds .diag-step {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);margin:var(--spacing-16) 0 0}
 .nds .diag-step__progress {display:inline-flex;align-items:center;gap:var(--spacing-2)}
 .nds .process-progress-number:where(.is-plain) {padding:0;background:none}
-/*.nds .diag-lead {margin:var(--spacing-24) 0 0}*/
 .nds .diag-lead em {font-style:normal;color:var(--chart-focus-font)}
-/* 카드 공통 : 시안의 카드 간격 40, 그림자 0 5px 8px */
-/*.nds .diag-card, .nds .diag-type, .nds .diag-portfolio {margin:var(--spacing-40) 0 0;box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
-.nds .diag-card {margin-top:var(--spacing-24);padding:var(--spacing-20)}*/
 .nds .diag-type, .nds .diag-portfolio {padding:var(--spacing-16)}
-/* 진단 대상 전체자산 */
 .nds .diag-card__head {display:flex;align-items:center;gap:var(--spacing-2);width:auto;padding:0;margin:0;font-size:inherit;background:none;border:none;text-align:left;cursor:pointer}
 .nds .diag-card__head-arrow {flex-shrink:0;display:block;width:24px;height:24px;background-color:var(--color-font-1);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .diag-card__head-arrow:before { display:none }
@@ -2141,15 +2114,12 @@
 .nds .diag-total__amount {font-size:var(--type-size-24);font-weight:var(--font-weight-semibold);line-height:32px;letter-spacing:0;text-align:right;color:var(--diag-point-font)}
 .nds .diag-total__note {display:flex;gap:var(--spacing-12);margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--diag-sub-font)}
 .nds .diag-total__note::before {content:"";flex-shrink:0;display:block;width:2px;margin:var(--spacing-4) 0;border-radius:2px;background:var(--diag-bar-bg)}
-/* 비중기준 / 금액기준 전환 */
 .nds .diag-unit {display:flex;align-items:center;justify-content:flex-end;gap:var(--spacing-8);margin:var(--spacing-24) 0 0}
 .nds .diag-unit__btn {padding:0;margin:0;background:none;border:none;cursor:pointer;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-5)}
 .nds .diag-unit__btn:where(.is-active) {font-weight:var(--font-weight-medium);color:var(--color-font-1);text-decoration:underline;text-underline-position:from-font}
 .nds .diag-unit__dash {flex-shrink:0;display:block;width:1px;height:10px;background:var(--primitive-gray-300)}
-/* 도넛 차트(Chart.js) */
 .nds .diag-donut {position:relative;width:134px;height:134px;margin:var(--spacing-20) auto 0}
 .nds .diag-donut canvas {display:block;width:134px !important;height:134px !important}
-/* 범례 : 4개 그룹을 1px 선으로 구분 */
 .nds .diag-legend {display:flex;flex-direction:column;gap:var(--spacing-6);margin:var(--spacing-16) 0 0}
 .nds .diag-legend__group {display:flex;flex-direction:column;gap:var(--spacing-2);margin:0;padding:0;list-style:none}
 .nds .diag-legend__group + .diag-legend__group {padding-top:5px;border-top:1px solid var(--primitive-gray-300)}
@@ -2157,14 +2127,15 @@
 .nds .diag-legend__name {display:inline-flex;align-items:center;gap:var(--spacing-6);min-width:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-3)}
 .nds .diag-legend__swatch {flex-shrink:0;display:block;width:8px;height:8px;border-radius:2px}
 .nds .diag-legend__value {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-semibold);line-height:18px;letter-spacing:-0.24px;text-align:right;color:var(--color-font-3)}
-/* 나의 투자성향 */
+.nds .diag-legend:where(.is-compare) .diag-legend__value {flex:0 0 34px}
+.nds .diag-legend:where(.is-compare) .diag-legend__value:first-child {text-align:left}
 .nds .diag-type__row {display:flex;align-items:center;gap:var(--spacing-8);margin:0}
 .nds .diag-type__badge {flex-shrink:0;display:block;width:40px;height:40px;border-radius:var(--radius-16);background:var(--diag-badge-bg) url("../images/update/ic_investor-gage.svg") no-repeat center / 24px 24px}
+.nds .diag-type__badge:where(.is-sm) {width:24px;height:24px;border-radius:var(--radius-8);background-size:16px 16px}
 .nds .diag-type__label {font-size:var(--type-size-16);font-weight:var(--font-weight-regular);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
 .nds .diag-type__value {font-size:var(--type-size-16);font-weight:var(--font-weight-bold) !important;line-height:24px;letter-spacing:-0.32px;color:var(--primitive-red-grade)}
 .nds .diag-type__more {display:flex;justify-content:flex-end;margin:0}
 .nds .btn-arrow:where(.is-caption) {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px}
-/* 진단 포트폴리오 구성 */
 .nds .diag-portfolio__body {display:flex;flex-direction:column;gap:var(--spacing-20);margin:var(--spacing-16) 0 0}
 .nds .diag-portfolio__field {display:flex;flex-direction:column;gap:var(--spacing-16)}
 .nds .diag-portfolio__question {margin:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-3)}
@@ -2172,7 +2143,6 @@
 .nds .diag-portfolio .radio-box-row > label {flex:1 1 0;min-width:0}
 .nds .diag-note {display:flex;gap:var(--spacing-6);margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
 .nds .diag-note__icon {flex-shrink:0;width:14px;height:14px;margin-top:3px;background:var(--ico-note) no-repeat;}
-/* 더 정확한 결과를 원하시나요? (Banner_thin) */
 .nds .diag-connect {display:flex;flex-direction:row;align-items:center;gap:var(--spacing-4);padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-12);}
 .nds .diag-connect__text {flex:1 1 auto;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-1)}
 .nds .diag-connect + .areaBtnDefault {margin-top:var(--spacing-32)}
@@ -2196,7 +2166,6 @@
 .nds .card-tip {flex-shrink:0;display:block;width:24px;height:24px;padding:0;margin:0;border:none;cursor:pointer;background-color:var(--primitive-gray-600);-webkit-mask-image:url("../images/update/ic-tooltip-mark.svg");mask-image:url("../images/update/ic-tooltip-mark.svg");-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 
 .nds .card-desc {margin:var(--spacing-12) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
-/* 기대수익 그래프(Chart.js) */
 .nds .curve-chart {margin:var(--spacing-16) 0 0}
 .nds .curve-chart__axis-name {margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-1)}
 .nds .curve-chart__axis-name:where(.is-right) {margin-top:var(--spacing-8);text-align:right}
@@ -2204,7 +2173,6 @@
 .nds .curve-chart__box {position:relative;width:100%;height:164px;margin:var(--spacing-8) 0 0;box-sizing:border-box;background:var(--chart-bg);border-left:1px solid var(--primitive-blue-soft-border);border-bottom:1px solid var(--primitive-blue-soft-border)}
 .nds .curve-chart__box canvas {display:block;width:100%;height:100%}
 .nds .curve-chart__axis-bottom {display:flex;align-items:center;justify-content:space-between;margin:var(--spacing-8) 0 0;font-size:var(--type-size-10);font-weight:var(--font-weight-regular);line-height:1;letter-spacing:-0.2px;color:var(--color-font-4)}
-/* 자산군별 조정 막대 */
 .nds .alloc-bar {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-16) 0 0;padding:0;list-style:none}
 .nds .alloc-bar__item {display:flex;flex-direction:column;gap:var(--spacing-4)}
 .nds .alloc-bar__bar {display:flex;align-items:stretch;width:100%;height:12px;border-radius:var(--radius-4);background:var(--chart-track-bg);overflow:hidden}
@@ -2218,7 +2186,6 @@
 .nds .alloc-bar__change em {font-style:normal}
 .nds .alloc-bar__up {color:var(--chart-up-font)}
 .nds .alloc-bar__down {color:var(--chart-down-font)}
-/* 안전 / 위험 자산 비교 */
 .nds .risk-bar {display:flex;flex-direction:column;gap:var(--spacing-16);margin:var(--spacing-24) 0 0}
 .nds .risk-bar__item {display:flex;flex-direction:column;gap:var(--spacing-4)}
 .nds .risk-bar__label {margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-medium);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-1)}
@@ -2228,12 +2195,15 @@
 .nds .risk-bar__legend {display:flex;align-items:flex-end;justify-content:space-between;gap:var(--spacing-8);margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px}
 .nds .risk-bar__safe-text {color:var(--chart-down-font)}
 .nds .risk-bar__danger-text {color:var(--chart-up-font)}
-/* 성과지표 비교 */
 .nds .perf-compare {display:flex; gap:24px;flex-direction: column; margin:var(--spacing-16) 0 0}
 .nds .perf-compare__title {display:inline-flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
 .nds .perf-compare__unit {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--card-sub-font)}
 .nds .perf-compare__name {display:flex;align-items:center;gap:var(--spacing-4);margin:0 0 var(--spacing-4);font-size:var(--type-size-13);font-weight:var(--font-weight-medium);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-1)}
 .nds .perf-compare__gap {font-style:normal;color:var(--color-font-4)}
+.nds .perf-compare__gap:where(.is-up, .is-down) {display:inline-flex;align-items:center;gap:var(--spacing-2);color:var(--chart-focus-font)}
+.nds .perf-compare__gap:where(.is-up, .is-down)::before {content:"";width:20px;height:13px;background-color:currentColor;-webkit-mask:url("../images/update/ic-compare-arrow.svg") no-repeat center / contain;mask:url("../images/update/ic-compare-arrow.svg") no-repeat center / contain;transform:rotate(-20deg)}
+.nds .perf-compare__gap:where(.is-down) {color:var(--chart-down-font)}
+.nds .perf-compare__gap:where(.is-down)::before {transform:rotate(20deg)}
 .nds .perf-compare__row {display:flex;align-items:center;gap:var(--spacing-8);margin:0}
 .nds .perf-compare__row-label {flex-shrink:0;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
 .nds .perf-compare__row-bar {flex:1 1 auto;min-width:0;display:block;height:12px}
@@ -2241,11 +2211,9 @@
 .nds .perf-compare__fill:where(.is-opt) {background:var(--chart-neon-bg)}
 .nds .perf-compare__row-value {flex-shrink:0;min-width:40px;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;text-align:right;color:var(--color-font-1)}
 .nds .card-note__strong {font-style:normal;font-weight:var(--font-weight-medium);color:var(--color-font-1)}
-/* AI 의견 */
 .nds .ai-quote {display:flex;gap:var(--spacing-12);margin:var(--spacing-24) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-3)}
 .nds .ai-quote::before {content:"";flex-shrink:0;display:block;width:2px;margin:var(--spacing-4) 0;border-radius:2px;background:var(--diag-bar-bg)}
 /* -- 접근성 공통 보강 -- */
-/* nh_base.css 가 *:focus{outline:none} 으로 포커스 표시를 지워서, 키보드 사용 시에만 다시 보이게 합니다 */
 .nds a:focus-visible,
 .nds button:focus-visible,
 .nds [role="button"]:focus-visible,
@@ -2255,23 +2223,19 @@
 .nds summary:focus-visible {outline:2px solid var(--color-border-point) !important;outline-offset:2px}
 .nds .radio-hidden-input:focus-visible + .radio-box,
 .nds .check-basic__input:focus-visible + .check-basic__icon {outline:2px solid var(--color-border-point);outline-offset:2px}
-/* 제목을 heading 요소로 쓰기 위한 여백 초기화 */
 .nds .ai-heading {margin:0}
 .nds .diag-card__title {margin:0}
-/* 새로고침 버튼 : 보이는 크기는 16px 이지만 터치 영역은 24px 확보 (WCAG 2.5.8) */
 .nds .diag-total__refresh {position:relative}
 .nds .diag-total__refresh::after {content:"";position:absolute;top:50%;left:50%;width:24px;height:24px;transform:translate(-50%, -50%)}
 .nds .toolTipBtn:where(.is-sm) {width:18px !important;height:18px !important;background-size:18px auto !important}
 /* -- NH_MD_AI_03_01 : 기간별 성과 예측(팝업) -- */
 .nds .predict-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
-/* 현재평가금액 / 기간 선택 */
 .nds .predict-amount {display:flex;flex-direction:column;margin:var(--spacing-24) 0 0}
 .nds .predict-amount__value {font-size:var(--type-size-24);font-weight:var(--font-weight-semibold);line-height:32px;letter-spacing:0;text-align:right;color:var(--color-font-1)}
 .nds .predict-period {margin:var(--spacing-8) 0 0}
 .nds .predict-period__label {display:flex;align-items:center;height:24px;margin:0 0 var(--spacing-8);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-3)}
 .nds .predict-period .radio-box-row > label {flex:1 1 0;min-width:0}
 
-/* 성과 요약 그래프(Chart.js) */
 .nds .predict-chart {margin:var(--spacing-16) 0 0}
 .nds .predict-chart__unit {margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-4)}
 .nds .predict-chart__body {display:grid;grid-template-columns:auto minmax(0, 1fr);gap:var(--spacing-8);margin:var(--spacing-8) 0 0}
@@ -2279,7 +2243,6 @@
 .nds .predict-chart__box {grid-column:2;position:relative;min-width:0;height:178px;box-sizing:border-box;background:var(--chart-bg);border-left:1px solid var(--primitive-blue-soft-border);border-bottom:1px solid var(--primitive-blue-soft-border);font-size:var(--type-size-10)}
 .nds .predict-chart__box canvas {display:block;width:100%;height:100%}
 .nds .predict-chart__xaxis {grid-column:2;display:flex;align-items:center;justify-content:space-between;margin:0;font-size:var(--type-size-10);font-weight:var(--font-weight-regular);line-height:1;letter-spacing:-0.2px;color:var(--color-font-4)}
-/* 범례 */
 .nds .predict-legend {display:flex;align-items:center;justify-content:space-evenly;margin:var(--spacing-16) 0 0;padding:0 0 0 30px;list-style:none;font-size:var(--type-size-12)}
 .nds .predict-legend li {display:inline-flex;align-items:center;justify-content:center;gap:var(--spacing-4);min-width:46px;white-space:nowrap;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--predict-legend-font)}
 .nds .predict-legend__swatch {flex-shrink:0;display:block;width:8px;height:8px;border-radius:2px}
@@ -2287,7 +2250,6 @@
 .nds .predict-legend__swatch:where(.is-avg) {background:var(--primitive-blue-400)}
 .nds .predict-legend__swatch:where(.is-bad) {background:var(--chart-danger-bg)}
 .nds .predict-legend__swatch:where(.is-now) {background:var(--predict-now-bg)}
-/* 예상 성과 */
 .nds .predict-result {display:flex;flex-direction:column;gap:var(--spacing-4);margin:var(--spacing-16) 0 0;padding:0;list-style:none}
 .nds .predict-result__row {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8)}
 .nds .predict-result__label {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
@@ -2296,7 +2258,6 @@
 .nds .predict-total__label {font-size:var(--type-size-15);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.3px;color:var(--color-font-3)}
 .nds .predict-total__value {font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;text-align:right;color:var(--color-font-1)}
 /* -- NH_MD_AI_06 : AI 포트폴리오 진단(안전자산 확보) -- */
-/* 카드 안 요소 간격 24 : 나머지는 모두 "카드 공통 요소"를 그대로 씁니다 */
 .nds .safe-card {margin-top:var(--spacing-24);padding:var(--spacing-20);box-shadow:0 5px 8px 0 rgba(0, 0, 0, 0.07)}
 .nds .safe-card + .safe-card {margin-top:var(--spacing-40)}
 .nds .safe-card .card-lead,
@@ -2305,19 +2266,58 @@
 .nds .safe-card .amount-slider {margin-top:var(--spacing-24)}
 .nds .safe-card .divider {margin:var(--spacing-24) 0}
 /* -- NH_MD_AI_05 : AI 포트폴리오 서비스 안내(온보딩 캐러셀) -- */
-/* .container 의 좌우 여백(24)을 빼서 비주얼 영역만 화면 폭을 꽉 채웁니다 */
-/* --onboard-chrome : 비주얼 영역을 뺀 위아래 고정 높이 합 */
-/* 헤더 50 + 위 여백 32 + 인디케이터 12 + 간격 32 + 타이틀 72(24/36 2줄) + 간격 24 + 하단 CTA 120 = 342 */
 .nds .onboard {--onboard-chrome:342px;display:flex;flex-direction:column;gap:var(--spacing-32);margin:0 calc(var(--spacing-24) * -1);padding-top:var(--spacing-32)}
 .nds .onboard__dots {height:12px}
 .nds .onboard__swiper {width:100%}
 .nds .onboard__slide {display:flex;flex-direction:column;gap:var(--spacing-24);height:auto}
 .nds .onboard__title {margin:0;padding:0 var(--spacing-24);font-size:var(--type-size-24);font-weight:var(--font-weight-regular);line-height:36px;letter-spacing:-0.32px;text-align:center;word-break:keep-all;color:var(--color-font-1)}
 .nds .onboard__title strong {font-weight:var(--font-weight-bold)}
-/* 가운데 뚫린 프레임 : 안쪽에 <img> 를 넣으면 프레임 크기에 맞춰 채워집니다 */
-/* 스크롤이 생기지 않는 최대 높이. 360x760(시안)에서 정확히 418px 이 됩니다 */
 .nds .onboard__visual {position:relative;width:100%;min-height:calc(100vh - var(--onboard-chrome));min-height:calc(100dvh - var(--onboard-chrome));overflow:hidden;background:var(--color-bg-container)}
 .nds .onboard__frame {position:absolute;top:26px;left:50%;transform:translateX(-50%);width:260px;height:calc(100% - 21px);box-sizing:border-box;border:5px solid var(--primitive-base-0);border-bottom:0;border-radius:50px 50px 0 0;box-shadow:0 1px 26px 0 rgba(0, 0, 0, 0.1);overflow:hidden}
 .nds .onboard__frame img {display:block;width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:top center;object-position:top center}
-/* 하단 CTA(고정) 만큼만 여백을 두고, 온보딩은 스크롤이 생기지 않게 합니다 */
 .nds .container:has(> .onboard) {padding-bottom:120px !important}
+
+/* -- NH_MD_AI_02 : AI 포트폴리오 진단(제안 대상 선택) -- */
+.nds .asset-pick {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%}
+.nds .info-card:has(> .asset-pick) > .card-lead {margin-top:var(--spacing-24)}
+.nds .info-card:has(> .asset-pick) > .asset-pick {margin-top:var(--spacing-32)}
+.nds .asset-pick[hidden] {display:none}
+.nds .asset-pick__chips {display:flex;flex-wrap:wrap;gap:var(--spacing-4);margin-bottom:var(--spacing-4)}
+.nds .asset-pick__chips .chip-single {box-sizing:border-box;height:30px}
+.nds .asset-pick > .divider {margin:0}
+.nds .asset-pick > .asset-list {margin-top:var(--spacing-12)}
+.nds .asset-pick > .asset-list__more {margin-top:var(--spacing-16)}
+
+.nds .popCont > .popCont__inner:first-child > .ai-section:first-of-type {margin-top:0}
+/* -- NH_MD_AI_02_01 : 계좌별 포트폴리오 조정 제안(팝업) -- */
+.nds .acc-total {margin:var(--spacing-4) 0 var(--spacing-24);padding-bottom:var(--spacing-16);border-bottom:1px solid var(--primitive-blue-soft-border);text-align:right;color:var(--chart-focus-font)}
+
+/* -- NH_MD_AI_04 : 포트폴리오 제안 -- */
+.nds .info-card > .ai-heading + .asset-list__data, .nds .info-card > .card-head + .asset-list__data {margin-top:var(--spacing-24)}
+.nds .info-card:has(> .diag-legend) > .card-lead {margin-top:var(--spacing-32)}
+.nds .info-card:has(> .diag-legend) > .risk-bar {margin-top:var(--spacing-16)}
+.nds .info-card > .asset-list > .asset-list__item:last-child {padding-bottom:0}
+.nds .info-card > .asset-list .list-account__text {gap:0}
+.nds .donut-compare {display:flex;align-items:flex-start;justify-content:space-between;margin:var(--spacing-24) 0 0}
+.nds .donut-compare__col {width:106px;text-align:center}
+.nds .donut-compare__chart {width:106px;height:106px;margin:var(--spacing-16) 0 0}
+.nds .donut-compare__chart canvas {display:block;width:106px !important;height:106px !important}
+.nds .donut-compare__line {align-self:flex-start;width:1px;height:70px;margin-top:56px;background:var(--primitive-gray-300)}
+.nds .risk-ask {display:flex;align-items:center;gap:var(--spacing-4);margin:0}
+.nds .risk-ask__icon {flex-shrink:0;width:24px;height:24px;background:url("../images/update/ic-alert-mark.svg") no-repeat center / 20px 20px}
+.nds .risk-ask + .card-sub {margin-top:var(--spacing-4)}
+.nds .risk-ask ~ .card-btn {margin-top:var(--spacing-16)}
+.nds .notice-bullet {margin:var(--spacing-16) 0 0;padding:var(--spacing-16);border-radius:var(--radius-8);background:var(--asset-detail-bg)}
+.nds .fund-list {margin:0;padding:0;list-style:none}
+.nds .fund-item {display:flex;flex-direction:column;gap:var(--spacing-4)}
+.nds .fund-item + .fund-item {margin-top:var(--spacing-20);padding-top:var(--spacing-20);border-top:1px solid var(--primitive-blue-soft-border)}
+.nds .fund-item__labels {display:flex;flex-wrap:wrap;gap:var(--spacing-4);margin:0 0 var(--spacing-4)}
+.nds .fund-item__tags {display:flex;align-items:center;gap:var(--spacing-12);margin:0;padding:0;list-style:none}
+.nds .fund-item__tags li + li {position:relative}
+.nds .fund-item__tags li + li::before {content:"";position:absolute;top:4px;left:-6px;width:1px;height:14px;background:var(--primitive-gray-300)}
+.nds .fund-item__rate {display:flex;gap:var(--spacing-20);margin:var(--spacing-20) 0 0;padding:0;list-style:none}
+.nds .fund-item__rate li {flex:1 1 0;min-width:0}
+.nds .fund-item__rate li:nth-child(2) {text-align:center}
+.nds .fund-item__rate li:last-child {text-align:right}
+.nds .fund-item__rate-value {display:block;font-size:var(--type-size-18);font-weight:var(--font-weight-medium);line-height:26px;letter-spacing:-0.36px;color:var(--color-font-1)}
+.nds .fund-item > .card-btn {margin-top:var(--spacing-24)}

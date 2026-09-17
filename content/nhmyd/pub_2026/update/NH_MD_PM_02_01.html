@@ -6,7 +6,7 @@
         <title>[P] 소비 경고 알림 설정</title>
         <script>
             $(document).ready(function () {
-                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+                slidePopConfirm();
             });
         </script>
     </head>
@@ -79,10 +79,6 @@
 
         <script>
             $(function () {
-                // 피그마(node 1436:34473)의 "지출 알림 받기" 토글 Off일 때는 아래 금액/기준
-                // 선택 영역 전체가 비활성(회색) 상태로 보입니다. .radio-box-input:disabled와
-                // .input-box.is-disabled는 이미 update.css에 정의돼 있는 공용 규칙이라, disabled
-                // 속성만 여닫아주면 별도 CSS 없이 그 스타일이 그대로 적용됩니다.
                 var $switch = $('#pmAlertSwitch');
                 var $radios = $('#pmAlert .radio-box-input');
                 var $amountBox = $('#pmAmountBox');
@@ -103,9 +99,6 @@
                     var $checked = $('input[name="pmAlertAmount"]:checked');
                     var amount = $checked.data('amount');
                     if (amount === 'direct') {
-                        // 직접입력 선택 시: 읽기전용을 풀고 실제 입력창으로 전환합니다(네이티브
-                        // 숫자 키패드는 inputmode="numeric"이 알아서 띄워주므로 커스텀 키패드는
-                        // 만들지 않습니다 — 피그마 목업의 키보드는 OS 키보드를 그대로 보여준 것).
                         $amountBox.removeClass('is-readonly');
                         $amountInput.prop('readonly', false);
                         if ($amountInput.data('wasPreset') !== false) {
@@ -122,7 +115,6 @@
                 $switch.on('change', syncEnabled);
                 $('input[name="pmAlertAmount"]').on('change', syncAmountField);
 
-                // 직접입력 중에는 숫자만 남기고 천단위 콤마 + '원'을 실시간으로 다시 붙여줍니다.
                 $amountInput.on('input', function () {
                     if ($(this).prop('readonly')) return;
                     var digits = $(this).val().replace(/[^0-9]/g, '');
