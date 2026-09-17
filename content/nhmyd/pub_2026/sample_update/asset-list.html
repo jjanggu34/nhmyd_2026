@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>Asset List | UI Guide</title>
+    </head>
+    <body class="bgcolor">
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header bgcolor">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Asset List</h1>
+            </div>
+            <!-- //header -->
+            <div class="container bgcolor">
+                <!-- prettier-ignore -->
+                <p class="note">AI 진단 화면(NH_MD_AI_01_01 / 02 / 02_01 / 04 / 06)의 계좌·자산 목록입니다. 항목 안쪽은 가이드 <code>list-account</code>와 <code>label</code>을 그대로 씁니다.</p>
+
+                <h2 class="guide-title">asset-list — 계좌 목록(기본)</h2>
+                <!-- prettier-ignore -->
+                <p class="note">항목 사이 구분선이 카드 좌우 여백 밖까지 이어집니다. 라벨은 <code>label is-sm is-line</code>, 로고+이름은 <code>list-account</code>입니다.</p>
+                <div class="demo">
+                    <div class="md-card">
+                        <ul class="asset-list">
+                            <li class="asset-list__item">
+                                <span class="label is-sm is-line is-lightblue">부채진단</span>
+                                <div class="list-account">
+                                    <span class="list-account__logo"><img src="../../images/logos/AAOB0000.png" alt="" /></span>
+                                    <span class="list-account__text">
+                                        <span class="list-account__name">농협은행 직장인 신용대출</span>
+                                        <span class="list-account__number">
+                                            <span>농협은행</span>
+                                            <span>000333366999</span>
+                                        </span>
+                                    </span>
+                                </div>
+                                <ul class="asset-list__data">
+                                    <li class="asset-list__row">
+                                        <span class="asset-list__row-label">만기일</span>
+                                        <span class="asset-list__row-value">2027.01.23</span>
+                                    </li>
+                                    <li class="asset-list__row">
+                                        <span class="asset-list__row-label">원리금균등분할상환</span>
+                                        <span class="asset-list__row-value">연 19.9%</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="asset-list__item">
+                                <div class="list-account">
+                                    <span class="list-account__logo"><img src="../../images/logos/AAAZ0000.png" alt="" /></span>
+                                    <span class="list-account__text">
+                                        <span class="list-account__name">전세자금대출</span>
+                                        <span class="list-account__number">
+                                            <span>농축협은행</span>
+                                            <span>2222444455556</span>
+                                        </span>
+                                    </span>
+                                </div>
+                                <ul class="asset-list__data">
+                                    <li class="asset-list__row">
+                                        <span class="asset-list__row-label">만기일</span>
+                                        <span class="asset-list__row-value">2028.04.12</span>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="asset-list__more">
+                            <!-- prettier-ignore -->
+                            <button type="button" class="btn-arrow"><span>더보기(2/6)</span><span class="btn-arrow__icon is-plus" aria-hidden="true"></span></button>
+                        </p>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">asset-list is-pick — 체크박스로 고르는 목록</h2>
+                <!-- prettier-ignore -->
+                <p class="note">항목 사이 1px 구분선을 두고 20 간격으로 쌓입니다. 라벨과 체크박스는 <code>asset-list__pick</code> 한 줄에 양끝 배치(라벨이 없어도 체크박스는 오른쪽 끝).</p>
+                <div class="demo">
+                    <div class="md-card">
+                        <ul class="asset-list is-pick">
+                            <li class="asset-list__item">
+                                <div class="asset-list__pick">
+                                    <span class="label is-sm is-line is-skyblue">조정필요</span>
+                                    <label class="check-basic">
+                                        <input type="checkbox" class="check-basic__input" checked />
+                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                        <span class="blind">농협은행 ISA 선택</span>
+                                    </label>
+                                </div>
+                                <div class="list-account is-sm">
+                                    <span class="list-account__logo"><img src="../../images/logos/AACQ0000.png" alt="" /></span>
+                                    <span class="list-account__text">
+                                        <span class="list-account__name">농협은행 ISA</span>
+                                    </span>
+                                </div>
+                                <ul class="asset-list__data is-sm">
+                                    <li class="asset-list__row">
+                                        <span class="asset-list__row-label">평가금액</span>
+                                        <span class="asset-list__row-value">52,000,000원</span>
+                                    </li>
+                                    <li class="asset-list__row">
+                                        <span class="asset-list__row-label">수익률</span>
+                                        <span class="asset-list__row-value is-up">+2,769,230원(+4.00%)</span>
+                                    </li>
+                                </ul>
+                                <button type="button" class="card-btn">자세히 보기</button>
+                            </li>
+                            <li class="asset-list__item">
+                                <div class="asset-list__pick">
+                                    <label class="check-basic">
+                                        <input type="checkbox" class="check-basic__input" checked />
+                                        <span class="check-basic__icon" aria-hidden="true"></span>
+                                        <span class="blind">농협은행 ISA 선택</span>
+                                    </label>
+                                </div>
+                                <div class="list-account is-sm">
+                                    <span class="list-account__logo"><img src="../../images/logos/AACQ0000.png" alt="" /></span>
+                                    <span class="list-account__text">
+                                        <span class="list-account__name">농협은행 ISA</span>
+                                    </span>
+                                </div>
+                                <ul class="asset-list__data is-sm">
+                                    <li class="asset-list__row">
+                                        <span class="asset-list__row-label">평가금액</span>
+                                        <span class="asset-list__row-value">11,000,000원</span>
+                                    </li>
+                                    <li class="asset-list__row">
+                                        <span class="asset-list__row-label">수익률</span>
+                                        <span class="asset-list__row-value is-down">-485,540원(-4.24%)</span>
+                                    </li>
+                                </ul>
+                                <button type="button" class="card-btn">자세히 보기</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">asset-list__data — 라벨 / 값 행</h2>
+                <!-- prettier-ignore -->
+                <p class="note">기본은 15/24, <code>is-sm</code>은 라벨 13/20 · 값 14/22(행 사이 여백 없음), <code>is-stat</code>은 위에 구분선을 두고 라벨 14/22 medium. 값에는 <code>is-up</code>(빨강) / <code>is-down</code>(파랑) / <code>is-point</code>(포인트색) / <code>is-total</code>(16/24 semibold 포인트색) / <code>is-grade</code>(배지 + 등급색)를 줄 수 있습니다.</p>
+                <div class="demo">
+                    <div class="md-card">
+                        <ul class="asset-list__data">
+                            <li class="asset-list__row">
+                                <span class="asset-list__row-label">나의 투자성향</span>
+                                <strong class="asset-list__row-value is-grade">
+                                    <span class="diag-type__badge is-sm" aria-hidden="true"></span>
+                                    적극 투자형
+                                </strong>
+                            </li>
+                            <li class="asset-list__row">
+                                <span class="asset-list__row-label">현재평가금액</span>
+                                <strong class="asset-list__row-value is-total">170,000,000 원</strong>
+                            </li>
+                        </ul>
+                        <ul class="asset-list__data is-stat">
+                            <li class="asset-list__row">
+                                <span class="asset-list__row-label">기대수익율(연)</span>
+                                <span class="asset-list__row-value is-point">7.9%</span>
+                            </li>
+                            <li class="asset-list__row">
+                                <span class="asset-list__row-label">예상변동성(연)</span>
+                                <span class="asset-list__row-value">15.5%</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">asset-bar / asset-sum — 누적 막대 + 요약</h2>
+                <!-- prettier-ignore -->
+                <p class="note">세그먼트 폭·색은 인라인 <code>style</code>로 지정합니다. 마지막 세그먼트는 남은 폭을 채웁니다. <code>is-sm</code>은 높이 8px.</p>
+                <div class="demo">
+                    <div class="md-card">
+                        <span class="asset-bar" aria-hidden="true">
+                            <i class="asset-bar__seg" style="width: 62%; background: #19973c"></i>
+                            <i class="asset-bar__seg" style="background: #d9dfeb"></i>
+                        </span>
+                        <ul class="asset-sum">
+                            <li class="asset-sum__row">
+                                <span class="asset-sum__label">진단 자산</span>
+                                <span class="asset-sum__value">262,000,000원</span>
+                            </li>
+                            <li class="asset-sum__row">
+                                <span class="asset-sum__label">진단 외 자산</span>
+                                <span class="asset-sum__value">102,000,000원</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">asset-detail — 계좌 안 보유 상품</h2>
+                <!-- prettier-ignore -->
+                <p class="note">계좌 아래 한 단계 들여쓴 연회색 박스입니다. 카드 안에서 회색 박스 없이 목록만 쓰려면 <code>asset-detail__list</code>를 카드 직속 자식으로 둡니다(NH_MD_AI_02_01).</p>
+                <div class="demo">
+                    <div class="md-card">
+                        <div class="asset-detail">
+                            <span class="label is-sm is-line is-dark">보유 상품</span>
+                            <ul class="asset-detail__list">
+                                <li class="asset-detail__item">
+                                    <p class="asset-detail__name">삼성전자</p>
+                                    <ul class="asset-list__data is-sm">
+                                        <li class="asset-list__row">
+                                            <span class="asset-list__row-label">평가금액</span>
+                                            <span class="asset-list__row-value">9,600,000원</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="asset-detail__item">
+                                    <p class="asset-detail__name">OO미국 S&amp;P 500 ETF</p>
+                                    <ul class="asset-list__data is-sm">
+                                        <li class="asset-list__row">
+                                            <span class="asset-list__row-label">평가금액</span>
+                                            <span class="asset-list__row-value">12,300,000원</span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">asset-group — 자산군 아코디언</h2>
+                <!-- prettier-ignore -->
+                <p class="note">update-ui.js의 <code>[data-acc-toggle]</code>을 그대로 씁니다. 아이콘은 <code>item01</code>(현금) / <code>item02</code>(투자) / <code>item03</code>(연금)으로 고릅니다.</p>
+                <div class="demo">
+                    <div class="md-card">
+                        <div class="asset-group">
+                            <button type="button" class="asset-group__head" aria-expanded="true" data-acc-toggle>
+                                <span class="asset-group__icon item01" aria-hidden="true"></span>
+                                <span class="asset-group__name">현금</span>
+                                <span class="asset-group__amount">32,000,000원</span>
+                                <span class="asset-group__arrow" aria-hidden="true"></span>
+                            </button>
+                            <div class="asset-group__body">
+                                <ul class="asset-list is-sm">
+                                    <li class="asset-list__item">
+                                        <div class="list-account is-sm">
+                                            <span class="list-account__logo"><img src="../../images/logos/AAOB0000.png" alt="" /></span>
+                                            <span class="list-account__text">
+                                                <span class="list-account__name">농협은행 입출금</span>
+                                            </span>
+                                        </div>
+                                        <ul class="asset-list__data is-sm">
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">평가금액</span>
+                                                <span class="asset-list__row-value">20,000,000원</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

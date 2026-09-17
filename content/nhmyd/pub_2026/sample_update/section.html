@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>Section(AI) | UI Guide</title>
+    </head>
+    <body class="bgcolor">
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header bgcolor">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Section(AI)</h1>
+            </div>
+            <!-- //header -->
+            <div class="container bgcolor">
+                <!-- prettier-ignore -->
+                <p class="note">AI 포트폴리오 진단 화면의 뼈대입니다. <code>diag-step</code> → <code>ai-section</code>(제목 + 카드) 순서로 쌓고, 섹션 사이 간격은 <code>ai-section</code>이 40(첫 섹션은 24)을 담당합니다.</p>
+
+                <h2 class="guide-title">diag-step — 상단 단계 표시</h2>
+                <!-- prettier-ignore -->
+                <p class="note">가이드 <code>process-progress-number</code>를 배경 없는 형태(<code>is-plain</code>)로 씁니다. 숫자는 <code>aria-hidden</code>으로 가리고 <code>blind</code> 문장으로 단계를 읽어줍니다. 단계 숫자가 없는 화면은 왼쪽 라벨만 둡니다.</p>
+                <div class="demo">
+                    <div class="diag-step">
+                        <span class="text text--body3-medium text--font3">제안 대상 진단</span>
+                        <span class="blind">전체 3단계 중 2단계</span>
+                        <span class="diag-step__progress" aria-hidden="true">
+                            <span class="process-progress-number is-plain">
+                                <span class="process-progress-number__current">STEP</span>
+                            </span>
+                            <span class="process-progress-number is-plain">
+                                <span class="process-progress-number__current">02</span>
+                                <span class="process-progress-number__divider"></span>
+                                <span class="process-progress-number__total">03</span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="diag-step">
+                        <span class="text text--body3-medium text--font3">제안</span>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">diag-lead — 화면 대제목</h2>
+                <!-- prettier-ignore -->
+                <p class="note"><code>text text--h2</code>와 함께 씁니다. 강조는 <code>&lt;em&gt;</code>(포인트색). 도움말이 필요하면 <code>tooltipWrap is-card</code>를 같이 주면 버튼이 첫 줄 오른쪽 끝에 붙습니다.</p>
+                <div class="demo">
+                    <!-- prettier-ignore -->
+                    <h2 class="text text--h2 diag-lead tooltipWrap is-card">
+                        고객님이 선택한 <em>22개</em> 계좌중
+                        <br /><em>96,000,000원</em>을 대상으로
+                        <br />제안을 진행했어요.
+                        <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">제안 대상 도움말</span></button>
+                        <div class="tooltipCont" style="display: none">
+                            <h3>안내사항</h3>
+                            <ul>
+                                <li>진단 대상으로 선택한 계좌의 평가금액을 합한 금액이에요.</li>
+                            </ul>
+                            <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                        </div>
+                    </h2>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">ai-section — 제목 + 카드 묶음</h2>
+                <!-- prettier-ignore -->
+                <p class="note"><code>&lt;section class="ai-section"&gt;</code> 안에 제목과 카드를 넣으면 제목–카드 20, 섹션 사이 40이 자동으로 잡힙니다. 카드 제목은 <code>text text--h4 ai-heading</code>(h 요소의 기본 여백을 지웁니다).</p>
+                <div class="demo">
+                    <section class="ai-section">
+                        <h2 class="text text--h2 diag-lead">첫 번째 섹션</h2>
+                        <div class="info-card">
+                            <h3 class="text text--h4 ai-heading">카드 제목</h3>
+                        </div>
+                    </section>
+                    <section class="ai-section">
+                        <div class="info-card">
+                            <h3 class="text text--h4 ai-heading">두 번째 섹션 카드</h3>
+                        </div>
+                    </section>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">ai-divider / ai-dash-divider — 카드 안 구분선</h2>
+                <!-- prettier-ignore -->
+                <p class="note"><code>divider is-page ai-divider</code>는 실선(위아래 여백 24), <code>divider ai-dash-divider</code>는 점선입니다. 점선을 카드 배경보다 연하게 쓰려면 <code>ai-dash-divider--f0</code>.</p>
+                <div class="demo">
+                    <div class="info-card ai">
+                        <p class="card-lead">위쪽 내용</p>
+                        <hr class="divider is-page ai-divider" />
+                        <p class="card-lead">실선 아래</p>
+                        <hr class="divider ai-dash-divider" />
+                        <p class="card-lead">점선 아래</p>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">ai-badge / ai-quote — AI 의견</h2>
+                <!-- prettier-ignore -->
+                <p class="note"><code>ai-badge</code>는 카드 머리글 우측 배지, <code>ai-quote</code>는 왼쪽 세로선이 붙은 인용 문단입니다.</p>
+                <div class="demo">
+                    <div class="info-card">
+                        <div class="card-head">
+                            <h3 class="text text--h4 ai-heading">AI 의견이 준비됐어요</h3>
+                            <span class="ai-badge">에이전트 AI</span>
+                        </div>
+                        <p class="ai-quote">진단에서 선택한 자산이 국내주식에 몰려 있어서, 비중을 해외로 분산하여 위험자산을 84%로 높이고, 기대수익은 8.3%, 투자위험은 14.2%로 제안했어요.</p>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">화면 하단 — 알아두세요 + 고정 CTA</h2>
+                <!-- prettier-ignore -->
+                <p class="note"><code>accordion-notice</code>는 <code>container</code> 밖(본문 흐름)에 두고, 버튼은 레거시 <code>areaBtnDefault</code>(또는 <code>btn-cta is-basic is-fixed</code>)로 화면 하단에 고정합니다. 본문 아래 여백은 <code>container</code>에 <code>pb32</code>를 붙여 32로 줄이고, 고정 버튼에 가리지 않도록 <code>accordion-notice</code>가 버튼 높이만큼 아래 여백을 갖습니다.</p>
+                <div class="demo">
+                    <div class="accordion-notice">
+                        <div class="accordion-notice__item">
+                            <button type="button" aria-expanded="true" data-acc-toggle>
+                                <span class="accordion-notice__title">알아두세요</span>
+                            </button>
+                            <div class="accordion-notice__body">
+                                <ul class="bullet is-dot--body3">
+                                    <li class="bullet__item">기대수익률, 투자위험(변동성) 등의 정보는 과거 데이터를 기초하여 제시된 것으로 미래의 수익률을 보장하지 않습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

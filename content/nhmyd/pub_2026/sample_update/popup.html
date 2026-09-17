@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>Popup | UI Guide</title>
+    </head>
+    <body>
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Popup</h1>
+            </div>
+            <!-- //header -->
+            <div class="container">
+                <!-- prettier-ignore -->
+                <p class="note">팝업 껍데기는 레거시 <code>popWrap</code> 구조를 그대로 쓰고 <code>nds</code>만 덧붙입니다. 실제 화면에서는 <code>$(document).ready()</code>에서 <code>fullLayerPop()</code> 또는 <code>slidePopConfirm()</code>을 한 번 호출합니다. 이 가이드에서는 버튼으로 엽니다.</p>
+
+                <h2 class="guide-title">fullLayerPop — 전체 화면 팝업</h2>
+                <!-- prettier-ignore -->
+                <p class="note">제목(<code>h1</code>) + 스크롤 영역(<code>popCont</code> &gt; <code>popCont__inner</code>) + 하단(<code>popBtnWrap</code>) 구조입니다. 본문이 카드로만 시작하면 <code>popCont__inner</code>의 여백 16만 쓰고, 상단에 안내 바가 필요하면 <code>notice-box is-bar</code>를 <code>popCont</code> 직속 자식으로 둡니다. 하단 <code>areaBtnDefault</code>가 있으면 <code>popCont</code>에 아래 여백 112가 자동으로 잡힙니다.</p>
+                <div class="demo">
+                    <button type="button" class="btn is-tertiary is-md" data-open="popFull">전체 화면 팝업 열기</button>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">slidePopConfirm — 내용 높이에 맞는 팝업</h2>
+                <!-- prettier-ignore -->
+                <p class="note">update-ui.js가 레거시 <code>slidePopConfirm()</code>을 오버라이드해 내용 높이로 시트 높이를 잡고, 화면 높이의 80%를 넘으면 <code>popCont</code>에 스크롤을 붙입니다. 시트를 연 뒤 내용 높이가 바뀌면(아코디언 열기·웹폰트 적용 등) ResizeObserver가 다시 계산합니다.</p>
+                <div class="demo">
+                    <button type="button" class="btn is-tertiary is-md" data-open="popSlide">동의 팝업 열기</button>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">popBtnWrap — 팝업 하단</h2>
+                <!-- prettier-ignore -->
+                <p class="note">닫기 버튼(<code>popClose</code>)은 항상 <code>popBtnWrap</code> 안에 둡니다. 확인 버튼은 <code>popBtn</code> &gt; <code>btnPressPoint confirmBtn</code>(단일) 또는 <code>areaBtnDefault</code>(1~2개)를 씁니다. 비활성은 <code>disabled</code> 클래스 + <code>aria-disabled</code>로 관리합니다(<code>a</code> 태그는 <code>disabled</code> 속성이 없습니다).</p>
+                <div class="demo">
+                    <button type="button" class="btn is-tertiary is-md" data-open="popBtns">하단 버튼 2개 팝업 열기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 전체 화면 팝업 -->
+        <div class="nhasset popWrap nds fullLayerPop" id="popFull" style="display: none" role="dialog" aria-modal="true" aria-labelledby="popFullTitle">
+            <div class="popInner">
+                <h1 id="popFullTitle">기간별 성과 예측</h1>
+                <div class="popCont bgcolor">
+                    <p class="notice-box is-bar">
+                        <span class="notice-box__icon is-calendar" aria-hidden="true"></span>
+                        <span class="notice-box__text">기간에 따라 성과가 어떻게 될지 미리 볼 수 있어요.</span>
+                    </p>
+                    <div class="popCont__inner">
+                        <section class="ai-section">
+                            <div class="info-card">
+                                <h2 class="text text--h4 ai-heading">기간별 성과예측을 살펴볼까요?</h2>
+                                <p class="card-desc">팝업 본문은 popCont__inner 안에 일반 화면과 같은 ai-section / info-card 구조로 넣습니다.</p>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="accordion-notice">
+                        <div class="accordion-notice__item">
+                            <button type="button" aria-expanded="false" data-acc-toggle>
+                                <span class="accordion-notice__title">알아두세요</span>
+                            </button>
+                            <div class="accordion-notice__body" hidden>
+                                <ul class="bullet is-dot--body3">
+                                    <li class="bullet__item">알아두세요는 popCont 직속 자식으로 두면 좌우를 꽉 채웁니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                    <div class="areaBtnDefault">
+                        <a href="javascript:;" onclick="popClose(this);return false;" class="btnPressPoint" role="button">확인</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 내용 높이에 맞는 팝업 -->
+        <div class="nhasset popWrap nds slidePopConfirm" id="popSlide" style="display: none" role="dialog" aria-modal="true" aria-labelledby="popSlideTitle">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1 id="popSlideTitle">AI 포트폴리오 서비스 이용동의</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <p class="text text--body2">서비스 이용을 위해 동의가 필요합니다.</p>
+                        <div class="terms-card mt16">
+                            <div class="terms-card__header">
+                                <div class="terms-card__check">
+                                    <label class="check-basic">
+                                        <input type="checkbox" class="check-basic__input" id="guideAgreeAll" />
+                                        <span class="check-basic__icon"></span>
+                                        <span class="terms-card__title">[필수] 전체 동의</span>
+                                    </label>
+                                </div>
+                                <button type="button" class="terms-card__toggle" aria-label="약관 상세로 이동"></button>
+                            </div>
+                            <hr class="terms-card__divider" />
+                            <div class="terms-card__list">
+                                <div class="terms-link">
+                                    <div class="terms-link__check">
+                                        <label class="check-basic check-basic--xs">
+                                            <input type="checkbox" class="check-basic__input" />
+                                            <span class="check-basic__icon"></span>
+                                            <span class="terms-link__text">NH마이데이터 AI 서비스 이용약관</span>
+                                        </label>
+                                    </div>
+                                    <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <div class="popBtn">
+                        <a href="javascript:;" onclick="popClose(this);return false;" class="btnPressPoint confirmBtn" role="button">시작하기</a>
+                    </div>
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 하단 버튼 2개 -->
+        <div class="nhasset popWrap nds slidePopConfirm" id="popBtns" style="display: none" role="dialog" aria-modal="true" aria-labelledby="popBtnsTitle">
+            <div class="dim"></div>
+            <div class="popInner">
+                <h1 id="popBtnsTitle">계좌별 포트폴리오 조정 제안</h1>
+                <div class="popCont">
+                    <div class="popCont__inner">
+                        <p class="text text--body2">하단 버튼이 두 개면 areaBtnDefault 안에 btnPressDefault + btnPressPoint 순서로 넣습니다.</p>
+                    </div>
+                </div>
+                <div class="popBtnWrap">
+                    <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button">
+                        <img src="../../images/common/btn_popClose.png" alt="닫기" />
+                    </a>
+                    <div class="areaBtnDefault">
+                        <a href="javascript:;" onclick="popClose(this);return false;" class="btnPressDefault" role="button">닫기</a>
+                        <a href="javascript:;" class="btnPressPoint disabled" role="button" aria-disabled="true">선택 추가</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('[data-open]').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        var id = btn.getAttribute('data-open');
+                        $('.popWrap').hide();
+                        $('#' + id).show();
+                        if (id === 'popFull') fullLayerPop();
+                        else slidePopConfirm();
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
