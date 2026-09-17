@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>Chart(AI) | UI Guide</title>
+    </head>
+    <body class="bgcolor">
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header bgcolor">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Chart(AI)</h1>
+            </div>
+            <!-- //header -->
+            <div class="container bgcolor">
+                <!-- prettier-ignore -->
+                <p class="note">AI 포트폴리오 진단 화면(NH_MD_AI_01 / 03 / 03_01 / 04)에서 쓰는 그래프 모음입니다. 곡선·도넛은 Chart.js, 막대는 CSS로만 그립니다.</p>
+
+                <h2 class="guide-title">curve-chart — 기대수익 곡선(Chart.js)</h2>
+                <!-- prettier-ignore -->
+                <p class="note">축 라벨은 마크업, 곡선과 점은 Chart.js가 그립니다. 그래프 박스는 272×164이고 안쪽 여백(가로 16 / 세로 24)만큼 스케일을 넓혀 점·라벨이 잘리지 않게 합니다. 그래프 자체는 <code>aria-hidden</code>으로 두고 내용은 <code>blind</code> 문장으로 읽어줍니다.</p>
+                <div class="demo">
+                    <div class="info-card ai">
+                        <div class="curve-chart" aria-hidden="true">
+                            <p class="curve-chart__axis-name">기대수익</p>
+                            <p class="curve-chart__axis-top">높음</p>
+                            <div class="curve-chart__box">
+                                <canvas id="guideCurve"></canvas>
+                            </div>
+                            <p class="curve-chart__axis-bottom">
+                                <span>낮음</span>
+                                <span>높음</span>
+                            </p>
+                            <p class="curve-chart__axis-name is-right">투자위험</p>
+                        </div>
+                        <p class="blind">기대수익과 투자위험의 관계를 나타낸 그래프입니다. 기대수익이 가장 높은 곡선 위에 최적 위치가 있고, 제안 위치는 그보다 기대수익이 낮습니다.</p>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">donut-compare — 현재 / 제안 도넛 비교</h2>
+                <!-- prettier-ignore -->
+                <p class="note">106px 도넛 두 개와 가운데 세로 구분선. 도넛 두께는 <code>cutout: '64%'</code>입니다.</p>
+                <div class="demo">
+                    <div class="info-card ai">
+                        <div class="donut-compare">
+                            <div class="donut-compare__col">
+                                <p class="text text--body3-medium text--font3">현재 포트폴리오</p>
+                                <div class="donut-compare__chart"><canvas id="guideDonutA" aria-hidden="true"></canvas></div>
+                            </div>
+                            <i class="donut-compare__line" aria-hidden="true"></i>
+                            <div class="donut-compare__col">
+                                <p class="text text--body3-medium text--font3">제안 포트폴리오</p>
+                                <div class="donut-compare__chart"><canvas id="guideDonutB" aria-hidden="true"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">diag-legend — 도넛 범례</h2>
+                <!-- prettier-ignore -->
+                <p class="note">자산군 묶음을 1px 선으로 구분합니다. <code>is-compare</code>를 주면 왼쪽(현재) · 가운데(자산군) · 오른쪽(제안) 3단으로 바뀝니다. 색은 인라인 <code>style</code>로 지정합니다.</p>
+                <div class="demo">
+                    <div class="info-card ai">
+                        <div class="diag-legend" aria-hidden="true">
+                            <ul class="diag-legend__group">
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name"><i class="diag-legend__swatch" style="background: #22d3ee"></i>해외채권</span>
+                                    <span class="diag-legend__value">33 %</span>
+                                </li>
+                            </ul>
+                            <ul class="diag-legend__group">
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name"><i class="diag-legend__swatch" style="background: #facc15"></i>국내주식</span>
+                                    <span class="diag-legend__value">31 %</span>
+                                </li>
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__name"><i class="diag-legend__swatch" style="background: #4c6ce0"></i>해외신흥국주식</span>
+                                    <span class="diag-legend__value">3 %</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="info-card ai" style="margin-top: 16px">
+                        <div class="diag-legend is-compare" aria-hidden="true">
+                            <ul class="diag-legend__group">
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__value">33 %</span>
+                                    <span class="diag-legend__name"><i class="diag-legend__swatch" style="background: #22d3ee"></i>해외채권</span>
+                                    <span class="diag-legend__value">33 %</span>
+                                </li>
+                                <li class="diag-legend__row">
+                                    <span class="diag-legend__value">31 %</span>
+                                    <span class="diag-legend__name"><i class="diag-legend__swatch" style="background: #facc15"></i>국내주식</span>
+                                    <span class="diag-legend__value">31 %</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">alloc-bar — 자산군별 조정</h2>
+                <!-- prettier-ignore -->
+                <p class="note">막대는 최적비중(<code>__base</code>, 진회색) + 조정분(<code>__delta</code>)입니다. <code>is-down</code>은 줄임(파랑), <code>is-up</code>은 늘림(빨강). 폭은 인라인 <code>style="width:%"</code>로 지정합니다.</p>
+                <div class="demo">
+                    <div class="info-card ai">
+                        <ul class="alloc-bar">
+                            <li class="alloc-bar__item">
+                                <span class="alloc-bar__bar" aria-hidden="true">
+                                    <i class="alloc-bar__base" style="width: 1.5%"></i>
+                                    <i class="alloc-bar__delta is-down" style="width: 24.3%"></i>
+                                </span>
+                                <span class="alloc-bar__row">
+                                    <span class="alloc-bar__name">현금성 1%</span>
+                                    <span class="alloc-bar__change">
+                                        <em class="alloc-bar__down">-32% 줄여요</em>
+                                        (-115,200,000 원)
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="alloc-bar__item">
+                                <span class="alloc-bar__bar" aria-hidden="true">
+                                    <i class="alloc-bar__base" style="width: 34.9%"></i>
+                                    <i class="alloc-bar__delta is-up" style="width: 9.2%"></i>
+                                </span>
+                                <span class="alloc-bar__row">
+                                    <span class="alloc-bar__name">국내주식 48%</span>
+                                    <span class="alloc-bar__change">
+                                        <em class="alloc-bar__up">+17% 늘려요</em>
+                                        (+61,200,000 원)
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="alloc-bar__item">
+                                <span class="alloc-bar__bar" aria-hidden="true">
+                                    <i class="alloc-bar__base" style="width: 0%"></i>
+                                    <i class="alloc-bar__delta" style="width: 0%"></i>
+                                </span>
+                                <span class="alloc-bar__row">
+                                    <span class="alloc-bar__name">대체자산 0%</span>
+                                    <span class="alloc-bar__change">0%(0원)</span>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">risk-bar — 안전 / 위험 자산 비교</h2>
+                <!-- prettier-ignore -->
+                <p class="note"><code>__safe</code>의 폭만 지정하면 <code>__danger</code>가 남은 폭을 채웁니다.</p>
+                <div class="demo">
+                    <div class="info-card ai">
+                        <div class="risk-bar">
+                            <div class="risk-bar__item">
+                                <p class="risk-bar__label">현재 포트폴리오</p>
+                                <span class="risk-bar__bar" aria-hidden="true">
+                                    <i class="risk-bar__safe" style="width: 51.7%"></i>
+                                    <i class="risk-bar__danger"></i>
+                                </span>
+                                <p class="risk-bar__legend">
+                                    <span class="risk-bar__safe-text">안전 51.7%</span>
+                                    <span class="risk-bar__danger-text">위험 48.3%</span>
+                                </p>
+                            </div>
+                            <div class="risk-bar__item">
+                                <p class="risk-bar__label">제안 포트폴리오</p>
+                                <span class="risk-bar__bar" aria-hidden="true">
+                                    <i class="risk-bar__safe" style="width: 3%"></i>
+                                    <i class="risk-bar__danger"></i>
+                                </span>
+                                <p class="risk-bar__legend">
+                                    <span class="risk-bar__safe-text">안전 3.0%</span>
+                                    <span class="risk-bar__danger-text">위험 97.0%</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">perf-compare — 성과지표 비교</h2>
+                <!-- prettier-ignore -->
+                <p class="note">제안 막대는 <code>is-opt</code>(초록)입니다. 증감 표기 <code>perf-compare__gap</code>에 <code>is-up</code> / <code>is-down</code>을 주면 방향 화살표가 붙습니다.</p>
+                <div class="demo">
+                    <div class="info-card ai">
+                        <div class="card-head">
+                            <h4 class="perf-compare__title">성과지표 비교</h4>
+                            <span class="perf-compare__unit">(년 기준, %)</span>
+                        </div>
+                        <div class="perf-compare">
+                            <div class="perf-compare__group">
+                                <p class="perf-compare__name">
+                                    기대수익
+                                    <em class="perf-compare__gap is-up">2.3%P</em>
+                                </p>
+                                <p class="perf-compare__row">
+                                    <span class="perf-compare__row-label">현재</span>
+                                    <span class="perf-compare__row-bar" aria-hidden="true"><i class="perf-compare__fill" style="width: 44.3%"></i></span>
+                                    <span class="perf-compare__row-value">6.6%</span>
+                                </p>
+                                <p class="perf-compare__row">
+                                    <span class="perf-compare__row-label">제안</span>
+                                    <span class="perf-compare__row-bar" aria-hidden="true"><i class="perf-compare__fill is-opt" style="width: 59.7%"></i></span>
+                                    <span class="perf-compare__row-value">8.9%</span>
+                                </p>
+                            </div>
+                            <div class="perf-compare__group">
+                                <p class="perf-compare__name">
+                                    투자위험
+                                    <em class="perf-compare__gap is-down">2.7%P</em>
+                                </p>
+                                <p class="perf-compare__row">
+                                    <span class="perf-compare__row-label">현재</span>
+                                    <span class="perf-compare__row-bar" aria-hidden="true"><i class="perf-compare__fill" style="width: 100%"></i></span>
+                                    <span class="perf-compare__row-value">15.2%</span>
+                                </p>
+                                <p class="perf-compare__row">
+                                    <span class="perf-compare__row-label">제안</span>
+                                    <span class="perf-compare__row-bar" aria-hidden="true"><i class="perf-compare__fill is-opt" style="width: 88.8%"></i></span>
+                                    <span class="perf-compare__row-value">13.5%</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            (function () {
+                if (typeof Chart === 'undefined') return;
+
+                var curve = document.getElementById('guideCurve');
+                if (curve) {
+                    var PAD_X = (100 * 16) / 240;
+                    var PAD_Y = (100 * 24) / 116;
+                    var line = [];
+                    for (var x = 0; x <= 100; x += 2) line.push({ x: x, y: 100 / (1 + Math.exp(-0.1 * (x - 48))) });
+                    var POINTS = [
+                        { x: 85, y: 98, label: '최적', color: '#ff7e7e' },
+                        { x: 63, y: 42, label: '제안', color: '#707070' }
+                    ];
+                    var datasets = [{ type: 'line', data: line, borderColor: '#ff7e7e', borderWidth: 2, pointRadius: 0, tension: 0.4, fill: false }];
+                    POINTS.forEach(function (p) {
+                        datasets.push({ type: 'scatter', data: [{ x: p.x, y: p.y }], backgroundColor: p.color, borderWidth: 0, pointRadius: 4, pointHoverRadius: 4 });
+                    });
+                    new Chart(curve.getContext('2d'), {
+                        data: { datasets: datasets },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            events: [],
+                            layout: { padding: 0 },
+                            scales: {
+                                x: { type: 'linear', min: -PAD_X, max: 100 + PAD_X, display: false, grid: { display: false } },
+                                y: { type: 'linear', min: -PAD_Y, max: 100 + PAD_Y, display: false, grid: { display: false } }
+                            },
+                            plugins: { legend: { display: false }, tooltip: { enabled: false } }
+                        },
+                        plugins: [
+                            {
+                                id: 'guidePointLabel',
+                                afterDatasetsDraw: function (chart) {
+                                    var ctx = chart.ctx;
+                                    ctx.save();
+                                    ctx.font = '400 10px Pretendard, sans-serif';
+                                    ctx.fillStyle = '#121212';
+                                    ctx.textAlign = 'center';
+                                    ctx.textBaseline = 'top';
+                                    POINTS.forEach(function (p, i) {
+                                        var meta = chart.getDatasetMeta(i + 1);
+                                        if (!meta || !meta.data || !meta.data[0]) return;
+                                        ctx.fillText(p.label, meta.data[0].x, meta.data[0].y + 8);
+                                    });
+                                    ctx.restore();
+                                }
+                            }
+                        ]
+                    });
+                }
+
+                var COLORS = ['#22d3ee', '#a3e635', '#f472b6', '#facc15', '#f5a623', '#4c6ce0', '#d7d7d7'];
+                ['guideDonutA', 'guideDonutB'].forEach(function (id) {
+                    var c = document.getElementById(id);
+                    if (!c) return;
+                    new Chart(c.getContext('2d'), {
+                        type: 'doughnut',
+                        data: { datasets: [{ data: [33, 13, 5, 31, 14, 3, 1], backgroundColor: COLORS, borderWidth: 0 }] },
+                        options: { responsive: true, maintainAspectRatio: false, cutout: '64%', events: [], plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+                    });
+                });
+            })();
+        </script>
+    </body>
+</html>

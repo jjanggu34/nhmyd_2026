@@ -36,9 +36,30 @@
 
                 <hr class="divider" />
 
+                <h2 class="guide-title">이름 대신 경로로 부르기</h2>
+                <!-- prettier-ignore -->
+                <p class="note">이름만 적으면 기본 폴더(<code>../../images/update/json/</code>)에서 찾고, 값이 <code>./</code> · <code>../</code> · <code>/</code> · <code>http(s)://</code>로 시작하면 적은 경로를 그대로 씁니다. 하위 폴더는 <code>"ai/loading"</code>처럼 이름 쪽에 적으면 되고 <code>.json</code>은 있어도 없어도 됩니다. 기본 폴더 자체를 바꾸려면 <code>data-lottie-base="경로/"</code>를 씁니다.</p>
+                <div class="demo" style="display: flex; gap: 16px; flex-wrap: wrap">
+                    <div class="lottie-anim" style="--lottie-size: 100px" data-lottie-json="Sunny.json" aria-hidden="true"></div>
+                    <div class="lottie-anim" style="--lottie-size: 100px" data-lottie-json="../../images/update/json/Cloud.json" aria-hidden="true"></div>
+                    <div class="lottie-anim" style="--lottie-size: 100px" data-lottie-json="Sunrise" data-lottie-base="../../images/update/json/" aria-hidden="true"></div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">비율 — JSON의 w / h를 그대로</h2>
+                <!-- prettier-ignore -->
+                <p class="note">정사각 고정이 아닙니다. JSON을 읽은 뒤 <code>w / h</code>를 <code>aspect-ratio</code>로 넣어 주므로 <code>--lottie-size</code>는 <strong>가로 폭</strong>만 정하고 높이는 원본 비율을 따릅니다. 아래 왼쪽은 256×256, 오른쪽은 320×120 JSON이며 폭은 둘 다 200px입니다. CSS로 크기를 직접 잡고 싶으면 <code>data-lottie-ratio="false"</code>로 끕니다.</p>
+                <div class="demo" style="display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-start">
+                    <div class="lottie-anim" style="--lottie-size: 200px" data-lottie-json="Sunny" aria-hidden="true"></div>
+                    <div class="lottie-anim" style="--lottie-size: 200px" data-lottie-json="Wide Sample" aria-hidden="true"></div>
+                </div>
+
+                <hr class="divider" />
+
                 <h2 class="guide-title">크기 지정 — --lottie-size</h2>
                 <!-- prettier-ignore -->
-                <p class="note">기본 160px입니다. <code>style="--lottie-size: 80px"</code>처럼 변수로 바꿉니다.</p>
+                <p class="note">기본 폭 160px입니다. <code>style="--lottie-size: 80px"</code>처럼 변수로 바꿉니다.</p>
                 <div class="demo" style="display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end">
                     <div class="lottie-anim" style="--lottie-size: 64px" data-lottie-json="Tornado" aria-hidden="true"></div>
                     <div class="lottie-anim" style="--lottie-size: 100px" data-lottie-json="Tornado" aria-hidden="true"></div>
