@@ -1325,11 +1325,15 @@
 .nds .btn-icon::before {content:"";display:block;background-color:currentColor;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nds .btn-icon[aria-label="알림"]::before {width:20px;height:20px;-webkit-mask-image:url("../images/update/ic-alarm-notice.svg");mask-image:url("../images/update/ic-alarm-notice.svg")}
 .nds .btn-icon[aria-label="plus"]::before {width:18px;height:18px;-webkit-mask-image:url("../images/update/ic-plus.svg");mask-image:url("../images/update/ic-plus.svg")}
-/* --- sticky-footer --- */
+/* --- 화면 하단 고정 CTA --- */
+.nds .btn-cta:where(.is-fixed) {position:fixed;left:0;right:0;bottom:0;z-index:1100}
+.nds .accordion-notice:has(~ .areaBtnDefault) {padding-bottom:90px}
+.nds .accordion-notice:has(~ .btn-cta:where(.is-fixed)) {padding-bottom:88px}
+/* --- sticky-footer
 .nds .sticky-footer {position:fixed;left:0;right:0;bottom:0;z-index:1100;width:100%;background:var(--color-bg-default)}
 .nds:has(> .sticky-footer) > .container {padding-bottom:calc(var(--sticky-footer-pad, 0px) + var(--spacing-40)) !important}
 .nds .sticky-footer .areaBtnDefault {position:static;padding-top:var(--spacing-32)}
-.nds .sticky-footer .btn-cta{margin-top:32px}
+.nds .sticky-footer .btn-cta{margin-top:32px} --- */
 .nds .btn-cta {display:flex;gap:var(--spacing-8);padding:0;background:linear-gradient(to top, var(--primitive-base-0) 90%, rgba(255, 255, 255, 0) 100%)}
 .nds .btn-cta .btn {min-width:0;width:70%}
 .nds .btn-cta:not(.half) [class^="btn"]:first-child:not(:last-child){width:calc(100%/3)}
@@ -1444,11 +1448,11 @@
 .insight-hero__status-icon {flex-shrink:0;width:40px;height:40px;border-radius:var(--radius-full);display:flex;align-items:center;justify-content:center}
 .insight-hero__status-icon::before {content:"";display:block;width:22px;height:22px;background-size:contain;background-repeat:no-repeat;background-position:center}
 .insight-hero__status-icon:where(.is-mint) {background:rgba(221,242,228,0.7)}
-.insight-hero__status-icon:where(.is-mint)::before {background-image:url("../images/update/ic-shield-check-mint.svg")}
+/* .insight-hero__status-icon:where(.is-mint)::before {background-image:url("../images/update/ic-shield-check-mint.svg")} */
 .insight-hero__status-icon:where(.is-blue) {background:rgba(229,239,255,0.7)}
-.insight-hero__status-icon:where(.is-blue)::before {background-image:url("../images/update/ic-shield-check-blue.svg")}
+/* .insight-hero__status-icon:where(.is-blue)::before {background-image:url("../images/update/ic-shield-check-blue.svg")} */
 .insight-hero__status-icon:where(.is-pink) {background:rgba(255,229,229,0.7)}
-.insight-hero__status-icon:where(.is-pink)::before {background-image:url("../images/update/ic-shield-warning-pink.svg")}
+/* .insight-hero__status-icon:where(.is-pink)::before {background-image:url("../images/update/ic-shield-warning-pink.svg")} */
 .insight-hero__status-body {flex:1;min-width:0}
 .insight-hero__status-title {font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);color:var(--primitive-gray-font-900);margin:var(--spacing-8) 0;line-height:24px}
 .insight-hero__status-desc {font-size:var(--type-size-14);color:var(--primitive-gray-font-600);line-height:22px;margin:var(--spacing-16) 0 var(--spacing-12)}
@@ -2088,9 +2092,7 @@
 .nds .asset-group__head[aria-expanded="true"] .asset-group__arrow {transform:rotate(180deg)}
 .nds .asset-group__body {padding:var(--spacing-24) var(--spacing-20) var(--spacing-4)}
 .nds .asset-group__body > .asset-list {margin-top:0}
-.nds .popBtnWrap > .sticky-footer {z-index:1000}
-.nds .sticky-footer .areaBtnDefault {position:static !important}
-.nds.popWrap.fullLayerPop .popInner .popCont:has(~ .popBtnWrap .sticky-footer) {padding-bottom:calc(var(--sticky-footer-pad, 112px) + var(--spacing-24)) !important}
+.nds .popCont > .accordion-notice {margin-top:var(--spacing-32)}
 .nds .asset-list__more {display:flex;justify-content:center;margin:var(--spacing-24) 0 0}
 .nds .btn-arrow__icon:where(.is-chevron-down) {-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg")}
 .nds .btn-arrow__icon:where(.is-chevron-up) {-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg");transform:rotate(180deg)}
