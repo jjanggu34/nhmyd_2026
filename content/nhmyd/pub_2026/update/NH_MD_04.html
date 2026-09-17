@@ -436,7 +436,18 @@
                                                             <a href="javascript:;" class="hc-stats__link" role="button">추가</a>
                                                         </div>
                                                         <div class="hc-stats__item">
-                                                            <p class="hc-stats__label">월 예상 상환액</p>
+                                                            <div class="hc-stats__label tooltipWrap">
+                                                                월 예상 상환액
+                                                                <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">대출 현황 안내 보기</span></a>
+                                                                <div class="tooltipCont" style="display: none">
+                                                                    <h3>월 예상 상환액 안내</h3>
+                                                                    <ul>
+                                                                        <li>상환액은 마이데이터 기반 지난 대출 거래내역을 통해 추정한 금액으로 실제 금액과 다를 수 있습니다.</li>
+                                                                        <li>대출 상환 방법 및 중도상환금액, 연체 등은 반영되지 않을 수 있어 정확한 대출 정보는 대출받은 기관을 통해 다시 한번 확인하시기 바랍니다.</li>
+                                                                    </ul>
+                                                                    <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                                                                </div>
+                                                            </div>
                                                             <a href="javascript:;" class="hc-stats__link" role="button">추가</a>
                                                         </div>
                                                     </div>
@@ -446,7 +457,17 @@
                                                             <a href="javascript:;" class="hc-stats__link" role="button">추가</a>
                                                         </div>
                                                         <div class="hc-stats__item">
-                                                            <p class="hc-stats__label">대출 평균 금리</p>
+                                                            <div class="hc-stats__label tooltipWrap">
+                                                                대출 평균 금리
+                                                                <a href="javascript:;" class="toolTipBtn" onclick="tooltipOpen($(this));return false;" role="button"><span class="blind">대출 현황 안내 보기</span></a>
+                                                                <div class="tooltipCont" style="display: none">
+                                                                    <h3>대출 평균 금리 안내</h3>
+                                                                    <ul>
+                                                                        <li>평균금리는 마이데이터 기반 대출 계좌별 신청 시 명시된 기본 금리를 기준으로 합산 금액을 계좌 건수로 나누어 평균 금리를 추정한 이율로 실제 금리와 다를 수 있습니다.</li>
+                                                                    </ul>
+                                                                    <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                                                                </div>
+                                                            </div>
                                                             <a href="javascript:;" class="hc-stats__link" role="button">추가</a>
                                                         </div>
                                                     </div>
