@@ -6,7 +6,7 @@
         <title>[P] 권유직원 선택</title>
         <script>
             $(document).ready(function () {
-                slidePopConfirm(); //TO-BE 디자인 높이 조절되는 slidePopConfirm 사용
+                slidePopConfirm();
             });
         </script>
     </head>
@@ -16,9 +16,6 @@
         <div class="nhasset popWrap nds slidePopConfirm">
             <div class="dim"></div>
             <div class="popInner">
-                <!--
-                    자산연결 이후 뜨는 팝업은 자산연결을 도와준 직원이 있나요?
-                    로 타이틀 변경되어야 함-->
                 <h1>가입에 도움을 준 직원이 있나요?</h1>                
                 <div class="popCont">
                     <div class="popCont__inner">
@@ -75,8 +72,6 @@
 
         <script>
             $(function () {
-                //데모용 샘플 데이터 — 실제 연동 시 검색 API 결과로 교체
-                //name: 검색 매칭용 실명, label: 화면에 노출되는 마스킹 표기
                 var SAMPLE_STAFF = [
                     { name: '김수인', label: '김*인 (0640****) 신길동' },
                     { name: '김수영', label: '김*영 (1341****) 광화문금융센터 기업금융지원센터 디지털전략팀' },
@@ -102,11 +97,6 @@
                 var currentResults = [];
                 var selectedIndex = -1;
 
-                //팝업 높이를 뷰포트 80%로 제한하고 넘치면 popCont 내부만 스크롤시키는 로직은
-                //update-ui.js의 slidePopConfirm() 오버라이드가 모든 .nds 화면에 공통 적용합니다.
-                //이 화면은 검색 결과처럼 열려 있는 동안 내용이 계속 바뀌므로, 바뀔 때마다 애니메이션
-                //없이 즉시 다시 맞추기 위해 그 공용 함수(window.syncSlidePopConfirmHeight)를
-                //그대로 재사용합니다(로컬로 따로 복제해서 들고 있지 않음).
                 function resyncPopHeight() {
                     window.syncSlidePopConfirmHeight(false);
                 }
@@ -117,11 +107,6 @@
                     if (enabled) { $confirmBtn.removeAttr('aria-disabled'); } else { $confirmBtn.attr('aria-disabled', 'true'); }
                 }
 
-                //실제 DOM 렌더링은 update-ui.js의 공용 renderBottomsheetList()가 담당합니다
-                //(.bottomsheet-list는 이 화면만 쓰는 게 아니라 여러 화면이 공유하는 nds 컴포넌트라
-                //검색/선택 화면이 더 생길 걸 대비해 공통 유틸로 옮겼습니다). 여기서는 이 화면의
-                //상태(currentResults/selectedIndex)와 선택 후 동작(재렌더링/버튼 활성화/팝업
-                //높이 재계산)만 연결합니다.
                 function renderList() {
                     window.renderBottomsheetList({
                         container: 'searchList1',
@@ -171,11 +156,7 @@
                     $input.val('').trigger('input').trigger('focus');
                 });
 
-                //화면 회전/리사이즈 시 80% 제한 재계산은 update-ui.js가 모든 .nds 화면에
-                //공통으로 처리하므로 여기서 따로 등록하지 않습니다.
 
-                //slidePopConfirm()이 popInner를 먼저 펼친(100ms) 뒤, 이 화면의 초기 검색 상태
-                //기준으로 80% 제한을 한 번 더 확실히 적용합니다.
                 setTimeout(resyncPopHeight, 150);
             });
         </script>

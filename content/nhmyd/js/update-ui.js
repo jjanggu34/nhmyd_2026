@@ -135,7 +135,7 @@ window.tooltipOpen = function ($obj) {
     }
 
     var $tooltipCont = $obj.closest(".tooltipWrap").find(".tooltipCont");
-    $(".tooltipCont").removeClass("is-top").hide(); // 매번 기본(아래로 열림) 상태로 리셋 후 재측정
+    $(".tooltipCont").removeClass("is-top").hide();
     $tooltipCont.css({ width: $(window).width() - 32 });
     $tooltipCont.show();
 
@@ -199,11 +199,6 @@ function syncSlidePopConfirmHeight(animate) {
 }
 window.syncSlidePopConfirmHeight = syncSlidePopConfirmHeight;
 
-/* 시트를 연 뒤에 내용 높이가 바뀌는 경우(약관 아코디언 열기, 웹폰트 적용, 이미지 로드 등)
-   popInner 는 처음 한 번 계산한 높이에 묶여 있어서 내용이 시트 밖으로 넘칩니다.
-   화면이 길어 80% 상한에 걸리지 않는 기기(예: iPhone 12 Pro 390x844)에서는
-   .popCont 에 max-height 도 걸리지 않아 스크롤조차 생기지 않으므로 그대로 잘려 보입니다.
-   그래서 내용 영역을 관찰해 높이가 바뀔 때마다 다시 계산합니다. */
 var slidePopContentObserver = null;
 var slidePopSyncScheduled = false;
 
@@ -221,7 +216,6 @@ function observeSlidePopConfirmContent() {
     if (!slidePopContentObserver) slidePopContentObserver = new ResizeObserver(scheduleSlidePopConfirmSync);
     slidePopContentObserver.disconnect();
 
-    // .popCont 는 우리가 max-height 를 직접 건드리므로 관찰 대상에서 빼고 내용 래퍼만 봅니다.
     $(".slidePopConfirm.nds .popCont").each(function () {
         var inner = this.querySelector(".popCont__inner");
         if (inner) {
@@ -243,7 +237,7 @@ window.slidePopConfirm = function () {
 };
 
 $(window).on("resize orientationchange", function () {
-    if (!isNdsScope()) return; // nds 화면/nds 팝업이 아니면 관여하지 않습니다.
+    if (!isNdsScope()) return;
     syncSlidePopConfirmHeight(false);
     if ($(".fullLayerPop:visible").length > 0 && typeof window.fullLayerHeight === "function") {
         window.fullLayerHeight();
@@ -508,7 +502,6 @@ window.renderBottomsheetList = function (options) {
 
     function initStickyFooter() {
         document.querySelectorAll(".sticky-footer").forEach(function (footer) {
-            // 일반 화면은 .container, 팝업(fullLayerPop)은 .popCont 가 스크롤 영역입니다
             var pop = footer.closest(".popWrap");
             var container = pop ? pop.querySelector(".popCont") : document.querySelector(".container");
             if (!container) return;
@@ -650,6 +643,43 @@ window.renderBottomsheetList = function (options) {
         });
     }
 
+    /* ---- Lottie : data-lottie-json 으로 JSON 을 불러와 재생 ----
+       레거시 nhasset-ui-myd.js 가 data-lottie 를 이미 쓰고 있어(js/lottie/*.js 를 절대경로로 로드)
+       속성 이름을 data-lottie-json 으로 분리했습니다. lottie 라이브러리는 nhasset-ui-myd.js 에
+       번들되어 있어 별도 로드가 필요 없습니다.
+
+       <div class="lottie-anim" data-lottie-json="Sunny"></div>
+       data-lottie-loop="false"     : 1회만 재생(기본 true)
+       data-lottie-autoplay="false" : 자동재생 끄기(기본 true)
+       data-lottie-base="경로/"     : JSON 폴더 변경(기본 ../../images/update/json/)
+
+       window.initLottie(scope)     : 나중에 추가된 영역만 다시 초기화
+       el.lottieAnim                : lottie 인스턴스(play/pause/stop/goToAndPlay 사용) */
+    var LOTTIE_BASE = "../../images/update/json/";
+
+    function initLottie(scope) {
+        if (typeof lottie === "undefined") return;
+        var root = scope || document;
+        var nodes = root.querySelectorAll ? root.querySelectorAll("[data-lottie-json]") : [];
+        Array.prototype.forEach.call(nodes, function (el) {
+            if (el.lottieAnim) return;
+            var name = el.getAttribute("data-lottie-json");
+            if (!name) return;
+            var base = el.getAttribute("data-lottie-base") || LOTTIE_BASE;
+            el.lottieAnim = lottie.loadAnimation({
+                container: el,
+                renderer: "svg",
+                loop: el.getAttribute("data-lottie-loop") !== "false",
+                autoplay: el.getAttribute("data-lottie-autoplay") !== "false",
+                path: base + encodeURIComponent(name) + ".json",
+            });
+            el.lottieAnim.addEventListener("data_failed", function () {
+                el.classList.add("is-failed");
+            });
+        });
+    }
+    window.initLottie = initLottie;
+
     function syncNdsClassToHtml() {
         var wrapper = document.querySelector(".wrapper");
         if (wrapper && wrapper.classList.contains("nds")) {
@@ -672,9 +702,9 @@ window.renderBottomsheetList = function (options) {
         initBottomsheetList();
         initChipAnchorScroll();
         initStickyFooter();
+        initLottie();
         observeSlidePopConfirmContent();
 
-        // 웹폰트가 늦게 적용되면 글자 줄바꿈이 달라져 시트 높이가 틀어집니다(ResizeObserver 미지원 대비).
         if (document.fonts && document.fonts.ready && typeof document.fonts.ready.then === "function") {
             document.fonts.ready.then(function () {
                 if ($(".slidePopConfirm.nds:visible").length > 0) syncSlidePopConfirmHeight(false);

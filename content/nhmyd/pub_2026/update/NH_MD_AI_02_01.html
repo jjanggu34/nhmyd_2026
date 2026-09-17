@@ -5,25 +5,217 @@
         <script src="../pub-assets/js/head-mb-update.js"></script>
         <title>계좌별 제안</title>
         <script>
-            $(document).ready(function() {
-            	fullLayerPop();
+            $(document).ready(function () {
+                fullLayerPop();
             });
         </script>
     </head>
 
     <body>
         <div class="wrapper nhasset"><!-- 바닥페이지 --></div>
-        <div class="nhasset popWrap nds fullLayerPop">
+        <div class="nhasset popWrap nds fullLayerPop" role="dialog" aria-modal="true" aria-labelledby="popTitle">
             <div class="popInner">
-                <h1>OO증권 종합위탁계좌</h1>
-                <div class="popCont">
-                    <div class="popCont__inner"></div>
+                <h1 id="popTitle">계좌별 포트폴리오 조정 제안</h1>
+                <div class="popCont bgcolor">
+                    <div class="popCont__inner">
+                        <section class="ai-section">
+                            <div class="info-card ai">
+                                <h2 class="text text--h4 ai-heading">한국증권 종합위탁계좌(두줄까지)</h2>
+                                <p class="text text--h3 acc-total">50,000,000원</p>
+
+                                <!-- prettier-ignore -->
+                                <p class="card-lead">
+                                    <em>해외선진국주식·해외신흥국주식</em>을 늘리고
+                                    <br /><em>현금채권</em>을 줄여 추천 포트폴리오에 맞게
+                                    <br />조정해요.
+                                </p>
+
+                                <ul class="alloc-bar">
+                                    <li class="alloc-bar__item">
+                                        <span class="alloc-bar__bar" aria-hidden="true">
+                                            <i class="alloc-bar__base" style="width: 1.5%"></i>
+                                            <i class="alloc-bar__delta is-down" style="width: 24.3%"></i>
+                                        </span>
+                                        <span class="alloc-bar__row">
+                                            <span class="alloc-bar__name">현금성 1%</span>
+                                            <span class="alloc-bar__change">
+                                                <em class="alloc-bar__down">-32% 줄여요</em>
+                                                (-115,200,000 원)
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="alloc-bar__item">
+                                        <span class="alloc-bar__bar" aria-hidden="true">
+                                            <i class="alloc-bar__base" style="width: 1.5%"></i>
+                                            <i class="alloc-bar__delta is-down" style="width: 9.2%"></i>
+                                        </span>
+                                        <span class="alloc-bar__row">
+                                            <span class="alloc-bar__name">국내채권 1%</span>
+                                            <span class="alloc-bar__change">
+                                                <em class="alloc-bar__down">-12% 줄여요</em>
+                                                (-43,200,000 원)
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="alloc-bar__item">
+                                        <span class="alloc-bar__bar" aria-hidden="true">
+                                            <i class="alloc-bar__base" style="width: 0%"></i>
+                                            <i class="alloc-bar__delta" style="width: 0%"></i>
+                                        </span>
+                                        <span class="alloc-bar__row">
+                                            <span class="alloc-bar__name">해외채권 0%</span>
+                                            <span class="alloc-bar__change">0%(0원)</span>
+                                        </span>
+                                    </li>
+                                    <li class="alloc-bar__item">
+                                        <span class="alloc-bar__bar" aria-hidden="true">
+                                            <i class="alloc-bar__base" style="width: 34.9%"></i>
+                                            <i class="alloc-bar__delta is-up" style="width: 9.2%"></i>
+                                        </span>
+                                        <span class="alloc-bar__row">
+                                            <span class="alloc-bar__name">국내주식 48%</span>
+                                            <span class="alloc-bar__change">
+                                                <em class="alloc-bar__up">+17% 늘려요</em>
+                                                (+61,200,000 원)
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="alloc-bar__item">
+                                        <span class="alloc-bar__bar" aria-hidden="true">
+                                            <i class="alloc-bar__base" style="width: 9.2%"></i>
+                                            <i class="alloc-bar__delta is-up" style="width: 16.2%"></i>
+                                        </span>
+                                        <span class="alloc-bar__row">
+                                            <span class="alloc-bar__name">해외선진국 34%</span>
+                                            <span class="alloc-bar__change">
+                                                <em class="alloc-bar__up">+20% 늘려요</em>
+                                                (+72,000,000 원)
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="alloc-bar__item">
+                                        <span class="alloc-bar__bar" aria-hidden="true">
+                                            <i class="alloc-bar__base" style="width: 2.9%"></i>
+                                            <i class="alloc-bar__delta is-up" style="width: 2.2%"></i>
+                                        </span>
+                                        <span class="alloc-bar__row">
+                                            <span class="alloc-bar__name">해외신흥국 15%</span>
+                                            <span class="alloc-bar__change">
+                                                <em class="alloc-bar__up">12% 늘려요</em>
+                                                (+43,200,000 원)
+                                            </span>
+                                        </span>
+                                    </li>
+                                    <li class="alloc-bar__item">
+                                        <span class="alloc-bar__bar" aria-hidden="true">
+                                            <i class="alloc-bar__base" style="width: 0%"></i>
+                                            <i class="alloc-bar__delta" style="width: 0%"></i>
+                                        </span>
+                                        <span class="alloc-bar__row">
+                                            <span class="alloc-bar__name">대체자산 0%</span>
+                                            <span class="alloc-bar__change">0%(0원)</span>
+                                        </span>
+                                    </li>
+                                </ul>
+
+                                <ul class="asset-list__data is-stat">
+                                    <li class="asset-list__row">
+                                        <span class="asset-list__row-label">기대수익율(연)</span>
+                                        <span class="asset-list__row-value is-point">7.9%</span>
+                                    </li>
+                                    <li class="asset-list__row">
+                                        <span class="asset-list__row-label">예상변동성(연)</span>
+                                        <span class="asset-list__row-value">15.5%</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="ai-section">
+                            <div class="info-card ai">
+                                <h2 class="text text--h4 ai-heading">현재 보유 상품 목록</h2>
+
+                                <ul class="asset-detail__list">
+                                    <li class="asset-detail__item">
+                                        <p class="asset-detail__name">삼성전자</p>
+                                        <ul class="asset-list__data is-sm">
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">평가금액</span>
+                                                <span class="asset-list__row-value">18,500,000원</span>
+                                            </li>
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">수익률</span>
+                                                <span class="asset-list__row-value is-up">+711,538원(+4.00%)</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="asset-detail__item">
+                                        <p class="asset-detail__name">OO미국 S&amp;P 500 ETF</p>
+                                        <ul class="asset-list__data is-sm">
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">평가금액</span>
+                                                <span class="asset-list__row-value">12,300,000원</span>
+                                            </li>
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">수익률</span>
+                                                <span class="asset-list__row-value is-up">+473,077원(+4.00%)</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="asset-detail__item">
+                                        <p class="asset-detail__name">OO멀티에셋[주식혼합]</p>
+                                        <ul class="asset-list__data is-sm">
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">평가금액</span>
+                                                <span class="asset-list__row-value">8,700,000원</span>
+                                            </li>
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">수익률</span>
+                                                <span class="asset-list__row-value is-down">-334,615원(-4.00%)</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="asset-detail__item">
+                                        <p class="asset-detail__name">KB증권 CMA RP</p>
+                                        <ul class="asset-list__data is-sm">
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">평가금액</span>
+                                                <span class="asset-list__row-value">6,200,000원</span>
+                                            </li>
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">수익률</span>
+                                                <span class="asset-list__row-value is-down">-238,462원(-4.00%)</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="asset-detail__item">
+                                        <p class="asset-detail__name">한국투자증권 신흥국 MSCI ETFA RP</p>
+                                        <ul class="asset-list__data is-sm">
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">평가금액</span>
+                                                <span class="asset-list__row-value">4,300,000원</span>
+                                            </li>
+                                            <li class="asset-list__row">
+                                                <span class="asset-list__row-label">수익률</span>
+                                                <span class="asset-list__row-value is-up">+165,385원(+4.00%)</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <p class="asset-list__more">
+                                    <!-- prettier-ignore -->
+                                    <button type="button" class="btn-arrow"><span>더보기(<span>5</span>/10)</span><span class="btn-arrow__icon is-plus" aria-hidden="true"></span></button>
+                                </p>
+                            </div>
+                        </section>
+                    </div>
                 </div>
                 <div class="popBtnWrap">
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
                     <div class="areaBtnDefault">
-                        <a href="javascript:;" class="btnPressDefault" role="button">취소</a>
-                        <a href="javascript:;" class="btnPressPoint" role="button">추가</a>
+                        <a href="javascript:;" onclick="popClose(this);return false;" class="btnPressDefault" role="button">닫기</a>
+                        <a href="javascript:;" class="btnPressPoint" role="button">선택 추가</a>
                     </div>
                 </div>
             </div>

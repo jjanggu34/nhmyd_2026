@@ -15,7 +15,6 @@
             </div>
 
             <div class="container bgcolor" role="main">
-                <!-- STEP 표시: NH_MD_AI_01 과 같은 diag-step 사용 -->
                 <div class="diag-step">
                     <span class="text text--body3-medium text--font3">안전자산확보</span>
                     <span class="blind">전체 3단계 중 1단계</span>
@@ -31,7 +30,6 @@
                     </span>
                 </div>
 
-                <!-- 리드 문구 + 도움말 툴팁(공통 is-card) -->
                 <div class="diag-lead card-head is-top tooltipWrap is-card">
                     <!-- prettier-ignore -->
                     <h2 class="text text--h2 ai-heading">안전자산확보 사용가능 금액이<br /><em>96,000,000원</em>이 있어요.</h2>
@@ -70,7 +68,6 @@
                         <span class="notice-box__text">안전자산(현금성)을 얼만큼 확보하실래요?</span>
                     </p>
 
-                    <!-- 확보금액 슬라이더 : 값은 input[type=range] 가 갖고, 아래 스크립트가 채움·말풍선·금액을 맞춥니다 -->
                     <div class="amount-slider" data-amount-slider>
                         <div class="amount-slider__body">
                             <p class="amount-slider__head">
@@ -254,7 +251,6 @@
         </div>
         <script>
             (function () {
-                // 확보금액 슬라이더 — input[type=range] 값에 맞춰 채움 폭(--amount-slider-ratio), 말풍선, 금액을 갱신합니다.
                 var input = document.querySelector('[data-amount-slider-input]');
                 if (!input) return;
                 var wrap = input.closest('[data-amount-slider]');
@@ -273,7 +269,6 @@
                     if (valueEl) valueEl.textContent = '+' + won(value);
                     if (popEl) popEl.textContent = won(value);
                     if (restEl) restEl.textContent = won(total - value);
-                    // 스크린리더가 "58800000" 대신 "58,800,000원" 으로 읽도록 합니다.
                     input.setAttribute('aria-valuetext', won(value));
                 }
 
@@ -282,7 +277,6 @@
             })();
 
             (function () {
-                // 목록 접기 / 펼치기 — 접으면 목록과 더보기를 감춥니다.
                 var foldBtn = document.querySelector('[data-ai06-fold]');
                 if (!foldBtn) return;
                 var card = foldBtn.closest('.ai06-card');

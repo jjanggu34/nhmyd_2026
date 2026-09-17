@@ -15,7 +15,6 @@
             </div>
 
             <div class="container bgcolor" role="main">
-                <!-- STEP 표시 : 가이드 process-progress-number 사용(배경 없는 형태) -->
                 <div class="diag-step">
                     <span class="text text--body3-medium text--font3">제안 대상 진단</span>
                     <span class="blind">전체 3단계 중 2단계</span>
@@ -41,7 +40,6 @@
                     <div class="info-card ai">
                         <div class="card-head tooltipWrap is-card">
                             <h3 class="text text--h4 ai-heading">내 투자성향 기대수익 제안 자산</h3>
-                            <!-- <button type="button" class="card-tip"><span class="blind">내 투자성향 기대수익 제안 자산 도움말</span></button> -->
                             <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">내 투자성향 기대수익 제안 자산 도움말</span></button>
                             <div class="tooltipCont" style="display: none">
                                 <h3>안내사항</h3>
@@ -89,7 +87,6 @@
                             <em>{주식}을 늘리고 {현금·채권}을 줄여요.</em>
                         </p>
     
-                        <!-- 자산군별 조정 : 막대는 최적비중(진회색) + 조정분(파랑=줄임 / 빨강=늘림) -->
                         <ul class="alloc-bar">
                             <li class="alloc-bar__item">
                                 <span class="alloc-bar__bar" aria-hidden="true">
@@ -319,12 +316,9 @@
                 var canvas = document.getElementById('ai03ReturnChart');
                 if (!canvas || typeof Chart === 'undefined') return;
 
-                // 그래프 박스 : 272 x 164, 안쪽 여백 가로 16 / 세로 24 → 실제 그리는 영역 240 x 116.
-                // 스케일을 여백만큼 넓혀 두면 곡선·점·라벨이 여백 위로 넘어가도 잘리지 않습니다.
-                var PAD_X = (100 * 16) / 240; // 6.67
-                var PAD_Y = (100 * 24) / 116; // 20.69
+                var PAD_X = (100 * 16) / 240;
+                var PAD_Y = (100 * 24) / 116;
 
-                // 기대수익 곡선(S자) — 시안의 곡선 모양을 로지스틱 함수로 재현합니다.
                 var curve = [];
                 for (var x = 0; x <= 100; x += 2) {
                     curve.push({ x: x, y: 100 / (1 + Math.exp(-0.1 * (x - 48))) });
@@ -335,7 +329,6 @@
                     { x: 63, y: 42, label: '제안', color: '#707070' }
                 ];
 
-                // 점 아래 4px 간격으로 라벨(최적/제안)을 직접 그립니다.
                 var pointLabelPlugin = {
                     id: 'ai03PointLabel',
                     afterDatasetsDraw: function (chart) {
@@ -382,7 +375,7 @@
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        events: [], // 시안에 말풍선이 없어 포인터 이벤트를 받지 않습니다
+                        events: [],
                         layout: { padding: 0 },
                         scales: {
                             x: { type: 'linear', min: -PAD_X, max: 100 + PAD_X, display: false, grid: { display: false } },

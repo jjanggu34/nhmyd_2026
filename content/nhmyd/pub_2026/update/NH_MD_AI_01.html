@@ -15,7 +15,6 @@
             </div>
 
             <div class="container bgcolor" role="main">
-                <!-- STEP 표시: 가이드 process-progress-number 사용(배경 없는 형태) -->
                 <div class="diag-step">
                     <span class="text text--body3-medium text--font3">진단 준비</span>
                     <span class="blind">전체 3단계 중 1단계</span>
@@ -59,7 +58,6 @@
                             <p class="diag-total__note">간접투자(펀드, ETF 등)처럼 여러 자산군이 섞인 상품까지 나눠 실제 자산군 기준으로 반영했어요.</p>
                         </div>
 
-                        <!-- 비중기준 / 금액기준: 누르면 아래 범례 수치만 바뀝니다 -->
                         <div class="diag-unit" role="group" aria-label="자산 표기 기준">
                             <button type="button" class="diag-unit__btn is-active" data-diag-unit="ratio" aria-pressed="true">비중기준</button>
                             <span class="diag-unit__dash" aria-hidden="true"></span>
@@ -164,7 +162,6 @@
                     <div class="diag-portfolio__body">
                         <div class="diag-portfolio__field">
                             <p class="diag-portfolio__question" id="diagPortfolioQuestion">진단포트폴리오를 어떤 기준으로 구성할까요?</p>
-                            <!-- 셋 중 하나만 선택되는 라디오 그룹(가이드 radio-box 사용) -->
                             <div class="radio-box-row" role="radiogroup" aria-labelledby="diagPortfolioQuestion">
                                 <label>
                                     <input type="radio" name="diagPortfolioType" class="radio-hidden-input radio-box-input" value="종합형" checked />
@@ -208,7 +205,6 @@
         <script src="../../js/chart.js"></script>
         <script>
             (function () {
-                // 가운데 도넛 차트(Chart.js) — 범례와 같은 순서/색을 씁니다.
                 var canvas = document.getElementById('diagDonutChart');
                 if (canvas && typeof Chart !== 'undefined') {
                     new Chart(canvas.getContext('2d'), {
@@ -226,15 +222,13 @@
                         options: {
                             responsive: true,
                             maintainAspectRatio: false,
-                            // 시안의 도넛 두께(바깥 134px 기준 안쪽 구멍 약 64%)
                             cutout: '64%',
-                            events: [], // 시안에 말풍선이 없어 포인터 이벤트를 받지 않습니다
+                            events: [],
                             plugins: { legend: { display: false }, tooltip: { enabled: false } }
                         }
                     });
                 }
 
-                // 비중기준 / 금액기준 전환 — 범례 수치 표기만 바꿉니다.
                 var unitBtns = Array.prototype.slice.call(document.querySelectorAll('[data-diag-unit]'));
                 var valueEls = Array.prototype.slice.call(document.querySelectorAll('.diag-legend__value'));
                 unitBtns.forEach(function (btn) {
@@ -251,7 +245,6 @@
                     });
                 });
 
-                // 진단 포트폴리오 구성: 셋 중 하나 선택 → 안내문구 교체
                 var NOTE_TEXT = {
                     종합형: '종합형은 국내·해외 6개 자산군 전체를 말해요. 한쪽으로 치우치지 않게 포트폴리오를 제안할 수 있어요.',
                     국내형: '국내형은 국내 자산군만으로 구성해요. 환율 변동의 영향을 덜 받는 포트폴리오를 제안할 수 있어요.',

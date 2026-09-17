@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <script src="../pub-assets/js/head-mb-update.js"></script>
+        <title>Lottie | UI Guide</title>
+    </head>
+    <body>
+        <div class="wrapper nhasset nds">
+            <!-- header -->
+            <div class="header">
+                <a href="javascript:;" class="btnBack"><span class="blind">이전화면으로</span></a>
+                <h1>Lottie</h1>
+            </div>
+            <!-- //header -->
+            <div class="container">
+                <h2 class="guide-title">기본 — 자동재생 + 반복</h2>
+                <!-- prettier-ignore -->
+                <p class="note"><code>data-lottie-json</code>에 <code>images/update/json</code> 안의 파일명(확장자 제외)만 적으면 update-ui.js가 JSON을 불러와 재생합니다. 라이브러리는 nhasset-ui-myd.js에 번들되어 있어 따로 불러올 필요가 없습니다.</p>
+                <div class="demo" style="display: flex; gap: 16px; flex-wrap: wrap">
+                    <div class="lottie-anim" data-lottie-json="Sunny" aria-hidden="true"></div>
+                    <div class="lottie-anim" data-lottie-json="Cloud" aria-hidden="true"></div>
+                    <div class="lottie-anim" data-lottie-json="Sunrise" aria-hidden="true"></div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">파일명에 공백이 있는 경우</h2>
+                <!-- prettier-ignore -->
+                <p class="note">파일명을 그대로 적으면 됩니다(내부에서 encodeURIComponent 처리).</p>
+                <div class="demo" style="display: flex; gap: 16px; flex-wrap: wrap">
+                    <div class="lottie-anim" data-lottie-json="Rain Umbrella" aria-hidden="true"></div>
+                    <div class="lottie-anim" data-lottie-json="Windy Tree" aria-hidden="true"></div>
+                    <div class="lottie-anim" data-lottie-json="Thunderstorm" aria-hidden="true"></div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">크기 지정 — --lottie-size</h2>
+                <!-- prettier-ignore -->
+                <p class="note">기본 160px입니다. <code>style="--lottie-size: 80px"</code>처럼 변수로 바꿉니다.</p>
+                <div class="demo" style="display: flex; gap: 16px; flex-wrap: wrap; align-items: flex-end">
+                    <div class="lottie-anim" style="--lottie-size: 64px" data-lottie-json="Tornado" aria-hidden="true"></div>
+                    <div class="lottie-anim" style="--lottie-size: 100px" data-lottie-json="Tornado" aria-hidden="true"></div>
+                    <div class="lottie-anim" style="--lottie-size: 140px" data-lottie-json="Tornado" aria-hidden="true"></div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">1회만 재생 — data-lottie-loop="false"</h2>
+                <div class="demo" style="display: flex; gap: 16px; flex-wrap: wrap">
+                    <div class="lottie-anim" data-lottie-json="Sunrise" data-lottie-loop="false" aria-hidden="true"></div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">자동재생 끄기 + 직접 제어</h2>
+                <!-- prettier-ignore -->
+                <p class="note"><code>data-lottie-autoplay="false"</code>로 멈춰둔 뒤, 엘리먼트의 <code>lottieAnim</code>으로 play / pause / stop 을 호출합니다.</p>
+                <div class="demo">
+                    <div class="lottie-anim" id="lottieDemo" data-lottie-json="Cloud" data-lottie-autoplay="false" aria-hidden="true"></div>
+                    <div style="display: flex; gap: 8px; margin-top: 16px">
+                        <button type="button" class="btn is-tertiary is-sm" data-lottie-act="play">재생</button>
+                        <button type="button" class="btn is-tertiary is-sm" data-lottie-act="pause">일시정지</button>
+                        <button type="button" class="btn is-tertiary is-sm" data-lottie-act="stop">정지</button>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+
+                <h2 class="guide-title">나중에 붙인 영역 — window.initLottie(scope)</h2>
+                <!-- prettier-ignore -->
+                <p class="note">DOM을 동적으로 추가했다면 그 영역만 넘겨 다시 초기화합니다.</p>
+                <div class="demo">
+                    <div id="lottieLater"></div>
+                    <div style="display: flex; gap: 8px; margin-top: 16px">
+                        <button type="button" class="btn is-tertiary is-sm" id="lottieAddBtn">추가하고 재생</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var demo = document.getElementById('lottieDemo');
+                document.querySelectorAll('[data-lottie-act]').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        if (!demo || !demo.lottieAnim) return;
+                        demo.lottieAnim[btn.getAttribute('data-lottie-act')]();
+                    });
+                });
+
+                var later = document.getElementById('lottieLater');
+                var addBtn = document.getElementById('lottieAddBtn');
+                addBtn &&
+                    addBtn.addEventListener('click', function () {
+                        later.innerHTML = '<div class="lottie-anim" data-lottie-json="Windy Tree" aria-hidden="true"></div>';
+                        window.initLottie(later);
+                        addBtn.disabled = true;
+                    });
+            });
+        </script>
+    </body>
+</html>

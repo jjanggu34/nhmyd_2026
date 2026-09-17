@@ -68,7 +68,6 @@
 
                 <div class="input-box mt40">
                     <p class="input-box__label">권유직원(선택)</p>
-                    <!--권유직원 선택이 되면 span.input-box__ghost에 is-filled 클래스 추가-->
                     <a href="javascript:;" class="input-box__field pr8">
                         <span class="input-box__ghost">이름 또는 사번을 입력하세요</span>
                         <span class="input-box__btn">직원찾기</span>
@@ -77,14 +76,11 @@
             </div>
             <div class="areaBtnDefault">
                 <a href="javascript:;" id="btnTermsConfirm" class="btnPressPoint disabled" role="button" aria-disabled="true">서비스 가입</a>
-                <!-- <a href="javascript:;" class="btnPressPoint" role="button">서비스 가입</a> -->
             </div>
         </div>
 
         <script>
             document.addEventListener('DOMContentLoaded', function () {
-                //두 필수 약관에 모두 동의해야 '서비스 가입' 버튼이 활성화됩니다.
-                //a 태그는 disabled 속성이 없으므로 class + aria-disabled로 상태를 관리합니다.
                 var checkboxes = [document.getElementById('agreeTerms1'), document.getElementById('agreeTerms2')];
                 var joinBtn = document.getElementById('btnTermsConfirm');
 

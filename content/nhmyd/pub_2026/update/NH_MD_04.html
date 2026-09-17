@@ -25,9 +25,6 @@
                         <button type="button" id="assetTab-loan" class="tab-line__item is-active" role="tab" aria-selected="true" tabindex="0">대출</button>
                     </div>
                 </div>
-                <!-- 스와이프 중 화면리더 사용자에게 지금 어느 카테고리인지 알려주는 라이브 리전.
-                     탭 버튼 자체는 role/aria-selected로 이미 상태를 알 수 있지만, 탭이 아니라
-                     카드 영역을 직접 스와이프한 경우엔 포커스가 탭에 있지 않으므로 이걸로 보완합니다. -->
                 <p class="blind" id="assetHeroAnnounce" aria-live="polite"></p>
 
                 <div class="asset-hero-swiper-clip">
@@ -97,20 +94,7 @@
                                                 </ul>
                                             </div>
                                             <div class="hc-bottom">
-                                                <!-- <div class="hc-cta">
-                                                    <span class="hc-cta__left">
-                                                        <span class="hc-cta__icon" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
-                                                        <span class="hc-cta__label">전월 비교 보기</span>
-                                                    </span>
-                                                    <button type="button" class="hc-cta__flip" data-flip-toggle aria-pressed="false"><span class="hc-cta__flip-glyph"></span></button>
-                                                </div> -->
 
-                                                <!-- <div class="hc-cta">
-                                                    <span class="hc-cta__left">
-                                                        <span class="hc-cta__icon" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
-                                                        <span class="hc-cta__label">다음달부터 전월비교를 확인하실 수 있어요</span>
-                                                    </span>
-                                                </div> -->
 
                                                 <div class="hc-cta">
                                                     <button type="button" class="btn-arrow">
@@ -471,13 +455,6 @@
                                                 </div>
                                             </div>
                                             <div class="hc-bottom is-loan">
-                                                <!-- <div class="hc-cta">
-                                                    <span class="hc-cta__left">
-                                                        <span class="hc-cta__icon is-loan" aria-hidden="true"><span class="hc-cta__icon-glyph"></span></span>
-                                                        <span class="hc-cta__label">계좌별 상환 현황 보기</span>
-                                                    </span>
-                                                    <button type="button" class="hc-cta__flip" data-flip-toggle aria-pressed="false"><span class="hc-cta__flip-glyph"></span></button>
-                                                </div> -->
                                                 <div class="hc-cta">
                                                     <button type="button" class="btn-arrow">
                                                         <span>자산연결하기</span>
@@ -996,13 +973,6 @@
                     </section>
                 </div>
             </div>
-            <!-- <div class="linked-bottom-menu alloneFooterNew">
-                <a href="javascript:void(0);" class="linked-finance">홈</a>
-                <a href="javascript:void(0);" class="linked-mall">금융상품</a>
-                <a href="javascript:void(0);" class="linked-mydata">내 자산</a>
-                <a href="javascript:void(0);" class="linked-point">포인트쌓기</a>
-                <a href="javascript:void(0);" class="linked-life">생활혜택</a>
-            </div> -->
         </div>
 
         <div class="nhasset popWrap nds slidePopConfirm" id="loanAccountSheet" style="display: none">
@@ -1096,10 +1066,10 @@
                     var back = flipEl.querySelector('.hero__face.is-back');
                     var toggles = flipEl.querySelectorAll('[data-flip-toggle]');
                     var nextFlipped = !flipEl.classList.contains('is-flipped');
-                    flipEl.classList.add('is-turning'); // 0deg -> 90deg, 카드가 옆에서 보이듯 납작해짐
+                    flipEl.classList.add('is-turning');
                     window.setTimeout(function () {
-                        setFlipped(flipEl, front, back, toggles, nextFlipped); // 아무것도 안 보이는 순간에 내용 교체
-                        flipEl.classList.remove('is-turning'); // 90deg -> 0deg, 바뀐 면이 펼쳐짐
+                        setFlipped(flipEl, front, back, toggles, nextFlipped);
+                        flipEl.classList.remove('is-turning');
                         window.setTimeout(function () {
                             turningFlips.delete(flipEl);
                         }, 220);
@@ -1147,10 +1117,6 @@
                 var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
                 if (!tabs.length) return;
 
-                // 시작 슬라이드는 마크업에서 활성으로 지정된 탭을 따릅니다. Swiper의 initialSlide
-                // 기본값이 0이라 이걸 안 주면 탭/하단 패널은 대출인데 히어로 카드만 첫 번째(예금)가
-                // 보이는 상태로 시작합니다. NH_MD_01~04가 같은 스크립트를 쓰고 페이지마다 활성 탭이
-                // 달라서, 숫자를 박지 않고 마크업에서 읽습니다.
                 var initialTabIndex = 0;
                 tabs.forEach(function (t, i) {
                     if (t.classList.contains('is-active') || t.getAttribute('aria-selected') === 'true') {
@@ -1159,10 +1125,10 @@
                 });
 
                 var categoryKeys = ['liquidity', 'invest', 'pension', 'loan'];
-                var syncingFromSwiper = false; // 스와이프發 동기화 중엔 탭 클릭 로직이 다시 슬라이드를 움직이지 않게 막는 플래그
+                var syncingFromSwiper = false;
                 var lastReplayedRealIndex = null;
 
-                var panelMap = { invest: 'invest', liquidity: 'liquidity', pension: 'pension', loan: 'loan' }; // categoryKey -> data-tab-panel 값. 매핑에 없으면 'generic' 사용
+                var panelMap = { invest: 'invest', liquidity: 'liquidity', pension: 'pension', loan: 'loan' };
                 var assetPanels = Array.prototype.slice.call(document.querySelectorAll('.asset-tab-panel'));
                 function updateAssetTabPanels(categoryKey) {
                     if (!assetPanels.length) return;
@@ -1189,8 +1155,6 @@
                     });
                     tab.addEventListener('keydown', function (e) {
                         var targetIndex = null;
-                        // loop가 아니므로 양 끝에서는 순환하지 않고 그 자리에 멈춥니다(마지막
-                        // 탭에서 ArrowRight, 첫 탭에서 ArrowLeft를 눌러도 그대로 유지).
                         if (e.key === 'ArrowRight') {
                             targetIndex = Math.min(i + 1, tabs.length - 1);
                         } else if (e.key === 'ArrowLeft') {
@@ -1204,7 +1168,7 @@
                         }
                         e.preventDefault();
                         if (swiper) swiper.slideToLoop(targetIndex);
-                        tabs[targetIndex].focus(); // 포커스는 전환 애니메이션과 무관하게 즉시 이동(키보드 사용성)
+                        tabs[targetIndex].focus();
                     });
                 });
 
@@ -1214,11 +1178,9 @@
                     centeredSlides: true,
                     initialSlide: initialTabIndex,
                     loop: false,
-                    a11y: false, // 접근성은 위 커스텀 로직 + aria-hidden/aria-live로 직접 관리
+                    a11y: false,
                     on: {
                         init: function () {
-                            // init에서는 slideChange가 안 터지므로, 탭/하단 패널 상태를 실제로 보이는
-                            // 슬라이드에 한 번 맞춰줍니다(마크업과 이미 같으면 아무 변화 없음).
                             setActiveTab(this.realIndex, false);
                             syncSlideVisibility(this);
                             syncCardHeight();
@@ -1266,21 +1228,10 @@
                     swiperEl.style.height = 'auto';
                     var maxHeight = 0;
                     realSlides.forEach(function (slideEl) {
-                        // 슬라이드가 아니라 그 안의 .hero를 잽니다. .swiper-wrapper는 align-items:stretch라
-                        // 슬라이드 하나가 크면(루프용 복제 슬라이드 포함) 나머지 슬라이드도 같이 늘어나서,
-                        // slideEl.scrollHeight로 재면 이미 늘어난 값이 그대로 다시 최대값이 됩니다.
-                        // .hero는 그 영향을 받지 않는 실제 콘텐츠 높이입니다. 또 비활성 카드는 scaleY로
-                        // 축소돼 있어서 getBoundingClientRect가 아니라 변형을 무시하는 offsetHeight를 씁니다.
                         var heroEl = slideEl.querySelector('.hero');
                         var flipEl = slideEl.querySelector('.hero__flip');
                         var slideH = slideEl.scrollHeight;
                         if (heroEl && flipEl) {
-                            // 앞/뒤 면은 .hero__flip의 같은 그리드 칸을 공유해서 서로 높이에 영향을 줍니다.
-                            // (.hc-top의 flex 성장 + .hc-bottom의 -60px 겹침이 맞물려, 두 면이 같이 있으면
-                            //  카드가 실제 내용보다 커진 값으로 잡힙니다.) 한 면만 남기고 각각 재야
-                            // 진짜 필요한 높이를 얻습니다.
-                            // .hero__flip은 height:100%라 그대로 재면 부모(.hero) 높이를 되돌려줍니다.
-                            // 재는 동안만 auto로 풀어야 면의 실제 내용 높이가 나옵니다.
                             var faces = flipEl.querySelectorAll('.hero__face');
                             var flipPrevH = flipEl.style.height;
                             flipEl.style.height = 'auto';
@@ -1302,28 +1253,11 @@
                     });
                     if (maxHeight) {
                         swiperEl.style.height = maxHeight + 'px';
-                        // 피그마(node 3173:8117 외) 기준 활성 카드 506px / 비활성 카드 422px — 차이 84px.
                         var peekShrinkPx = 84;
-                        // maxHeight는 슬라이드 스크롤높이라 카드 위/아래 여백(--spacing-24)이
-                        // 포함돼 있습니다. 실제 카드(.hero__flip) 높이는 그만큼 뺀 값이라, 이 값으로
-                        // 나눠야 화면에서 줄어드는 양이 정확히 84px이 됩니다. maxHeight로 나누면
-                        // 여백만큼 덜 줄어듭니다. (이 차이는 320/360/390 어느 폭에서도 24px로 일정)
                         var cardHeight = maxHeight - 24;
                         var peekScaleY = cardHeight > peekShrinkPx ? (cardHeight - peekShrinkPx) / cardHeight : 0.8;
                         swiperEl.style.setProperty('--hero-peek-scale-y', peekScaleY.toFixed(4));
                     }
-                    // [버그 수정] "모바일 사이즈를 바꾸면 스와이퍼가 깨지고 새로고침해야 돌아옴" —
-                    // Swiper는 기본 옵션(resizeObserver:true)으로 컨테이너 크기를 스스로도
-                    // 감시해서 슬라이드 폭/이동거리(translate)를 다시 계산하는데, 이 코드가
-                    // 위에서 height를 auto로 껐다가 새 값으로 다시 정하는 것도 Swiper 입장에선
-                    // "컨테이너가 또 바뀌었다"는 신호라 Swiper 자신의 리사이즈 계산과 경합이
-                    // 생깁니다. 리사이즈 도중(드래그로 계속 크기가 바뀌는 중)엔 이 경합의 타이밍에
-                    // 따라 Swiper가 예전 폭 기준으로 계산한 translate 값을 그대로 들고 있는 채로
-                    // 멈춰버려 슬라이드가 잘리거나 어긋나 보일 수 있고, 새로고침하면 처음부터
-                    // 최종 크기로 다시 초기화되니 멀쩡해 보였던 것입니다. 높이를 최종 확정한
-                    // "직후"에 swiper.update()를 명시로 한 번 더 호출해서, Swiper가 항상 지금
-                    // 이 순간의 실제 DOM 크기 기준으로 슬라이드 폭/translate를 다시 맞추게
-                    // 강제합니다.
                     if (swiper && !swiper.destroyed && typeof swiper.update === 'function') {
                         swiper.update();
                     }
@@ -1357,8 +1291,8 @@
                     chart.data.datasets.forEach(function (ds, i) {
                         ds.data[0] = 0;
                     });
-                    chart.update('none'); // 애니메이션 없이 즉시 0으로
-                    syncCloneCanvases(categoryKey, chart.canvas); // 복제 슬라이드 canvas도 "0" 상태로 즉시 맞춤
+                    chart.update('none');
+                    syncCloneCanvases(categoryKey, chart.canvas);
                     var restored = false;
                     function restore() {
                         if (restored) return;
@@ -1366,12 +1300,12 @@
                         chart.data.datasets.forEach(function (ds, i) {
                             ds.data[0] = entry.targets[i];
                         });
-                        chart.update(); // 0 -> 실제값으로 채워지는 애니메이션 재생 (animation.onProgress/onComplete가 복제본 동기화를 이어서 담당)
+                        chart.update();
                     }
                     requestAnimationFrame(function () {
                         requestAnimationFrame(restore);
                     });
-                    setTimeout(restore, 300); // rAF가 끝내 안 도는 경우(백그라운드 탭 등)를 위한 안전망
+                    setTimeout(restore, 300);
                 }
                 window.replayHeroBarChart = replayHeroBarChart;
 
@@ -1465,16 +1399,14 @@
                     var boxWidthPx = boxRect.width > 0 ? boxRect.width : 300;
                     var realTotalForBoost = datasets.reduce(function (sum, ds) { return sum + ds.data[0]; }, 0);
                     var pxPerUnit = realTotalForBoost > 0 ? boxWidthPx / realTotalForBoost : 0;
-                    // 처음/마지막 세그먼트: 박스 높이만큼의 폭 확보(=반경 클램프가 부모와 일치)
                     var minEdgeValue = pxPerUnit > 0 ? boxHeightPx / pxPerUnit : 0;
-                    // 나머지 중간 세그먼트: 그냥 1px 안팎만 보이면 되므로 훨씬 작은 최소값
                     var minGeneralValue = realTotalForBoost * 0.006;
                     datasets.forEach(function (ds, dsIndex) {
-                        ds.realValue = ds.data[0]; // 툴팁 등 표시용 실제 금액 보존
+                        ds.realValue = ds.data[0];
                         var isEdgeSegment = dsIndex === 0 || dsIndex === datasets.length - 1;
                         var minVisualValue = isEdgeSegment ? minEdgeValue : minGeneralValue;
                         if (realTotalForBoost > 0 && ds.data[0] < minVisualValue) {
-                            ds.data[0] = minVisualValue; // 렌더링(막대 폭)에만 쓰이는 값 보정
+                            ds.data[0] = minVisualValue;
                         }
                     });
                     var PILL_RADIUS = 8;
@@ -1506,13 +1438,9 @@
                             datasets: {
                                 bar: { categoryPercentage: 1, barPercentage: 1 }
                             },
-                            // 이 막대(.hero__chart-box)는 자산 구성 비율만 보여주는 영역이라
-                            // 터치/클릭해도 말풍선이 뜨지 않게 합니다. events를 비우면 Chart.js가
-                            // 포인터 이벤트를 아예 처리하지 않아 툴팁이 만들어지지 않습니다.
-                            // (모바일에서는 탭이 mousemove로 전달돼 '클릭하면 뜨는' 것처럼 보였습니다.)
                             events: [],
                             plugins: {
-                                legend: { display: false }, // 범례는 아래 .hero__legend(HTML)로 대체
+                                legend: { display: false },
                                 tooltip: { enabled: false }
                             },
                             layout: { padding: 0 },
@@ -1572,7 +1500,7 @@
                 function buildInsightChart(categoryKey, labels, visualPrev, visualNow, realPrev, realNow, colors) {
                     var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-insight-chart="' + categoryKey + '"]');
                     if (!canvas) return;
-                    var BAR_RADIUS = 2; // 피그마 --radius/2 토큰과 동일
+                    var BAR_RADIUS = 2;
 
                     function insightDiffTooltipHandler(context) {
                         var chart = context.chart;
@@ -1606,14 +1534,11 @@
                             datasets: { bar: { barPercentage: 0.9, categoryPercentage: 0.8 } },
                             events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
                             plugins: {
-                                legend: { display: false }, // 범례는 위 .hcb-legend(HTML)로 대체
+                                legend: { display: false },
                                 tooltip: { enabled: false, external: insightDiffTooltipHandler }
                             },
                             scales: {
                                 x: {
-                                    // grid.display:false는 세로 눈금선만 지웁니다 — 축 자체의 테두리
-                                    // 선(가로 베이스라인)은 Chart.js v4에서 grid와 별개인 border
-                                    // 옵션이 그려서, 그것도 꺼야 하단 라인이 완전히 사라집니다.
                                     grid: { display: false },
                                     border: { display: false },
                                     ticks: { font: { size: 12 }, color: '#4f5359', maxRotation: 0, minRotation: 0 }
@@ -1624,21 +1549,15 @@
                     });
                 }
 
-                // 피그마(node 3173:8121) 예금 탭 뒷면 '이전 자산 비교' — 0을 가운데 두고
-                // 이전(왼쪽) / 현재(오른쪽)로 뻗어나가는 가로 막대(버터플라이) 차트입니다.
-                // Chart.js에는 이 차트 타입이 따로 없어서, 이전 값을 음수로 넣고 x축을
-                // stacked로 두면 두 데이터셋이 같은 줄에서 좌우로 갈라지게 됩니다.
                 function buildCompareBarChart(categoryKey, labels, prevWon, nowWon, colors) {
                     var canvas = document.querySelector('.swiper-slide:not(.swiper-slide-duplicate) [data-insight-chart="' + categoryKey + '"]');
                     if (!canvas) return;
 
-                    var MAN = 10000; // 피그마 '단위:만원'
-                    var BAR_H = 11; // 피그마 막대 두께
+                    var MAN = 10000;
+                    var BAR_H = 11;
                     var prev = prevWon.map(function (v) { return -(v / MAN); });
                     var now = nowWon.map(function (v) { return v / MAN; });
 
-                    // 축 최대값은 데이터에서 뽑아 '깔끔한 수'로 올림합니다(예: 59,050 -> 60,000).
-                    // 좌우가 같은 눈금을 써야 이전/현재 막대 길이를 그대로 비교할 수 있습니다.
                     var peak = Math.max.apply(
                         null,
                         prevWon.map(function (v) { return v / MAN; }).concat(nowWon.map(function (v) { return v / MAN; }))
@@ -1663,33 +1582,25 @@
                         positionChartTooltip(tooltipEl, chart, tooltip);
                     }
 
-                    // Chart.js의 borderRadius는 "막대 너비의 절반"을 넘지 못하게 잘라내기 때문에,
-                    // 값이 0에 가까운 짧은 막대에서는 반원이 아니라 살짝 둥근 사각형이 됩니다.
-                    // 피그마는 0에 붙는 안쪽 끝만 각지고 바깥쪽 끝은 항상 반원(=짧을수록 반원 그 자체)이라,
-                    // 좌/우 그루터기가 가운데서 맞붙어 하나의 원으로 보입니다. 그 모양을 정확히 내려고
-                    // 기본 막대는 투명으로 두고 여기서 직접 그립니다.
                     var barCapPlugin = {
                         id: 'compareBarCaps',
                         afterDatasetsDraw: function (chart) {
                             var ctx = chart.ctx;
-                            // 기준점은 항상 x축의 0 픽셀입니다. 요소의 base를 쓰면 stacked 축에서
-                            // 데이터셋마다 base가 달라져 방향이 뒤집히는 경우가 있어서 직접 계산합니다.
                             var zeroPx = chart.scales.x.getPixelForValue(0);
                             chart.data.datasets.forEach(function (ds, di) {
                                 var meta = chart.getDatasetMeta(di);
                                 if (meta.hidden) return;
-                                var dir = di === 0 ? -1 : 1; // 0번=이전(왼쪽), 1번=현재(오른쪽)
+                                var dir = di === 0 ? -1 : 1;
                                 meta.data.forEach(function (bar) {
                                     var props = bar.getProps(['x', 'y', 'height'], true);
                                     var h = props.height;
                                     if (!h) return;
                                     var r = h / 2;
                                     var top = props.y - r;
-                                    // 막대 길이는 최소 반원(=r)까지 보장 — 0이어도 반쪽 원은 남습니다.
                                     var len = Math.max(Math.abs(props.x - zeroPx), r);
-                                    var x0 = zeroPx;              // 0 쪽 (각진 끝)
-                                    var xTip = x0 + dir * len;    // 바깥 쪽 (반원 끝)
-                                    var xArc = xTip - dir * r;    // 반원 중심
+                                    var x0 = zeroPx;
+                                    var xTip = x0 + dir * len;
+                                    var xArc = xTip - dir * r;
                                     ctx.save();
                                     ctx.fillStyle = ds.barColor;
                                     ctx.beginPath();
@@ -1711,8 +1622,6 @@
                         data: {
                             labels: labels,
                             datasets: [
-                                // 실제 색은 barCapPlugin이 그립니다(아래 주석 참고). 기본 막대는
-                                // 투명으로 두되, 툴팁 히트영역은 그대로 살아있어야 하므로 데이터셋 자체는 유지합니다.
                                 { label: '이전', data: prev, backgroundColor: 'transparent', barColor: colors.prev, borderSkipped: false },
                                 { label: '현재', data: now, backgroundColor: 'transparent', barColor: colors.now, borderSkipped: false }
                             ]
@@ -1722,11 +1631,10 @@
                             responsive: true,
                             maintainAspectRatio: false,
                             onResize: function () { syncBackFaceCloneCanvases(categoryKey, 'data-insight-chart'); },
-                            // 피그마 막대 두께 11px, 줄 간격 32px
                             datasets: { bar: { barThickness: BAR_H } },
                             events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
                             plugins: {
-                                legend: { display: false }, // 범례는 .hcb-legend(HTML)로 대체
+                                legend: { display: false },
                                 tooltip: { enabled: false, external: compareDiffTooltipHandler }
                             },
                             scales: {
@@ -1737,11 +1645,10 @@
                                     grid: { color: '#f0f0f0', drawTicks: false },
                                     border: { display: false },
                                     ticks: {
-                                        stepSize: axisMax / 2, // 눈금선 5개(-max, -max/2, 0, max/2, max)
+                                        stepSize: axisMax / 2,
                                         font: { size: 10 },
                                         color: '#767676',
                                         padding: 6,
-                                        // 눈금선은 5개지만 숫자는 피그마처럼 양끝과 0에만 노출합니다.
                                         callback: function (value) {
                                             if (value === 0) return '0';
                                             if (Math.abs(value) === axisMax) return Math.abs(value).toLocaleString();
@@ -1784,12 +1691,9 @@
                     { prev: '#c8d2e4', now: '#a1f069' }
                 );
 
-                // 대출 탭 뒷면은 피그마(node 3198:29596)에서 비교 차트가 아니라
-                // '계좌별 상환 현황'(진행 막대 + 상환 정보)으로 바뀌어 차트를 만들지 않습니다.
             })();
 
             (function () {
-                // 대출 뒷면 계좌 셀렉트 -> 레거시 바텀시트(.slidePopConfirm) 열기/선택 반영
                 var sheet = document.getElementById('loanAccountSheet');
                 if (!sheet) return;
                 var list = sheet.querySelector('[data-loan-account-list]');
@@ -1797,7 +1701,6 @@
                 document.addEventListener('click', function (e) {
                     var trigger = e.target.closest && e.target.closest('[data-loan-account-trigger]');
                     if (!trigger) return;
-                    // 열기는 레거시 공통 함수를 그대로 씁니다(높이 계산 + 스크롤 잠금 포함).
                     if (typeof window.slidePopConfirm === 'function') window.slidePopConfirm();
                     trigger.setAttribute('aria-expanded', 'true');
                 });

@@ -321,8 +321,6 @@
                                     </div>
                                     <button type="button" class="terms-link__arrow" aria-label="상세보기"></button>
                                 </div>
-                                <!-- 위 체크박스에 체크해야만 아래 수신채널을 고를 수 있는 패턴(Figma node 1008:35375).
-                                     update-ui.js의 initTermsAccordionCheck()가 체크 상태에 맞춰 열고/닫습니다. -->
                                 <div class="terms-accordion" hidden>
                                     <label class="check-basic">
                                         <input type="checkbox" class="check-basic__input" />
@@ -379,16 +377,11 @@
 
         <script type="text/javascript">
             $(document).ready(function(){
-            	//페이지 진입 시 버튼명/활성화 상태 셋팅
             	uiPopScrollEvt();
             });
 
-            //스크롤 이벤트
             $(window).on('scroll', uiPopScrollEvt);
 
-            //필수 동의 체크박스("[필수] 전체 동의" 카드) 상태 변경 감지
-            //update-ui.js의 initTermsSelectAll()이 마스터↔하위 체크박스 동기화를 먼저 처리하므로,
-            //같은 change 이벤트 안에서 최종 체크 상태를 정확히 읽기 위해 setTimeout(fn,0)으로 한 틱 미룬다.
             var $requiredCard = $('.terms-card').filter(function(){
             	return $(this).find('.terms-card__title').text().indexOf('필수') > -1;
             });
@@ -398,20 +391,18 @@
             	setTimeout(syncBtnState, 0);
             });
 
-            //클릭 이벤트
             $('.btnPressPoint').on('click',function(){
             	if($(this).text() == '아래로 내려보기'){
             		var $conH = $(window).height();
             		var $scrollTop = $(window).scrollTop();
             		$('html, body').animate({scrollTop: $scrollTop + $conH}, 300);
             	}else{
-            		if(!$(this).hasClass('disabled')){//비활성화가 아닐 경우 클릭됨
+            		if(!$(this).hasClass('disabled')){
             			alert('동의서 팝업 닫히고, 제3자 제공 동의 내역 조회 [MSPS7500] 화면에서 조회중 쿠션페이지[MSPS7531P] 팝업이 열림');
             		};
             	};
             });
 
-            //스크롤 위치에 따라 버튼 문구 전환 ('아래로 내려보기' 단계는 항상 활성 상태 유지)
             function uiPopScrollEvt(){
             	var $conH = $(window).height();
             	var $contSH = document.documentElement.scrollHeight;
@@ -425,9 +416,6 @@
             	syncBtnState();
             }
 
-            //"다음 계속하기" 버튼 활성화 조건 : 스크롤을 끝까지 내린 뒤(문구가 "다음 계속하기"로 바뀐 뒤)
-            //필수 동의 체크박스를 모두 체크해야 활성화된다. '아래로 내려보기' 단계에서는 위 uiPopScrollEvt()에서
-            //이미 활성 상태를 유지하므로 여기서는 손대지 않는다.
             function syncBtnState(){
             	var $btn = $('.btnPressPoint');
             	if ($btn.text() !== '다음 계속하기') return;

@@ -418,7 +418,6 @@
                 </div>
                 <div class="popBtnWrap">
                     <a href="javascript:;" onclick="popClose(this);return false;" class="popClose" title="해당 창을 닫습니다." role="button"><img src="../../images/common/btn_popClose.png" alt="닫기" /></a>
-                    <!-- 하단 고정 영역 : 다른 화면의 sticky-footer 와 같은 구조입니다 -->
                     <div class="sticky-footer" role="contentinfo">
                         <div class="accordion-notice">
                             <div class="accordion-notice__item">
@@ -444,13 +443,11 @@
         </div>
         <script>
             (function () {
-                // 계좌별 펼치기 / 접기 — 라벨과 화살표 방향만 바꿉니다(열고 닫는 동작은 update-ui.js 의 [data-acc-toggle] 담당).
                 document.querySelectorAll('[data-fold-label]').forEach(function (label) {
                     var btn = label.closest('[data-acc-toggle]');
                     if (!btn) return;
                     var icon = btn.querySelector('.btn-arrow__icon');
                     btn.addEventListener('click', function () {
-                        // update-ui.js 와 실행 순서가 달라도 되도록 aria-expanded 대신 현재 라벨을 기준으로 뒤집습니다.
                         var willOpen = label.textContent.trim() === '펼치기';
                         label.textContent = willOpen ? '접기' : '펼치기';
                         if (!icon) return;
