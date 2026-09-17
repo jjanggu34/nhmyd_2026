@@ -278,17 +278,17 @@
                                 <div class="stack--20">
                                     <div class="terms-info__item">
                                         <label class="terms-info__row check-basic is-xs">
-                                            <input type="checkbox" class="check-basic__input" checked />
+                                            <input type="checkbox" class="check-basic__input" />
                                             <span class="check-basic__icon" aria-hidden="true"></span>
                                             <p class="terms-info__title check-basic__label">
                                                 <em>계좌정보 적요 또는 거래메모 수집</em>
-                                                <span class="terms-info__desc">송금인/수취인의 이름과 거래정보가 포함 되어 있습니다.</span>
+                                                <span class="terms-info__desc">송금인/수취인의 이름과 거래정보가 포함되어 있습니다.</span>
                                             </p>
                                         </label>
                                     </div>
                                     <div class="terms-info__item">
                                         <label class="terms-info__row check-basic is-xs">
-                                            <input type="checkbox" class="check-basic__input" checked />
+                                            <input type="checkbox" class="check-basic__input" />
                                             <span class="check-basic__icon" aria-hidden="true"></span>
                                             <p class="terms-info__title check-basic__label">
                                                 <em>결재내역의 가맹점/사업자번호 수집</em>
@@ -298,7 +298,7 @@
                                     </div>
                                     <div class="terms-info__item">
                                         <label class="terms-info__row check-basic is-xs">
-                                            <input type="checkbox" class="check-basic__input" checked />
+                                            <input type="checkbox" class="check-basic__input" />
                                             <span class="check-basic__icon" aria-hidden="true"></span>
                                             <p class="terms-info__title check-basic__label">
                                                 <em>상품구매 카테고리정보 수집</em>
@@ -330,7 +330,7 @@
                                     <div class="terms-accordion__rows">
                                         <div class="terms-accordion__row">
                                             <label class="check-basic">
-                                                <input type="checkbox" class="check-basic__input" checked />
+                                                <input type="checkbox" class="check-basic__input" />
                                                 <span class="check-basic__icon" aria-hidden="true"></span>
                                                 <span class="check-basic__label">전화</span>
                                             </label>
@@ -347,7 +347,7 @@
                                                 <span class="check-basic__label">우편물</span>
                                             </label>
                                             <label class="check-basic">
-                                                <input type="checkbox" class="check-basic__input" checked />
+                                                <input type="checkbox" class="check-basic__input" />
                                                 <span class="check-basic__icon" aria-hidden="true"></span>
                                                 <span class="check-basic__label">이메일</span>
                                             </label>
@@ -409,7 +409,7 @@
             	var $scrollH = $(window).scrollTop();
             	var $scrollB = $contSH - $conH - $scrollH;
             	if ($scrollB < 50 ) {
-            		$('.btnPressPoint').text('다음 계속하기');
+            		$('.btnPressPoint').text('[필수] 동의하고 계속하기');
             	}else{
             		$('.btnPressPoint').text('아래로 내려보기').removeClass('disabled').removeAttr('aria-disabled');
             	}
@@ -418,7 +418,7 @@
 
             function syncBtnState(){
             	var $btn = $('.btnPressPoint');
-            	if ($btn.text() !== '다음 계속하기') return;
+            	if ($btn.text() !== '[필수] 동의하고 계속하기') return;
             	var requiredChecked = $requiredChecks.length > 0 && $requiredChecks.filter(':checked').length === $requiredChecks.length;
             	if (requiredChecked) {
             		$btn.removeClass('disabled').removeAttr('aria-disabled');
