@@ -278,8 +278,8 @@
 
             (function () {
                 var foldBtn = document.querySelector('[data-ai06-fold]');
-                if (!foldBtn) return;
-                var card = foldBtn.closest('.ai06-card');
+                var card = foldBtn && foldBtn.closest('.md-card');
+                if (!card) return;
                 var list = card.querySelector('.asset-list');
                 var more = card.querySelector('.asset-list__more');
                 var label = foldBtn.querySelector('[data-ai06-fold-label]');
@@ -288,11 +288,13 @@
                 foldBtn.addEventListener('click', function () {
                     var opened = foldBtn.getAttribute('aria-expanded') === 'true';
                     foldBtn.setAttribute('aria-expanded', opened ? 'false' : 'true');
-                    list.hidden = opened;
-                    more.hidden = opened;
-                    label.textContent = opened ? '펼치기' : '접기';
-                    icon.classList.toggle('is-chevron-up', !opened);
-                    icon.classList.toggle('is-chevron-down', opened);
+                    if (list) list.hidden = opened;
+                    if (more) more.hidden = opened;
+                    if (label) label.textContent = opened ? '펼치기' : '접기';
+                    if (icon) {
+                        icon.classList.toggle('is-chevron-up', !opened);
+                        icon.classList.toggle('is-chevron-down', opened);
+                    }
                 });
             })();
         </script>

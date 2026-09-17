@@ -128,6 +128,23 @@ window.calendarAlign = function () {
 
 var legacyTooltipOpen = window.tooltipOpen;
 
+/* 툴팁이 들어갈 수 있는 위/아래 한계.
+   화면 높이뿐 아니라 잘라내는(overflow) 조상까지 따집니다.
+   히어로 카드처럼 overflow:hidden 안에 있으면 그 박스가 한계가 됩니다. */
+function tooltipBounds(el) {
+    var bounds = { top: 0, bottom: $(window).height() };
+    while (el && el !== document.body && el.nodeType === 1) {
+        var overflow = window.getComputedStyle(el).overflowY;
+        if (overflow !== "visible") {
+            var rect = el.getBoundingClientRect();
+            bounds.top = Math.max(bounds.top, rect.top);
+            bounds.bottom = Math.min(bounds.bottom, rect.bottom);
+        }
+        el = el.parentElement;
+    }
+    return bounds;
+}
+
 window.tooltipOpen = function ($obj) {
     if (!isNdsScope($obj)) {
         if (typeof legacyTooltipOpen === "function") legacyTooltipOpen($obj);
@@ -140,10 +157,12 @@ window.tooltipOpen = function ($obj) {
     $tooltipCont.show();
 
     var contRect = $tooltipCont[0].getBoundingClientRect();
+    var btnRect = $obj[0].getBoundingClientRect();
+    var bounds = tooltipBounds($obj[0].parentElement);
     var $ctaWrap = $obj.closest(".popWrap").find(".popBtnWrap");
-    var blockBottom = $ctaWrap.length ? $ctaWrap[0].getBoundingClientRect().top : $(window).height();
+    if ($ctaWrap.length) bounds.bottom = Math.min(bounds.bottom, $ctaWrap[0].getBoundingClientRect().top);
 
-    if (contRect.bottom > blockBottom) {
+    if (contRect.bottom > bounds.bottom && btnRect.top - bounds.top > bounds.bottom - btnRect.bottom) {
         $tooltipCont.addClass("is-top");
     }
 };
@@ -649,13 +668,41 @@ window.renderBottomsheetList = function (options) {
        번들되어 있어 별도 로드가 필요 없습니다.
 
        <div class="lottie-anim" data-lottie-json="Sunny"></div>
+
+       data-lottie-json 값은 이름 또는 경로를 씁니다.
+         "Sunny"                   : 이름만 → 기본 폴더 + Sunny.json
+         "ai/loading"              : 하위 폴더 → 기본 폴더 + ai/loading.json
+         "ai/loading.json"         : 확장자를 적어도 같습니다
+         "../../images/etc/a.json" : ./ ../ / http(s):// 로 시작하면 쓴 그대로 사용
+
        data-lottie-loop="false"     : 1회만 재생(기본 true)
        data-lottie-autoplay="false" : 자동재생 끄기(기본 true)
-       data-lottie-base="경로/"     : JSON 폴더 변경(기본 ../../images/update/json/)
+       data-lottie-base="경로/"     : 기본 폴더 변경(기본 ../../images/update/json/)
+       data-lottie-ratio="false"    : 비율 자동 적용 끄기(CSS 로 직접 잡을 때)
+
+       비율은 JSON 의 w / h 를 읽어 aspect-ratio 로 넣습니다(정사각 고정 아님).
+       폭은 CSS 변수 --lottie-size 로 잡습니다.
 
        window.initLottie(scope)     : 나중에 추가된 영역만 다시 초기화
        el.lottieAnim                : lottie 인스턴스(play/pause/stop/goToAndPlay 사용) */
     var LOTTIE_BASE = "../../images/update/json/";
+
+    function lottieSrc(value, base) {
+        if (/^(?:[a-z][a-z0-9+.-]*:)?\/\//i.test(value) || /^[./]/.test(value)) return value;
+        var parts = value.split("/");
+        for (var i = 0; i < parts.length; i++) {
+            parts[i] = encodeURIComponent(parts[i]);
+        }
+        var path = parts.join("/");
+        return base + (/\.json$/i.test(path) ? path : path + ".json");
+    }
+
+    function lottieRatio(el, anim) {
+        if (el.getAttribute("data-lottie-ratio") === "false") return;
+        var data = anim.animationData;
+        if (!data || !data.w || !data.h) return;
+        el.style.aspectRatio = data.w + " / " + data.h;
+    }
 
     function initLottie(scope) {
         if (typeof lottie === "undefined") return;
@@ -663,17 +710,24 @@ window.renderBottomsheetList = function (options) {
         var nodes = root.querySelectorAll ? root.querySelectorAll("[data-lottie-json]") : [];
         Array.prototype.forEach.call(nodes, function (el) {
             if (el.lottieAnim) return;
-            var name = el.getAttribute("data-lottie-json");
-            if (!name) return;
+            var value = el.getAttribute("data-lottie-json");
+            if (!value) return;
             var base = el.getAttribute("data-lottie-base") || LOTTIE_BASE;
-            el.lottieAnim = lottie.loadAnimation({
+            var anim = lottie.loadAnimation({
                 container: el,
                 renderer: "svg",
                 loop: el.getAttribute("data-lottie-loop") !== "false",
                 autoplay: el.getAttribute("data-lottie-autoplay") !== "false",
-                path: base + encodeURIComponent(name) + ".json",
+                path: lottieSrc(value, base),
             });
-            el.lottieAnim.addEventListener("data_failed", function () {
+            el.lottieAnim = anim;
+            anim.addEventListener("data_ready", function () {
+                lottieRatio(el, anim);
+            });
+            anim.addEventListener("DOMLoaded", function () {
+                lottieRatio(el, anim);
+            });
+            anim.addEventListener("data_failed", function () {
                 el.classList.add("is-failed");
             });
         });

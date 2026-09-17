@@ -411,7 +411,7 @@
 .nds .textarea:where(.is-error) .textarea__msg {color:var(--color-font-error)}
 .nds .textarea__clear::before {color:var(--color-font-5);content:"";display:block;width:24px;height:24px;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-cancel-fill.svg");mask-image:url("../images/update/ic-cancel-fill.svg");-webkit-mask-size:contain;mask-size:contain}
 /* ---- Lottie : update-ui.js 의 initLottie() 가 data-lottie-json 을 읽어 재생합니다 ---- */
-.nds .lottie-anim {display:block;width:var(--lottie-size, 160px);height:var(--lottie-size, 160px);flex-shrink:0}
+.nds .lottie-anim {display:block;width:var(--lottie-size, 160px);aspect-ratio:1;flex-shrink:0}
 .nds .lottie-anim svg {display:block;width:100% !important;height:100% !important}
 .nds .lottie-anim:where(.is-failed) {display:flex;align-items:center;justify-content:center;border:1px dashed var(--color-border-1);border-radius:var(--radius-8);box-sizing:border-box}
 .nds .lottie-anim:where(.is-failed)::before {content:"JSON을 불러오지 못했어요";font-size:var(--type-size-13);line-height:20px;color:var(--color-font-4);text-align:center}
@@ -1547,10 +1547,14 @@
 .hc-cta__icon:where(.is-loan) {background:#4071bd !important}
 .hc-cta__icon:where(.is-loan) .hc-cta__icon-glyph{background:url("../images/update/ic-chart-board_.svg") no-repeat center/contain}
 .hc-stats {display:flex;flex-direction:column;gap:4px;width:100%;margin-top:var(--spacing-48)}
-.hc-stats__row {display:flex;gap:4px}
-.hc-stats__item {flex:1;display:flex;flex-direction:column;align-items:end;justify-content:center;gap:var(--spacing-8);min-width:0;padding:var(--spacing-16) var(--spacing-12);border-radius:var(--radius-12);background:#1c2655;-webkit-backdrop-filter:blur(3.5px);backdrop-filter:blur(3.5px);box-sizing:border-box}
-.hc-stats__label {margin:0;width:100%;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--primitive-base-0)}
+.hc-stats__row {position:relative;display:flex;gap:4px}
+.hc-stats__item {flex:1;display:flex;flex-direction:column;align-items:end;justify-content:center;gap:var(--spacing-8);min-width:0;padding:var(--spacing-16) var(--spacing-12);border-radius:var(--radius-12);background:#1c2655;box-sizing:border-box}
+.hc-stats__label {display:flex !important;justify-content:space-between;margin:0;width:100%;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--primitive-base-0)}
 .hc-stats__label .toolTipBtn{position:relative;top:-1px;width:16px !important;height:16px !important;flex-shrink: 0;align-self: center;background: var(--primitive-base-0) !important;-webkit-mask-image: url("../images/update/ic-tooltip-mark_16.svg");mask-image: url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size: contain;mask-size: contain}
+.nds.nhasset .hc-stats__label.tooltipWrap > .tooltipCont {position:absolute !important;top:100% !important;bottom:auto;left:0 !important;right:0 !important;width:auto !important;margin:var(--spacing-8) 0 0;padding:var(--spacing-16);border-radius:var(--radius-12);box-sizing:border-box;transform:none !important;box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.05)}
+.nds.nhasset .hc-stats__label.tooltipWrap > .tooltipCont.tooltipCont:where(.is-top) {top:auto !important;bottom:100% !important;margin:0 0 var(--spacing-8)}
+.nds.nhasset .hc-stats__label.tooltipWrap > .tooltipCont > h3 {padding-right:28px;font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-1)}
+.nds.nhasset .hc-stats__label.tooltipWrap > .tooltipCont .close {position:absolute;top:var(--spacing-12);right:var(--spacing-12);width:24px;height:24px}
 .hc-stats__value {margin:0;width:100%;text-align:right;font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--primitive-base-0)}
 .hc-stats__link {position:relative;width:auto;display:flex;align-items:center;gap:var(--spacing-4);font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px}
 .hc-stats__link::after{content:"";display:block;width:16px;height:16px;background:var(--primitive-base-0);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain}
@@ -2096,6 +2100,7 @@
 .nds .asset-group__body > .asset-list {margin-top:0}
 .nds .popCont > .accordion-notice {margin-top:var(--spacing-32)}
 .nds .asset-list__more {display:flex;justify-content:center;margin:var(--spacing-24) 0 0}
+.nds .asset-list__more[hidden] {display:none}
 .nds .btn-arrow__icon:where(.is-chevron-down) {-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg")}
 .nds .btn-arrow__icon:where(.is-chevron-up) {-webkit-mask-image:url("../images/update/ic-arrow-down-short.svg");mask-image:url("../images/update/ic-arrow-down-short.svg");transform:rotate(180deg)}
 /* -- NH_MD_AI_01 : AI 포트폴리오 진단(진단 준비) -- */
