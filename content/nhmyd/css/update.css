@@ -1941,13 +1941,12 @@
 .nds .compare-subtitle span {color:var(--color-font-1)}
 .nds .compare-scroll {width:100%;box-sizing:content-box}
 .nds .compare-scroll .swiper-wrapper {height:auto}
-.nds .dots-pagination.swiper-pagination,
-.nds .compare-scroll__pagination.swiper-pagination {position:relative;bottom:auto;left:auto;display:flex;align-items:center;justify-content:center;gap:var(--spacing-8);width:100%;line-height:0}
-.nds .dots-pagination .swiper-pagination-bullet,
-.nds .compare-scroll__pagination .swiper-pagination-bullet {width:8px;height:8px;margin:0;border-radius:var(--radius-full);background-color:var(--primitive-gray-400);opacity:1;transition:background-color 0.2s, width 0.2s}
-.nds .dots-pagination .swiper-pagination-bullet-active,
-.nds .compare-scroll__pagination .swiper-pagination-bullet-active {width:16px;background-color:#212121}
-.nds .compare-scroll__pagination.swiper-pagination {margin-top:var(--spacing-20)}
+
+/* swiper-pagination */
+.nds .scroll__pagination.swiper-pagination {position:relative;bottom:auto;left:auto;display:flex;align-items:center;justify-content:center;gap:var(--spacing-8);margin-top: var(--spacing-24);width:100%;line-height:0}
+.nds .scroll__pagination .swiper-pagination-bullet {width:8px;height:8px;margin:0;border-radius:var(--radius-full);background-color:var(--primitive-gray-400);opacity:1;transition:background-color 0.2s, width 0.2s}
+.nds .scroll__pagination .swiper-pagination-bullet-active {width:16px;background-color:#212121}
+
 .nds .compare-card {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%;height:auto;padding:var(--spacing-20);background-color:var(--primitive-base-0);border-radius:var(--radius-10);box-shadow:0 5px 16px 0 rgba(0,0,0,0.07);box-sizing:border-box}
 .nds .compare-card__title {margin:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1)}
 .nds .compare-card__row {display:flex;align-items:center;justify-content:space-evenly;gap:var(--spacing-16);padding:var(--spacing-16);width:100%;border-radius: var(--radius-8);box-sizing:border-box;background-color: #F3F5F8;}
@@ -2275,7 +2274,7 @@
 /* -- NH_MD_AI_06 : AI 포트폴리오 진단(안전자산 확보) -- */
 /* -- NH_MD_AI_05 : AI 포트폴리오 서비스 안내(온보딩 캐러셀) -- */
 .nds .onboard {--onboard-chrome:342px;display:flex;flex-direction:column;gap:var(--spacing-32);margin:0 calc(var(--spacing-24) * -1);padding-top:var(--spacing-32)}
-.nds .onboard__dots {height:12px}
+.nds .onboard__dots.scroll__pagination {margin-top:0;height:12px}
 .nds .onboard__swiper {width:100%}
 .nds .onboard__slide {display:flex;flex-direction:column;gap:var(--spacing-24);height:auto}
 .nds .onboard__title {margin:0;padding:0 var(--spacing-24);font-size:var(--type-size-24);font-weight:var(--font-weight-regular);line-height:36px;letter-spacing:-0.32px;text-align:center;word-break:keep-all;color:var(--color-font-1)}
