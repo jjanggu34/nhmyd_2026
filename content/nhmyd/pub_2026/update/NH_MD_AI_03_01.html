@@ -30,13 +30,13 @@
                                 <h2 class="text text--h4 ai-heading">기간별 성과예측을 살펴볼까요?</h2>
                                 <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span
                                         class="blind">기간별 성과예측 도움말</span></button>
-                                <div class="tooltipCont" style="display: none">
-                                    <h3>성과예측 안내사항</h3>
-                                    <ul>
-                                        <li>성향기준 시나리오로 실제 성향·제안 변경 아닙니다.</li>
-                                    </ul>
-                                    <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;"
-                                        role="button"><span class="blind">닫기</span></a>
+                                <div class="tooltip-card tooltipCont" style="display: none">
+
+                                    <div class="tooltip-card__header">
+                                        <strong class="tooltip-card__title">성과예측 안내사항</strong>
+                                        <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
+                                    </div>
+                                    <p class="tooltip-card__body">성향기준 시나리오로 실제 성향·제안 변경 아닙니다.</p>
                                 </div>
                             </div>
     
