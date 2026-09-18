@@ -276,7 +276,7 @@
 .nds .center {text-align:center !important}
 .nds .left {text-align:left !important}
 .nds .right {text-align:right !important}
-.nds .container {padding-left:var(--spacing-24) !important;padding-right:var(--spacing-24) !important;}
+.nds .container {padding-left:var(--spacing-24) !important;padding-right:var(--spacing-24) !important;padding-bottom:60px !important}
 .nds .guide-title {font-size:var(--type-size-15);font-weight:700;margin-bottom:var(--spacing-8)}
 .nds .guide-desc {font-size:var(--type-size-14);font-weight:400;color:var(--primitive-red-200);margin-bottom:var(--spacing-16)}
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
@@ -295,6 +295,7 @@
 .nds .stack--24 {gap:var(--spacing-24)}
 .nds .stack--32 {gap:var(--spacing-32)}
 .nds .stack--40 {gap:var(--spacing-40)}
+
 /* --- divider --- */
 .nds hr{display:block;width:100%}
 .nds .divider {display:block;width:100%;border:none;margin:var(--spacing-24) auto;flex-shrink:0}
@@ -302,7 +303,7 @@
 .nds .divider:where(.is-content) {height:8px;background-color:var(--color-bg-container);margin:40px -24px;width:auto}
 .nds .divider:where(.is-page) {height:1px;background-color:var(--color-bg-container)}
 .nds .divider:where(.is-list1) {height:1px; background-color: var(--primitive-gray-400);}
-.nds .divider:where(.is-line-f0) {height: 1px;background-color:var(--primitive-gray-200);}
+.nds .divider:where(.is-line-f0) {height: 1px;background-color:var(--primitive-gray-100);}
 .nds .divider:where(.is-dash-f0) {margin:var(--spacing-24) 0; width:100%;height:1px;background:url("../images/update/bg_dash_line_f0.png") repeat-x center;background-size:auto 1px}
 .nds .divider:where(.is-dash-e1) {margin:var(--spacing-24) 0; width:100%;height:1px;background:url("../images/update/bg_dash_line.png") repeat-x center;background-size:auto 1px}
 /* ---- Chip ---- */
@@ -416,16 +417,24 @@
 .nds .lottie-anim svg {display:block;width:100% !important;height:100% !important}
 .nds .lottie-anim:where(.is-failed) {display:flex;align-items:center;justify-content:center;border:1px dashed var(--color-border-1);border-radius:var(--radius-8);box-sizing:border-box}
 .nds .lottie-anim:where(.is-failed)::before {content:"JSON을 불러오지 못했어요";font-size:var(--type-size-13);line-height:20px;color:var(--color-font-4);text-align:center}
+
+
 /* ---- Tooltip ---- */
 :root{
-    --ico-tooltip:url('../images/update/ic-tooltip-mark_16.svg');
+    --ico-tooltip:url('../images/update/ico_tooltip2_line_1.5.svg');
+    --ico-tooltip-sm:url('../images/update/ico_tooltip2_line_1.2.svg');
 }
+
 
 /*.nds .toolTipBtn, .nds .boxTypeWrap .toolTipBtn{margin:0 !important;background: url('../images/update/ic-tooltip-mark_16.svg') no-repeat center / 24px auto !important}*/
 .nhasset.nds .toolTipBtn, 
-.nhasset.nds .boxTypeWrap .toolTipBtn{margin:0 !important;width:24px;height:24px;background:var(--color-icon-4);-webkit-mask-image:var(--ico-tooltip);mask-image:var(--ico-tooltip);-webkit-mask-size:100%;mask-size:100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+.nhasset.nds .boxTypeWrap .toolTipBtn{margin:0 0 0 2px !important;width:24px;height:24px;background:var(--color-icon-4);-webkit-mask-image:var(--ico-tooltip);mask-image:var(--ico-tooltip);-webkit-mask-size:100%;mask-size:100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
 .nhasset.nds .toolTipBtn.cucolor{ background:currentColor }
 .nhasset.nds .toolTipBtn.gray-50 { background:var(--primitive-gray-500) }
+.nds .toolTipBtn.is-w20 { width:20px;height:20px;-webkit-mask-image:var(--ico-tooltip-sm);mask-image:var(--ico-tooltip-sm); }
+.nds .toolTipBtn.is-w16 { width:16px;height:16px;-webkit-mask-image:var(--ico-tooltip-sm);mask-image:var(--ico-tooltip-sm); }
+
+
 .nds .text--h4:has(.toolTipBtn) { display:flex;align-items:center;gap:var(--spacing-2) }
 
 .nds .tooltip-card {display:flex;flex-direction:column;gap:var(--spacing-12);border:1px solid var(--color-border-3);border-radius:var(--radius-16);background-color:var(--color-bg-default);box-shadow:0px 3px 6px rgba(0, 0, 0, 0.05);padding:var(--spacing-20);box-sizing:border-box;width:100%}
@@ -2175,12 +2184,12 @@
 .nds .diag-type__value {font-size:var(--type-size-16);font-weight:var(--font-weight-bold) !important;line-height:24px;letter-spacing:-0.32px;color:var(--primitive-red-grade)}
 .nds .diag-type__more {display:flex;justify-content:flex-end;margin:0}
 .nds .btn-arrow:where(.is-caption) {font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px}
-.nds .diag-portfolio__body {display:flex;flex-direction:column;gap:var(--spacing-20);margin:var(--spacing-16) 0 0}
+.nds .diag-portfolio__body {display:flex;flex-direction:column;margin:var(--spacing-16) 0 0}
 .nds .diag-portfolio__field {display:flex;flex-direction:column;gap:var(--spacing-16)}
 .nds .diag-portfolio__question {margin:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-3)}
 .nds .diag-portfolio .radio-box-row > label {flex:1 1 0;min-width:0}
 .nds .diag-note {display:flex;gap:var(--spacing-6);margin:0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
-.nds .diag-note__icon {flex-shrink:0;width:14px;height:14px;margin-top:3px;background:var(--ico-note) no-repeat;}
+.nds .diag-note__icon {flex-shrink:0;width:20px;height:20px;background:var(--ico-note) no-repeat center / contain}
 .nds .diag-connect {display:flex;flex-direction:row;align-items:center;gap:var(--spacing-4);padding:var(--spacing-16) var(--spacing-20);border-radius:var(--radius-12);}
 .nds .diag-connect__text {flex:1 1 auto;min-width:0;font-size:var(--type-size-15);font-weight:var(--font-weight-medium);line-height:24px;letter-spacing:-0.3px;color:var(--color-font-1)}
 .nds .diag-connect + .areaBtnDefault {margin-top:var(--spacing-32)}
@@ -2258,7 +2267,6 @@
 .nds .ai-heading {margin:0}
 .nds .diag-total__refresh {position:relative}
 .nds .diag-total__refresh::after {content:"";position:absolute;top:50%;left:50%;width:24px;height:24px;transform:translate(-50%, -50%)}
-.nds .toolTipBtn:where(.is-sm) {width:18px !important;height:18px !important;background-size:18px auto !important}
 /* -- NH_MD_AI_03_01 : 기간별 성과 예측(팝업) -- */
 .nds .predict-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
 .nds .predict-amount {display:flex;flex-direction:column;margin:var(--spacing-24) 0 0}
@@ -2302,6 +2310,7 @@
 .nds .container:has(> .onboard) {padding-bottom:120px !important}
 
 /* -- NH_MD_AI_02 : AI 포트폴리오 진단(제안 대상 선택) -- */
+.nds .ai-section .info-card { border-radius:var(--spacing-16);  }
 .nds .asset-pick {display:flex;flex-direction:column;gap:var(--spacing-8);width:100%}
 .nds .info-card:has(> .asset-pick) > .card-lead {margin-top:var(--spacing-24)}
 .nds .info-card:has(> .asset-pick) > .asset-pick {margin-top:var(--spacing-32)}

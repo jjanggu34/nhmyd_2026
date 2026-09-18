@@ -34,185 +34,16 @@
                     <!--나의 자산-->
                     <section class="analysis-section">
                         <!--모든 데이터 연결이 안 되어 있는 경우-->
-                        <!--<h2 class="text text--h4">아직 연결된 자산이 없어요</h2>
+                        <h2 class="text text--h4">아직 연결된 자산이 없어요</h2>
                         <div class="info-card info-card__nodate">
                             <p class="text--body2-medium">
                                 자산을 등록하시면 내 자산 현황을 기반으로 <em>부채를 알뜰하게 줄일 수 있는 방법을 AI가 추천</em>해드려요.
                             </p>
                             <button type="button" class="card-btn">내 자산 연결하러 가기</button>
-                        </div>-->
-
-                        <!--데이터 연결은 했으나 데이터 값이 0인 경우-->
-                        <!--<h2 class="text text--h4">연결된 자산이 0원이에요</h2>
-                        <div class="info-card info-card__nodate">
-                            <p class="text--body2-medium">
-                                <em>분석을 시작하려면 자산이 필요해요.</em>혹시 다른 계좌가 있다면 연결하고 맞춤 서비스를 받아보세요.
-                            </p>
-                            <button type="button" class="card-btn">내 자산 연결하러 가기</button>
-                        </div>-->
-                        <!--자산만 연결한 경우 is-group 클래스 제어-->
-                        <div class="analysis-title tooltipWrap">
-                            <h2 class="text text--h4">
-                                나의 자산
-                                <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">나의 자산 안내</span></button>
-                            </h2>
-                            <!--나의 자산안내 툴팁-->
-                            <div class="tooltip-card tooltipCont" style="display:none">
-                                <div class="tooltip-card__header">
-                                    <strong class="tooltip-card__title">나의 자산 안내</strong>
-                                    <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
-                                </div>
-                                <ul class="tooltip-card__list">
-                                    <li class="tooltip-card__item">퇴직연금DC와 보험은 자산에서 제외됩니다.</li>
-                                    <li class="tooltip-card__item">예적금 담보대출이 있으면 자산 금액에서 차감됩니다.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="info-card is-group">
-                            <div class="info-card__head">
-                                <p>
-                                    <span class="info-card__head-title">총 금액</span>
-                                    <span class="info-card__head-data">100,000,000원</span>
-                                </p>
-                            </div>
-                            <div class="info-card__list">
-                                <ul>
-                                    <li>
-                                        <div class="info-card__list-link">
-                                            <p class="info-card__list-title">현금</p>
-                                            <p class="info-card__list-data">
-                                                <a class="link">100,000,000원</a>
-                                            </p>
-                                        </div>
-                                        <ul class="average-list">
-                                            <li>
-                                                <span class="average-list__title">평균 금리</span>
-                                                <span class="average-list__data">3.04%</span>
-                                            </li>
-                                            <li class="info-card__average--big">
-                                                <span class="average-list__title">예적금 담보대출</span>
-                                                <span class="average-list__data positive">-1,000,000원</span>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <!--투자-->
-                                    <li>
-                                        <div class="info-card__list-link">
-                                            <p class="info-card__list-title">투자</p>
-                                            <p class="info-card__list-data">
-                                                <a class="link">53,000,000원</a>
-                                                <a class="link normal">추가</a>
-                                            </p>
-                                        </div>
-                                        <ul class="average-list">
-                                            <li class="tooltipWrap">
-                                                <span class="average-list__title">
-                                                    평균 수익율
-                                                    <button type="button" class="toolTipBtn gray-50" onclick="tooltipOpen($(this));return false;"><span class="blind">평균 수익율 안내</span></button>
-                                                </span>
-                                                <span class="average-list__data negative">-5.11%</span>
-                                                <!--투자 평균 수익율 툴팁-->
-                                                <div class="tooltip-card tooltipCont" style="display:none">
-                                                    <div class="tooltip-card__header">
-                                                        <strong class="tooltip-card__title">평균 수익률 안내</strong>
-                                                        <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
-                                                    </div>
-                                                    <p class="tooltip-card__body">평균 수익률은 현재 보유 중인 투자 또는 연금의 평가 금액과 매입 금액을 비교하여 발생한 예상 손익을 가중평균한 전체 수익률입니다.</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <!--연금-->
-                                    <li>
-                                        <div class="info-card__list-link">
-                                            <p class="info-card__list-title">연금</p>
-                                            <p class="info-card__list-data">
-                                                <a class="link">53,000,000원</a>
-                                            </p>
-                                        </div>
-                                        <ul class="average-list">
-                                            <li class="tooltipWrap">
-                                                <span class="average-list__title">
-                                                    평균 수익율
-                                                    <button type="button" class="toolTipBtn gray-50" onclick="tooltipOpen($(this));return false;"><span class="blind">평균 수익율 안내</span></button>
-                                                </span>
-                                                <span class="average-list__data positive">+7.52%</span>
-                                                <!--연금 평균 수익율 툴팁-->
-                                                <div class="tooltip-card tooltipCont" style="display:none">
-                                                    <div class="tooltip-card__header">
-                                                        <strong class="tooltip-card__title">평균 수익률 안내</strong>
-                                                        <button type="button" class="tooltip-card__close" onclick="tooltipClose($(this));return false;"><span class="blind">닫기</span></button>
-                                                    </div>
-                                                    <p class="tooltip-card__body">평균 수익률은 현재 보유 중인 투자 또는 연금의 평가 금액과 매입 금액을 비교하여 발생한 예상 손익을 가중평균한 전체 수익률입니다.</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
-                    <!--나의 월 수입과 지출-->
-                    <section class="analysis-section">
-                        <!-- 
-                            - 자산, 부채 = 연결
-                            - 월 수입과 지출은 입력하지 않은 경우
-                        -->
-                        <!--<div class="analysis-title">
-                            <h2 class="text text--h4">나의 월 수입과 지출</h2>
-                        </div>
-                        <div class="info-card info-card__nodate">
-                            <p class="text--body2-medium">
-                                월수입과 지출을 알려주시면 <em>AI가 비상금을 고려하여 맞춤형 계획</em>을 짜드려요.
-                            </p>
-                            <button type="button" class="card-btn">수입•지출 정보 입력하기</button>
-                        </div>-->
-                        <!-- 
-                            - 자산, 부채 = 연결
-                            - 월 수입과 지출 입력한 경우
-                        -->
-                        <div class="analysis-title">
-                            <h2 class="text text--h4">나의 월 수입과 지출</h2>
-                            <a class="analysis-title__edit-btn" href="#">수정</a>
-                        </div>
-                        <div class="info-card">
-                            <ul class="list-kv-row">
-                                <li class="list-kv">
-                                    <span class="list-kv__title">
-                                        <img src="../../images/update/ic_deposit-Btype.svg" alt="">
-                                        월 수입
-                                    </span>
-                                    <span class="list-kv__data">800만원~1,000만원</span>
-                                </li>
-                                <li class="list-kv">
-                                    <span class="list-kv__title">
-                                        <img src="../../images/update/ic_withdrawal-Btype.svg" alt="">
-                                        월 지출
-                                    </span>
-                                    <span class="list-kv__data">560만원</span>
-                                </li>
-                            </ul>
                         </div>
                     </section>
                     <!--나의 부채-->
                     <section class="analysis-section">
-                        <!-- 부채 = 미연결 -->
-                        <!--<h2 class="text text--h4">부채 내역이 조회되지 않아요</h2>
-                        <div class="info-card info-card__nodate">
-                            <p class="text--body2-medium">
-                                부채를 연결하시면 <em>AI가 내 상황에 꼭 맞는 부채 관리법</em>을 찾아드려요. 
-                            </p>
-                            <button type="button" class="card-btn">내 부채 연결하러 가기</button>
-                        </div>-->
-                          <!-- 부채 = 0 -->
-                            <!--<h2 class="text text--h4">현재 남아있는 부채가 없어요</h2>
-                          <div class="info-card info-card__nodate">
-                              <p class="text--body2-medium">
-                                <em>이용 중인 대출이 있어야 분석을 진행할 수 있어요.</em>
-                                다른 금융사에 남아있는 대출이 있는지 확인해 보세요. 
-                              </p>
-                              <button type="button" class="card-btn">내 부채 연결하러 가기</button>
-                          </div>-->
                         <!--
                         -부채 = 연결
                         -->
@@ -229,17 +60,17 @@
                                     <li class="info-card__graph">
                                         <div class="info-card__stats">
                                             <span class="info-card__stat-label">부채 비율</span>
-                                            <span class="info-card__stat-value negative">99%</span>
+                                            <span class="info-card__stat-value negative">999%</span>
                                         </div>
                                         <div class="info-card__graph-bar">
-                                            <span class="info-card__graph-bar-fill" style="width:99%"></span>f
+                                            <span class="info-card__graph-bar-fill" style="width:999%"></span>f
                                         </div>
                                     </li>
                                     <li class="tooltipWrap">
                                         <div class="info-card__amount">
                                             <span class="info-card__amount-title">
-                                                이번 달 예상 상환액
-                                                <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">월 예상 상환액</span></button>
+                                                월 예상 상환액
+                                                <button type="button" class="toolTipBtn is-w20" onclick="tooltipOpen($(this));return false;"><span class="blind">월 예상 상환액</span></button>
                                             </span>
                                             <span class="amount-data">65만원</span>
                                         </div>
@@ -275,34 +106,9 @@
                                 </p>
                             </div>
                             <div class="info-card__list select-card__list">
-                                <!--상환값이 0 일시 클래스 select-card-none 추가 -->
-                                <div class="debt-list select-card-none">
-                                    <!--<p>
-                                        <label class="check-basic check-basic__title">
-                                            <input type="checkbox" class="check-basic__input" checked="">
-                                            <span class="check-basic__icon" aria-hidden="true"></span>
-                                            <span class="check-basic__label">
-                                                상환 예정
-                                                <em>0</em>
-                                            </span>
-                                        </label>
-                                        <span class="check-basic__data">0원</span>
-                                    </p>
-                                    <p>
-                                        <span class="debt-list__title">
-                                            잔여 부채
-                                            <em class="positive">38</em>
-                                        </span>
-                                        <span class="debt-list__data positive">85,000,000원</span>
-                                    </p>-->
-                                </div>
                                 <ul>
                                     <li>
                                         <div class="select-card__select-row">
-                                            <!--<label class="check-basic">
-                                                <input type="checkbox" class="check-basic__input inputChecked" checked="">
-                                                <span class="check-basic__icon" aria-hidden="true"></span>
-                                            </label>-->
                                             <div class="select-card__select-text">
                                                 <div class="select-card__logo-row">
                                                     <span class="select-card__logo"><img src="../../images/logos/AADO0000.png" alt=""></span>
@@ -336,10 +142,6 @@
                                     </li>
                                     <li>
                                         <div class="select-card__select-row">
-                                            <!--<label class="check-basic">
-                                                <input type="checkbox" class="check-basic__input inputChecked" checked="">
-                                                <span class="check-basic__icon" aria-hidden="true"></span>
-                                            </label>-->
                                             <div class="select-card__select-text">
                                                 <div class="select-card__logo-row">
                                                     <span class="select-card__logo"><img src="../../images/logos/AACT0000.png" alt=""></span>
@@ -373,10 +175,6 @@
                                     </li>
                                     <li>
                                         <div class="select-card__select-row">
-                                            <!--<label class="check-basic">
-                                                <input type="checkbox" class="check-basic__input inputChecked" checked="">
-                                                <span class="check-basic__icon" aria-hidden="true"></span>
-                                            </label>-->
                                             <div class="select-card__select-text">
                                                 <div class="select-card__logo-row">
                                                     <span class="select-card__logo"><img src="../../images/logos/AAEV0000.png" alt=""></span>
@@ -410,10 +208,6 @@
                                     </li>
                                     <li>
                                         <div class="select-card__select-row">
-                                            <!--<label class="check-basic">
-                                                <input type="checkbox" class="check-basic__input inputChecked" checked="">
-                                                <span class="check-basic__icon" aria-hidden="true"></span>
-                                            </label>-->
                                             <div class="select-card__select-text">
                                                 <div class="select-card__logo-row">
                                                     <span class="select-card__logo"><img src="../../images/logos/AAOB0000.png" alt=""></span>
@@ -447,10 +241,6 @@
                                     </li>
                                     <li>
                                         <div class="select-card__select-row">
-                                           <!-- <label class="check-basic">
-                                                <input type="checkbox" class="check-basic__input inputChecked" checked="">
-                                                <span class="check-basic__icon" aria-hidden="true"></span>
-                                            </label> -->
                                             <div class="select-card__select-text">
                                                 <div class="select-card__logo-row">
                                                     <span class="select-card__logo"><img src="../../images/logos/AAOB0000.png" alt=""></span>
