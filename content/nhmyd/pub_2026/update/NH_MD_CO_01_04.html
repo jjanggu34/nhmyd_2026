@@ -21,121 +21,134 @@
                     <!-- ============================================================
                         AI 분석 로딩 중인 경우 insight-hero에 is-loading 추가
                     ============================================================ -->
-                    <h2 class="analysis-section__title">종합 진단 결과</h2>
-                    <div class="md-card insight-hero">
+                    <h2 class="text--h3">분석 결과</h2>
+                    <div class="info-card insight-hero">
                         <p class="insight-hero__greeting">
                             <strong>$김농협$</strong>님의
                             <br />
-                            종합진단 결과입니다.
+                            자산·부채 분석 결과예요.
                         </p>
-                        <div class="insight-hero__panel mt30">
+                        <div class="insight-hero__panel mt40">
                             <img class="insight-hero__mascot" src="../../images/update/img-ally-laptop-right.png" alt="" aria-hidden="true" />
                             <div class="insight-hero__tags">
-                                <span class="insight-hero__tag is-accent">AI진단</span>
-                                <span class="insight-hero__tag is-outline">통합분석</span>
+                                <span class="insight-hero__tag is-accent">종합진단</span>
                             </div>
-                            <p class="insight-hero__headline">
-                                <strong>
-                                    상환을 고려해보는건
-                                    <br />
-                                    어떠세요?
-                                </strong>
-                            </p>
-                            <hr class="insight-hero__divider" />
-                            <p class="insight-hero__body">AI가 현재 부채를 금리와 잔액 기준으로 분석해보니, 금리가 높은 부채부터 우선 상환하는 전략이 가장 효과적이에요. 지금 여유자금으로 고금리 부채를 먼저 줄이면 원금이 낮아지는 만큼 매달 내는 이자도 함께 줄어들고,
-                            이후 상환에 사용할 수 있는 여유자금도 더 커질 수 있어요.</p>
+                            <p class="text--body3 text--white">현재 자산으로 선택한 부채를 상환하면 부채를 $2,630$만원 줄일 수 있어요. 매달 내는 이자와 상환 부담도 함께 낮출 수 있어요.</p>
                         </div>
                         <div class="insight-hero__loading" role="status" aria-atomic="true">
-                            <div class="insight-hero__loading-text">AI 의견이 준비중이에요
-                                <p class="insight-hero__loading-sub-text">현재 자산과 부채를 기준으로 AI가 열심히 분석하고 있어요. 조금만 기다려 주세요.</p>
-                            </div>
                             <span class="insight-hero__spinner" aria-hidden="true"></span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 총 자산 · 총 부채 -->
-                <section class="analysis-section">
-                    <h2 class="analysis-section__title">총 자산 &middot; 총 부채</h2>
-                    <div class="compare-chart">
-                        <div class="compare-chart__card is-asset">
-                            <p class="compare-chart__title">총 자산</p>
-                            <p class="blind">상환 전 12,000만원, 상환 후 9,370만원</p>
-                            <div class="compare-chart__box">
-                                <div class="compare-chart__legend" aria-hidden="true">
-                                    <span class="compare-chart__legend-item is-after">상환 후</span>
-                                    <span class="compare-chart__legend-item is-before">상환 전</span>
-                                </div>
-                                <div class="compare-chart__bars">
-                                    <span class="compare-chart__bar is-after" data-value="9,370만원" style="width:78%;background-color:#219D93" aria-hidden="true"></span>
-                                    <span class="compare-chart__bar" data-value="12,000만원" style="width:100%;background:linear-gradient(to right, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 78%, transparent 78%, transparent 100%) #C8D2E4" aria-hidden="true"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="compare-chart__card is-debt">
-                            <p class="compare-chart__title">총 부채</p>
-                            <p class="blind">상환 전 13,000만원, 상환 후 10,370만원</p>
-                            <div class="compare-chart__box">
-                                <div class="compare-chart__legend" aria-hidden="true">
-                                    <span class="compare-chart__legend-item is-after">상환 후</span>
-                                    <span class="compare-chart__legend-item is-before">상환 전</span>
-                                </div>
-                                <div class="compare-chart__bars">
-                                    <span class="compare-chart__bar is-after" data-value="10,370만원"
-                                        style="width:79%;background-color:#FF7E7E" aria-hidden="true"></span>
-                                    <span class="compare-chart__bar" data-value="13,000만원"
-                                        style="width:100%;background:linear-gradient(to right, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.4) 79%, transparent 79%, transparent 100%) #C8D2E4"
-                                        aria-hidden="true"></span>
-                                </div>
+                            <div class="text--body1 text--white">AI 의견이 준비중이에요
+                                <p class="text--body3 mt8">현재 자산과 부채를 기준으로 AI가 열심히 분석하고 있어요. 조금만 기다려 주세요.</p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- 상환 전/후 비교 -->
+                <!-- 상환 전&middot;후를 비교해 보세요 -->
                 <section class="analysis-section">
-                    <h2 class="compare-subtitle">
-                        부채를 상환하면
+                    <h2 class="text--h4">상환 전&middot;후를 비교해 보세요</h2>
+                    <div class="info-card">
+                        <div class="tab-text" role="tablist" aria-label="tab-text 예시">
+                            <button type="button" id="tab-text-1" class="tab-text__item tab-text__item--active" role="tab" aria-selected="true"
+                                aria-controls="panel-text-1" tabindex="0">금융 자산</button>
+                            <span class="tab-text__dash" aria-hidden="true"></span>
+                            <button type="button" id="tab-text-2" class="tab-text__item" role="tab" aria-selected="false"
+                                aria-controls="panel-text-2" tabindex="-1">총 부채</button>
+                        </div>
+                        <div id="panel-text-1" class="tab-panel pt16" role="tabpanel" aria-labelledby="tab-text-1" tabindex="0">
+                            <div class="compare-chart__card is-asset">
+                                <p class="blind">상환 전 12,000만원, 상환 후 9,370만원</p>
+                                <div class="compare-chart__bars" aria-hidden="true">
+                                    <div class="compare-chart__item is-before">
+                                        <div class="compare-chart__stage" style="--bar-height:100%">
+                                            <span class="compare-chart__value">12,000만원</span>
+                                            <span class="compare-chart__bar"></span>
+                                        </div>
+                                        <span class="compare-chart__label">상환 전 금융 자산</span>
+                                    </div>
+                                    <div class="compare-chart__item is-after">
+                                        <div class="compare-chart__stage" style="--bar-height:78%">
+                                            <span class="compare-chart__value">9,370만원</span>
+                                            <span class="compare-chart__bar"></span>
+                                        </div>
+                                        <span class="compare-chart__label">상환 후 금융 자산</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="panel-text-2" class="tab-panel pt16" role="tabpanel" aria-labelledby="tab-text-2" tabindex="0" hidden>
+                            <div class="compare-chart__card is-debt">
+                                <p class="blind">상환 전 13,000만원, 상환 후 10,370만원</p>
+                                <div class="compare-chart__bars" aria-hidden="true">
+                                    <div class="compare-chart__item is-before">
+                                        <div class="compare-chart__stage" style="--bar-height:100%">
+                                            <span class="compare-chart__value">13,000만원</span>
+                                            <span class="compare-chart__bar"></span>
+                                        </div>
+                                        <span class="compare-chart__label">상환 전 총 부채</span>
+                                    </div>
+                                    <div class="compare-chart__item is-after">
+                                        <div class="compare-chart__stage" style="--bar-height:80%">
+                                            <span class="compare-chart__value">10,370만원</span>
+                                            <span class="compare-chart__bar"></span>
+                                        </div>
+                                        <span class="compare-chart__label">상환 후 총 부채</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 상환하면 여유자금이 31만원이 생겨요 -->
+                <section class="analysis-section">
+                    <h2 class="text text--h4">
+                        상환하면
                         <br />
-                        여유자금이 <span>31만원</span>이 생겨요
+                        여유자금이 <span>31만</span>원이 생겨요
                     </h2>
                     <div class="compare-scroll swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="compare-card swiper-slide">
-                                <p class="compare-card__title">월 예상 상환액</p>
-                                <div class="compare-card__row mb8">
-                                    <span class="compare-card__stat-value">65만원</span>
-                                    <span class="compare-card__arr" aria-hidden="true"></span>
-                                    <span class="compare-card__stat-value--after">34만원</span>
-                                </div>
-                                <p class="compare-card__title">완납까지</p>
-                                <div class="compare-card__row mb8">
-                                    <span class="compare-card__stat-value">34개월</span>
-                                    <span class="compare-card__arr" aria-hidden="true"></span>
-                                    <span class="compare-card__stat-value--after">30개월</span>
-                                </div>
+                            <div class="info-card swiper-slide">
+                                <p class="text--h5">월 예상 상환액</p>
+                                <p class="text--body1 mt8">
+                                    65만원에서
+                                    <em class="text--body1-medium">34만원으로 감소</em>
+                                </p>
+                                <span class="compare-scroll__icon is-repay" aria-hidden="true"></span>
                             </div>
-                            <div class="compare-card swiper-slide">
-                                <p class="compare-card__title">평균 적용 금리</p>
-                                <div class="compare-card__row mb8">
-                                    <span class="compare-card__stat-value">12.53%</span>
-                                    <span class="compare-card__arr" aria-hidden="true"></span>
-                                    <span class="compare-card__stat-value--after">10.24%</span>
-                                </div>
-                                <p class="compare-card__title">부채 비율</p>
-                                <div class="compare-card__row mb8">
-                                    <span class="compare-card__stat-value">41%</span>
-                                    <span class="compare-card__arr" aria-hidden="true"></span>
-                                    <span class="compare-card__stat-value--after">37%</span>
-                                </div>
+                            <div class="info-card swiper-slide">
+                                <p class="text--h5">완납 기간</p>
+                                <p class="text--body1 mt8">
+                                    34개월에서
+                                    <em class="text--body1-medium">30개월로 단축</em>
+                                </p>
+                                <span class="compare-scroll__icon is-fullpay" aria-hidden="true"></span>
+                            </div>
+                            <div class="info-card swiper-slide">
+                                <p class="text--h5">평균 적용 금리</p>
+                                <p class="text--body1 mt8">
+                                    12.53%에서
+                                    <em class="text--body1-medium">10.24%로 감소</em>
+                                </p>
+                                <span class="compare-scroll__icon is-average" aria-hidden="true"></span>
+                            </div>
+                            <div class="info-card swiper-slide">
+                                <p class="text--h5">부채 비율</p>
+                                <p class="text--body1 mt8">
+                                    41%에서
+                                    <em class="text--body1-medium">37%로 감소</em>
+                                </p>
+                                <span class="compare-scroll__icon is-debt" aria-hidden="true"></span>
                             </div>
                         </div>
-                        <div class="compare-scroll__pagination swiper-pagination"></div>
+                        <div class="scroll__pagination swiper-pagination"></div>
                     </div>
                 </section>
+
                 <!--부채는 이렇게 줄어들어요 -->
                 <section class="analysis-section">
-                    <h2 class="analysis-section__title">부채는 이렇게 줄어들어요</h2>
+                    <h2 class="text--h4">부채는 이렇게 줄어들어요</h2>
                     <div class="info-card">
                         <div class="info-card__list select-card__list">
                             <ul class="info-card__list-graph">
@@ -231,7 +244,7 @@
                 </section>
                 <!--자산은 이렇게 사용돼요 -->
                 <section class="analysis-section">
-                    <h2 class="analysis-section__title">자산은 이렇게 사용돼요</h2>
+                    <h2 class="text--h4">자산은 이렇게 사용돼요</h2>
                     <div class="info-card">
                         <div class="info-card__list select-card__list">
                             <ul class="info-card__list-graph">
@@ -415,9 +428,21 @@
                     </div>
                 </section>
 
+                <section class="analysis-section">
+                    <h2 class="text--h4">AI가 알려주는 부채 관리 팁</h2>
+                    <div class="info-card">
+                        <span class="ai-badge">에이전트 AI</span>
+                        <div class="card-head mt8">
+                            <h3 class="text--h4">상환을 고려해보는건 어떠세요?</h3>
+                        </div>
+                        <p class="ai-quote-desc">AI가 현재 부채를 금리와 잔액 기준으로 분석해보니, 금리가 높은 부채부터 우선 상환하는 전략이 가장 효과적이에요. 지금 여유자금으로 고금리 부채를 먼저 줄이면 원금이 낮아지는 만큼 매달 내는 이자도 함께 줄어들고,
+                        이후 상환에 사용할 수 있는 여유자금도 더 커질 수 있어요.</p>
+                    </div>
+                </section>
+
+                <!-- 배너 -->
                 <section class="swiper-section">
                     <div class="promo-carousel mb40">
-                        <p class="text--h4 mb20">부채 관리, 이것부터 시작해보세요</p>
                         <div class="promo-carousel__track swiper-container" id="fundPromoSwiper">
                             <div class="swiper-wrapper">
                                 <div class="promo-carousel__slide is-fund swiper-slide">
@@ -475,11 +500,11 @@
             $(document).ready(function () {
                 if (typeof Swiper !== 'undefined') {
                     $('.compare-scroll').each(function () {
-                        var pagination = this.querySelector('.compare-scroll__pagination');
+                        var pagination = this.querySelector('.scroll__pagination');
 
                         new Swiper(this, {
-                            slidesPerView: 1.2,
-                            spaceBetween: 16,
+                            slidesPerView: 1.8,
+                            spaceBetween: 12,
                             watchOverflow: true,
                             pagination: {
                                 el: pagination,

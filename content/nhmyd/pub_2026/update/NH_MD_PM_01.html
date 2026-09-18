@@ -43,6 +43,11 @@
                         </div>
                     </div>
 
+                    <!--
+                        allowance-hero__card에 추가
+                        소비 주의 상태 : caution
+                        예산 초과 상태 : excess
+                    -->
                     <div class="allowance-hero__card">
                         <div class="allowance-hero__white">
                             <div class="allowance-hero__summary">
@@ -54,6 +59,22 @@
                                         썼어요!
                                     </p>
                                 </div>
+                                <!-- 소비 주의 상태
+                                <div class="allowance-hero__summary-text">
+                                    <p class="allowance-hero__summary-sub">소비가 많아요!</p>
+                                    <p class="allowance-hero__summary-main">
+                                        <strong>불필요한 지출</strong>
+                                        을 줄여보세요!
+                                    </p>
+                                </div> -->
+                                <!-- 예산 초과 상태
+                                <div class="allowance-hero__summary-text">
+                                    <p class="allowance-hero__summary-sub">비상! 예산 초과!</p>
+                                    <p class="allowance-hero__summary-main">
+                                        <strong>지출 많은 용돈 점검</strong>
+                                         필요해요!
+                                    </p>
+                                </div> -->
                             </div>
 
                             <div class="allowance-hero__mascot-wrap">
@@ -61,7 +82,6 @@
                                     <span>머니캘린더 바로가기</span>
                                     <span class="btn-arrow__icon is-right" aria-hidden="true"></span>
                                 </a>
-                                <img class="allowance-hero__mascot" src="../../images/update/img-ally-welcome.png" alt="" aria-hidden="true" />
                             </div>
 
                             <div class="allowance-hero__glass">
@@ -70,6 +90,10 @@
                                     <strong>99,999,999,999</strong>
                                     원 있어요!
                                 </p>
+                                <!-- 예산 초과 상태
+                                <p class="allowance-hero__glass-amount">
+                                    <strong>예산이 초과되었어요</strong>
+                                </p> -->
                                 <div class="allowance-hero__progress" role="img" aria-label="용돈 사용률 41%">
                                     <div class="allowance-hero__progress-fill" style="width:41%"></div>
                                 </div>
@@ -85,7 +109,7 @@
                                     <div class="allowance-hero__detail-row">
                                         <span class="allowance-hero__detail-icon is-out" aria-hidden="true"></span>
                                         <span class="allowance-hero__detail-label">내가 쓴 돈</span>
-                                        <span class="allowance-hero__detail-amount">
+                                        <span class="allowance-hero__detail-amount is-excess">
                                             752,460
                                             <em>원</em>
                                         </span>
@@ -135,8 +159,19 @@
                                         </p>
                                     </div>
                                 </div>
+                                <div class="swiper-slide allowance-sender-card">
+                                    <span class="allowance-sender-card__icon" aria-hidden="true"></span>
+                                    <div class="allowance-sender-card__info">
+                                        <p class="allowance-sender-card__name">할아버지</p>
+                                        <p class="allowance-sender-card__amount">
+                                            <em>150,000</em>
+                                            원
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="scroll__pagination swiper-pagination"></div>
                     </div>
                 </section>
 
@@ -148,6 +183,13 @@
                         </div>
                         <img class="allowance-nudge__img" src="../../images/update/img-ally-card.png" alt="" aria-hidden="true" />
                     </div>
+                    <!-- <div class="allowance-nudge__card">
+                        <div class="allowance-nudge__text">
+                            <p class="allowance-nudge__sub">내 소비 지도, 농협 밖까지 넓혀볼까요?</p>
+                            <p class="allowance-nudge__title">다른 금융자산도 연결해 주세요!</p>
+                        </div>
+                        <img class="allowance-nudge__img" src="../../images/update/img-ally-money.png" alt="" aria-hidden="true" />
+                    </div> -->
                 </section>
 
                 <section class="allowance-section allowance-spend">
@@ -211,24 +253,16 @@
                 </section>
 
                 <section class="allowance-section allowance-peers">
-                    <h2 class="allowance-section__title">또래 친구들은 어디에 많이 썼을까요?</h2>
+                    <h2 class="allowance-section__title">언제 많이 썼을까요?</h2>
                     <div class="allowance-peers__grid">
-                        <div class="allowance-peers__card">
-                            <p class="allowance-peers__label">쇼핑</p>
-                            <p class="allowance-peers__desc">
-                                이번 달 가장
-                                <br />
-                                <span>많이 쓴 곳</span>
-                            </p>
+                        <div class="info-card">
+                            <p class="allowance-peers__label">오후 4~6시</p>
+                            <p class="allowance-peers__desc">자주 결제했어요</p>
                             <span class="allowance-peers__icon is-shopping" aria-hidden="true"></span>
                         </div>
-                        <div class="allowance-peers__card">
-                            <p class="allowance-peers__label">의료/건강</p>
-                            <p class="allowance-peers__desc">
-                                이번 달 가장
-                                <br />
-                                <span>덜 쓴 곳</span>
-                            </p>
+                        <div class="info-card">
+                            <p class="allowance-peers__label">토요일</p>
+                            <p class="allowance-peers__desc">가장 많았어요</p>
                             <span class="allowance-peers__icon is-health" aria-hidden="true"></span>
                         </div>
                     </div>
@@ -278,6 +312,10 @@
                     spaceBetween: 8,
                     freeMode: true,
                     watchOverflow: true,
+                    pagination: {
+                        el: '.scroll__pagination',
+                        clickable: true
+                    },
                     a11y: false
                 });
             });
