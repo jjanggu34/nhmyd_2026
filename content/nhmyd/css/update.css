@@ -1350,6 +1350,10 @@
 .nds .btn-icon[aria-label="plus"]::before {width:18px;height:18px;-webkit-mask-image:url("../images/update/ic-plus.svg");mask-image:url("../images/update/ic-plus.svg")}
 /* --- 화면 하단 고정 CTA --- */
 .nds .btn-cta:where(.is-fixed) {position:fixed;left:0;right:0;bottom:0;z-index:1100}
+/* 하단 버튼을 화면에 고정하지 않고 본문 흐름에 두는 경우. 버튼 디자인은 레거시 areaBtnDefault 와 공용 */
+.nds .areaBtnStatic {padding:0 var(--spacing-24) var(--spacing-32);box-sizing:border-box}
+.nds .areaBtnStatic [class^="btn"] {white-space:nowrap}
+.nds .accordion-notice + .areaBtnStatic {margin-top:var(--spacing-32)}
 .nds .accordion-notice:has(~ .areaBtnDefault) {padding-bottom:90px}
 .nds .accordion-notice:has(~ .btn-cta:where(.is-fixed)) {padding-bottom:88px}
 /* --- sticky-footer
@@ -1564,12 +1568,14 @@
 .hc-bottom:where(.is-loan) {background-image:linear-gradient(-34.94deg, #1b1a55 4.97%, #40468a 179.53%)}
 .hc-cta__icon:where(.is-loan) {background:#4071bd !important}
 .hc-cta__icon:where(.is-loan) .hc-cta__icon-glyph{background:url("../images/update/ic-chart-board_.svg") no-repeat center/contain}
-.hc-stats {display:flex;flex-direction:column;gap:4px;width:100%;margin-top:var(--spacing-48)}
-.hc-stats__row {position:relative;display:flex;gap:4px}
-.hc-stats__item {flex:1;display:flex;flex-direction:column;align-items:end;justify-content:center;gap:var(--spacing-8);min-width:0;padding:var(--spacing-16) var(--spacing-12);border-radius:var(--radius-12);background:#1c2655;box-sizing:border-box}
+.hc-stats {--stats-pad:var(--spacing-12);--stats-gap:4px;display:flex;flex-direction:column;gap:4px;width:100%;margin-top:var(--spacing-48)}
+.hc-stats__row {position:relative;display:flex;gap:var(--stats-gap)}
+.hc-stats__item {flex:1;display:flex;flex-direction:column;align-items:end;justify-content:center;gap:var(--spacing-8);min-width:0;padding:var(--spacing-16) var(--stats-pad);border-radius:var(--radius-12);background:#1c2655;box-sizing:border-box}
 .hc-stats__label {display:flex !important;justify-content:space-between;margin:0;width:100%;font-size:var(--type-size-12);font-weight:var(--font-weight-regular);line-height:18px;letter-spacing:-0.24px;color:var(--primitive-base-0)}
 .hc-stats__label .toolTipBtn{position:relative;top:-1px;width:16px !important;height:16px !important;flex-shrink: 0;align-self: center;background: var(--primitive-base-0) !important;-webkit-mask-image: url("../images/update/ic-tooltip-mark_16.svg");mask-image: url("../images/update/ic-tooltip-mark_16.svg");-webkit-mask-size: contain;mask-size: contain}
-.nds.nhasset .hc-stats__label.tooltipWrap > .tooltipCont {position:absolute !important;top:100% !important;bottom:auto;left:0 !important;right:0 !important;width:auto !important;margin:var(--spacing-8) 0 0;padding:var(--spacing-16);border-radius:var(--radius-12);box-sizing:border-box;transform:none !important;box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.05)}
+.nds.nhasset .hc-stats__label.tooltipWrap {position:relative}
+.nds.nhasset .hc-stats__label.tooltipWrap > .tooltipCont {position:absolute !important;top:100% !important;bottom:auto;left:calc(var(--stats-pad) * -1) !important;right:auto !important;width:calc(200% + var(--stats-pad) * 4 + var(--stats-gap)) !important;margin:var(--spacing-8) 0 0;padding:var(--spacing-16);border-radius:var(--radius-12);box-sizing:border-box;transform:none !important;box-shadow:0 3px 6px 0 rgba(0, 0, 0, 0.05)}
+.nds.nhasset .hc-stats__item + .hc-stats__item .hc-stats__label.tooltipWrap > .tooltipCont {left:calc(-100% - var(--stats-pad) * 3 - var(--stats-gap)) !important}
 .nds.nhasset .hc-stats__label.tooltipWrap > .tooltipCont.tooltipCont:where(.is-top) {top:auto !important;bottom:100% !important;margin:0 0 var(--spacing-8)}
 .nds.nhasset .hc-stats__label.tooltipWrap > .tooltipCont > h3 {padding-right:28px;font-size:var(--type-size-14);font-weight:var(--font-weight-semibold);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-1)}
 .nds.nhasset .hc-stats__label.tooltipWrap > .tooltipCont .close {position:absolute;top:var(--spacing-12);right:var(--spacing-12);width:24px;height:24px}
@@ -1650,6 +1656,7 @@
     .hc-amount span {font-size:20px}
     .hc-notice p, .hc-top .hero__legend li, .hc-stats__label{font-size:10px}
     .hc-cta__label, .hc-stats__value {font-size:12px}
+    .hc-stats{--stats-pad:11px}
     .hc-stats__item{padding:11px;gap:var(--spacing-4)}
     .hc-notice{padding:10px;margin:0 0 var(--spacing-16)}
     .hc-notice::after{bottom:-16px}
@@ -1966,7 +1973,7 @@
 .nds .fund-donut__chip {flex-shrink:0;width:10px;height:10px;border-radius:2px}
 .nds .fund-donut__legend-label {font-size:12px;letter-spacing:-0.24px;line-height:18px;color:#383b40}
 
-.nds .compare-scroll {width:100%;box-sizing:content-box}
+.nds .compare-scroll {width:100%;box-sizing:content-box;overflow:visible}
 .nds .compare-scroll .swiper-wrapper {height:auto}
 .nds .compare-scroll .info-card {height:200px;border-radius:var(--spacing-16);}
 .nds .compare-scroll .text--h5 {color:#219D93}
