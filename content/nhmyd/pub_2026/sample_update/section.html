@@ -44,12 +44,12 @@
 
                 <h2 class="guide-title">diag-lead — 화면 대제목</h2>
                 <!-- prettier-ignore -->
-                <p class="note"><code>text text--h2</code>와 함께 씁니다. 강조는 <code>&lt;em&gt;</code>(포인트색). 도움말이 필요하면 <code>tooltipWrap is-card</code>를 같이 주면 버튼이 첫 줄 오른쪽 끝에 붙습니다.</p>
+                <p class="note"><code>text text--h2</code>와 함께 씁니다. 강조는 <code>&lt;em&gt;</code>(text--point-chart). 도움말이 필요하면 <code>tooltipWrap is-card</code>를 같이 주면 버튼이 첫 줄 오른쪽 끝에 붙습니다.</p>
                 <div class="demo">
                     <!-- prettier-ignore -->
                     <h2 class="text text--h2 diag-lead tooltipWrap is-card">
-                        고객님이 선택한 <em>22개</em> 계좌중
-                        <br /><em>96,000,000원</em>을 대상으로
+                        고객님이 선택한 <em class="text--point-chart">22개</em> 계좌중
+                        <br /><em class="text--point-chart">96,000,000원</em>을 대상으로
                         <br />제안을 진행했어요.
                         <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">제안 대상 도움말</span></button>
                         <div class="tooltipCont" style="display: none">
