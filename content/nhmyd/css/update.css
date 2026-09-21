@@ -451,7 +451,7 @@
 .nds .tooltip-card__list {margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:var(--spacing-8)}
 .nds .tooltip-card__item {position:relative;padding-left:var(--spacing-12);font-size:var(--type-size-14) !important;font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .tooltip-card__item::before {content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background-color:var(--primitive-gray-600)}
-.nds .tooltip-card__item.pointColor22::before { background-color:var(--primitive-green-accent) }
+.nds .tooltip-card__item.text--point-h2::before {background-color:var(--primitive-green-accent)}
 /* ---- Infobox ---- */
 .nds .infobox {display:flex;flex-direction:column;gap:var(--spacing-12);width:100%;padding:var(--spacing-20) var(--spacing-16);border-radius:var(--radius-16);background-color:var(--color-bg-container);text-align:left}
 .nds .infobox__title {font-size:var(--type-size-16);font-weight:var(--font-weight-medium);letter-spacing:-0.32px;line-height:24px;color:var(--color-font-1)}
@@ -1181,7 +1181,7 @@
 .nds .text--font4 {color:var(--color-font-4)}
 .nds .text--white {color:var(--primitive-base-0)}
 .nds .text--point {color:var(--color-font-point)}
-.nds .text--point-h2 {color:var(--primitive-green-accent)}
+.nds .text--point-h2 {color:var(--primitive-green-accent) !important}
 .nds .text--point-chart {color:var(--chart-focus-font) !important}
 .nds .text--visual {color:var(--color-font-visual)}
 .nds .text-stack {display:flex;flex-direction:column;gap:var(--spacing-12);position:relative;width:100%;margin-bottom:var(--spacing-24)}
@@ -1201,7 +1201,6 @@
 .nds .celebrate__glow::before{content:'';position: absolute;top:60%;left:50%;transform:translate(-60%, -60%);width:160px;height:140px;background:radial-gradient(circle, rgb(178 240 195 / 50%) 0%, rgba(255, 255, 255, 0) 70%);border-radius:50%;z-index:1}
 .nds .celebrate__glow img {position: relative;width:120px;height:120px;z-index:2}
 .nds .celebrate__name {display:block}
-.nds .celebrate__name em{color:var(--primitive-green-accent)}
 .nds .celebrate__regular {font-weight:var(--font-weight-regular)}
 .nds .celebrate__info {display:flex;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);background:#f3f5f8;border-radius:var(--radius-8);box-sizing:border-box}
 .nds .celebrate__info-body {display:flex;flex-direction:column;gap:var(--spacing-12);flex:1;min-width:0}
@@ -1433,7 +1432,6 @@
 .nds .bank__item__logo {flex-shrink:0;width:32px;height:32px;object-fit:contain}
 .nds .bank__item__name {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--type-size-16);font-weight:var(--font-weight-medium);letter-spacing:-0.32px;color:var(--color-font-3)}
 .nds .bank__item__badge {flex-shrink:0}
-.pointColor22 {color:var(--primitive-green-accent) !important}
 /* ---- NH_MD_01 ---- */
 .md-section {margin-top:56px}
 .md-section__title {font-size:var(--type-size-18);font-weight:600;line-height:26px;letter-spacing:-0.45px;color:var(--primitive-gray-font-900);text-align:left;margin:0 0 var(--spacing-20) var(--spacing-8)}
@@ -2281,7 +2279,7 @@
 .nds .diag-total__refresh::after {content:"";position:absolute;top:50%;left:50%;width:24px;height:24px;transform:translate(-50%, -50%)}
 /* -- NH_MD_AI_03_01 : 기간별 성과 예측(팝업) -- */
 .nds .predict-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-3)}
-.nds .predict-amount {display:flex;flex-direction:column;width:100%;margin:var(--spacing-24) 0 0}
+.nds .predict-amount {display:flex;flex-direction:column;margin:var(--spacing-24) 0 0}
 .nds .predict-amount__value {font-size:var(--type-size-24);font-weight:var(--font-weight-semibold);line-height:32px;letter-spacing:0;text-align:right;color:var(--color-font-1)}
 .nds .predict-period {margin:var(--spacing-8) 0 0}
 .nds .predict-period__label {display:flex;align-items:center;height:24px;margin:0 0 var(--spacing-8);font-size:var(--type-size-14);font-weight:var(--font-weight-medium);line-height:22px;letter-spacing:-0.28px;color:var(--color-font-3)}
