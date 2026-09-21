@@ -810,7 +810,8 @@
 .nds .inst-list__grid-item.linked .check-basic__input:disabled + .inst-list__grid-card:before{display:none}
 .nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card {background:rgba(250, 250, 250, 0.2);cursor:not-allowed}
 .nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card img{opacity:0.2}
-.nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card .inst-list__grid-label{color:var(--color-font-5)}
+.nds .inst-list__grid-item .check-basic__input:disabled + .inst-list__grid-card .inst-list__grid-label,
+.nds .terms-link__check .check-basic__input:disabled ~ .terms-link__text {color:var(--color-font-5)}
 .nds .inst-list__grid-logo {flex-shrink:0;width:40px;height:40px;object-fit:contain}
 .nds .inst-list__grid-label {max-width:100%;overflow:hidden;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);letter-spacing:-0.26px;line-height:20px;color:var(--color-font-1);text-align:center;text-overflow:ellipsis;white-space:nowrap}
 .nds .inst-list__grid-card .label{position:absolute;top:8px;right:8px;overflow:hidden;white-space:nowrap;background-color:var(--primitive-gray-100);padding:0 var(--spacing-4);font-size: var(--type-size-10);line-height:15px;letter-spacing: -0.2px;border-radius: 4px;}
@@ -1137,6 +1138,7 @@
 .nds .terms-link__text {flex:1 0 0;min-width:0;font-size:var(--type-size-14);font-weight:var(--font-weight-regular);letter-spacing:-0.28px;line-height:22px;color:var(--color-font-3)}
 .nds .terms-link__arrow {flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;padding:0;border:none;background:none;cursor:pointer;isolation:isolate;transform:translateZ(0)}
 .nds .terms-link__arrow::before {color:var(--color-icon-4);content:"";display:block;width:24px !important;height:24px !important;background-color:currentColor;-webkit-mask-image:url("../images/update/ic-arrow-right-long.svg");mask-image:url("../images/update/ic-arrow-right-long.svg");-webkit-mask-size:contain;mask-size:contain}
+.nds .terms-link:has(.check-basic__input:disabled) .terms-link__arrow::before {color:var(--primitive-gray-400)}
 /* ---- terms-link update-ui.js의 initTermsAccordionCheck() ---- */
 .nds .terms-accordion {display:flex;flex-direction:column;align-items:flex-start;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);border-radius:var(--radius-10);background-color:var(--color-bg-container);box-sizing:border-box}
 .nds .terms-accordion__rows {display:flex;flex-direction:column;gap:var(--spacing-16);width:100%}
@@ -1176,6 +1178,7 @@
 .nds .text--white {color:var(--primitive-base-0)}
 .nds .text--point {color:var(--color-font-point)}
 .nds .text--point-h2 {color:var(--primitive-green-accent)}
+.nds .text--point-chart {color:var(--chart-focus-font)}
 .nds .text--visual {color:var(--color-font-visual)}
 .nds .text-stack {display:flex;flex-direction:column;gap:var(--spacing-12);position:relative;width:100%;margin-bottom:var(--spacing-24)}
 .nds .text-stack[hidden] {display:none}
@@ -1198,7 +1201,7 @@
 .nds .celebrate__regular {font-weight:var(--font-weight-regular)}
 .nds .celebrate__info {display:flex;gap:var(--spacing-16);width:100%;padding:var(--spacing-20);background:#f3f5f8;border-radius:var(--radius-8);box-sizing:border-box}
 .nds .celebrate__info-body {display:flex;flex-direction:column;gap:var(--spacing-12);flex:1;min-width:0}
-.nds .celebrate__info-title {margin:0;font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);letter-spacing:-0.32px;line-height:24px;color:#002259}
+.nds .celebrate__info-body .text--h5 {color:#002259}
 .nds .bullet:where(.is-dot).celebrate__info-list .bullet__item {color:#002259}
 .nds .bullet:where(.is-dot).celebrate__info-list .bullet__item::before {background-color:#002259}
 
@@ -1702,7 +1705,6 @@
 /* ---- NH_MD_PM_01.html — 용돈 리포트(Allowance report) 전용 컴포넌트 ---- */
 .nds .allowance-hero {margin-top:var(--spacing-24)}
 .nds .allowance-section {margin-top:40px}
-.nds .allowance-section__title {margin:0 0 var(--spacing-12);font-size:var(--type-size-16);font-weight:var(--font-weight-semibold);line-height:24px;letter-spacing:-0.32px;color:var(--color-font-1)}
 .nds .allowance-hero__top {position:relative;display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--spacing-16)}
 .nds .allowance-hero__month {display:flex;align-items:center;gap:var(--spacing-4);background:none;border:none;padding:0;margin:0;cursor:pointer;font:inherit}
 .nds .allowance-hero__month-num {font-size:var(--type-size-18);font-weight:var(--font-weight-semibold);line-height:26px;letter-spacing:-0.36px;color:var(--primitive-gray-900)}
@@ -1795,7 +1797,6 @@
 .nds .allowance-spend__bar-fill:where(.is-bus) {background:#A1F069}
 .nds .allowance-peers__grid {display:flex;gap:var(--spacing-8)}
 .nds .allowance-peers__grid .info-card {position:relative;flex:1;height:172px;border-radius:var(--radius-16);overflow:hidden;box-shadow:none}
-.nds .allowance-peers__label {margin:0 0 var(--spacing-2);font-size:20px;font-weight:var(--font-weight-semibold);line-height:28px;letter-spacing:-0.4px;color:var(--primitive-blue-500)}
 .nds .allowance-peers__desc {margin:0;font-size:var(--type-size-12);line-height:16px;letter-spacing:-0.24px;color:var(--color-font-4)}
 .nds .allowance-peers__icon {position:absolute;right:12px;bottom:12px;width:80px;height:80px;background-size:contain;background-repeat:no-repeat;background-position:center}
 .nds .allowance-peers__icon:where(.is-shopping) {background-image:url("../images/update/ic-bag-star-blue.svg")}
@@ -2160,7 +2161,6 @@
 .nds .diag-step {display:flex;align-items:center;justify-content:space-between;gap:var(--spacing-8);margin:var(--spacing-16) 0 0}
 .nds .diag-step__progress {display:inline-flex;align-items:center;gap:var(--spacing-2)}
 .nds .process-progress-number:where(.is-plain) {padding:0;background:none}
-.nds .diag-lead em {font-style:normal;color:var(--chart-focus-font)}
 .nds .diag-type, .nds .diag-portfolio {padding:var(--spacing-16)}
 .nds .diag-card__head {display:flex;align-items:center;gap:var(--spacing-2);width:auto;padding:0;margin:0;font-size:inherit;background:none;border:none;text-align:left;cursor:pointer}
 .nds .diag-card__head-arrow {flex-shrink:0;display:block;width:24px;height:24px;background-color:var(--color-font-1);-webkit-mask-image:url("../images/update/ic-arrow-right-short.svg");mask-image:url("../images/update/ic-arrow-right-short.svg");-webkit-mask-size:contain;mask-size:contain}
@@ -2218,7 +2218,6 @@
 
 .nds .card-tip {flex-shrink:0;display:block;width:24px;height:24px;padding:0;margin:0;border:none;cursor:pointer;background-color:var(--primitive-gray-600);-webkit-mask-image:url("../images/update/ic-tooltip-mark.svg");mask-image:url("../images/update/ic-tooltip-mark.svg");-webkit-mask-size:contain;mask-size:contain}
 
-.nds .card-desc {margin:var(--spacing-12) 0 0;font-size:var(--type-size-13);font-weight:var(--font-weight-regular);line-height:20px;letter-spacing:-0.26px;color:var(--color-font-4)}
 .nds .curve-chart {margin:var(--spacing-16) 0 0}
 .nds .curve-chart__axis-name {margin:0;font-size:var(--type-size-12);font-weight:var(--font-weight-medium);line-height:18px;letter-spacing:-0.24px;color:var(--color-font-1)}
 .nds .curve-chart__axis-name:where(.is-right) {margin-top:var(--spacing-8);text-align:right}
@@ -2315,7 +2314,7 @@
 .nds .onboard__swiper {width:100%}
 .nds .onboard__slide {display:flex;flex-direction:column;gap:var(--spacing-24);height:auto}
 .nds .onboard__title {margin:0;padding:0 var(--spacing-24);font-size:var(--type-size-24);font-weight:var(--font-weight-regular);line-height:36px;letter-spacing:-0.32px;text-align:center;word-break:keep-all;color:var(--color-font-1)}
-.nds .onboard__title strong {font-weight:var(--font-weight-bold)}
+.nds .onboard__title strong {font-weight:var(--font-weight-bold)!important}
 .nds .onboard__visual {position:relative;width:100%;min-height:calc(100vh - var(--onboard-chrome));min-height:calc(100dvh - var(--onboard-chrome));overflow:hidden;background:var(--color-bg-container)}
 .nds .onboard__frame {position:absolute;top:26px;left:50%;transform:translateX(-50%);width:260px;height:calc(100% - 21px);box-sizing:border-box;border:5px solid var(--primitive-base-0);border-bottom:0;border-radius:50px 50px 0 0;box-shadow:0 1px 26px 0 rgba(0, 0, 0, 0.1);overflow:hidden}
 .nds .onboard__frame img {display:block;width:100%;height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:top center;object-position:top center}
