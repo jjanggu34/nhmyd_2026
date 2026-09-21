@@ -451,11 +451,8 @@ window.renderBottomsheetList = function (options) {
                 });
             }
 
-            var baseClass = null;
-            tabs[0].classList.forEach(function (c) {
-                if (/__item$/.test(c)) baseClass = c;
-            });
-            var activeClass = baseClass ? baseClass + "--active" : null;
+            // 2026-09 is-active 클래스 컨벤션으로 통일 (tab-line/tab-chip/tab-bar/tab-text 공통)
+            var activeClass = "is-active";
 
             function panelOf(tab) {
                 var id = tab.getAttribute("aria-controls");
