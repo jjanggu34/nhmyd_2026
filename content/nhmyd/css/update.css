@@ -277,7 +277,7 @@
 .nds .left {text-align:left !important}
 .nds .right {text-align:right !important}
 .nds .container {padding-left:var(--spacing-24) !important;padding-right:var(--spacing-24) !important}
-.nds .container:not(:has(.areaBtnDefault)) {padding-bottom:60px !important}
+.nds .container:not(:has(.areaBtnDefault)):not(:has(+ .areaBtnDefault)) {padding-bottom:60px}
 .nds .guide-title {font-size:var(--type-size-15);font-weight:700;margin-bottom:var(--spacing-8)}
 .nds .guide-desc {font-size:var(--type-size-14);font-weight:400;color:var(--primitive-red-200);margin-bottom:var(--spacing-16)}
 .nds .demo{vertical-align:top;margin-bottom:var(--spacing-16)}
@@ -1851,7 +1851,7 @@
 .nds .info-card .text--body2-medium { color:var(--color-font-4) }
 .nds .info-card .text--body2-medium em { color:var(--color-font-1) }
 
-.nds .check-basic__label em { color:var(--color-font-point); }
+.nds .check-basic__label em.is-green { color:var(--color-font-point); }
 .nds .analysis-section .select-card-none .check-basic__label em,
 .nds .analysis-section .select-card-none .check-basic__data {color:var(--color-font-3) !important}
 
