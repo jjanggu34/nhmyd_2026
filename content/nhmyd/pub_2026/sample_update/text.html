@@ -15,9 +15,7 @@
             </div>
             <!-- //header -->
             <div class="container">
-                <h2 class="guide-title">규칙 안내</h2>
-
-                <h2 class="guide-title">헤딩 스케일 — text--h1 ~ text--h5</h2>
+                <h2 class="guide-title" style="border-bottom:2px solid var(--primitive-green-500);">헤딩 스케일 — text--h1 ~ text--h5</h2>
                 <span class="guide-desc">text text--h1 · 26/38 SemiBold</span>
                 <p class="text text--h1">
                     $김농협$님의 자산정보를
@@ -34,6 +32,10 @@
                 </p>
 
                 <hr class="divider" />
+                <span class="guide-desc">text text--h2-regular · 22/32 Regular</span>
+                <p class="text text--h2-regular">종합적인 자산관리를 위해 개인정보를 안전하게 가져올 수 있도록 약관에 동의해주세요</p>
+
+                <hr class="divider" />
                 <span class="guide-desc">text text--h3 · 20/28 SemiBold</span>
                 <p class="text text--h3">전송요구서 및 개인(신용)정보 수집 · 이용 동의서</p>
 
@@ -42,16 +44,12 @@
                 <p class="text text--h4">수집 및 이용 항목</p>
 
                 <hr class="divider" />
+                <span class="guide-desc">text text--h4-regular · 18/26 Regular</span>
+                <p class="text text--h4-regular">수집 및 이용 항목</p>
+
+                <hr class="divider" />
                 <span class="guide-desc">text text--h5 · 16/24 SemiBold</span>
                 <p class="text text--h5">연결기관</p>
-
-                <hr class="divider" />
-                <span class="guide-desc">text text--h2-regular · 22/32 Regular · h2와 크기는 같고 굵기만 낮출 때</span>
-                <p class="text text--h2-regular">종합적인 자산관리를 위해 개인정보를 안전하게 가져올 수 있도록 약관에 동의해주세요</p>
-
-                <hr class="divider" />
-                <span class="guide-desc">text text--h4-regular · 18/26 Regular · h4와 크기는 같고 굵기만 낮출 때</span>
-                <p class="text text--h4-regular">수집 및 이용 항목</p>
 
                 <hr class="divider" />
                 <div class="item__summary">
@@ -68,7 +66,21 @@
                 </div>
 
                 <hr class="divider" />
-                <h2 class="guide-title">바디 · 캡션 스케일 — text--body1/2/3, text--caption(각 -medium)</h2>
+                <span class="guide-desc">card-head tooltipWrap is-card · 타이틀 옆에 물음표 버튼 + 도움말 말풍선이 같이 들어가는 조합. tooltipWrap/is-card는 위치 지정 전용이라 text--hN의 폰트 크기와 겹치지 않습니다</span>
+                <div class="card-head tooltipWrap is-card">
+                    <h3 class="text text--h4 ai-heading">내 투자성향 기대수익 제안 자산</h3>
+                    <button type="button" class="toolTipBtn" onclick="tooltipOpen($(this));return false;"><span class="blind">내 투자성향 기대수익 제안 자산 도움말</span></button>
+                    <div class="tooltipCont" style="display: none">
+                        <h3>안내사항</h3>
+                        <ul>
+                            <li>그래프 내의 선은 위험이 같을 때 기대수익이 가장 높은 자산배분을 이은 선이에요.</li>
+                        </ul>
+                        <a href="javascript:;" class="close" onclick="tooltipClose($(this));return false;" role="button"><span class="blind">닫기</span></a>
+                    </div>
+                </div>
+
+                <hr class="divider" />
+                <h2 class="guide-title" style="border-bottom:2px solid var(--primitive-green-500);">바디 · 캡션 스케일 — text--body1/2/3, text--caption(각 -medium)</h2>
                 <span class="guide-desc">text text--body1 · 16/24 Regular · font-3</span>
                 <p class="text text--body1">컨텐츠, 팝업 문구에 쓰는 기본 본문 크기입니다.</p>
                 <hr class="divider" />
@@ -107,7 +119,7 @@
 
                 <hr class="divider" />
 
-                <h2 class="guide-title">색 모디파이어 — text--font1/2/3/4, text--white, text--point, text--point-h2, text--point-chart</h2>
+                <h2 class="guide-title" style="border-bottom:2px solid var(--primitive-green-500);">색 모디파이어 — text--font1/2/3/4, text--white, text--point, text--point-h2, text--point-chart</h2>
                 <span class="guide-desc">text text--body2 text--font1 · 가장 진한 텍스트 색(제목급 강조)</span>
                 <p class="text text--body2 text--font1">서비스 이용을 위해 동의가 필요합니다.</p>
                 <hr class="divider" />
@@ -121,29 +133,32 @@
                 <p class="text text--body2 text--font4">문의사항은 고객센터로 연락해 주세요.</p>
 
                 <hr class="divider" />
-                <span class="guide-desc">text text--h5 text--font3 · 카드 리드 카피(card-lead, predict-title, perf-compare__title이 개별 클래스로 중복 정의해온 조합) · 정렬/여백은 유틸 클래스로 별도 조정</span>
-                <p class="text text--h5 text--font3">
-                    현재 선택된 자산대비
-                    <em class="text--point-chart">{기대수익과 투자위험}</em>
-                    이 조정됐어요.
-                </p>
-                <span class="guide-desc">→ em의 강조색은 text--point-chart(#219d93, --chart-focus-font)이며, text--point-h2와 동일하게 text 베이스 없이 em/span에 단독으로 붙입니다. card-lead는 이 조합(text text--h5 text--font3 + em.text--point-chart)으로 완전히 대체할 수 있습니다.</span>
-
-                <hr class="divider" />
-                <span class="guide-desc">text text--body1 text--white · 어두운 배경(딤드/포인트 카드) 위에서 사용</span>
+                <span class="guide-desc" style="display: block;">text text--body1 text--white · 어두운 배경(딤드/포인트 카드) 위에서 사용</span>
                 <p class="text text--body1 text--white" style="background: #121212; padding: 12px; border-radius: 8px">AI 의견이 준비중이에요</p>
 
                 <hr class="divider" />
                 <span class="guide-desc">text text--body2 text--point · 알림 히스토리의 강조 제목(초록)</span>
                 <p class="text text--body2 text--point">PUSH 알림 수신동의</p>
+
                 <hr class="divider" />
                 <span class="guide-desc">text--point-h2 · h2 문장 중 특정 단어만 포인트 컬러로 강조할 때(text 베이스 없이 em/span에 단독 사용)</span>
                 <p class="text text--h2"><em class="text--point-h2">NH투자증권</em>에 자산이 있는 것 같아요</p>
-                <span class="guide-desc">→ 문단 전체가 아니라 문장 일부만 강조할 때는, 이미 text 스케일이 적용된 상위 요소(예: text text--h2) 안에서 em/span에 text--point 계열 클래스만 단독으로 붙입니다.</span>
+
+                <hr class="divider" />
+                <span class="guide-desc">text--point-chart · 차트/강조 지표 전용 포인트 컬러(#219d93). 쓰는 방식은 text--point-h2와 동일하게 text 베이스 없이 em/span에 단독 사용</span>
+                <p class="text text--body2">최적 대비 <em class="text--point-chart">기대수익과 투자위험이 낮아요</em></p>
+
+                <hr class="divider" />
+                <span class="guide-desc">text text--h5 text--font3 + em.text--point-chart</span>
+                <p class="text text--h5 text--font3">
+                    현재 선택된 자산대비
+                    <em class="text--point-chart">{기대수익과 투자위험}</em>
+                    이 조정됐어요.
+                </p>
 
                 <hr class="divider" />
 
-                <h2 class="guide-title">제목 + 설명 조합 — text-stack</h2>
+                <h2 class="guide-title" style="border-bottom:2px solid var(--primitive-green-500);">제목 + 설명 조합 — text-stack</h2>
                 <span class="guide-desc">text-stack(gap 12) · 섹션 타이틀 + 설명(h3 + body2)</span>
                 <div class="text-stack">
                     <p class="text text--h3">전송요구서 및 개인(신용)정보 수집 · 이용 동의서</p>
@@ -183,7 +198,7 @@
 
                 <hr class="divider" />
 
-                <h2 class="guide-title">줄바꿈 규칙</h2>
+                <h2 class="guide-title" style="border-bottom:2px solid var(--primitive-green-500);">줄바꿈 규칙</h2>
                 <span class="guide-desc">자동 줄바꿈만 사용 — 설명/값 문단은 br을 넣지 않습니다</span>
                 <p class="text text--body2">전송요구를 통한 본인신용정보 통합조회, 데이터분석 서비스의 이용</p>
 
